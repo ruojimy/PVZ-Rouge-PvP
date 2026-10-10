@@ -1,45 +1,40 @@
 # PVZ-Rouge · 对战模式（PvP）
 
-《植物大战僵尸》Roguelike 改版的**对战模式（PvP）**发布记录与完整包。当前版本 `1.6.0.0-pvp.61`。
+当前版本 `1.6.0.0-pvp.64`，包含迫击炮索敌与部署范围圈内存修复。中英两版规则、卡牌 ID、网络协议和回放格式一致。
 
 ## 下载
 
-到 [Releases](../../releases) 取对应版本。
-
-### 中文版 — [v1.6.0.0-pvp61](../../releases/tag/v1.6.0.0-pvp61)
+### 中文版 — [PvP64](../../releases/tag/v1.6.0.0-pvp64)
 
 | 附件 | 用途 |
 | --- | --- |
-| `PVZ-Rouge-v1.6.0.0-PvP61-Release-Package.zip` | 开箱即玩 + 联机，面向玩家 |
-| `PVZ-Rouge-v1.6.0.0-PvP61-Developer-Package.zip` | 含 modkit 源码、测试套件、验证记录与文档，面向二次开发与自建联机中继。入口 `launch_pvp.cmd` |
-| `PVZ-Rouge-v1.6.0.0-PvP61-Android.apk` | 已签名安卓安装包，与 PC 版同版本互通 |
+| `PVZ-Rouge-v1.6.0.0-PvP64-Release-Package.zip` | 玩家完整包；入口 `launch_pvp.cmd` |
+| `PVZ-Rouge-v1.6.0.0-PvP64-Developer-Package.zip` | 完整源码、Python/C++ 工具、测试与验证记录 |
+| `PVZ-Rouge-v1.6.0.0-PvP64-Android.apk` | 已签名安卓包，可覆盖更新旧中文版 |
 
-### English edition — [v1.6.0.0-pvp61-en](../../releases/tag/v1.6.0.0-pvp61-en)
+### English edition — [PvP64 EN](../../releases/tag/v1.6.0.0-pvp64-en)
 
 | Asset | Use |
 | --- | --- |
-| `PVZ-Rouge-v1.6.0.0-PvP61-EN-Developer-Package.zip` | Full English package (PC). Launch with `launch_pvp_en.cmd` |
-| `PVZ-Rouge-v1.6.0.0-PvP61-EN-Android.apk` | English Android build — a **separate app** (`PVZ PvP (EN)`), installs alongside the Chinese one |
-| `PVZ-Rouge-v1.6.0.0-PvP61-EN-Overlay.zip` | Overlay, **not standalone** — unzip over the Chinese PvP61 developer package to get the English one |
+| `PVZ-Rouge-v1.6.0.0-PvP64-EN-Release-Package.zip` | Complete player package; run `launch_pvp_en.cmd` |
+| `PVZ-Rouge-v1.6.0.0-PvP64-EN-Developer-Package.zip` | Complete English developer package |
+| `PVZ-Rouge-v1.6.0.0-PvP64-EN-Android.apk` | Updates the English app in place; installs alongside Chinese |
+| `PVZ-Rouge-v1.6.0.0-PvP64-EN-Overlay.zip` | Apply over this release's Chinese developer package to reconstruct the English developer package; requires the exact base ZIP |
 
-> 英文版与中文版共用同一个 `build` 与同一组 rules / catalog 哈希，可用同一房间与回放格式。
-> 同一个 EXE/APK 设 `PVP_LANG=zh` 即显示原中文。
+## 验证范围
 
-## 验证范围提示
+中文 1536 项／148 模块，英文 1545 项／149 模块；最终零失败、零错误、零跳过。
 
-PvP61（修订 `pvp61-art-20261002`，含新植物动画与图标）**重跑了全量测试**：中文 1597 项（1 项过时断言修正后重跑通过），
-英文工作区 1606 项通过；英文卡面 824 行 0 漏翻，界面探针 0 处遗留中文。EXE 原生对战与回放冒烟通过。
+中英 APK 已在 Android 35 模拟器上通过从 PvP61 升级、原数据保留、两版并存和原生战斗／回放验证。PC 与安卓中英双向主机、直连／本地中继、观战与跨语言回放均已验证。英文图鉴 845 行、PC 与触屏界面巡检 0 漏翻。EXE 启动、APK 签名内容、ZIP 逐文件哈希及实际英文安装目录检查通过。
 
-**未覆盖**：安卓模拟器 / 真机（APK 只做签名与内容校验）、中英实时对局（TCP / 中继 / 观战 / 回放）、公网对局。
-各 Release 的说明里列出了精确的验证范围与校验值 —— 下载前请一读。
+PC 联机使用与 EXE 模块一致的生产 Application 源码，EXE 另有原生战斗／回放启动检查；安卓使用安装后的签名 APK。未连接真机，未验证异地公网玩家对局。环境失败与复测记录、完整范围和截图均在包内 `验证记录/最终验证20261010/`。
 
-## 校验
+## 更新与兼容
 
-每个 Release 的说明里给出各产物的字节数与 SHA-256；包内另有 `SHA256SUMS.txt` 做逐文件校验。下载后请自行比对再使用。
-
-## 说明
-
-- 原版模式仍由游戏原引擎处理，对战使用独立规则。
-- 分发包不含个人存档与联机凭据。
-- 联机双方请使用同一版本（PvP61）。
-- PvP61 起 PC 版存档位于 `%APPDATA%\PVZ-Rouge-PvP\pvp_userdata`，首次启动自动并入旧目录存档；从 PvP60 及更早版本升级请先用覆盖助手 `更新到旧版本.cmd`。
+- 原版模式由游戏原引擎处理，对战使用独立规则。
+- PvP61 起 PC 存档位于 `%APPDATA%\PVZ-Rouge-PvP\pvp_userdata`，首次启动会并入旧目录存档；从 PvP60 及更早版本升级请先运行对应更新助手。
+- Windows 覆盖旧目录请运行对应版本的更新助手：`更新到旧版本.cmd` 或 `更新旧英文版.cmd`。玩家数据、地图、回放与已有中继配置保留，覆盖前备份。
+- Android 保留各自既有签名和包名，直接覆盖安装。英文包名 `org.pvzrouge.pvzpvp.en`，可与中文版并存。
+- 双方请使用本次修复包。修复前迫击炮遇到不可达目标的旧 PvP64 回放可能在该处校验失败。
+- 同一个 EXE/APK 设置 `PVP_LANG=zh` 可显示中文；玩家自填名称按原样显示。原版单人模式的竖排菜单标题仍为中文。
+- 每个 Release 附有产物字节数和 SHA256，ZIP 内有逐文件 `SHA256SUMS.txt`。分发包不含个人存档和签名私钥。
