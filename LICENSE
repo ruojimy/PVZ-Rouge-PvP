@@ -1,0 +1,42 @@
+MIT License
+
+Copyright (c) 2026 ruojimy
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+-------------------------------------------------------------------------------
+Scope / 适用范围
+
+This license covers only the original work in this project: the C++ sources,
+the PvP rule sources (tools/pvp72_sources), the decompiler, translators, test
+and build tools, and the documentation written for this project.
+
+It does NOT cover, and grants no rights to:
+  - code decompiled from the original PVZ-Rouge game (extract/original,
+    extract/live) and the game's original data, which belong to their
+    original authors;
+  - Plants vs. Zombies names, images, music and sounds, which belong to
+    PopCap Games / Electronic Arts;
+  - third-party libraries under third_party/ (SDL2, SDL2_image, SDL2_mixer,
+    SDL2_ttf, nlohmann/json, zlib), which keep their own licenses.
+
+本许可只适用于本项目自己编写的部分（C++ 源码、PvP 规则源码、反编译器、翻译与
+测试/构建工具、项目文档）。原版肉鸽游戏的反编译代码与数据归原作者；植物大战
+僵尸的名称、图片、音乐与音效归 PopCap Games / Electronic Arts；third_party/ 下
+的第三方库沿用各自的许可。
