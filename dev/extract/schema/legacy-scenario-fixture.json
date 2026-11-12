@@ -1,0 +1,19 @@
+{
+  "role": "native test stimulus, not a Python oracle",
+  "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\tests\\legacy_pvp_simulation.py",
+  "source_sha256": "fe818e32b52b3e788ae85ef1870ab9a67278088f88b3ac7f095e06cbcd307fa0",
+  "functions": [
+    {
+      "name": "flat_map",
+      "line": 20,
+      "ast_sha256": "e0729275ba657cbbebfd8cf28adede3e8b8f534cecfed79a51d5525731ea22d1"
+    },
+    {
+      "name": "battle",
+      "line": 32,
+      "ast_sha256": "8702807350838d343a3a77af43eac5421f4b3b401c0fe87e8fbe7b052a251440"
+    }
+  ],
+  "generator_sha256": "cf403497990dd40bdb73710b069a0a010b925e6ce8bf7d507e7ce78a4f0b756c",
+  "translation_todo": []
+}

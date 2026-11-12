@@ -1,0 +1,72 @@
+{
+ "PLANT_ROLES": {
+  "burst": [
+   "ash",
+   "chili",
+   "doom",
+   "squash",
+   "mine",
+   "chomp",
+   "cannon"
+  ],
+  "control": [
+   "freeze",
+   "magnet",
+   "wind",
+   "umbrella",
+   "garlic",
+   "taunt",
+   "charm",
+   "spring"
+  ],
+  "wall": [
+   "wall",
+   "stone",
+   "spike"
+  ],
+  "air": [
+   "flying56",
+   "ghost"
+  ],
+  "damage": [
+   "shoot",
+   "mortar",
+   "reed61",
+   "torch",
+   "lantern",
+   "vine"
+  ]
+ },
+ "ZOMBIE_AIR": [
+  "zombie:海盗鹦鹉",
+  "zombie:乌鸦",
+  "zombie:飞贼僵尸",
+  "zombie:气球僵尸"
+ ],
+ "ZOMBIE_CLIMB": [
+  "zombie:梯子僵尸",
+  "zombie:传送带僵尸"
+ ],
+ "ZOMBIE_TANK": [
+  "zombie:巨人僵尸",
+  "zombie:红眼巨人",
+  "zombie:角斗士巨人",
+  "zombie:橄榄球僵尸",
+  "zombie:黑橄榄僵尸",
+  "zombie:铁桶钢门僵尸",
+  "zombie:高坚果僵尸",
+  "zombie:雪橇车僵尸",
+  "zombie:滚桶僵尸"
+ ],
+ "ZOMBIE_SWARM": [
+  "zombie:普通僵尸",
+  "zombie:黑普通僵尸",
+  "zombie:小鬼僵尸",
+  "zombie:伴舞僵尸",
+  "zombie:舞王僵尸",
+  "zombie:雪橇车小队",
+  "zombie:史莱姆僵尸",
+  "zombie:旗帜僵尸"
+ ],
+ "OVERLAP": 0.35
+}

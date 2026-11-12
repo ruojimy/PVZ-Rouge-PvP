@@ -25,9 +25,16 @@
 | `PVZ-Rouge-v1.6.0.0-PvP64-EN-Android.apk` | Updates the English app in place; installs alongside Chinese |
 | `PVZ-Rouge-v1.6.0.0-PvP64-EN-Overlay.zip` | Apply over this release's Chinese developer package to reconstruct the English developer package; requires the exact base ZIP |
 
+## 源码（`dev/`）
+
+`dev/` 是 PvP73 开发者包的内容，可以直接浏览和克隆，不用下载 ZIP。入口是 [`dev/开发者包说明-PvP73.md`](dev/开发者包说明-PvP73.md)。与发布的开发者包相比，多了 AI 训练基础工作的材料：
+- 规格 `dev/docs/ai-nn/`；
+- 216 局 1v1 离线开局数据集 `dev/build/ai-nn/cold-corpus/`；
+- 卡组生成器和导出脚本。
+
 ## 给其他改版作者
 
-PvP73 开发者包包含完整源码与工具，做 PvZ 肉鸽改版时可以参考或直接取用：
+PvP73 开发者包（即 `dev/` 目录）包含完整源码与工具，做 PvZ 肉鸽改版时可以参考或直接取用：
 
 | 想做的事 | 看哪里 |
 | --- | --- |

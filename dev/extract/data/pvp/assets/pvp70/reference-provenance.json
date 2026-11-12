@@ -1,0 +1,11 @@
+{
+  "method": "Built-in imagegen reference cutout and pixel conversion; nearest-neighbour scaling in the runtime",
+  "source_sha256": {
+    "钩索僵尸参考图.jpg": "81c8b0a6862d26826963d232c34b00e6af45fa00d9e12c92f731e1413a13bb07",
+    "食人草参考图.jpg": "7dbab46399741e8a005f8f100af4c56a09803a73b3477b2ac256f3bba62cf793"
+  },
+  "assets": {
+    "hook-reference-pixel.png": "425f280e69fbfa517ae27eef2c28f8ed649b8f51b8a7f2ed5955861d218fa545",
+    "grabber-reference-head.png": "832f028a846fbae6e7e21b30642c09e7c96c297816b552166acbd4e63fb41449"
+  }
+}

@@ -1,0 +1,1 @@
+long_cards_p0,long_cards_p1,long_cards_p2,long_cards_p3,long_cards_p4,long_cards_p5,long_cards_p6,long_cards_t0,long_cards_t1,long_cards_t2,long_cards_t3,long_cards_z0,long_cards_z1,long_cards_z2,long_cards_z3,long_cards_z4,long_cards_z5,long_cards_z6

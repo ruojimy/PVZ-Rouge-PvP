@@ -1,0 +1,1 @@
+{"map": "家院", "seed": 7, "durable_heroes": true, "room_ticks": 1500, "setup": [{"op": "command", "value": "attack"}, {"op": "plant", "name": "坚果", "row": 18, "col": 30}, {"op": "zombie", "name": "墓碑吞噬者僵尸", "row": 18, "x_tiles": 33}]}

@@ -1,0 +1,12 @@
+{
+  "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\native_multiworker.py",
+  "sha256": "47ae5f3afbc36a7a2b141d5d0e5f758fb80a2537e46549360ecc0b07186b6866",
+  "classes": [
+    "PhaseProfiler"
+  ],
+  "functions": [
+    "distribution"
+  ],
+  "todo": [],
+  "source_bodies": "method/function AST unchanged; clock staticmethod lowered to the same native static callable; no worker backend"
+}

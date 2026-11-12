@@ -1,0 +1,21 @@
+{
+ "TEXTURE_DATA": {
+  "__bytes__": "5f53444c5f57696e646f775465787475726544617461"
+ },
+ "ACCELERATED": 2,
+ "PRESENTVSYNC": 4,
+ "TARGETTEXTURE": 8,
+ "ARGB8888": 372645892,
+ "MAX_REBUILDS": 3,
+ "RESUME_GRACE": 1.5,
+ "PROBE_COLOR": [
+  17,
+  99,
+  201
+ ],
+ "SESSION": {
+  "disabled_reason": null,
+  "rebuilds": 0,
+  "events": []
+ }
+}

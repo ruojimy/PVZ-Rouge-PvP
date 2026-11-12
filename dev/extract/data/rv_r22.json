@@ -1,0 +1,25 @@
+{
+ "STYLES": {
+  "rush": {
+   "opening": 45.0,
+   "expensive": -32.0,
+   "finisher": 22.0
+  },
+  "siege": {
+   "finisher": 35.0,
+   "economy": 42.0,
+   "control": 15.0
+  },
+  "swarm": {
+   "coverage": 6.0,
+   "synergy": 30.0,
+   "redundancy": -12.0
+  },
+  "counter": {
+   "counter": 40.0,
+   "coverage": 22.0,
+   "emergency": 28.0
+  }
+ },
+ "META67_WEIGHT": 10.0
+}

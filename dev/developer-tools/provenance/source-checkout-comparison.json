@@ -1,0 +1,102 @@
+[
+  {
+    "path": "modkit/export_pvp_rules.py",
+    "archive_hash": "6ccb2d36227516a6de94ea15057f2cde88cad326ee63b6cc173cc8f4c0dc65eb",
+    "checkout_hash": "6ccb2d36227516a6de94ea15057f2cde88cad326ee63b6cc173cc8f4c0dc65eb"
+  },
+  {
+    "path": "docs/PVP46_MAP_EDITOR.md",
+    "archive_hash": "d80f2e781d242ef7042ca93228f492dbafce37cc7cc0dcf79ac365127487bc0c",
+    "checkout_hash": "d80f2e781d242ef7042ca93228f492dbafce37cc7cc0dcf79ac365127487bc0c"
+  },
+  {
+    "path": "modkit/pvp/custom_maps.py",
+    "archive_hash": "3d6f9fe40d5a03d2e31a4699e5dd9b3d3cc196688b9abb294dd240f9d21474b4",
+    "checkout_hash": "3d6f9fe40d5a03d2e31a4699e5dd9b3d3cc196688b9abb294dd240f9d21474b4"
+  },
+  {
+    "path": "modkit/pvp/replay.py",
+    "archive_hash": "ac7b638e198367622f096d63ff584d436ba3c73cf6872ef05fe9e877a70a7770",
+    "checkout_hash": "ac7b638e198367622f096d63ff584d436ba3c73cf6872ef05fe9e877a70a7770"
+  },
+  {
+    "path": "docs/SERVER_DEPLOY.md",
+    "archive_hash": "3324f3e510094a21b644cc6d373e8f69b2bbb1fbb3e8bc1e4795b828e35cb3b9",
+    "checkout_hash": "3324f3e510094a21b644cc6d373e8f69b2bbb1fbb3e8bc1e4795b828e35cb3b9"
+  },
+  {
+    "path": "server/health.py",
+    "archive_hash": "7c7402677ddbaf5c103ab1366c2b9974da9680b68776d9b2aac494a51fb9b194",
+    "checkout_hash": "7c7402677ddbaf5c103ab1366c2b9974da9680b68776d9b2aac494a51fb9b194"
+  },
+  {
+    "path": "server/relay_server.py",
+    "archive_hash": "f24d8de5a9e3f603b3fa410454d9de7a55ba6819b26837da5df31bef4fcc6287",
+    "checkout_hash": "f24d8de5a9e3f603b3fa410454d9de7a55ba6819b26837da5df31bef4fcc6287"
+  },
+  {
+    "path": "tests/run_pvp_exe_smoke.ps1",
+    "archive_hash": "11c2dad9be1ffcfb52d8942c9cbb60df0fa6f0707a30ad38952824d8e8c512bb",
+    "checkout_hash": "11c2dad9be1ffcfb52d8942c9cbb60df0fa6f0707a30ad38952824d8e8c512bb"
+  },
+  {
+    "path": "cpp_port/tools/app_frame_probe.py",
+    "archive_hash": "3bd21a10e2f1dbfc6d2150603d8fdfa259d03cf9fbaac1326b14e448a43f650d",
+    "checkout_hash": "3bd21a10e2f1dbfc6d2150603d8fdfa259d03cf9fbaac1326b14e448a43f650d"
+  },
+  {
+    "path": "modkit/android/performance_probe.py",
+    "archive_hash": "10d81220026b39bd99e29d552a57b7453c4cd7153a55a149d75a87e470b91983",
+    "checkout_hash": "d6d6562da7f05b21193cef3424f7c57554372ed0beffbf1b594fd005cb56e05e"
+  },
+  {
+    "path": "modkit/android/verify_apk.py",
+    "archive_hash": "2729249c24a7f95e69277a10fa87509c538cb41ada61dcddd0de38e18fb98848",
+    "checkout_hash": "2729249c24a7f95e69277a10fa87509c538cb41ada61dcddd0de38e18fb98848"
+  },
+  {
+    "path": "modkit/verify_pvp_package.py",
+    "archive_hash": "ac4b02eba8e2e77a34ec37633bb8d9d7d1238cdf4bad0dab3fdbd0232b5dcf46",
+    "checkout_hash": "ac4b02eba8e2e77a34ec37633bb8d9d7d1238cdf4bad0dab3fdbd0232b5dcf46"
+  },
+  {
+    "path": "docs/AI_ROOM.md",
+    "archive_hash": "a223dd5f3a6da4129ea6f67b3eccca5bb04d9174f11b0fd8d11d2ed0f953507a",
+    "checkout_hash": "a223dd5f3a6da4129ea6f67b3eccca5bb04d9174f11b0fd8d11d2ed0f953507a"
+  },
+  {
+    "path": "modkit/sync_ai.py",
+    "archive_hash": "84a18bdd607b8ce04622ef0d51177cc5d43f97bc1255c1982910137daed81e77",
+    "checkout_hash": "84a18bdd607b8ce04622ef0d51177cc5d43f97bc1255c1982910137daed81e77"
+  },
+  {
+    "path": "docs/PVP69_BUILD.md",
+    "archive_hash": "a9e08706aa51f67e7b77c5479b84c40b9a7d22d63ab4e464c0c87f61c285d839",
+    "checkout_hash": "a9e08706aa51f67e7b77c5479b84c40b9a7d22d63ab4e464c0c87f61c285d839"
+  },
+  {
+    "path": "modkit/build_pvp71.py",
+    "archive_hash": "6170761c07a5186a7a15f7f4f5341e7b212f896f67c3d36827e38236a5fbeeec",
+    "checkout_hash": "6170761c07a5186a7a15f7f4f5341e7b212f896f67c3d36827e38236a5fbeeec"
+  },
+  {
+    "path": "rebuild-pvp.cmd",
+    "archive_hash": "6cbc985fd66ed0b3fbd8c55f8023eb91f2405b250e9a92fa6dd0bc0301bbcaa9",
+    "checkout_hash": "6cbc985fd66ed0b3fbd8c55f8023eb91f2405b250e9a92fa6dd0bc0301bbcaa9"
+  },
+  {
+    "path": "docs/PVP_TEST_MATRIX.md",
+    "archive_hash": "14fe9734dbd240523e7e9e4a7240f80f3cde82345af3898d6741ba3e8876c402",
+    "checkout_hash": "14fe9734dbd240523e7e9e4a7240f80f3cde82345af3898d6741ba3e8876c402"
+  },
+  {
+    "path": "modkit/pvp_test_catalog.json",
+    "archive_hash": "8472e302ed2fe1b97e569793e1687fc177992a8179840cba6dd42fa59d1efd65",
+    "checkout_hash": "8eb1e498de776c186ed8d3bc7b1f3c4bd5aa76fa52ce4c0083c87513dfb29e2e"
+  },
+  {
+    "path": "modkit/run_pvp_affected.py",
+    "archive_hash": "91e5d5acc6ce30ac584648f6727cc81409f924371ce6b3617a7742901a6db9a9",
+    "checkout_hash": "91e5d5acc6ce30ac584648f6727cc81409f924371ce6b3617a7742901a6db9a9"
+  }
+]

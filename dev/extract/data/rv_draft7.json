@@ -1,0 +1,17 @@
+{
+ "FIRE": {
+  "__set__": [
+   "flying56",
+   "reed61",
+   "shoot"
+  ]
+ },
+ "UNIMPLEMENTED": {
+  "__set__": [
+   "charm",
+   "copy",
+   "grass",
+   "stone"
+  ]
+ }
+}

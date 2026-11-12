@@ -1,0 +1,9 @@
+{
+  "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+  "sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+  "functions": 470,
+  "translation_todo": [],
+  "role": "original isolated patch definitions; same startup/log exclusions as native_runtime.load_patch; no protect_patch_damage or high-solver rewriting",
+  "key_constants": "immutable original string aliases folded to literal member keys",
+  "cpp_sha256": "9598e81096e6637e962440e2d87ea99658ffb1b4d83f639b3286618bb13b9674"
+}

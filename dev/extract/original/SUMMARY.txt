@@ -1,0 +1,37 @@
+definitions            lines=  2424 gotos=  2 unknown= 36 problems=41
+unit_tables            lines=    39 gotos=  0 unknown=  0 problems=0
+zombies                lines=  1131 gotos=  0 unknown=  0 problems=0
+plant_draw             lines=    10 gotos=  0 unknown=  0 problems=0
+unit_target_index      lines=    11 gotos=  0 unknown=  0 problems=0
+entities               lines=   386 gotos=  0 unknown=  0 problems=0
+particles              lines=    22 gotos=  0 unknown=  0 problems=0
+plant_maintenance      lines=   228 gotos=  2 unknown=  0 problems=0
+plants                 lines=   888 gotos=  0 unknown=  0 problems=0
+placement              lines=    68 gotos=  0 unknown=  0 problems=0
+coffee                 lines=     9 gotos=  0 unknown=  0 problems=0
+shovel                 lines=     8 gotos=  0 unknown=  0 problems=0
+sun_motion             lines=     5 gotos=  0 unknown=  0 problems=0
+water_animation        lines=     6 gotos=  0 unknown=  0 problems=0
+important_blocks       lines=    23 gotos=  0 unknown=  0 problems=0
+cannon_select          lines=     8 gotos=  0 unknown=  0 problems=0
+cannon_fire            lines=     7 gotos=  0 unknown=  0 problems=0
+func 读取                 gotos=0 unknown=2 problems=['op SETUP_FINALLY at 26', 'op POP_BLOCK at 36']
+func 音乐淡出               gotos=0 unknown=2 problems=['op SETUP_FINALLY at 0', 'op POP_BLOCK at 16']
+func 生成地图               gotos=2 unknown=0 problems=['block 2260 emitted twice', 'block 3360 emitted twice', 'block 2978 emitted twice']
+func 显示植物               gotos=0 unknown=0 problems=['block 3318 emitted twice']
+func 保存                 gotos=0 unknown=2 problems=['op SETUP_FINALLY at 0', 'op POP_BLOCK at 36']
+func 播BGM               gotos=0 unknown=2 problems=['op SETUP_FINALLY at 0', 'op POP_BLOCK at 70']
+func 加载音                gotos=0 unknown=2 problems=['op SETUP_FINALLY at 0', 'op POP_BLOCK at 12']
+func 变图                 gotos=0 unknown=2 problems=['op SETUP_FINALLY at 0', 'op POP_BLOCK at 22']
+func 加载原图               gotos=0 unknown=2 problems=['op SETUP_FINALLY at 0', 'op POP_BLOCK at 16']
+func 加载图                gotos=0 unknown=2 problems=['op SETUP_FINALLY at 0', 'op POP_BLOCK at 38']
+func 裁剪显示               gotos=0 unknown=2 problems=['op SETUP_FINALLY at 0', 'op POP_BLOCK at 36']
+func 沉浸播音               gotos=0 unknown=2 problems=['op SETUP_FINALLY at 118', 'op POP_BLOCK at 182']
+func 播音                 gotos=0 unknown=2 problems=['op SETUP_FINALLY at 0', 'op POP_BLOCK at 22']
+func 停音                 gotos=0 unknown=2 problems=['op SETUP_FINALLY at 0', 'op POP_BLOCK at 14']
+func 渐变换色               gotos=0 unknown=2 problems=['op SETUP_FINALLY at 0', 'op POP_BLOCK at 14']
+func 不纯换色               gotos=0 unknown=2 problems=['op SETUP_FINALLY at 0', 'op POP_BLOCK at 14']
+func 纯换色                gotos=0 unknown=2 problems=['op SETUP_FINALLY at 0', 'op POP_BLOCK at 14']
+func 换蓝色                gotos=0 unknown=2 problems=['op SETUP_FINALLY at 0', 'op POP_BLOCK at 14']
+func 换金色                gotos=0 unknown=2 problems=['op SETUP_FINALLY at 0', 'op POP_BLOCK at 14']
+func 换黑白                gotos=0 unknown=2 problems=['op SETUP_FINALLY at 0', 'op POP_BLOCK at 14']

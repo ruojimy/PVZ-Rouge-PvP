@@ -1,0 +1,279 @@
+{
+  "schema": 1,
+  "implementation": {
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\hero.h": "b7a050db0f533cc69c51e4dbde971699b54b8b46072274debc6c04fa3df7b383",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\hero.cpp": "a167d7ecd9fbf07e660e8a1227a9e375eb0dd43cdc6e7c1859d3af07b04b30be"
+  },
+  "entries": [
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\native_targets.py",
+      "source_sha256": "d47dcc0efb13bee901c22cea21cdae3851826351cfe1cc44adc652b67e6aa6b8",
+      "symbol": "HeroProxy.sync",
+      "lines": [
+        67,
+        73
+      ],
+      "ast_sha256": "a60844e2ec2981b69d86c5abf75e8094f237b2da3b1ad30c4a16a3ddc84aa042",
+      "text_sha256": "bd62fa0b022b3160465e06680082a63a4cd2135502a800aa26e16d580afbc22c",
+      "typed_target": "HeroCombat::proxy/sync_proxies/write_proxy_hp/write_proxy_ash/write_proxy_status",
+      "scope": "Known HP/ash/status fields only; full constructor collider and ordinary proxy fields remain pending."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\native_targets.py",
+      "source_sha256": "d47dcc0efb13bee901c22cea21cdae3851826351cfe1cc44adc652b67e6aa6b8",
+      "symbol": "HeroProxy.__setitem__",
+      "lines": [
+        75,
+        95
+      ],
+      "ast_sha256": "b3ddd295ab547e244b6a42453b043912d6bb3fe57c66720884974a7406b77a46",
+      "text_sha256": "2ca28d759540396aa7184691b6de69e74b7744827754ccb9224899cf224ee81a",
+      "typed_target": "HeroCombat::proxy/sync_proxies/write_proxy_hp/write_proxy_ash/write_proxy_status",
+      "scope": "Known HP/ash/status fields only; full constructor collider and ordinary proxy fields remain pending."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\native_targets.py",
+      "source_sha256": "d47dcc0efb13bee901c22cea21cdae3851826351cfe1cc44adc652b67e6aa6b8",
+      "symbol": "NativeTargets.source",
+      "lines": [
+        206,
+        214
+      ],
+      "ast_sha256": "d498e4ebff811bd85fd79ed916a4a86c851f7711b905689c0d82f82822d8a49a",
+      "text_sha256": "6d3ae136d0c8cd7548d536465600da7cbde3b2e3e7cd7517ad290a69d74816e8",
+      "typed_target": "HeroCombat / HeroContext",
+      "scope": "Typed hero selection, source resolution, damage, budgets, identity and projectile birth metadata."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\native_targets.py",
+      "source_sha256": "d47dcc0efb13bee901c22cea21cdae3851826351cfe1cc44adc652b67e6aa6b8",
+      "symbol": "NativeTargets.owner",
+      "lines": [
+        216,
+        223
+      ],
+      "ast_sha256": "2242fcfeb4109d3716f0a7ff74f03de371109d5744c9dc537a98654902df77e7",
+      "text_sha256": "7220975209f246659bfee9f2c1c509bc6d7885885175216a3cfeab6a135fcced",
+      "typed_target": "HeroCombat / HeroContext",
+      "scope": "Typed hero selection, source resolution, damage, budgets, identity and projectile birth metadata."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\native_targets.py",
+      "source_sha256": "d47dcc0efb13bee901c22cea21cdae3851826351cfe1cc44adc652b67e6aa6b8",
+      "symbol": "NativeTargets.source_id",
+      "lines": [
+        225,
+        231
+      ],
+      "ast_sha256": "cdca86c3094ecbcd31445ae903df182011c3723c322a9be9a019aae745989bc9",
+      "text_sha256": "1e37b926e5f9f4a19c72f2e030ed9981b39522d94dc8c84ba638addb4ee2f4d3",
+      "typed_target": "HeroCombat / HeroContext",
+      "scope": "Typed hero selection, source resolution, damage, budgets, identity and projectile birth metadata."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\native_targets.py",
+      "source_sha256": "d47dcc0efb13bee901c22cea21cdae3851826351cfe1cc44adc652b67e6aa6b8",
+      "symbol": "NativeTargets.context",
+      "lines": [
+        298,
+        342
+      ],
+      "ast_sha256": "66c7de061d232112e39f6fd768e3ed586c2a73f116ab3ff15df56cb82ee383c5",
+      "text_sha256": "16b7931c6388fa722a38f1128c2b0ee13a38720f5da5cd22f1e46a1e98999ab6",
+      "typed_target": "HeroCombat / HeroContext",
+      "scope": "Typed hero selection, source resolution, damage, budgets, identity and projectile birth metadata."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\native_targets.py",
+      "source_sha256": "d47dcc0efb13bee901c22cea21cdae3851826351cfe1cc44adc652b67e6aa6b8",
+      "symbol": "NativeTargets._attack_key",
+      "lines": [
+        382,
+        392
+      ],
+      "ast_sha256": "cc4e1905a52c3e5d46b6b80bb650eae50594f5e6955f9618a4b33e6bca26b7b4",
+      "text_sha256": "4843d5c25aea8b451285d7a99d5265c20dff5c9e92ff02e2722ac63c88d9a7f1",
+      "typed_target": "HeroCombat / HeroContext",
+      "scope": "Typed hero selection, source resolution, damage, budgets, identity and projectile birth metadata."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\native_targets.py",
+      "source_sha256": "d47dcc0efb13bee901c22cea21cdae3851826351cfe1cc44adc652b67e6aa6b8",
+      "symbol": "NativeTargets.damage_hero",
+      "lines": [
+        394,
+        458
+      ],
+      "ast_sha256": "b749a079b47faaa35a58ae3946d389dd739d0577d9e68fee3e2a4001ce740f0c",
+      "text_sha256": "bb6fa7fe15e40fd119316a0a41520ea7995cabc4d7c9e51195b4921f632e99bb",
+      "typed_target": "HeroCombat / HeroContext",
+      "scope": "Typed hero selection, source resolution, damage, budgets, identity and projectile birth metadata."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\native_targets.py",
+      "source_sha256": "d47dcc0efb13bee901c22cea21cdae3851826351cfe1cc44adc652b67e6aa6b8",
+      "symbol": "NativeTargets._player_damage",
+      "lines": [
+        460,
+        474
+      ],
+      "ast_sha256": "3a40bb62c2d4ab43c5567f74da0e8fcd6458bbb5730a050a767d419803727075",
+      "text_sha256": "4e7606ec15b65e4d73f9113511af0547d4e968516cf4c6ad95cf81d876dc7431",
+      "typed_target": "HeroCombat / HeroContext",
+      "scope": "Typed hero selection, source resolution, damage, budgets, identity and projectile birth metadata."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\native_targets.py",
+      "source_sha256": "d47dcc0efb13bee901c22cea21cdae3851826351cfe1cc44adc652b67e6aa6b8",
+      "symbol": "NativeTargets.hero_source_amount",
+      "lines": [
+        480,
+        511
+      ],
+      "ast_sha256": "bb1bcfa3a66e1fc2f768cad015ea6344a3c1ed25903626477519eb31fc44a482",
+      "text_sha256": "47df2d2240d09da341d19f75092aa3e897fbd6f3632a794ca1f07467acdd5d63",
+      "typed_target": "HeroCombat / HeroContext",
+      "scope": "Typed hero selection, source resolution, damage, budgets, identity and projectile birth metadata."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\native_targets.py",
+      "source_sha256": "d47dcc0efb13bee901c22cea21cdae3851826351cfe1cc44adc652b67e6aa6b8",
+      "symbol": "NativeTargets.tag_entity",
+      "lines": [
+        233,
+        253
+      ],
+      "ast_sha256": "6fb48f24ee3947c6f4ca360f747c70526ca4f75b910b715f8b7caaa5f150a37d",
+      "text_sha256": "7ad9d218d6ef108c2aec7ca25e2b57d0080054362f053367c692f2ff30d8d6be",
+      "typed_target": "HeroCombat / HeroContext",
+      "scope": "Typed hero selection, source resolution, damage, budgets, identity and projectile birth metadata."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\native_battle.py",
+      "source_sha256": "e5e6f9e8c79e0fd31f5c29f1db1c877afede26793ffa551a8e1890ac06a8efbf",
+      "symbol": "NativeBattle._hero_damage_factor",
+      "lines": [
+        1325,
+        1334
+      ],
+      "ast_sha256": "3c3a684364d83045a47b67525d4da4ec1988fba139c22b4dc7c7dc0760826828",
+      "text_sha256": "8902052cbb937556a3a403702e922eb44efc03b6c5d6d0161cc01d9daf6c772f",
+      "typed_target": "HeroCombat::damage_factor/on_damage",
+      "scope": "Current hero rules and ordered damage events; transport consumers pending."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\native_battle.py",
+      "source_sha256": "e5e6f9e8c79e0fd31f5c29f1db1c877afede26793ffa551a8e1890ac06a8efbf",
+      "symbol": "NativeBattle._hero_damaged",
+      "lines": [
+        763,
+        776
+      ],
+      "ast_sha256": "c8003f0e2d9259018126c0baab5e807414f96a833ac584bf0fb55023fae2ce7c",
+      "text_sha256": "a6e31efad44ee482d8633e8dd5390ac9651074f554283755f8dc3a024238f8d3",
+      "typed_target": "HeroCombat::damage_factor/on_damage",
+      "scope": "Current hero rules and ordered damage events; transport consumers pending."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\zombie_secrets.py",
+      "source_sha256": "7ec8f840ab38a0b7bdf81f6fcc5a6f31c8f10bf33a505ef9d304ea9c039370b7",
+      "symbol": "ZombieSecrets.hero_amount",
+      "lines": [
+        796,
+        808
+      ],
+      "ast_sha256": "e39b0e081e74b6c35e22a1450629d4d850da86325c644cee5e9c6e1ec32a6f9a",
+      "text_sha256": "ef81cf0649e870faa94c83d8d38049e67ee5aabcb5263df223fa7673b5321189",
+      "typed_target": "HeroCombat::last_stand_amount/step_last_stand",
+      "scope": "Locked-deck secret IDs; full zombie-secret controller remains pending."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\zombie_secrets.py",
+      "source_sha256": "7ec8f840ab38a0b7bdf81f6fcc5a6f31c8f10bf33a505ef9d304ea9c039370b7",
+      "symbol": "ZombieSecrets._last_stand_step",
+      "lines": [
+        816,
+        827
+      ],
+      "ast_sha256": "cd26e7758c2908115d04258b1e8a1a2588fdca416128805104f393d88ce3f4ae",
+      "text_sha256": "a795ed5833c2492bb7434d8e7be12c45efca45b6d1b7fd4af821872a6c26db04",
+      "typed_target": "HeroCombat::last_stand_amount/step_last_stand",
+      "scope": "Locked-deck secret IDs; full zombie-secret controller remains pending."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\balance68006.py",
+      "source_sha256": "f16eb92801458e457d7616972a8a58a6c85c4c13fdc61e2d23d64ad5b08bfee2",
+      "symbol": "fire_color",
+      "lines": [
+        5,
+        14
+      ],
+      "ast_sha256": "747683a07c64d2775d9d3f0218b8fbafedf2c967718dc2b4d8a2437030e55132",
+      "text_sha256": "8a66e4810afa8faa992e115247f7b7a9fc6f625887cb0606e67490206e18a048",
+      "typed_target": "balanced_hero_amount",
+      "scope": "Full source selection precedence."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\balance68006.py",
+      "source_sha256": "f16eb92801458e457d7616972a8a58a6c85c4c13fdc61e2d23d64ad5b08bfee2",
+      "symbol": "hero_amount",
+      "lines": [
+        16,
+        35
+      ],
+      "ast_sha256": "a69cef2f0e8206d7bb515bf64c1ff925f141fbd7b11d51886fbe9d212098b72c",
+      "text_sha256": "fc338e3bdf1d09896e10746304db6ae6e834a1341fb38bb8bb4b9c04aa97c7e4",
+      "typed_target": "balanced_hero_amount",
+      "scope": "Full source selection precedence."
+    }
+  ],
+  "source_ownership_review": {
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\pvp\\hand\\misc.cpp": "dc5e2b511cc4bc553a7660634e1a50c4454bda7c798e4034c1753a6199a14367",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\pvp\\gen\\pm_native_targets.cpp": "ff771d0cda24480786685e88005955a277987c1c51df0d733c408ac92715dafd",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\pvp\\gen\\pm_native_battle.cpp": "9704467c24b112222a20bcbdc365f832dcaecb907c83e478481779338266f09f",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\pvp\\gen\\pm_zombie_secrets.cpp": "22d440620e51fe8b273d978424a82fc259893954ad9c5d8290085ac4bcbefe71",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\pvp\\gen\\pm_balance68006.cpp": "d2ca031958b3c45ab15599595d67170ef4809755238433bcc5b918ccda7fb25d",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp2cpp.py": "7f621b04f62fcf72c3cfc5593ce02b18b61d1b882635d98a9af4a1a0954b3aaf"
+  },
+  "evidence": {
+    "release": {
+      "path": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\typed72-20261105\\registry-portable-regression\\release-heroes\\summary.json",
+      "sha256": "12aa34851e22796d26d70c27522a5546c20802ea6485fbd2a4507ca64ae61321",
+      "cases": 1359,
+      "passed_cases": 1359,
+      "steps": 7700
+    },
+    "asan": {
+      "path": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\typed72-20261105\\registry-portable-regression\\asan-heroes\\summary.json",
+      "sha256": "12aa34851e22796d26d70c27522a5546c20802ea6485fbd2a4507ca64ae61321",
+      "cases": 1359,
+      "passed_cases": 1359,
+      "steps": 7700
+    },
+    "negative_control": {
+      "path": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\typed72-20261105\\death-hero-negative\\hero\\summary.json",
+      "sha256": "975b9e3a45580c4c89f40c515e7d0ba0259a554f40ab3e5c66c761a0de8e2d2b",
+      "cases": 4,
+      "passed_cases": 0,
+      "steps": 40
+    }
+  },
+  "original_hurt": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\reverse_engineered\\raw\\pvzrouge.pyc",
+    "first_line": 197,
+    "bytecode_size": 96,
+    "pvp_guard_change": "Original bytes 0:2 replaced by JUMP_ABSOLUTE 8, as NativeTargets.install requires."
+  },
+  "full_product_acceptance": false,
+  "authoritative_world_integrated": false,
+  "full_branch_coverage": false,
+  "no_product_performance_claim": true,
+  "pending": [
+    "Complete HeroProxy constructor and remaining direct-write fields",
+    "Full projectile motion driver and collision integration (ownership/flight/splash separately verified)",
+    "Complete remaining sourced hooks and production lifecycle services; the actual synchronous death chain has separate evidence",
+    "Full hero physics, input, effects, render and world tick",
+    "AI/network/replay typed state integration",
+    "Full source/branch closure, full old suite, same-rule battle differential and final product gates"
+  ]
+}

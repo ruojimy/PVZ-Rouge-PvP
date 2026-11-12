@@ -1,0 +1,34 @@
+{
+ "VERSION": 1,
+ "_PREFIX": "__pvz_sb_",
+ "_MARKER": "__pvz_pvp_legacy_fixes",
+ "_DOOM_SOURCE": "__pvz_pvp_legacy_doom_source",
+ "_TARGET_FUNCTIONS": [
+  "pick_plant_zombie_target",
+  "pick_fumeshroom_zombie_target",
+  "pick_squash_zombie_target",
+  "zombie_pea_hit",
+  "apply_fumeshroom_line_attack"
+ ],
+ "_DIRECT_DAMAGE_FUNCTIONS": [
+  "damage_player_from_zombie_pea",
+  "damage_player_from_fumeshroom",
+  "squash_zombie_damage_player",
+  "damage_player_from_chili_zombie"
+ ],
+ "_SPECIAL_FUNCTIONS": [
+  "resolve_squash_zombie_target",
+  "chili_fire_player_hit",
+  "doom_zombie_knock_player",
+  "doom_zombie_ash_targets",
+  "spawn_doom_zombie_explosion"
+ ],
+ "_HELPERS": [
+  "is_charmed_zombie",
+  "float",
+  "plant_world_point",
+  "zombie_target_point",
+  "squash_zombie_kill_plant",
+  "is_enemy_chili_zombie_fire"
+ ]
+}

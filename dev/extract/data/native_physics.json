@@ -1,0 +1,112 @@
+{
+ "NATIVE_DT": 0.004,
+ "NATIVE_HZ": 250,
+ "REGIONS": {
+  "initialize": [
+   53010,
+   53068
+  ],
+  "effect_initialize": [
+   58504,
+   58540
+  ],
+  "displacement": [
+   60656,
+   60678
+  ],
+  "environment_input": [
+   61206,
+   62188
+  ],
+  "pose_reset": [
+   65344,
+   65356
+  ],
+  "chili_launch": [
+   65216,
+   65344
+  ],
+  "hurt_recovery": [
+   65356,
+   65688
+  ],
+  "movement_lean": [
+   65688,
+   65724
+  ],
+  "double_jump_clock": [
+   65794,
+   65894
+  ],
+  "hero_effects": [
+   65894,
+   66870
+  ],
+  "jump_keydown": [
+   160856,
+   161036
+  ]
+ },
+ "TRACKING_REGIONS": {
+  "tracking_initialize": [
+   53302,
+   53456
+  ],
+  "tracking_bind": [
+   58400,
+   58476
+  ],
+  "tracking_coordinates": [
+   61238,
+   61290
+  ],
+  "tracking_player": [
+   60678,
+   61206
+  ],
+  "tracking_targets": [
+   67400,
+   67838
+  ],
+  "tracking_plants": [
+   67838,
+   68412
+  ]
+ },
+ "TRACKING_KEYS": [
+  "人洪水",
+  "植洪水",
+  "洪水h",
+  "洪水",
+  "人洪水圈",
+  "人洪水cd",
+  "人洪水覆盖",
+  "植洪水圈",
+  "植洪水cd",
+  "植洪水覆盖",
+  "目标植物",
+  "目标位置",
+  "输出植物数",
+  "paoku",
+  "先别追植",
+  "wjx",
+  "wjy"
+ ],
+ "FUNCTIONS": [
+  "位移处理",
+  "无墙位移处理",
+  "出界",
+  "不封顶出界",
+  "c",
+  "jdz",
+  "随",
+  "抖"
+ ],
+ "KONG": [
+  "空",
+  "水",
+  "花盆块",
+  "坟墓",
+  "梯子块"
+ ]
+}

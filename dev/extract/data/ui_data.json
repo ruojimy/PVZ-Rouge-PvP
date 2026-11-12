@@ -1,0 +1,32 @@
+{
+ "NETWORK_ERRORS": {
+  "relay_unreachable": "无法连接云端中继，请检查网络或中继地址，也可改用高级直连。",
+  "relay_timeout": "云端连接超时，请稍后重试。",
+  "relay_protocol_mismatch": "云端中继协议不兼容，请更新对战版本。",
+  "room_not_found": "未找到云端房间，请核对房间码并确认主机已创建房间。",
+  "room_expired": "云端房间已过期，请主机重新创建。",
+  "host_offline": "主机暂时离线，请等待主机恢复连接。",
+  "host_left": "主机已离开云端房间。",
+  "host_in_use": "主机连接仍在清理，请稍候重试。",
+  "resume_rejected": "云端重连凭证无效，请重新创建房间。",
+  "rate_limited": "连接过于频繁，请稍后重试。",
+  "connection_limit": "当前网络连接数已达限制，请稍后重试。",
+  "server_full": "云端房间已满，请稍后重试或使用直连。",
+  "server_busy": "云端服务繁忙，请稍后重试。",
+  "invalid_preamble": "云端返回了无效数据，请核对中继地址。",
+  "room_code_invalid": "房间口令错误，请核对后重新连接。",
+  "identity_mismatch": "双方版本、规则、卡池或地图适配不同，请使用同一份对战版本。",
+  "protocol_mismatch": "联机协议版本不同，请使用同一份对战版本。",
+  "room_full": "房间玩家席位已满，请等待空位或创建新房间。",
+  "handshake_rejected": "主机拒绝连接，请核对房间信息。",
+  "address_resolution_failed": "无法解析主机地址，请检查地址格式。",
+  "connect_timeout": "连接主机超时，请检查地址、端口和网络。",
+  "connection_failed": "无法连接主机，请确认房间已开启及端口可达。",
+  "listen_failed": "无法监听此端口，端口可能已占用；请更换端口重试。",
+  "reconnect_expired": "重连等待已超时，可重新连接或取消。",
+  "protocol_error": "收到无效联机数据，连接已停止。",
+  "transport_error": "联机连接发生错误，可以重试。",
+  "closed": "连接已关闭，可以重新连接。",
+  "event_queue_full": "联机事件队列拥堵，连接已停止，请重试。"
+ }
+}

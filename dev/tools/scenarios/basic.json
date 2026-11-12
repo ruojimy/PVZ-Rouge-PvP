@@ -1,0 +1,10 @@
+{"map": "家院", "seed": 3, "weather": "clear", "durable_heroes": true,
+ "setup": [
+   {"op": "plant", "name": "豌豆射手", "row": 18, "col": 45},
+   {"op": "plant", "name": "向日葵", "row": 18, "col": 44},
+   {"op": "plant", "name": "火炬树桩", "row": 18, "col": 47},
+   {"op": "zombie", "name": "普通僵尸", "row": 18, "x_tiles": 56},
+   {"op": "zombie", "name": "路障僵尸", "row": 18, "x_tiles": 58},
+   {"op": "zombie", "name": "铁桶僵尸", "row": 18, "x_tiles": 61}
+ ],
+ "room_ticks": 90}

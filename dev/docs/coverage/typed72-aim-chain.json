@@ -1,0 +1,283 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_plant_world_point",
+      "lines": [
+        5334,
+        5348
+      ],
+      "ast_sha256": "749af3d17707f505692f77f6c48d5c43f5f2ab478d839973a618c1fb9cf1d7d7",
+      "typed_target": "PlantZombieTargeting / shared native head geometry",
+      "scope": "Actual ordered targeting for admitted native records. Full catalog, strict score ties, 90-degree cone, charm presence, target retention, live point resolution and zombie death-marker non-filtering."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_plant_zombie_aim_point",
+      "lines": [
+        5355,
+        5363
+      ],
+      "ast_sha256": "05336c160508afa5f9a01e15991bbf97e1eaaef7caae69444c6bce86f4fe43dc",
+      "typed_target": "PlantZombieTargeting / shared native head geometry",
+      "scope": "Actual ordered targeting for admitted native records. Full catalog, strict score ties, 90-degree cone, charm presence, target retention, live point resolution and zombie death-marker non-filtering."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_plant_zombie_head_center",
+      "lines": [
+        5366,
+        5394
+      ],
+      "ast_sha256": "902f63dada38f28408672b49dc459551c1f48f59d2de9a71240745f800eef38c",
+      "typed_target": "PlantZombieTargeting / shared native head geometry",
+      "scope": "Actual ordered targeting for admitted native records. Full catalog, strict score ties, 90-degree cone, charm presence, target retention, live point resolution and zombie death-marker non-filtering."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_direction_angle",
+      "lines": [
+        5397,
+        5398
+      ],
+      "ast_sha256": "edac07c38b93f579312d6f8bcad47364a8ac684172f3aad4d38767a254778b02",
+      "typed_target": "PlantZombieTargeting / shared native head geometry",
+      "scope": "Actual ordered targeting for admitted native records. Full catalog, strict score ties, 90-degree cone, charm presence, target retention, live point resolution and zombie death-marker non-filtering."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_direction_angle_diff",
+      "lines": [
+        5401,
+        5403
+      ],
+      "ast_sha256": "5a05eb148fd00aacdce1f15a1088a870762bc09bd5113493804066ae2d775fd6",
+      "typed_target": "PlantZombieTargeting / shared native head geometry",
+      "scope": "Actual ordered targeting for admitted native records. Full catalog, strict score ties, 90-degree cone, charm presence, target retention, live point resolution and zombie death-marker non-filtering."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_angle_in_direction",
+      "lines": [
+        5406,
+        5407
+      ],
+      "ast_sha256": "c91b2a830477bc70e9a50919acc5cb0206a0deba7a53fbc8e230c22e918b71e8",
+      "typed_target": "PlantZombieTargeting / shared native head geometry",
+      "scope": "Actual ordered targeting for admitted native records. Full catalog, strict score ties, 90-degree cone, charm presence, target retention, live point resolution and zombie death-marker non-filtering."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_sync_plant_zombie_head_angle",
+      "lines": [
+        5599,
+        5608
+      ],
+      "ast_sha256": "ed07597fb22032809c33f55ae3b67470157dde6bcffa1b56e0685f29c450f35a",
+      "typed_target": "PlantZombieTargeting / shared native head geometry",
+      "scope": "Actual ordered targeting for admitted native records. Full catalog, strict score ties, 90-degree cone, charm presence, target retention, live point resolution and zombie death-marker non-filtering."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_zombie_target_point",
+      "lines": [
+        5611,
+        5626
+      ],
+      "ast_sha256": "5f0a1a21ac9ee4c8e5c57afb85d0eb19ee2c3257d000374e130338fa1ff99a3a",
+      "typed_target": "PlantZombieTargeting / shared native head geometry",
+      "scope": "Actual ordered targeting for admitted native records. Full catalog, strict score ties, 90-degree cone, charm presence, target retention, live point resolution and zombie death-marker non-filtering."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_pick_charmed_plant_zombie_target",
+      "lines": [
+        5629,
+        5664
+      ],
+      "ast_sha256": "e8882db63f575dedc8b9746f9a6a8cf7884256ca24372ae21e96b486b2f7fe92",
+      "typed_target": "PlantZombieTargeting / shared native head geometry",
+      "scope": "Actual ordered targeting for admitted native records. Full catalog, strict score ties, 90-degree cone, charm presence, target retention, live point resolution and zombie death-marker non-filtering."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_pick_enemy_charmed_zombie_target",
+      "lines": [
+        5667,
+        5700
+      ],
+      "ast_sha256": "49fa10d858762908d8fb076da99807f866c39ec3875b44205cefc79e3b6d4460",
+      "typed_target": "PlantZombieTargeting / shared native head geometry",
+      "scope": "Actual ordered targeting for admitted native records. Full catalog, strict score ties, 90-degree cone, charm presence, target retention, live point resolution and zombie death-marker non-filtering."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_pick_plant_zombie_target",
+      "lines": [
+        5703,
+        5758
+      ],
+      "ast_sha256": "77326ca71cbf028bd2c8d556d714a339a26301ca79ccdabcad3bc872bb4b9145",
+      "typed_target": "PlantZombieTargeting / shared native head geometry",
+      "scope": "Actual ordered targeting for admitted native records. Full catalog, strict score ties, 90-degree cone, charm presence, target retention, live point resolution and zombie death-marker non-filtering."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_plant_zombie_target_point",
+      "lines": [
+        5761,
+        5777
+      ],
+      "ast_sha256": "0b3f5e348ab9de026bf0ad2c94dfb45edefcd12dcefe94202ec24c9f11313067",
+      "typed_target": "PlantZombieTargeting / shared native head geometry",
+      "scope": "Actual ordered targeting for admitted native records. Full catalog, strict score ties, 90-degree cone, charm presence, target retention, live point resolution and zombie death-marker non-filtering."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_update_plant_zombie_target",
+      "lines": [
+        6116,
+        6141
+      ],
+      "ast_sha256": "f6a8bcc3916b4b8a48693308b3799f3322a4a3c7cfba409b1a759a1cf1ce2950",
+      "typed_target": "PlantZombieTargeting / shared native head geometry",
+      "scope": "Actual ordered targeting for admitted native records. Full catalog, strict score ties, 90-degree cone, charm presence, target retention, live point resolution and zombie death-marker non-filtering."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\native_patch.py",
+      "source_sha256": "101eaea66d5c31f9535d5517dc7673bf5ab7e70ebe027a5b90e4a43628c4be39",
+      "symbol": "bind",
+      "lines": [
+        341,
+        387
+      ],
+      "ast_sha256": "7e7d9d5faaf77db7a6a1937ba58a13ab5f957fc3ed521e15cb713d220395fd5b",
+      "typed_target": "PlantZombieTargeting::update / SourcedContext",
+      "scope": "Actual non-fast sourced wrapper around update_plant_zombie_target, with all four owner seats and hero fallback."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\legacy_fixes.py",
+      "source_sha256": "d2faa39c010c102c8c78123d3b20ecf8b34bbaa50fb6d1eb6c607e20bc22fa38",
+      "symbol": "_is_i_zombie",
+      "lines": [
+        56,
+        57
+      ],
+      "ast_sha256": "105abd828d805bf9f8d6fda54ab9659e88a4f74dfa39c9fa2c2b1923900bb6a0",
+      "typed_target": "PlantZombieTargeting::pick",
+      "scope": "I-Z excludes the allied native player; sourced PvP establishes normal mode before selection."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\legacy_fixes.py",
+      "source_sha256": "d2faa39c010c102c8c78123d3b20ecf8b34bbaa50fb6d1eb6c607e20bc22fa38",
+      "symbol": "_target_wrapper",
+      "lines": [
+        60,
+        70
+      ],
+      "ast_sha256": "bffe692eb5e9ad916a97154738b434576f550b3270ffb0fa312c192cdb2ccc7d",
+      "typed_target": "PlantZombieTargeting::pick",
+      "scope": "I-Z excludes the allied native player; sourced PvP establishes normal mode before selection."
+    }
+  ],
+  "evidence": {
+    "regression": {
+      "path": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\typed72-20261105\\aim-regression\\summary.json",
+      "sha256": "d1f98f052fc7da7129275f925ee39313bce8abe1df3d3e9dc486fd06ac10ae5f"
+    },
+    "negative": {
+      "path": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\typed72-20261105\\aim-negative\\summary.json",
+      "sha256": "9f6a69286812b176c4dae2d8c77e5beaa27b7630f4668120ddfb4f9120742976"
+    }
+  },
+  "catalog_generation": {
+    "path": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\typed72-20261105\\plant-zombie-catalog-generation\\manifest.json",
+    "sha256": "d61c3db9b17f577ed21bf1c7236e0de4c1e7d677bf130819f8d8cbbb053a7095"
+  },
+  "catalog_kinds": 13,
+  "catalog_fields": 33,
+  "catalog_test": "aim-catalog compares every typed field against the actual installed patch namespace",
+  "implementation": {
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\allegiance.h": "04e57e55993a06e992f2e582908b897e1ce00a8ec6e5a29eb8f3aa0178c5b09f",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\attack_identity.cpp": "f52d991c2ff26bb5596c068b94b828c7ef47e5abffae980f13a55a927de3f87d",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\attack_identity.h": "dc48b4ef49e9ec5bce62a6231e756b1ab6ed856476eebe8005cdebaab35275c4",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\attack_source.h": "216efc878517ca41e876ef2248a9ccd5ae15313d9e2ea23146c140212d75bb9a",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\chili_effects.cpp": "1f9ef4c6df9393356bf97439866c4c4d1c4d2198e0097df1a402a92f9399b3c6",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\chili_effects.h": "f085a0e0544adec706ad2cd6753e7dafe14542970debd4f8ff1140edcc925025",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\chili_state.h": "e54c8ff5ff7b5e03b61f12a1da3d60bf2709137924406deb77b1fab11a2dd4fc",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\CMakeLists.txt": "fc925243d4c7f125d8cb9b3fc859d36f48098bb44d25fa0a9a1f415d85d02101",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\combat_events.h": "2aa250e41deb152174da42d53c4aed7c1c2b140eee99e198010a5e011c7fc418",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\content_target.cpp": "d211b5f62fb1ded0aef80a75c8b80677fe91accb50c2fc4004578934e4ab5b7b",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\content_target.h": "7013e24ef8bf54bf3fcacc3c08919a5ade1f770014c6bd4710ac941581f66b6b",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\damage.cpp": "2f5ef8620013526cb5d5652ea2307a638e8aa3852861069b0ec3881bcd09410c",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\damage_patch.cpp": "377e7851bcbc73332a33a38a92978fc68093ec80573e475409d91ccecbe73a0b",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\damage_patch.h": "4f547690c6a23c7f112925aebb726e2f2616be82c77d14cbeb113c4523aef9d4",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\death_chain.cpp": "9aa4680e1a980cbe75ed25041dc2b3c746f6b5dde9965de2d6dd9d8d0c073bbd",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\death_chain.h": "8e3fe5631457b6fcb4b2e4cb3ede7145051f99ad6610b7c6fc6a42f138d7c1fa",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\death_marker.h": "224038cc0367f21d5aaebe5476a7e882aa05bb02a247723f4b701a476b15c2d3",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\doom_effects.cpp": "de911bd5e33ff713cdc5e92fb72e7e58c547cf4c9967d1b62abca6f9d8ab4dac",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\doom_effects.h": "b5b34fc680c2f6e89611113a60ca6168d94f64a067f410e5b948d1a269fd2518",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\field.h": "663abc5d8b88032b3069e05b320f67d212c886551f9dfd7579a5a054af479834",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\flood.cpp": "cd84b9ebcc65d94392c065ec1afd10880b68f4dc453f89849ca8179e1186f87b",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\flood.h": "720c74fd6b3b857a3d5b9aeebcaac4b8f78dc8ab7934e633264b8096a388c797",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\geometry.h": "0e50be880081d510e2c9bddeaf222876caada8731f34a04e54a57180bfdfc24b",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\hero.cpp": "a2f544455c0e1350d1df22e470f5f1a971dd7f8b0257b4ef6ecb44562089fc30",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\hero.h": "20a0c7f3fb0a3b3cbac247325cf681c8fa0c71265d52fdc882f3739606d94268",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\native_registry.cpp": "9b965ba7dffd50f200b629cd551a4e22708376599168d6559a76ffccf528b5d5",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\native_registry.h": "5fbb0ad4f5e158188c370ec7e758839ad2b819ae3094af7d330a8e8d854cbe70",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\particles.cpp": "c9aa64f72c867bc6e791a61658d78311f7e0e71602f181e5f85313920609b0d6",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\physics.cpp": "46bd4e338069aad3e44b4e805e68c69f25f062f352efc99ab32aee1bf8047e86",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\plant.h": "9b8df028787bead5b6b1e23d360e729e8cce1938effdc41c063dc16a9db2dd32",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\plant_spawn.cpp": "c98e8e7572a07c1c30085d0dc00af8e70b66d11a31804c4a451b50c2f8298c0a",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\plant_spawn.h": "72da4851d697c9989a4f910bd83781a57fdfb21841ddb3034121bead777f3f82",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\plant_zombie_catalog.cpp": "8b4b994041bbb66db21e3ad3516306d4419f4bc3f72db07db7850834729719c8",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\plant_zombie_catalog.h": "f573c7a30b41ed4d181041232edcf0146c1dd4d35cd37e5462460bd86cc8ba97",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\plant_zombie_target.cpp": "81a6a3e6d02a428c017c4d86943b2dfd4a299b9069d322c4a4121e27fffde991",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\plant_zombie_target.h": "aee42bbff729eac92ae7c38f75b2d61c2cb6c794cd6e6633e32df5706858d292",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\projectile.cpp": "6bb290a6b8b5e6a29c25c7184ee2c6f3bd4eb498d4de615a301d32e9ab101a25",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\projectile.h": "8c2c28bfdf5e7b24c6bc1fac126f41e711ec5662dbfbd7c7aafe10304bd04290",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\projectile_rules.cpp": "8e88f5345f230c066c61925f913aac84623154858060cf7e530926b8789ea9f8",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\projectile_rules.h": "88a6a316e1bf1df0bdbb9506e6cab389d68e6f33c04bac3191c9359c50072dde",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\projectile_state.h": "a105a76e67bc514926e25c81c4bb0b89b3504dcda4607d600f1f27613ac05562",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\protection.cpp": "33cb08381c1efbff8ca556a923b1b7ef0140b70ceb85c86cc8c531609d14b7ff",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\protection.h": "da914bea3e2e27efaa8dcc313c6b50883fe39e3ea4b401f148412924fa0ae85c",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\record_identity.h": "711b48556b670757213ca7d293a313654603b4881504613f4a6c6488f12fa2ae",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\shooter.cpp": "3c124afcb0ef50bfb1e108226cbf3e5f40c5e29cd7488212e5c1e265cd61f399",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\sourced_context.cpp": "37c3b5c0bb5633b81f2c6211e1f64cde0b734d7eae25a95e24e7dbda42e95a31",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\sourced_context.h": "1708586e2c69e6c8c22f6330a2ac07cc0f71d5d79fe5d4e7aeb09b3e8706a609",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\state.h": "9f065afac5141ab71203fbd88d916905c5748bbf4662e0a3749f78789fe21768",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\targets.cpp": "a6459efc402a48b993eb0273d9f0cb7050ea2928cfa99365b52dd2be6a7e4254",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\targets.h": "1174289e535181fc8bcfbb77ffd2ab54b843af20fda471ab4fa4cfe07ce9f8f5",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\terrain.h": "26d6b4a83fd58a4f163af99df50ff7cff19cb1c7c1aa852b82dc260f2f00f687",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\terrain_effects.cpp": "3ac4caa3d3e02394fc0a95f149a81bee3cd9e20fe1abc11babb9a76e04dcc490",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\terrain_effects.h": "676cfdebf6dcede641468fa4d3a55eb6e97a73a6c9fc310dd2d2a455e444c337",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\zombie_fields.h": "8ba2a8fc132648ba02d09ea373ce0c5e4dc875581e4a6902e40235a25c32e1cb",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\zombie_spawn.cpp": "72ebdcdc48ab86fedfa3cef1bb64d7d51ab5d755c440e7963adda4e016e6a816",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\zombie_spawn.h": "d5df7319ebd02fffef42d3e86787f18a2516d12e29de2939244a71bcfccfba55"
+  },
+  "optimized": "No temporary candidate-list copies: the typed selector calls only pure geometry helpers, so it cannot mutate the ordered rosters during the scan.",
+  "full_branch_coverage": false,
+  "whole_battle_supported": false,
+  "production_entry_switched": false,
+  "full_product_acceptance": false,
+  "pending": [
+    "Other twelve sourced hooks, shooting/bonus scheduler and unit/hero/entity main loops",
+    "Production placement/registration and atlas/catalog consumers",
+    "AI/network/spectators/replay",
+    "Old full suite, whole-battle comparisons, current Android checks and formal product performance"
+  ]
+}

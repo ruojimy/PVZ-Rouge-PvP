@@ -1,0 +1,339 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "id": "original_damage",
+      "implementation": "src\\sim\\typed\\damage.cpp",
+      "sha256": "896c9c66df17c87f1be0af107737c0914f23d5885fb0b2616bf92e21c9914ef4",
+      "sources": [
+        {
+          "kind": "original_function_code_object",
+          "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\reverse_engineered\\raw\\pvzrouge.pyc",
+          "source_sha256": "6f10bada57913dd51bc4c87900d38ba875841d04febe3daafaeaa2d2f4cdf914",
+          "code_object": "伤害僵尸",
+          "code_sha256": "d5284a120de4a521f409eaebe92e6a27cac829ca66328cf5b29262dc6ced6b6f",
+          "code_object_offsets": [
+            0,
+            1282
+          ],
+          "root_module_offsets": null
+        },
+        {
+          "kind": "original_function_code_object",
+          "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\reverse_engineered\\raw\\pvzrouge.pyc",
+          "source_sha256": "6f10bada57913dd51bc4c87900d38ba875841d04febe3daafaeaa2d2f4cdf914",
+          "code_object": "表面伤害僵尸",
+          "code_sha256": "34a95c70959223fc706c8595e1d006e66f026e36150d94e6734764a93c9c1050",
+          "code_object_offsets": [
+            0,
+            578
+          ],
+          "root_module_offsets": null
+        }
+      ],
+      "stage_status": "differentially_verified_in_explicit_stage_scope",
+      "full_PvP72_status": "not_integrated",
+      "pending_effective_rule_layers": [
+        "native_targets._unit_damage / damage packets",
+        "patch1501 damage wrappers",
+        "PvP72 damage/armor modifiers and heroes"
+      ],
+      "evidence": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\typed72-20261104\\stages-final\\summary.json"
+    },
+    {
+      "id": "original_six_shooters",
+      "implementation": "src\\sim\\typed\\shooter.cpp",
+      "sha256": "3c124afcb0ef50bfb1e108226cbf3e5f40c5e29cd7488212e5c1e265cd61f399",
+      "sources": [
+        {
+          "kind": "raw_module_region",
+          "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\reverse_engineered\\raw\\pvzrouge.pyc",
+          "source_sha256": "6f10bada57913dd51bc4c87900d38ba875841d04febe3daafaeaa2d2f4cdf914",
+          "code_object": "<module>",
+          "offsets": [
+            128324,
+            130014
+          ],
+          "code_sha256": "a08f0e668bf8488198766bc1c8a5db83374e593dfdb07766245944eee65bfb97"
+        }
+      ],
+      "stage_status": "differentially_verified_in_explicit_stage_scope",
+      "full_PvP72_status": "not_integrated",
+      "pending_effective_rule_layers": [
+        "plant maintenance / sleep / gate",
+        "PvP star override",
+        "projectile construction patches"
+      ],
+      "evidence": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\typed72-20261104\\stages-final\\summary.json"
+    },
+    {
+      "id": "original_particles",
+      "implementation": "src\\sim\\typed\\particles.cpp",
+      "sha256": "1bf28c89f9cc21e7777bd2f97653540d7af9ae18d7ebdd4e62a67325388095aa",
+      "sources": [
+        {
+          "kind": "original_function_code_object",
+          "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\reverse_engineered\\raw\\pvzrouge.pyc",
+          "source_sha256": "6f10bada57913dd51bc4c87900d38ba875841d04febe3daafaeaa2d2f4cdf914",
+          "code_object": "增粒子",
+          "code_sha256": "5c6b52013a5b66a0b3c8d599dadc2fceead282dbcac32881292f06eeaa00c424",
+          "code_object_offsets": [
+            0,
+            450
+          ],
+          "root_module_offsets": null
+        },
+        {
+          "kind": "original_function_code_object",
+          "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\reverse_engineered\\raw\\pvzrouge.pyc",
+          "source_sha256": "6f10bada57913dd51bc4c87900d38ba875841d04febe3daafaeaa2d2f4cdf914",
+          "code_object": "无墙位移处理",
+          "code_sha256": "056a833a35835efbff129b81e2816c7306285e9aa051d4b658194d42bda35496",
+          "code_object_offsets": [
+            0,
+            170
+          ],
+          "root_module_offsets": null
+        },
+        {
+          "kind": "raw_module_region",
+          "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\reverse_engineered\\raw\\pvzrouge.pyc",
+          "source_sha256": "6f10bada57913dd51bc4c87900d38ba875841d04febe3daafaeaa2d2f4cdf914",
+          "code_object": "<module>",
+          "offsets": [
+            108808,
+            109352
+          ],
+          "code_sha256": "972f9f6b678406cf80de348be4a3102699b2fa84e72a87c941a25984d4830377"
+        }
+      ],
+      "stage_status": "differentially_verified_in_explicit_stage_scope",
+      "full_PvP72_status": "not_integrated",
+      "pending_effective_rule_layers": [
+        "production atlas conversion",
+        "render event integration",
+        "PvP particle overrides"
+      ],
+      "evidence": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\typed72-20261104\\stages-final\\summary.json"
+    },
+    {
+      "id": "body_displacement",
+      "implementation": "src\\sim\\typed\\physics.cpp",
+      "sha256": "013cb221aa03fa00883d21b8b991cb30aca8173913b4706b407b4560ff7322d0",
+      "sources": [
+        {
+          "kind": "original_function_code_object",
+          "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\reverse_engineered\\raw\\pvzrouge.pyc",
+          "source_sha256": "6f10bada57913dd51bc4c87900d38ba875841d04febe3daafaeaa2d2f4cdf914",
+          "code_object": "位移处理",
+          "code_sha256": "ac64959dcbdb057f212af58240d3dccd50ebb27edc70b36af216208827bd6cae",
+          "code_object_offsets": [
+            0,
+            1058
+          ],
+          "root_module_offsets": null
+        }
+      ],
+      "stage_status": "differentially_verified_in_explicit_stage_scope",
+      "full_PvP72_status": "not_integrated",
+      "pending_effective_rule_layers": [
+        "hero/environment driver",
+        "PvP physics wrappers and special bodies"
+      ],
+      "evidence": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\typed72-20261104\\stages-final\\summary.json"
+    },
+    {
+      "id": "periodic_flood",
+      "implementation": "src\\sim\\typed\\flood.cpp",
+      "sha256": "00a07ba524c45f1f0da97e29f4244be2f80f0da6bda439643b46f6aa09bae10d",
+      "sources": [
+        {
+          "kind": "PvP_source_function",
+          "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\native_flood.py",
+          "source_sha256": "13d0c6c053bea1c9ded07de00f73a0ee85362f4980983423bca2f79bc0d0f3fc",
+          "function": "advance"
+        }
+      ],
+      "stage_status": "differentially_verified_in_explicit_stage_scope",
+      "full_PvP72_status": "not_integrated",
+      "pending_effective_rule_layers": [
+        "world terrain ownership",
+        "tracking caller / target contexts",
+        "production boundary integration"
+      ],
+      "evidence": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\typed72-20261104\\stages-final\\summary.json"
+    }
+  ],
+  "selected_instrumented_conditions": [
+    {
+      "id": 0,
+      "false_count": 5256,
+      "true_count": 144,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 1,
+      "false_count": 3464,
+      "true_count": 1792,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 2,
+      "false_count": 448,
+      "true_count": 1344,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 3,
+      "false_count": 1344,
+      "true_count": 448,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 4,
+      "false_count": 1280,
+      "true_count": 512,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 5,
+      "false_count": 1280,
+      "true_count": 2184,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 6,
+      "false_count": 1808,
+      "true_count": 376,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 7,
+      "false_count": 1808,
+      "true_count": 376,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 8,
+      "false_count": 1280,
+      "true_count": 904,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 9,
+      "false_count": 736,
+      "true_count": 168,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 10,
+      "false_count": 544,
+      "true_count": 192,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 11,
+      "false_count": 696,
+      "true_count": 40,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 12,
+      "false_count": 288,
+      "true_count": 3888,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 13,
+      "false_count": 3312,
+      "true_count": 576,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 14,
+      "false_count": 480,
+      "true_count": 96,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 15,
+      "false_count": 480,
+      "true_count": 96,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 16,
+      "false_count": 384,
+      "true_count": 192,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 17,
+      "false_count": 288,
+      "true_count": 288,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 18,
+      "false_count": 240,
+      "true_count": 48,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 32,
+      "false_count": 47922,
+      "true_count": 678,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 33,
+      "false_count": 510,
+      "true_count": 168,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 34,
+      "false_count": 114,
+      "true_count": 54,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 35,
+      "false_count": 18,
+      "true_count": 18,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 36,
+      "false_count": 12,
+      "true_count": 42,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 37,
+      "false_count": 12,
+      "true_count": 12,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 38,
+      "false_count": 126,
+      "true_count": 18,
+      "outcome_coverage": "both"
+    },
+    {
+      "id": 39,
+      "false_count": 35154,
+      "true_count": 13446,
+      "outcome_coverage": "both"
+    }
+  ],
+  "branch_coverage_scope": "Only explicitly instrumented damage/shooter conditions; not all source branches or state combinations.",
+  "stage_count": 5,
+  "full_product_acceptance": false,
+  "full_tick_supported": false,
+  "authoritative_PvP72_world_migrated": false,
+  "remaining_legacy_world": "src/sim/pyrt.h::Match / V",
+  "no_performance_claim": true,
+  "verification_sha256": "6fb3e9bf3008c082d293a370bb85eb9664f6476d64a475a010fd706b98a9b1d5"
+}

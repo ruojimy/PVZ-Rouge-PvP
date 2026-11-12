@@ -1,0 +1,199 @@
+{
+  "toolkit_version": "1.0.0",
+  "files": [
+    {
+      "path": "GAPS.md",
+      "bytes": 1870,
+      "sha256": "500b502cde83dc4c45dd621d56f50a5e6555d46f6630ed21794965bf858bb4c7"
+    },
+    {
+      "path": "INDEX.md",
+      "bytes": 1746,
+      "sha256": "bc9c3945bed993ae44bb824c05a67bff03cd7303e7ebe65513b469008c68393a"
+    },
+    {
+      "path": "MIGRATION.md",
+      "bytes": 4183,
+      "sha256": "52a08fa840b2e53d1748de7763e376934223514f1bf70bef49378ad0d0785623"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2740,
+      "sha256": "7ec2686343d8bd28a0c14b65a181a9f69115c923a0621bfc61da88e622ed7b69"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.txt",
+      "bytes": 581,
+      "sha256": "9e0251bcc474eeca689ea56b9c55ce202869ca6ede0fbbfc5b1e3e14fdcdd1fc"
+    },
+    {
+      "path": "VALIDATION.md",
+      "bytes": 1854,
+      "sha256": "f5202ec2e43cd08fa6f0c15776b9667dc5036ed48a8e23d081245c8c1f65aa5c"
+    },
+    {
+      "path": "allowlist.json",
+      "bytes": 1458,
+      "sha256": "cebd229ab71700bae14224b3333baaf418555c08b51c798a7cc22598e0eb2a80"
+    },
+    {
+      "path": "compatibility.json",
+      "bytes": 2219,
+      "sha256": "e2fd47100481be7a801fd1e3252b0a9d5f4b4e72833365f3b1db61df4b68de75"
+    },
+    {
+      "path": "examples/capabilities-request.json",
+      "bytes": 57,
+      "sha256": "51563614ad4e21cec38c3b0c816d2b621cafa549dcbc13c4ba46a89e7c098252"
+    },
+    {
+      "path": "examples/quickstart.ps1",
+      "bytes": 268,
+      "sha256": "f07475168c375ae55cf440a4960f1b62952a07f60398ff2c95c8cbab814cfe5e"
+    },
+    {
+      "path": "launch.cmd",
+      "bytes": 189,
+      "sha256": "bd6a94d949532444c9952cb46ae1ed8b8ec6a5a77513344abc380bd25451264c"
+    },
+    {
+      "path": "migration-matrix.json",
+      "bytes": 30764,
+      "sha256": "694dbe6cee5e8d21773ba53427ef66e8db3e4b68ee53d2ced09c1d1bdfd3fb0e"
+    },
+    {
+      "path": "provenance/developer-extra-files.json",
+      "bytes": 696611,
+      "sha256": "782a28ef533c609cf84b9cb0e304d3fd5afc035a272504daa37a2b5aeaca5336"
+    },
+    {
+      "path": "provenance/legacy-skill-provenance.json",
+      "bytes": 4569,
+      "sha256": "80cc39d49bdbf8ab2b36ae9077cb7104e6714f05159efb282e91ec2e36436233"
+    },
+    {
+      "path": "provenance/related-archives.json",
+      "bytes": 7182,
+      "sha256": "f6be44459c4fe7bfaf5e02e77ecbb6fb8db2c6ca748d90d05b3d5f0a8531d818"
+    },
+    {
+      "path": "provenance/source-checkout-comparison.json",
+      "bytes": 4592,
+      "sha256": "044791f8833069833e4e789882c85e27716b9092472a2e03c991a3665f65ab00"
+    },
+    {
+      "path": "sdk/protocol.md",
+      "bytes": 2325,
+      "sha256": "0fba1353d513c804a8dc6da10f6c426176833889fc6b9668f9c44bda601978d1"
+    },
+    {
+      "path": "sdk/request.schema.json",
+      "bytes": 893,
+      "sha256": "6d3e3fb0a06f3d81621ee1849e41497356ec0e2239e37263363ae7ba05023261"
+    },
+    {
+      "path": "skills/native-acceptance/SKILL.md",
+      "bytes": 1144,
+      "sha256": "20fcdc22377cd82d3dc1b251f55494322c1d8e5e4dd140cfbfe88ba0d8538e7b"
+    },
+    {
+      "path": "skills/native-ai-source/SKILL.md",
+      "bytes": 993,
+      "sha256": "e3f7b0e0cab167da68924255fffd9282298904a42dfc1eff21bd74d636eff12f"
+    },
+    {
+      "path": "skills/native-build-source/SKILL.md",
+      "bytes": 931,
+      "sha256": "bd633fb00ba86ffd05ea94be1a9e983633dc2ace44e2a933d311cd48d14c8be5"
+    },
+    {
+      "path": "skills/native-export/SKILL.md",
+      "bytes": 1248,
+      "sha256": "4b04519d0ac3b8830deb05838884972c85f858ae299bb1b107a68db4cac7ecb7"
+    },
+    {
+      "path": "skills/native-maps/SKILL.md",
+      "bytes": 1259,
+      "sha256": "c0cf2214a4f0db7f787ca0a69d21511d907df28dea2a17c3a45fb4046e8ed27c"
+    },
+    {
+      "path": "skills/native-package-audit/SKILL.md",
+      "bytes": 1237,
+      "sha256": "7662a759ff219f0d223b395b5dc22a239ef9d291966331acddad1e613bd9ff81"
+    },
+    {
+      "path": "skills/native-performance/SKILL.md",
+      "bytes": 1216,
+      "sha256": "bf589d002a373e75ca23a41e051cfe609839f03302f2af471373b6f2b46a75e5"
+    },
+    {
+      "path": "skills/native-relay/SKILL.md",
+      "bytes": 1354,
+      "sha256": "d927c0f8352cf40ce92e38c9586afef7c0a1c3900e1d22f827f17862849d4368"
+    },
+    {
+      "path": "skills/native-replay/SKILL.md",
+      "bytes": 1243,
+      "sha256": "addc2759affca74e50c9e590a08d74a5a7d2f10f52c62110123555fd4cbc4add"
+    },
+    {
+      "path": "skills/native-test-source/SKILL.md",
+      "bytes": 927,
+      "sha256": "8ccd4737708a712426ecba69e136a5b2f81e86563095aba185b0fce71395d7d5"
+    },
+    {
+      "path": "skills/pvz-rouge-add-boss/SKILL.md",
+      "bytes": 1516,
+      "sha256": "5d48b4298d60ecdf984d04f95ec5c4ec8f277c1e440ec56b442c6a0e9f299f99"
+    },
+    {
+      "path": "skills/pvz-rouge-add-mode/SKILL.md",
+      "bytes": 1419,
+      "sha256": "7880a8a6cce397d8b5e85d9941c55740cbfc26dbfe84b0aba461130b4c1e1615"
+    },
+    {
+      "path": "skills/pvz-rouge-add-plant/SKILL.md",
+      "bytes": 1468,
+      "sha256": "d0be7550b8109fe9d0c27f96cb8de5fd62ca256743689e8a38de368d27b746e9"
+    },
+    {
+      "path": "skills/pvz-rouge-add-zombie/SKILL.md",
+      "bytes": 1420,
+      "sha256": "8270c0ec7a68570c064433c8840e32a6b78c80b4a472faa1a162e97add49a220"
+    },
+    {
+      "path": "tools/build_extension.py",
+      "bytes": 3825,
+      "sha256": "ece504290d7356af7ee926d08f44281f2ed4d1b9977296b8f1f745f91709d59f"
+    },
+    {
+      "path": "tools/pvz_tools.py",
+      "bytes": 19916,
+      "sha256": "b425020bc228e3db7eda7eb5a7f5249d9d4cf1a544851013dc88349923575542"
+    },
+    {
+      "path": "tools/relay/config.example.json",
+      "bytes": 47,
+      "sha256": "98fc93c7e8b2791287b6bda96a1353b35ac480c8d63901b1249f2b579235bd2f"
+    },
+    {
+      "path": "tools/relay/health.py",
+      "bytes": 1070,
+      "sha256": "7c7402677ddbaf5c103ab1366c2b9974da9680b68776d9b2aac494a51fb9b194"
+    },
+    {
+      "path": "tools/relay/relay_server.py",
+      "bytes": 25082,
+      "sha256": "f24d8de5a9e3f603b3fa410454d9de7a55ba6819b26837da5df31bef4fcc6287"
+    },
+    {
+      "path": "validation/results.json",
+      "bytes": 366419,
+      "sha256": "acbdfcc6c243143c5586c66760a2503a87730c18e190811c8401605c6f80197b"
+    }
+  ],
+  "metadata_files": [
+    "manifest.json",
+    "SHA256SUMS.txt"
+  ]
+}

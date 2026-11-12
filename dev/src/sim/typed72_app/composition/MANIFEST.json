@@ -1,0 +1,1237 @@
+{
+ "source": "build/typed72-match-v1",
+ "production_observers_version": 1,
+ "body_sha256_encoding": "UTF-8, CRLF normalized to LF, including body braces",
+ "legacy_strip": {
+  "source_sha256": "fd60a2545a20231311e16597dea7ed907353410111e2210f1285b74aa7507f25",
+  "replacement": "null C++ statement"
+ },
+ "files": {
+  "probes/ai_firing_probe.cpp": {
+   "source_sha256": "dabe5e9b395f7ae27087ad1ce2f6e6d009c3dc84d153d05e646ccdc1bba97158",
+   "generated_sha256": "dabe5e9b395f7ae27087ad1ce2f6e6d009c3dc84d153d05e646ccdc1bba97158",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/ai_observation_probe.cpp": {
+   "source_sha256": "4c2b6fe924ad8f7a78f325f2e68f51a09226bfa42532e971ce05444e6e6490e1",
+   "generated_sha256": "4c2b6fe924ad8f7a78f325f2e68f51a09226bfa42532e971ce05444e6e6490e1",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/ai_plant_placement_probe.cpp": {
+   "source_sha256": "e60a2b41f367188b7de1b427ac48d7c3f71aecfd698746aed7fd8441bd3e62e2",
+   "generated_sha256": "e60a2b41f367188b7de1b427ac48d7c3f71aecfd698746aed7fd8441bd3e62e2",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/ai_probe_fixture.inc": {
+   "source_sha256": "f0548863384ecb53bcbc5b420317964d13de655d9e8d3193176f8c0cf8812a70",
+   "generated_sha256": "f0548863384ecb53bcbc5b420317964d13de655d9e8d3193176f8c0cf8812a70",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/ai_tactical_probe.cpp": {
+   "source_sha256": "22f48a4d1ce3bbc655c70c8dfb7b432916c49896d7b1e5754d2053c12229ec62",
+   "generated_sha256": "22f48a4d1ce3bbc655c70c8dfb7b432916c49896d7b1e5754d2053c12229ec62",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/aim_probe.cpp": {
+   "source_sha256": "3ea0af8ad9abfe2ec49cee6119be249c51c3646d10a0d66388091d0deed6450c",
+   "generated_sha256": "25cab2c1e36cf17fc0b3c05341ab3cfd325824b804eb9b06c7aaa5087ec096ef",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/bonus_probe.cpp": {
+   "source_sha256": "1b8a29ae1668625950ea2dfb736f871f777251f8637256f9220db4efb1bc7c6a",
+   "generated_sha256": "4f6253650f8d4fea2f0872e7f585bb403d3ddd74229930f29714c04dc94aee0a",
+   "removed": [
+    "calls.push_back({\"bonus_star_assets\"});",
+    "before(\"bonus_star_assets\");",
+    "after(\"bonus_star_assets\");",
+    "calls.push_back({\"bonus_blue_assets\"});",
+    "before(\"bonus_blue_assets\");",
+    "after(\"bonus_blue_assets\");",
+    "calls.push_back({\"bonus_head\", entity_index(entity), index, facing, amount, surface});",
+    "before(\"bonus_head\");",
+    "after(\"bonus_head\");"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/chili_probe.cpp": {
+   "source_sha256": "3a5cde3091f32a65723dfb094e8bc3a08dec56131a40cc703eee40a6b4edf9ee",
+   "generated_sha256": "184a913a6a6d85d5aaf7fadaea9cdda2c00147fd90734fd459d83780a8850daf",
+   "removed": [
+    "calls.push_back(J::array({\"damage\",amount}));",
+    "before(\"player_damage\");",
+    "after(\"player_damage\");",
+    "dispatch_calls.push_back(J::array({\"hint\",label(t),force}));",
+    "before(\"hint\");",
+    "after(\"hint\");",
+    "dispatch_calls.push_back(J::array({\"enemy\",entity_index(e),box_json(b),s}));",
+    "dispatch_calls.push_back(J::array({\"player\",entity_index(e),box_json(b),s}));",
+    "dispatch_calls.push_back(J::array({\"units\",entity_index(e),box_json(b),s,charmed,rows_json(r)}));",
+    "held_hits.push_back(f.is_null()?ChiliHits{}:f.get());"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/cold_catalog_probe.cpp": {
+   "source_sha256": "942d5319edf6f221db656bed69c821284b74df97c218818e105838a8d1323ac0",
+   "generated_sha256": "942d5319edf6f221db656bed69c821284b74df97c218818e105838a8d1323ac0",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/cold_placement_probe.cpp": {
+   "source_sha256": "8cfbc921962ebedcc9487048b2c78d18198df879048ea99f12594a7dfc1c7540",
+   "generated_sha256": "8cfbc921962ebedcc9487048b2c78d18198df879048ea99f12594a7dfc1c7540",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/cold_registration_probe.cpp": {
+   "source_sha256": "dbceb2a0e38b3692a03b2d231f21706bd0128f1a35da629f670b015dfa41ec91",
+   "generated_sha256": "dbceb2a0e38b3692a03b2d231f21706bd0128f1a35da629f670b015dfa41ec91",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/content_controllers_probe.cpp": {
+   "source_sha256": "5049c81e85aba9b69105c02f11b8a2961e40465a739e02ea2c6d9193a42ca8f3",
+   "generated_sha256": "1756ad758d3bea07bdc1f46f5c79904bb0bf127ef65bedeacead9028e944b878",
+   "removed": [
+    "before(\"bone_grave_factory\");",
+    "after(\"bone_grave_factory\");",
+    "before(\"bone_gravebuster_factory\");",
+    "after(\"bone_gravebuster_factory\");",
+    "before(\"barrel_register\");",
+    "after(\"barrel_register\");",
+    "before(\"barrel_crush\");",
+    "after(\"barrel_crush\");"
+   ],
+   "production_observers": [
+    {
+     "signature": "double bite_damage(const ZombieRef& unit,const ContentTarget& target)override",
+     "source_body_sha256": "bde09aa31ff513ddf54f62ee0bfd3aef0d350094f757d80509cfd7a226537a56",
+     "observer_result_body_sha256": "f9d850508a276939188ebf7f1c2084372fc0886929f6a4dc0266197ec14b8750",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"bite\",unit,J::array({content_label(target)}));"
+     ]
+    },
+    {
+     "signature": "void hide_headhunt_plants(const ZombieRef& unit)override",
+     "source_body_sha256": "765e70f4f29e8f5abf078fc13f93b3862f9f97c70072c738a715efc5a98d9dd9",
+     "observer_result_body_sha256": "34eb75c8b7ab6234e4741f96ce66907ee7e263054381cc18fcabf828c6fca884",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"hide_headhunt\",unit);"
+     ]
+    },
+    {
+     "signature": "void september_gate(const ZombieRef& unit)override",
+     "source_body_sha256": "45a1af9a25d7e86848cdc4817a84e6eef44fa3f91c04514bbbc8d17f785d2a8f",
+     "observer_result_body_sha256": "a6d6d7656e0ee71b75f7faf049ce9b86864a4af086a58d74c15100d1c3106e69",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"september_gate\",unit);"
+     ]
+    },
+    {
+     "signature": "void september_wave_chase(const ZombieRef& unit)override",
+     "source_body_sha256": "9bfe7c4e9d6c82732e387c14a232706b31fb5d771285ad86c0db2c652fd2e70a",
+     "observer_result_body_sha256": "9b9cdb2a3e0208a527376c7d335fe00665db34b1716bf3e6b00593a64da40e20",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"wave_chase\",unit);"
+     ]
+    },
+    {
+     "signature": "void september_finish(const ZombieRef& unit)override",
+     "source_body_sha256": "e81cf96b3b0c5d5192f23b13edc41e1768a9352a1382078b4d3eebedf7e697ae",
+     "observer_result_body_sha256": "21c44ba354a7501bf15129ade8a7475e8bdd10d5c13f81d4a5efedb0f8c72a77",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"september_finish\",unit);"
+     ]
+    },
+    {
+     "signature": "void zombies56_gate(const ZombieRef& unit)override",
+     "source_body_sha256": "8fd0663d108b3ea34d32b35a37dd8c30ab321e25388d9007eac16ff3167101f9",
+     "observer_result_body_sha256": "e9f226e1150b40cebf844083a58a56f0854b35361129bb602f49b81231dc7918",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"zombies56_gate\",unit);"
+     ]
+    },
+    {
+     "signature": "void zombies56_finish(const ZombieRef& unit)override",
+     "source_body_sha256": "f050747e63c50be6d9b85facfdc07dd8487e6e0cb45662183a3290d37d6b6a03",
+     "observer_result_body_sha256": "47035fbc2ff9db8dc6b0947ac02f09f7214dcfc88db98fac03cad57a533b8c09",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"zombies56_finish\",unit);"
+     ]
+    },
+    {
+     "signature": "void zombies70_gate(const ZombieRef& unit)override",
+     "source_body_sha256": "751d0b1f2ab8b5b0e553094ed41318f24ce7e71fe71deb853e562381464f0de1",
+     "observer_result_body_sha256": "6a811d127dc61403a1bffa2def9a67061bb795b27df6b7388305fd494c2a69eb",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"zombies70_gate\",unit);"
+     ]
+    },
+    {
+     "signature": "void barrel_correct_pair(const ZombieRef& unit)override",
+     "source_body_sha256": "fbf6397198cce07f1a19e46dc4507d36e519c48a84bb0b3a09ee67790569447d",
+     "observer_result_body_sha256": "f44d5d90b15222e3f1770bab1cc5034279f66fe789fc62157927908e89b221ff",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"barrel_correct\",unit);"
+     ]
+    },
+    {
+     "signature": "void barrel_detach(const ZombieRef& unit,double hp)override",
+     "source_body_sha256": "33ef984651c8dade2b28433ba10dbc7fea02202edf5203164a4557095a69a9ce",
+     "observer_result_body_sha256": "2a73412a48f345729104df9c01476d4daa192aebb20742f38a56def67a3d57e6",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"barrel_detach\",unit,J::array({hp}));"
+     ]
+    },
+    {
+     "signature": "void barrel_break(const ZombieRef& unit)override",
+     "source_body_sha256": "b5bb73a67ffa225ba2596e38f414f24dc4142b2e54e3a6004af9b6f89d9a9b08",
+     "observer_result_body_sha256": "7fb4d93abb4d21a60764c4033bd32d06f50fab1e1fd58fa99a1e6f1e05394e71",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"barrel_break\",unit);"
+     ]
+    },
+    {
+     "signature": "void barrel_move(const ZombieRef& unit,double factor)override",
+     "source_body_sha256": "61b261c072a8a31107258091bbda19eef1364d1462cf21de93081feaaef24ad2",
+     "observer_result_body_sha256": "dae0e219e1c399ef2da2c6638e2034d07192e7ad65b0dd22c1f4fe49ba153755",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"barrel_move\",unit,J::array({factor}));"
+     ]
+    },
+    {
+     "signature": "void barrel_contact(const ZombieRef& unit,double factor)override",
+     "source_body_sha256": "29d0d96f4f0a4795221e1b5e40c8356d1c89029b0ff192fa05a6b0047155fc7a",
+     "observer_result_body_sha256": "3bc51402bbde6a6080801301515024cfc458a5ff0dcdb165be5579631fdac3cc",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"barrel_contact\",unit,J::array({factor}));"
+     ]
+    },
+    {
+     "signature": "void zombie56_event(const Zombie56Event& value)override",
+     "source_body_sha256": "98f56ced4113f4d7ce58a0b236e993cabdeb5fed445f4f94a8eabe7e769cc045",
+     "observer_result_body_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+     "transform": "empty_fixture_body",
+     "expected_count": 1,
+     "removed_statements": []
+    },
+    {
+     "signature": "void zombie70_event(const Zombie70Event& value)override",
+     "source_body_sha256": "8fdf7606febd6b3bfcd02c07070939a9e23e1ae2363f90365c04fd6fa9d3cc16",
+     "observer_result_body_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+     "transform": "empty_fixture_body",
+     "expected_count": 1,
+     "removed_statements": []
+    },
+    {
+     "signature": "void barrel_event(const BarrelEvent& value)override",
+     "source_body_sha256": "3c6170893e0fed937df4e7d4779e2ee165af4b6cb134906026bc0c97795ac030",
+     "observer_result_body_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+     "transform": "empty_fixture_body",
+     "expected_count": 1,
+     "removed_statements": []
+    },
+    {
+     "signature": "ZombieRef spawn_bone_grave(Cell cell,const BoneSource& source)override",
+     "source_body_sha256": "b32e999a674441796a1d2e01bb4b55d1f8313c5cf3fa11266ebc256542dcbe8b",
+     "observer_result_body_sha256": "0d904b072020755ee66ad19d5da61c6db0fef585fa59036b8a60021d97f53cc8",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "factory_events.push_back({\"bone_grave\",cell.y,cell.x,nullable(source.metadata->id),source.direction});"
+     ]
+    },
+    {
+     "signature": "PlantRef spawn_bone_gravebuster(Cell cell,double facing,const Field<std::string>& parent)override",
+     "source_body_sha256": "23dfc16794e70454fea2022d6e7804b725aa5d3ebe15402e4cf4efac735f33bd",
+     "observer_result_body_sha256": "3c5e0fe012471970497f8aadd75731737fcd1db9022ca992b1d2f225236c36cc",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "factory_events.push_back({\"bone_gravebuster\",cell.y,cell.x,facing,nullable(parent)});"
+     ]
+    },
+    {
+     "signature": "void draw_zombie70_effects()override",
+     "source_body_sha256": "51b4a821a0faf214b5d17d908be4953aafdda10b647ec7fd15e9ef61651660a0",
+     "observer_result_body_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+     "transform": "empty_fixture_body",
+     "expected_count": 1,
+     "removed_statements": []
+    },
+    {
+     "signature": "void register_barrel(const ZombieRef& unit,const Field<std::string>& parent)override",
+     "source_body_sha256": "53084870663e398e5bae5803965a2c88eaaeb1362f15ba1dcbc459d040964d5c",
+     "observer_result_body_sha256": "306010bb280c5c148005758e0c3f632ada29271eb3af560bfc9667ea2e1ee435",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "factory_events.push_back({\"register_barrel\",index(unit),nullable(parent)});"
+     ]
+    },
+    {
+     "signature": "void crush_barrel_plant(const ZombieRef& unit,const PlantRef& plant)override",
+     "source_body_sha256": "ddfa3daa472e2d87cec68a5ac1a1f50eb6bbe7adaeb3db2b232751b3df7687ca",
+     "observer_result_body_sha256": "b845cdf4b4aa6e85bcb5f98e68f98447390a9183555722aea22e941e298fe8b6",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "factory_events.push_back({\"crush\",index(unit),content_label(plant)});"
+     ]
+    },
+    {
+     "signature": "void draw_barrel_sprite(Point point,double angle)override",
+     "source_body_sha256": "f20d0264616b7dd249e7c1360be938b58865382ec7778b4864c4f918f301e335",
+     "observer_result_body_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+     "transform": "empty_fixture_body",
+     "expected_count": 1,
+     "removed_statements": []
+    }
+   ],
+   "production_changes": []
+  },
+  "probes/content_phase_probe.cpp": {
+   "source_sha256": "a5db9e47494d0f2f17702a570e78a3ee6bf3876d484037ee6108b4a1bf2ddb60",
+   "generated_sha256": "54c2a1017547eefd5db2f349180ab0505b6e69421d4ea0718b5dcf258494fac6",
+   "removed": [
+    "phase_events.push_back({\"bonus_star_assets\"});",
+    "phase_events.push_back({\"bonus_blue_assets\"});",
+    "phase_events.push_back({\"register_tentacle\",id,nullable(parent)});",
+    "phase_events.push_back({\"sync_terrain\"});",
+    "phase_events.push_back({\"lantern_burn\",nullable(id),hits});",
+    "phase_events.push_back({\"september\",int(value.kind),nullable(value.source),value.sun_amount});",
+    "phase_events.push_back({\"reed\",nullable(value.source),value.overload,value.targets});",
+    "phase_events.push_back({\"mortar\",nullable(value.source),value.spring,value.shots,value.targets});",
+    "phase_draws.push_back({\"dart\",entity_index(entity),{point.x,point.y},angle});",
+    "phase_draws.push_back({\"mortar\",entity_index(entity),angle,trail?J::array({trail->x,trail->y}):J(nullptr),tail});",
+    "phase_draws.push_back({\"ghost\",value.tick,{value.point.x,value.point.y}});",
+    "phase_draws.push_back({\"reed\",value.tick,value.content});",
+    "phase_draws.push_back({\"spring\",value.tick,{value.point.x,value.point.y},value.angle});",
+    "phase_draws.push_back({\"grenade\",value.tick,{value.point.x,value.point.y},value.instant});",
+    "phase_draws.push_back({\"grenade_projectile\",{shot->motion.x,shot->motion.y},angle,alpha});",
+    "phase_draws.push_back({\"hook_rope\",{point.x,point.y}});",
+    "phase_draws.push_back({\"zombie_projectile\",sprite,{shot->motion.x,shot->motion.y},angle,alpha});"
+   ],
+   "production_observers": [
+    {
+     "signature": "HitResult hit(size_t i,double f,double a)override",
+     "source_body_sha256": "51714c5c264860ab5a40a4243b1bc09504fc2cd0653548a35136a323f7948921",
+     "observer_result_body_sha256": "cc86d4f968e03400f16e2b6c5a4858ad3c89d4e96cbda9f998d41f711df90e81",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "p.calls.push_back({\"pea_damage\",i,f,a});",
+      "p.before(\"pea_damage\");",
+      "p.after(\"pea_damage\");"
+     ]
+    },
+    {
+     "signature": "HitResult surface_hit(size_t i,double f,double a)override",
+     "source_body_sha256": "37e942523a5f89f78bbc74f1d09531d3dbc68d83521be2637f7e026ed54c2b25",
+     "observer_result_body_sha256": "217bfcadb121a3f20fc4044aee2560e9d47aeb278daae8ae953064baf0def258",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "p.calls.push_back({\"pea_surface\",i,f,a});",
+      "p.before(\"pea_surface\");",
+      "p.after(\"pea_surface\");"
+     ]
+    },
+    {
+     "signature": "void knock(size_t i,double a)override",
+     "source_body_sha256": "cd2a35b4532f4eca4007c258a205f2dfd87aaef6ad760e6e534d84657282f993",
+     "observer_result_body_sha256": "f7307bbb20f539617aaf58a2bea91308dae16cd9872ece152573f3390cd0fc91",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "p.calls.push_back({\"pea_knockback\",i,a});",
+      "p.before(\"pea_knockback\");",
+      "p.after(\"pea_knockback\");"
+     ]
+    },
+    {
+     "signature": "void plant70_event(const Plant70Event& value)override",
+     "source_body_sha256": "60ba6804cbba07224cebfce21473be232a993f6c633b857f157936518d1ba69b",
+     "observer_result_body_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+     "transform": "empty_fixture_body",
+     "expected_count": 1,
+     "removed_statements": []
+    },
+    {
+     "signature": "void lantern_wake(const Field<std::string>& id,const std::vector<Field<std::string>>& targets)override",
+     "source_body_sha256": "6c54d2a18429423c75da2b9eecdfa4120eebffbc80fd5becbcf784d8caad9f70",
+     "observer_result_body_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+     "transform": "empty_fixture_body",
+     "expected_count": 1,
+     "removed_statements": []
+    },
+    {
+     "signature": "void draw_lettuce_flash(const LettuceFlash& flash)override",
+     "source_body_sha256": "ce2f67d47a2ebc43a805c4c8a3e5b78accf85051f66448b71927cb0bfd457dbb",
+     "observer_result_body_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+     "transform": "empty_fixture_body",
+     "expected_count": 1,
+     "removed_statements": []
+    }
+   ],
+   "production_changes": []
+  },
+  "probes/content_queries_probe.cpp": {
+   "source_sha256": "d2bef5ff1224af5bb602afd4e9ab9c17667c8b7ff80c32f47f57031be8d802f5",
+   "generated_sha256": "d2bef5ff1224af5bb602afd4e9ab9c17667c8b7ff80c32f47f57031be8d802f5",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/content_zombies64_probe.cpp": {
+   "source_sha256": "bce256ae4f4fd84b0507fc0c62f0a414a89f1338c19dd9ff1c9abd58eb1326c8",
+   "generated_sha256": "809a9b393b9188a1f558c3d3ef384023453f5e9663a0876490ed385889a5bb49",
+   "removed": [
+    "before(\"zombie64_event\");",
+    "after(\"zombie64_event\");",
+    "before(\"zombie64_alias\");",
+    "after(\"zombie64_alias\");",
+    "before(\"zombie64_draw\");",
+    "after(\"zombie64_draw\");",
+    "before(\"zombie64_sync\");",
+    "after(\"zombie64_sync\");",
+    "before(\"zombie64_spawn\");",
+    "after(\"zombie64_spawn\");"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/content_zombies_probe.cpp": {
+   "source_sha256": "2379adfe182c01b7050c1a587f1a09e8eda528660626510e838509956ddfc26e",
+   "generated_sha256": "9ddb23d7a4173ea91f1205637e647a3e88d8bccde8dc5d7ff7a146b197bca013",
+   "removed": [
+    "cart_events.push_back({\"cart_expired\",{{\"entity\",nullable(entity)},{\"card\",nullable(card)},{\"seconds\",seconds}}});",
+    "before(\"cart_expired\");",
+    "after(\"cart_expired\");",
+    "summon_events.push_back({\"content_summon\",{{\"source\",nullable(source)},{\"entity\",entity},{\"card\",card},{\"owner\",seat_name(owner)}}});",
+    "before(\"content_summon_event\");",
+    "after(\"content_summon_event\");"
+   ],
+   "production_observers": [
+    {
+     "signature": "void event(const std::string& name,const ZombieRef& unit,J extra=J::array())",
+     "source_body_sha256": "fc54d979c21bd99af7f17788a1bdfce89a62e8c9acab064be350a4255eadab38",
+     "observer_result_body_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+     "transform": "empty_fixture_body",
+     "expected_count": 1,
+     "removed_statements": []
+    },
+    {
+     "signature": "void cart_before(const ZombieRef& unit)override",
+     "source_body_sha256": "0e6d0457871e3b0b21d5db3b21a77713fe7498b7e5192333aed861e83ea1a2af",
+     "observer_result_body_sha256": "9b7d997dbb6eb8ca763ba4ad85133e07c56fc71709806d679f6f522498cce935",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"cart_before\",unit);"
+     ]
+    },
+    {
+     "signature": "void cart_animate(const ZombieRef& unit,bool active,bool fired)override",
+     "source_body_sha256": "969c30c8197fdbe49642ce102d7b9862bf5e035c6cef4c728f5408ed46dc31b8",
+     "observer_result_body_sha256": "03d0444b0243414dd3a57d270d185466eefce260dc7f8f63c2c8b5c4ac80f183",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"cart_animate\",unit,J::array({active,fired}));"
+     ]
+    },
+    {
+     "signature": "void september_gate(const ZombieRef& unit)override",
+     "source_body_sha256": "c0933678435a12727d067c37cc94ba3c275d4c0b40cbed66afcbd9b728a9c828",
+     "observer_result_body_sha256": "34eb75c8b7ab6234e4741f96ce66907ee7e263054381cc18fcabf828c6fca884",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"september_gate\",unit);"
+     ]
+    },
+    {
+     "signature": "void september_wave_chase(const ZombieRef& unit)override",
+     "source_body_sha256": "a10dda05eb44c172cea5732109e1748505048acef2083bcf7722ca06dd8c3cd5",
+     "observer_result_body_sha256": "34eb75c8b7ab6234e4741f96ce66907ee7e263054381cc18fcabf828c6fca884",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"wave_chase\",unit);"
+     ]
+    },
+    {
+     "signature": "void september_finish(const ZombieRef& unit)override",
+     "source_body_sha256": "6dcd5a16e197e7942732ca8665dcdb9e2a2bfc7f1bf778f71205e0af7c333464",
+     "observer_result_body_sha256": "34eb75c8b7ab6234e4741f96ce66907ee7e263054381cc18fcabf828c6fca884",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"september_finish\",unit);"
+     ]
+    },
+    {
+     "signature": "void zombies56_gate(const ZombieRef& unit)override",
+     "source_body_sha256": "542084636565b9d218810f554b931bf4dec182f2b875495db255275004bae920",
+     "observer_result_body_sha256": "34eb75c8b7ab6234e4741f96ce66907ee7e263054381cc18fcabf828c6fca884",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"zombies56_gate\",unit);"
+     ]
+    },
+    {
+     "signature": "void zombies56_finish(const ZombieRef& unit)override",
+     "source_body_sha256": "281992f7bda8c41f37ad601625539ec84f80d4bec1b0cc22adba75b43f8dd6ae",
+     "observer_result_body_sha256": "34eb75c8b7ab6234e4741f96ce66907ee7e263054381cc18fcabf828c6fca884",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"zombies56_finish\",unit);"
+     ]
+    },
+    {
+     "signature": "void zombies70_gate(const ZombieRef& unit)override",
+     "source_body_sha256": "4ac7d41a913bd632606b63527add598c8134e34d71d6f565e07becbbfb30a225",
+     "observer_result_body_sha256": "34eb75c8b7ab6234e4741f96ce66907ee7e263054381cc18fcabf828c6fca884",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"zombies70_gate\",unit);"
+     ]
+    },
+    {
+     "signature": "void barrel_correct_pair(const ZombieRef& unit)override",
+     "source_body_sha256": "4846deacaaa8e63b8c32b70837886621167db6f91083c3afa8dfec2e959b0644",
+     "observer_result_body_sha256": "34eb75c8b7ab6234e4741f96ce66907ee7e263054381cc18fcabf828c6fca884",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"barrel_correct\",unit);"
+     ]
+    },
+    {
+     "signature": "void barrel_detach(const ZombieRef& unit,double remaining)override",
+     "source_body_sha256": "ef12b0005aa501ed9e97cfaf6e4a25b22ae907da9e64af46e62bccbe0b957f25",
+     "observer_result_body_sha256": "34eb75c8b7ab6234e4741f96ce66907ee7e263054381cc18fcabf828c6fca884",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"barrel_detach\",unit,J::array({remaining}));"
+     ]
+    },
+    {
+     "signature": "void barrel_break(const ZombieRef& unit)override",
+     "source_body_sha256": "f1d5db92a37a2e97b503b06def124364541bf6688f1b4fd7eef46638d7a4d760",
+     "observer_result_body_sha256": "34eb75c8b7ab6234e4741f96ce66907ee7e263054381cc18fcabf828c6fca884",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"barrel_break\",unit);"
+     ]
+    },
+    {
+     "signature": "void barrel_move(const ZombieRef& unit,double factor)override",
+     "source_body_sha256": "8ab7b4d862837d4f954f93c898a6e3b5b9a6ddf321f075deac503b4ac8fad326",
+     "observer_result_body_sha256": "34eb75c8b7ab6234e4741f96ce66907ee7e263054381cc18fcabf828c6fca884",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"barrel_move\",unit,J::array({factor}));"
+     ]
+    },
+    {
+     "signature": "void barrel_contact(const ZombieRef& unit,double factor)override",
+     "source_body_sha256": "fd2d20b22597afee0ecea3bcea6bc3397ad586352dfa132652256a04921f1628",
+     "observer_result_body_sha256": "34eb75c8b7ab6234e4741f96ce66907ee7e263054381cc18fcabf828c6fca884",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"barrel_contact\",unit,J::array({factor}));"
+     ]
+    },
+    {
+     "signature": "double bite_damage(const ZombieRef& unit,const ContentTarget& target)override",
+     "source_body_sha256": "efd18043b192a7eb576abe85235e259a7c3e58fdeb0bcb114ba57950c9e73a66",
+     "observer_result_body_sha256": "38692aaced37a5dce8a7703c3115b9824e603274d1a2e786bab5a8ebffd110e7",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"bite\",unit,J::array({content_label(target)}));"
+     ]
+    },
+    {
+     "signature": "void tint_poison(const ZombieRef& unit)override",
+     "source_body_sha256": "f2f559e7c6ac2b41119fc84d17c7b73f17756dd455c4664aa7540bf68c493fdf",
+     "observer_result_body_sha256": "34eb75c8b7ab6234e4741f96ce66907ee7e263054381cc18fcabf828c6fca884",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"tint\",unit);"
+     ]
+    },
+    {
+     "signature": "void draw_content_zombie(const ZombieRef& unit)override",
+     "source_body_sha256": "9ffd4a86bef8725810dd42415f0a226e23c9e8a050733a5580fe2e487d649417",
+     "observer_result_body_sha256": "34eb75c8b7ab6234e4741f96ce66907ee7e263054381cc18fcabf828c6fca884",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "event(\"draw\",unit);"
+     ]
+    },
+    {
+     "signature": "void stun_star(Point point,Point dimensions)override",
+     "source_body_sha256": "b6cb26b52f55e8d10cb73450df2f462ac128cb6997f8dc704f5fac3f90c5f98b",
+     "observer_result_body_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+     "transform": "empty_fixture_body",
+     "expected_count": 1,
+     "removed_statements": []
+    }
+   ],
+   "production_changes": []
+  },
+  "probes/death_probe.cpp": {
+   "source_sha256": "4ae116e8207228c06c91c4a87e0a4bca83f18ee05e360916b5292e1c2f986477",
+   "generated_sha256": "8d42da21c4977aaa06a366a344f02a0cfb4e1bed57b3b53652595feedb8aca47",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/doom_probe.cpp": {
+   "source_sha256": "5b69a982918845726dac6f3cae38abedac60cb09fe22c98bc542ff11c8c40a27",
+   "generated_sha256": "46267071a912a637d0b6fed89ece0e266de8659a9ececf0f099adeefde5caaf5",
+   "removed": [
+    "calls.push_back(J::array({\"add\",name,facing,as_json(pos)}));",
+    "before(\"add\");",
+    "after(\"add\");",
+    "calls.push_back(J::array({\"destroy\",c.y,c.x}));",
+    "before(\"destroy\");",
+    "after(\"destroy\");",
+    "calls.push_back(J::array({\"extras\"}));",
+    "before(\"extras\");",
+    "after(\"extras\");",
+    "after(\"ash\");"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/entity_probe.cpp": {
+   "source_sha256": "2bc4da2b5e259c9978ae088f7b83d864c82245af9bdd9bc0e3791175a31d12c6",
+   "generated_sha256": "5302920cf116c3590cdcab7781673e6cc09f53aecd0721b206e5997be8914118",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/expansion_combat_probe.cpp": {
+   "source_sha256": "29f25682ba72249a47909b5b7f0bb5ff1f8042c70a56ce710b3123e9bc4684f8",
+   "generated_sha256": "65014afc1f613d691676d1b74b6d0931134c9c719090530dd8b7b75870a375f3",
+   "removed": [
+    "calls.push_back({\"pea_damage\",i,facing,amount});",
+    "before(\"pea_damage\");",
+    "after(\"pea_damage\");",
+    "expansion_events.push_back({\"barrel\",index(unit)});",
+    "expansion_events.push_back({\"black\",variant,point.x,point.y});",
+    "expansion_events.push_back({\"clear\"});",
+    "expansion_events.push_back({\"armor\",index(unit)});",
+    "expansion_events.push_back({\"pole\",point.x,point.y});"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/expansion_garden_probe.cpp": {
+   "source_sha256": "a5b143eddcebf945b52ea5fb9df69e07e620956742954e2001d2bcfe59fd1447",
+   "generated_sha256": "a5b143eddcebf945b52ea5fb9df69e07e620956742954e2001d2bcfe59fd1447",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/flying_plants_probe.cpp": {
+   "source_sha256": "b27e25cd3d4d309f8c22bb0383681f1ee6d07b3b6b32b65fce8dae9c989504f8",
+   "generated_sha256": "1782b8515c7095ee015b519a340f5b7b558b8dad31f62079ab61f797a4af3fc0",
+   "removed": [
+    "before(\"content_damage\");",
+    "after(\"content_damage\");",
+    "before(\"content_damage\");",
+    "after(\"content_damage\");",
+    "flying_events.push_back({\"asparagus_sweep\",{{\"source\",event.source.present() && !event.source.is_null()?J(event.source.get()):J(nullptr)}, {\"angle\",event.angle}",
+    "before(\"flying_event\");",
+    "after(\"flying_event\");",
+    "flying_draws.push_back({entity->source.id.get(),as_json(entity->motion.get())});",
+    "before(\"flying_draw\");",
+    "after(\"flying_draw\");"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/fume_probe.cpp": {
+   "source_sha256": "07819f48ca209189ac17a268066d07672ef55f037720f9fb65bfd2bdd8fb23d9",
+   "generated_sha256": "c382e999934055c846987fa5f5e3bd663d0a5c40d169585640eb6fe7f69765b8",
+   "removed": [
+    "calls.push_back(J::array({\"fume_damage\",index,direction,amount}));",
+    "before(\"fume_damage\");",
+    "after(\"fume_damage\");",
+    "calls.push_back(J::array({\"fume_player\",amount}));",
+    "before(\"fume_player\");",
+    "after(\"fume_player\");"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/grave_binding_probe.cpp": {
+   "source_sha256": "c45fb311acaa0adc6030d34ff86cffc1715ef64a034849dc6183a15e9ffc9090",
+   "generated_sha256": "a02da78f623c40ceb4d78eae34989f8ad168d652a4b5bc191e781751f3547240",
+   "removed": [
+    "calls.push_back(J::array({\"grave_consume\",index(grave),plant_index(plant)}));",
+    "before(\"grave_consume\");",
+    "after(\"grave_consume\");",
+    "before(\"grave_event\");",
+    "after(\"grave_event\");"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/grenadiers_probe.cpp": {
+   "source_sha256": "02b0ebfe94217c788f6f41bc6ff092e05213ddcb39005023d26b0e72fcb75bc1",
+   "generated_sha256": "c2eb48a4df8a880650b0d0a1a8203f7ad5943180108176742c993a6cdd6601bf",
+   "removed": [
+    "before(\"grenade_cost\");",
+    "after(\"grenade_cost\");",
+    "before(\"grenade_event\");",
+    "after(\"grenade_event\");"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/hero_probe.cpp": {
+   "source_sha256": "05b44938137c2f87003dfcbcba3351ec2883c1a0578e217eb99ab3caa38453d7",
+   "generated_sha256": "ce2450a91f8c131b87381c05a284abed3e74665b7625bda0cfeb5e166e9a35c0",
+   "removed": [
+    "states.push_back(std::move(row));"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/kernel_probe.cpp": {
+   "source_sha256": "ceebb9643c98f180be1ac169d87c5a0dfe9384bbe469166322d54539c67de208",
+   "generated_sha256": "22451260654375351860464cb4e515802c5f4969240c734e2e45398ce6a5c59c",
+   "removed": [
+    "states.push_back(std::move(s));",
+    "states.push_back(std::move(s));",
+    "states.push_back({{\"field\",*s.field},{\"queue\",cells_json(*s.queue)},{\"frontier\",cells_json(*s.frontier)}, {\"cooldown\",s.cooldown},{\"sign\",s.sign},{\"seed_scratch",
+    "states.push_back(snapshot(w));",
+    "states.push_back({{\"motion\",json_motion(m)},{\"collision\",collision}});"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/lantern_probe.cpp": {
+   "source_sha256": "f323d87d5b2cec01090a9d804ac39dce804eeb172c3532955faa276c2f1919e7",
+   "generated_sha256": "f323d87d5b2cec01090a9d804ac39dce804eeb172c3532955faa276c2f1919e7",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/maintenance_probe.cpp": {
+   "source_sha256": "390c4b2be68b5ed406f4f64cf502ada1243e725302a3b9d2540e552d386149f9",
+   "generated_sha256": "390c4b2be68b5ed406f4f64cf502ada1243e725302a3b9d2540e552d386149f9",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/mortar_plants_probe.cpp": {
+   "source_sha256": "9fd7dab643c39c5ed5a6bdfe44d71ec5b9f1eea2b232d65f709932eda8fac270",
+   "generated_sha256": "0fb94d63f0d3d9effb2555b1fbb07a07bf18da2ba077084bb05a144799786c57",
+   "removed": [
+    "before(\"mortar_event\");",
+    "after(\"mortar_event\");"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/native_clock_probe.cpp": {
+   "source_sha256": "31ebf6d53a7c82cbaff19f2bfd9b71bae499a991666b298be4f384bbced9f98e",
+   "generated_sha256": "31ebf6d53a7c82cbaff19f2bfd9b71bae499a991666b298be4f384bbced9f98e",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/native_math_probe.cpp": {
+   "source_sha256": "b68605ada1e71c44d550c7c5b4fa6aa4629ce451e1c23d394038e28031daeb52",
+   "generated_sha256": "b68605ada1e71c44d550c7c5b4fa6aa4629ce451e1c23d394038e28031daeb52",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/native_status_probe.cpp": {
+   "source_sha256": "c7bfc89e019ab86e7e3b8fe388a05e7d0af30286c0d6f8a31a5399efe7425cbc",
+   "generated_sha256": "29e70ab6a6a816ff988215dbefd8febc9e7ffa39cf1ba6379312e79725fc4bf3",
+   "removed": [
+    "before(\"poison_damage\");",
+    "after(\"poison_damage\");",
+    "before(\"poison_break\");",
+    "after(\"poison_break\");",
+    "before(\"poison_detach\");",
+    "after(\"poison_detach\");"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/native_summons_probe.cpp": {
+   "source_sha256": "755fe524d66e63200f3cbb8228d725c38a833630b8c913116eca1e55ac81436a",
+   "generated_sha256": "4019ad74afc7debc6906d87c88d26ef4a57a39d58472662d41ede40266d816bd",
+   "removed": [
+    "summon_events.push_back({\"content_summon\",{{\"source\",nullable(source)},{\"entity\",entity},{\"card\",card},{\"owner\",seat_name(owner)}}});",
+    "before(\"content_summon_event\");",
+    "after(\"content_summon_event\");"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/native_tick_probe.cpp": {
+   "source_sha256": "58a302fc152588c4e6a0da0bfa747151f4b137e55ffeabe725d3547cff1def78",
+   "generated_sha256": "0b3ec7962bd1dda2e23d5a7e29088cdddf9b1abd587852bf9ff9737bca96cf49",
+   "removed": [
+    "tick_events.push_back({name,world.tick,world.attack_tick(),battle.native_time});",
+    "before(\"tick_\"+name);",
+    "after(\"tick_\"+name);",
+    "record(\"status\");",
+    "record(\"content_before\");",
+    "record(\"patch_before\");",
+    "record(\"content_projectiles\");",
+    "record(\"expansion_before\");",
+    "record(\"sun_source\");",
+    "record(\"patch_after\");",
+    "record(\"expansion_after\");",
+    "record(\"content_after\");",
+    "record(\"patch_draw\");",
+    "record(\"barrels\");",
+    "record(\"begin_frame\");",
+    "record(draw?\"drawing\":\"hidden\");",
+    "record(\"draw_plants\");",
+    "record(\"hero_\"+std::string(seat_name(seat))+(materialize?\"_pixels\":\"_hidden\"));",
+    "record(\"barrel_\"+std::to_string(index(unit)));",
+    "record(\"snapshot\");",
+    "record(\"content_zombie_finish\");",
+    "record(\"expansion_zombie_finish\");",
+    "before(\"tick_zombie_gate\");",
+    "after(\"tick_zombie_gate\");",
+    "record(\"grave_consumed_\"+std::to_string(index(unit)));",
+    "record(\"grave_event_\"+std::to_string(size_t(event.kind)));"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/patch_probe.cpp": {
+   "source_sha256": "68b117c8bd5d765de5a16e7fc4120d137c79e38ff85ef6d2b0dadaf1db691b40",
+   "generated_sha256": "87ab8f1e362bf54de280d78051bafa7f44f9e3b7c59c66c7ef2105ff4e3997d6",
+   "removed": [
+    "raw_calls.push_back(J::array({\"ordinary\",index(u),f,a}));",
+    "raw_calls.push_back(J::array({\"surface\",index(u),f,a}));",
+    "raw_calls.push_back(J::array({\"ash\",index(u)}));"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/pea_probe.cpp": {
+   "source_sha256": "4f6550b8e13f0c09124082b880bb5c85da576b6128842a814fd171670d5e66df",
+   "generated_sha256": "74d036448ba5348eae723330bb8709a446898d507dc7bc9d9de4e3157227c0bf",
+   "removed": [
+    "calls.push_back(J::array({\"petrified_resource\",amount,p.x,p.y}));",
+    "before(\"petrified_resource\");",
+    "after(\"petrified_resource\");",
+    "calls.push_back(J::array({\"pea_assets\"}));",
+    "before(\"pea_assets\");",
+    "after(\"pea_assets\");",
+    "calls.push_back(J::array({\"pea_surface\",index,direction,amount}));",
+    "before(\"pea_surface\");",
+    "after(\"pea_surface\");",
+    "calls.push_back(J::array({\"pea_damage\",index,direction,amount}));",
+    "before(\"pea_damage\");",
+    "after(\"pea_damage\");",
+    "calls.push_back(J::array({\"pea_knockback\",index,force}));",
+    "before(\"pea_knockback\");",
+    "after(\"pea_knockback\");",
+    "calls.push_back(J::array({\"pea_player\",amount}));",
+    "before(\"pea_player\");",
+    "after(\"pea_player\");"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/plant_aim_probe.cpp": {
+   "source_sha256": "c26cb6e2ecb425c8601caacfa5b3b6e2bb02f06008bbaf0818579e2f5ae44f9e",
+   "generated_sha256": "c26cb6e2ecb425c8601caacfa5b3b6e2bb02f06008bbaf0818579e2f5ae44f9e",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/plant_region_probe.cpp": {
+   "source_sha256": "5f790650745ec67d64ebeadcab6675670a40b02ca72e6be86238121590efb063",
+   "generated_sha256": "dcac279f4d6dbb4adb45b48329450af4df7e7cc1325eb8f1276a24c3a418fda7",
+   "removed": [
+    "render_log.push_back(J::array({\"plant\",index}));",
+    "before(\"plant_gate\");",
+    "after(\"plant_gate\");"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/plant_utilities_probe.cpp": {
+   "source_sha256": "19c6344e537bfee5d34d046a781925182391b60e22daa8b3e9ee2e32d6c8f3bd",
+   "generated_sha256": "19c6344e537bfee5d34d046a781925182391b60e22daa8b3e9ee2e32d6c8f3bd",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/plants_probe.cpp": {
+   "source_sha256": "ec42c67c4e0716cfc076bf43bd2395b4d7e54b753454cea460b7fde8d9cafd5f",
+   "generated_sha256": "fa418067080694ffc1e5a9824af8e6d461a3d7ffbf2de1b4f625b04ef77bba40",
+   "removed": [
+    "calls.push_back(J::array({\"clear\",c.y,c.x}));",
+    "before(\"clear\");",
+    "after(\"clear\");",
+    "calls.push_back(J::array({\"plant\",c.y,c.x,name,facing}));",
+    "before(\"plant\");",
+    "after(\"plant\");",
+    "calls.push_back(J::array({\"important\",c.y,c.x,name}));",
+    "before(\"important\");",
+    "after(\"important\");"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/projectiles_probe.cpp": {
+   "source_sha256": "6746ba309c5f26701b3d4f2c013861b8a6ca543226c02e9043c9d5e20aad5ceb",
+   "generated_sha256": "fdb5efd46dc00cca8c85a80b731ae2b63bb32b6f726b4cfde3a0c3704e526698",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/protection_probe.cpp": {
+   "source_sha256": "2f6edc0208643781a97ca3475c6e1ce77aa2d617e90d49f81d3bf4d9d81e83eb",
+   "generated_sha256": "2f6edc0208643781a97ca3475c6e1ce77aa2d617e90d49f81d3bf4d9d81e83eb",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/reed_plants_probe.cpp": {
+   "source_sha256": "b58e79dc9580f72795be33eed106a374e4532d323ec73940225920af8713dc52",
+   "generated_sha256": "59346810ae315633e19a4aabad6bc2da20d275b8415d60bccbc8627652748468",
+   "removed": [
+    "before(\"reed_event\");",
+    "after(\"reed_event\");"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/registry_probe.cpp": {
+   "source_sha256": "fcd788276b0428eae912436f2ab1dd670a6434b87c2d6eba6c9183b9af32c0a1",
+   "generated_sha256": "bbe739f9c1f5cf20eb245bb92319c7af402725235eb185dea7c23c9e16430bd6",
+   "removed": [
+    "calls.push_back(J::array({\"extras\"}));",
+    "before(\"extras\");",
+    "after(\"extras\");"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/replay_journal_probe.cpp": {
+   "source_sha256": "31d3b206c47cedfc9ac4fefdc78c6c28ece3a7b23fde3a5bd322c5c2a1c346e5",
+   "generated_sha256": "31d3b206c47cedfc9ac4fefdc78c6c28ece3a7b23fde3a5bd322c5c2a1c346e5",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/replay_lifecycle_probe.cpp": {
+   "source_sha256": "977b8907b3337b5e0fa430e7243dc0785dce9fd06bd231af37b22a1242e90383",
+   "generated_sha256": "977b8907b3337b5e0fa430e7243dc0785dce9fd06bd231af37b22a1242e90383",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/replay_v_digest_probe.cpp": {
+   "source_sha256": "ad3019d82f25dfa4e28b4bfac16bc3d6ed707a5dcee61f5de5429a254f181e8f",
+   "generated_sha256": "ad3019d82f25dfa4e28b4bfac16bc3d6ed707a5dcee61f5de5429a254f181e8f",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/resources_probe.cpp": {
+   "source_sha256": "e98417bd2af557a4b7e649cb7d7a8fdd8e50bc81b9ad81f9f60ce4e4abf78463",
+   "generated_sha256": "e98417bd2af557a4b7e649cb7d7a8fdd8e50bc81b9ad81f9f60ce4e4abf78463",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/room_boundary_probe.cpp": {
+   "source_sha256": "567f88d72afffa6543f3c46817b22f51cef0d37528e1c4213fd25a43f9251464",
+   "generated_sha256": "567f88d72afffa6543f3c46817b22f51cef0d37528e1c4213fd25a43f9251464",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/room_match_probe.cpp": {
+   "source_sha256": "cc1a75f231f071a82ed68936c40fc233135984263bfd8b65a38672e93fcbb02c",
+   "generated_sha256": "5eeaeed55fefec04ca98708b2cbad504ae5420e7d1857a3ed4654843338a04af",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/room_native_pose_fixture.inc": {
+   "source_sha256": "ec9bd570680e62e085ae7d5db462ce16d19517fc7b6bc23799e75c8da52a2389",
+   "generated_sha256": "ec9bd570680e62e085ae7d5db462ce16d19517fc7b6bc23799e75c8da52a2389",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/room_probe.cpp": {
+   "source_sha256": "2f5a55b7557f3464001ce08aa6e8c66953400a9c9f881f3ecaf63faaf534bb20",
+   "generated_sha256": "2f5a55b7557f3464001ce08aa6e8c66953400a9c9f881f3ecaf63faaf534bb20",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/room_public_probe.cpp": {
+   "source_sha256": "5a1af3a11f12efa54792fbfeaef4aa0bcd3098e4c88c004b0b919a081f90b670",
+   "generated_sha256": "898051a19f977b45081b7b9ca02e9dd73f422e831a0a1f4dc0019e3a380e4c65",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/room_transport_probe.cpp": {
+   "source_sha256": "62ee82f88bd17ce4a5c80b64ad39decd0fa88c37b0cdf47b1066e133fc770ffc",
+   "generated_sha256": "62ee82f88bd17ce4a5c80b64ad39decd0fa88c37b0cdf47b1066e133fc770ffc",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/scarecrow_probe.cpp": {
+   "source_sha256": "8b259dc35d481f1f808b7dfb1f5856ece41b903594324addd40b05c6615cb0cf",
+   "generated_sha256": "aa25dbbbf7a1b48cdd1f7b86daeb2a8ad3480c066cc964afbdb898227494cacd",
+   "removed": [
+    "before(\"crow_spawn\");",
+    "after(\"crow_spawn\");",
+    "before(\"crow_event\");",
+    "after(\"crow_event\");"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/scripted_spawn_probe.cpp": {
+   "source_sha256": "2982fc0adfd439d122a906f683717419292b456f12800aab0b023149867d1406",
+   "generated_sha256": "63f750602d02756a69397fb92e7146ce9c3711ad67b73e357eb5c52ed817f0c4",
+   "removed": [
+    "before(\"budget_event\");",
+    "after(\"budget_event\");",
+    "calls.push_back({point.x,point.y,facing,origin_fields(parent),battle.spawn_ban_exempt, world.active?J(seat_name(world.active->owner)):J(nullptr),world.active?J("
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/seat_paths_probe.cpp": {
+   "source_sha256": "15b59c6ecb95d26ddeb4c1528697a3cc2aae76577fb09c29a603417e58a69f70",
+   "generated_sha256": "15b59c6ecb95d26ddeb4c1528697a3cc2aae76577fb09c29a603417e58a69f70",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/september_plants_probe.cpp": {
+   "source_sha256": "4daed2634ceb3d445e89a01092156c737fd8c6b4e9305016ed85605f5812ee7f",
+   "generated_sha256": "6b89caeabded1f7f035f16575405c66258ccb8f63eb2970eccf067b2f1db4623",
+   "removed": [
+    "before(\"september_event\");",
+    "after(\"september_event\");"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/service_probe.cpp": {
+   "source_sha256": "d14bd174459464f124bc94b451191afed0f93896f59f75267db8be6aa0adff21",
+   "generated_sha256": "54a3a8dcb38d09d0566c44244d5a3813bcb61296c8e100adb1e7c3becdf0dc93",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/shooting_probe.cpp": {
+   "source_sha256": "c6c7c32f3ddd339b3cc843cf744907ef6a45e1ee215211dd28af8172d5d55d38",
+   "generated_sha256": "2c8a11161a1f5f7cf294c5c1b7f1bb6ce4bf43c89ddc86a5f0fe47d116832943",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/source_binding_probe.cpp": {
+   "source_sha256": "61595c84d04a6d3d4c6a960a0dab0013e855ec5ff10aaccbabe8346b113257c5",
+   "generated_sha256": "61595c84d04a6d3d4c6a960a0dab0013e855ec5ff10aaccbabe8346b113257c5",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/sourced_probe.cpp": {
+   "source_sha256": "9a221d34af0693ad2c1ae82be683b7aab1186a3c6a0ead68ad5ea98bae099619",
+   "generated_sha256": "eb2772cb9087d9e46a2584bc13d138fa88cee9032d09ce88cf9750cca5d7aada",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/spawn_probe.cpp": {
+   "source_sha256": "4aaaf0379631b071f47fcef73030289c0eccbc5e0fdd71ddb448957c07d1deea",
+   "generated_sha256": "2ae4760f388f4b1ad237d5003efca4d69fa78ed11f0620bc6294cba10df763fc",
+   "removed": [
+    "states.push_back(std::move(row));"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/squash_probe.cpp": {
+   "source_sha256": "288c829e39f97a31bcd3279cd89b61dcca6ee8720b897fc7bbb0c0e3aec4f68f",
+   "generated_sha256": "e6f6c5771782c379b5d09719435e03380a8baf32fad234cc4d300743e728c0b5",
+   "removed": [
+    "calls.push_back(J::array({\"squash_ash\",i}));",
+    "before(\"squash_ash\");",
+    "after(\"squash_ash\");",
+    "calls.push_back(J::array({\"squash_damage\",i,d,a}));",
+    "before(\"squash_damage\");",
+    "after(\"squash_damage\");",
+    "calls.push_back(J::array({\"squash_player\",a}));",
+    "before(\"squash_player\");",
+    "after(\"squash_player\");"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/targets_probe.cpp": {
+   "source_sha256": "77891bf7d04b0627a6dc41f45beaf0737e396f953bcbad6bc301eaff4e275576",
+   "generated_sha256": "b6afc19174315955d2ff1c7d5c5370a981856d6216b612d06d86550af5637875",
+   "removed": [
+    "raw_calls.push_back(J::array({\"ordinary\",index(unit),facing,amount}));",
+    "raw_calls.push_back(J::array({\"surface\",index(unit),facing,amount}));",
+    "raw_calls.push_back(J::array({\"ash\",index(unit)}));",
+    "armor_events.push_back(J::array({index(unit),slot==ArmorSlot::head?\"防具\":\"手持\",kind,maximum}));"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/wind_probe.cpp": {
+   "source_sha256": "08cc35bc5e6ae9ef7ac02483e8194e6ac8e2d0e81fe9c9f6ca83ebb593afa9e4",
+   "generated_sha256": "0f29725128aeb190c9352fa1cc0ac536861d1f4b84a107b368e5228b4359e34b",
+   "removed": [
+    "wind_callbacks.push_back({{\"index\",index},{\"roster\",roster},{\"entities\",entities},{\"rain\",battle.wind_environment.rain->size()},{\"names\",*battle.wind_environmen",
+    "before(\"wind_surface\");",
+    "after(\"wind_surface\");"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/world_rules_probe.cpp": {
+   "source_sha256": "61dc86804930f42ae662f5c186d216d3f56b5b17a37e1e717daa215f75cde543",
+   "generated_sha256": "beea0e0c7cd886ef4974ff4d235c5eda9aef374b0963d940f1b2d0a0644be4df",
+   "removed": [
+    "calls.push_back(J::array({\"clear\",c.y,c.x}));",
+    "before(\"clear\");",
+    "after(\"clear\");",
+    "render_log.push_back(J::array({\"release_destination\"}));",
+    "render_log.push_back(J::array({\"source\",i}));",
+    "render_log.push_back(J::array({\"draw\",sprite_id(d.sprite),{d.position.x,d.position.y},d.mirrored,d.rotation?J(*d.rotation):J(nullptr),size}));",
+    "render_log.push_back(J::array({\"alpha\",sprite_id(s),a}));"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "probes/zombie_motion_fixture.inc": {
+   "source_sha256": "6884e91829eefe2cff9b69397fa186f0f5488137f87fd619e01167d92b8c6ced",
+   "generated_sha256": "7169ac6e7397e716b5e3da80407df4b691569d199d542659f0157457542c1a8f",
+   "removed": [
+    "render_log.push_back(J::array({\"ladder\",index(u)}));",
+    "render_log.push_back(J::array({\"zombie\",i}));",
+    "render_log.push_back(J::array({\"line\",{start.x,start.y},{end.x,end.y}}));",
+    "render_log.push_back(J::array({\"crop\",name,{p.x,p.y},mirror,{size.x,size.y}}));",
+    "render_log.push_back(J::array({\"flat\",name,{size.x,size.y},mirror}));"
+   ],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "match_probe.cpp": {
+   "source_sha256": "36230defa5ea877bab3e3d40dc68144b71bfbf6410dea409e95c6e815a2f2be3",
+   "generated_sha256": "38a76b32289131a55f72167d49fa0a60bd3bb0538c6a40691d1966684cebb4e3",
+   "removed": [
+    "spawn_events.push_back({\"black_armor\",name});",
+    "spawn_events.push_back({\"spawn_blocked\",card});"
+   ],
+   "production_observers": [],
+   "production_changes": [
+    {
+     "transform": "release_fixture_retention",
+     "expected_count": 1,
+     "source_text_sha256": "4579b4d4f9f34b2da50c755adc473d3666708db74560f978651bc7d43833b635",
+     "source": "bool release_fixtures=std::getenv(\"MATCH_RELEASE_FIXTURES\")!=nullptr;",
+     "replacement": "bool release_fixtures=true;  // app composition: no fixture retention"
+    },
+    {
+     "transform": "report_app_composition",
+     "expected_count": 1,
+     "source_text_sha256": "ae1df0e0a00643432b87904631a43f266fe099fece5c9006a0ab65be13655822",
+     "source": "J report={{\"backend_requested\",\"typed72-integrated\"},{\"backend_actual\",\"typed72-probe-composition-e1\"},{\"production_composition\",false},{\"fallback_count\",0},",
+     "replacement": "J report={{\"backend_requested\",\"typed72-integrated\"},{\"backend_actual\",\"typed72-app-composition-e2\"},{\"production_composition\",true},{\"fallback_count\",0},"
+    }
+   ]
+  },
+  "frame_layer.inc": {
+   "source_sha256": "f946b6385674f7dd873e6b7dfa1c89917ccb788af672fe6e55db512b7dddebf5",
+   "generated_sha256": "8a875f40f14bb8f58587ee577604d9fedc52b9c6bf4db84d681e18ae2ca7bbb8",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  },
+  "snapshot_layer.inc": {
+   "source_sha256": "1b2509bdac554dccaf7aea14c0169dd4d7b9c9671bcc5576b3e5812c8e4d892d",
+   "generated_sha256": "69c353cf52503e5a31a4cefee542879f6920a5b3daee6967c5d5272e02d08241",
+   "removed": [],
+   "production_observers": [],
+   "production_changes": []
+  }
+ }
+}

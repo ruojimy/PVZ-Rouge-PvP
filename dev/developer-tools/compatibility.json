@@ -1,0 +1,79 @@
+{
+  "toolkit_version": "1.0.0",
+  "skill_versions": {
+    "native-export": "1.0.0",
+    "native-maps": "1.0.0",
+    "native-replay": "1.0.0",
+    "native-relay": "1.0.0",
+    "native-acceptance": "1.0.0",
+    "native-performance": "1.0.0",
+    "native-package-audit": "1.0.0",
+    "native-ai-source": "1.0.0",
+    "native-build-source": "1.0.0",
+    "native-test-source": "1.0.0",
+    "pvz-rouge-add-plant": "1.0.0",
+    "pvz-rouge-add-zombie": "1.0.0",
+    "pvz-rouge-add-boss": "1.0.0",
+    "pvz-rouge-add-mode": "1.0.0"
+  },
+  "developer_protocol": 1,
+  "game_network_protocol": 1,
+  "adapter_id": "native-devtools.1",
+  "game_builds": [
+    "1.6.0.72-native.20261104"
+  ],
+  "stock_windows_r1": {
+    "supported": [
+      "smoke",
+      "diagnostic",
+      "apk-inspect",
+      "audit"
+    ],
+    "developer_api": false
+  },
+  "separate_candidate_required_for": [
+    "export",
+    "map-new",
+    "map-check",
+    "map-import",
+    "replay-demo",
+    "replay-check",
+    "relay-test"
+  ],
+  "candidate": {
+    "build": "1.6.0.72-native.20261104",
+    "adapter": "native-devtools.1",
+    "developer_api": 1,
+    "sha256": "1fb0fd2cb2f7dd12011c0f81b86385ac1ade1a5493aad19e5edb1e9bf76fd0c2",
+    "zip": "PvZ-PvP-Native-20261104-devtools-api1-r1.zip",
+    "zip_sha256": "5971e50439cc875040cd60fc5fb5f1c8cda2e4e82e9cc0a01c1c09819d9d5300"
+  },
+  "runtime": {
+    "python": ">=3.10",
+    "modules": "standard library only",
+    "tested_python": "3.13.14",
+    "platform": "Windows x64; service source is cross-platform, Linux not exercised"
+  },
+  "android": {
+    "tested_package": "org.pvzrouge.pvzpvpnative",
+    "tested_version_code": 1104003,
+    "local_inspection_only": true,
+    "device_tested_this_task": false,
+    "developer_api_built_for_android": false
+  },
+  "unsupported": [
+    "Python game module hotloading",
+    "unit/Boss/mode plugins",
+    "AI hotloading",
+    "old PyInstaller builds",
+    "public multiplayer/device acceptance",
+    "16KiB-page compatibility guarantee"
+  ],
+  "data_formats": {
+    "map_schema": 1,
+    "replay_format": "pvz-pvp-replay-1",
+    "rule_schema_fields": {
+      "rule_schema": 2
+    }
+  }
+}

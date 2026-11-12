@@ -1,0 +1,9 @@
+{
+ "PROTOCOL_VERSION": 1,
+ "DEFAULT_PORT": 24561,
+ "MAX_FRAME_BYTES": 1048576,
+ "LATENCY_KINDS": [
+  "latency_probe",
+  "latency_echo"
+ ]
+}

@@ -1,0 +1,58 @@
+{
+ "REEDS": [
+  "闪电芦苇",
+  "超载芦苇"
+ ],
+ "LIGHTNING_REED": "闪电芦苇",
+ "OVERLOAD_REED": "超载芦苇",
+ "SCARECROW": "稻草人",
+ "CROW": "乌鸦",
+ "ELECTRO_SECRET": "secret:电疗",
+ "REED_RANGE": 12.0,
+ "REED_HALF_ANGLE": 40.0,
+ "REED_INTERVAL": 1.5,
+ "LIGHTNING_DAMAGE": 7.5,
+ "LIGHTNING_HERO_DAMAGE": 6.0,
+ "LIGHTNING_JUMPS": 5,
+ "LIGHTNING_JUMP_RADIUS": 1.0,
+ "OVERLOAD_DAMAGE": 6.0,
+ "OVERLOAD_CONTACT_DAMAGE": 12.0,
+ "OVERLOAD_HERO_CONTACT": 6.0,
+ "OVERLOAD_HERO_DIRECT": 3.0,
+ "ELECTRO_STUN_SECONDS": 0.75,
+ "SCARECROW_SLOW": 1.15,
+ "SCARECROW_AURA_CELLS": 3,
+ "ZOMBIES": [
+  "稻草人",
+  "乌鸦"
+ ],
+ "BOLT_TICKS": 70,
+ "STUN_TICKS": 188,
+ "HOP_PERIOD": 230,
+ "COLORS": {
+  "闪电芦苇": [
+   [
+    150,
+    205,
+    255
+   ],
+   [
+    255,
+    255,
+    255
+   ]
+  ],
+  "超载芦苇": [
+   [
+    255,
+    110,
+    200
+   ],
+   [
+    255,
+    236,
+    250
+   ]
+  ]
+ }
+}

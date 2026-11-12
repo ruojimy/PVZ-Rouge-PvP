@@ -1,0 +1,23 @@
+{
+ "START_HP": 0.7,
+ "ABORT_HP": 0.55,
+ "MAX_TRIP": 20.0,
+ "MAX_SECONDS": 12.0,
+ "COOLDOWN": 8.0,
+ "NEAR": 3.0,
+ "HOME_RADIUS": 5.0,
+ "MATE_RADIUS": 7.0,
+ "STANDOFF": 4.0,
+ "NON_COMBAT": {
+  "__set__": [
+   "coffee",
+   "gold_bloom",
+   "grave",
+   "lantern",
+   "lily",
+   "pot",
+   "produce",
+   "support"
+  ]
+ }
+}

@@ -1,0 +1,30 @@
+{
+ "STANDARD_SLOTS": 7,
+ "EXTRA_SLOTS": 8,
+ "RANKED_RADIUS": 8.0,
+ "GRAVE_RADIUS": 4.0,
+ "CHILI_RADIUS": 4.0,
+ "BLOOM_RING": [
+  4.0,
+  8.0
+ ],
+ "BLOOM_COLLECT_LOCK": 12.0,
+ "ELLIPSE_X": 1.5,
+ "WIDE_GRAVES": [
+  "zombie:坚固脑光墓碑",
+  "zombie:石化火炬"
+ ],
+ "CHILIES": [
+  "plant:火爆辣椒",
+  "plant:寒冰辣椒",
+  "plant:幽灵辣椒"
+ ],
+ "NEAR_PLANTS": [
+  "plant:火爆辣椒",
+  "plant:寒冰辣椒",
+  "plant:幽灵辣椒",
+  "plant:墓碑吞噬者"
+ ],
+ "BLOOM": "plant:黄金蓓蕾",
+ "RANKED_NOTE": "计入胜率的对局：部署范围是以己方戴夫为中心的椭圆，左右半径为上下的1.5倍；一般8格（左右12格），一般墓碑4格（坚固脑光墓碑、石化火炬8格），火爆辣椒、寒冰辣椒、幽灵辣椒、墓碑吞噬者4格，黄金蓓蕾只能放在4到8格的椭圆环内，放下后12秒内只能由戴夫肉身拾取阳光；传送、捡阳光、唤醒墓碑与召集不受限制。"
+}

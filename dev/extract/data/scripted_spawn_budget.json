@@ -1,0 +1,5 @@
+{
+ "DEFAULT_LIMIT": 40,
+ "MAX_LIMIT": 200,
+ "MAX_PENDING": 3200
+}

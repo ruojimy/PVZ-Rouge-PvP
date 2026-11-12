@@ -1,0 +1,744 @@
+{
+  "method": "User-authorized local Pillow pixelisation and sprite editing",
+  "imagegen": "Two network failures; no generated image was returned",
+  "references": {
+    "barrel.png": {
+      "sha256": "be7a7113d92017baedd476e5241e204067a4dea43b47a19e660e69177199644e",
+      "frames": 1
+    },
+    "bloomerang.png": {
+      "sha256": "a29fb33a09539681730a2529cfd9124036b8627affbe344859d302e3541ed3d0",
+      "frames": 1
+    },
+    "cannon.png": {
+      "sha256": "861355a98d0de6f063011082e7d82e409032f895332ab584ced649745d6a71db",
+      "frames": 1
+    },
+    "captain.png": {
+      "sha256": "0e5a093ba54fe2dffe0a649a57f91166a1acbf0d008051b0380d522df666c72d",
+      "frames": 1
+    },
+    "parrot.png": {
+      "sha256": "4ce9d0de814e5b05097ca7a4f394456168f74d247fbca56de45be01139241db2",
+      "frames": 1
+    },
+    "pepper-animation.gif": {
+      "sha256": "de56dfd08f52197deb4c18fe1668510e8e21079452446f02f484770714ac6044",
+      "frames": 1
+    },
+    "pepper.png": {
+      "sha256": "ecc809837ca3ccd8dd4b384469ec3daa44a0ea24ef11c9e2d8fe06392b33e5ee",
+      "frames": 1
+    },
+    "primal.png": {
+      "sha256": "3075b5db603f701655f4c8ab9762a2e492a7f03f1d298cdfc66a94472732dc94",
+      "frames": 1
+    }
+  },
+  "sprites": {
+    "甜椒投手": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "54d9b6af2cfa351f0aec8ea3932442a81a061ad935f64cc240432acf5887b4ef"
+    },
+    "甜椒投手-帧0": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "54d9b6af2cfa351f0aec8ea3932442a81a061ad935f64cc240432acf5887b4ef"
+    },
+    "甜椒投手-帧1": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "54d9b6af2cfa351f0aec8ea3932442a81a061ad935f64cc240432acf5887b4ef"
+    },
+    "甜椒投手-帧2": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "54d9b6af2cfa351f0aec8ea3932442a81a061ad935f64cc240432acf5887b4ef"
+    },
+    "甜椒投手-帧3": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "54d9b6af2cfa351f0aec8ea3932442a81a061ad935f64cc240432acf5887b4ef"
+    },
+    "原始豌豆射手": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "60f1d316f08785f212309d8f15525e5a3a25a699ebb70de3f57945634e2b53e6"
+    },
+    "原始豌豆射手-帧0": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "60f1d316f08785f212309d8f15525e5a3a25a699ebb70de3f57945634e2b53e6"
+    },
+    "原始豌豆射手-帧1": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "2d6b7dc399a372c4e6b2d34a8137cf560da189f9e40a9c72974cba34e739ab39"
+    },
+    "原始豌豆射手-帧2": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "98c2363ca59a480f6364d62f2c83f9e6b4d147a6f414cee03fb588b60d2819f7"
+    },
+    "原始豌豆射手-帧3": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "60f1d316f08785f212309d8f15525e5a3a25a699ebb70de3f57945634e2b53e6"
+    },
+    "回旋镖射手": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "786758a68ac6236ee187f7bb00e16f80a69a177739f38749b09da4d4ffaf6d0a"
+    },
+    "回旋镖射手-帧0": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "786758a68ac6236ee187f7bb00e16f80a69a177739f38749b09da4d4ffaf6d0a"
+    },
+    "回旋镖射手-帧1": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "e470fce5e4047d36d1ce8b0efbd42e396c9ee3183f1477b3f1a6fb93b0faa4a7"
+    },
+    "回旋镖射手-帧2": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "6871ab32402aa23de0ab1e8d0358063b1f05218695b2cd3001e2cee649f6b3a1"
+    },
+    "回旋镖射手-帧3": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "786758a68ac6236ee187f7bb00e16f80a69a177739f38749b09da4d4ffaf6d0a"
+    },
+    "寒冰辣椒": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "2b0d7a3bdfa64109bd88bd553fa8b6e424a04a780fade70bb719f12d28165c62"
+    },
+    "寒冰辣椒-帧0": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "2b0d7a3bdfa64109bd88bd553fa8b6e424a04a780fade70bb719f12d28165c62"
+    },
+    "寒冰辣椒-帧1": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "2b0d7a3bdfa64109bd88bd553fa8b6e424a04a780fade70bb719f12d28165c62"
+    },
+    "寒冰辣椒-帧2": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "2b0d7a3bdfa64109bd88bd553fa8b6e424a04a780fade70bb719f12d28165c62"
+    },
+    "寒冰辣椒-帧3": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "2b0d7a3bdfa64109bd88bd553fa8b6e424a04a780fade70bb719f12d28165c62"
+    },
+    "毒镖射手": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "5012ecf400e9544a497721380df5f815c9b7b813494ebca1d31de37f357a343c"
+    },
+    "毒镖射手-帧0": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "5012ecf400e9544a497721380df5f815c9b7b813494ebca1d31de37f357a343c"
+    },
+    "毒镖射手-帧1": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "8b3d525d24b024414f3dafedb17a59b11b2997b73047ab7c749195944a9f8d11"
+    },
+    "毒镖射手-帧2": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "98b5de23f93f08949f6a634d07a45aafbb04a2fa460c264d8eeffa92a118a35c"
+    },
+    "毒镖射手-帧3": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "5012ecf400e9544a497721380df5f815c9b7b813494ebca1d31de37f357a343c"
+    },
+    "滚桶僵尸": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "fd8e078a4ab6be53efdd54b81aaaea9ebee5f446b23e9c146f76e70bf3b7a515"
+    },
+    "滚桶僵尸-帧0": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "fd8e078a4ab6be53efdd54b81aaaea9ebee5f446b23e9c146f76e70bf3b7a515"
+    },
+    "滚桶僵尸-首0": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "00025a878fb8249f204ba26edce6c8a906529a8cbe51e0a8f7a019d8711e6e38"
+    },
+    "滚桶僵尸-身0": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "2c0a93af13581a6a8f0e784ad7cd7ae58c008518f86b85cd7e5945889a62b0ba"
+    },
+    "滚桶僵尸-帧1": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "e28f5726f06ab77ad9652dbab43fd47c5e2ecc7db3f933a263b1c04c87e797d1"
+    },
+    "滚桶僵尸-首1": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "96cd13a84087a8ad8b57ff87b6b833e1108eeac76a22bbbeb5ed8710d463d398"
+    },
+    "滚桶僵尸-身1": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "3572e0f84a1f09145c89769cf1ef7b5acc2e6570d4bc4dd44887bdfe8f635b17"
+    },
+    "滚桶僵尸-帧2": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "b66621f2c293df9230370a6f1511341526e408e10a14c1c468d4e2b8c3c2fa34"
+    },
+    "滚桶僵尸-首2": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "18166e9d502c475697de32e0d2d6dabd90cedf77839ef8305b25eb1db6ab54e3"
+    },
+    "滚桶僵尸-身2": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "2893075981d10724df8a772ec7ffe677322acd2d50207acf3dd570aab1637774"
+    },
+    "滚桶僵尸-帧3": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "e12d77de32303fd1fd6eae3209c4d44063f2c3c3625e5966b32ad21e93f14abe"
+    },
+    "滚桶僵尸-首3": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "8e9dbfbce4bf4f69fbd5b48cd41645e34fe5db1adfe5caf056d93a3bc331b1db"
+    },
+    "滚桶僵尸-身3": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "e12d77de32303fd1fd6eae3209c4d44063f2c3c3625e5966b32ad21e93f14abe"
+    },
+    "小鬼炮": {
+      "size": [
+        96,
+        96
+      ],
+      "sha256": "bf1785684cc6dd17dd919633d9e72795e05812a4f4c5d2cfb090ea83ce62132e"
+    },
+    "小鬼炮-帧0": {
+      "size": [
+        96,
+        96
+      ],
+      "sha256": "bf1785684cc6dd17dd919633d9e72795e05812a4f4c5d2cfb090ea83ce62132e"
+    },
+    "小鬼炮-首0": {
+      "size": [
+        96,
+        96
+      ],
+      "sha256": "7c3dd7946eb2f300d4e36e69fb03e0284ab004e214d17da904a10b63f549942d"
+    },
+    "小鬼炮-身0": {
+      "size": [
+        96,
+        96
+      ],
+      "sha256": "6562988080e6d304507286eb6d101814dd4674121f52aee7afc7ef877c96564b"
+    },
+    "小鬼炮-帧1": {
+      "size": [
+        96,
+        96
+      ],
+      "sha256": "bf1785684cc6dd17dd919633d9e72795e05812a4f4c5d2cfb090ea83ce62132e"
+    },
+    "小鬼炮-首1": {
+      "size": [
+        96,
+        96
+      ],
+      "sha256": "7c3dd7946eb2f300d4e36e69fb03e0284ab004e214d17da904a10b63f549942d"
+    },
+    "小鬼炮-身1": {
+      "size": [
+        96,
+        96
+      ],
+      "sha256": "6562988080e6d304507286eb6d101814dd4674121f52aee7afc7ef877c96564b"
+    },
+    "小鬼炮-帧2": {
+      "size": [
+        96,
+        96
+      ],
+      "sha256": "bf1785684cc6dd17dd919633d9e72795e05812a4f4c5d2cfb090ea83ce62132e"
+    },
+    "小鬼炮-首2": {
+      "size": [
+        96,
+        96
+      ],
+      "sha256": "7c3dd7946eb2f300d4e36e69fb03e0284ab004e214d17da904a10b63f549942d"
+    },
+    "小鬼炮-身2": {
+      "size": [
+        96,
+        96
+      ],
+      "sha256": "6562988080e6d304507286eb6d101814dd4674121f52aee7afc7ef877c96564b"
+    },
+    "小鬼炮-帧3": {
+      "size": [
+        96,
+        96
+      ],
+      "sha256": "bf1785684cc6dd17dd919633d9e72795e05812a4f4c5d2cfb090ea83ce62132e"
+    },
+    "小鬼炮-首3": {
+      "size": [
+        96,
+        96
+      ],
+      "sha256": "7c3dd7946eb2f300d4e36e69fb03e0284ab004e214d17da904a10b63f549942d"
+    },
+    "小鬼炮-身3": {
+      "size": [
+        96,
+        96
+      ],
+      "sha256": "6562988080e6d304507286eb6d101814dd4674121f52aee7afc7ef877c96564b"
+    },
+    "海盗船长": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "a95f16d58d26c1a4ce9d3d64df2d93ab3411c045abb82f0bfd4c4eb195bac89d"
+    },
+    "海盗船长-帧0": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "a95f16d58d26c1a4ce9d3d64df2d93ab3411c045abb82f0bfd4c4eb195bac89d"
+    },
+    "海盗船长-首0": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "0b361cc547efa38bf672bd6cbd4d619174a530091202c78b4f21252481eb47fd"
+    },
+    "海盗船长-身0": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "fb731eb91b8497af7912307b1b8ffc2a1a3269050186c7f981b8ede3dd9de51e"
+    },
+    "海盗船长-帧1": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "c9e194dd2efadc577166886d21f09aacd1a281c7bba3c34569ca1aebc6ba77a2"
+    },
+    "海盗船长-首1": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "1fc274e239a84a322c922c6512b921107006d1d6c8cd46110cce53859cf3ae24"
+    },
+    "海盗船长-身1": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "5b509d645540ae791095b31cf46e2429d08bc45bbab87fe70ec4af04b0ac4284"
+    },
+    "海盗船长-帧2": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "1fb2168d0c873875134c336bfb223c32c93f455727eabee6c218deb640483df3"
+    },
+    "海盗船长-首2": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "2cebc269c783cc36561ef840e729ed5c67babb6e9112302e2f7e4eeb0065f7d6"
+    },
+    "海盗船长-身2": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "03f57262306315e01ea266fda4b5c4bccacd44fa8cf6ddb4d965755b39223437"
+    },
+    "海盗船长-帧3": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "95e935e4417b832c9e667fbc82f0c014a13d1213b9eb2a7609b99fbad90a6579"
+    },
+    "海盗船长-首3": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "8e9dbfbce4bf4f69fbd5b48cd41645e34fe5db1adfe5caf056d93a3bc331b1db"
+    },
+    "海盗船长-身3": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "95e935e4417b832c9e667fbc82f0c014a13d1213b9eb2a7609b99fbad90a6579"
+    },
+    "海盗鹦鹉": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "b38841974286a3defd36d41a322e75a3a6bceae3324dd66d0669acbd820e83a0"
+    },
+    "海盗鹦鹉-帧0": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "b38841974286a3defd36d41a322e75a3a6bceae3324dd66d0669acbd820e83a0"
+    },
+    "海盗鹦鹉-首0": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "515084a7e00f7c9610d7e0cec6dbe15f7d786d5f6dbc5f06a8b2543b34ff8079"
+    },
+    "海盗鹦鹉-身0": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "920cdd0fb0a0e2c0702ac6042d97f6d98f691020a57a2dbf0aa3c19a732d8271"
+    },
+    "海盗鹦鹉-帧1": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "4a01a0590ba916edd9b2f5712b219bfb032bbe561d22e02c0982fb74f599063e"
+    },
+    "海盗鹦鹉-首1": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "b0ce6c7135e8b1e0296b2c93e9b83ccde6e4d48fdc955001bc2e2ecd172d6ea4"
+    },
+    "海盗鹦鹉-身1": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "fd0d0af10b892b242c68d8e6e01f5e409ff572faa671f8f976641b5b6cb3e58a"
+    },
+    "海盗鹦鹉-帧2": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "d466f451bfda5d04db9e032e8436d85ccc7403a8a8b2208a4a45afd4ecc5dae5"
+    },
+    "海盗鹦鹉-首2": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "c2370b1696d27284ef170ed780aedc8cc139d70e8a3baa534747be4e750f52d6"
+    },
+    "海盗鹦鹉-身2": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "7b62c3595135f1b16d9bc1e4ff22b49c2993c81adcab7a19c1b57bc28ca812d7"
+    },
+    "海盗鹦鹉-帧3": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "2d15171ff7700b945223a9e400897a0696a96029330fd1354f3dc1068efae9b6"
+    },
+    "海盗鹦鹉-首3": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "8e9dbfbce4bf4f69fbd5b48cd41645e34fe5db1adfe5caf056d93a3bc331b1db"
+    },
+    "海盗鹦鹉-身3": {
+      "size": [
+        36,
+        36
+      ],
+      "sha256": "1fbdfbd011594fe64ccbdd7e17295a56bd9236dbdd4aad63834b4cf07e37407c"
+    },
+    "滚桶": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "b3d5dff9996b12d322e9e2ac572b76e245f6559b2e5368451fbf7ecfb4da9b43"
+    },
+    "回旋镖弹": {
+      "size": [
+        12,
+        12
+      ],
+      "sha256": "9b0a056099e646e1c8fc5ae806793891d7dc64d63637996fb96869079e307a0a"
+    },
+    "毒镖弹": {
+      "size": [
+        12,
+        12
+      ],
+      "sha256": "f223f4d4d7a9e268aa707a7555acba6e4972c777257d693ca1cf8d3f23e0c6a7"
+    },
+    "原始豌豆弹": {
+      "size": [
+        16,
+        16
+      ],
+      "sha256": "38e609212bd10bd060e5b39257dc93be6d376e38d3e1ff531fdd61e86d9beeb9"
+    },
+    "甜椒弹": {
+      "size": [
+        21,
+        22
+      ],
+      "sha256": "1ca72ac5d9d6b6755570906521abbe43b2c29aa9211c5dae91b47157579ec011"
+    },
+    "紫泡泡": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "4a4594a6537ac47ef77f29356add9eeea04e64a66b97ccfecce33331efeefb5c"
+    },
+    "寒冰地火": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "11f16a30c53b09729a50b359067faa28418571438f78b84677f0579c0b99aea4"
+    },
+    "寒冰-火1.1": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "11f16a30c53b09729a50b359067faa28418571438f78b84677f0579c0b99aea4"
+    },
+    "寒冰-火1.2": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "5df170fbe57e88b8eb0b7314021f82c6759dbffce615f5798e26b38af32aa053"
+    },
+    "寒冰-火1.3": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "2ea25603bab4a26df8d9ebae540253c2f2a1b4cf3258987c296d19d1650d35a4"
+    },
+    "寒冰-火2": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "54cc5f5586a369ff4aad6f1621386df3d749700d8ec6cb0eee68a1bb740f8890"
+    },
+    "寒冰-火3": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "cfff6d72af05e14e74cc0a02f165ee99944aa34d3b276335cd26b5641a7a03d4"
+    },
+    "寒冰-火尾1": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "7f47bc4dded0e1882ea87e72e9613820c0b4016413a8aa2c1fa64932d094c822"
+    },
+    "寒冰-火尾2": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "a0dcaecf3fc70fa5bf78b58b45daa072edc8a27e155f5a140ae52be0ec3bb410"
+    },
+    "寒冰-火尾3": {
+      "size": [
+        24,
+        24
+      ],
+      "sha256": "7cdb82eec7a3e98ec058813a0bd66d5e14b699a8b5a128b8a298cfd78463ac03"
+    },
+    "甜椒投手-投": {
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "21a8d7dc88a7d3f537c8a3369f06bf0579954c38ea23d9ca173bc2e20ccc31cd"
+    },
+    "甜椒投手-投空": {
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "8137386bdc3a9cfd66ae425083e425316289cbc0c1c13dc3b96e05c9ff80145b"
+    },
+    "原始火豆": {
+      "size": [
+        16,
+        16
+      ],
+      "sha256": "48c96841f3e2a7b98f82745440a6f6d046f40376b5e763e20df2947ead25317e"
+    },
+    "原始蓝火豆": {
+      "size": [
+        16,
+        16
+      ],
+      "sha256": "63419c19b95e10450f84eed1eda95f788a655d3a189c6a8db2e85587ceca57eb"
+    },
+    "小鬼炮-炮身": {
+      "size": [
+        96,
+        96
+      ],
+      "sha256": "6562988080e6d304507286eb6d101814dd4674121f52aee7afc7ef877c96564b"
+    },
+    "小鬼炮-装填小鬼": {
+      "size": [
+        96,
+        96
+      ],
+      "sha256": "7c3dd7946eb2f300d4e36e69fb03e0284ab004e214d17da904a10b63f549942d"
+    }
+  },
+  "pvp32_generator": "modkit/redraw_pvp32_native_assets.py",
+  "pvp32_method": "Native layer palette and pivots; reference head shapes; distinct bell pepper and angular primal projectiles",
+  "cannon_68005": {
+    "source": "对战\\素材参考\\pvp29\\cannon.png",
+    "source_sha256": "861355a98d0de6f063011082e7d82e409032f895332ab584ced649745d6a71db",
+    "source_size": [
+      800,
+      499
+    ],
+    "canvas": [
+      96,
+      96
+    ],
+    "method": "Original PvZ2 source downsampled to 96px, nearest-neighbor world scale, separate masked imp and cannon; small occluded muzzle rim reconstructed behind source pixels",
+    "imagegen": "Built-in edit used for layer reference only; preserved separately, not shipped as original pixels",
+    "animation": "Status-scaled runtime load/recoil/move/death transforms, not a claim of complete PvZ2 animation extraction",
+    "original_animation_download": "https://www.spriters-resource.com/mobile/plantsvszombies2/asset/258396/ returned 403"
+  }
+}

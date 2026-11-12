@@ -1,0 +1,7 @@
+Copyright 2002 Free Software Foundation.
+
+The use of this font is granted subject to GNU General Public License.
+
+http://www.gnu.org/copyleft/gpl.html
+
+Dovoljena je uporaba v skladu z licenco GNU General Public License.

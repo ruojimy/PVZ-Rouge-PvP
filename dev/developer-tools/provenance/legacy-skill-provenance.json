@@ -1,0 +1,50 @@
+{
+  "pvz-rouge-add-boss/agents/openai.yaml": {
+    "path": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\PVZ-Rouge-v1.4.8\\.workbuddy\\unpack\\旧解包备份-20260904\\e2e测试解压-可删\\PVZ-Rouge-v1.5.0.1改版-发布包\\codex-skills\\pvz-rouge-add-boss\\agents\\openai.yaml",
+    "sha256": "d53177eedef7a679da56bd67cee3d7456a705e67fbb0dd99ad377957eb916e71"
+  },
+  "pvz-rouge-add-boss/references/boss-bridge-pattern.md": {
+    "path": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\PVZ-Rouge-v1.4.8\\.workbuddy\\unpack\\旧解包备份-20260904\\e2e测试解压-可删\\PVZ-Rouge-v1.5.0.1改版-发布包\\codex-skills\\pvz-rouge-add-boss\\references\\boss-bridge-pattern.md",
+    "sha256": "8e1d8c970f083baad836a75a50b3c5b7ebf4e0040fba28360d2afa50c3bfb867"
+  },
+  "pvz-rouge-add-boss/SKILL.md": {
+    "path": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\PVZ-Rouge-v1.4.8\\.workbuddy\\unpack\\旧解包备份-20260904\\e2e测试解压-可删\\PVZ-Rouge-v1.5.0.1改版-发布包\\codex-skills\\pvz-rouge-add-boss\\SKILL.md",
+    "sha256": "ee980c38b9f2ca778824bed71e7696cb6add5eec9e6b362778a56d8ad947735e"
+  },
+  "pvz-rouge-add-mode/agents/openai.yaml": {
+    "path": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\PVZ-Rouge-v1.4.8\\.workbuddy\\unpack\\旧解包备份-20260904\\e2e测试解压-可删\\PVZ-Rouge-v1.5.0.1改版-发布包\\codex-skills\\pvz-rouge-add-mode\\agents\\openai.yaml",
+    "sha256": "57c1d79ebc735a84759c544c0f0c78e5d1dd83252a90ff8b0ff621161bcba6cb"
+  },
+  "pvz-rouge-add-mode/references/mode-wiring-pattern.md": {
+    "path": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\PVZ-Rouge-v1.4.8\\.workbuddy\\unpack\\旧解包备份-20260904\\e2e测试解压-可删\\PVZ-Rouge-v1.5.0.1改版-发布包\\codex-skills\\pvz-rouge-add-mode\\references\\mode-wiring-pattern.md",
+    "sha256": "13b9b093a25b8a97e3d7eb97a8126bf055433e684cca3ffe68316e1f7037c52c"
+  },
+  "pvz-rouge-add-mode/SKILL.md": {
+    "path": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\PVZ-Rouge-v1.4.8\\.workbuddy\\unpack\\旧解包备份-20260904\\e2e测试解压-可删\\PVZ-Rouge-v1.5.0.1改版-发布包\\codex-skills\\pvz-rouge-add-mode\\SKILL.md",
+    "sha256": "e80d168ca2dcfddf779c6a1ca41ebbf9a3765ebb103b7e1b081b33827db3d120"
+  },
+  "pvz-rouge-add-plant/agents/openai.yaml": {
+    "path": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\PVZ-Rouge-v1.4.8\\.workbuddy\\unpack\\旧解包备份-20260904\\e2e测试解压-可删\\PVZ-Rouge-v1.5.0.1改版-发布包\\codex-skills\\pvz-rouge-add-plant\\agents\\openai.yaml",
+    "sha256": "3c78a63b92a0e623c586479d347f8ce304ffdcaacec1954d41d6a770cb31633d"
+  },
+  "pvz-rouge-add-plant/references/current-plant-patterns.md": {
+    "path": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\PVZ-Rouge-v1.4.8\\.workbuddy\\unpack\\旧解包备份-20260904\\e2e测试解压-可删\\PVZ-Rouge-v1.5.0.1改版-发布包\\codex-skills\\pvz-rouge-add-plant\\references\\current-plant-patterns.md",
+    "sha256": "201443712d4ed803bb6c559d36b68908f16a78c3ac11f19675ea5b2f5d640ef1"
+  },
+  "pvz-rouge-add-plant/SKILL.md": {
+    "path": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\PVZ-Rouge-v1.4.8\\.workbuddy\\unpack\\旧解包备份-20260904\\e2e测试解压-可删\\PVZ-Rouge-v1.5.0.1改版-发布包\\codex-skills\\pvz-rouge-add-plant\\SKILL.md",
+    "sha256": "12cf567e1c32a9b1953e4bcdfc3e06b669f10f505a392d518599d883fe376643"
+  },
+  "pvz-rouge-add-zombie/agents/openai.yaml": {
+    "path": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\PVZ-Rouge-v1.4.8\\.workbuddy\\unpack\\旧解包备份-20260904\\e2e测试解压-可删\\PVZ-Rouge-v1.5.0.1改版-发布包\\codex-skills\\pvz-rouge-add-zombie\\agents\\openai.yaml",
+    "sha256": "ae030aaa8c3b2c8b4f5077cec0d73079ef3806f8243020f45e3d4179a67aa604"
+  },
+  "pvz-rouge-add-zombie/references/plant-zombie-contract.md": {
+    "path": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\PVZ-Rouge-v1.4.8\\.workbuddy\\unpack\\旧解包备份-20260904\\e2e测试解压-可删\\PVZ-Rouge-v1.5.0.1改版-发布包\\codex-skills\\pvz-rouge-add-zombie\\references\\plant-zombie-contract.md",
+    "sha256": "b8dae81d90afa9d9df06b288b933cdf6b22f93de30269afa038f9ebbffc45820"
+  },
+  "pvz-rouge-add-zombie/SKILL.md": {
+    "path": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\PVZ-Rouge-v1.4.8\\.workbuddy\\unpack\\旧解包备份-20260904\\e2e测试解压-可删\\PVZ-Rouge-v1.5.0.1改版-发布包\\codex-skills\\pvz-rouge-add-zombie\\SKILL.md",
+    "sha256": "3866f41af2662a2cae6d11d05316f8d1f4ea596fc5dc39b057391f578245341b"
+  }
+}

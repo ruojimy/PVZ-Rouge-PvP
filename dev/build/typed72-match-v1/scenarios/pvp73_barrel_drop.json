@@ -1,0 +1,1 @@
+{"map": "家院", "seed": 7, "durable_heroes": true, "room_ticks": 900, "setup": [{"op": "command", "value": "attack"}, {"op": "plant", "name": "西瓜投手", "row": 18, "col": 27}, {"op": "plant", "name": "西瓜投手", "row": 18, "col": 28}, {"op": "plant", "name": "卷心菜投手", "row": 18, "col": 29}, {"op": "zombie", "name": "滚桶僵尸", "row": 18, "x_tiles": 40}]}

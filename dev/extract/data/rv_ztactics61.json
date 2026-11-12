@@ -1,0 +1,12 @@
+{
+ "FLAGS": [
+  "zombie:旗帜僵尸",
+  "zombie:黑旗帜僵尸"
+ ],
+ "SCARECROW": "zombie:稻草人",
+ "PASSIVE": {
+  "__set__": [
+   "zombie:稻草人"
+  ]
+ }
+}

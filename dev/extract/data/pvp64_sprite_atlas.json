@@ -1,0 +1,30 @@
+{
+ "ROOTS": {
+  "原始土豆地雷": "primal_mine",
+  "甜薯": "sweet_potato",
+  "豌豆迫击炮": "pea_mortar",
+  "弹簧草": "spring_grass",
+  "史莱姆僵尸": "zom_blob",
+  "中型史莱姆": "zom_blob",
+  "小型史莱姆": "zom_blob",
+  "掷弹兵僵尸": "grenadier"
+ },
+ "PIXEL_CANVAS": {
+  "原始土豆地雷": 24,
+  "甜薯": 24,
+  "豌豆迫击炮": 24,
+  "弹簧草": 24,
+  "史莱姆僵尸": 36,
+  "中型史莱姆": 27,
+  "小型史莱姆": 18,
+  "掷弹兵僵尸": 36
+ },
+ "ALPHA_EDGE": 112,
+ "NATIVE_FILES": {
+  "传送带": "conveyor_held.png",
+  "传送带僵尸": "conveyor_icon.png",
+  "传送带僵尸-身": "conveyor_body.png",
+  "传送带僵尸-首": "conveyor_head.png"
+ },
+ "_CACHE": {}
+}

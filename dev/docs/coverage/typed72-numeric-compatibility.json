@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "status": "current-v-numeric-contract-verified-and-promoted-full-backend-pending",
+  "observed": "CPython 3.8 compensated hypot changes two spring target ties. Current V battle entry selects axis -10 degrees and HP [94,100,94,100] for both retained cases; all six typed PvP64 hypot sites now use std::hypot, matching the verified staged sources byte for byte.",
+  "evidence": [
+    "test_results/typed72-20261105/mortar-plants-release/failure-0210.json",
+    "test_results/typed72-20261105/mortar-plants-release-v2/summary.json",
+    "test_results/typed72-20261105/v-spring-case-210-v3.json",
+    "test_results/typed72-20261105/v-spring-case-250-v3.json",
+    "test_results/typed72-20261105/native-math-v1/summary.json",
+    "test_results/typed72-20261105/numeric-v1-mortar-native/summary.json",
+    "test_results/typed72-20261105/numeric-v1-grenadiers-native/summary.json",
+    "test_results/typed72-20261105/numeric-v1-zombies64-native/summary.json",
+    "test_results/typed72-20261105/numeric-v1-mortar-python38-raw/summary.json",
+    "test_results/typed72-20261105/numeric-promotion-v1.json"
+  ],
+  "source_hashes": {
+    "src/sim/pvp/pvprt.cpp": "d410f7572346b582ded53c0d87d1b4185814990621451a1f47ecbb0db50fa2b8",
+    "src/sim/pvp/gen/pm_pvp64_content.cpp": "f4836b895dc5a597f87e493653bb2df8d850d2b60024d4902b6e8334adb49fb4",
+    "src/sim/typed/mortar_plants.cpp": "cc07abdee280e98d0ec709ca52a18ceb1c44184da8292ccf13a481669a80a1fd",
+    "src/core/pymath.h": "a8c2c975f6c3636a7a4a1a9a70011a540ddf5556f5bdcdcc6b540c153fefda98",
+    "src/sim/typed/grenadiers.cpp": "ddc5947f064003b3ddd714f2732b1cca40cc59b460f7077eb349816ceeaf5e1a",
+    "src/sim/typed/content_zombies64.cpp": "20e6217e166f5e3f18be36bcfbaa087178af6499c62cfdec67d76b8cc0ef3bf3",
+    "tools/typed72/native_math.py": "02a356bdb6b94e28e87412987500bc0ef09933a3156bb26f3c7b02d31f1462e8"
+  },
+  "pending": [
+    "Rebuild the full frozen V source closure and resolve the existing non-typed source/binary drift before whole-backend acceptance",
+    "Run actual complete typed-versus-V battle comparison on the integrated production backend",
+    "Verify target-platform floating ABI when Android full-backend comparisons are run"
+  ],
+  "full_product_acceptance": false,
+  "current_v_cases": [
+    210,
+    250
+  ],
+  "native_math_contract": {
+    "cases": 4096,
+    "exact_binary64_pass": true,
+    "raw_python_differences": 51,
+    "scope": "Windows MSVC std::hypot and UCRT _hypot only"
+  },
+  "component_primary": {
+    "cases": 1224,
+    "steps": 35361,
+    "passed": true,
+    "oracle": "Original source functions with only their PvP64 math namespace bound to the verified V numeric ABI"
+  },
+  "secondary_python38": {
+    "cases": 384,
+    "passed_cases": 382,
+    "raw_behavior_differences": [
+      210,
+      250
+    ],
+    "passed": false,
+    "waived": false
+  }
+}

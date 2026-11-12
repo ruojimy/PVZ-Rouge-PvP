@@ -1,0 +1,1545 @@
+{
+ "植物": {
+  "_pvp70_clock": {
+   "float": 80
+  },
+  "_pvp_armor_max": {
+   "int": 3817
+  },
+  "_pvp_aura_factor": {
+   "float": 3817
+  },
+  "_pvp_basin_terrain": {
+   "dict": 40
+  },
+  "_pvp_before_cd": {
+   "int": 133
+  },
+  "_pvp_before_shot": {
+   "int": 133
+  },
+  "_pvp_born": {
+   "float": 3817
+  },
+  "_pvp_card": {
+   "str": 3817
+  },
+  "_pvp_clock_credit": {
+   "dict": 160
+  },
+  "_pvp_clock_delta": {
+   "dict": 3366
+  },
+  "_pvp_content": {
+   "str": 253
+  },
+  "_pvp_grave_target": {
+   "str": 35
+  },
+  "_pvp_head_age": {
+   "float": 40
+  },
+  "_pvp_head_aim": {
+   "tuple": 40
+  },
+  "_pvp_head_clock": {
+   "float": 40
+  },
+  "_pvp_head_color": {
+   "int": 40
+  },
+  "_pvp_head_goal": {
+   "tuple": 39
+  },
+  "_pvp_head_hits": {
+   "list": 6,
+   "list[str]": 34
+  },
+  "_pvp_head_phase": {
+   "str": 40
+  },
+  "_pvp_head_point": {
+   "tuple": 40
+  },
+  "_pvp_head_start": {
+   "tuple": 39
+  },
+  "_pvp_head_target": {
+   "str": 40
+  },
+  "_pvp_heads": {
+   "list": 40
+  },
+  "_pvp_health_form": {
+   "str": 280
+  },
+  "_pvp_id": {
+   "str": 3817
+  },
+  "_pvp_interval": {
+   "int": 133
+  },
+  "_pvp_max_hp": {
+   "int": 3417,
+   "float": 400
+  },
+  "_pvp_owner": {
+   "str": 3817
+  },
+  "_pvp_parent": {
+   "str": 40
+  },
+  "_pvp_rest_hp": {
+   "int": 40
+  },
+  "_pvp_rest_since": {
+   "int": 40
+  },
+  "_pvp_seat": {
+   "str": 35
+  },
+  "_pvp_sun_due": {
+   "float": 40
+  },
+  "_pvp_temporary": {
+   "bool": 3817
+  },
+  "_pvp_was_asleep": {
+   "bool": 40
+  },
+  "三向目标": {
+   "list[int]": 188
+  },
+  "三向角": {
+   "list[float]": 188
+  },
+  "双发": {
+   "int": 307
+  },
+  "受伤": {
+   "int": 3817
+  },
+  "坐标": {
+   "list[int]": 3817
+  },
+  "头动画": {
+   "int": 3817
+  },
+  "射": {
+   "int": 3131
+  },
+  "射cd": {
+   "int": 3066,
+   "float": 185
+  },
+  "方向": {
+   "int": 3817
+  },
+  "机枪": {
+   "int": 551
+  },
+  "根动画": {
+   "int": 3817
+  },
+  "植物": {
+   "str": 3817
+  },
+  "植物血": {
+   "int": 2739,
+   "float": 1078
+  },
+  "植物血上限": {
+   "int": 3417,
+   "float": 400
+  },
+  "滚蛋": {
+   "int": 35
+  },
+  "爆了": {
+   "int": 120
+  },
+  "路灯": {
+   "int": 40
+  },
+  "金钱": {
+   "int": 40
+  },
+  "钱钱": {
+   "int": 40
+  },
+  "阳光": {
+   "int": 40
+  }
+ },
+ "僵尸": {
+  "__pvz_sb_chili_zombie_row_hint": {
+   "int": 12393
+  },
+  "__pvz_sb_plant_zombie_jump_cd": {
+   "int": 40
+  },
+  "__pvz_sb_plant_zombie_max_hp": {
+   "int": 864
+  },
+  "__pvz_sb_zombie_observed_max_hp": {
+   "float": 11529,
+   "int": 864
+  },
+  "_pvp70_clock": {
+   "float": 120
+  },
+  "_pvp_anchor": {
+   "tuple": 790
+  },
+  "_pvp_anchor_until": {
+   "int": 36
+  },
+  "_pvp_armor_max": {
+   "int": 12394
+  },
+  "_pvp_armor_triggered": {
+   "bool": 39
+  },
+  "_pvp_barrel_direction": {
+   "int": 40
+  },
+  "_pvp_barrel_position": {
+   "list[float]": 40
+  },
+  "_pvp_barrel_remaining": {
+   "float": 40
+  },
+  "_pvp_base_speed": {
+   "float": 1040
+  },
+  "_pvp_bite_plant": {
+   "float": 960
+  },
+  "_pvp_bone_grave": {
+   "bool": 30
+  },
+  "_pvp_born": {
+   "float": 12394
+  },
+  "_pvp_card": {
+   "str": 12394
+  },
+  "_pvp_content": {
+   "str": 200
+  },
+  "_pvp_content_position_before": {
+   "list[float|int]": 3134,
+   "list[float]": 8470
+  },
+  "_pvp_floating": {
+   "bool": 720
+  },
+  "_pvp_grave": {
+   "bool": 790
+  },
+  "_pvp_grenade": {
+   "str": 40
+  },
+  "_pvp_grenade_clock": {
+   "float": 40
+  },
+  "_pvp_hold_x": {
+   "float": 40
+  },
+  "_pvp_hook_pull": {
+   "tuple": 1
+  },
+  "_pvp_id": {
+   "str": 12394
+  },
+  "_pvp_idle": {
+   "float": 720
+  },
+  "_pvp_max_hp": {
+   "int": 12194,
+   "float": 200
+  },
+  "_pvp_owner": {
+   "str": 12394
+  },
+  "_pvp_producer": {
+   "bool": 790
+  },
+  "_pvp_production_rate": {
+   "float": 789
+  },
+  "_pvp_reaper_hurt": {
+   "int": 80
+  },
+  "_pvp_seat": {
+   "str": 30
+  },
+  "_pvp_seen_hp": {
+   "float": 40
+  },
+  "_pvp_summon_clock": {
+   "float": 40
+  },
+  "_pvp_target": {
+   "str": 40
+  },
+  "_pvp_temporary": {
+   "bool": 12394
+  },
+  "_pvp_variant": {
+   "str": 960
+  },
+  "_pvp_zs_hurt": {
+   "int": 200
+  },
+  "丢小鬼": {
+   "int": 180
+  },
+  "位置": {
+   "list[float|int]": 3919,
+   "list[float]": 8475
+  },
+  "僵尸": {
+   "str": 12394
+  },
+  "入水": {
+   "bool": 12394
+  },
+  "再出场": {
+   "int": 12394
+  },
+  "冰冻": {
+   "int": 1158
+  },
+  "出场": {
+   "int": 12394
+  },
+  "出场初位置": {
+   "list[float|int]": 12154,
+   "list[int]": 240
+  },
+  "出场末位置": {
+   "list[float]": 12154,
+   "list[float|int]": 240
+  },
+  "别消失": {
+   "int": 8
+  },
+  "半血": {
+   "int": 1320
+  },
+  "受伤": {
+   "int": 12394
+  },
+  "啃咬": {
+   "int": 12394
+  },
+  "坚持分兵": {
+   "int": 12394
+  },
+  "大小": {
+   "int": 12394
+  },
+  "大蒜": {
+   "int": 147
+  },
+  "射": {
+   "int": 744
+  },
+  "憋气": {
+   "int": 12394
+  },
+  "手持": {
+   "str": 12394
+  },
+  "手持动画": {
+   "list[int]": 1320
+  },
+  "手持受伤": {
+   "int": 12394
+  },
+  "手持血量": {
+   "int": 12142,
+   "float": 252
+  },
+  "撑杆": {
+   "int": 848
+  },
+  "方向": {
+   "int": 12394
+  },
+  "旋转": {
+   "int": 180
+  },
+  "植物僵尸": {
+   "bool": 864
+  },
+  "植物僵尸发射动画": {
+   "int": 143,
+   "float": 721
+  },
+  "植物僵尸名": {
+   "str": 864
+  },
+  "植物僵尸基础体": {
+   "str": 864
+  },
+  "植物僵尸头": {
+   "str": 864
+  },
+  "植物僵尸射cd": {
+   "int": 864
+  },
+  "植物僵尸抗击退": {
+   "float": 40
+  },
+  "植物僵尸显示": {
+   "str": 864
+  },
+  "植物僵尸角": {
+   "float": 864
+  },
+  "植物僵尸连发": {
+   "int": 864
+  },
+  "植物僵尸连发cd": {
+   "int": 864
+  },
+  "植物僵尸鸭子": {
+   "bool": 864
+  },
+  "炸音": {
+   "int": 12394
+  },
+  "牛顿": {
+   "float": 40
+  },
+  "移速": {
+   "float": 12394
+  },
+  "血量": {
+   "int": 10250,
+   "float": 2144
+  },
+  "跳跃cd": {
+   "int": 12394
+  },
+  "防具": {
+   "str": 12394
+  },
+  "防具血量": {
+   "int": 11207,
+   "float": 1187
+  },
+  "魅惑": {
+   "int": 40
+  }
+ },
+ "avatar": {
+  "__pvz_sb_chili_launch_lock_until": {
+   "float": 480
+  },
+  "_pvp_balloon_hp": {
+   "int": 480
+  },
+  "_pvp_butter": {
+   "int": 480
+  },
+  "_pvp_ice": {
+   "int": 480
+  },
+  "_pvp_id": {
+   "str": 480
+  },
+  "_pvp_last_damage": {
+   "float": 480
+  },
+  "_pvp_max_hp": {
+   "float": 480
+  },
+  "_pvp_owner": {
+   "str": 480
+  },
+  "_pvp_previous_hp": {
+   "float": 480
+  },
+  "_pvp_regen_progress": {
+   "float": 480
+  },
+  "_pvp_stun": {
+   "int": 480
+  },
+  "_pvp_water_damage_clock": {
+   "float": 480
+  },
+  "citoux": {
+   "float": 480
+  },
+  "dushu": {
+   "float": 480
+  },
+  "landing_result": {
+   "int": 480
+  },
+  "native_ticks": {
+   "int": 480
+  },
+  "sbs": {
+   "bool": 480
+  },
+  "speed": {
+   "float": 480
+  },
+  "speedmax": {
+   "float": 480
+  },
+  "toudushu": {
+   "float": 480
+  },
+  "wjx": {
+   "int": 480
+  },
+  "wjy": {
+   "int": 480
+  },
+  "xx": {
+   "int": 480
+  },
+  "yy": {
+   "int": 306,
+   "float": 174
+  },
+  "二段跳": {
+   "int": 480
+  },
+  "入水": {
+   "bool": 480
+  },
+  "冻水": {
+   "int": 480
+  },
+  "模式": {
+   "str": 480
+  },
+  "气球": {
+   "int": 480
+  },
+  "猫尾": {
+   "int": 480
+  },
+  "猫尾cd": {
+   "int": 480
+  },
+  "猫尾摇摆": {
+   "int": 480
+  },
+  "玩家位置": {
+   "list[float]": 329,
+   "list[float|int]": 151
+  },
+  "玩家倒地": {
+   "int": 480
+  },
+  "玩家入水": {
+   "bool": 480
+  },
+  "玩家受伤": {
+   "int": 480
+  },
+  "玩家恢复": {
+   "int": 480
+  },
+  "玩家方向": {
+   "int": 480
+  },
+  "玩家皮肤": {
+   "str": 480
+  },
+  "玩家血量": {
+   "float": 480
+  },
+  "玩家跳跃": {
+   "int": 480
+  },
+  "秘籍": {
+   "list[str]": 240,
+   "list": 240
+  },
+  "辣飞天": {
+   "int": 480
+  }
+ },
+ "实体": {
+  "__pvz_sb_native_move": {
+   "bool": 492
+  },
+  "__pvz_sb_smart_projectile_skip": {
+   "bool": 959
+  },
+  "__pvz_sb_zombie_pea_fire": {
+   "str": 43
+  },
+  "_pvp_art_name": {
+   "str": 1758
+  },
+  "_pvp_cattail": {
+   "bool": 810
+  },
+  "_pvp_content": {
+   "str": 1719
+  },
+  "_pvp_content_ready": {
+   "bool": 1719
+  },
+  "_pvp_dart": {
+   "bool": 1719
+  },
+  "_pvp_distance": {
+   "float": 1719
+  },
+  "_pvp_fire_color": {
+   "str": 831
+  },
+  "_pvp_flight_distance": {
+   "float": 8595
+  },
+  "_pvp_flight_form": {
+   "list[bool|str]": 5586
+  },
+  "_pvp_flight_last": {
+   "list[float]": 8595
+  },
+  "_pvp_flight_limit_tiles": {
+   "float": 8142
+  },
+  "_pvp_id": {
+   "str": 15698
+  },
+  "_pvp_instant_attack": {
+   "tuple": 15698
+  },
+  "_pvp_launch_direction": {
+   "int": 1719
+  },
+  "_pvp_leg_hits": {
+   "list": 772,
+   "list[str]": 947
+  },
+  "_pvp_original_owner": {
+   "str": 15698
+  },
+  "_pvp_owner": {
+   "str": 15698
+  },
+  "_pvp_plant_kind": {
+   "str": 12861,
+   "NoneType": 1140
+  },
+  "_pvp_return": {
+   "bool": 1719
+  },
+  "_pvp_root_source": {
+   "str": 15698
+  },
+  "_pvp_source_entity": {
+   "str": 15698
+  },
+  "_pvp_speed": {
+   "float": 1719
+  },
+  "_pvp_torch_previous": {
+   "list[float]": 2517
+  },
+  "_pvp_torch_visits": {
+   "list": 1643,
+   "list[str]": 874
+  },
+  "_pvp_turned": {
+   "bool": 1719
+  },
+  "age": {
+   "int": 492
+  },
+  "prev_x": {
+   "float": 492
+  },
+  "prev_y": {
+   "float": 492
+  },
+  "vx": {
+   "float": 492
+  },
+  "vy": {
+   "float": 492
+  },
+  "x": {
+   "float": 492
+  },
+  "y": {
+   "float": 492
+  },
+  "上次制导": {
+   "float": 14
+  },
+  "位置": {
+   "list[float|int]": 8848,
+   "list[float]": 6850
+  },
+  "僵尸豌豆弹": {
+   "bool": 492
+  },
+  "制导次数": {
+   "int": 14
+  },
+  "名": {
+   "str": 15698
+  },
+  "扁": {
+   "NativeImage": 54
+  },
+  "方向": {
+   "int": 15698
+  },
+  "旋转": {
+   "float": 356,
+   "int": 974
+  },
+  "智能弹道": {
+   "dict": 14
+  },
+  "智能星命中": {
+   "list": 945,
+   "list[int]": 721
+  },
+  "智能杨桃": {
+   "bool": 1666
+  },
+  "植物僵尸头命中表": {
+   "list": 2163,
+   "list[int]": 6
+  },
+  "消亡": {
+   "int": 9139
+  },
+  "火了": {
+   "int": 831
+  },
+  "牛顿": {
+   "int": 6683
+  },
+  "穿墙": {
+   "int": 3366
+  },
+  "追踪": {
+   "int": 357
+  }
+ },
+ "粒子": {
+  "<list len 3>": {
+   "list[Color|int|list]": 2252
+  }
+ },
+ "_globals": {
+  "A尸": {
+   "list[str]": 240
+  },
+  "B尸": {
+   "list[str]": 240
+  },
+  "C尸": {
+   "list[str]": 240
+  },
+  "__builtins__": {
+   "dict": 240
+  },
+  "__name__": {
+   "str": 240
+  },
+  "__native_landing": {
+   "int": 240
+  },
+  "__pvz_sb_chili_launch_lock_until": {
+   "float": 240
+  },
+  "__pvz_sb_i_zombie_board_marker_state": {
+   "NoneType": 240
+  },
+  "__pvz_sb_i_zombie_zombie_placed_state": {
+   "bool": 240
+  },
+  "_pvp_balloon_hp": {
+   "int": 240
+  },
+  "_pvp_butter": {
+   "int": 240
+  },
+  "_pvp_ice": {
+   "int": 240
+  },
+  "_pvp_id": {
+   "str": 240
+  },
+  "_pvp_last_damage": {
+   "float": 240
+  },
+  "_pvp_max_hp": {
+   "float": 240
+  },
+  "_pvp_native_targets": {
+   "NativeTargets": 240
+  },
+  "_pvp_native_tick": {
+   "int": 240
+  },
+  "_pvp_owner": {
+   "str": 240
+  },
+  "_pvp_previous_hp": {
+   "float": 240
+  },
+  "_pvp_regen_progress": {
+   "float": 240
+  },
+  "_pvp_stun": {
+   "int": 240
+  },
+  "_pvp_water_damage_clock": {
+   "float": 235
+  },
+  "_pvp_water_ice": {
+   "int": 240
+  },
+  "bi": {
+   "float": 240
+  },
+  "biaomian": {
+   "bool": 155,
+   "NoneType": 4
+  },
+  "boss": {
+   "list[str]": 240
+  },
+  "boss战": {
+   "bool": 240
+  },
+  "cd": {
+   "int": 120
+  },
+  "cd卡亮": {
+   "dict": 240
+  },
+  "citoux": {
+   "float": 240
+  },
+  "copy": {
+   "MatchCopy": 240
+  },
+  "dadi": {
+   "int": 160
+  },
+  "daxiao": {
+   "float": 62
+  },
+  "daxiaox": {
+   "float": 240
+  },
+  "ditu": {
+   "list[PeriodicRow]": 240
+  },
+  "dushu": {
+   "float": 240
+  },
+  "dushux": {
+   "float": 166,
+   "int": 74
+  },
+  "dushuxx": {
+   "float": 184
+  },
+  "dx": {
+   "int": 196
+  },
+  "font": {
+   "Font": 240
+  },
+  "fx": {
+   "int": 120
+  },
+  "gaoyu": {
+   "bool": 240
+  },
+  "hb": {
+   "str": 196
+  },
+  "hs": {
+   "int": 240
+  },
+  "hss": {
+   "int": 240
+  },
+  "jd": {
+   "float": 116
+  },
+  "juli": {
+   "int": 12,
+   "float": 228
+  },
+  "kong": {
+   "list[str]": 240
+  },
+  "l": {
+   "int": 240
+  },
+  "landing_result": {
+   "int": 240
+  },
+  "lizi": {
+   "int": 198
+  },
+  "lzx": {
+   "list[str]": 48,
+   "int": 122,
+   "float": 70
+  },
+  "mj": {
+   "str": 240
+  },
+  "name": {
+   "str": 240
+  },
+  "namex": {
+   "str": 196
+  },
+  "nangua": {
+   "list": 200,
+   "list[int]": 40
+  },
+  "native_ticks": {
+   "int": 240
+  },
+  "paoku": {
+   "int": 240
+  },
+  "plk": {
+   "float": 240
+  },
+  "pygame": {
+   "_Pygame": 240
+  },
+  "random": {
+   "Random": 240
+  },
+  "sbs": {
+   "bool": 240
+  },
+  "sbx": {
+   "int": 240
+  },
+  "sby": {
+   "int": 240
+  },
+  "screen": {
+   "DrawRecorder": 240
+  },
+  "sh": {
+   "int": 159
+  },
+  "shanchu": {
+   "bool": 196
+  },
+  "shui": {
+   "float": 240
+  },
+  "speed": {
+   "float": 240
+  },
+  "speedmax": {
+   "float": 240
+  },
+  "sy": {
+   "int": 224
+  },
+  "ti": {
+   "bool": 69
+  },
+  "tian": {
+   "str": 240
+  },
+  "tiao": {
+   "bool": 239
+  },
+  "toudushu": {
+   "float": 240
+  },
+  "tux": {
+   "int": 192
+  },
+  "tuy": {
+   "int": 192
+  },
+  "ui图集": {
+   "dict": 240
+  },
+  "wjx": {
+   "int": 240
+  },
+  "wjy": {
+   "int": 240
+  },
+  "wy": {
+   "int": 240
+  },
+  "x": {
+   "int": 240
+  },
+  "xfx": {
+   "int": 162
+  },
+  "xianbi": {
+   "int": 240
+  },
+  "xl": {
+   "int": 142
+  },
+  "xue": {
+   "int": 17
+  },
+  "xx": {
+   "int": 240
+  },
+  "xxx": {
+   "float": 240
+  },
+  "y": {
+   "int": 240
+  },
+  "yao": {
+   "float": 184
+  },
+  "ytm": {
+   "int": 200
+  },
+  "yu": {
+   "bool": 240
+  },
+  "yy": {
+   "int": 128,
+   "float": 112
+  },
+  "yyy": {
+   "float": 240
+  },
+  "z": {
+   "int": 236
+  },
+  "zbspeedmax": {
+   "float": 240
+  },
+  "zhongxin": {
+   "int": 240
+  },
+  "zi": {
+   "str": 240
+  },
+  "zz": {
+   "int": 196
+  },
+  "一": {
+   "int": 240
+  },
+  "一大波僵尸": {
+   "int": 240
+  },
+  "一百五": {
+   "int": 240
+  },
+  "上次种植": {
+   "str": 240
+  },
+  "不动": {
+   "bool": 240
+  },
+  "中波": {
+   "int": 240
+  },
+  "主界面近景": {
+   "NoneType": 240
+  },
+  "二段跳": {
+   "int": 240
+  },
+  "二百五": {
+   "int": 240
+  },
+  "产光植物": {
+   "list[str]": 240
+  },
+  "人洪水": {
+   "list[PeriodicRow]": 240
+  },
+  "人洪水cd": {
+   "int": 240
+  },
+  "人洪水圈": {
+   "list[list]": 234,
+   "list": 6
+  },
+  "人洪水覆盖": {
+   "int": 240
+  },
+  "介绍秘籍": {
+   "dict": 240
+  },
+  "伤害实体": {
+   "list[str]": 240
+  },
+  "作战": {
+   "str": 240
+  },
+  "作战数": {
+   "int": 240
+  },
+  "僵尸": {
+   "list[dict]": 240
+  },
+  "僵尸图": {
+   "list[str]": 240
+  },
+  "先别追植": {
+   "bool": 200,
+   "int": 40
+  },
+  "入水": {
+   "bool": 240
+  },
+  "关": {
+   "int": 240
+  },
+  "其它图": {
+   "list[str]": 240
+  },
+  "冲锋": {
+   "int": 240
+  },
+  "冻水": {
+   "int": 240
+  },
+  "分梯": {
+   "list": 240
+  },
+  "参战僵尸图": {
+   "list[str]": 240
+  },
+  "可": {
+   "bool": 240
+  },
+  "右下": {
+   "list[int]": 240
+  },
+  "同横尸": {
+   "dict": 240
+  },
+  "同竖尸": {
+   "dict": 240
+  },
+  "图集": {
+   "TemplateAtlas": 240
+  },
+  "地刺阳光": {
+   "int": 240
+  },
+  "地图数据": {
+   "dict": 240
+  },
+  "夜间植物": {
+   "list[str]": 240
+  },
+  "大头": {
+   "list[str]": 240
+  },
+  "大尸": {
+   "dict": 240
+  },
+  "大波": {
+   "int": 240
+  },
+  "天": {
+   "str": 240
+  },
+  "天色": {
+   "dict": 240
+  },
+  "实体": {
+   "list": 44,
+   "list[dict]": 196
+  },
+  "射": {
+   "bool": 200
+  },
+  "小font": {
+   "Font": 240
+  },
+  "左上": {
+   "list[int]": 240
+  },
+  "开车": {
+   "int": 240
+  },
+  "得了": {
+   "bool": 101
+  },
+  "总宽": {
+   "int": 240
+  },
+  "总高": {
+   "int": 240
+  },
+  "所有作战": {
+   "list[str]": 240
+  },
+  "所有植物": {
+   "list[str]": 240
+  },
+  "所有秘籍": {
+   "dict": 240
+  },
+  "投手植物": {
+   "list[str]": 240
+  },
+  "投掷对应": {
+   "dict": 240
+  },
+  "投掷物": {
+   "list[str]": 240
+  },
+  "抖屏": {
+   "list[int]": 240
+  },
+  "拟人图集": {
+   "dict": 240
+  },
+  "拿中": {
+   "str": 240
+  },
+  "拿中玉米炮": {
+   "list": 240
+  },
+  "摄像机": {
+   "list[int]": 240
+  },
+  "收集钱币": {
+   "list": 240
+  },
+  "收集阳光": {
+   "list": 240
+  },
+  "方块": {
+   "list[str]": 240
+  },
+  "显啥": {
+   "list[list]": 240
+  },
+  "最后一波": {
+   "bool": 240
+  },
+  "最近距离": {
+   "float": 232
+  },
+  "根茎叶植物": {
+   "list[str]": 240
+  },
+  "梯子cd": {
+   "int": 240
+  },
+  "梯子尸数": {
+   "int": 240
+  },
+  "植洪水": {
+   "list[PeriodicRow]": 240
+  },
+  "植洪水cd": {
+   "int": 240
+  },
+  "植洪水圈": {
+   "list": 6,
+   "list[list]": 234
+  },
+  "植洪水覆盖": {
+   "int": 240
+  },
+  "植物": {
+   "list[dict]": 240
+  },
+  "植物补充": {
+   "list[str]": 240
+  },
+  "模仿": {
+   "str": 240
+  },
+  "模式": {
+   "str": 240
+  },
+  "每作战加时长": {
+   "int": 240
+  },
+  "比": {
+   "int": 240
+  },
+  "气球": {
+   "int": 240
+  },
+  "水": {
+   "str": 240
+  },
+  "水平面": {
+   "int": 240
+  },
+  "水波": {
+   "int": 240
+  },
+  "洪水": {
+   "list[list]": 240
+  },
+  "洪水h": {
+   "list[int]": 240
+  },
+  "测试僵尸": {
+   "str": 240
+  },
+  "测试秘籍": {
+   "str": 240
+  },
+  "火图": {
+   "list[str]": 240
+  },
+  "爆币": {
+   "int": 240
+  },
+  "版本": {
+   "str": 240
+  },
+  "猫尾": {
+   "int": 240
+  },
+  "猫尾cd": {
+   "int": 240
+  },
+  "猫尾摇摆": {
+   "int": 240
+  },
+  "玩家位置": {
+   "list[float]": 89,
+   "list[float|int]": 151
+  },
+  "玩家倒地": {
+   "int": 240
+  },
+  "玩家入水": {
+   "bool": 240
+  },
+  "玩家受伤": {
+   "int": 240
+  },
+  "玩家恢复": {
+   "int": 240
+  },
+  "玩家方向": {
+   "int": 240
+  },
+  "玩家皮肤": {
+   "str": 240
+  },
+  "玩家血量": {
+   "float": 240
+  },
+  "玩家跳跃": {
+   "int": 240
+  },
+  "白色": {
+   "tuple": 240
+  },
+  "皮肤": {
+   "list[str]": 240
+  },
+  "目标位置": {
+   "list[int]": 240
+  },
+  "目标植物": {
+   "int": 240
+  },
+  "离玩家最近": {
+   "int": 240
+  },
+  "种植": {
+   "str": 240
+  },
+  "种植cd": {
+   "dict": 240
+  },
+  "秘籍": {
+   "list[str]": 240
+  },
+  "第一作战时长": {
+   "int": 240
+  },
+  "粒子": {
+   "list": 186,
+   "list[list]": 54
+  },
+  "紫色": {
+   "tuple": 240
+  },
+  "红色": {
+   "tuple": 240
+  },
+  "纯白色": {
+   "tuple": 240
+  },
+  "纯黄色": {
+   "tuple": 240
+  },
+  "纯黑色": {
+   "tuple": 240
+  },
+  "背景图集": {
+   "dict": 240
+  },
+  "花盆顶": {
+   "dict": 240
+  },
+  "花费阳光": {
+   "dict": 240
+  },
+  "蓝色": {
+   "tuple": 240
+  },
+  "行距": {
+   "int": 240
+  },
+  "补帧": {
+   "int": 240
+  },
+  "设置": {
+   "dict": 240
+  },
+  "输出植物": {
+   "list[str]": 240
+  },
+  "输出植物数": {
+   "int": 240
+  },
+  "辣飞天": {
+   "int": 240
+  },
+  "近景图集": {
+   "dict": 240
+  },
+  "选择僵尸": {
+   "list": 240
+  },
+  "选择植物": {
+   "list": 240
+  },
+  "重要方块": {
+   "list": 240
+  },
+  "金属": {
+   "list[str]": 240
+  },
+  "钱币": {
+   "list": 240
+  },
+  "防具": {
+   "list[str]": 240
+  },
+  "阳光": {
+   "int": 240
+  },
+  "阳光球": {
+   "list": 240
+  },
+  "雨": {
+   "list": 240
+  },
+  "雨天": {
+   "bool": 240
+  },
+  "零": {
+   "int": 240
+  },
+  "高级植物": {
+   "list[str]": 240
+  },
+  "黑色": {
+   "tuple": 240
+  },
+  "黑边里方块": {
+   "list[str]": 240
+  }
+ },
+ "_names": {
+  "植物": {
+   "豌豆射手": 516,
+   "双发射手": 307,
+   "寒冰射手": 120,
+   "坚果": 200,
+   "机枪射手": 551,
+   "杨桃": 622,
+   "西瓜投手": 179,
+   "冰瓜投手": 147,
+   "香蒲": 109,
+   "火炬树桩": 211,
+   "仙人掌": 240,
+   "三向射手": 188,
+   "卷心菜投手": 152,
+   "向日葵": 40,
+   "金盏花": 40,
+   "路灯花": 40,
+   "抓人草": 40,
+   "抓人草触手": 40,
+   "水盆": 40,
+   "墓碑吞噬者": 35
+  },
+  "僵尸": {
+   "普通僵尸": 4270,
+   "梯子僵尸": 960,
+   "撑杆跳僵尸": 960,
+   "小鬼僵尸": 1140,
+   "旗帜僵尸": 960,
+   "橄榄球僵尸": 960,
+   "报纸僵尸": 960,
+   "巨人僵尸": 1320,
+   "机枪僵尸": 355,
+   "豌豆僵尸": 389,
+   "辣椒僵尸": 40,
+   "倭瓜僵尸": 40,
+   "墓碑吞噬者僵尸": 40
+  },
+  "实体": {
+   "豌豆": 2422,
+   "冰豆": 122,
+   "星星": 2556,
+   "尖刺": 810,
+   "僵尸豌豆": 492,
+   "回旋镖弹": 1719,
+   "蓝火豆": 831,
+   "卷心菜": 345,
+   "西瓜": 306,
+   "冰瓜": 322,
+   "机枪僵尸-首": 1812,
+   "豌豆僵尸-首": 1813,
+   "路障": 263,
+   "小鬼僵尸-首": 328,
+   "普通僵尸-首": 777,
+   "豌豆射手": 9,
+   "火炬树桩": 9,
+   "梯子僵尸-首": 252,
+   "撑杆跳僵尸-首": 221,
+   "光疗": 9,
+   "铁桶": 225,
+   "杨桃": 27,
+   "机枪射手": 9,
+   "橄榄球头盔": 19
+  }
+ }
+}

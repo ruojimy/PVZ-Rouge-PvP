@@ -1,0 +1,22 @@
+{
+ "PLANT_BANS": [
+  "zombie:成长脑光墓碑",
+  "zombie:双生脑光墓碑",
+  "zombie:黑普通僵尸",
+  "zombie:橄榄球僵尸",
+  "zombie:巨人僵尸",
+  "zombie:矿工僵尸",
+  "zombie:黑橄榄僵尸",
+  "zombie:海盗船长"
+ ],
+ "ZOMBIE_BANS": [
+  "plant:卷心菜投手",
+  "plant:樱桃炸弹",
+  "plant:西瓜投手",
+  "plant:向日葵",
+  "plant:大嘴花",
+  "plant:窝瓜",
+  "plant:双子向日葵",
+  "plant:墓碑吞噬者"
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "LOBBERS": {
+  "__set__": [
+   "plant:冰瓜投手",
+   "plant:卷心菜投手",
+   "plant:玉米投手",
+   "plant:甜椒投手",
+   "plant:西瓜投手"
+  ]
+ }
+}

@@ -1,0 +1,265 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\native_targets.py",
+      "source_sha256": "d47dcc0efb13bee901c22cea21cdae3851826351cfe1cc44adc652b67e6aa6b8",
+      "symbol": "NativeTargets.hero_proxy",
+      "lines": [
+        185,
+        204
+      ],
+      "ast_sha256": "5d09d2f3fb5d0ddbf0cb72e58e0789f20971b063a11bbf13fe1fc6b2799b416a",
+      "typed_target": "HeroCombat::proxy",
+      "scope": "Actual saved pre-admission factory; ordinary normal-mode native template, RNG restoration, private unregistered temporary, cache publication only after successful sync."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\native_targets.py",
+      "source_sha256": "d47dcc0efb13bee901c22cea21cdae3851826351cfe1cc44adc652b67e6aa6b8",
+      "symbol": "HeroProxy.__init__",
+      "lines": [
+        58,
+        65
+      ],
+      "ast_sha256": "794c42e2e8319cabe65d8c00ec4e36745a9b82015ceb4192761365151a3319ac",
+      "typed_target": "HeroProxyState / HeroCombat proxy writes",
+      "scope": "Full constructor shape and source metadata; HP/ash/status writes and all blocked conversion keys. Arbitrary unknown dictionary fields are not a supported typed boundary."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\native_targets.py",
+      "source_sha256": "d47dcc0efb13bee901c22cea21cdae3851826351cfe1cc44adc652b67e6aa6b8",
+      "symbol": "HeroProxy.sync",
+      "lines": [
+        67,
+        73
+      ],
+      "ast_sha256": "a60844e2ec2981b69d86c5abf75e8094f237b2da3b1ad30c4a16a3ddc84aa042",
+      "typed_target": "HeroProxyState / HeroCombat proxy writes",
+      "scope": "Full constructor shape and source metadata; HP/ash/status writes and all blocked conversion keys. Arbitrary unknown dictionary fields are not a supported typed boundary."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\native_targets.py",
+      "source_sha256": "d47dcc0efb13bee901c22cea21cdae3851826351cfe1cc44adc652b67e6aa6b8",
+      "symbol": "HeroProxy.__setitem__",
+      "lines": [
+        75,
+        95
+      ],
+      "ast_sha256": "b3ddd295ab547e244b6a42453b043912d6bb3fe57c66720884974a7406b77a46",
+      "typed_target": "HeroProxyState / HeroCombat proxy writes",
+      "scope": "Full constructor shape and source metadata; HP/ash/status writes and all blocked conversion keys. Arbitrary unknown dictionary fields are not a supported typed boundary."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\native_targets.py",
+      "source_sha256": "d47dcc0efb13bee901c22cea21cdae3851826351cfe1cc44adc652b67e6aa6b8",
+      "symbol": "HeroProxy.update",
+      "lines": [
+        97,
+        99
+      ],
+      "ast_sha256": "f05d9f5f6bd7847a823315c7ecda6ba2af384f8d164f84896037b7b587390789",
+      "typed_target": "HeroProxyState / HeroCombat proxy writes",
+      "scope": "Full constructor shape and source metadata; HP/ash/status writes and all blocked conversion keys. Arbitrary unknown dictionary fields are not a supported typed boundary."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\native_patch.py",
+      "source_sha256": "101eaea66d5c31f9535d5517dc7673bf5ab7e70ebe027a5b90e4a43628c4be39",
+      "symbol": "NativeCombatPatch.__init__",
+      "lines": [
+        85,
+        166
+      ],
+      "ast_sha256": "e20ebdf484c896d10cf1aad7a1436b97f48fcf5d957210a467f034969e34aaa4",
+      "typed_target": "Captured ordinary factory specialization",
+      "scope": "Reference executes actual installation and boss guard. Current PvP disconnects campaign/boss/random-pumpkin hooks before capturing this factory; ordinary kind is accepted."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\native_patch.py",
+      "source_sha256": "101eaea66d5c31f9535d5517dc7673bf5ab7e70ebe027a5b90e4a43628c4be39",
+      "symbol": "NativeCombatPatch._defaults",
+      "lines": [
+        198,
+        201
+      ],
+      "ast_sha256": "0e2abdbdb8713c925754044940dcb99b59d9bfe1f9e742cbd4ddf09587217837",
+      "typed_target": "Captured ordinary factory specialization",
+      "scope": "Reference executes actual installation and boss guard. Current PvP disconnects campaign/boss/random-pumpkin hooks before capturing this factory; ordinary kind is accepted."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\native_patch.py",
+      "source_sha256": "101eaea66d5c31f9535d5517dc7673bf5ab7e70ebe027a5b90e4a43628c4be39",
+      "symbol": "NativeCombatPatch._install",
+      "lines": [
+        219,
+        235
+      ],
+      "ast_sha256": "d97cc9b8474c10f0d7ea6dbf9a4422bd43e007168b8078f2ff3250a1b84b9b73",
+      "typed_target": "Captured ordinary factory specialization",
+      "scope": "Reference executes actual installation and boss guard. Current PvP disconnects campaign/boss/random-pumpkin hooks before capturing this factory; ordinary kind is accepted."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\native_patch.py",
+      "source_sha256": "101eaea66d5c31f9535d5517dc7673bf5ab7e70ebe027a5b90e4a43628c4be39",
+      "symbol": "NativeCombatPatch._guard_boss_spawns",
+      "lines": [
+        237,
+        246
+      ],
+      "ast_sha256": "966a47b903809e04f5a93a22dc13818015832a0e7e90b26c6699fc4a39c02f81",
+      "typed_target": "Captured ordinary factory specialization",
+      "scope": "Reference executes actual installation and boss guard. Current PvP disconnects campaign/boss/random-pumpkin hooks before capturing this factory; ordinary kind is accepted."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_wrap_add_zombie",
+      "lines": [
+        10039,
+        10165
+      ],
+      "ast_sha256": "9ce453ed660fdf004ba35387cbc6f8bd021b3e0d01694db3983739bcb1c55f3a",
+      "typed_target": "HeroCombat::proxy / populate_original_zombie",
+      "scope": "Fixed ordinary name and normal mode: full source wrapper is exercised independently. Other summon kinds remain the separate production admission migration."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_call_native_add_zombie",
+      "lines": [
+        2955,
+        2971
+      ],
+      "ast_sha256": "91e1e9e3bc3211a84e5b44ab652ee8acd0daccb2121fefaddb199f6642cf0ce3",
+      "typed_target": "HeroCombat::proxy / populate_original_zombie",
+      "scope": "Fixed ordinary name and normal mode: full source wrapper is exercised independently. Other summon kinds remain the separate production admission migration."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_mark_i_zombie_zombie_placed_if_spawned",
+      "lines": [
+        5528,
+        5537
+      ],
+      "ast_sha256": "b04631f42d03f6353c8be3ed0b167534dfcc745c4e633a513ecf824dcb664276",
+      "typed_target": "HeroCombat::proxy / populate_original_zombie",
+      "scope": "Fixed ordinary name and normal mode: full source wrapper is exercised independently. Other summon kinds remain the separate production admission migration."
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\extract\\original\\functions.py",
+      "source_sha256": "bcf67cccf9fb73724c76f974e8ad65d3997f7e36acb0ae1f4439bee72c10d754",
+      "symbol": "新增僵尸",
+      "lines": [
+        580,
+        778
+      ],
+      "ast_sha256": "035fe2f78a4849b9994b6d7fae46d08c79f4952fe84e137daf52dfdd51be468c",
+      "typed_target": "populate_original_zombie",
+      "scope": "Independent comparison executes original shipped bytecode, including the temporary movement-speed RNG draw."
+    }
+  ],
+  "evidence": {
+    "regression": {
+      "path": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\typed72-20261105\\proxy-regression\\summary.json",
+      "sha256": "45e42d660954edb5554eb7d1f6035f2153b5cff5e620e413a7aa549d2c828156"
+    },
+    "negative": {
+      "path": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\typed72-20261105\\proxy-negative\\summary.json",
+      "sha256": "d733d1a52e19208181dc86527d81ea51ff90d049ffc13b7a14410f88f4cddac5"
+    }
+  },
+  "reference_dependencies": {
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\typed72\\proxy_reference.py": "5360015e0bb6a96e16bb006f14cd4525785e2007fb4a101e31b15e16f900fa34",
+    "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+    "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\__init__.py": "a143b46d5cccb929ad08ba1d183e17c1d7e11309dbcbe66579456bc68789a314",
+    "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\cppcore.py": "28f72d24922fcd10a1ae7f9f585982e162c0449e3f2049f0174f0b861e18954c",
+    "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\_pvpcore.pyd": "015f5dee21875521c940f52f3ff57255849aa3019a5044ab947ba29d8db11cf4",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\balance.py": "e865b678f82fc4cb4958c27842c8a59eb4dbbbbffc5a773d0ae235624c08eb91",
+    "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\expansion_catalog.py": "5910889d1afca0bc610b99c42daf5637f24a14b2de1d6e853efdbe14152c9921",
+    "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\content_catalog.py": "517ab7a5596232ca652cc506f4732597c11ece99048f0724241d4472737cb7de",
+    "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\september_catalog.py": "26149efc72a807a3cb001797a0d563b13de989efd6c1ab65ec6fcd5cbaeb9a39",
+    "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\pvp56_plants_catalog.py": "25c5fcd00f5ea78619b531112d490849cba345ba58af72ee6c4be480f88503aa",
+    "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\pvp56_zombie_catalog.py": "2b29c88b34e151ee4ff388390e36bcb6d9838c805c3819914d58bf463f783b76",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\pvp58_catalog.py": "401307cdbf46878a502f4eccb2beaa84aac70c9db8b93df49783e235e1f8d152",
+    "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\pvp61_catalog.py": "0b7e3095a2c5a705431e2259ff46cdb5fe9c7b1175e93e072e98c2f100e06dd1",
+    "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\pvp64_catalog.py": "13af1cfdf7d20bd2e67d07e27ef0dc7bc8b88192ec67233d688822195459d30c",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\pvp66_secrets.py": "b86332f3f9792aeaada6d1f8a907e5e9fa5b818da295b148f2163dac2d8c38ff",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\zombie_secret_catalog.py": "41ca8f84dd4767d2208471b0b9433fff2071f1fdc75c09ab806a9e54e326aa74",
+    "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\pvp67_assets.py": "421fb9e81000c9024eb064d74612588bf96e94011e42fe6f56b9a893faf75d2c",
+    "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\pvp66_icons.py": "405f630af6ac42f8fa1c463ca22fa42cdd3264b65ef8ec8052f5bdf0f1741733",
+    "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\pvp70_catalog.py": "867de14e81b7e7a45ad101821bfe5b9fbebb22c642bb7769a978ebad8b8c96ab",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\pvp71_catalog.py": "a30001aa4ba5206bbe3c8041b4133e995ffc032b52f203ecc0d762cc53e99982",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\catalog.py": "0cd6cb57343c1867e88f82ffd5d6ca815931d855b91bfd61326561d9cafdd3ea",
+    "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\legacy_fixes.py": "d2faa39c010c102c8c78123d3b20ecf8b34bbaa50fb6d1eb6c607e20bc22fa38",
+    "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\native_bytecode.py": "7c5f0fa1719de9a98be36991f55f4e57cf76e3a624393e42f47905e0265edeb4",
+    "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\native_physics.py": "08dd8c2123c91bf8aa97a2eff890bb78bc496af783178f4dd5d3cf4201ac4f96",
+    "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\native_runtime.py": "72bc291dc18178b592164fcd3f66374fe86ebee291da045e665c8948e4851d6c",
+    "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\native_patch.py": "101eaea66d5c31f9535d5517dc7673bf5ab7e70ebe027a5b90e4a43628c4be39"
+  },
+  "implementation": {
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\allegiance.h": "04e57e55993a06e992f2e582908b897e1ce00a8ec6e5a29eb8f3aa0178c5b09f",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\attack_identity.cpp": "f52d991c2ff26bb5596c068b94b828c7ef47e5abffae980f13a55a927de3f87d",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\attack_identity.h": "dc48b4ef49e9ec5bce62a6231e756b1ab6ed856476eebe8005cdebaab35275c4",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\attack_source.h": "216efc878517ca41e876ef2248a9ccd5ae15313d9e2ea23146c140212d75bb9a",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\chili_effects.cpp": "1f9ef4c6df9393356bf97439866c4c4d1c4d2198e0097df1a402a92f9399b3c6",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\chili_effects.h": "f085a0e0544adec706ad2cd6753e7dafe14542970debd4f8ff1140edcc925025",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\chili_state.h": "e54c8ff5ff7b5e03b61f12a1da3d60bf2709137924406deb77b1fab11a2dd4fc",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\CMakeLists.txt": "36bb0e186f30ddd81896c92fe52894c2d12ac01227940732d12b2d4b6bed52b7",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\combat_events.h": "2aa250e41deb152174da42d53c4aed7c1c2b140eee99e198010a5e011c7fc418",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\content_target.cpp": "d211b5f62fb1ded0aef80a75c8b80677fe91accb50c2fc4004578934e4ab5b7b",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\content_target.h": "7013e24ef8bf54bf3fcacc3c08919a5ade1f770014c6bd4710ac941581f66b6b",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\damage.cpp": "2f5ef8620013526cb5d5652ea2307a638e8aa3852861069b0ec3881bcd09410c",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\damage_patch.cpp": "377e7851bcbc73332a33a38a92978fc68093ec80573e475409d91ccecbe73a0b",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\damage_patch.h": "4f547690c6a23c7f112925aebb726e2f2616be82c77d14cbeb113c4523aef9d4",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\death_chain.cpp": "9aa4680e1a980cbe75ed25041dc2b3c746f6b5dde9965de2d6dd9d8d0c073bbd",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\death_chain.h": "8e3fe5631457b6fcb4b2e4cb3ede7145051f99ad6610b7c6fc6a42f138d7c1fa",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\death_marker.h": "224038cc0367f21d5aaebe5476a7e882aa05bb02a247723f4b701a476b15c2d3",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\doom_effects.cpp": "de911bd5e33ff713cdc5e92fb72e7e58c547cf4c9967d1b62abca6f9d8ab4dac",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\doom_effects.h": "b5b34fc680c2f6e89611113a60ca6168d94f64a067f410e5b948d1a269fd2518",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\field.h": "663abc5d8b88032b3069e05b320f67d212c886551f9dfd7579a5a054af479834",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\flood.cpp": "cd84b9ebcc65d94392c065ec1afd10880b68f4dc453f89849ca8179e1186f87b",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\flood.h": "720c74fd6b3b857a3d5b9aeebcaac4b8f78dc8ab7934e633264b8096a388c797",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\geometry.h": "0e50be880081d510e2c9bddeaf222876caada8731f34a04e54a57180bfdfc24b",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\hero.cpp": "a2f544455c0e1350d1df22e470f5f1a971dd7f8b0257b4ef6ecb44562089fc30",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\hero.h": "20a0c7f3fb0a3b3cbac247325cf681c8fa0c71265d52fdc882f3739606d94268",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\native_registry.cpp": "9b965ba7dffd50f200b629cd551a4e22708376599168d6559a76ffccf528b5d5",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\native_registry.h": "5fbb0ad4f5e158188c370ec7e758839ad2b819ae3094af7d330a8e8d854cbe70",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\particles.cpp": "c9aa64f72c867bc6e791a61658d78311f7e0e71602f181e5f85313920609b0d6",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\physics.cpp": "46bd4e338069aad3e44b4e805e68c69f25f062f352efc99ab32aee1bf8047e86",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\plant.h": "9b8df028787bead5b6b1e23d360e729e8cce1938effdc41c063dc16a9db2dd32",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\plant_spawn.cpp": "c98e8e7572a07c1c30085d0dc00af8e70b66d11a31804c4a451b50c2f8298c0a",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\plant_spawn.h": "72da4851d697c9989a4f910bd83781a57fdfb21841ddb3034121bead777f3f82",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\projectile.cpp": "6bb290a6b8b5e6a29c25c7184ee2c6f3bd4eb498d4de615a301d32e9ab101a25",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\projectile.h": "8c2c28bfdf5e7b24c6bc1fac126f41e711ec5662dbfbd7c7aafe10304bd04290",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\projectile_rules.cpp": "c4e3482aa305822a763a5e1e5b9ced585649c848460d008454d04d582a445f11",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\projectile_rules.h": "8feebcf68bc4725e412b76ff7018561a22d6fd67ddb1ad94d67f13894acbe923",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\projectile_state.h": "a105a76e67bc514926e25c81c4bb0b89b3504dcda4607d600f1f27613ac05562",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\protection.cpp": "33cb08381c1efbff8ca556a923b1b7ef0140b70ceb85c86cc8c531609d14b7ff",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\protection.h": "da914bea3e2e27efaa8dcc313c6b50883fe39e3ea4b401f148412924fa0ae85c",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\record_identity.h": "711b48556b670757213ca7d293a313654603b4881504613f4a6c6488f12fa2ae",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\shooter.cpp": "3c124afcb0ef50bfb1e108226cbf3e5f40c5e29cd7488212e5c1e265cd61f399",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\sourced_context.cpp": "37c3b5c0bb5633b81f2c6211e1f64cde0b734d7eae25a95e24e7dbda42e95a31",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\sourced_context.h": "1708586e2c69e6c8c22f6330a2ac07cc0f71d5d79fe5d4e7aeb09b3e8706a609",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\state.h": "9f065afac5141ab71203fbd88d916905c5748bbf4662e0a3749f78789fe21768",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\targets.cpp": "a6459efc402a48b993eb0273d9f0cb7050ea2928cfa99365b52dd2be6a7e4254",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\targets.h": "ca03a99783642a197ffc4f7743ec53db53ac49da8896147ae68ec71a1443efa6",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\terrain.h": "26d6b4a83fd58a4f163af99df50ff7cff19cb1c7c1aa852b82dc260f2f00f687",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\terrain_effects.cpp": "3ac4caa3d3e02394fc0a95f149a81bee3cd9e20fe1abc11babb9a76e04dcc490",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\terrain_effects.h": "676cfdebf6dcede641468fa4d3a55eb6e97a73a6c9fc310dd2d2a455e444c337",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\zombie_fields.h": "8ba2a8fc132648ba02d09ea373ce0c5e4dc875581e4a6902e40235a25c32e1cb",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\zombie_spawn.cpp": "72ebdcdc48ab86fedfa3cef1bb64d7d51ab5d755c440e7963adda4e016e6a816",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\zombie_spawn.h": "d5df7319ebd02fffef42d3e86787f18a2516d12e29de2939244a71bcfccfba55"
+  },
+  "retained_source_owns_proxy": true,
+  "live_position_identity": true,
+  "whole_battle_supported": false,
+  "full_branch_coverage": false,
+  "production_entry_switched": false,
+  "full_product_acceptance": false,
+  "pending": [
+    "Native loop consumers must use typed proxy write APIs",
+    "Production summon/card admission and lifecycle registration",
+    "Remaining sourced hooks, bonus scan, main loop, AI, network, spectators and replay",
+    "Old full suite, independent whole battles, formal PC/Android performance and final EXE/APK"
+  ]
+}

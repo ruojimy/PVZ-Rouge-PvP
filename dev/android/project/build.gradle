@@ -1,0 +1,49 @@
+// PvZ PvP native APK: SDLActivity + libmain.so (pure C++ build, no python). Generated paths are filled
+// in by android/build_apk.sh (WORK = WSL work folder, SDLJAVA = SDL 2.28.5 android-project java).
+buildscript {
+    repositories { google(); mavenCentral() }
+    dependencies { classpath 'com.android.tools.build:gradle:8.10.1' }
+}
+allprojects { repositories { google(); mavenCentral() } }
+
+apply plugin: 'com.android.application'
+
+android {
+    namespace 'org.pvzrouge.pvzpvpnative'
+    compileSdkVersion 35
+    buildToolsVersion '35.0.0'
+    defaultConfig {
+        applicationId 'org.pvzrouge.pvzpvpnative'
+        minSdkVersion 23
+        targetSdkVersion 35
+        versionCode @VERSION_CODE@
+        versionName '@VERSION_NAME@'
+        ndk { abiFilters @ABIS@ }
+    }
+    packagingOptions {
+        jniLibs { useLegacyPackaging = true }
+        doNotStrip '**/*.so'
+    }
+    buildTypes {
+        release { minifyEnabled false }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['@SDLJAVA@', 'java']
+            res.srcDirs = ['res']
+            jniLibs.srcDirs = ['@WORK@/jniLibs']
+            assets.srcDirs = ['@WORK@/assets']
+        }
+    }
+    androidResources {
+        noCompress 'png', 'ogg', 'mp3', 'wav', 'ttf', 'jpg'
+        // aapt's default pattern drops "<dir>_*": the baked atlas lives in extract/assets/_png
+        ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:!CVS:!thumbs.db:!picasa.ini:!*~'
+    }
+    lint { checkReleaseBuilds false; abortOnError false }
+}

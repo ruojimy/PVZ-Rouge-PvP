@@ -1,0 +1,66 @@
+{
+ "ABSORB_TICKS": {
+  "磁力菇": 9000,
+  "吸金磁": 6000
+ },
+ "PARALYSIS_FREEZE_TICKS": 63,
+ "TIMERS": [
+  "射cd",
+  "射",
+  "吃",
+  "发射cd",
+  "发射动画",
+  "埋藏",
+  "滚蛋",
+  "吸",
+  "爆了",
+  "路灯"
+ ],
+ "CHECKPOINTS": [
+  0,
+  20,
+  25,
+  50,
+  75,
+  100,
+  120,
+  125,
+  150,
+  200,
+  250,
+  500,
+  1000,
+  1200
+ ],
+ "HEADGEAR_COVERAGE": {
+  "路障": 0.47,
+  "铁桶": 0.37,
+  "黑路障": 0.47,
+  "黑铁桶": 0.37,
+  "橄榄球头盔": 1.13,
+  "黑橄榄球头盔": 1.13
+ },
+ "HEADGEAR_COVERAGE_DEFAULT": 0.41,
+ "IMP_BACK_ART": "小鬼僵尸",
+ "IMP_HEAD_ART": "小鬼僵尸-首",
+ "CARRIER_BODY_MARK": "巨人",
+ "IMP_BODY_MARK": "小鬼僵尸",
+ "IMP_ARMOR": "_pvp_imp_armor",
+ "IMP_ARMOR_HP": "_pvp_imp_armor_hp",
+ "IMP_BLACK_ARMOR": "_pvp_black_armor",
+ "BLACK_ARMOR_LOGIC": {
+  "黑路障": "路障",
+  "黑铁桶": "铁桶"
+ },
+ "BLACK_ARMOR_ART": {
+  "路障": "黑路障",
+  "铁桶": "黑铁桶"
+ },
+ "BLACK_ARMOR_DROP": {
+  "黑路障": "黑路障僵尸",
+  "黑铁桶": "黑铁桶僵尸"
+ },
+ "BLACK_ARMOR_DAMAGE": 6,
+ "BLACK_ARMOR_RADIUS": 2.5,
+ "BLACK_BUCKET_RADIUS": 3.5
+}

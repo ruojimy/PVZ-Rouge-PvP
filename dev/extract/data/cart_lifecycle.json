@@ -1,0 +1,9 @@
+{
+ "CART_LIFETIME_TICKS": 20000,
+ "CARTS": [
+  "zombie:投篮车僵尸",
+  "zombie:小鬼炮"
+ ],
+ "CANNON_PERIOD": 1000,
+ "CANNON_LOAD_TICKS": 200
+}

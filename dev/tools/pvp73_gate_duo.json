@@ -1,0 +1,1 @@
+{"timeout": 36000, "steps": [{"wait": {"frames": 10}, "do": [["action", "ai_room", "watch_duo"]]}, {"wait": {"room_phase": "battle"}, "do": [["log", "room.phase"]]}, {"wait": {"frames": 2400}, "do": [["call", "room.battle.backend_audit"]]}, {"wait": {"frames": 2}, "do": [["stop"]]}]}

@@ -1,0 +1,26 @@
+{
+  "pyc_sha256": "6f10bada57913dd51bc4c87900d38ba875841d04febe3daafaeaa2d2f4cdf914",
+  "windows": {
+    "pea_collision": {
+      "start": 101746,
+      "end": 103540,
+      "source_sha256": "0f7f3579c88f4af46693239dd10c6d01ca246968260ffa055dda6a9e1abd61d4"
+    },
+    "chomper": {
+      "start": 133022,
+      "end": 134236,
+      "source_sha256": "8f783b8de8ca9776964a6fe36fa6328a1877995e23be9e9d6d6a8ce83bf33524"
+    },
+    "cattail": {
+      "start": 130014,
+      "end": 130492,
+      "source_sha256": "df4803965f01a4ea8c03614df0e3da2f0b463506e085936f7d82059a3b8b5234"
+    },
+    "spike_tracking": {
+      "start": 103540,
+      "end": 103934,
+      "source_sha256": "b9efd4e352ea0502c144d482e4a90a2c361d5b9770127876ea86150a7c486c04"
+    }
+  },
+  "output_sha256": "083ea42c0e73a082f7639cc1636c40f61f8e7eb46f858fd72dce34a48470c3ba"
+}

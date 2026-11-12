@@ -1,0 +1,125 @@
+{
+ "PRIMAL_MINE": "原始土豆地雷",
+ "HERO_DAMAGE_SCALE": 1.0,
+ "HERO_MAX_HP": 40.0,
+ "INSTANT_CAP": 0.4,
+ "HERO_PROJECTILE_DAMAGE": {
+  "卷心菜": 12.0,
+  "火豆": 12.0,
+  "蓝火豆": 16.0,
+  "星星": 30.0,
+  "西瓜": 16.0,
+  "冰瓜": 16.0,
+  "窝瓜x": 16.0
+ },
+ "HERO_MELON_SPLASH_DAMAGE": 2.0,
+ "HERO_GLOOM_DAMAGE": 4.0,
+ "HERO_BLACK_BITE_DAMAGE": 3.0,
+ "HERO_BITE_DAMAGE": {
+  "墓碑吞噬者僵尸": 6.0
+ },
+ "BLACK_BITE_VARIANTS": {
+  "__set__": [
+   "黑撑杆僵尸",
+   "黑旗帜僵尸",
+   "黑普通僵尸",
+   "黑橄榄僵尸",
+   "黑路障僵尸",
+   "黑铁桶僵尸"
+  ]
+ },
+ "_HERO_KEYS": [
+  "玩家皮肤",
+  "玩家跳跃",
+  "speed",
+  "yy",
+  "玩家恢复",
+  "玩家位置",
+  "气球",
+  "猫尾",
+  "sbs",
+  "wjx",
+  "辣飞天",
+  "玩家血量",
+  "秘籍",
+  "玩家入水",
+  "玩家倒地",
+  "冻水",
+  "模式",
+  "__pvz_sb_chili_launch_lock_until",
+  "玩家受伤",
+  "dushu",
+  "入水",
+  "猫尾摇摆",
+  "speedmax",
+  "猫尾cd",
+  "玩家方向",
+  "citoux",
+  "二段跳",
+  "xx",
+  "toudushu",
+  "wjy"
+ ],
+ "_HERO_KEY_SET": {
+  "__set__": [
+   "__pvz_sb_chili_launch_lock_until",
+   "citoux",
+   "dushu",
+   "sbs",
+   "speed",
+   "speedmax",
+   "toudushu",
+   "wjx",
+   "wjy",
+   "xx",
+   "yy",
+   "二段跳",
+   "入水",
+   "冻水",
+   "模式",
+   "气球",
+   "猫尾",
+   "猫尾cd",
+   "猫尾摇摆",
+   "玩家位置",
+   "玩家倒地",
+   "玩家入水",
+   "玩家受伤",
+   "玩家恢复",
+   "玩家方向",
+   "玩家皮肤",
+   "玩家血量",
+   "玩家跳跃",
+   "秘籍",
+   "辣飞天"
+  ]
+ },
+ "_CONVERSIONS": {
+  "__set__": [
+   "僵尸",
+   "出土",
+   "大小",
+   "手持",
+   "手持血量",
+   "死亡",
+   "消亡",
+   "灰烬",
+   "防具",
+   "防具血量",
+   "魅惑"
+  ]
+ },
+ "_COMBAT_HERO_KEYS": [
+  "玩家位置",
+  "玩家血量",
+  "玩家恢复",
+  "玩家受伤",
+  "玩家倒地",
+  "辣飞天",
+  "__pvz_sb_chili_launch_lock_until"
+ ],
+ "_CONTEXT_DEFAULTS": {
+  "玩家恢复": 0,
+  "玩家受伤": 0
+ }
+}

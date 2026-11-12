@@ -1,0 +1,17 @@
+{
+ "APP_FOLDER": "PVZ-Rouge-PvP67",
+ "PREVIOUS_APP_FOLDERS": [
+  "PVZ-Rouge-PvP66",
+  "PVZ-Rouge-PvP"
+ ],
+ "LEGACY_INDEX": "legacy_sources.json",
+ "MIGRATED_INDEX": "migrated_sources.json",
+ "SKIPPED_PREFIXES": [
+  "ai",
+  "crash-",
+  "audit-"
+ ],
+ "SKIPPED_SUFFIXES": [
+  ".pending"
+ ]
+}

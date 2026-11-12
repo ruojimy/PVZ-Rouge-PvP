@@ -1,0 +1,4076 @@
+[
+ {
+  "module": "test_pvp_51_combat",
+  "tests": 3,
+  "ast_tests": 3,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_projectiles"
+  ],
+  "flags": [],
+  "doc": "Native projectile range and source-specific Dave damage contracts.",
+  "lines": 70
+ },
+ {
+  "module": "test_pvp_51_performance",
+  "tests": 5,
+  "ast_tests": 5,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_animation",
+   "pvp.performance",
+   "pvp.replay"
+  ],
+  "flags": [
+   "exe",
+   "app",
+   "battle",
+   "replay",
+   "pygame",
+   "source_scan"
+  ],
+  "doc": "Real pygame pixels, immutable local frames and native replay parity.",
+  "lines": 135
+ },
+ {
+  "module": "test_pvp_51_ui",
+  "tests": 2,
+  "ast_tests": 2,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.hud",
+   "pvp.rendering"
+  ],
+  "flags": [
+   "app",
+   "battle"
+  ],
+  "doc": "Seven configurable card slots and read-only synchronized spectator BP.",
+  "lines": 78
+ },
+ {
+  "module": "test_pvp_52_performance",
+  "tests": 8,
+  "ast_tests": 9,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_animation",
+   "pvp.native_physics",
+   "pvp.replay"
+  ],
+  "flags": [
+   "exe",
+   "android",
+   "packaging",
+   "app",
+   "battle",
+   "replay",
+   "pygame",
+   "source_scan"
+  ],
+  "doc": "Same-tick authority, deferred pixels, camera changes and measured hot paths.",
+  "lines": 190
+ },
+ {
+  "module": "test_pvp_53_features",
+  "tests": 13,
+  "ast_tests": 13,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.custom_maps",
+   "pvp.maps",
+   "pvp.native_battle",
+   "pvp.native_bridge",
+   "pvp.replay"
+  ],
+  "flags": [
+   "network",
+   "app",
+   "battle",
+   "replay",
+   "pygame"
+  ],
+  "doc": "Rally authority/movement/replay and editable backgrounds/weather.",
+  "lines": 261
+ },
+ {
+  "module": "test_pvp_54_ghost_range_art",
+  "tests": 3,
+  "ast_tests": 3,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_animation"
+  ],
+  "flags": [
+   "battle",
+   "replay"
+  ],
+  "doc": "Ghost range artwork lifecycle, dimensions and independent replay.",
+  "lines": 60
+ },
+ {
+  "module": "test_pvp_54_native_art_revision",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.content_assets",
+   "pvp.native_animation",
+   "pvp.native_style",
+   "pvp.pvp54_native_parts"
+  ],
+  "flags": [
+   "packaging",
+   "battle",
+   "replay"
+  ],
+  "doc": "Native draw-stream checks for the requested September artwork correction.",
+  "lines": 93
+ },
+ {
+  "module": "test_pvp_54_ui",
+  "tests": 10,
+  "ast_tests": 10,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.balance",
+   "pvp.battle_view",
+   "pvp.catalog",
+   "pvp.hud",
+   "pvp.touch"
+  ],
+  "flags": [
+   "app",
+   "battle"
+  ],
+  "doc": "PvP54 mobile actions and live native card-bank display regressions.",
+  "lines": 210
+ },
+ {
+  "module": "test_pvp_55_balance",
+  "tests": 5,
+  "ast_tests": 5,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.preview"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "PvP55 balance at the authoritative card and native combat boundaries.",
+  "lines": 123
+ },
+ {
+  "module": "test_pvp_56_flying_plants",
+  "tests": 19,
+  "ast_tests": 19,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.content_assets"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "Real native 250 Hz paths for the two flying plants and their projectiles.",
+  "lines": 405
+ },
+ {
+  "module": "test_pvp_56_probe_checks",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog"
+  ],
+  "flags": [
+   "android",
+   "source_scan"
+  ],
+  "doc": "Android diagnostic checks must survive Python's optimized runtime.",
+  "lines": 52
+ },
+ {
+  "module": "test_pvp_56_smoke_optimized",
+  "tests": 2,
+  "ast_tests": 2,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [
+   "subprocess",
+   "source_scan"
+  ],
+  "doc": "Acceptance must reject broken checks even in an optimized Python runtime.",
+  "lines": 64
+ },
+ {
+  "module": "test_pvp_56_ui",
+  "tests": 9,
+  "ast_tests": 9,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.player_profile",
+   "pvp.replay"
+  ],
+  "flags": [
+   "app",
+   "battle",
+   "replay"
+  ],
+  "doc": "Real SDL input/layout, native replay timing and persistent identity checks.",
+  "lines": 168
+ },
+ {
+  "module": "test_pvp_56_zombies",
+  "tests": 13,
+  "ast_tests": 13,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.native_patch",
+   "pvp.pvp56_zombies",
+   "pvp.simulation"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "Real 250 Hz tests for ordinary dancers, native sleds and rally miners.",
+  "lines": 201
+ },
+ {
+  "module": "test_pvp_57_android_editor_probe",
+  "tests": 2,
+  "ast_tests": 2,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_battle"
+  ],
+  "flags": [
+   "android",
+   "app",
+   "battle",
+   "source_scan"
+  ],
+  "doc": "Android's shared diagnostic follows real editor UI without a battle.",
+  "lines": 72
+ },
+ {
+  "module": "test_pvp_57_android_userdata",
+  "tests": 2,
+  "ast_tests": 2,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [
+   "android",
+   "source_scan"
+  ],
+  "doc": "Keep Android player data outside the replaceable app extraction folder.",
+  "lines": 36
+ },
+ {
+  "module": "test_pvp_57_balance",
+  "tests": 7,
+  "ast_tests": 7,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.native_projectiles"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "PvP57 native projectile travel and card/atlas balance contracts.",
+  "lines": 142
+ },
+ {
+  "module": "test_pvp_57_day_income",
+  "tests": 7,
+  "ast_tests": 7,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.native_battle",
+   "pvp.replay",
+   "pvp.room"
+  ],
+  "flags": [
+   "battle",
+   "room",
+   "replay",
+   "pygame"
+  ],
+  "doc": "Continuous original-engine timing for the daylight zombie allowance.",
+  "lines": 148
+ },
+ {
+  "module": "test_pvp_57_deathmatch",
+  "tests": 7,
+  "ast_tests": 7,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.deathmatch_presentation",
+   "pvp.game_audio",
+   "pvp.rendering"
+  ],
+  "flags": [
+   "app",
+   "battle",
+   "replay"
+  ],
+  "doc": "",
+  "lines": 167
+ },
+ {
+  "module": "test_pvp_57_map_editor",
+  "tests": 8,
+  "ast_tests": 8,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.custom_maps",
+   "pvp.maps",
+   "pvp.native_battle",
+   "pvp.native_bridge",
+   "pvp.network",
+   "pvp.replay",
+   "pvp.room",
+   "pvp.world_view"
+  ],
+  "flags": [
+   "network",
+   "app",
+   "battle",
+   "room",
+   "replay",
+   "pygame"
+  ],
+  "doc": "Expanded native palettes, color persistence and pointer-safe palette panels.",
+  "lines": 194
+ },
+ {
+  "module": "test_pvp_57_producer_protection",
+  "tests": 13,
+  "ast_tests": 13,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.maps",
+   "pvp.native_battle"
+  ],
+  "flags": [
+   "battle",
+   "pygame"
+  ],
+  "doc": "Opening protection through native damage and removal paths at 250 Hz.",
+  "lines": 221
+ },
+ {
+  "module": "test_pvp_57_rematch",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.room"
+  ],
+  "flags": [
+   "exe",
+   "app",
+   "battle"
+  ],
+  "doc": "Same-deck rematches retain the legal draft and build a fresh native battle.",
+  "lines": 83
+ },
+ {
+  "module": "test_pvp_57_room_requests",
+  "tests": 8,
+  "ast_tests": 8,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.custom_maps",
+   "pvp.room"
+  ],
+  "flags": [
+   "app",
+   "battle",
+   "room"
+  ],
+  "doc": "Guest proposals and observing-host approval over the native room and TCP.",
+  "lines": 160
+ },
+ {
+  "module": "test_pvp_57_smoke_rooms",
+  "tests": 3,
+  "ast_tests": 3,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [
+   "source_scan"
+  ],
+  "doc": "Exercise package room acceptance with assertions compiled out.",
+  "lines": 66
+ },
+ {
+  "module": "test_pvp_57_update",
+  "tests": 9,
+  "ast_tests": 9,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [
+   "subprocess",
+   "exe",
+   "packaging",
+   "network",
+   "replay",
+   "source_scan"
+  ],
+  "doc": "Execute the distributed Windows updater against isolated old installations.",
+  "lines": 184
+ },
+ {
+  "module": "test_pvp_57_visual_probe",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [
+   "source_scan"
+  ],
+  "doc": "Packaged visual acceptance must execute and reject faults under -O.",
+  "lines": 48
+ },
+ {
+  "module": "test_pvp_58_features",
+  "tests": 35,
+  "ast_tests": 35,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.balance",
+   "pvp.catalog",
+   "pvp.custom_maps",
+   "pvp.native_battle",
+   "pvp.native_projectiles",
+   "pvp.preview",
+   "pvp.pvp56_plants",
+   "pvp.pvp58_vines",
+   "pvp.replay",
+   "pvp.world_view"
+  ],
+  "flags": [
+   "packaging",
+   "app",
+   "battle",
+   "replay",
+   "pygame"
+  ],
+  "doc": "PvP58: vines, petrified vine, two secrets, pea range, torch income and fixes.",
+  "lines": 646
+ },
+ {
+  "module": "test_pvp_58_ui",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [
+   "app",
+   "battle"
+  ],
+  "doc": "PvP58 pointer regressions through the real app: sun sweep and rally flag.",
+  "lines": 76
+ },
+ {
+  "module": "test_pvp_59_features",
+  "tests": 17,
+  "ast_tests": 17,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.maps",
+   "pvp.pvp58_catalog",
+   "pvp.relay"
+  ],
+  "flags": [
+   "network",
+   "app",
+   "battle",
+   "pygame"
+  ],
+  "doc": "PvP59: dense coffee, masochist rise, clover winds, turnip/gloom vs Dave,",
+  "lines": 355
+ },
+ {
+  "module": "test_pvp_59_stack_care",
+  "tests": 13,
+  "ast_tests": 13,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.preview"
+  ],
+  "flags": [
+   "app",
+   "battle"
+  ],
+  "doc": "Native deployment and real UI paths for the capped-stack/care revision.",
+  "lines": 189
+ },
+ {
+  "module": "test_pvp_60_features",
+  "tests": 14,
+  "ast_tests": 14,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.balance",
+   "pvp.catalog",
+   "pvp.hud",
+   "pvp.preview",
+   "pvp.rendering"
+  ],
+  "flags": [
+   "app",
+   "battle",
+   "source_scan"
+  ],
+  "doc": "PvP60 focused native deployment, economy gates, turning and card artwork.",
+  "lines": 221
+ },
+ {
+  "module": "test_pvp_61_art",
+  "tests": 7,
+  "ast_tests": 7,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_animation",
+   "pvp.pvp61_assets"
+  ],
+  "flags": [
+   "packaging",
+   "app",
+   "battle",
+   "replay"
+  ],
+  "doc": "Focused native art/status checks; no whole-suite certification.",
+  "lines": 200
+ },
+ {
+  "module": "test_pvp_61_features",
+  "tests": 31,
+  "ast_tests": 31,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.hud",
+   "pvp.player_profile",
+   "pvp.pvp59_graves",
+   "pvp.pvp61_ranked",
+   "pvp.room",
+   "pvp:userdata"
+  ],
+  "flags": [
+   "exe",
+   "packaging",
+   "app",
+   "battle",
+   "room",
+   "replay",
+   "source_scan"
+  ],
+  "doc": "PvP61 focused checks: balance, grave sleep, reeds, secrets, scarecrow, crow,",
+  "lines": 593
+ },
+ {
+  "module": "test_pvp_62_features",
+  "tests": 13,
+  "ast_tests": 13,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.balance",
+   "pvp.catalog",
+   "pvp.hud",
+   "pvp.native_battle",
+   "pvp.profiles",
+   "pvp.pvp61_ranked"
+  ],
+  "flags": [
+   "app",
+   "battle",
+   "pygame"
+  ],
+  "doc": "PvP62 feature requests.",
+  "lines": 229
+ },
+ {
+  "module": "test_pvp_62_tick_rate",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.native_battle",
+   "pvp.replay",
+   "pvp:app",
+   "pvp:gc_policy"
+  ],
+  "flags": [
+   "android",
+   "app",
+   "battle",
+   "replay",
+   "pygame"
+  ],
+  "doc": "PvP62: 60 Hz room steps on PC hosts with the C++ core.",
+  "lines": 107
+ },
+ {
+  "module": "test_pvp_63_features",
+  "tests": 10,
+  "ast_tests": 10,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.native_animation",
+   "pvp.world_view",
+   "pvp:BUILD"
+  ],
+  "flags": [
+   "app",
+   "battle",
+   "replay",
+   "source_scan"
+  ],
+  "doc": "PvP63 source-only regression checks through the original 250Hz engine.",
+  "lines": 222
+ },
+ {
+  "module": "test_pvp_64_art_positions",
+  "tests": 3,
+  "ast_tests": 3,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.pvp64_assets",
+   "pvp.rendering",
+   "pvp.world_view"
+  ],
+  "flags": [
+   "app",
+   "battle",
+   "replay"
+  ],
+  "doc": "Regression evidence for the requested squash art and lily waterline/layers.",
+  "lines": 125
+ },
+ {
+  "module": "test_pvp_64_features",
+  "tests": 78,
+  "ast_tests": 66,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.battle_view",
+   "pvp.catalog",
+   "pvp.native_placement",
+   "pvp.pvp64_content",
+   "pvp.rendering",
+   "pvp.replay",
+   "pvp.simulation",
+   "pvp.world_view",
+   "pvp:result_outro"
+  ],
+  "flags": [
+   "app",
+   "battle",
+   "replay"
+  ],
+  "doc": "PvP64 focused checks through the original 250 Hz engine.",
+  "lines": 1193
+ },
+ {
+  "module": "test_pvp_65_features",
+  "tests": 11,
+  "ast_tests": 11,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.balance",
+   "pvp.catalog",
+   "pvp.native_battle",
+   "pvp.native_style",
+   "pvp.pvp61_ranked"
+  ],
+  "flags": [
+   "pygame"
+  ],
+  "doc": "PvP65 focused checks: balance numbers, primal mine 750 ash, deathmatch",
+  "lines": 198
+ },
+ {
+  "module": "test_pvp_66_ai_capability",
+  "tests": 10,
+  "ast_tests": 10,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.lobby_room",
+   "pvp.native_bridge",
+   "pvp.room",
+   "pvp.teams",
+   "pvp:rv_source"
+  ],
+  "flags": [
+   "battle",
+   "room",
+   "ai"
+  ],
+  "doc": "AI capability regression on the EMBEDDED AI (modkit/pvp/rv_*), user requirement 10-13.",
+  "lines": 294
+ },
+ {
+  "module": "test_pvp_66_ai_gates",
+  "tests": 10,
+  "ast_tests": 10,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.native_bridge",
+   "pvp.pve",
+   "pvp.team_maps",
+   "pvp:identity_check,lobby_room,rv_source"
+  ],
+  "flags": [
+   "app",
+   "battle",
+   "ai",
+   "pygame",
+   "source_scan"
+  ],
+  "doc": "AI release gates (full suite, user requirement 10-13):",
+  "lines": 278
+ },
+ {
+  "module": "test_pvp_66_ai_maps_gift_oct16",
+  "tests": 6,
+  "ast_tests": 6,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.maps",
+   "pvp.native_physics",
+   "pvp.pve",
+   "pvp.rv_tactics19",
+   "pvp.simulation",
+   "pvp.team_maps",
+   "pvp.teams",
+   "pvp.world_view"
+  ],
+  "flags": [
+   "battle",
+   "ai"
+  ],
+  "doc": "Oct16 feedback: continuous ladder inputs, usable maps and teammate grants.",
+  "lines": 194
+ },
+ {
+  "module": "test_pvp_66_cart_ammo_oct15",
+  "tests": 5,
+  "ast_tests": 5,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.pve",
+   "pvp.simulation"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "Finite cart ammunition uses native throw timing and leaves other cars intact.",
+  "lines": 137
+ },
+ {
+  "module": "test_pvp_66_coexist",
+  "tests": 2,
+  "ast_tests": 2,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp:userdata"
+  ],
+  "flags": [
+   "packaging",
+   "replay",
+   "source_scan"
+  ],
+  "doc": "PvP67 installs beside PvP66/PvP65, with read-only migration from both.",
+  "lines": 69
+ },
+ {
+  "module": "test_pvp_66_coop_own_deck_oct16",
+  "tests": 6,
+  "ast_tests": 6,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.network",
+   "pvp.teams"
+  ],
+  "flags": [
+   "network",
+   "app",
+   "battle"
+  ],
+  "doc": "Actual co-op UI/TCP regression: unchanged guest selection must reach its own seat.",
+  "lines": 182
+ },
+ {
+  "module": "test_pvp_66_coop_roster_oct15",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.room"
+  ],
+  "flags": [
+   "battle",
+   "room"
+  ],
+  "doc": "Seat replacement inherits saved growth and clears readiness; reconnect keeps readiness.",
+  "lines": 59
+ },
+ {
+  "module": "test_pvp_66_duo_ai",
+  "tests": 2,
+  "ast_tests": 2,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.teams",
+   "pvp:lobby_room"
+  ],
+  "flags": [
+   "battle",
+   "ai"
+  ],
+  "doc": "PvP66 2v2 fixed lobby room: three seats taken by the room's players, a full match flows.",
+  "lines": 99
+ },
+ {
+  "module": "test_pvp_66_duo_precursor_oct15",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.native_bridge",
+   "pvp.room",
+   "pvp.teams"
+  ],
+  "flags": [
+   "room"
+  ],
+  "doc": "2v2 forward completion reserves each secret's precursor for its own seat.",
+  "lines": 142
+ },
+ {
+  "module": "test_pvp_66_features",
+  "tests": 11,
+  "ast_tests": 11,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.custom_maps",
+   "pvp.map_editor_actions"
+  ],
+  "flags": [],
+  "doc": "PvP66 focused checks through the original 250 Hz engine.",
+  "lines": 193
+ },
+ {
+  "module": "test_pvp_66_feedback",
+  "tests": 19,
+  "ast_tests": 19,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.lobby_room",
+   "pvp.maps",
+   "pvp.native_battle",
+   "pvp.native_physics",
+   "pvp.pvp66_icons",
+   "pvp.rendering",
+   "pvp.room",
+   "pvp.simulation",
+   "pvp.spectator_ui",
+   "pvp.team_maps",
+   "pvp.teams"
+  ],
+  "flags": [
+   "app",
+   "battle",
+   "room",
+   "ai",
+   "pygame"
+  ],
+  "doc": "Player feedback: native outcomes, team consent, BP and actual UI controls.",
+  "lines": 319
+ },
+ {
+  "module": "test_pvp_66_feedback_ai_oct15",
+  "tests": 3,
+  "ast_tests": 3,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.lobby_room"
+  ],
+  "flags": [
+   "android",
+   "app",
+   "ai"
+  ],
+  "doc": "AI surrender follows the actual human seat, including a watching host.",
+  "lines": 40
+ },
+ {
+  "module": "test_pvp_66_feedback_pve_oct15",
+  "tests": 25,
+  "ast_tests": 25,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.network",
+   "pvp.pve",
+   "pvp.pve_ui",
+   "pvp.teams"
+  ],
+  "flags": [
+   "network",
+   "battle",
+   "source_scan"
+  ],
+  "doc": "Focused regression evidence for the October 15 PvE/co-op feedback.",
+  "lines": 474
+ },
+ {
+  "module": "test_pvp_66_feedback_runtime_oct15",
+  "tests": 6,
+  "ast_tests": 6,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.hud",
+   "pvp.rendering",
+   "pvp.team_hud",
+   "pvp.teams"
+  ],
+  "flags": [
+   "app",
+   "battle"
+  ],
+  "doc": "Player feedback: actual prices, finite cart ammo, graves and co-op HUD.",
+  "lines": 139
+ },
+ {
+  "module": "test_pvp_66_firing",
+  "tests": 8,
+  "ast_tests": 8,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.maps",
+   "pvp.rv_field",
+   "pvp.rv_tactics19",
+   "pvp.rv_tactics_v6",
+   "pvp.teams",
+   "pvp:rv_firing66"
+  ],
+  "flags": [
+   "battle",
+   "ai"
+  ],
+  "doc": "Current embedded r19: route-aware planting, with real native hit checks.",
+  "lines": 92
+ },
+ {
+  "module": "test_pvp_66_firing_replan",
+  "tests": 7,
+  "ast_tests": 7,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.maps",
+   "pvp.rv_field",
+   "pvp.rv_tactics19",
+   "pvp.rv_tactics_v6",
+   "pvp.teams",
+   "pvp:rv_firing66"
+  ],
+  "flags": [
+   "battle",
+   "ai"
+  ],
+  "doc": "",
+  "lines": 111
+ },
+ {
+  "module": "test_pvp_66_fortress_chase_oct16",
+  "tests": 2,
+  "ast_tests": 2,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.maps",
+   "pvp.native_battle",
+   "pvp.pve",
+   "pvp.team_maps",
+   "pvp.teams"
+  ],
+  "flags": [
+   "battle",
+   "pygame"
+  ],
+  "doc": "Native co-op route regressions from the 2026-10-16 fortress report.",
+  "lines": 85
+ },
+ {
+  "module": "test_pvp_66_guest_presentation_oct15",
+  "tests": 5,
+  "ast_tests": 5,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.presentation",
+   "pvp.teams"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "Second-seat guest interpolation preserves real native hero identities.",
+  "lines": 132
+ },
+ {
+  "module": "test_pvp_66_latency_oct15",
+  "tests": 12,
+  "ast_tests": 12,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.latency",
+   "pvp.native_bridge",
+   "pvp.network",
+   "pvp.relay",
+   "pvp.room"
+  ],
+  "flags": [
+   "network",
+   "app",
+   "room",
+   "replay",
+   "pygame"
+  ],
+  "doc": "Bounded host-authoritative RTT, including real direct and relay sockets.",
+  "lines": 254
+ },
+ {
+  "module": "test_pvp_66_material_maps_oct16",
+  "tests": 5,
+  "ast_tests": 5,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.native_animation",
+   "pvp.native_style",
+   "pvp.pve",
+   "pvp.pvp56_plants_assets",
+   "pvp.rendering",
+   "pvp.team_maps"
+  ],
+  "flags": [
+   "packaging",
+   "app",
+   "replay"
+  ],
+  "doc": "New material/state, secret-picture and campaign-map integration checks.",
+  "lines": 115
+ },
+ {
+  "module": "test_pvp_66_native_feedback_oct16",
+  "tests": 5,
+  "ast_tests": 5,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.result_animation",
+   "pvp.teams"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "Player reports exercised through original native physics and SDL audio.",
+  "lines": 81
+ },
+ {
+  "module": "test_pvp_66_native_seed_bank_oct15",
+  "tests": 5,
+  "ast_tests": 5,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.catalog",
+   "pvp.pve_ui",
+   "pvp.rendering",
+   "pvp.teams"
+  ],
+  "flags": [
+   "packaging",
+   "app",
+   "pygame"
+  ],
+  "doc": "Original-bank pixel fixtures captured before the renderer implementation.",
+  "lines": 144
+ },
+ {
+  "module": "test_pvp_66_package_manual_oct15",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [
+   "android",
+   "packaging"
+  ],
+  "doc": "Manual device handoff cannot hide stale APK or missing binary proof.",
+  "lines": 35
+ },
+ {
+  "module": "test_pvp_66_pause_stun",
+  "tests": 5,
+  "ast_tests": 5,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.battle_view",
+   "pvp.hud",
+   "pvp.room",
+   "pvp.teams"
+  ],
+  "flags": [
+   "app",
+   "battle",
+   "room",
+   "ai"
+  ],
+  "doc": "Native movement windows and multi-seat pause controls.",
+  "lines": 123
+ },
+ {
+  "module": "test_pvp_66_personal_commands",
+  "tests": 12,
+  "ast_tests": 12,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_battle",
+   "pvp.pvp58_catalog",
+   "pvp.replay",
+   "pvp.teams",
+   "pvp.world_view"
+  ],
+  "flags": [
+   "battle",
+   "replay",
+   "pygame"
+  ],
+  "doc": "2v2 seat-owned orders, flags and their native combat effects.",
+  "lines": 197
+ },
+ {
+  "module": "test_pvp_66_pve_ui",
+  "tests": 29,
+  "ast_tests": 29,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.catalog",
+   "pvp.game_audio",
+   "pvp.hud",
+   "pvp.native_bridge",
+   "pvp.pve",
+   "pvp.pve_ui",
+   "pvp.team_chat",
+   "pvp.team_maps",
+   "pvp.teams"
+  ],
+  "flags": [
+   "server",
+   "app",
+   "battle",
+   "pygame"
+  ],
+  "doc": "PvP66 PvE screens in the original layout, team chat and IME handling.",
+  "lines": 808
+ },
+ {
+  "module": "test_pvp_66_room_admission_oct16",
+  "tests": 14,
+  "ast_tests": 14,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.hud",
+   "pvp.network",
+   "pvp.pve_ui",
+   "pvp.relay",
+   "pvp.room",
+   "pvp.rv_source",
+   "pvp:lobby_room"
+  ],
+  "flags": [
+   "packaging",
+   "network",
+   "server",
+   "app",
+   "battle",
+   "room",
+   "ai"
+  ],
+  "doc": "Focused Oct16 room admission, restart and explicit AI-seat regressions.",
+  "lines": 322
+ },
+ {
+  "module": "test_pvp_66_room_layout_oct15",
+  "tests": 6,
+  "ast_tests": 6,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.maps",
+   "pvp.menu_view",
+   "pvp.native_bridge",
+   "pvp.rendering",
+   "pvp.room",
+   "pvp.team_maps",
+   "pvp.teams"
+  ],
+  "flags": [
+   "android",
+   "network",
+   "app",
+   "room",
+   "pygame"
+  ],
+  "doc": "Real map previews, seat cards and connection/footer geometry at small/wide sizes.",
+  "lines": 224
+ },
+ {
+  "module": "test_pvp_66_secondhand_art_oct15",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_style",
+   "pvp.world_view"
+  ],
+  "flags": [
+   "packaging",
+   "app",
+   "battle"
+  ],
+  "doc": "Second-hand armour keeps its existing black art across wire snapshots.",
+  "lines": 136
+ },
+ {
+  "module": "test_pvp_66_sun_ownership",
+  "tests": 3,
+  "ast_tests": 3,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.room",
+   "pvp.teams"
+  ],
+  "flags": [
+   "battle",
+   "room",
+   "source_scan"
+  ],
+  "doc": "",
+  "lines": 49
+ },
+ {
+  "module": "test_pvp_66_team_support",
+  "tests": 16,
+  "ast_tests": 16,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.rv_field",
+   "pvp.rv_observation",
+   "pvp.rv_tactics19",
+   "pvp.rv_tactics_v6",
+   "pvp.rv_team_support66",
+   "pvp:rv_tactics18,rv_tactics19"
+  ],
+  "flags": [
+   "battle",
+   "ai"
+  ],
+  "doc": "Safety, resource, ownership and timing boundaries for teammate support.",
+  "lines": 315
+ },
+ {
+  "module": "test_pvp_66_teams",
+  "tests": 27,
+  "ast_tests": 21,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.native_battle",
+   "pvp.pve",
+   "pvp.pvp58_catalog",
+   "pvp.replay",
+   "pvp.room",
+   "pvp.simulation",
+   "pvp.teams"
+  ],
+  "flags": [
+   "battle",
+   "room",
+   "replay",
+   "pygame"
+  ],
+  "doc": "PvP66 seats: 2v2 and co-op Daves inside the original 250 Hz engine.",
+  "lines": 583
+ },
+ {
+  "module": "test_pvp_66_ui",
+  "tests": 14,
+  "ast_tests": 8,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.catalog",
+   "pvp.hud",
+   "pvp.native_bridge",
+   "pvp.teams"
+  ],
+  "flags": [
+   "app",
+   "battle",
+   "pygame"
+  ],
+  "doc": "PvP66 real Application screens: PvE campaign, mode switch and team HUD.",
+  "lines": 325
+ },
+ {
+  "module": "test_pvp_66_zombie_secrets",
+  "tests": 47,
+  "ast_tests": 47,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.zombie_secret_catalog",
+   "pvp.zombie_secrets"
+  ],
+  "flags": [
+   "exe",
+   "battle"
+  ],
+  "doc": "PvP66 zombie secrets (僵尸秘籍 v4) through the original 250 Hz engine.",
+  "lines": 583
+ },
+ {
+  "module": "test_pvp_67_android_entry",
+  "tests": 7,
+  "ast_tests": 7,
+  "in_pvp71_summary": true,
+  "imports": [
+   "modkit.android",
+   "pvp.touch",
+   "pvp:app",
+   "pvp:legacy_fixes,campaign_pool,integration",
+   "pvp:relay"
+  ],
+  "flags": [
+   "android",
+   "network",
+   "app",
+   "pygame"
+  ],
+  "doc": "Android original-menu handoff keeps the bundled cloud-room endpoint.",
+  "lines": 146
+ },
+ {
+  "module": "test_pvp_67_android_fullscreen",
+  "tests": 3,
+  "ast_tests": 3,
+  "in_pvp71_summary": true,
+  "imports": [
+   "modkit.android"
+  ],
+  "flags": [
+   "android"
+  ],
+  "doc": "Android immersive APIs and SDL context/input lifecycle regression checks.",
+  "lines": 54
+ },
+ {
+  "module": "test_pvp_67_android_upgrade",
+  "tests": 7,
+  "ast_tests": 7,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp:BUILD"
+  ],
+  "flags": [
+   "android",
+   "packaging",
+   "cpp_port",
+   "source_scan"
+  ],
+  "doc": "Stable Android upgrade preserves private data; developer packages exclude credentials.",
+  "lines": 128
+ },
+ {
+  "module": "test_pvp_67_art",
+  "tests": 2,
+  "ast_tests": 2,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_style",
+   "pvp.pvp56_plants_assets",
+   "pvp.pvp58_assets",
+   "pvp.rendering"
+  ],
+  "flags": [
+   "app"
+  ],
+  "doc": "Independent rotor, transparent single-muzzle vine and shared atlas checks.",
+  "lines": 40
+ },
+ {
+  "module": "test_pvp_67_author_maps",
+  "tests": 5,
+  "ast_tests": 5,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.custom_maps",
+   "pvp.maps",
+   "pvp.pve",
+   "pvp.team_maps"
+  ],
+  "flags": [],
+  "doc": "Author-map coverage, ordered progression and native room layouts.",
+  "lines": 66
+ },
+ {
+  "module": "test_pvp_67_coop_dave_pursuit",
+  "tests": 3,
+  "ast_tests": 3,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.native_battle",
+   "pvp.team_maps"
+  ],
+  "flags": [
+   "battle",
+   "pygame"
+  ],
+  "doc": "Co-op waves chase Daves after they leave producers at the old spawn.",
+  "lines": 70
+ },
+ {
+  "module": "test_pvp_67_coop_growth_oct18",
+  "tests": 7,
+  "ast_tests": 7,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.coop_progress",
+   "pvp.lobby_room",
+   "pvp.pve"
+  ],
+  "flags": [
+   "ai"
+  ],
+  "doc": "Co-op restrictions and real fixed/invited AI preparation commands.",
+  "lines": 143
+ },
+ {
+  "module": "test_pvp_67_coop_pool",
+  "tests": 6,
+  "ast_tests": 6,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.pve"
+  ],
+  "flags": [
+   "server",
+   "app",
+   "battle"
+  ],
+  "doc": "Real TCP co-op: independent run growth, authoritative shop/slots/rewards.",
+  "lines": 149
+ },
+ {
+  "module": "test_pvp_67_coop_seat_saves",
+  "tests": 5,
+  "ast_tests": 5,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.coop_progress",
+   "pvp.pve"
+  ],
+  "flags": [],
+  "doc": "Seat saves survive replacement/reconnect/reopen and isolate solo profiles.",
+  "lines": 81
+ },
+ {
+  "module": "test_pvp_67_coop_shared_routes",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.native_battle",
+   "pvp.native_physics",
+   "pvp.pve",
+   "pvp.team_maps"
+  ],
+  "flags": [
+   "battle",
+   "pygame"
+  ],
+  "doc": "Co-op must reuse the proven 2v2 native route, with global ladder support.",
+  "lines": 84
+ },
+ {
+  "module": "test_pvp_67_coop_spectators",
+  "tests": 2,
+  "ast_tests": 2,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.network"
+  ],
+  "flags": [
+   "network",
+   "server",
+   "app",
+   "battle"
+  ],
+  "doc": "Real TCP host observer, spectator admission, independent rewards and UI.",
+  "lines": 97
+ },
+ {
+  "module": "test_pvp_67_crowd_routing",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.native_battle",
+   "pvp.performance",
+   "pvp.pve",
+   "pvp.team_maps"
+  ],
+  "flags": [
+   "battle",
+   "pygame"
+  ],
+  "doc": "Expired native split routing and bounded evidence for the recorded crowd.",
+  "lines": 84
+ },
+ {
+  "module": "test_pvp_67_dart_broadphase",
+  "tests": 3,
+  "ast_tests": 3,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [
+   "multiworker"
+  ],
+  "doc": "Dart misses may be skipped; the native full-scan reference owns contacts.",
+  "lines": 63
+ },
+ {
+  "module": "test_pvp_67_final_cpp_regions",
+  "tests": 1,
+  "ast_tests": 1,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp:cppcore"
+  ],
+  "flags": [],
+  "doc": "A built core must contain FINAL installed regions, not intermediate slices.",
+  "lines": 18
+ },
+ {
+  "module": "test_pvp_67_flood_cache",
+  "tests": 2,
+  "ast_tests": 2,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_physics"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "A read-batch geometry cache must preserve every actor's original path field.",
+  "lines": 38
+ },
+ {
+  "module": "test_pvp_67_map_migration",
+  "tests": 7,
+  "ast_tests": 7,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.custom_maps",
+   "pvp.map_editor_actions",
+   "pvp.profiles",
+   "pvp:map_deletions,userdata"
+  ],
+  "flags": [
+   "android"
+  ],
+  "doc": "Deleted maps stay deleted when another old install is discovered later.",
+  "lines": 117
+ },
+ {
+  "module": "test_pvp_67_original_touch",
+  "tests": 11,
+  "ast_tests": 11,
+  "in_pvp71_summary": true,
+  "imports": [
+   "modkit.android.original_touch",
+   "pvp.integration",
+   "pvp.native_physics",
+   "pvp.touch"
+  ],
+  "flags": [
+   "android",
+   "battle"
+  ],
+  "doc": "Original-mode SDL touches feed real native keyboard and mouse semantics.",
+  "lines": 242
+ },
+ {
+  "module": "test_pvp_67_pve_shared_tracking",
+  "tests": 3,
+  "ast_tests": 3,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.native_battle",
+   "pvp.team_maps"
+  ],
+  "flags": [
+   "battle",
+   "pygame"
+  ],
+  "doc": "Solo wave optimization retains native pursuit, terrain and contact damage.",
+  "lines": 58
+ },
+ {
+  "module": "test_pvp_67_scaled_display",
+  "tests": 14,
+  "ast_tests": 14,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.native_bridge",
+   "pvp.performance",
+   "pvp:scaled_display"
+  ],
+  "flags": [
+   "android",
+   "packaging",
+   "app",
+   "pygame"
+  ],
+  "doc": "PVP_SCALED display backend: off is inert, on keeps one coordinate space,",
+  "lines": 269
+ },
+ {
+  "module": "test_pvp_67_scatter_king_poison",
+  "tests": 2,
+  "ast_tests": 2,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.hud"
+  ],
+  "flags": [],
+  "doc": "",
+  "lines": 33
+ },
+ {
+  "module": "test_pvp_68003_balance",
+  "tests": 22,
+  "ast_tests": 22,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.rendering",
+   "pvp.rv_field",
+   "pvp.rv_tactics_v7",
+   "pvp.simulation",
+   "pvp.zombie_secret_catalog"
+  ],
+  "flags": [
+   "battle",
+   "ai"
+  ],
+  "doc": "PvP68 68003 balance update through the original 250 Hz engine.",
+  "lines": 387
+ },
+ {
+  "module": "test_pvp_68004_minor",
+  "tests": 30,
+  "ast_tests": 19,
+  "in_pvp71_summary": true,
+  "imports": [
+   "modkit.android",
+   "modkit.android.original_touch",
+   "pvp.catalog",
+   "pvp.integration",
+   "pvp.native_battle",
+   "pvp.pve",
+   "pvp.room",
+   "pvp:lobby_room"
+  ],
+  "flags": [
+   "android",
+   "battle",
+   "room",
+   "ai",
+   "source_scan"
+  ],
+  "doc": "PvP68 68004 minor update.",
+  "lines": 338
+ },
+ {
+  "module": "test_pvp_68005_minor",
+  "tests": 10,
+  "ast_tests": 10,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.cart_lifecycle",
+   "pvp.catalog",
+   "pvp.content_assets",
+   "pvp.hud",
+   "pvp.native_animation",
+   "pvp.native_battle",
+   "pvp.preview",
+   "pvp.team_maps"
+  ],
+  "flags": [
+   "exe",
+   "battle",
+   "replay",
+   "pygame"
+  ],
+  "doc": "68005: actual SDL bank selection, native rail deployment and cart lifecycle.",
+  "lines": 174
+ },
+ {
+  "module": "test_pvp_68006",
+  "tests": 13,
+  "ast_tests": 13,
+  "in_pvp71_summary": true,
+  "imports": [
+   "modkit.android.original_pacing",
+   "pvp.adaptive_pacing",
+   "pvp.balance68006",
+   "pvp.catalog",
+   "pvp.room"
+  ],
+  "flags": [
+   "android",
+   "battle",
+   "room",
+   "pygame"
+  ],
+  "doc": "68006: native hero hit packets, per-torch conversions and Android controls.",
+  "lines": 162
+ },
+ {
+  "module": "test_pvp_68006_black_slots",
+  "tests": 5,
+  "ast_tests": 5,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_expansion"
+  ],
+  "flags": [],
+  "doc": "Black-piece effects are independent from the carrier's native body.",
+  "lines": 110
+ },
+ {
+  "module": "test_pvp_68006_secondhand",
+  "tests": 6,
+  "ast_tests": 6,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.zombie_secrets"
+  ],
+  "flags": [],
+  "doc": "Actual native type-II drops, cross-body pickups, placement and piercing.",
+  "lines": 125
+ },
+ {
+  "module": "test_pvp_68_original_optimizations",
+  "tests": 5,
+  "ast_tests": 5,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_assets",
+   "pvp.native_runtime",
+   "pvp.original_optimizations"
+  ],
+  "flags": [
+   "packaging",
+   "battle",
+   "pygame",
+   "source_scan"
+  ],
+  "doc": "Original module definitions/constructors, exact scans/copy and native pixels.",
+  "lines": 183
+ },
+ {
+  "module": "test_pvp_68_performance_foundation",
+  "tests": 12,
+  "ast_tests": 12,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.bounded_cache",
+   "pvp.native_battle",
+   "pvp.native_multiworker",
+   "pvp.network",
+   "pvp.performance",
+   "pvp.performance_window",
+   "pvp.rendering",
+   "pvp.room"
+  ],
+  "flags": [
+   "exe",
+   "multiworker",
+   "network",
+   "server",
+   "app",
+   "battle",
+   "room",
+   "pygame"
+  ],
+  "doc": "Exact timing cohorts, bounded caches/queues and unchanged snapshot bytes.",
+  "lines": 172
+ },
+ {
+  "module": "test_pvp_68_spawn_budget",
+  "tests": 10,
+  "ast_tests": 10,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.scripted_spawn_budget"
+  ],
+  "flags": [],
+  "doc": "Real native campaign admission, delayed summons and trusted wave ancestry.",
+  "lines": 200
+ },
+ {
+  "module": "test_pvp_68_vine_sun_ownership",
+  "tests": 3,
+  "ast_tests": 3,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.pvp58_catalog",
+   "pvp.teams"
+  ],
+  "flags": [],
+  "doc": "Real vine production keeps its producing seat through merge and collection.",
+  "lines": 81
+ },
+ {
+  "module": "test_pvp_68_wave_population",
+  "tests": 11,
+  "ast_tests": 11,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.pve",
+   "pvp.scripted_spawn_budget"
+  ],
+  "flags": [
+   "app",
+   "battle"
+  ],
+  "doc": "Campaign population, completion gates, save compatibility and authority.",
+  "lines": 163
+ },
+ {
+  "module": "test_pvp_69002",
+  "tests": 28,
+  "ast_tests": 28,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.coop_ai",
+   "pvp.coop_progress",
+   "pvp.pve"
+  ],
+  "flags": [
+   "network",
+   "battle"
+  ],
+  "doc": "PvP69 v2 source acceptance: native rules, co-op, sockets and player UI.",
+  "lines": 338
+ },
+ {
+  "module": "test_pvp_69002_balance",
+  "tests": 14,
+  "ast_tests": 14,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.expansion_catalog",
+   "pvp.native_battle"
+  ],
+  "flags": [
+   "battle",
+   "pygame"
+  ],
+  "doc": "October 26 balance follow-up: real deployment and charm attack boundaries.",
+  "lines": 270
+ },
+ {
+  "module": "test_pvp_70_70005",
+  "tests": 8,
+  "ast_tests": 8,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.native_content",
+   "pvp.world_view"
+  ],
+  "flags": [],
+  "doc": "70005: basin teleport, lantern pulse burn, homing spikes on small units, art/cost and almanac notes.",
+  "lines": 107
+ },
+ {
+  "module": "test_pvp_70_animation",
+  "tests": 7,
+  "ast_tests": 7,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.expansion_assets",
+   "pvp.pvp70_assets",
+   "pvp.pvp70_catalog",
+   "pvp.world_view"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "Zombie part animation, deploy previews and PvP70 effect art on the native engine.",
+  "lines": 151
+ },
+ {
+  "module": "test_pvp_70_balance",
+  "tests": 16,
+  "ast_tests": 16,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.pvp70_catalog",
+   "pvp.rv_secrets66",
+   "pvp.scripted_spawn_budget"
+  ],
+  "flags": [
+   "battle",
+   "ai",
+   "pygame"
+  ],
+  "doc": "Focused native-engine regressions for the post-70006 balance update.",
+  "lines": 241
+ },
+ {
+  "module": "test_pvp_70_coop",
+  "tests": 11,
+  "ast_tests": 11,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.coop_cycle",
+   "pvp.pve",
+   "pvp.pvp70_catalog",
+   "pvp.team_maps",
+   "pvp:coop_ai"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "PvP70 cards in the solo/co-op campaign: pools, director spawns, bone graves.",
+  "lines": 170
+ },
+ {
+  "module": "test_pvp_70_extra",
+  "tests": 17,
+  "ast_tests": 17,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.native_targets",
+   "pvp.pvp70_catalog",
+   "pvp.scripted_spawn_budget",
+   "pvp.world_view"
+  ],
+  "flags": [
+   "battle",
+   "pygame"
+  ],
+  "doc": "Cooldowns, grenade/airdrop books, charm semantics and basin stack audit.",
+  "lines": 252
+ },
+ {
+  "module": "test_pvp_70_features",
+  "tests": 59,
+  "ast_tests": 59,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.maps",
+   "pvp.native_animation",
+   "pvp.native_placement",
+   "pvp.native_style",
+   "pvp.pvp70_assets",
+   "pvp.pvp70_catalog",
+   "pvp.room"
+  ],
+  "flags": [
+   "battle",
+   "room",
+   "replay"
+  ],
+  "doc": "PvP70 mechanical integration checks on the real 250 Hz native engine.",
+  "lines": 717
+ },
+ {
+  "module": "test_pvp_71002",
+  "tests": 5,
+  "ast_tests": 5,
+  "in_pvp71_summary": false,
+  "imports": [
+   "pvp.almanac_text",
+   "pvp.catalog",
+   "pvp.pvp71_catalog",
+   "pvp.zombie_secrets"
+  ],
+  "flags": [],
+  "doc": "71002: 肆意模仿, plant-Dave marks, ghost pepper on the zombie Dave, pirate 海陆空 grouping.",
+  "lines": 94
+ },
+ {
+  "module": "test_pvp_android_audio",
+  "tests": 6,
+  "ast_tests": 6,
+  "in_pvp71_summary": true,
+  "imports": [
+   "modkit.android.audio",
+   "modkit.android.main",
+   "pvp.catalog",
+   "pvp.native_battle",
+   "pvp.native_runtime",
+   "pvp:app"
+  ],
+  "flags": [
+   "android",
+   "app",
+   "battle",
+   "pygame"
+  ],
+  "doc": "Android entry hooks and audio: full action signature, intact engine settings, no process side effects.",
+  "lines": 126
+ },
+ {
+  "module": "test_pvp_android_label",
+  "tests": 3,
+  "ast_tests": 3,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp:BUILD"
+  ],
+  "flags": [
+   "android",
+   "packaging",
+   "source_scan"
+  ],
+  "doc": "The packaged launcher label must be the intended UTF-8 text, never mojibake.",
+  "lines": 72
+ },
+ {
+  "module": "test_pvp_audio56",
+  "tests": 6,
+  "ast_tests": 6,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.game_audio",
+   "pvp.result_animation"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "",
+  "lines": 98
+ },
+ {
+  "module": "test_pvp_audit_log",
+  "tests": 11,
+  "ast_tests": 11,
+  "in_pvp71_summary": true,
+  "imports": [
+   "modkit.pvp.audit_log",
+   "modkit.pvp.catalog",
+   "modkit.pvp.native_bridge",
+   "modkit.pvp.room",
+   "modkit.pvp:audit_log"
+  ],
+  "flags": [
+   "packaging",
+   "battle",
+   "room",
+   "replay",
+   "audit",
+   "source_scan"
+  ],
+  "doc": "Long-match storage, complete streaming export and explicit I/O failure.",
+  "lines": 251
+ },
+ {
+  "module": "test_pvp_balance",
+  "tests": 17,
+  "ast_tests": 17,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.balance",
+   "pvp.catalog",
+   "pvp.preview"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "Requested PvP balance, verified through original production objects.",
+  "lines": 305
+ },
+ {
+  "module": "test_pvp_balance50",
+  "tests": 6,
+  "ast_tests": 6,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "PvP50 requested card values and native combat interactions.",
+  "lines": 138
+ },
+ {
+  "module": "test_pvp_balance_economy",
+  "tests": 11,
+  "ast_tests": 11,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.balance",
+   "pvp.catalog",
+   "pvp.preview",
+   "pvp.room"
+  ],
+  "flags": [
+   "battle",
+   "room"
+  ],
+  "doc": "",
+  "lines": 158
+ },
+ {
+  "module": "test_pvp_banned_imp_throw",
+  "tests": 27,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.native_battle",
+   "pvp.native_expansion"
+  ],
+  "flags": [
+   "battle",
+   "pygame"
+  ],
+  "doc": "Bans block manual imp cards, while both original giant throws still work.",
+  "lines": 117
+ },
+ {
+  "module": "test_pvp_barrel_crush_visual",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.world_view"
+  ],
+  "flags": [
+   "app",
+   "replay"
+  ],
+  "doc": "Moving wooden barrels must use the native giant/vehicle squash remains.",
+  "lines": 88
+ },
+ {
+  "module": "test_pvp_barrel_feedback34",
+  "tests": 13,
+  "ast_tests": 13,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [
+   "replay"
+  ],
+  "doc": "Real native targeting and projectile regressions for replay-1789307176.",
+  "lines": 165
+ },
+ {
+  "module": "test_pvp_black_armor_drop",
+  "tests": 31,
+  "ast_tests": 8,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.native_expansion"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "Black armour honors opening protection and reaps plants it actually empties.",
+  "lines": 212
+ },
+ {
+  "module": "test_pvp_campaign_pool",
+  "tests": 3,
+  "ast_tests": 3,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.campaign_pool",
+   "pvp.catalog"
+  ],
+  "flags": [],
+  "doc": "",
+  "lines": 41
+ },
+ {
+  "module": "test_pvp_chili_zombie_fire",
+  "tests": 5,
+  "ast_tests": 5,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.catalog",
+   "pvp.maps",
+   "pvp.native_battle",
+   "pvp.native_bridge"
+  ],
+  "flags": [
+   "app",
+   "battle",
+   "pygame"
+  ],
+  "doc": "Chili-zombie death fire: allegiance, one judgement per explosion, launch lock.",
+  "lines": 150
+ },
+ {
+  "module": "test_pvp_content",
+  "tests": 117,
+  "ast_tests": 13,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.content_assets",
+   "pvp.content_catalog",
+   "pvp.rendering"
+  ],
+  "flags": [
+   "app",
+   "battle"
+  ],
+  "doc": "Actual native combat acceptance for the pirate/ancient content batch.",
+  "lines": 214
+ },
+ {
+  "module": "test_pvp_content_acceptance",
+  "tests": 18,
+  "ast_tests": 18,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.balance",
+   "pvp.catalog",
+   "pvp.content_atlas_data",
+   "pvp.content_catalog",
+   "pvp.expansion_catalog",
+   "pvp.room",
+   "pvp.world_view"
+  ],
+  "flags": [
+   "app",
+   "room",
+   "replay"
+  ],
+  "doc": "Cross-system acceptance: native callbacks, draft rules and client assets.",
+  "lines": 319
+ },
+ {
+  "module": "test_pvp_custom_maps",
+  "tests": 13,
+  "ast_tests": 13,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.custom_maps",
+   "pvp.maps",
+   "pvp.native_battle",
+   "pvp.native_bridge",
+   "pvp.network",
+   "pvp.room"
+  ],
+  "flags": [
+   "network",
+   "app",
+   "battle",
+   "room",
+   "pygame"
+  ],
+  "doc": "Persistence, authority, native combat and rendered editor acceptance.",
+  "lines": 231
+ },
+ {
+  "module": "test_pvp_deployment_controls",
+  "tests": 15,
+  "ast_tests": 5,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.catalog",
+   "pvp.maps",
+   "pvp.native_battle",
+   "pvp.preview"
+  ],
+  "flags": [
+   "app",
+   "battle",
+   "pygame"
+  ],
+  "doc": "Public placement and real SDL press regressions, including fortress steps.",
+  "lines": 119
+ },
+ {
+  "module": "test_pvp_display_pipeline",
+  "tests": 6,
+  "ast_tests": 6,
+  "in_pvp71_summary": false,
+  "imports": [
+   "pvp.display_pipeline",
+   "pvp.replay"
+  ],
+  "flags": [
+   "app",
+   "battle",
+   "replay",
+   "source_scan"
+  ],
+  "doc": "Shared display quality must preserve authority, coordinates and UI scale.",
+  "lines": 110
+ },
+ {
+  "module": "test_pvp_draft56",
+  "tests": 7,
+  "ast_tests": 7,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.draft_advisor",
+   "pvp.maps"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "",
+  "lines": 83
+ },
+ {
+  "module": "test_pvp_draft_completion49",
+  "tests": 9,
+  "ast_tests": 9,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog"
+  ],
+  "flags": [],
+  "doc": "Tight secret prerequisites and production slots must leave a legal next pick.",
+  "lines": 133
+ },
+ {
+  "module": "test_pvp_draw_cache",
+  "tests": 2,
+  "ast_tests": 2,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_animation"
+  ],
+  "flags": [
+   "app",
+   "replay"
+  ],
+  "doc": "",
+  "lines": 50
+ },
+ {
+  "module": "test_pvp_expansion",
+  "tests": 17,
+  "ast_tests": 17,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.expansion_catalog"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "",
+  "lines": 277
+ },
+ {
+  "module": "test_pvp_expansion_view",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.expansion_assets",
+   "pvp.expansion_catalog",
+   "pvp.room",
+   "pvp.world_view"
+  ],
+  "flags": [
+   "exe",
+   "app",
+   "battle",
+   "room",
+   "replay"
+  ],
+  "doc": "Exercise the independent UI atlas, not the authority's asset resolver.",
+  "lines": 81
+ },
+ {
+  "module": "test_pvp_feedback49_ui",
+  "tests": 9,
+  "ast_tests": 9,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.replay"
+  ],
+  "flags": [
+   "app",
+   "battle",
+   "replay"
+  ],
+  "doc": "Actual pointer events, native replay ticks and mobile battle input regressions.",
+  "lines": 144
+ },
+ {
+  "module": "test_pvp_feedback5805",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [
+   "exe"
+  ],
+  "doc": "Projectile continuation and cold-fire regressions from player log 5805.",
+  "lines": 88
+ },
+ {
+  "module": "test_pvp_fixed_room",
+  "tests": 10,
+  "ast_tests": 5,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.catalog",
+   "pvp.identity_check",
+   "pvp.lobby_room",
+   "pvp.native_bridge",
+   "pvp:lobby_room"
+  ],
+  "flags": [
+   "network",
+   "app",
+   "battle",
+   "ai",
+   "pygame",
+   "source_scan"
+  ],
+  "doc": "PvP65 fixed lobby room: offline host room, seat lifecycle, delays, records, names.",
+  "lines": 229
+ },
+ {
+  "module": "test_pvp_flag_performance",
+  "tests": 2,
+  "ast_tests": 2,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [
+   "battle"
+  ],
+  "doc": "Real flag reinforcements retain native behaviour without unused N*N scans.",
+  "lines": 79
+ },
+ {
+  "module": "test_pvp_flag_reinforcement",
+  "tests": 28,
+  "ast_tests": 5,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.native_battle"
+  ],
+  "flags": [
+   "battle",
+   "pygame"
+  ],
+  "doc": "The flag zombie's grave reinforcements, and what a ban may and may not do.",
+  "lines": 119
+ },
+ {
+  "module": "test_pvp_floating_graves",
+  "tests": 3,
+  "ast_tests": 3,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_style",
+   "pvp.preview"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "",
+  "lines": 55
+ },
+ {
+  "module": "test_pvp_giant_headgear",
+  "tests": 7,
+  "ast_tests": 7,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_expansion"
+  ],
+  "flags": [
+   "battle",
+   "replay"
+  ],
+  "doc": "Headgear on oversized bodies must sit on the head, in either facing.",
+  "lines": 246
+ },
+ {
+  "module": "test_pvp_giant_imp_headgear",
+  "tests": 37,
+  "ast_tests": 14,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_expansion"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "The imp on a giant's back wears headgear of its own, and keeps it on a throw.",
+  "lines": 359
+ },
+ {
+  "module": "test_pvp_gladiator_giant",
+  "tests": 39,
+  "ast_tests": 16,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.native_expansion"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "The gladiator giant: a giant wearing the black rugby helmet, whose riding imp",
+  "lines": 354
+ },
+ {
+  "module": "test_pvp_grave_targeting47",
+  "tests": 6,
+  "ast_tests": 6,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [
+   "battle"
+  ],
+  "doc": "Native attacks across the periodic seam, based on the user's screenshot.",
+  "lines": 137
+ },
+ {
+  "module": "test_pvp_grave_water34",
+  "tests": 2,
+  "ast_tests": 2,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.preview"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "Graves float on the surface; clicking the submerged floor cannot bypass it.",
+  "lines": 40
+ },
+ {
+  "module": "test_pvp_hardening_copy",
+  "tests": 7,
+  "ast_tests": 7,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.preview"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "Null-HP catalog and native imitator interaction regressions.",
+  "lines": 102
+ },
+ {
+  "module": "test_pvp_hero_damage_balance",
+  "tests": 14,
+  "ast_tests": 14,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.catalog",
+   "pvp.maps",
+   "pvp.native_battle",
+   "pvp.native_bridge"
+  ],
+  "flags": [
+   "app",
+   "battle",
+   "pygame"
+  ],
+  "doc": "Flat hero-damage balance: named sources vs Dave heroes.",
+  "lines": 305
+ },
+ {
+  "module": "test_pvp_hero_fume",
+  "tests": 1,
+  "ast_tests": 1,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [
+   "battle"
+  ],
+  "doc": "Native fume attacks at supported body/head height, both directions.",
+  "lines": 22
+ },
+ {
+  "module": "test_pvp_hero_isolation",
+  "tests": 6,
+  "ast_tests": 6,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.hero_guard",
+   "pvp.pvp70_catalog",
+   "pvp:hero_guard"
+  ],
+  "flags": [
+   "battle",
+   "ai",
+   "replay",
+   "pygame",
+   "source_scan"
+  ],
+  "doc": "Hero isolation gate: one Dave's state never lands on another Dave.",
+  "lines": 246
+ },
+ {
+  "module": "test_pvp_hud",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.catalog",
+   "pvp.hud",
+   "pvp.rendering"
+  ],
+  "flags": [
+   "app",
+   "pygame"
+  ],
+  "doc": "Real battle rendering and read-only feedback/hidden-page regressions.",
+  "lines": 125
+ },
+ {
+  "module": "test_pvp_ice_heading34",
+  "tests": 3,
+  "ast_tests": 3,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.simulation"
+  ],
+  "flags": [],
+  "doc": "Ice vehicle deployment heading must survive F without replacing native motion.",
+  "lines": 68
+ },
+ {
+  "module": "test_pvp_imitater49",
+  "tests": 7,
+  "ast_tests": 7,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.content_catalog"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "Native 300-frame copies retain PvP identity, balance and admission.",
+  "lines": 121
+ },
+ {
+  "module": "test_pvp_imitater_grey",
+  "tests": 2,
+  "ast_tests": 2,
+  "in_pvp71_summary": false,
+  "imports": [
+   "pvp.catalog",
+   "pvp.pvp70_catalog"
+  ],
+  "flags": [],
+  "doc": "Release gate (71002): a new plant copied by the imitater is drawn grey.",
+  "lines": 90
+ },
+ {
+  "module": "test_pvp_imp_client_states",
+  "tests": 1,
+  "ast_tests": 1,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_expansion",
+   "pvp.native_scale",
+   "pvp.world_view"
+  ],
+  "flags": [
+   "exe",
+   "app",
+   "replay"
+  ],
+  "doc": "A frozen armoured imp must not abort an independent client's draw frame.",
+  "lines": 47
+ },
+ {
+  "module": "test_pvp_important_blocks",
+  "tests": 2,
+  "ast_tests": 2,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [
+   "battle"
+  ],
+  "doc": "",
+  "lines": 36
+ },
+ {
+  "module": "test_pvp_input_events",
+  "tests": 2,
+  "ast_tests": 2,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [],
+  "doc": "Event-backed held movement and short embedded key-state regression.",
+  "lines": 40
+ },
+ {
+  "module": "test_pvp_input_latency",
+  "tests": 10,
+  "ast_tests": 10,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.catalog",
+   "pvp.native_battle",
+   "pvp.native_bridge",
+   "pvp.native_runtime"
+  ],
+  "flags": [
+   "app",
+   "battle",
+   "replay",
+   "pygame",
+   "source_scan"
+  ],
+  "doc": "Client feel: input latency, the jump gates, and the per-frame stall fixes.",
+  "lines": 207
+ },
+ {
+  "module": "test_pvp_input_silence",
+  "tests": 8,
+  "ast_tests": 8,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [],
+  "doc": "Battle movement input must never disappear without a trace.",
+  "lines": 152
+ },
+ {
+  "module": "test_pvp_integration",
+  "tests": 17,
+  "ast_tests": 17,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp:integration"
+  ],
+  "flags": [
+   "exe",
+   "app",
+   "pygame",
+   "source_scan"
+  ],
+  "doc": "Integration presentation and embedded-loader regressions (Python 3.8).",
+  "lines": 459
+ },
+ {
+  "module": "test_pvp_late_feedback33",
+  "tests": 9,
+  "ast_tests": 9,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.simulation"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "Follow-up player logs: template bans, terrain, knockback and third jump.",
+  "lines": 147
+ },
+ {
+  "module": "test_pvp_legacy",
+  "tests": 13,
+  "ast_tests": 13,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [
+   "source_scan"
+  ],
+  "doc": "Regression tests that execute the shipped runtime's actual combat functions.",
+  "lines": 314
+ },
+ {
+  "module": "test_pvp_maps",
+  "tests": 7,
+  "ast_tests": 7,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.maps",
+   "pvp.native_bridge"
+  ],
+  "flags": [],
+  "doc": "",
+  "lines": 70
+ },
+ {
+  "module": "test_pvp_match_network",
+  "tests": 3,
+  "ast_tests": 3,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.catalog",
+   "pvp.native_bridge",
+   "pvp.network",
+   "pvp.room",
+   "pvp:BUILD"
+  ],
+  "flags": [
+   "network",
+   "server",
+   "app",
+   "battle",
+   "room"
+  ],
+  "doc": "Real loopback transport driving the actual room and combat authority.",
+  "lines": 252
+ },
+ {
+  "module": "test_pvp_match_quality",
+  "tests": 7,
+  "ast_tests": 7,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.hud",
+   "pvp.rendering"
+  ],
+  "flags": [
+   "app",
+   "battle"
+  ],
+  "doc": "Hero recovery, original falling suns and room/input feedback regressions.",
+  "lines": 107
+ },
+ {
+  "module": "test_pvp_melon_remnants",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [
+   "battle"
+  ],
+  "doc": "",
+  "lines": 78
+ },
+ {
+  "module": "test_pvp_multiworker_failover",
+  "tests": 15,
+  "ast_tests": 15,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp:native_multiworker"
+  ],
+  "flags": [
+   "exe",
+   "android",
+   "multiworker",
+   "network"
+  ],
+  "doc": "Job system: backends, deterministic merge, all-or-nothing failover, config.",
+  "lines": 185
+ },
+ {
+  "module": "test_pvp_multiworker_history",
+  "tests": 13,
+  "ast_tests": 1,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [
+   "multiworker",
+   "source_scan"
+  ],
+  "doc": "Historical gameplay fixtures: fast path off == on == workers, and behaviour kept.",
+  "lines": 84
+ },
+ {
+  "module": "test_pvp_multiworker_parity",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [
+   "exe",
+   "multiworker",
+   "battle",
+   "source_scan"
+  ],
+  "doc": "Single worker <-> multi worker authority parity on real NativeBattle fixtures.",
+  "lines": 132
+ },
+ {
+  "module": "test_pvp_multiworker_projectiles",
+  "tests": 6,
+  "ast_tests": 6,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_multiworker",
+   "pvp:native_candidates"
+  ],
+  "flags": [
+   "multiworker",
+   "battle"
+  ],
+  "doc": "Order-sensitive star damage, invalidation, exceptions, seam and RNG.",
+  "lines": 180
+ },
+ {
+  "module": "test_pvp_multiworker_schedule_jitter",
+  "tests": 6,
+  "ast_tests": 6,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.native_runtime",
+   "pvp:native_multiworker"
+  ],
+  "flags": [
+   "packaging",
+   "multiworker",
+   "app",
+   "battle"
+  ],
+  "doc": "Schedule jitter, copy-once frames, MatchCopy exactness and the pack worker.",
+  "lines": 126
+ },
+ {
+  "module": "test_pvp_multiworker_seam",
+  "tests": 5,
+  "ast_tests": 5,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.simulation",
+   "pvp:native_multiworker"
+  ],
+  "flags": [
+   "cpp_port",
+   "multiworker"
+  ],
+  "doc": "Box broad-phase kernels: exact vs brute force, seam halo, C == Python.",
+  "lines": 99
+ },
+ {
+  "module": "test_pvp_multiworker_targets",
+  "tests": 7,
+  "ast_tests": 7,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.native_runtime",
+   "pvp:native_targets"
+  ],
+  "flags": [
+   "multiworker",
+   "battle",
+   "pygame"
+  ],
+  "doc": "Exact-equivalence properties of the serial fast paths.",
+  "lines": 184
+ },
+ {
+  "module": "test_pvp_mushroom_layer34",
+  "tests": 3,
+  "ast_tests": 3,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [],
+  "doc": "The player's corrected underground-layer request concerns Scaredy-shroom.",
+  "lines": 59
+ },
+ {
+  "module": "test_pvp_native_animation",
+  "tests": 10,
+  "ast_tests": 10,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.native_animation",
+   "pvp.native_assets",
+   "pvp.native_bridge",
+   "pvp.native_physics",
+   "pvp.native_runtime"
+  ],
+  "flags": [
+   "packaging",
+   "app",
+   "replay",
+   "pygame",
+   "source_scan"
+  ],
+  "doc": "Pixel equivalence with actual marshal draw functions, not self-made poses.",
+  "lines": 273
+ },
+ {
+  "module": "test_pvp_native_battle_combat",
+  "tests": 69,
+  "ast_tests": 23,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.catalog",
+   "pvp.maps",
+   "pvp.native_battle",
+   "pvp.native_bridge",
+   "pvp.pve",
+   "pvp.room",
+   "pvp.simulation"
+  ],
+  "flags": [
+   "app",
+   "battle",
+   "room",
+   "replay",
+   "pygame"
+  ],
+  "doc": "Production Room/NativeBattle combat wiring, using real native assets/code.",
+  "lines": 1098
+ },
+ {
+  "module": "test_pvp_native_bite_scaling",
+  "tests": 2,
+  "ast_tests": 2,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.expansion_catalog"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "Black/captain scaling at real native plant contact, with charm unchanged.",
+  "lines": 127
+ },
+ {
+  "module": "test_pvp_native_bytecode_windows",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_bytecode",
+   "pvp.native_gate"
+  ],
+  "flags": [],
+  "doc": "Small-window decoder parity and immutable gate-cache isolation.",
+  "lines": 57
+ },
+ {
+  "module": "test_pvp_native_catalog",
+  "tests": 13,
+  "ast_tests": 13,
+  "in_pvp71_summary": true,
+  "imports": [
+   "modkit.pvp.balance",
+   "modkit.pvp.catalog",
+   "modkit.pvp.native_bridge",
+   "modkit.pvp.room"
+  ],
+  "flags": [
+   "packaging",
+   "battle",
+   "room"
+  ],
+  "doc": "Compare catalogue resolution against actual shipped marshal/patch functions.",
+  "lines": 361
+ },
+ {
+  "module": "test_pvp_native_draft_display",
+  "tests": 1,
+  "ast_tests": 1,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.catalog",
+   "pvp.native_bridge"
+  ],
+  "flags": [
+   "app",
+   "pygame"
+  ],
+  "doc": "Real draft controls retain base IDs while rendering native secret forms.",
+  "lines": 107
+ },
+ {
+  "module": "test_pvp_native_flood_wrap",
+  "tests": 2,
+  "ast_tests": 2,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.catalog",
+   "pvp.maps",
+   "pvp.native_battle",
+   "pvp.native_bridge"
+  ],
+  "flags": [
+   "app",
+   "battle",
+   "pygame"
+  ],
+  "doc": "Flood-matrix horizontal wrap: native zombie AI must survive off-edge columns.",
+  "lines": 80
+ },
+ {
+  "module": "test_pvp_native_gate",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_gate",
+   "pvp.native_physics"
+  ],
+  "flags": [],
+  "doc": "Original-loop gate parity, including original mutable state and RNG.",
+  "lines": 86
+ },
+ {
+  "module": "test_pvp_native_gravebuster",
+  "tests": 7,
+  "ast_tests": 7,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.native_animation",
+   "pvp.native_assets",
+   "pvp.native_bridge",
+   "pvp.native_gravebuster",
+   "pvp.native_runtime"
+  ],
+  "flags": [
+   "app",
+   "pygame"
+  ],
+  "doc": "Run the real native Grave Buster creator, plant loop and draw function.",
+  "lines": 190
+ },
+ {
+  "module": "test_pvp_native_menus",
+  "tests": 3,
+  "ast_tests": 3,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.catalog",
+   "pvp.maps",
+   "pvp.menu_view",
+   "pvp.native_bridge",
+   "pvp.rendering"
+  ],
+  "flags": [
+   "app",
+   "pygame"
+  ],
+  "doc": "Native menu screenshots and control geometry at supported small windows.",
+  "lines": 86
+ },
+ {
+  "module": "test_pvp_native_patch",
+  "tests": 7,
+  "ast_tests": 7,
+  "in_pvp71_summary": true,
+  "imports": [
+   "modkit.pvp.native_patch"
+  ],
+  "flags": [
+   "exe",
+   "source_scan"
+  ],
+  "doc": "Execute the real combat patch through its isolated PvP adapter.",
+  "lines": 142
+ },
+ {
+  "module": "test_pvp_native_patch_targets",
+  "tests": 6,
+  "ast_tests": 6,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_patch",
+   "pvp.native_runtime",
+   "pvp.native_targets"
+  ],
+  "flags": [
+   "source_scan"
+  ],
+  "doc": "Actual 1.5.0.1 source callbacks under mixed-allegiance native contexts.",
+  "lines": 127
+ },
+ {
+  "module": "test_pvp_native_physics",
+  "tests": 17,
+  "ast_tests": 17,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_physics"
+  ],
+  "flags": [
+   "battle",
+   "pygame"
+  ],
+  "doc": "Native Dave physics tested against independently entered original wordcode.",
+  "lines": 408
+ },
+ {
+  "module": "test_pvp_native_placement",
+  "tests": 7,
+  "ast_tests": 7,
+  "in_pvp71_summary": true,
+  "imports": [
+   "modkit.pvp.catalog",
+   "modkit.pvp.maps",
+   "modkit.pvp.native_bridge",
+   "modkit.pvp.native_placement",
+   "modkit.pvp.native_runtime",
+   "modkit.pvp.preview"
+  ],
+  "flags": [],
+  "doc": "Native source parity and read-only client planting/occupancy regressions.",
+  "lines": 182
+ },
+ {
+  "module": "test_pvp_native_replay_world",
+  "tests": 6,
+  "ast_tests": 6,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.native_animation",
+   "pvp.native_assets",
+   "pvp.native_bridge",
+   "pvp.native_runtime",
+   "pvp.world_view"
+  ],
+  "flags": [
+   "app",
+   "replay",
+   "pygame"
+  ],
+  "doc": "The real WorldView replays original frames with a separate local atlas.",
+  "lines": 167
+ },
+ {
+  "module": "test_pvp_native_targets",
+  "tests": 14,
+  "ast_tests": 14,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_physics",
+   "pvp.native_runtime",
+   "pvp.native_targets"
+  ],
+  "flags": [],
+  "doc": "Run native projectile collisions / Chomper wordcode against the hero proxy.",
+  "lines": 235
+ },
+ {
+  "module": "test_pvp_native_units",
+  "tests": 11,
+  "ast_tests": 11,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.maps",
+   "pvp.native_animation",
+   "pvp.native_assets",
+   "pvp.native_bridge",
+   "pvp.native_patch",
+   "pvp.native_runtime"
+  ],
+  "flags": [
+   "packaging",
+   "app",
+   "replay",
+   "pygame",
+   "source_scan"
+  ],
+  "doc": "Original bytecode unit-loop matrix; fixtures bypass BP/economy explicitly.",
+  "lines": 279
+ },
+ {
+  "module": "test_pvp_native_world",
+  "tests": 14,
+  "ast_tests": 14,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.catalog",
+   "pvp.maps",
+   "pvp.native_bridge",
+   "pvp.native_style",
+   "pvp.simulation",
+   "pvp.world_view"
+  ],
+  "flags": [
+   "app",
+   "battle",
+   "pygame"
+  ],
+  "doc": "Native-art ratios, real PNG rendering, camera mapping and Dave body tests.",
+  "lines": 293
+ },
+ {
+  "module": "test_pvp_network",
+  "tests": 16,
+  "ast_tests": 16,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [
+   "subprocess",
+   "network",
+   "server",
+   "app"
+  ],
+  "doc": "Real loopback transport tests; these do not prove LAN/off-site connectivity.",
+  "lines": 358
+ },
+ {
+  "module": "test_pvp_network_memory67",
+  "tests": 6,
+  "ast_tests": 6,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp:network"
+  ],
+  "flags": [
+   "packaging",
+   "network",
+   "server"
+  ],
+  "doc": "Bounded queues and real TCP relay delivery; no device/WAN proof implied.",
+  "lines": 128
+ },
+ {
+  "module": "test_pvp_network_optimization",
+  "tests": 10,
+  "ast_tests": 10,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.display_pipeline",
+   "pvp.native_multiworker",
+   "pvp.snapshot_delivery",
+   "pvp:network"
+  ],
+  "flags": [
+   "packaging",
+   "multiworker",
+   "network",
+   "app",
+   "battle",
+   "ai",
+   "replay"
+  ],
+  "doc": "Scheduling, real socket wakeup, detached delivery and visual continuity.",
+  "lines": 228
+ },
+ {
+  "module": "test_pvp_perf_boost",
+  "tests": 11,
+  "ast_tests": 11,
+  "in_pvp71_summary": true,
+  "imports": [
+   "modkit.android",
+   "modkit.android.perf_boost",
+   "pvp:perf_hooks"
+  ],
+  "flags": [
+   "android",
+   "packaging",
+   "room",
+   "source_scan"
+  ],
+  "doc": "PvP71 Android performance diagnostics and requests, exercised on PC with fake sysfs.",
+  "lines": 195
+ },
+ {
+  "module": "test_pvp_petrified_torch",
+  "tests": 45,
+  "ast_tests": 22,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.expansion_assets",
+   "pvp.expansion_catalog",
+   "pvp.native_style"
+  ],
+  "flags": [
+   "exe",
+   "battle"
+  ],
+  "doc": "石化火炬: a brain-light grave that ignites peas like a torchwood.",
+  "lines": 419
+ },
+ {
+  "module": "test_pvp_plant_zombie_allegiance",
+  "tests": 7,
+  "ast_tests": 7,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [
+   "battle"
+  ],
+  "doc": "Native-frame regressions for charmed shooters and squash/doom allegiance.",
+  "lines": 139
+ },
+ {
+  "module": "test_pvp_player_art32",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [],
+  "doc": "Native render and forward-barrel splash regressions found in visual QA.",
+  "lines": 82
+ },
+ {
+  "module": "test_pvp_player_feedback32",
+  "tests": 9,
+  "ast_tests": 9,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.maps",
+   "pvp.native_battle"
+  ],
+  "flags": [
+   "battle",
+   "replay",
+   "pygame"
+  ],
+  "doc": "Regressions from replay-1789295205 and actual SDL deployment/render paths.",
+  "lines": 168
+ },
+ {
+  "module": "test_pvp_player_feedback33",
+  "tests": 8,
+  "ast_tests": 8,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [
+   "replay"
+  ],
+  "doc": "Real native regressions from replay-1789302407 (PvP32).",
+  "lines": 248
+ },
+ {
+  "module": "test_pvp_ported_mechanics",
+  "tests": 8,
+  "ast_tests": 8,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_patch"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "Execute the shipped 1.5.0.1 mechanisms through the PvP namespace.",
+  "lines": 114
+ },
+ {
+  "module": "test_pvp_presentation",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.presentation"
+  ],
+  "flags": [],
+  "doc": "",
+  "lines": 62
+ },
+ {
+  "module": "test_pvp_quit_forfeit",
+  "tests": 3,
+  "ast_tests": 3,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.network",
+   "pvp.room"
+  ],
+  "flags": [
+   "network",
+   "app",
+   "room"
+  ],
+  "doc": "对局中直接关游戏 = 退出方判负（真实回环联机，主机 / 客机两个方向）。",
+  "lines": 124
+ },
+ {
+  "module": "test_pvp_reference",
+  "tests": 3,
+  "ast_tests": 3,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_bridge",
+   "pvp.reference"
+  ],
+  "flags": [],
+  "doc": "Native catalogue data extraction and live/isolated comparison boundaries.",
+  "lines": 49
+ },
+ {
+  "module": "test_pvp_relay",
+  "tests": 29,
+  "ast_tests": 26,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.network",
+   "pvp.relay"
+  ],
+  "flags": [
+   "packaging",
+   "network",
+   "server",
+   "room"
+  ],
+  "doc": "Real TCP relay tests. Local by default; no cloud or player proof implied.",
+  "lines": 370
+ },
+ {
+  "module": "test_pvp_replay48",
+  "tests": 8,
+  "ast_tests": 8,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.custom_maps",
+   "pvp.native_battle",
+   "pvp.replay"
+  ],
+  "flags": [
+   "packaging",
+   "app",
+   "battle",
+   "replay",
+   "pygame",
+   "source_scan"
+  ],
+  "doc": "Real native recording round trips, seeking, tamper detection and touch UI.",
+  "lines": 158
+ },
+ {
+  "module": "test_pvp_replay_transfer",
+  "tests": 3,
+  "ast_tests": 3,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.replay",
+   "pvp.replay_transfer"
+  ],
+  "flags": [
+   "packaging",
+   "network",
+   "battle",
+   "replay"
+  ],
+  "doc": "Real lobby transport, private device directories, native replay and failures.",
+  "lines": 89
+ },
+ {
+  "module": "test_pvp_result_animation",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.result_animation"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "Level-end UI uses the original curve and remains outside battle state.",
+  "lines": 51
+ },
+ {
+  "module": "test_pvp_review_followup",
+  "tests": 7,
+  "ast_tests": 7,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.native_runtime",
+   "pvp.preview",
+   "pvp.rendering",
+   "pvp:battle_view"
+  ],
+  "flags": [
+   "app",
+   "battle"
+  ],
+  "doc": "Current user balance: real price authority, supported bites and timers.",
+  "lines": 180
+ },
+ {
+  "module": "test_pvp_room",
+  "tests": 45,
+  "ast_tests": 45,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.hud",
+   "pvp.native_bridge",
+   "pvp.room",
+   "pvp:BUILD"
+  ],
+  "flags": [
+   "battle",
+   "room",
+   "source_scan"
+  ],
+  "doc": "",
+  "lines": 555
+ },
+ {
+  "module": "test_pvp_room_refill",
+  "tests": 3,
+  "ast_tests": 3,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.network",
+   "pvp.relay",
+   "pvp.room"
+  ],
+  "flags": [
+   "network",
+   "server",
+   "room"
+  ],
+  "doc": "A real departing guest must free both the room roster and TCP reservation.",
+  "lines": 77
+ },
+ {
+  "module": "test_pvp_room_roles54",
+  "tests": 8,
+  "ast_tests": 8,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.network",
+   "pvp.relay",
+   "pvp.room"
+  ],
+  "flags": [
+   "network",
+   "server",
+   "battle"
+  ],
+  "doc": "Seat changes over real TCP/direct and local relay with native battle state.",
+  "lines": 202
+ },
+ {
+  "module": "test_pvp_september_content",
+  "tests": 15,
+  "ast_tests": 15,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.content_assets",
+   "pvp.native_style"
+  ],
+  "flags": [
+   "exe",
+   "battle"
+  ],
+  "doc": "Real 250 Hz coverage of the four PvP54 units and their old interactions.",
+  "lines": 514
+ },
+ {
+  "module": "test_pvp_september_rules",
+  "tests": 9,
+  "ast_tests": 9,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.preview",
+   "pvp.reference"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "PvP54 terrain/economy rules through authority, preview and native ticks.",
+  "lines": 143
+ },
+ {
+  "module": "test_pvp_spectator_ui49",
+  "tests": 5,
+  "ast_tests": 5,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.replay"
+  ],
+  "flags": [
+   "network",
+   "server",
+   "app",
+   "battle",
+   "replay"
+  ],
+  "doc": "Actual Application clients over loopback and relay; no WAN/device proof.",
+  "lines": 214
+ },
+ {
+  "module": "test_pvp_spectators49",
+  "tests": 14,
+  "ast_tests": 14,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_bridge",
+   "pvp.network",
+   "pvp.relay",
+   "pvp.room"
+  ],
+  "flags": [
+   "network",
+   "server",
+   "replay"
+  ],
+  "doc": "Spectator admission, authority and independent real TCP relay channels.",
+  "lines": 293
+ },
+ {
+  "module": "test_pvp_star_shovel",
+  "tests": 7,
+  "ast_tests": 7,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "Native automatic targeting, real draw frames, shovel and independent banks.",
+  "lines": 102
+ },
+ {
+  "module": "test_pvp_starfruit_symmetry",
+  "tests": 27,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [
+   "battle"
+  ],
+  "doc": "Starfruit fires five stars, and its left-facing spread mirrors the right one.",
+  "lines": 111
+ },
+ {
+  "module": "test_pvp_status_stack_audit",
+  "tests": 13,
+  "ast_tests": 13,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_expansion",
+   "pvp.world_view"
+  ],
+  "flags": [
+   "exe",
+   "app",
+   "replay"
+  ],
+  "doc": "Regression coverage for the post-art/size, armor and status audit.",
+  "lines": 231
+ },
+ {
+  "module": "test_pvp_status_visuals",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "Original damage/control clocks and recorded state sprites, not just HP.",
+  "lines": 78
+ },
+ {
+  "module": "test_pvp_storage_inputs",
+  "tests": 6,
+  "ast_tests": 6,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [
+   "android",
+   "packaging",
+   "cpp_port"
+  ],
+  "doc": "",
+  "lines": 98
+ },
+ {
+  "module": "test_pvp_summon_bans",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.native_battle"
+  ],
+  "flags": [
+   "battle",
+   "pygame"
+  ],
+  "doc": "Actual native summon triggers remain active when the child card is banned.",
+  "lines": 62
+ },
+ {
+  "module": "test_pvp_sweet_potato_taunt",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.pvp64_catalog",
+   "pvp.pvp64_content"
+  ],
+  "flags": [],
+  "doc": "Sweet-potato taunt must not leak out of the zombie that was taunted.",
+  "lines": 119
+ },
+ {
+  "module": "test_pvp_tail_start",
+  "tests": 3,
+  "ast_tests": 3,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.native_animation"
+  ],
+  "flags": [
+   "app",
+   "battle",
+   "replay"
+  ],
+  "doc": "",
+  "lines": 58
+ },
+ {
+  "module": "test_pvp_teleport",
+  "tests": 3,
+  "ast_tests": 3,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [
+   "battle"
+  ],
+  "doc": "",
+  "lines": 45
+ },
+ {
+  "module": "test_pvp_test_catalog",
+  "tests": 28,
+  "ast_tests": 28,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp_impact",
+   "pvp_test_catalog"
+  ],
+  "flags": [
+   "android",
+   "packaging",
+   "multiworker",
+   "replay"
+  ],
+  "doc": "Regression coverage for impact-based test selection (no game worlds).",
+  "lines": 226
+ },
+ {
+  "module": "test_pvp_touch",
+  "tests": 51,
+  "ast_tests": 51,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.room",
+   "pvp.touch",
+   "pvp:ui_data"
+  ],
+  "flags": [
+   "android",
+   "network",
+   "app",
+   "room",
+   "pygame",
+   "source_scan"
+  ],
+  "doc": "Touch controls: virtual buttons, multi-finger input, long-press, platform guards.",
+  "lines": 715
+ },
+ {
+  "module": "test_pvp_triple_jump",
+  "tests": 27,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [],
+  "flags": [
+   "battle"
+  ],
+  "doc": "「疾行」 additionally arms the PLANT hero with a third airborne jump.",
+  "lines": 67
+ },
+ {
+  "module": "test_pvp_tutorial",
+  "tests": 4,
+  "ast_tests": 4,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.catalog",
+   "pvp.native_bridge",
+   "pvp.pvp59_graves",
+   "pvp:tutorial"
+  ],
+  "flags": [
+   "app",
+   "battle",
+   "pygame"
+  ],
+  "doc": "PvP65 newcomer guide (rename) and the playable teaching level.",
+  "lines": 183
+ },
+ {
+  "module": "test_pvp_ui",
+  "tests": 29,
+  "ast_tests": 29,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.app",
+   "pvp.audit_log",
+   "pvp.catalog",
+   "pvp.controllers",
+   "pvp.native_bridge",
+   "pvp.network",
+   "pvp.reference",
+   "pvp.room",
+   "pvp.ui_data"
+  ],
+  "flags": [
+   "network",
+   "app",
+   "battle",
+   "room",
+   "replay",
+   "audit",
+   "pygame",
+   "source_scan"
+  ],
+  "doc": "Real SDL/pygame UI smoke and host/guest presentation contract tests.",
+  "lines": 777
+ },
+ {
+  "module": "test_pvp_unit_animation",
+  "tests": 3,
+  "ast_tests": 3,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog"
+  ],
+  "flags": [
+   "battle"
+  ],
+  "doc": "Every new card must be animated: the release gate for unit animation (ui.animation).",
+  "lines": 145
+ },
+ {
+  "module": "test_pvp_unit_scale",
+  "tests": 8,
+  "ast_tests": 8,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.native_battle",
+   "pvp.native_expansion",
+   "pvp:native_scale"
+  ],
+  "flags": [
+   "battle",
+   "pygame"
+  ],
+  "doc": "",
+  "lines": 195
+ },
+ {
+  "module": "test_pvp_zombie_pea",
+  "tests": 28,
+  "ast_tests": 5,
+  "in_pvp71_summary": true,
+  "imports": [
+   "pvp.catalog",
+   "pvp.native_battle",
+   "pvp.native_expansion"
+  ],
+  "flags": [
+   "battle",
+   "pygame"
+  ],
+  "doc": "Zombie peas: one pea, one draw, and no damage to the torchwood.",
+  "lines": 191
+ }
+]

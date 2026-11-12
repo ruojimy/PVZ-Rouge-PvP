@@ -1,0 +1,3230 @@
+[
+  {
+    "module": "test_pvp_51_combat",
+    "tests": 3,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Native projectile range and source-specific Dave damage contracts.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_51_performance",
+    "tests": 5,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "Real pygame pixels, immutable local frames and native replay parity.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_51_ui",
+    "tests": 2,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence"
+    ],
+    "doc": "Seven configurable card slots and read-only synchronized spectator BP.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_52_performance",
+    "tests": 8,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "Same-tick authority, deferred pixels, camera changes and measured hot paths.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_53_features",
+    "tests": 13,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "Rally authority/movement/replay and editable backgrounds/weather.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_54_ghost_range_art",
+    "tests": 3,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "evidence(回放)"
+    ],
+    "doc": "Ghost range artwork lifecycle, dimensions and independent replay.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_54_native_art_revision",
+    "tests": 4,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "evidence(回放)"
+    ],
+    "doc": "Native draw-stream checks for the requested September artwork correction.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_54_ui",
+    "tests": 10,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence"
+    ],
+    "doc": "PvP54 mobile actions and live native card-bank display regressions.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_55_balance",
+    "tests": 5,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "PvP55 balance at the authoritative card and native combat boundaries.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_56_flying_plants",
+    "tests": 19,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Real native 250 Hz paths for the two flying plants and their projectiles.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_56_probe_checks",
+    "tests": 4,
+    "theme": "安卓平台",
+    "status": "不适用",
+    "reason": "p4a 以 PYTHONOPTIMIZE=2 运行时的诊断检查；C++ APK 无 Python",
+    "overlap": [],
+    "doc": "Android diagnostic checks must survive Python's optimized runtime.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_56_smoke_optimized",
+    "tests": 2,
+    "theme": "打包/发行/工具链",
+    "status": "不适用",
+    "reason": "CPython -O 优化运行时下断言被剥离的问题；C++ 无此运行时",
+    "overlap": [],
+    "doc": "Acceptance must reject broken checks even in an optimized Python runtime.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_56_ui",
+    "tests": 9,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "Real SDL input/layout, native replay timing and persistent identity checks.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_56_zombies",
+    "tests": 13,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Real 250 Hz tests for ordinary dancers, native sleds and rally miners.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_57_android_editor_probe",
+    "tests": 2,
+    "theme": "安卓平台",
+    "status": "不适用",
+    "reason": "p4a 诊断探针跟随编辑器 UI；C++ APK 无该探针",
+    "overlap": [],
+    "doc": "Android's shared diagnostic follows real editor UI without a battle.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_57_android_userdata",
+    "tests": 2,
+    "theme": "安卓平台",
+    "status": "不适用",
+    "reason": "p4a 解压目录外存档；C++ APK 存档在 files/pvp_userdata（需另写设备测试）",
+    "overlap": [],
+    "doc": "Keep Android player data outside the replaceable app extraction folder.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_57_balance",
+    "tests": 7,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "PvP57 native projectile travel and card/atlas balance contracts.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_57_day_income",
+    "tests": 7,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "evidence(回放)"
+    ],
+    "doc": "Continuous original-engine timing for the daylight zombie allowance.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_57_deathmatch",
+    "tests": 7,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_57_map_editor",
+    "tests": 8,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence",
+      "evidence(回放)",
+      "mapedit"
+    ],
+    "doc": "Expanded native palettes, color persistence and pointer-safe palette panels.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_57_producer_protection",
+    "tests": 13,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Opening protection through native damage and removal paths at 250 Hz.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_57_rematch",
+    "tests": 4,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence"
+    ],
+    "doc": "Same-deck rematches retain the legal draft and build a fresh native battle.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_57_room_requests",
+    "tests": 8,
+    "theme": "联机/中继/观战",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块 + C++ unittest 外壳，在 C++ 进程内跑真实回环",
+    "overlap": [
+      "check_all",
+      "nettest",
+      "netpeer_duel"
+    ],
+    "doc": "Guest proposals and observing-host approval over the native room and TCP.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_57_smoke_rooms",
+    "tests": 3,
+    "theme": "打包/发行/工具链",
+    "status": "不适用",
+    "reason": "同上：打包验收在 python -O 下仍须生效",
+    "overlap": [],
+    "doc": "Exercise package room acceptance with assertions compiled out.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_57_update",
+    "tests": 9,
+    "theme": "打包/发行/工具链",
+    "status": "不适用",
+    "reason": "Python 版 Windows 更新器（覆盖旧安装）；C++ 版尚无更新器，若做需新写测试",
+    "overlap": [],
+    "doc": "Execute the distributed Windows updater against isolated old installations.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_57_visual_probe",
+    "tests": 4,
+    "theme": "打包/发行/工具链",
+    "status": "不适用",
+    "reason": "同上：python -O 打包视觉验收",
+    "overlap": [],
+    "doc": "Packaged visual acceptance must execute and reject faults under -O.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_58_features",
+    "tests": 35,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "PvP58: vines, petrified vine, two secrets, pea range, torch income and fixes.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_58_ui",
+    "tests": 4,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence"
+    ],
+    "doc": "PvP58 pointer regressions through the real app: sun sweep and rally flag.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_59_features",
+    "tests": 17,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence"
+    ],
+    "doc": "PvP59: dense coffee, masochist rise, clover winds, turnip/gloom vs Dave,",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_59_stack_care",
+    "tests": 13,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence"
+    ],
+    "doc": "Native deployment and real UI paths for the capped-stack/care revision.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_60_features",
+    "tests": 14,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence"
+    ],
+    "doc": "PvP60 focused native deployment, economy gates, turning and card artwork.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_61_art",
+    "tests": 7,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "Focused native art/status checks; no whole-suite certification.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_61_features",
+    "tests": 31,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "PvP61 focused checks: balance, grave sleep, reeds, secrets, scarecrow, crow,",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_62_features",
+    "tests": 13,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence"
+    ],
+    "doc": "PvP62 feature requests.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_62_tick_rate",
+    "tests": 4,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "PvP62: 60 Hz room steps on PC hosts with the C++ core.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_63_features",
+    "tests": 10,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "PvP63 source-only regression checks through the original 250Hz engine.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_64_art_positions",
+    "tests": 3,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "Regression evidence for the requested squash art and lily waterline/layers.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_64_features",
+    "tests": 78,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "PvP64 focused checks through the original 250 Hz engine.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_65_features",
+    "tests": 11,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "PvP65 focused checks: balance numbers, primal mine 750 ash, deathmatch",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_ai_capability",
+    "tests": 10,
+    "theme": "AI",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "airoom",
+      "evidence(固定AI房)"
+    ],
+    "doc": "AI capability regression on the EMBEDDED AI (modkit/pvp/rv_*), user requirement 10-13.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_ai_gates",
+    "tests": 10,
+    "theme": "AI",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "airoom",
+      "evidence(固定AI房)"
+    ],
+    "doc": "AI release gates (full suite, user requirement 10-13):",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_ai_maps_gift_oct16",
+    "tests": 6,
+    "theme": "AI",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "airoom",
+      "evidence(固定AI房)",
+      "mapedit"
+    ],
+    "doc": "Oct16 feedback: continuous ladder inputs, usable maps and teammate grants.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_cart_ammo_oct15",
+    "tests": 5,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Finite cart ammunition uses native throw timing and leaves other cars intact.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_coexist",
+    "tests": 2,
+    "theme": "打包/发行/工具链",
+    "status": "不适用",
+    "reason": "Python 版 PvP65/66/67 并存与只读迁移；C++ 版存档独立（%APPDATA%/PVZ-PvP-Native），不迁移旧档",
+    "overlap": [],
+    "doc": "PvP67 installs beside PvP66/PvP65, with read-only migration from both.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_66_coop_own_deck_oct16",
+    "tests": 6,
+    "theme": "联机/中继/观战",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块 + C++ unittest 外壳，在 C++ 进程内跑真实回环",
+    "overlap": [
+      "check_all",
+      "nettest",
+      "netpeer_duel",
+      "cooplobby"
+    ],
+    "doc": "Actual co-op UI/TCP regression: unchanged guest selection must reach its own seat.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_coop_roster_oct15",
+    "tests": 4,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "cooplobby"
+    ],
+    "doc": "Seat replacement inherits saved growth and clears readiness; reconnect keeps readiness.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_duo_ai",
+    "tests": 2,
+    "theme": "AI",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "airoom",
+      "evidence(固定AI房)"
+    ],
+    "doc": "PvP66 2v2 fixed lobby room: three seats taken by the room's players, a full match flows.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_duo_precursor_oct15",
+    "tests": 4,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "2v2 forward completion reserves each secret's precursor for its own seat.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_features",
+    "tests": 11,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "PvP66 focused checks through the original 250 Hz engine.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_feedback",
+    "tests": 19,
+    "theme": "AI",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "airoom",
+      "evidence(固定AI房)"
+    ],
+    "doc": "Player feedback: native outcomes, team consent, BP and actual UI controls.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_feedback_ai_oct15",
+    "tests": 3,
+    "theme": "AI",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "airoom",
+      "evidence(固定AI房)"
+    ],
+    "doc": "AI surrender follows the actual human seat, including a watching host.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_feedback_pve_oct15",
+    "tests": 25,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "cooplobby"
+    ],
+    "doc": "Focused regression evidence for the October 15 PvE/co-op feedback.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_feedback_runtime_oct15",
+    "tests": 6,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence"
+    ],
+    "doc": "Player feedback: actual prices, finite cart ammo, graves and co-op HUD.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_firing",
+    "tests": 8,
+    "theme": "AI",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "airoom",
+      "evidence(固定AI房)"
+    ],
+    "doc": "Current embedded r19: route-aware planting, with real native hit checks.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_firing_replan",
+    "tests": 7,
+    "theme": "AI",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "airoom",
+      "evidence(固定AI房)"
+    ],
+    "doc": "",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_fortress_chase_oct16",
+    "tests": 2,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Native co-op route regressions from the 2026-10-16 fortress report.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_guest_presentation_oct15",
+    "tests": 5,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Second-seat guest interpolation preserves real native hero identities.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_latency_oct15",
+    "tests": 12,
+    "theme": "联机/中继/观战",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块 + C++ unittest 外壳，在 C++ 进程内跑真实回环",
+    "overlap": [
+      "nettest",
+      "netpeer_duel",
+      "netpeer_relay",
+      "evidence(回放)"
+    ],
+    "doc": "Bounded host-authoritative RTT, including real direct and relay sockets.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_material_maps_oct16",
+    "tests": 5,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "smoke",
+      "evidence",
+      "evidence(回放)",
+      "mapedit"
+    ],
+    "doc": "New material/state, secret-picture and campaign-map integration checks.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_native_feedback_oct16",
+    "tests": 5,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Player reports exercised through original native physics and SDL audio.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_native_seed_bank_oct15",
+    "tests": 5,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "smoke",
+      "evidence"
+    ],
+    "doc": "Original-bank pixel fixtures captured before the renderer implementation.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_package_manual_oct15",
+    "tests": 4,
+    "theme": "安卓平台",
+    "status": "不适用",
+    "reason": "Python APK 手工交接证明（旧 APK/二进制证明）；C++ APK 流程不同",
+    "overlap": [],
+    "doc": "Manual device handoff cannot hide stale APK or missing binary proof.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_66_pause_stun",
+    "tests": 5,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence"
+    ],
+    "doc": "Native movement windows and multi-seat pause controls.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_personal_commands",
+    "tests": 12,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "evidence(回放)"
+    ],
+    "doc": "2v2 seat-owned orders, flags and their native combat effects.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_pve_ui",
+    "tests": 29,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence",
+      "cooplobby"
+    ],
+    "doc": "PvP66 PvE screens in the original layout, team chat and IME handling.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_room_admission_oct16",
+    "tests": 14,
+    "theme": "联机/中继/观战",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块 + C++ unittest 外壳；本地中继服务器夹具仍用 Python server/（被测为 C++ 客户端）",
+    "overlap": [
+      "check_all",
+      "nettest",
+      "netpeer_duel",
+      "netpeer_relay"
+    ],
+    "doc": "Focused Oct16 room admission, restart and explicit AI-seat regressions.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_room_layout_oct15",
+    "tests": 6,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "smoke",
+      "evidence"
+    ],
+    "doc": "Real map previews, seat cards and connection/footer geometry at small/wide sizes.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_secondhand_art_oct15",
+    "tests": 4,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence"
+    ],
+    "doc": "Second-hand armour keeps its existing black art across wire snapshots.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_sun_ownership",
+    "tests": 3,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_team_support",
+    "tests": 16,
+    "theme": "AI",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "airoom",
+      "evidence(固定AI房)"
+    ],
+    "doc": "Safety, resource, ownership and timing boundaries for teammate support.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_teams",
+    "tests": 27,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "evidence(回放)"
+    ],
+    "doc": "PvP66 seats: 2v2 and co-op Daves inside the original 250 Hz engine.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_ui",
+    "tests": 14,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence"
+    ],
+    "doc": "PvP66 real Application screens: PvE campaign, mode switch and team HUD.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_66_zombie_secrets",
+    "tests": 47,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "PvP66 zombie secrets (僵尸秘籍 v4) through the original 250 Hz engine.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_67_android_entry",
+    "tests": 7,
+    "theme": "安卓平台",
+    "status": "不适用",
+    "reason": "p4a 原版菜单→PvP 交接；C++ APK 直接进 PvP",
+    "overlap": [],
+    "doc": "Android original-menu handoff keeps the bundled cloud-room endpoint.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_67_android_fullscreen",
+    "tests": 3,
+    "theme": "安卓平台",
+    "status": "不适用",
+    "reason": "jnius 沉浸式 API；C++ APK 用 SDL 全屏（需另写设备测试）",
+    "overlap": [],
+    "doc": "Android immersive APIs and SDL context/input lifecycle regression checks.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_67_android_upgrade",
+    "tests": 7,
+    "theme": "安卓平台",
+    "status": "不适用",
+    "reason": "p4a 版升级保留私有数据/凭据排除；C++ APK 包名不同，需另写升级测试",
+    "overlap": [],
+    "doc": "Stable Android upgrade preserves private data; developer packages exclude credentials.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_67_art",
+    "tests": 2,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "smoke",
+      "evidence"
+    ],
+    "doc": "Independent rotor, transparent single-muzzle vine and shared atlas checks.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_67_author_maps",
+    "tests": 5,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "mapedit"
+    ],
+    "doc": "Author-map coverage, ordered progression and native room layouts.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_67_coop_dave_pursuit",
+    "tests": 3,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "cooplobby"
+    ],
+    "doc": "Co-op waves chase Daves after they leave producers at the old spawn.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_67_coop_growth_oct18",
+    "tests": 7,
+    "theme": "AI",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "airoom",
+      "evidence(固定AI房)",
+      "cooplobby"
+    ],
+    "doc": "Co-op restrictions and real fixed/invited AI preparation commands.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_67_coop_pool",
+    "tests": 6,
+    "theme": "联机/中继/观战",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块 + C++ unittest 外壳；本地中继服务器夹具仍用 Python server/（被测为 C++ 客户端）",
+    "overlap": [
+      "check_all",
+      "nettest",
+      "netpeer_duel",
+      "cooplobby"
+    ],
+    "doc": "Real TCP co-op: independent run growth, authoritative shop/slots/rewards.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_67_coop_seat_saves",
+    "tests": 5,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "cooplobby"
+    ],
+    "doc": "Seat saves survive replacement/reconnect/reopen and isolate solo profiles.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_67_coop_shared_routes",
+    "tests": 4,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "cooplobby"
+    ],
+    "doc": "Co-op must reuse the proven 2v2 native route, with global ladder support.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_67_coop_spectators",
+    "tests": 2,
+    "theme": "联机/中继/观战",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块 + C++ unittest 外壳；本地中继服务器夹具仍用 Python server/（被测为 C++ 客户端）",
+    "overlap": [
+      "check_all",
+      "nettest",
+      "netpeer_duel",
+      "netpeer_duel(观战)",
+      "cooplobby"
+    ],
+    "doc": "Real TCP host observer, spectator admission, independent rewards and UI.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_67_crowd_routing",
+    "tests": 4,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Expired native split routing and bounded evidence for the recorded crowd.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_67_dart_broadphase",
+    "tests": 3,
+    "theme": "战斗内核/规则/数值",
+    "status": "待原生验证",
+    "reason": "Shared gameplay assertions retained and independently collected; compiled original AST added, not yet tested.",
+    "overlap": [],
+    "doc": "Dart misses may be skipped; the native full-scan reference owns contacts.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "Native C++ engine with original test assertions and source-verified frozen full-scan helper; no replayed expected results.",
+    "historical_status": "不适用",
+    "historical_reason": "多 worker 宽相交跳过优化；C++ 版无"
+  },
+  {
+    "module": "test_pvp_67_final_cpp_regions",
+    "tests": 1,
+    "theme": "打包/发行/工具链",
+    "status": "不适用",
+    "reason": "旧 _pvpcore 构建产物检查（cpp_port）；C++ 版没有该构建",
+    "overlap": [],
+    "doc": "A built core must contain FINAL installed regions, not intermediate slices.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_67_flood_cache",
+    "tests": 2,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "A read-batch geometry cache must preserve every actor's original path field.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_67_map_migration",
+    "tests": 7,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "mapedit"
+    ],
+    "doc": "Deleted maps stay deleted when another old install is discovered later.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_67_original_touch",
+    "tests": 11,
+    "theme": "安卓平台",
+    "status": "不适用",
+    "reason": "原版单人模式触屏→键鼠映射；C++ 版不含原版单人模式",
+    "overlap": [],
+    "doc": "Original-mode SDL touches feed real native keyboard and mouse semantics.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_67_pve_shared_tracking",
+    "tests": 3,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "cooplobby"
+    ],
+    "doc": "Solo wave optimization retains native pursuit, terrain and contact damage.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_67_scaled_display",
+    "tests": 14,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "smoke",
+      "evidence"
+    ],
+    "doc": "PVP_SCALED display backend: off is inert, on keeps one coordinate space,",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_67_scatter_king_poison",
+    "tests": 2,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_68003_balance",
+    "tests": 22,
+    "theme": "AI",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "airoom",
+      "evidence(固定AI房)"
+    ],
+    "doc": "PvP68 68003 balance update through the original 250 Hz engine.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_68004_minor",
+    "tests": 30,
+    "theme": "AI",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "airoom",
+      "evidence(固定AI房)"
+    ],
+    "doc": "PvP68 68004 minor update.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_68005_minor",
+    "tests": 10,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "evidence(回放)"
+    ],
+    "doc": "68005: actual SDL bank selection, native rail deployment and cart lifecycle.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_68006",
+    "tests": 13,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "68006: native hero hit packets, per-torch conversions and Android controls.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_68006_black_slots",
+    "tests": 5,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Black-piece effects are independent from the carrier's native body.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_68006_secondhand",
+    "tests": 6,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Actual native type-II drops, cross-body pickups, placement and piercing.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_68_original_optimizations",
+    "tests": 5,
+    "theme": "原版字节码/补丁运行时",
+    "status": "不适用",
+    "reason": "原版模块定义/构造器的 Python 优化；C++ 版已翻译",
+    "overlap": [],
+    "doc": "Original module definitions/constructors, exact scans/copy and native pixels.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_68_performance_foundation",
+    "tests": 12,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence"
+    ],
+    "doc": "Exact timing cohorts, bounded caches/queues and unchanged snapshot bytes.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_68_spawn_budget",
+    "tests": 10,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Real native campaign admission, delayed summons and trusted wave ancestry.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_68_vine_sun_ownership",
+    "tests": 3,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Real vine production keeps its producing seat through merge and collection.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_68_wave_population",
+    "tests": 11,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence"
+    ],
+    "doc": "Campaign population, completion gates, save compatibility and authority.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_69002",
+    "tests": 28,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "PvP69 v2 source acceptance: native rules, co-op, sockets and player UI.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_69002_balance",
+    "tests": 14,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "October 26 balance follow-up: real deployment and charm attack boundaries.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_70_70005",
+    "tests": 8,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "70005: basin teleport, lantern pulse burn, homing spikes on small units, art/cost and almanac notes.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_70_animation",
+    "tests": 7,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Zombie part animation, deploy previews and PvP70 effect art on the native engine.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_70_balance",
+    "tests": 16,
+    "theme": "AI",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "airoom",
+      "evidence(固定AI房)"
+    ],
+    "doc": "Focused native-engine regressions for the post-70006 balance update.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_70_coop",
+    "tests": 11,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "cooplobby"
+    ],
+    "doc": "PvP70 cards in the solo/co-op campaign: pools, director spawns, bone graves.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_70_extra",
+    "tests": 17,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Cooldowns, grenade/airdrop books, charm semantics and basin stack audit.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_70_features",
+    "tests": 59,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "evidence(回放)"
+    ],
+    "doc": "PvP70 mechanical integration checks on the real 250 Hz native engine.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_71002",
+    "tests": 5,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "almanac"
+    ],
+    "doc": "71002: 肆意模仿, plant-Dave marks, ghost pepper on the zombie Dave, pirate 海陆空 grouping.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_android_audio",
+    "tests": 6,
+    "theme": "安卓平台",
+    "status": "不适用",
+    "reason": "p4a main.py 音频入口钩子；C++ APK 由 SDLActivity 管理（需另写设备测试）",
+    "overlap": [],
+    "doc": "Android entry hooks and audio: full action signature, intact engine settings, no process side effects.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_android_label",
+    "tests": 3,
+    "theme": "安卓平台",
+    "status": "不适用",
+    "reason": "p4a 启动器标签编码；C++ APK 标签另需新检查（已列入安卓成品测试）",
+    "overlap": [],
+    "doc": "The packaged launcher label must be the intended UTF-8 text, never mojibake.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_audio56",
+    "tests": 6,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "probe"
+    ],
+    "doc": "",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_audit_log",
+    "tests": 11,
+    "theme": "回放/审计",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "evidence(回放)"
+    ],
+    "doc": "Long-match storage, complete streaming export and explicit I/O failure.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_balance",
+    "tests": 17,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Requested PvP balance, verified through original production objects.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_balance50",
+    "tests": 6,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "PvP50 requested card values and native combat interactions.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_balance_economy",
+    "tests": 11,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_banned_imp_throw",
+    "tests": 27,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Bans block manual imp cards, while both original giant throws still work.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_barrel_crush_visual",
+    "tests": 4,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "Moving wooden barrels must use the native giant/vehicle squash remains.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_barrel_feedback34",
+    "tests": 13,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "evidence(回放)"
+    ],
+    "doc": "Real native targeting and projectile regressions for replay-1789307176.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_black_armor_drop",
+    "tests": 31,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Black armour honors opening protection and reaps plants it actually empties.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_campaign_pool",
+    "tests": 3,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_chili_zombie_fire",
+    "tests": 5,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence"
+    ],
+    "doc": "Chili-zombie death fire: allegiance, one judgement per explosion, launch lock.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_content",
+    "tests": 117,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence"
+    ],
+    "doc": "Actual native combat acceptance for the pirate/ancient content batch.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_content_acceptance",
+    "tests": 18,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "Cross-system acceptance: native callbacks, draft rules and client assets.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_custom_maps",
+    "tests": 13,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence",
+      "mapedit"
+    ],
+    "doc": "Persistence, authority, native combat and rendered editor acceptance.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_deployment_controls",
+    "tests": 15,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence"
+    ],
+    "doc": "Public placement and real SDL press regressions, including fortress steps.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_display_pipeline",
+    "tests": 6,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "Shared display quality must preserve authority, coordinates and UI scale.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_draft56",
+    "tests": 7,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_draft_completion49",
+    "tests": 9,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Tight secret prerequisites and production slots must leave a legal next pick.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_draw_cache",
+    "tests": 2,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_expansion",
+    "tests": 17,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_expansion_view",
+    "tests": 4,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "Exercise the independent UI atlas, not the authority's asset resolver.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_feedback49_ui",
+    "tests": 9,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "Actual pointer events, native replay ticks and mobile battle input regressions.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_feedback5805",
+    "tests": 4,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Projectile continuation and cold-fire regressions from player log 5805.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_fixed_room",
+    "tests": 10,
+    "theme": "AI",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "airoom",
+      "evidence(固定AI房)"
+    ],
+    "doc": "PvP65 fixed lobby room: offline host room, seat lifecycle, delays, records, names.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_flag_performance",
+    "tests": 2,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Real flag reinforcements retain native behaviour without unused N*N scans.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_flag_reinforcement",
+    "tests": 28,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "The flag zombie's grave reinforcements, and what a ban may and may not do.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_floating_graves",
+    "tests": 3,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_giant_headgear",
+    "tests": 7,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "evidence(回放)"
+    ],
+    "doc": "Headgear on oversized bodies must sit on the head, in either facing.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_giant_imp_headgear",
+    "tests": 37,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "The imp on a giant's back wears headgear of its own, and keeps it on a throw.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_gladiator_giant",
+    "tests": 39,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "The gladiator giant: a giant wearing the black rugby helmet, whose riding imp",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_grave_targeting47",
+    "tests": 6,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Native attacks across the periodic seam, based on the user's screenshot.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_grave_water34",
+    "tests": 2,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Graves float on the surface; clicking the submerged floor cannot bypass it.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_hardening_copy",
+    "tests": 7,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Null-HP catalog and native imitator interaction regressions.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_hero_damage_balance",
+    "tests": 14,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence"
+    ],
+    "doc": "Flat hero-damage balance: named sources vs Dave heroes.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_hero_fume",
+    "tests": 1,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Native fume attacks at supported body/head height, both directions.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_hero_isolation",
+    "tests": 6,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "evidence(回放)"
+    ],
+    "doc": "Hero isolation gate: one Dave's state never lands on another Dave.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_hud",
+    "tests": 4,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "smoke",
+      "evidence"
+    ],
+    "doc": "Real battle rendering and read-only feedback/hidden-page regressions.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_ice_heading34",
+    "tests": 3,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Ice vehicle deployment heading must survive F without replacing native motion.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_imitater49",
+    "tests": 7,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Native 300-frame copies retain PvP identity, balance and admission.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_imitater_grey",
+    "tests": 2,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Release gate (71002): a new plant copied by the imitater is drawn grey.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_imp_client_states",
+    "tests": 1,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "A frozen armoured imp must not abort an independent client's draw frame.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_important_blocks",
+    "tests": 2,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_input_events",
+    "tests": 2,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Event-backed held movement and short embedded key-state regression.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_input_latency",
+    "tests": 10,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "Client feel: input latency, the jump gates, and the per-frame stall fixes.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_input_silence",
+    "tests": 8,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Battle movement input must never disappear without a trace.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_integration",
+    "tests": 17,
+    "theme": "打包/发行/工具链",
+    "status": "不适用",
+    "reason": "Python 嵌入加载器/启动集成（3.8 pyc 加载）；C++ 版无",
+    "overlap": [],
+    "doc": "Integration presentation and embedded-loader regressions (Python 3.8).",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_late_feedback33",
+    "tests": 9,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Follow-up player logs: template bans, terrain, knockback and third jump.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_legacy",
+    "tests": 13,
+    "theme": "原版字节码/补丁运行时",
+    "status": "不适用",
+    "reason": "执行发行版 pvzrouge.pyc 的原版战斗函数；C++ 版已翻译（行为由 check_all 对拍）",
+    "overlap": [],
+    "doc": "Regression tests that execute the shipped runtime's actual combat functions.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_maps",
+    "tests": 7,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "mapedit"
+    ],
+    "doc": "",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_match_network",
+    "tests": 3,
+    "theme": "联机/中继/观战",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块 + C++ unittest 外壳；本地中继服务器夹具仍用 Python server/（被测为 C++ 客户端）",
+    "overlap": [
+      "check_all",
+      "nettest",
+      "netpeer_duel"
+    ],
+    "doc": "Real loopback transport driving the actual room and combat authority.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_match_quality",
+    "tests": 7,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence"
+    ],
+    "doc": "Hero recovery, original falling suns and room/input feedback regressions.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_melon_remnants",
+    "tests": 4,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_multiworker_failover",
+    "tests": 15,
+    "theme": "多进程/多 worker",
+    "status": "不适用",
+    "reason": "多进程 JobSystem 后端/故障切换；C++ 版单进程无 worker",
+    "overlap": [],
+    "doc": "Job system: backends, deterministic merge, all-or-nothing failover, config.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_multiworker_history",
+    "tests": 13,
+    "theme": "多进程/多 worker",
+    "status": "不适用",
+    "reason": "快路径开关 == worker 等价历史夹具；C++ 版无 worker（快路径行为由 check_all 对拍）",
+    "overlap": [],
+    "doc": "Historical gameplay fixtures: fast path off == on == workers, and behaviour kept.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_multiworker_parity",
+    "tests": 4,
+    "theme": "多进程/多 worker",
+    "status": "不适用",
+    "reason": "单/多 worker 权威一致；C++ 版无多 worker",
+    "overlap": [],
+    "doc": "Single worker <-> multi worker authority parity on real NativeBattle fixtures.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_multiworker_projectiles",
+    "tests": 6,
+    "theme": "多进程/多 worker",
+    "status": "不适用",
+    "reason": "多 worker 下星星伤害顺序/失效；C++ 版无 worker",
+    "overlap": [],
+    "doc": "Order-sensitive star damage, invalidation, exceptions, seam and RNG.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_multiworker_schedule_jitter",
+    "tests": 6,
+    "theme": "多进程/多 worker",
+    "status": "不适用",
+    "reason": "worker 调度抖动、帧复制、pack worker 进程；C++ 版无",
+    "overlap": [],
+    "doc": "Schedule jitter, copy-once frames, MatchCopy exactness and the pack worker.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_multiworker_seam",
+    "tests": 5,
+    "theme": "多进程/多 worker",
+    "status": "不适用",
+    "reason": "C 内核 vs Python 宽相交检测一致；C++ 版只有一份实现",
+    "overlap": [],
+    "doc": "Box broad-phase kernels: exact vs brute force, seam halo, C == Python.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_multiworker_targets",
+    "tests": 7,
+    "theme": "多进程/多 worker",
+    "status": "不适用",
+    "reason": "C++ 版单进程无多 worker",
+    "overlap": [],
+    "doc": "Exact-equivalence properties of the serial fast paths.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_mushroom_layer34",
+    "tests": 3,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "The player's corrected underground-layer request concerns Scaredy-shroom.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_native_animation",
+    "tests": 10,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "Pixel equivalence with actual marshal draw functions, not self-made poses.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_native_battle_combat",
+    "tests": 69,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "Production Room/NativeBattle combat wiring, using real native assets/code.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_native_bite_scaling",
+    "tests": 2,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Black/captain scaling at real native plant contact, with charm unchanged.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_native_bytecode_windows",
+    "tests": 4,
+    "theme": "原版字节码/补丁运行时",
+    "status": "不适用",
+    "reason": "原版 marshal 字节码解码器；C++ 版已把原版函数离线翻译，运行期无字节码",
+    "overlap": [],
+    "doc": "Small-window decoder parity and immutable gate-cache isolation.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_native_catalog",
+    "tests": 13,
+    "theme": "原版字节码/补丁运行时",
+    "status": "不适用",
+    "reason": "目录解析 vs 发行 marshal/补丁函数；C++ 版目录为提取后的数据",
+    "overlap": [],
+    "doc": "Compare catalogue resolution against actual shipped marshal/patch functions.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_native_draft_display",
+    "tests": 1,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "smoke",
+      "evidence"
+    ],
+    "doc": "Real draft controls retain base IDs while rendering native secret forms.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_native_flood_wrap",
+    "tests": 2,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence"
+    ],
+    "doc": "Flood-matrix horizontal wrap: native zombie AI must survive off-edge columns.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_native_gate",
+    "tests": 4,
+    "theme": "原版字节码/补丁运行时",
+    "status": "不适用",
+    "reason": "原版字节码 gate 解释路径与缓存；C++ 版无解释器（由 check_all 对拍原版行为）",
+    "overlap": [],
+    "doc": "Original-loop gate parity, including original mutable state and RNG.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_native_gravebuster",
+    "tests": 7,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "smoke",
+      "evidence"
+    ],
+    "doc": "Run the real native Grave Buster creator, plant loop and draw function.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_native_menus",
+    "tests": 3,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "smoke",
+      "evidence"
+    ],
+    "doc": "Native menu screenshots and control geometry at supported small windows.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_native_patch",
+    "tests": 7,
+    "theme": "原版字节码/补丁运行时",
+    "status": "不适用",
+    "reason": "在隔离适配器里执行原始 1.5.0.1 补丁源码；C++ 版是翻译产物（行为由 check_all 对拍）",
+    "overlap": [],
+    "doc": "Execute the real combat patch through its isolated PvP adapter.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_native_patch_targets",
+    "tests": 6,
+    "theme": "原版字节码/补丁运行时",
+    "status": "待原生验证",
+    "reason": "Shared gameplay assertions retained and independently collected; compiled original AST added, not yet tested.",
+    "overlap": [],
+    "doc": "Actual 1.5.0.1 source callbacks under mixed-allegiance native contexts.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "Native C++ engine with original test assertions and source-verified frozen full-scan helper; no replayed expected results.",
+    "historical_status": "不适用",
+    "historical_reason": "同上：原始补丁回调"
+  },
+  {
+    "module": "test_pvp_native_physics",
+    "tests": 17,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Native Dave physics tested against independently entered original wordcode.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_native_placement",
+    "tests": 7,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Native source parity and read-only client planting/occupancy regressions.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_native_replay_world",
+    "tests": 6,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "The real WorldView replays original frames with a separate local atlas.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_native_targets",
+    "tests": 14,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Run native projectile collisions / Chomper wordcode against the hero proxy.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_native_units",
+    "tests": 11,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "Original bytecode unit-loop matrix; fixtures bypass BP/economy explicitly.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_native_world",
+    "tests": 14,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence"
+    ],
+    "doc": "Native-art ratios, real PNG rendering, camera mapping and Dave body tests.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_network",
+    "tests": 16,
+    "theme": "联机/中继/观战",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块 + C++ unittest 外壳；本地中继服务器夹具仍用 Python server/（被测为 C++ 客户端）",
+    "overlap": [
+      "nettest",
+      "netpeer_duel"
+    ],
+    "doc": "Real loopback transport tests; these do not prove LAN/off-site connectivity.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_network_memory67",
+    "tests": 6,
+    "theme": "联机/中继/观战",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块 + C++ unittest 外壳；本地中继服务器夹具仍用 Python server/（被测为 C++ 客户端）",
+    "overlap": [
+      "nettest",
+      "netpeer_duel"
+    ],
+    "doc": "Bounded queues and real TCP relay delivery; no device/WAN proof implied.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_network_optimization",
+    "tests": 10,
+    "theme": "联机/中继/观战",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块 + C++ unittest 外壳，在 C++ 进程内跑真实回环",
+    "overlap": [
+      "check_all",
+      "nettest",
+      "netpeer_duel",
+      "evidence(回放)"
+    ],
+    "doc": "Scheduling, real socket wakeup, detached delivery and visual continuity.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_perf_boost",
+    "tests": 11,
+    "theme": "安卓平台",
+    "status": "待迁移",
+    "reason": "改写为 C++ APK 设备测试（模拟器/真机）",
+    "overlap": [],
+    "doc": "PvP71 Android performance diagnostics and requests, exercised on PC with fake sysfs.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_petrified_torch",
+    "tests": 45,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "石化火炬: a brain-light grave that ignites peas like a torchwood.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_plant_zombie_allegiance",
+    "tests": 7,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Native-frame regressions for charmed shooters and squash/doom allegiance.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_player_art32",
+    "tests": 4,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Native render and forward-barrel splash regressions found in visual QA.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_player_feedback32",
+    "tests": 9,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "evidence(回放)"
+    ],
+    "doc": "Regressions from replay-1789295205 and actual SDL deployment/render paths.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_player_feedback33",
+    "tests": 8,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all",
+      "evidence(回放)"
+    ],
+    "doc": "Real native regressions from replay-1789302407 (PvP32).",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_ported_mechanics",
+    "tests": 8,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Execute the shipped 1.5.0.1 mechanisms through the PvP namespace.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_presentation",
+    "tests": 4,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_quit_forfeit",
+    "tests": 3,
+    "theme": "联机/中继/观战",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块 + C++ unittest 外壳，在 C++ 进程内跑真实回环",
+    "overlap": [
+      "nettest",
+      "netpeer_duel"
+    ],
+    "doc": "对局中直接关游戏 = 退出方判负（真实回环联机，主机 / 客机两个方向）。",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_reference",
+    "tests": 3,
+    "theme": "原版字节码/补丁运行时",
+    "status": "不适用",
+    "reason": "原版 live/隔离数据提取边界（反编译工具链）",
+    "overlap": [],
+    "doc": "Native catalogue data extraction and live/isolated comparison boundaries.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_relay",
+    "tests": 29,
+    "theme": "联机/中继/观战",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块 + C++ unittest 外壳；本地中继服务器夹具仍用 Python server/（被测为 C++ 客户端）",
+    "overlap": [
+      "nettest",
+      "netpeer_duel",
+      "netpeer_relay"
+    ],
+    "doc": "Real TCP relay tests. Local by default; no cloud or player proof implied.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_replay48",
+    "tests": 8,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "Real native recording round trips, seeking, tamper detection and touch UI.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_replay_transfer",
+    "tests": 3,
+    "theme": "联机/中继/观战",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块 + C++ unittest 外壳，在 C++ 进程内跑真实回环",
+    "overlap": [
+      "check_all",
+      "nettest",
+      "netpeer_duel",
+      "evidence(回放)"
+    ],
+    "doc": "Real lobby transport, private device directories, native replay and failures.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_result_animation",
+    "tests": 4,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Level-end UI uses the original curve and remains outside battle state.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_review_followup",
+    "tests": 7,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence"
+    ],
+    "doc": "Current user balance: real price authority, supported bites and timers.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_room",
+    "tests": 45,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_room_refill",
+    "tests": 3,
+    "theme": "联机/中继/观战",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块 + C++ unittest 外壳；本地中继服务器夹具仍用 Python server/（被测为 C++ 客户端）",
+    "overlap": [
+      "nettest",
+      "netpeer_duel",
+      "netpeer_relay"
+    ],
+    "doc": "A real departing guest must free both the room roster and TCP reservation.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_room_roles54",
+    "tests": 8,
+    "theme": "联机/中继/观战",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块 + C++ unittest 外壳；本地中继服务器夹具仍用 Python server/（被测为 C++ 客户端）",
+    "overlap": [
+      "check_all",
+      "nettest",
+      "netpeer_duel",
+      "netpeer_relay"
+    ],
+    "doc": "Seat changes over real TCP/direct and local relay with native battle state.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_september_content",
+    "tests": 15,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Real 250 Hz coverage of the four PvP54 units and their old interactions.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_september_rules",
+    "tests": 9,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "PvP54 terrain/economy rules through authority, preview and native ticks.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_spectator_ui49",
+    "tests": 5,
+    "theme": "联机/中继/观战",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块 + C++ unittest 外壳；本地中继服务器夹具仍用 Python server/（被测为 C++ 客户端）",
+    "overlap": [
+      "check_all",
+      "nettest",
+      "netpeer_duel",
+      "netpeer_duel(观战)",
+      "evidence(回放)"
+    ],
+    "doc": "Actual Application clients over loopback and relay; no WAN/device proof.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_spectators49",
+    "tests": 14,
+    "theme": "联机/中继/观战",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块 + C++ unittest 外壳；本地中继服务器夹具仍用 Python server/（被测为 C++ 客户端）",
+    "overlap": [
+      "nettest",
+      "netpeer_duel",
+      "netpeer_relay",
+      "netpeer_duel(观战)",
+      "evidence(回放)"
+    ],
+    "doc": "Spectator admission, authority and independent real TCP relay channels.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_star_shovel",
+    "tests": 7,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Native automatic targeting, real draw frames, shovel and independent banks.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_starfruit_symmetry",
+    "tests": 27,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Starfruit fires five stars, and its left-facing spread mirrors the right one.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_status_stack_audit",
+    "tests": 13,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "Regression coverage for the post-art/size, armor and status audit.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_status_visuals",
+    "tests": 4,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Original damage/control clocks and recorded state sprites, not just HP.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_storage_inputs",
+    "tests": 6,
+    "theme": "打包/发行/工具链",
+    "status": "不适用",
+    "reason": "Python 打包输入/开发者包排除凭据（cpp_port、APK staging）；C++ 包另需新检查",
+    "overlap": [],
+    "doc": "",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_summon_bans",
+    "tests": 4,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Actual native summon triggers remain active when the child card is banned.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_sweet_potato_taunt",
+    "tests": 4,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Sweet-potato taunt must not leak out of the zombie that was taunted.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_tail_start",
+    "tests": 3,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_teleport",
+    "tests": 3,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_test_catalog",
+    "tests": 28,
+    "theme": "打包/发行/工具链",
+    "status": "不适用",
+    "reason": "按改动影响选测试的工具本身（不碰游戏世界）",
+    "overlap": [],
+    "doc": "Regression coverage for impact-based test selection (no game worlds).",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "—"
+  },
+  {
+    "module": "test_pvp_touch",
+    "tests": 51,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "smoke",
+      "evidence"
+    ],
+    "doc": "Touch controls: virtual buttons, multi-finger input, long-press, platform guards.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_triple_jump",
+    "tests": 27,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "「疾行」 additionally arms the PLANT hero with a third airborne jump.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_tutorial",
+    "tests": 4,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence"
+    ],
+    "doc": "PvP65 newcomer guide (rename) and the playable teaching level.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_ui",
+    "tests": 29,
+    "theme": "UI/渲染",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块，跑在 pvzui（SDL 兼容层）上；像素断言需兼容层逐像素一致",
+    "overlap": [
+      "check_all",
+      "smoke",
+      "evidence",
+      "evidence(回放)"
+    ],
+    "doc": "Real SDL/pygame UI smoke and host/guest presentation contract tests.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_unit_animation",
+    "tests": 3,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Every new card must be animated: the release gate for unit animation (ui.animation).",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_unit_scale",
+    "tests": 8,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  },
+  {
+    "module": "test_pvp_zombie_pea",
+    "tests": 28,
+    "theme": "战斗内核/规则/数值",
+    "status": "待迁移",
+    "reason": "pvp2cpp 翻译测试模块（unittest 外壳），直接调用 C++ 内核",
+    "overlap": [
+      "check_all"
+    ],
+    "doc": "Zombie peas: one pea, one draw, and no damage to the torchwood.",
+    "old_runtime": "CPython 3.8 运行 modkit/pvp 源码（+ 旧 _pvpcore C++ 加速核心 pyd，真 pygame/SDL）",
+    "cpp_runtime": "（尚无：该模块断言未在 C++ 上执行）"
+  }
+]

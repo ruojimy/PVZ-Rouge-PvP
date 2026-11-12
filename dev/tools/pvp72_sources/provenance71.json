@@ -1,0 +1,106 @@
+{
+  "balance": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\balance.py",
+    "sha256": "637c2dbc293bc071b272c190e23cd5a2262ab462c00cc1a3044a424521f89b4a"
+  },
+  "catalog": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\catalog.py",
+    "sha256": "d7839f14ad3d05ab607d14703472d1fd66266228b3d669d1fe5c0c91f1aa5ef5"
+  },
+  "native_content": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\native_content.py",
+    "sha256": "93c772a6471f1f3d23272559cfdebc742936f8de314518756fe044cbb97b04d9"
+  },
+  "native_targets": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\native_targets.py",
+    "sha256": "aea05d1735add2720af0e1aae6e49e83b842825510f9a051592360c23bd27694"
+  },
+  "native_battle": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\native_battle.py",
+    "sha256": "4a91fddddc4c8f268abab7aa9fbe2bb863dea0920757c2fec90badf07e2ac5e0"
+  },
+  "zombie_secrets": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\zombie_secrets.py",
+    "sha256": "8bfd95b8ebaa683743e312a9e69e15aaf4098bf1dce5eb11b76c20ce9cec6216"
+  },
+  "pvp70_content": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\pvp70_content.py",
+    "sha256": "6a3958956ad92f98626690cb630c99e8d820d7969263c533ffef56bd345f5c01"
+  },
+  "pvp58_vines": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\pvp58_vines.py",
+    "sha256": "c8d269c1757e0171823a7ca3a3d2af0a14269889d6b08d10f9ced1e519ed620b"
+  },
+  "native_imitater": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\native_imitater.py",
+    "sha256": "cc2f1c2399f6b98cf687fdf1628cebc6809f578acf0dcffae7cfd428bfcbe54f"
+  },
+  "room": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\room.py",
+    "sha256": "e76924617f23e4bbcd2f1c819c057ddfc947fb1feabf04e0f698f1963d131580"
+  },
+  "draft_advisor": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\draft_advisor.py",
+    "sha256": "31c6d8b829c8097547c9e0cb6258dab1ee1fbce6d27088c0f666bde4134d34c4"
+  },
+  "ui_data": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\ui_data.py",
+    "sha256": "1b012e7157f437c7f5e5799faa6b56b1cb30236183ba70e190f51ef801db661f"
+  },
+  "native_protection": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\native_protection.py",
+    "sha256": "8078cf3b0860ae5eff595c792f9a9d78cd543d5ced81d4097419b6524b1e5936"
+  },
+  "native_placement": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\native_placement.py",
+    "sha256": "a85b72edfccde3d120e76a2218ea228847510f105d5581bdf0ade7809ed4173b"
+  },
+  "app": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\app.py",
+    "sha256": "5fb2bd7988d15473f6ab4988469f403618d1d01e5df5361116518a12ffcfc9e9"
+  },
+  "userdata": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\userdata.py",
+    "sha256": "fa06b16177979231185a3b6cf42663baa07ca17e3b7a411244e4729fa3aaf949"
+  },
+  "replay": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\replay.py",
+    "sha256": "ac7b638e198367622f096d63ff584d436ba3c73cf6872ef05fe9e877a70a7770"
+  },
+  "simulation": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\simulation.py",
+    "sha256": "89262d433f9f167d45a3c0f65b00337542d52e2b7845ec56ada073a6f2541fb4"
+  },
+  "zombie_secret_catalog": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\zombie_secret_catalog.py",
+    "sha256": "106b1f703f8840c77a87a9b0c4a325d97e25467fc5c3a761a65961c2f98db652"
+  },
+  "pvp71_catalog": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\pvp71_catalog.py",
+    "sha256": "d88a80ef710fed4e496d51c9aa5f4a311eece24042184a7818275334549fb789"
+  },
+  "pvp66_secrets": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\pvp66_secrets.py",
+    "sha256": "b86332f3f9792aeaada6d1f8a907e5e9fa5b818da295b148f2163dac2d8c38ff"
+  },
+  "native_september_content": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\native_september_content.py",
+    "sha256": "3abda2b33b366a7bfa6e4c223ebc12e0c15956c9887e5d0c5e0cc95eb62659e8"
+  },
+  "hud": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\hud.py",
+    "sha256": "8e7a1069f772d5015dbf2125194a5ad31d500cbc2c16353c83e6bbafaf275717"
+  },
+  "battle_view": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\battle_view.py",
+    "sha256": "d221e3a3546567b9e0e19450a1c1a7097e3c61660409f256115bf7cf2d1d81fe"
+  },
+  "pvp58_catalog": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\pvp58_catalog.py",
+    "sha256": "d50fc9ec521b2721953f771c135f6436247b79ea569cd88a1e5d3376fbeea717"
+  },
+  "performance_probe": {
+    "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\android\\performance_probe.py",
+    "sha256": "d6d6562da7f05b21193cef3424f7c57554372ed0beffbf1b594fd005cb56e05e"
+  }
+}

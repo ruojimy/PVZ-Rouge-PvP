@@ -1,0 +1,12 @@
+{
+ "ASPARAGUS_REACH": 16.0,
+ "ASPARAGUS_CONE": 40.0,
+ "TURNIP_REACH": 12.0,
+ "SEA_REACH": 4.0,
+ "MAX_HEIGHT": {
+  "turnip": 6,
+  "asparagus": 5,
+  "sea": 0
+ },
+ "RETRY_SECONDS": 2.0
+}

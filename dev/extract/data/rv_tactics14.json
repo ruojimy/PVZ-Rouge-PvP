@@ -1,0 +1,8 @@
+{
+ "SUPPORT_SPACING": 3.0,
+ "INVASION_TILES": 7.0,
+ "FIRE": [
+  "shoot",
+  "lob"
+ ]
+}

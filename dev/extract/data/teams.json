@@ -1,0 +1,44 @@
+{
+ "DUEL": "duel",
+ "DUO": "duo",
+ "PVE": "pve",
+ "COOP": "coop",
+ "MODES": [
+  "duel",
+  "duo",
+  "pve",
+  "coop"
+ ],
+ "MODE_LABELS": {
+  "duel": "1v1 对战",
+  "duo": "2v2 对战",
+  "pve": "单人闯关",
+  "coop": "双人合作"
+ },
+ "RALLY_COLORS": {
+  "zombie": [
+   227,
+   53,
+   48
+  ],
+  "zombie2": [
+   73,
+   155,
+   255
+  ]
+ },
+ "SEATS": [
+  "plant",
+  "zombie",
+  "plant2",
+  "zombie2"
+ ],
+ "TEAMS": [
+  "plant",
+  "zombie"
+ ],
+ "REVIVE_SECONDS": 4.0,
+ "REVIVE_HP_FRACTION": 0.5,
+ "TOUCH_RANGE_X": 0.9,
+ "TOUCH_RANGE_Y": 1.6
+}

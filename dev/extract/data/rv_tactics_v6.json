@@ -1,0 +1,69 @@
+{
+ "VIEW_HALF_WIDTH": 480.0,
+ "VIEW_ABOVE": 384.0,
+ "TILE": 48.0,
+ "SUPPORT_NEEDED": "坚实地面需要花盆或无土栽培",
+ "LILY_NEEDED": "水面需要睡莲",
+ "PLANT_ROLE": {
+  "produce": "econ",
+  "shoot": "shoot",
+  "wall": "wall",
+  "ash": "instant",
+  "squash": "instant",
+  "chomp": "instant",
+  "chili": "instant",
+  "doom": "instant",
+  "freeze": "freeze",
+  "mine": "mine",
+  "pot": "pot",
+  "lily": "lily",
+  "coffee": "coffee",
+  "gravebuster": "gravebuster",
+  "spike": "spike",
+  "torch": "torch",
+  "umbrella": "support",
+  "lantern": "support",
+  "support": "support",
+  "garlic": "wall",
+  "magnet": "magnet",
+  "wind": "wind",
+  "charm": "charm",
+  "cannon": "cannon",
+  "copy": "copy",
+  "stone": "stone",
+  "reed61": "shoot",
+  "flying56": "shoot",
+  "ghost": "instant",
+  "gold_bloom": "bloom",
+  "grass": "tool"
+ },
+ "SHELL_VINES": {
+  "plant:阳光藤蔓": "econ",
+  "plant:忧郁藤蔓": "shoot"
+ },
+ "LOBBERS": {
+  "__set__": [
+   "plant:冰瓜投手",
+   "plant:卷心菜投手",
+   "plant:玉米投手",
+   "plant:甜椒投手",
+   "plant:西瓜投手"
+  ]
+ },
+ "HERO_KILLERS": {
+  "plant:卷心菜投手": 12,
+  "plant:西瓜投手": 16,
+  "plant:冰瓜投手": 16,
+  "plant:杨桃": 30,
+  "plant:甜椒投手": 15,
+  "plant:原始豌豆射手": 15,
+  "plant:超载芦苇": 9,
+  "plant:闪电芦苇": 6
+ },
+ "CONE": {
+  "__set__": [
+   "plant:超载芦苇",
+   "plant:闪电芦苇"
+  ]
+ }
+}

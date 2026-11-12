@@ -1,0 +1,32 @@
+{
+ "STRAIGHT_SHOTS": {
+  "__set__": [
+   "僵尸豌豆",
+   "冰豆",
+   "尖刺",
+   "星星",
+   "泡泡",
+   "海泡泡",
+   "火豆",
+   "蓝火豆",
+   "豌豆"
+  ]
+ },
+ "PEA_SHOTS": {
+  "__set__": [
+   "僵尸豌豆",
+   "冰豆",
+   "火豆",
+   "蓝火豆",
+   "豌豆"
+  ]
+ },
+ "PEA_FLIGHT_TILES": 32.0,
+ "MAX_FLIGHT_TILES": 64.0,
+ "PLANT_FLIGHT_TILES": {
+  "杨桃": 32.0,
+  "胆小菇": 16.0,
+  "小喷菇": 8.0
+ },
+ "ZOMBIE_PEA_FIRE": "__pvz_sb_zombie_pea_fire"
+}

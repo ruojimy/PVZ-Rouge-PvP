@@ -1,0 +1,7 @@
+{
+  "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\tools\\pvp-runtime\\pygame\\freesansbold.ttf",
+  "sha256": "bf9251269f11e4b35582a99376096deee3d0c4973a459cbd97b0bebc01f440ad",
+  "license": "fonts/FreeSans-LICENSE.txt",
+  "behavior_source": "https://raw.githubusercontent.com/pygame-community/pygame-ce/2.4.0/src_c/font.c",
+  "default_size_scale": "truncate(max(1,size)*11/16), clamp >=1; only Font(None)"
+}

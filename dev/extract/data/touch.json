@@ -1,0 +1,60 @@
+{
+ "BUTTON_SIZES": [
+  76,
+  92,
+  108
+ ],
+ "MARGIN": 18,
+ "GAP": 14,
+ "LONG_PRESS_SECONDS": 0.5,
+ "LONG_PRESS_SLACK": 12,
+ "SCROLL_STEP": 56,
+ "ACTION_W_EXTRA": 34,
+ "ACTION_H": 40,
+ "ACTION_GAP": 10,
+ "ACTION_ROWS": 6,
+ "ACTION_SLOTS": [
+  "cancel",
+  "facing_auto",
+  "facing_left",
+  "facing_right",
+  "shovel",
+  "copy_target",
+  "rally",
+  "command",
+  "teleport",
+  "battle_page"
+ ],
+ "SLOTS": [
+  "left",
+  "right",
+  "jump",
+  "cancel",
+  "facing_auto",
+  "facing_left",
+  "facing_right",
+  "shovel",
+  "copy_target",
+  "rally",
+  "command",
+  "teleport",
+  "battle_page"
+ ],
+ "SLOT_NAMES": {
+  "left": "左移",
+  "right": "右移",
+  "jump": "跳跃",
+  "cancel": "取消",
+  "facing_auto": "自动朝向",
+  "facing_left": "朝向左",
+  "facing_right": "朝向右",
+  "shovel": "铲子",
+  "copy_target": "模仿",
+  "rally": "召集",
+  "command": "调令",
+  "teleport": "传送",
+  "battle_page": "翻面"
+ },
+ "SCALE_MIN": 0.7,
+ "SCALE_MAX": 1.6
+}

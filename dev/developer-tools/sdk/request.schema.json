@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PVZ native developer request v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol",
+    "operation"
+  ],
+  "properties": {
+    "protocol": {
+      "const": 1
+    },
+    "operation": {
+      "enum": [
+        "capabilities",
+        "export",
+        "map-new",
+        "map-check",
+        "map-import",
+        "replay-demo",
+        "replay-check",
+        "relay-probe"
+      ]
+    },
+    "arguments": {
+      "type": "object"
+    },
+    "expected": {
+      "type": "object",
+      "description": "Exact capability identity including build, rule/catalog hashes, adapter and protocol; required except for capabilities"
+    }
+  },
+  "description": "Operation-specific fields and limits are enforced by native API and documented in protocol.md."
+}

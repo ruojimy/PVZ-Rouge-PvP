@@ -1,0 +1,1 @@
+{"map": "家院", "seed": 7, "durable_heroes": true, "room_ticks": 900, "setup": [{"op": "command", "value": "attack"}, {"op": "spawn", "card": "zombie:墓碑吞噬者僵尸", "side": "zombie", "x": 1800, "y": 280, "facing": -1}]}

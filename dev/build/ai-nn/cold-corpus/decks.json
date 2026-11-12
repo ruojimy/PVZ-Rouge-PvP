@@ -1,0 +1,6482 @@
+[
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "secret:电疗",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "plant:卷心菜投手"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "山地",
+  "night": false,
+  "seed": 1000
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:超载芦苇",
+   "zombie:旗帜僵尸",
+   "zombie:双生脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "plant:向日葵",
+    "plant:闪电芦苇",
+    "plant:杨桃",
+    "plant:幽灵辣椒",
+    "secret:电疗",
+    "plant:甜薯",
+    "plant:卷心菜投手"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zombie:豌豆僵尸",
+    "zombie:红眼巨人"
+   ]
+  },
+  "map": "山地",
+  "night": false,
+  "seed": 1017
+ },
+ {
+  "bans": [
+   "plant:超载芦苇",
+   "plant:闪电芦苇",
+   "zombie:双生脑光墓碑",
+   "zombie:橄榄球僵尸",
+   "plant:杨桃",
+   "zombie:稻草人"
+  ],
+  "decks": {
+   "plant": [
+    "plant:仙人掌",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "plant:卷心菜投手",
+    "plant:大嘴花",
+    "plant:甜薯",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海盗鹦鹉",
+    "zombie:乌鸦",
+    "zombie:脑光墓碑",
+    "zombie:传送带僵尸",
+    "zombie:萝卜伞僵尸",
+    "zombie:掷弹兵僵尸"
+   ]
+  },
+  "map": "山地",
+  "night": false,
+  "seed": 1034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "secret:电疗",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "plant:卷心菜投手"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "山地",
+  "night": false,
+  "seed": 2000
+ },
+ {
+  "bans": [
+   "plant:甜薯",
+   "plant:卷心菜投手",
+   "zombie:传送带僵尸",
+   "zombie:成长脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "plant:幽灵辣椒",
+    "secret:电疗",
+    "plant:黄金蓓蕾",
+    "plant:萝卜伞"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:红眼巨人",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "山地",
+  "night": false,
+  "seed": 2017
+ },
+ {
+  "bans": [
+   "plant:甜薯",
+   "plant:向日葵",
+   "zombie:传送带僵尸",
+   "zombie:双生脑光墓碑",
+   "plant:地刺",
+   "zombie:旗帜僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:双子向日葵",
+    "plant:超载芦苇",
+    "plant:幽灵辣椒",
+    "secret:电疗",
+    "plant:卷心菜投手",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:红眼巨人",
+    "zombie:脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zombie:铁桶僵尸",
+    "zombie:豌豆僵尸"
+   ]
+  },
+  "map": "山地",
+  "night": false,
+  "seed": 2034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "secret:电疗",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "plant:卷心菜投手"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "山地",
+  "night": false,
+  "seed": 3000
+ },
+ {
+  "bans": [
+   "plant:甜薯",
+   "plant:卷心菜投手",
+   "zombie:旗帜僵尸",
+   "zombie:双生脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "plant:向日葵",
+    "plant:闪电芦苇",
+    "plant:超载芦苇",
+    "plant:幽灵辣椒",
+    "secret:电疗",
+    "plant:寒冰射手",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:脑光墓碑",
+    "zombie:传送带僵尸",
+    "zombie:豌豆僵尸",
+    "zombie:红眼巨人"
+   ]
+  },
+  "map": "山地",
+  "night": false,
+  "seed": 3017
+ },
+ {
+  "bans": [
+   "plant:卷心菜投手",
+   "plant:甜薯",
+   "zombie:旗帜僵尸",
+   "zombie:双生脑光墓碑",
+   "plant:香蒲",
+   "zombie:脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "plant:向日葵",
+    "plant:闪电芦苇",
+    "plant:超载芦苇",
+    "plant:幽灵辣椒",
+    "secret:电疗",
+    "plant:寒冰射手",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:坚固脑光墓碑",
+    "zombie:传送带僵尸",
+    "zombie:豌豆僵尸",
+    "zombie:红眼巨人"
+   ]
+  },
+  "map": "山地",
+  "night": false,
+  "seed": 3034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:黄金蓓蕾",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "山地",
+  "night": true,
+  "seed": 1500
+ },
+ {
+  "bans": [
+   "plant:闪电芦苇",
+   "plant:甜薯",
+   "zombie:橄榄球僵尸",
+   "zombie:掷弹兵僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:大喷菇",
+    "plant:阳光菇",
+    "plant:玉米投手",
+    "plant:幽灵辣椒",
+    "plant:黄金蓓蕾",
+    "plant:豌豆迫击炮",
+    "secret:三向蓝火"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:小鬼僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:红眼巨人",
+    "zsecret:一大波僵尸",
+    "zombie:传送带僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "山地",
+  "night": true,
+  "seed": 1517
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:黄金蓓蕾",
+   "zombie:橄榄球僵尸",
+   "zombie:双生脑光墓碑",
+   "plant:路灯花",
+   "zombie:潜水僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:大喷菇",
+    "plant:阳光菇",
+    "plant:闪电芦苇",
+    "plant:毁灭菇",
+    "secret:电疗",
+    "plant:萝卜伞",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:红眼巨人",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "山地",
+  "night": true,
+  "seed": 1534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:黄金蓓蕾",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "山地",
+  "night": true,
+  "seed": 2500
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:甜薯",
+   "zombie:橄榄球僵尸",
+   "zombie:成长脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "plant:大喷菇",
+    "plant:阳光菇",
+    "plant:闪电芦苇",
+    "plant:幽灵辣椒",
+    "secret:电疗",
+    "plant:黄金蓓蕾",
+    "plant:萝卜伞"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:红眼巨人",
+    "zombie:脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:传送带僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "山地",
+  "night": true,
+  "seed": 2517
+ },
+ {
+  "bans": [
+   "plant:阳光菇",
+   "plant:闪电芦苇",
+   "zombie:橄榄球僵尸",
+   "zombie:双生脑光墓碑",
+   "plant:石块",
+   "zombie:水上成长脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "plant:大喷菇",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "plant:幽灵辣椒",
+    "plant:甜薯",
+    "plant:黄金蓓蕾",
+    "plant:萝卜伞"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:红眼巨人",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "山地",
+  "night": true,
+  "seed": 2534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:黄金蓓蕾",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "山地",
+  "night": true,
+  "seed": 3500
+ },
+ {
+  "bans": [
+   "plant:黄金蓓蕾",
+   "plant:阳光菇",
+   "zombie:旗帜僵尸",
+   "zombie:成长脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "plant:大喷菇",
+    "plant:向日葵",
+    "plant:闪电芦苇",
+    "plant:毁灭菇",
+    "secret:电疗",
+    "plant:甜薯",
+    "plant:萝卜伞"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:红眼巨人",
+    "zombie:橄榄球僵尸",
+    "zombie:豌豆僵尸"
+   ]
+  },
+  "map": "山地",
+  "night": true,
+  "seed": 3517
+ },
+ {
+  "bans": [
+   "plant:甜薯",
+   "plant:阳光菇",
+   "zombie:橄榄球僵尸",
+   "zombie:成长脑光墓碑",
+   "plant:冰冻生菜",
+   "zombie:普通僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:大喷菇",
+    "plant:毁灭菇",
+    "secret:电疗",
+    "plant:黄金蓓蕾",
+    "plant:萝卜伞"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:红眼巨人",
+    "zombie:脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:传送带僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "山地",
+  "night": true,
+  "seed": 3534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "沙城",
+  "night": false,
+  "seed": 1000
+ },
+ {
+  "bans": [
+   "plant:超载芦苇",
+   "plant:向日葵",
+   "zombie:双生脑光墓碑",
+   "zombie:成长脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:双子向日葵",
+    "plant:杨桃",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:坚固脑光墓碑",
+    "zombie:传送带僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "沙城",
+  "night": false,
+  "seed": 1017
+ },
+ {
+  "bans": [
+   "plant:超载芦苇",
+   "plant:闪电芦苇",
+   "zombie:双生脑光墓碑",
+   "zombie:传送带僵尸",
+   "plant:甜薯",
+   "zombie:潜水僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:杨桃",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "plant:大嘴花",
+    "plant:卷心菜投手",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:萝卜伞僵尸",
+    "zombie:脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "沙城",
+  "night": false,
+  "seed": 1034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "沙城",
+  "night": false,
+  "seed": 2000
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:超载芦苇",
+   "zombie:双生脑光墓碑",
+   "zombie:橄榄球僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "plant:寒冰辣椒",
+    "secret:电疗",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:红眼巨人",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "沙城",
+  "night": false,
+  "seed": 2017
+ },
+ {
+  "bans": [
+   "plant:向日葵",
+   "plant:大嘴花",
+   "zombie:旗帜僵尸",
+   "zombie:传送带僵尸",
+   "plant:睡莲",
+   "zombie:坚果僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:双子向日葵",
+    "plant:玉米投手",
+    "plant:闪电芦苇",
+    "plant:寒冰辣椒",
+    "secret:电疗",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:红眼巨人",
+    "zombie:豌豆僵尸",
+    "zombie:撑杆跳僵尸"
+   ]
+  },
+  "map": "沙城",
+  "night": false,
+  "seed": 2034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "沙城",
+  "night": false,
+  "seed": 3000
+ },
+ {
+  "bans": [
+   "plant:闪电芦苇",
+   "plant:甜薯",
+   "zombie:成长脑光墓碑",
+   "zombie:双生脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:超载芦苇",
+    "plant:向日葵",
+    "plant:卷心菜投手",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:寒冰射手"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:坚固脑光墓碑",
+    "zombie:萝卜伞僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:铁桶僵尸"
+   ]
+  },
+  "map": "沙城",
+  "night": false,
+  "seed": 3017
+ },
+ {
+  "bans": [
+   "plant:向日葵",
+   "plant:甜薯",
+   "zombie:掷弹兵僵尸",
+   "zombie:旗帜僵尸",
+   "plant:地刺王",
+   "zombie:残骸墓碑（非生产）"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:卷心菜投手",
+    "plant:双子向日葵",
+    "plant:超载芦苇",
+    "plant:闪电芦苇",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:小鬼僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zombie:传送带僵尸",
+    "zombie:铁桶僵尸",
+    "zombie:豌豆僵尸"
+   ]
+  },
+  "map": "沙城",
+  "night": false,
+  "seed": 3034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "沙城",
+  "night": true,
+  "seed": 1500
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:闪电芦苇",
+   "zombie:双生脑光墓碑",
+   "zombie:传送带僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:超载芦苇",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:卷心菜投手",
+    "plant:甜薯",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海盗鹦鹉",
+    "zombie:乌鸦",
+    "zombie:脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "沙城",
+  "night": true,
+  "seed": 1517
+ },
+ {
+  "bans": [
+   "plant:甜薯",
+   "plant:大嘴花",
+   "zombie:传送带僵尸",
+   "zombie:旗帜僵尸",
+   "plant:火爆辣椒",
+   "zombie:小丑僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:闪电芦苇",
+    "plant:毁灭菇",
+    "secret:电疗",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:红眼巨人",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zombie:撑杆跳僵尸",
+    "zsecret:体育生"
+   ]
+  },
+  "map": "沙城",
+  "night": true,
+  "seed": 1534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "沙城",
+  "night": true,
+  "seed": 2500
+ },
+ {
+  "bans": [
+   "plant:闪电芦苇",
+   "plant:阳光菇",
+   "zombie:成长脑光墓碑",
+   "zombie:橄榄球僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:超载芦苇",
+    "secret:无土栽培",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "plant:大喷菇",
+    "secret:电疗",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:海盗鹦鹉",
+    "zombie:乌鸦",
+    "zombie:脑光墓碑",
+    "zombie:传送带僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "沙城",
+  "night": true,
+  "seed": 2517
+ },
+ {
+  "bans": [
+   "plant:阳光菇",
+   "plant:闪电芦苇",
+   "zombie:掷弹兵僵尸",
+   "zombie:橄榄球僵尸",
+   "plant:雷蘑菇",
+   "zombie:铁桶钢门僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:超载芦苇",
+    "secret:无土栽培",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "plant:大喷菇",
+    "secret:电疗",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海盗鹦鹉",
+    "zombie:乌鸦",
+    "zombie:双生脑光墓碑",
+    "zombie:传送带僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "沙城",
+  "night": true,
+  "seed": 2534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "沙城",
+  "night": true,
+  "seed": 3500
+ },
+ {
+  "bans": [
+   "plant:大喷菇",
+   "plant:甜薯",
+   "zombie:传送带僵尸",
+   "zombie:旗帜僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:阳光菇",
+    "plant:卷心菜投手",
+    "plant:超载芦苇",
+    "plant:毁灭菇",
+    "plant:胆小菇",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:红眼巨人",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zombie:铁桶僵尸",
+    "zombie:豌豆僵尸"
+   ]
+  },
+  "map": "沙城",
+  "night": true,
+  "seed": 3517
+ },
+ {
+  "bans": [
+   "plant:闪电芦苇",
+   "plant:大嘴花",
+   "zombie:双生脑光墓碑",
+   "zombie:传送带僵尸",
+   "plant:卷心菜投手",
+   "zombie:钩索僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:超载芦苇",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:玉米投手",
+    "plant:甜薯",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海盗鹦鹉",
+    "zombie:乌鸦",
+    "zombie:脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "沙城",
+  "night": true,
+  "seed": 3534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:水上脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "家院",
+  "night": false,
+  "seed": 1000
+ },
+ {
+  "bans": [
+   "plant:闪电芦苇",
+   "plant:超载芦苇",
+   "zombie:水上脑光墓碑",
+   "zombie:旗帜僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:原始豌豆射手",
+    "plant:向日葵",
+    "plant:杨桃",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "plant:卷心菜投手"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:萝卜伞僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸"
+   ]
+  },
+  "map": "家院",
+  "night": false,
+  "seed": 1017
+ },
+ {
+  "bans": [
+   "plant:向日葵",
+   "plant:甜薯",
+   "zombie:传送带僵尸",
+   "zombie:旗帜僵尸",
+   "plant:毒镖射手",
+   "zombie:石化藤蔓"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:卷心菜投手",
+    "plant:双子向日葵",
+    "plant:超载芦苇",
+    "plant:寒冰辣椒",
+    "secret:电疗",
+    "plant:闪电芦苇"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:水上脑光墓碑",
+    "zombie:红眼巨人",
+    "zombie:铁桶僵尸",
+    "zombie:豌豆僵尸"
+   ]
+  },
+  "map": "家院",
+  "night": false,
+  "seed": 1034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:水上脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "家院",
+  "night": false,
+  "seed": 2000
+ },
+ {
+  "bans": [
+   "plant:闪电芦苇",
+   "plant:大嘴花",
+   "zombie:成长脑光墓碑",
+   "zombie:橄榄球僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:超载芦苇",
+    "secret:无土栽培",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "secret:电疗",
+    "plant:甜薯",
+    "plant:卷心菜投手"
+   ],
+   "zombie": [
+    "zombie:水上脑光墓碑",
+    "zombie:海盗鹦鹉",
+    "zombie:乌鸦",
+    "zombie:双生脑光墓碑",
+    "zombie:传送带僵尸",
+    "zombie:萝卜伞僵尸",
+    "zombie:掷弹兵僵尸"
+   ]
+  },
+  "map": "家院",
+  "night": false,
+  "seed": 2017
+ },
+ {
+  "bans": [
+   "plant:甜薯",
+   "plant:向日葵",
+   "zombie:掷弹兵僵尸",
+   "zombie:橄榄球僵尸",
+   "plant:大喷菇",
+   "zombie:黑路障僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:双子向日葵",
+    "plant:玉米投手",
+    "plant:寒冰辣椒",
+    "secret:电疗",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:水上脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:红眼巨人",
+    "zsecret:一大波僵尸",
+    "zombie:传送带僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "家院",
+  "night": false,
+  "seed": 2034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:水上脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "家院",
+  "night": false,
+  "seed": 3000
+ },
+ {
+  "bans": [
+   "plant:向日葵",
+   "plant:大嘴花",
+   "zombie:成长脑光墓碑",
+   "zombie:水上脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:双子向日葵",
+    "plant:卷心菜投手",
+    "plant:甜薯",
+    "plant:寒冰辣椒",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "家院",
+  "night": false,
+  "seed": 3017
+ },
+ {
+  "bans": [
+   "plant:甜薯",
+   "plant:闪电芦苇",
+   "zombie:橄榄球僵尸",
+   "zombie:旗帜僵尸",
+   "plant:墓碑吞噬者",
+   "zombie:豌豆僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:原始豌豆射手",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "plant:寒冰辣椒",
+    "plant:卷心菜投手",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:水上脑光墓碑",
+    "zombie:萝卜伞僵尸",
+    "zombie:红眼巨人",
+    "zombie:铁桶僵尸"
+   ]
+  },
+  "map": "家院",
+  "night": false,
+  "seed": 3034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "家院",
+  "night": true,
+  "seed": 1500
+ },
+ {
+  "bans": [
+   "plant:阳光菇",
+   "plant:闪电芦苇",
+   "zombie:成长脑光墓碑",
+   "zombie:掷弹兵僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:超载芦苇",
+    "secret:无土栽培",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "plant:大喷菇",
+    "secret:电疗",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:海盗鹦鹉",
+    "zombie:乌鸦",
+    "zombie:脑光墓碑",
+    "zombie:传送带僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "家院",
+  "night": true,
+  "seed": 1517
+ },
+ {
+  "bans": [
+   "plant:大喷菇",
+   "plant:阳光菇",
+   "zombie:旗帜僵尸",
+   "zombie:橄榄球僵尸",
+   "plant:原始土豆地雷",
+   "zombie:鸭子铁桶僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "plant:毁灭菇",
+    "secret:电疗",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:毁灭菇僵尸",
+    "zombie:红眼巨人",
+    "zombie:豌豆僵尸"
+   ]
+  },
+  "map": "家院",
+  "night": true,
+  "seed": 1534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "家院",
+  "night": true,
+  "seed": 2500
+ },
+ {
+  "bans": [
+   "plant:阳光菇",
+   "plant:闪电芦苇",
+   "zombie:成长脑光墓碑",
+   "zombie:传送带僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:弹簧草",
+    "secret:无土栽培",
+    "plant:向日葵",
+    "plant:大喷菇",
+    "plant:卷心菜投手",
+    "plant:大嘴花",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:海盗鹦鹉",
+    "zombie:乌鸦",
+    "zombie:脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "家院",
+  "night": true,
+  "seed": 2517
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:闪电芦苇",
+   "zombie:旗帜僵尸",
+   "zombie:掷弹兵僵尸",
+   "plant:机枪射手",
+   "zombie:大喷菇僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:旋转芜菁",
+    "secret:无土栽培",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:毁灭菇",
+    "plant:甜薯",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海盗鹦鹉",
+    "zombie:乌鸦",
+    "zombie:双生脑光墓碑",
+    "zombie:传送带僵尸",
+    "zombie:稻草人",
+    "zombie:豌豆僵尸"
+   ]
+  },
+  "map": "家院",
+  "night": true,
+  "seed": 2534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "家院",
+  "night": true,
+  "seed": 3500
+ },
+ {
+  "bans": [
+   "plant:甜薯",
+   "plant:大嘴花",
+   "zombie:橄榄球僵尸",
+   "zombie:双生脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:大喷菇",
+    "plant:阳光菇",
+    "plant:闪电芦苇",
+    "plant:毁灭菇",
+    "secret:电疗",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:红眼巨人",
+    "zombie:水上脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:传送带僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "家院",
+  "night": true,
+  "seed": 3517
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:甜薯",
+   "zombie:成长脑光墓碑",
+   "zombie:旗帜僵尸",
+   "plant:机枪射手",
+   "zombie:鸭子普通僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:毁灭菇",
+    "secret:电疗",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:红眼巨人",
+    "zombie:水上脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zombie:传送带僵尸",
+    "zombie:豌豆僵尸"
+   ]
+  },
+  "map": "家院",
+  "night": true,
+  "seed": 3534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:玉米投手",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "要塞",
+  "night": false,
+  "seed": 1000
+ },
+ {
+  "bans": [
+   "plant:玉米投手",
+   "plant:闪电芦苇",
+   "zombie:豌豆僵尸",
+   "zombie:小鬼炮"
+  ],
+  "decks": {
+   "plant": [
+    "plant:芦笋战机",
+    "plant:向日葵",
+    "plant:旋转芜菁",
+    "secret:无土栽培",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "plant:卷心菜投手"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "要塞",
+  "night": false,
+  "seed": 1017
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:闪电芦苇",
+   "zombie:成长脑光墓碑",
+   "zombie:双生脑光墓碑",
+   "plant:寒冰菇",
+   "zombie:黑旗帜僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:向日葵",
+    "plant:旋转芜菁",
+    "secret:无土栽培",
+    "plant:超载芦苇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:卷心菜投手"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:传送带僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:坚固脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:小鬼炮"
+   ]
+  },
+  "map": "要塞",
+  "night": false,
+  "seed": 1034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:玉米投手",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "要塞",
+  "night": false,
+  "seed": 2000
+ },
+ {
+  "bans": [
+   "plant:闪电芦苇",
+   "plant:玉米投手",
+   "zombie:旗帜僵尸",
+   "zombie:豌豆僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:原始豌豆射手",
+    "secret:无土栽培",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zombie:传送带僵尸",
+    "zombie:萝卜伞僵尸",
+    "zombie:橄榄球僵尸"
+   ]
+  },
+  "map": "要塞",
+  "night": false,
+  "seed": 2017
+ },
+ {
+  "bans": [
+   "plant:玉米投手",
+   "plant:甜薯",
+   "zombie:成长脑光墓碑",
+   "zombie:豌豆僵尸",
+   "plant:高坚果",
+   "zombie:滚桶僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:卷心菜投手",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "要塞",
+  "night": false,
+  "seed": 2034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:玉米投手",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "要塞",
+  "night": false,
+  "seed": 3000
+ },
+ {
+  "bans": [
+   "plant:向日葵",
+   "plant:闪电芦苇",
+   "zombie:旗帜僵尸",
+   "zombie:掷弹兵僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:旋转芜菁",
+    "plant:双子向日葵",
+    "secret:无土栽培",
+    "plant:超载芦苇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:卷心菜投手"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zombie:小鬼炮",
+    "zombie:铁桶僵尸"
+   ]
+  },
+  "map": "要塞",
+  "night": false,
+  "seed": 3017
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:玉米投手",
+   "zombie:双生脑光墓碑",
+   "zombie:成长脑光墓碑",
+   "plant:抓人草触手",
+   "zombie:三叶草僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "secret:无土栽培",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:卷心菜投手"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:传送带僵尸",
+    "zombie:坚固脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "要塞",
+  "night": false,
+  "seed": 3034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "secret:无土栽培",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "要塞",
+  "night": true,
+  "seed": 1500
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:大喷菇",
+   "zombie:掷弹兵僵尸",
+   "zombie:成长脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "secret:无土栽培",
+    "plant:阳光菇",
+    "plant:卷心菜投手",
+    "plant:甜薯",
+    "plant:毁灭菇",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zombie:传送带僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "要塞",
+  "night": true,
+  "seed": 1517
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:阳光菇",
+   "zombie:掷弹兵僵尸",
+   "zombie:双生脑光墓碑",
+   "plant:原始豌豆射手",
+   "zombie:水上脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "secret:无土栽培",
+    "plant:向日葵",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:毁灭菇"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:脑光墓碑",
+    "zombie:传送带僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "要塞",
+  "night": true,
+  "seed": 1534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "secret:无土栽培",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "要塞",
+  "night": true,
+  "seed": 2500
+ },
+ {
+  "bans": [
+   "plant:阳光菇",
+   "plant:甜薯",
+   "zombie:掷弹兵僵尸",
+   "zombie:成长脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "secret:无土栽培",
+    "plant:向日葵",
+    "plant:大喷菇",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "要塞",
+  "night": true,
+  "seed": 2517
+ },
+ {
+  "bans": [
+   "plant:闪电芦苇",
+   "plant:甜薯",
+   "zombie:小鬼炮",
+   "zombie:双生脑光墓碑",
+   "plant:土豆地雷",
+   "zombie:成长脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "plant:大喷菇",
+    "plant:阳光菇",
+    "secret:无土栽培",
+    "plant:玉米投手",
+    "plant:毁灭菇",
+    "plant:黄金蓓蕾",
+    "plant:萝卜伞"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:坚固脑光墓碑",
+    "zombie:传送带僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:红眼巨人"
+   ]
+  },
+  "map": "要塞",
+  "night": true,
+  "seed": 2534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "secret:无土栽培",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "要塞",
+  "night": true,
+  "seed": 3500
+ },
+ {
+  "bans": [
+   "plant:闪电芦苇",
+   "plant:大嘴花",
+   "zombie:小鬼炮",
+   "zombie:成长脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "plant:大喷菇",
+    "plant:阳光菇",
+    "secret:无土栽培",
+    "plant:卷心菜投手",
+    "plant:毁灭菇",
+    "plant:甜薯",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:红眼巨人"
+   ]
+  },
+  "map": "要塞",
+  "night": true,
+  "seed": 3517
+ },
+ {
+  "bans": [
+   "plant:甜薯",
+   "plant:闪电芦苇",
+   "zombie:豌豆僵尸",
+   "zombie:小鬼炮",
+   "plant:大蒜",
+   "zombie:舞王僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:大喷菇",
+    "secret:无土栽培",
+    "plant:阳光菇",
+    "plant:玉米投手",
+    "plant:大嘴花",
+    "plant:黄金蓓蕾",
+    "plant:萝卜伞"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "要塞",
+  "night": true,
+  "seed": 3534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "大桥",
+  "night": false,
+  "seed": 1000
+ },
+ {
+  "bans": [
+   "plant:甜薯",
+   "plant:闪电芦苇",
+   "zombie:传送带僵尸",
+   "zombie:双生脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:原始豌豆射手",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:寒冰射手"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:萝卜伞僵尸",
+    "zombie:脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "大桥",
+  "night": false,
+  "seed": 1017
+ },
+ {
+  "bans": [
+   "plant:闪电芦苇",
+   "plant:向日葵",
+   "zombie:旗帜僵尸",
+   "zombie:传送带僵尸",
+   "plant:甜薯",
+   "zombie:黑橄榄僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:寒冰射手",
+    "plant:双子向日葵",
+    "plant:超载芦苇",
+    "plant:卷心菜投手",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:萝卜伞僵尸",
+    "zombie:水上脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:铁桶僵尸",
+    "zombie:橄榄球僵尸"
+   ]
+  },
+  "map": "大桥",
+  "night": false,
+  "seed": 1034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "大桥",
+  "night": false,
+  "seed": 2000
+ },
+ {
+  "bans": [
+   "plant:闪电芦苇",
+   "plant:玉米投手",
+   "zombie:成长脑光墓碑",
+   "zombie:海豚僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:超载芦苇",
+    "plant:向日葵",
+    "plant:卷心菜投手",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:水上脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:萝卜伞僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "大桥",
+  "night": false,
+  "seed": 2017
+ },
+ {
+  "bans": [
+   "plant:向日葵",
+   "plant:玉米投手",
+   "zombie:旗帜僵尸",
+   "zombie:掷弹兵僵尸",
+   "plant:西瓜投手",
+   "zombie:气球僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:超载芦苇",
+    "plant:闪电芦苇",
+    "plant:双子向日葵",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:卷心菜投手"
+   ],
+   "zombie": [
+    "zombie:水上脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:萝卜伞僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:传送带僵尸",
+    "zombie:铁桶僵尸"
+   ]
+  },
+  "map": "大桥",
+  "night": false,
+  "seed": 2034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "大桥",
+  "night": false,
+  "seed": 3000
+ },
+ {
+  "bans": [
+   "plant:甜薯",
+   "plant:向日葵",
+   "zombie:成长脑光墓碑",
+   "zombie:旗帜僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:双子向日葵",
+    "plant:闪电芦苇",
+    "plant:超载芦苇",
+    "secret:电疗",
+    "plant:寒冰射手",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:水上脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:传送带僵尸",
+    "zombie:豌豆僵尸"
+   ]
+  },
+  "map": "大桥",
+  "night": false,
+  "seed": 3017
+ },
+ {
+  "bans": [
+   "plant:玉米投手",
+   "plant:闪电芦苇",
+   "zombie:传送带僵尸",
+   "zombie:成长脑光墓碑",
+   "plant:窝瓜",
+   "zombie:海盗船长"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:弹簧草",
+    "plant:向日葵",
+    "plant:卷心菜投手",
+    "plant:超载芦苇",
+    "secret:电疗",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:水上脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "大桥",
+  "night": false,
+  "seed": 3034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:大喷菇",
+    "plant:阳光菇",
+    "plant:闪电芦苇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "大桥",
+  "night": true,
+  "seed": 1500
+ },
+ {
+  "bans": [
+   "plant:甜薯",
+   "plant:阳光菇",
+   "zombie:成长脑光墓碑",
+   "zombie:旗帜僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:大喷菇",
+    "plant:向日葵",
+    "plant:闪电芦苇",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:水上脑光墓碑",
+    "zombie:传送带僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:豌豆僵尸"
+   ]
+  },
+  "map": "大桥",
+  "night": true,
+  "seed": 1517
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:大喷菇",
+   "zombie:成长脑光墓碑",
+   "zombie:双生脑光墓碑",
+   "plant:蓝火树桩",
+   "zombie:黑路障僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:阳光菇",
+    "plant:闪电芦苇",
+    "plant:超载芦苇",
+    "plant:胆小菇",
+    "secret:电疗",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:传送带僵尸",
+    "zombie:水上脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:豌豆僵尸"
+   ]
+  },
+  "map": "大桥",
+  "night": true,
+  "seed": 1534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:大喷菇",
+    "plant:阳光菇",
+    "plant:闪电芦苇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "大桥",
+  "night": true,
+  "seed": 2500
+ },
+ {
+  "bans": [
+   "plant:阳光菇",
+   "plant:大嘴花",
+   "zombie:旗帜僵尸",
+   "zombie:海豚僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:大喷菇",
+    "plant:向日葵",
+    "plant:闪电芦苇",
+    "plant:毁灭菇",
+    "plant:甜薯",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zombie:红眼巨人",
+    "zombie:豌豆僵尸"
+   ]
+  },
+  "map": "大桥",
+  "night": true,
+  "seed": 2517
+ },
+ {
+  "bans": [
+   "plant:大喷菇",
+   "plant:闪电芦苇",
+   "zombie:传送带僵尸",
+   "zombie:海豚僵尸",
+   "plant:小喷菇",
+   "zombie:伴舞僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:超载芦苇",
+    "plant:阳光菇",
+    "plant:卷心菜投手",
+    "plant:胆小菇",
+    "plant:甜薯",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海盗鹦鹉",
+    "zombie:乌鸦",
+    "zombie:双生脑光墓碑",
+    "zombie:萝卜伞僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:稻草人"
+   ]
+  },
+  "map": "大桥",
+  "night": true,
+  "seed": 2534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:大喷菇",
+    "plant:阳光菇",
+    "plant:闪电芦苇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "大桥",
+  "night": true,
+  "seed": 3500
+ },
+ {
+  "bans": [
+   "plant:阳光菇",
+   "plant:大嘴花",
+   "zombie:海豚僵尸",
+   "zombie:掷弹兵僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:大喷菇",
+    "plant:向日葵",
+    "plant:闪电芦苇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:毁灭菇"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:小鬼僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "大桥",
+  "night": true,
+  "seed": 3517
+ },
+ {
+  "bans": [
+   "plant:闪电芦苇",
+   "plant:甜薯",
+   "zombie:掷弹兵僵尸",
+   "zombie:传送带僵尸",
+   "plant:石果子",
+   "zombie:鸭子普通僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:大喷菇",
+    "plant:阳光菇",
+    "plant:玉米投手",
+    "plant:大嘴花",
+    "plant:黄金蓓蕾",
+    "plant:超载芦苇"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:豌豆僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "大桥",
+  "night": true,
+  "seed": 3534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "铁道",
+  "night": false,
+  "seed": 1000
+ },
+ {
+  "bans": [
+   "plant:超载芦苇",
+   "plant:向日葵",
+   "zombie:旗帜僵尸",
+   "zombie:橄榄球僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:卷心菜投手",
+    "plant:双子向日葵",
+    "plant:闪电芦苇",
+    "plant:寒冰辣椒",
+    "plant:甜薯",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:红眼巨人",
+    "zombie:铁桶僵尸",
+    "zombie:豌豆僵尸"
+   ]
+  },
+  "map": "铁道",
+  "night": false,
+  "seed": 1017
+ },
+ {
+  "bans": [
+   "plant:甜薯",
+   "plant:闪电芦苇",
+   "zombie:双生脑光墓碑",
+   "zombie:成长脑光墓碑",
+   "plant:石果子",
+   "zombie:倭瓜僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:超载芦苇",
+    "plant:向日葵",
+    "plant:卷心菜投手",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:寒冰射手"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:坚固脑光墓碑",
+    "zombie:萝卜伞僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:铁桶僵尸"
+   ]
+  },
+  "map": "铁道",
+  "night": false,
+  "seed": 1034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "铁道",
+  "night": false,
+  "seed": 2000
+ },
+ {
+  "bans": [
+   "plant:向日葵",
+   "plant:甜薯",
+   "zombie:橄榄球僵尸",
+   "zombie:传送带僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:双子向日葵",
+    "plant:玉米投手",
+    "plant:寒冰辣椒",
+    "secret:电疗",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:红眼巨人",
+    "zsecret:一大波僵尸",
+    "zombie:豌豆僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "铁道",
+  "night": false,
+  "seed": 2017
+ },
+ {
+  "bans": [
+   "plant:甜薯",
+   "plant:闪电芦苇",
+   "zombie:掷弹兵僵尸",
+   "zombie:成长脑光墓碑",
+   "plant:毒镖射手",
+   "zombie:撑杆跳僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:超载芦苇",
+    "plant:向日葵",
+    "plant:卷心菜投手",
+    "plant:寒冰辣椒",
+    "secret:电疗",
+    "plant:寒冰射手"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:铁桶僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:萝卜伞僵尸",
+    "zombie:红眼巨人",
+    "zombie:橄榄球僵尸"
+   ]
+  },
+  "map": "铁道",
+  "night": false,
+  "seed": 2034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "铁道",
+  "night": false,
+  "seed": 3000
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:超载芦苇",
+   "zombie:成长脑光墓碑",
+   "zombie:橄榄球僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "plant:寒冰辣椒",
+    "secret:电疗",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:红眼巨人",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "铁道",
+  "night": false,
+  "seed": 3017
+ },
+ {
+  "bans": [
+   "plant:超载芦苇",
+   "plant:甜薯",
+   "zombie:掷弹兵僵尸",
+   "zombie:成长脑光墓碑",
+   "plant:海蘑菇",
+   "zombie:鸭子铁桶僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:杨桃",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:寒冰射手"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:小鬼僵尸",
+    "zombie:脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:传送带僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "铁道",
+  "night": false,
+  "seed": 3034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "铁道",
+  "night": true,
+  "seed": 1500
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:闪电芦苇",
+   "zombie:旗帜僵尸",
+   "zombie:双生脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "plant:旋转芜菁",
+    "secret:无土栽培",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:毁灭菇",
+    "plant:甜薯",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海盗鹦鹉",
+    "zombie:乌鸦",
+    "zombie:脑光墓碑",
+    "zombie:传送带僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:稻草人"
+   ]
+  },
+  "map": "铁道",
+  "night": true,
+  "seed": 1517
+ },
+ {
+  "bans": [
+   "plant:阳光菇",
+   "plant:大喷菇",
+   "zombie:成长脑光墓碑",
+   "zombie:掷弹兵僵尸",
+   "plant:吸金磁",
+   "zombie:黑铁桶僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "plant:胆小菇",
+    "plant:甜薯",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:小鬼僵尸",
+    "zombie:传送带僵尸",
+    "zombie:脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "铁道",
+  "night": true,
+  "seed": 1534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "铁道",
+  "night": true,
+  "seed": 2500
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:甜薯",
+   "zombie:成长脑光墓碑",
+   "zombie:双生脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "secret:电疗",
+    "plant:黄金蓓蕾",
+    "plant:毁灭菇"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:坚固脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:传送带僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "铁道",
+  "night": true,
+  "seed": 2517
+ },
+ {
+  "bans": [
+   "plant:闪电芦苇",
+   "plant:大喷菇",
+   "zombie:双生脑光墓碑",
+   "zombie:传送带僵尸",
+   "plant:裂荚射手",
+   "zombie:鸭子路障僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:超载芦苇",
+    "secret:无土栽培",
+    "plant:阳光菇",
+    "plant:卷心菜投手",
+    "plant:胆小菇",
+    "plant:甜薯",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海盗鹦鹉",
+    "zombie:乌鸦",
+    "zombie:脑光墓碑",
+    "zombie:萝卜伞僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "铁道",
+  "night": true,
+  "seed": 2534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "铁道",
+  "night": true,
+  "seed": 3500
+ },
+ {
+  "bans": [
+   "plant:甜薯",
+   "plant:阳光菇",
+   "zombie:双生脑光墓碑",
+   "zombie:传送带僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:大喷菇",
+    "plant:毁灭菇",
+    "secret:电疗",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:红眼巨人",
+    "zombie:脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "铁道",
+  "night": true,
+  "seed": 3517
+ },
+ {
+  "bans": [
+   "plant:闪电芦苇",
+   "plant:大喷菇",
+   "zombie:橄榄球僵尸",
+   "zombie:掷弹兵僵尸",
+   "plant:回旋镖射手",
+   "zombie:毁灭菇僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:超载芦苇",
+    "secret:无土栽培",
+    "plant:阳光菇",
+    "plant:卷心菜投手",
+    "plant:胆小菇",
+    "plant:甜薯",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海盗鹦鹉",
+    "zombie:乌鸦",
+    "zombie:双生脑光墓碑",
+    "zombie:萝卜伞僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "铁道",
+  "night": true,
+  "seed": 3534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:玉米投手",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "遗迹",
+  "night": false,
+  "seed": 1000
+ },
+ {
+  "bans": [
+   "plant:玉米投手",
+   "plant:甜薯",
+   "zombie:旗帜僵尸",
+   "zombie:豌豆僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:旋转芜菁",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:超载芦苇",
+    "plant:闪电芦苇",
+    "secret:电疗",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zombie:铁桶僵尸",
+    "zombie:机枪僵尸"
+   ]
+  },
+  "map": "遗迹",
+  "night": false,
+  "seed": 1017
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:玉米投手",
+   "zombie:小鬼炮",
+   "zombie:旗帜僵尸",
+   "plant:石块",
+   "zombie:铁桶僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:旋转芜菁",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:超载芦苇",
+    "plant:寒冰辣椒",
+    "plant:甜薯",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:红眼巨人"
+   ]
+  },
+  "map": "遗迹",
+  "night": false,
+  "seed": 1034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:玉米投手",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "遗迹",
+  "night": false,
+  "seed": 2000
+ },
+ {
+  "bans": [
+   "plant:玉米投手",
+   "plant:向日葵",
+   "zombie:成长脑光墓碑",
+   "zombie:旗帜僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:旋转芜菁",
+    "plant:双子向日葵",
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:超载芦苇",
+    "secret:电疗",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:传送带僵尸"
+   ]
+  },
+  "map": "遗迹",
+  "night": false,
+  "seed": 2017
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:甜薯",
+   "zombie:旗帜僵尸",
+   "zombie:豌豆僵尸",
+   "plant:海蘑菇",
+   "zombie:黑旗帜僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:旋转芜菁",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "secret:电疗",
+    "plant:寒冰辣椒",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zombie:机枪僵尸",
+    "zombie:撑杆跳僵尸"
+   ]
+  },
+  "map": "遗迹",
+  "night": false,
+  "seed": 2034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:玉米投手",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "遗迹",
+  "night": false,
+  "seed": 3000
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:闪电芦苇",
+   "zombie:掷弹兵僵尸",
+   "zombie:双生脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "plant:芦笋战机",
+    "plant:向日葵",
+    "plant:旋转芜菁",
+    "secret:无土栽培",
+    "plant:甜薯",
+    "plant:卷心菜投手",
+    "plant:寒冰辣椒"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "遗迹",
+  "night": false,
+  "seed": 3017
+ },
+ {
+  "bans": [
+   "plant:玉米投手",
+   "plant:闪电芦苇",
+   "zombie:小鬼炮",
+   "zombie:豌豆僵尸",
+   "plant:草坪",
+   "zombie:黑旗帜僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:芦笋战机",
+    "plant:向日葵",
+    "plant:旋转芜菁",
+    "secret:无土栽培",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "plant:卷心菜投手"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "遗迹",
+  "night": false,
+  "seed": 3034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "secret:无土栽培",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "遗迹",
+  "night": true,
+  "seed": 1500
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:甜薯",
+   "zombie:旗帜僵尸",
+   "zombie:双生脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "plant:旋转芜菁",
+    "plant:阳光菇",
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "secret:电疗",
+    "plant:毁灭菇",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:大喷菇僵尸"
+   ]
+  },
+  "map": "遗迹",
+  "night": true,
+  "seed": 1517
+ },
+ {
+  "bans": [
+   "plant:阳光菇",
+   "plant:甜薯",
+   "zombie:豌豆僵尸",
+   "zombie:成长脑光墓碑",
+   "plant:海蘑菇",
+   "zombie:雪橇车小队"
+  ],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "secret:无土栽培",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:大喷菇僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "遗迹",
+  "night": true,
+  "seed": 1534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "secret:无土栽培",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "遗迹",
+  "night": true,
+  "seed": 2500
+ },
+ {
+  "bans": [
+   "plant:大喷菇",
+   "plant:阳光菇",
+   "zombie:旗帜僵尸",
+   "zombie:豌豆僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "secret:无土栽培",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "plant:大嘴花",
+    "plant:胆小菇",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:小鬼炮",
+    "zombie:成长脑光墓碑",
+    "zombie:史莱姆僵尸",
+    "zombie:传送带僵尸",
+    "zombie:橄榄球僵尸"
+   ]
+  },
+  "map": "遗迹",
+  "night": true,
+  "seed": 2517
+ },
+ {
+  "bans": [
+   "plant:闪电芦苇",
+   "plant:大嘴花",
+   "zombie:掷弹兵僵尸",
+   "zombie:小鬼炮",
+   "plant:双发射手",
+   "zombie:传送带僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:大喷菇",
+    "plant:阳光菇",
+    "secret:无土栽培",
+    "plant:卷心菜投手",
+    "plant:甜薯",
+    "plant:毁灭菇",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:大喷菇僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "遗迹",
+  "night": true,
+  "seed": 2534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "secret:无土栽培",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "遗迹",
+  "night": true,
+  "seed": 3500
+ },
+ {
+  "bans": [
+   "plant:阳光菇",
+   "plant:大喷菇",
+   "zombie:旗帜僵尸",
+   "zombie:成长脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "secret:无土栽培",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "plant:大嘴花",
+    "secret:电疗",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:史莱姆僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:小鬼炮",
+    "zombie:传送带僵尸",
+    "zombie:掷弹兵僵尸"
+   ]
+  },
+  "map": "遗迹",
+  "night": true,
+  "seed": 3517
+ },
+ {
+  "bans": [
+   "plant:阳光菇",
+   "plant:大喷菇",
+   "zombie:小鬼炮",
+   "zombie:掷弹兵僵尸",
+   "plant:草坪",
+   "zombie:飞贼僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "secret:无土栽培",
+    "plant:向日葵",
+    "plant:毁灭菇",
+    "plant:超载芦苇",
+    "plant:胆小菇",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:史莱姆僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:传送带僵尸",
+    "zombie:红眼巨人",
+    "zombie:橄榄球僵尸"
+   ]
+  },
+  "map": "遗迹",
+  "night": true,
+  "seed": 3534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:旋转芜菁",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:超载芦苇",
+    "plant:闪电芦苇",
+    "secret:电疗",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:水上脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:橄榄球僵尸"
+   ]
+  },
+  "map": "绿洲",
+  "night": false,
+  "seed": 1000
+ },
+ {
+  "bans": [
+   "plant:甜薯",
+   "plant:向日葵",
+   "zombie:水上脑光墓碑",
+   "zombie:成长脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "secret:无土栽培",
+    "plant:双子向日葵",
+    "plant:玉米投手",
+    "plant:大嘴花",
+    "secret:电疗",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "绿洲",
+  "night": false,
+  "seed": 1017
+ },
+ {
+  "bans": [
+   "plant:超载芦苇",
+   "plant:旋转芜菁",
+   "zombie:成长脑光墓碑",
+   "zombie:橄榄球僵尸",
+   "plant:双发射手",
+   "zombie:高坚果僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:玉米投手",
+    "plant:寒冰辣椒",
+    "secret:电疗",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:水上脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:红眼巨人",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "绿洲",
+  "night": false,
+  "seed": 1034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:旋转芜菁",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:超载芦苇",
+    "plant:闪电芦苇",
+    "secret:电疗",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:水上脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:橄榄球僵尸"
+   ]
+  },
+  "map": "绿洲",
+  "night": false,
+  "seed": 2000
+ },
+ {
+  "bans": [
+   "plant:超载芦苇",
+   "plant:甜薯",
+   "zombie:豌豆僵尸",
+   "zombie:小鬼炮"
+  ],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:玉米投手",
+    "secret:电疗",
+    "plant:萝卜伞",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:投篮车僵尸",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "绿洲",
+  "night": false,
+  "seed": 2017
+ },
+ {
+  "bans": [
+   "plant:旋转芜菁",
+   "plant:甜薯",
+   "zombie:橄榄球僵尸",
+   "zombie:传送带僵尸",
+   "plant:原始土豆地雷",
+   "zombie:雪橇车小队"
+  ],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:玉米投手",
+    "plant:寒冰辣椒",
+    "secret:电疗",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:红眼巨人",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:豌豆僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "绿洲",
+  "night": false,
+  "seed": 2034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:旋转芜菁",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:超载芦苇",
+    "plant:闪电芦苇",
+    "secret:电疗",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:水上脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:橄榄球僵尸"
+   ]
+  },
+  "map": "绿洲",
+  "night": false,
+  "seed": 3000
+ },
+ {
+  "bans": [
+   "plant:闪电芦苇",
+   "plant:向日葵",
+   "zombie:豌豆僵尸",
+   "zombie:传送带僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:旋转芜菁",
+    "plant:双子向日葵",
+    "plant:芦笋战机",
+    "secret:无土栽培",
+    "plant:甜薯",
+    "plant:卷心菜投手",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "绿洲",
+  "night": false,
+  "seed": 3017
+ },
+ {
+  "bans": [
+   "plant:超载芦苇",
+   "plant:闪电芦苇",
+   "zombie:成长脑光墓碑",
+   "zombie:小鬼炮",
+   "plant:墓碑吞噬者",
+   "zombie:钩索僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:向日葵",
+    "plant:旋转芜菁",
+    "secret:无土栽培",
+    "plant:杨桃",
+    "plant:寒冰辣椒",
+    "plant:甜薯",
+    "plant:卷心菜投手"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:传送带僵尸",
+    "zombie:水上脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:红眼巨人"
+   ]
+  },
+  "map": "绿洲",
+  "night": false,
+  "seed": 3034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "secret:无土栽培",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "绿洲",
+  "night": true,
+  "seed": 1500
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:阳光菇",
+   "zombie:小鬼炮",
+   "zombie:豌豆僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:大喷菇",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:毁灭菇"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "绿洲",
+  "night": true,
+  "seed": 1517
+ },
+ {
+  "bans": [
+   "plant:阳光菇",
+   "plant:闪电芦苇",
+   "zombie:旗帜僵尸",
+   "zombie:小鬼炮",
+   "plant:杨桃",
+   "zombie:墓碑吞噬者僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:大喷菇",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:玉米投手",
+    "plant:毁灭菇",
+    "plant:甜薯",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:红眼巨人",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸"
+   ]
+  },
+  "map": "绿洲",
+  "night": true,
+  "seed": 1534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "secret:无土栽培",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "绿洲",
+  "night": true,
+  "seed": 2500
+ },
+ {
+  "bans": [
+   "plant:阳光菇",
+   "plant:甜薯",
+   "zombie:双生脑光墓碑",
+   "zombie:旗帜僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:旋转芜菁",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:大喷菇",
+    "plant:大嘴花",
+    "plant:黄金蓓蕾",
+    "plant:闪电芦苇"
+   ],
+   "zombie": [
+    "zombie:水上脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:大喷菇僵尸"
+   ]
+  },
+  "map": "绿洲",
+  "night": true,
+  "seed": 2517
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:闪电芦苇",
+   "zombie:成长脑光墓碑",
+   "zombie:小鬼炮",
+   "plant:火爆辣椒",
+   "zombie:鸭子铁桶僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:大喷菇",
+    "plant:阳光菇",
+    "secret:无土栽培",
+    "plant:卷心菜投手",
+    "plant:毁灭菇",
+    "plant:甜薯",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:水上脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:红眼巨人",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸"
+   ]
+  },
+  "map": "绿洲",
+  "night": true,
+  "seed": 2534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "secret:无土栽培",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "绿洲",
+  "night": true,
+  "seed": 3500
+ },
+ {
+  "bans": [
+   "plant:阳光菇",
+   "plant:大喷菇",
+   "zombie:豌豆僵尸",
+   "zombie:双生脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:玉米投手",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:小鬼炮",
+    "zombie:脑光墓碑",
+    "zombie:传送带僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "绿洲",
+  "night": true,
+  "seed": 3517
+ },
+ {
+  "bans": [
+   "plant:大喷菇",
+   "plant:阳光菇",
+   "zombie:小鬼炮",
+   "zombie:双生脑光墓碑",
+   "plant:黄金蓓蕾",
+   "zombie:海豚僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:旋转芜菁",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:超载芦苇",
+    "plant:毁灭菇",
+    "plant:胆小菇",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:传送带僵尸",
+    "zombie:水上脑光墓碑",
+    "zombie:红眼巨人",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸"
+   ]
+  },
+  "map": "绿洲",
+  "night": true,
+  "seed": 3534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "小镇",
+  "night": false,
+  "seed": 1000
+ },
+ {
+  "bans": [
+   "plant:闪电芦苇",
+   "plant:超载芦苇",
+   "zombie:双生脑光墓碑",
+   "zombie:传送带僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:杨桃",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "plant:大嘴花",
+    "plant:甜薯",
+    "plant:卷心菜投手"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:萝卜伞僵尸",
+    "zombie:脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "小镇",
+  "night": false,
+  "seed": 1017
+ },
+ {
+  "bans": [
+   "plant:甜薯",
+   "plant:闪电芦苇",
+   "zombie:成长脑光墓碑",
+   "zombie:旗帜僵尸",
+   "plant:小喷菇",
+   "zombie:钢门普通僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:超载芦苇",
+    "plant:向日葵",
+    "plant:卷心菜投手",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:寒冰射手"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:萝卜伞僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:铁桶僵尸"
+   ]
+  },
+  "map": "小镇",
+  "night": false,
+  "seed": 1034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "小镇",
+  "night": false,
+  "seed": 2000
+ },
+ {
+  "bans": [
+   "plant:闪电芦苇",
+   "plant:大嘴花",
+   "zombie:双生脑光墓碑",
+   "zombie:橄榄球僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:超载芦苇",
+    "secret:无土栽培",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "secret:电疗",
+    "plant:甜薯",
+    "plant:卷心菜投手"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海盗鹦鹉",
+    "zombie:乌鸦",
+    "zombie:脑光墓碑",
+    "zombie:传送带僵尸",
+    "zombie:萝卜伞僵尸",
+    "zombie:掷弹兵僵尸"
+   ]
+  },
+  "map": "小镇",
+  "night": false,
+  "seed": 2017
+ },
+ {
+  "bans": [
+   "plant:甜薯",
+   "plant:大嘴花",
+   "zombie:双生脑光墓碑",
+   "zombie:掷弹兵僵尸",
+   "plant:南瓜头",
+   "zombie:坚果僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "secret:电疗",
+    "plant:寒冰射手",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:小鬼僵尸",
+    "zombie:脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:传送带僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "小镇",
+  "night": false,
+  "seed": 2034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "小镇",
+  "night": false,
+  "seed": 3000
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:超载芦苇",
+   "zombie:传送带僵尸",
+   "zombie:橄榄球僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "plant:寒冰辣椒",
+    "secret:电疗",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:红眼巨人",
+    "zsecret:一大波僵尸",
+    "zombie:豌豆僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "小镇",
+  "night": false,
+  "seed": 3017
+ },
+ {
+  "bans": [
+   "plant:向日葵",
+   "plant:超载芦苇",
+   "zombie:橄榄球僵尸",
+   "zombie:双生脑光墓碑",
+   "plant:黄金蓓蕾",
+   "zombie:豌豆僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:双子向日葵",
+    "plant:玉米投手",
+    "plant:寒冰辣椒",
+    "secret:电疗",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:红眼巨人",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "小镇",
+  "night": false,
+  "seed": 3034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "小镇",
+  "night": true,
+  "seed": 1500
+ },
+ {
+  "bans": [
+   "plant:大喷菇",
+   "plant:大嘴花",
+   "zombie:双生脑光墓碑",
+   "zombie:橄榄球僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "plant:卷心菜投手",
+    "plant:毁灭菇",
+    "plant:甜薯",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:红眼巨人",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "小镇",
+  "night": true,
+  "seed": 1517
+ },
+ {
+  "bans": [
+   "plant:闪电芦苇",
+   "plant:大嘴花",
+   "zombie:掷弹兵僵尸",
+   "zombie:传送带僵尸",
+   "plant:土豆地雷",
+   "zombie:黑路障僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:超载芦苇",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:卷心菜投手",
+    "plant:甜薯",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海盗鹦鹉",
+    "zombie:乌鸦",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:稻草人",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "小镇",
+  "night": true,
+  "seed": 1534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "小镇",
+  "night": true,
+  "seed": 2500
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:甜薯",
+   "zombie:掷弹兵僵尸",
+   "zombie:传送带僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:大喷菇",
+    "plant:阳光菇",
+    "plant:闪电芦苇",
+    "secret:电疗",
+    "plant:黄金蓓蕾",
+    "plant:毁灭菇"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:小鬼僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:豌豆僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "小镇",
+  "night": true,
+  "seed": 2517
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:闪电芦苇",
+   "zombie:掷弹兵僵尸",
+   "zombie:旗帜僵尸",
+   "plant:花盆",
+   "zombie:雪橇车小队僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:旋转芜菁",
+    "secret:无土栽培",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:毁灭菇",
+    "plant:甜薯",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海盗鹦鹉",
+    "zombie:乌鸦",
+    "zombie:双生脑光墓碑",
+    "zombie:传送带僵尸",
+    "zombie:稻草人",
+    "zombie:豌豆僵尸"
+   ]
+  },
+  "map": "小镇",
+  "night": true,
+  "seed": 2534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "小镇",
+  "night": true,
+  "seed": 3500
+ },
+ {
+  "bans": [
+   "plant:大喷菇",
+   "plant:大嘴花",
+   "zombie:橄榄球僵尸",
+   "zombie:掷弹兵僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "plant:卷心菜投手",
+    "plant:毁灭菇",
+    "plant:甜薯",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:小鬼僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:红眼巨人",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "小镇",
+  "night": true,
+  "seed": 3517
+ },
+ {
+  "bans": [
+   "plant:大喷菇",
+   "plant:闪电芦苇",
+   "zombie:双生脑光墓碑",
+   "zombie:旗帜僵尸",
+   "plant:南瓜头",
+   "zombie:小鬼炮"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:超载芦苇",
+    "plant:阳光菇",
+    "plant:卷心菜投手",
+    "plant:胆小菇",
+    "plant:甜薯",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海盗鹦鹉",
+    "zombie:乌鸦",
+    "zombie:脑光墓碑",
+    "zombie:萝卜伞僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:稻草人"
+   ]
+  },
+  "map": "小镇",
+  "night": true,
+  "seed": 3534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:玉米投手",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "古堡",
+  "night": false,
+  "seed": 1000
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:闪电芦苇",
+   "zombie:豌豆僵尸",
+   "zombie:双生脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "plant:旋转芜菁",
+    "plant:向日葵",
+    "plant:芦笋战机",
+    "secret:无土栽培",
+    "plant:甜薯",
+    "plant:卷心菜投手",
+    "plant:寒冰辣椒"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:脑光墓碑",
+    "zombie:小鬼炮",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "古堡",
+  "night": false,
+  "seed": 1017
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:闪电芦苇",
+   "zombie:掷弹兵僵尸",
+   "zombie:双生脑光墓碑",
+   "plant:路灯花",
+   "zombie:海豚僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:芦笋战机",
+    "plant:向日葵",
+    "plant:旋转芜菁",
+    "secret:无土栽培",
+    "plant:甜薯",
+    "plant:卷心菜投手",
+    "plant:寒冰辣椒"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "古堡",
+  "night": false,
+  "seed": 1034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:玉米投手",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "古堡",
+  "night": false,
+  "seed": 2000
+ },
+ {
+  "bans": [
+   "plant:向日葵",
+   "plant:玉米投手",
+   "zombie:成长脑光墓碑",
+   "zombie:旗帜僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:旋转芜菁",
+    "plant:双子向日葵",
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:超载芦苇",
+    "secret:电疗",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:传送带僵尸"
+   ]
+  },
+  "map": "古堡",
+  "night": false,
+  "seed": 2017
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:甜薯",
+   "zombie:旗帜僵尸",
+   "zombie:小鬼炮",
+   "plant:窝瓜",
+   "zombie:海豚僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:旋转芜菁",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "secret:电疗",
+    "plant:萝卜伞",
+    "plant:寒冰辣椒"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:投篮车僵尸",
+    "zombie:撑杆跳僵尸"
+   ]
+  },
+  "map": "古堡",
+  "night": false,
+  "seed": 2034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:玉米投手",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "古堡",
+  "night": false,
+  "seed": 3000
+ },
+ {
+  "bans": [
+   "plant:玉米投手",
+   "plant:大嘴花",
+   "zombie:掷弹兵僵尸",
+   "zombie:小鬼炮"
+  ],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "secret:无土栽培",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:卷心菜投手"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "古堡",
+  "night": false,
+  "seed": 3017
+ },
+ {
+  "bans": [
+   "plant:甜薯",
+   "plant:向日葵",
+   "zombie:成长脑光墓碑",
+   "zombie:掷弹兵僵尸",
+   "plant:水盆",
+   "zombie:铁桶钢门僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:双子向日葵",
+    "secret:无土栽培",
+    "plant:玉米投手",
+    "plant:大嘴花",
+    "secret:电疗",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "古堡",
+  "night": false,
+  "seed": 3034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "secret:无土栽培",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "古堡",
+  "night": true,
+  "seed": 1500
+ },
+ {
+  "bans": [
+   "plant:闪电芦苇",
+   "plant:阳光菇",
+   "zombie:旗帜僵尸",
+   "zombie:成长脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "plant:大喷菇",
+    "secret:无土栽培",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "plant:大嘴花",
+    "plant:甜薯",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:传送带僵尸"
+   ]
+  },
+  "map": "古堡",
+  "night": true,
+  "seed": 1517
+ },
+ {
+  "bans": [
+   "plant:甜薯",
+   "plant:闪电芦苇",
+   "zombie:旗帜僵尸",
+   "zombie:成长脑光墓碑",
+   "plant:幽灵辣椒",
+   "zombie:水上成长脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "plant:大喷菇",
+    "plant:阳光菇",
+    "secret:无土栽培",
+    "plant:玉米投手",
+    "plant:大嘴花",
+    "plant:黄金蓓蕾",
+    "plant:萝卜伞"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:传送带僵尸"
+   ]
+  },
+  "map": "古堡",
+  "night": true,
+  "seed": 1534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "secret:无土栽培",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "古堡",
+  "night": true,
+  "seed": 2500
+ },
+ {
+  "bans": [
+   "plant:甜薯",
+   "plant:闪电芦苇",
+   "zombie:小鬼炮",
+   "zombie:成长脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "plant:大喷菇",
+    "plant:阳光菇",
+    "secret:无土栽培",
+    "plant:玉米投手",
+    "plant:毁灭菇",
+    "plant:黄金蓓蕾",
+    "plant:萝卜伞"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:脑光墓碑",
+    "zombie:传送带僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:红眼巨人"
+   ]
+  },
+  "map": "古堡",
+  "night": true,
+  "seed": 2517
+ },
+ {
+  "bans": [
+   "plant:阳光菇",
+   "plant:大喷菇",
+   "zombie:旗帜僵尸",
+   "zombie:成长脑光墓碑",
+   "plant:杨桃",
+   "zombie:传送带僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:旋转芜菁",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:大喷菇僵尸"
+   ]
+  },
+  "map": "古堡",
+  "night": true,
+  "seed": 2534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "secret:无土栽培",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "古堡",
+  "night": true,
+  "seed": 3500
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:闪电芦苇",
+   "zombie:掷弹兵僵尸",
+   "zombie:豌豆僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:大喷菇",
+    "secret:无土栽培",
+    "plant:阳光菇",
+    "plant:卷心菜投手",
+    "plant:甜薯",
+    "plant:毁灭菇",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:传送带僵尸",
+    "zombie:小鬼僵尸",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:小鬼炮",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "古堡",
+  "night": true,
+  "seed": 3517
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:大喷菇",
+   "zombie:小鬼炮",
+   "zombie:成长脑光墓碑",
+   "plant:卷心菜投手",
+   "zombie:小鬼僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:旋转芜菁",
+    "plant:阳光菇",
+    "secret:无土栽培",
+    "plant:超载芦苇",
+    "plant:毁灭菇",
+    "plant:甜薯",
+    "plant:胆小菇"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:脑光墓碑",
+    "zombie:传送带僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:红眼巨人"
+   ]
+  },
+  "map": "古堡",
+  "night": true,
+  "seed": 3534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "木船",
+  "night": false,
+  "seed": 1000
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:向日葵",
+   "zombie:双生脑光墓碑",
+   "zombie:传送带僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:双子向日葵",
+    "plant:卷心菜投手",
+    "plant:甜薯",
+    "plant:寒冰辣椒",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "木船",
+  "night": false,
+  "seed": 1017
+ },
+ {
+  "bans": [
+   "plant:向日葵",
+   "plant:大嘴花",
+   "zombie:海豚僵尸",
+   "zombie:掷弹兵僵尸",
+   "plant:雷蘑菇",
+   "zombie:小鬼炮"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:双子向日葵",
+    "plant:超载芦苇",
+    "plant:甜薯",
+    "plant:卷心菜投手",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:小鬼僵尸",
+    "zombie:传送带僵尸",
+    "zombie:水上脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "木船",
+  "night": false,
+  "seed": 1034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "木船",
+  "night": false,
+  "seed": 2000
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:甜薯",
+   "zombie:传送带僵尸",
+   "zombie:旗帜僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:向日葵",
+    "plant:闪电芦苇",
+    "plant:玉米投手",
+    "secret:电疗",
+    "plant:寒冰辣椒",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:水上脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zombie:撑杆跳僵尸",
+    "zsecret:体育生"
+   ]
+  },
+  "map": "木船",
+  "night": false,
+  "seed": 2017
+ },
+ {
+  "bans": [
+   "plant:玉米投手",
+   "plant:大嘴花",
+   "zombie:旗帜僵尸",
+   "zombie:成长脑光墓碑",
+   "plant:香蒲",
+   "zombie:小鬼僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:卷心菜投手"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:水上脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:传送带僵尸",
+    "zombie:萝卜伞僵尸"
+   ]
+  },
+  "map": "木船",
+  "night": false,
+  "seed": 2034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "木船",
+  "night": false,
+  "seed": 3000
+ },
+ {
+  "bans": [
+   "plant:玉米投手",
+   "plant:甜薯",
+   "zombie:旗帜僵尸",
+   "zombie:海豚僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "plant:寒冰辣椒",
+    "plant:卷心菜投手",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:水上脑光墓碑",
+    "zombie:萝卜伞僵尸",
+    "zombie:红眼巨人",
+    "zombie:铁桶僵尸"
+   ]
+  },
+  "map": "木船",
+  "night": false,
+  "seed": 3017
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:甜薯",
+   "zombie:双生脑光墓碑",
+   "zombie:成长脑光墓碑",
+   "plant:水盆",
+   "zombie:滚桶僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "secret:电疗",
+    "plant:寒冰辣椒",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:水上脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "木船",
+  "night": false,
+  "seed": 3034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:大喷菇",
+    "plant:阳光菇",
+    "plant:闪电芦苇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "木船",
+  "night": true,
+  "seed": 1500
+ },
+ {
+  "bans": [
+   "plant:大喷菇",
+   "plant:阳光菇",
+   "zombie:旗帜僵尸",
+   "zombie:传送带僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "plant:胆小菇",
+    "plant:甜薯",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:铁桶僵尸",
+    "zombie:豌豆僵尸"
+   ]
+  },
+  "map": "木船",
+  "night": true,
+  "seed": 1517
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:大喷菇",
+   "zombie:传送带僵尸",
+   "zombie:旗帜僵尸",
+   "plant:超载芦苇",
+   "zombie:水上成长脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:阳光菇",
+    "plant:闪电芦苇",
+    "plant:卷心菜投手",
+    "plant:甜薯",
+    "plant:毁灭菇",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:豌豆僵尸",
+    "zombie:撑杆跳僵尸"
+   ]
+  },
+  "map": "木船",
+  "night": true,
+  "seed": 1534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:大喷菇",
+    "plant:阳光菇",
+    "plant:闪电芦苇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "木船",
+  "night": true,
+  "seed": 2500
+ },
+ {
+  "bans": [
+   "plant:闪电芦苇",
+   "plant:阳光菇",
+   "zombie:成长脑光墓碑",
+   "zombie:掷弹兵僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:超载芦苇",
+    "secret:无土栽培",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "plant:大喷菇",
+    "secret:电疗",
+    "plant:大嘴花"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:海盗鹦鹉",
+    "zombie:乌鸦",
+    "zombie:脑光墓碑",
+    "zombie:传送带僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "木船",
+  "night": true,
+  "seed": 2517
+ },
+ {
+  "bans": [
+   "plant:大喷菇",
+   "plant:大嘴花",
+   "zombie:成长脑光墓碑",
+   "zombie:双生脑光墓碑",
+   "plant:南瓜头",
+   "zombie:辣椒僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:阳光菇",
+    "plant:闪电芦苇",
+    "plant:超载芦苇",
+    "plant:胆小菇",
+    "secret:电疗",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:传送带僵尸",
+    "zombie:水上脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:豌豆僵尸"
+   ]
+  },
+  "map": "木船",
+  "night": true,
+  "seed": 2534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:大喷菇",
+    "plant:阳光菇",
+    "plant:闪电芦苇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:海豚僵尸",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "木船",
+  "night": true,
+  "seed": 3500
+ },
+ {
+  "bans": [
+   "plant:甜薯",
+   "plant:闪电芦苇",
+   "zombie:海豚僵尸",
+   "zombie:旗帜僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "secret:无土栽培",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:玉米投手",
+    "plant:毁灭菇",
+    "plant:黄金蓓蕾",
+    "plant:萝卜伞"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:红眼巨人",
+    "zombie:传送带僵尸",
+    "zombie:豌豆僵尸"
+   ]
+  },
+  "map": "木船",
+  "night": true,
+  "seed": 3517
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:闪电芦苇",
+   "zombie:旗帜僵尸",
+   "zombie:海豚僵尸",
+   "plant:南瓜头",
+   "zombie:垃圾桶僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:旋转芜菁",
+    "secret:无土栽培",
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "plant:毁灭菇",
+    "plant:甜薯",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:海盗鹦鹉",
+    "zombie:乌鸦",
+    "zombie:双生脑光墓碑",
+    "zombie:传送带僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:稻草人"
+   ]
+  },
+  "map": "木船",
+  "night": true,
+  "seed": 3534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:玉米投手",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "大楼",
+  "night": false,
+  "seed": 1000
+ },
+ {
+  "bans": [
+   "plant:向日葵",
+   "plant:玉米投手",
+   "zombie:成长脑光墓碑",
+   "zombie:双生脑光墓碑"
+  ],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "secret:无土栽培",
+    "plant:超载芦苇",
+    "plant:双子向日葵",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:传送带僵尸",
+    "zombie:坚固脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "大楼",
+  "night": false,
+  "seed": 1017
+ },
+ {
+  "bans": [
+   "plant:玉米投手",
+   "plant:大嘴花",
+   "zombie:成长脑光墓碑",
+   "zombie:双生脑光墓碑",
+   "plant:蓝火树桩",
+   "zombie:大喷菇僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "secret:无土栽培",
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:卷心菜投手"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:传送带僵尸",
+    "zombie:坚固脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "大楼",
+  "night": false,
+  "seed": 1034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:玉米投手",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "大楼",
+  "night": false,
+  "seed": 2000
+ },
+ {
+  "bans": [
+   "plant:向日葵",
+   "plant:大嘴花",
+   "zombie:成长脑光墓碑",
+   "zombie:掷弹兵僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:双子向日葵",
+    "secret:无土栽培",
+    "plant:卷心菜投手",
+    "plant:甜薯",
+    "plant:寒冰辣椒",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zombie:传送带僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "大楼",
+  "night": false,
+  "seed": 2017
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:闪电芦苇",
+   "zombie:豌豆僵尸",
+   "zombie:旗帜僵尸",
+   "plant:冰瓜投手",
+   "zombie:掷弹兵僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:旋转芜菁",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:超载芦苇",
+    "plant:甜薯",
+    "secret:电疗",
+    "plant:卷心菜投手"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:传送带僵尸",
+    "zombie:小鬼僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:小鬼炮",
+    "zombie:撑杆跳僵尸",
+    "zombie:铁桶钢门僵尸"
+   ]
+  },
+  "map": "大楼",
+  "night": false,
+  "seed": 2034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:玉米投手",
+    "secret:电疗",
+    "plant:大嘴花",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zsecret:一大波僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "大楼",
+  "night": false,
+  "seed": 3000
+ },
+ {
+  "bans": [
+   "plant:玉米投手",
+   "plant:闪电芦苇",
+   "zombie:小鬼炮",
+   "zombie:豌豆僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:芦笋战机",
+    "plant:向日葵",
+    "plant:旋转芜菁",
+    "secret:无土栽培",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "plant:卷心菜投手"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "大楼",
+  "night": false,
+  "seed": 3017
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:玉米投手",
+   "zombie:旗帜僵尸",
+   "zombie:成长脑光墓碑",
+   "plant:墓碑吞噬者",
+   "zombie:海豚僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:旋转芜菁",
+    "plant:向日葵",
+    "secret:无土栽培",
+    "plant:超载芦苇",
+    "plant:闪电芦苇",
+    "secret:电疗",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:传送带僵尸"
+   ]
+  },
+  "map": "大楼",
+  "night": false,
+  "seed": 3034
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "secret:无土栽培",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "大楼",
+  "night": true,
+  "seed": 1500
+ },
+ {
+  "bans": [
+   "plant:闪电芦苇",
+   "plant:阳光菇",
+   "zombie:双生脑光墓碑",
+   "zombie:掷弹兵僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:大喷菇",
+    "secret:无土栽培",
+    "plant:向日葵",
+    "plant:玉米投手",
+    "plant:大嘴花",
+    "plant:甜薯",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:脑光墓碑",
+    "zombie:传送带僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "大楼",
+  "night": true,
+  "seed": 1517
+ },
+ {
+  "bans": [
+   "plant:大嘴花",
+   "plant:甜薯",
+   "zombie:豌豆僵尸",
+   "zombie:旗帜僵尸",
+   "plant:地刺",
+   "zombie:巨人僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:旋转芜菁",
+    "plant:阳光菇",
+    "secret:无土栽培",
+    "plant:闪电芦苇",
+    "secret:电疗",
+    "plant:毁灭菇",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:小鬼炮",
+    "zombie:成长脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "zombie:大喷菇僵尸",
+    "zombie:撑杆跳僵尸"
+   ]
+  },
+  "map": "大楼",
+  "night": true,
+  "seed": 1534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "secret:无土栽培",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "大楼",
+  "night": true,
+  "seed": 2500
+ },
+ {
+  "bans": [
+   "plant:阳光菇",
+   "plant:大嘴花",
+   "zombie:旗帜僵尸",
+   "zombie:掷弹兵僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:大喷菇",
+    "secret:无土栽培",
+    "plant:向日葵",
+    "plant:闪电芦苇",
+    "plant:毁灭菇",
+    "plant:甜薯",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:史莱姆僵尸",
+    "zombie:成长脑光墓碑",
+    "zombie:小鬼炮",
+    "zombie:传送带僵尸",
+    "zombie:橄榄球僵尸"
+   ]
+  },
+  "map": "大楼",
+  "night": true,
+  "seed": 2517
+ },
+ {
+  "bans": [
+   "plant:闪电芦苇",
+   "plant:大喷菇",
+   "zombie:豌豆僵尸",
+   "zombie:成长脑光墓碑",
+   "plant:抓人草",
+   "zombie:辣椒僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:旋转芜菁",
+    "plant:阳光菇",
+    "secret:无土栽培",
+    "plant:超载芦苇",
+    "plant:胆小菇",
+    "secret:电疗",
+    "plant:甜薯"
+   ],
+   "zombie": [
+    "zombie:脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "zombie:传送带僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "大楼",
+  "night": true,
+  "seed": 2534
+ },
+ {
+  "bans": [],
+  "decks": {
+   "plant": [
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "secret:无土栽培",
+    "plant:大喷菇",
+    "plant:甜薯",
+    "plant:大嘴花",
+    "secret:电疗"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zsecret:一大波僵尸",
+    "zombie:旗帜僵尸"
+   ]
+  },
+  "map": "大楼",
+  "night": true,
+  "seed": 3500
+ },
+ {
+  "bans": [
+   "plant:闪电芦苇",
+   "plant:大喷菇",
+   "zombie:成长脑光墓碑",
+   "zombie:小鬼炮"
+  ],
+  "decks": {
+   "plant": [
+    "plant:阳光菇",
+    "plant:旋转芜菁",
+    "secret:无土栽培",
+    "plant:超载芦苇",
+    "plant:毁灭菇",
+    "plant:甜薯",
+    "plant:胆小菇"
+   ],
+   "zombie": [
+    "zombie:双生脑光墓碑",
+    "zombie:豌豆僵尸",
+    "zombie:橄榄球僵尸",
+    "zombie:脑光墓碑",
+    "zombie:传送带僵尸",
+    "zombie:掷弹兵僵尸",
+    "zombie:红眼巨人"
+   ]
+  },
+  "map": "大楼",
+  "night": true,
+  "seed": 3517
+ },
+ {
+  "bans": [
+   "plant:闪电芦苇",
+   "plant:大嘴花",
+   "zombie:旗帜僵尸",
+   "zombie:豌豆僵尸",
+   "plant:小喷菇",
+   "zombie:潜水僵尸"
+  ],
+  "decks": {
+   "plant": [
+    "plant:大喷菇",
+    "secret:无土栽培",
+    "plant:阳光菇",
+    "plant:卷心菜投手",
+    "plant:甜薯",
+    "plant:毁灭菇",
+    "plant:黄金蓓蕾"
+   ],
+   "zombie": [
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "zombie:小鬼炮",
+    "zombie:橄榄球僵尸",
+    "zombie:大喷菇僵尸"
+   ]
+  },
+  "map": "大楼",
+  "night": true,
+  "seed": 3534
+ }
+]

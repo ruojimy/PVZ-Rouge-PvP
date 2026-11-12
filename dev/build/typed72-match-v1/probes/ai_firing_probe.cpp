@@ -1,0 +1,11 @@
+#include "sim/typed/ai_firing.h"
+#include "sim/typed/room_wire.h"
+#include <fstream>
+#include <iostream>
+using namespace pvz::typed72;
+namespace {using J=WireObject;
+J point(std::optional<int> value){return value?J(*value):J(nullptr);}
+J run(const J& input){AiFiringFailures failures;J output=J::array();for(const auto& op:input.at("operations")){TargetSight terrain;terrain.solid=op.value("solid",std::vector<std::vector<uint8_t>>{});std::vector<AiFiringTarget> targets;for(const auto& t:op.at("targets"))targets.push_back({{t.at("x"),t.at("y")},t.value("h",0.)});const auto& raw=op.at("card");AiFiringCard card;card.id=raw.at("id");card.name=raw.value("name",std::string{});card.behavior=raw.value("behavior",std::string{});card.producer=raw.value("producer",false);card.lob=raw.value("lob",false);card.star=raw.value("star",false);card.homing=raw.value("homing",false);if(raw.contains("range")&&!raw.at("range").is_null())card.range=raw["range"];
+    const double width=op.value("width",960.),tile=op.value("tile",48.);AiFiringFrame frame{terrain,targets,width,tile};AiFiring firing(frame);Point at{op.at("x"),op.at("y")};const int facing=op.value("facing",1);const auto assessment=firing.assessment(card,at,facing);const auto direction=firing.direction(card,at,facing);const auto remembered=failures.direction(firing,card,at,facing,op.value("time",0.),width,tile);J assessed={{"allowed",assessment.allowed},{"reason",ai_firing_reason_name(assessment.reason)}};if(assessment.distance)assessed["distance"]=*assessment.distance;J row={{"assessment",assessed},{"direction",point(direction)},{"remembered",point(remembered)},{"memo_count",failures.entries.size()},{"blocked",failures.lane_blocked},{"last_card",failures.last_blocked_card},{"blocked_count",failures.blocked_lane_count},{"turn_count",failures.turn_count}};if(op.contains("segment")){const auto& s=op["segment"];row["segment"]=firing.clear_segment({s[0],s[1]},{s[2],s[3]});}output.push_back(row);}return output;}
+}
+int main(int argc,char** argv){try{if(argc!=3)throw std::invalid_argument("expected input and output");std::ifstream in(argv[1],std::ios::binary);std::ofstream out(argv[2],std::ios::binary);std::string line;while(std::getline(in,line))if(!line.empty())out<<run(J::parse(line)).dump()<<'\n';return in.bad()||!out?2:0;}catch(const std::exception& e){std::cerr<<e.what()<<'\n';return 2;}}

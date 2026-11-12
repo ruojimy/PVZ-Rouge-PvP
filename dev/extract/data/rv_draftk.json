@@ -1,0 +1,53 @@
+{
+ "KNOWLEDGE": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\选卡知识.json",
+ "ROLE_BY_BEHAVIOR": {
+  "produce": "经济",
+  "grave": "墓碑",
+  "shoot": "直射",
+  "wall": "墙",
+  "garlic": "墙",
+  "ash": "爆发",
+  "squash": "爆发",
+  "chomp": "爆发",
+  "chili": "爆发",
+  "doom": "爆发",
+  "freeze": "控制",
+  "mine": "爆发",
+  "pot": "工具",
+  "lily": "工具",
+  "coffee": "工具",
+  "stone": "工具",
+  "copy": "工具",
+  "gravebuster": "拆碑",
+  "spike": "地刺",
+  "torch": "增益",
+  "umbrella": "辅助",
+  "lantern": "辅助",
+  "support": "辅助",
+  "magnet": "磁力",
+  "wind": "对空",
+  "charm": "控制",
+  "cannon": "爆发",
+  "secret": "秘籍",
+  "bite": "近战",
+  "lob": "远程",
+  "suicide": "自爆",
+  "thief": "偷袭",
+  "blover": "辅助",
+  "gold_magnet": "辅助",
+  "lantern_zombie": "辅助"
+ },
+ "LOBBERS": {
+  "__set__": [
+   "冰瓜投手",
+   "卷心菜投手",
+   "玉米投手",
+   "甜椒投手",
+   "西瓜投手"
+  ]
+ },
+ "_cache": {},
+ "_active": {
+  "path": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\选卡知识.json"
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "_NATIVE": null,
+ "_NATIVE_TRIED": false,
+ "_NATIVE_STATUS": {
+  "state": "not_attempted",
+  "path": null,
+  "errors": []
+ },
+ "NATIVE_KERNEL_VERSION": 1,
+ "WORKER_PROTOCOL": 1,
+ "SERIALIZER_VERSION": "marshal4-json-zlib4-b64",
+ "WORKER_FLAG": "--pvp-pack-worker"
+}

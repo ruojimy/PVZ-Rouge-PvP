@@ -1,0 +1,95 @@
+{
+ "NATIVE_HZ": 250,
+ "REGIONS": {
+  "definitions": [
+   64,
+   29952
+  ],
+  "unit_tables": [
+   30678,
+   32104
+  ],
+  "zombies": [
+   68412,
+   97986
+  ],
+  "plant_draw": [
+   97986,
+   98256
+  ],
+  "unit_target_index": [
+   98256,
+   98618
+  ],
+  "zombie_coordinates": [
+   68642,
+   68708
+  ],
+  "zombie_body_index": [
+   78458,
+   78628
+  ],
+  "entities": [
+   98618,
+   108808
+  ],
+  "particles": [
+   108808,
+   109352
+  ],
+  "plant_maintenance": [
+   113444,
+   119530
+  ],
+  "plants": [
+   121092,
+   144612
+  ],
+  "placement": [
+   109352,
+   110754
+  ],
+  "coffee": [
+   159944,
+   160138
+  ],
+  "shovel": [
+   159198,
+   159300
+  ],
+  "sun_motion": [
+   145426,
+   145550
+  ],
+  "water_animation": [
+   59028,
+   59116
+  ],
+  "important_blocks": [
+   64692,
+   65216
+  ],
+  "water_ice_clock": [
+   149032,
+   149058
+  ],
+  "umbrella_player_trigger": [
+   131758,
+   131932
+  ],
+  "umbrella_player_bounce": [
+   132356,
+   132482
+  ],
+  "cannon_select": [
+   158214,
+   158400
+  ],
+  "cannon_fire": [
+   160744,
+   160856
+  ]
+ },
+ "_COMPILED": {},
+ "_CODE_CACHE": {}
+}

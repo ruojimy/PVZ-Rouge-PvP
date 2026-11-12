@@ -1,0 +1,77 @@
+{
+ "PRIMAL_MINE": "原始土豆地雷",
+ "SWEET_POTATO": "甜薯",
+ "PEA_MORTAR": "豌豆迫击炮",
+ "SPRING_GRASS": "弹簧草",
+ "REDEYE": "红眼巨人",
+ "SLIME": "史莱姆僵尸",
+ "SLIME_MEDIUM": "中型史莱姆",
+ "SLIME_SMALL": "小型史莱姆",
+ "SLIMES": [
+  "史莱姆僵尸",
+  "中型史莱姆",
+  "小型史莱姆"
+ ],
+ "SLIME_NEXT": {
+  "史莱姆僵尸": "中型史莱姆",
+  "中型史莱姆": "小型史莱姆"
+ },
+ "SLIME_HP": {
+  "史莱姆僵尸": 200.0,
+  "中型史莱姆": 75.0,
+  "小型史莱姆": 30.0
+ },
+ "CONVEYOR": "传送带僵尸",
+ "GRENADIER": "掷弹兵僵尸",
+ "PRIMAL_RADIUS": 2.4,
+ "SWEET_RADIUS": 6.0,
+ "MORTAR_INTERVAL": 2.0,
+ "MORTAR_SHOTS": 5,
+ "MORTAR_RANGE_COLUMNS": 16,
+ "MORTAR_RETRY_SECONDS": 0.2,
+ "SPRING_RANGE": 2.4,
+ "SPRING_HALF_ANGLE": 30.0,
+ "SPRING_INTERVAL": 1.2,
+ "SPRING_DAMAGE": 6.0,
+ "SPRING_HERO_DAMAGE": 3.0,
+ "REDEYE_THROW_SECONDS": 8.0,
+ "REDEYE_THROW_RADIUS": 3.0,
+ "GRENADE_SECONDS": 1.0,
+ "GRENADE_RADIUS": 6.0,
+ "GRENADE_DAMAGE": 6.0,
+ "GRENADE_HERO_DAMAGE": 6.0,
+ "CUSTOM_PLANTS": [
+  "甜薯",
+  "豌豆迫击炮",
+  "弹簧草"
+ ],
+ "DRAWN_ZOMBIES": [
+  "史莱姆僵尸",
+  "中型史莱姆",
+  "小型史莱姆",
+  "掷弹兵僵尸"
+ ],
+ "FLYERS": [
+  "海盗鹦鹉",
+  "乌鸦"
+ ],
+ "TAUNT_KEYS": [
+  "洪水",
+  "目标植物",
+  "目标位置",
+  "paoku",
+  "输出植物数"
+ ],
+ "ART_SUFFIXES": [
+  "",
+  "-受伤",
+  "-冰冻",
+  "-灰烬",
+  "-魅惑"
+ ],
+ "PLANT_GROUND_OVERLAP": 0.0625,
+ "BELT_STRIDE": 65536,
+ "GRAB_TICKS": 75,
+ "SWIPE_TICKS": 60,
+ "BLAST_TICKS": 45
+}

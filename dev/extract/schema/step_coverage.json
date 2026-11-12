@@ -1,0 +1,3210 @@
+{
+"audit_log.py:_check_open:41": [
+58,
+2
+],
+"audit_log.py:append:51": [
+58,
+12
+],
+"balance.py:rest_factor:136": [
+500,
+15
+],
+"balance68006.py:fire_color:5": [
+18,
+10
+],
+"balance68006.py:hero_amount:16": [
+16,
+20
+],
+"cart_lifecycle.py:before_zombie:28": [
+137347,
+13
+],
+"catalog.py:<genexpr>:586": [
+44592,
+18
+],
+"catalog.py:<listcomp>:755": [
+1313,
+85
+],
+"catalog.py:actual_card:673": [
+1313,
+85
+],
+"catalog.py:allowed:583": [
+3716,
+18
+],
+"catalog.py:native_secret_names:760": [
+1312,
+12
+],
+"catalog.py:resolve_card:774": [
+1312,
+19
+],
+"cppcore.py:native:74": [
+5,
+9
+],
+"cppcore.py:native_for:119": [
+5,
+21
+],
+"legacy_fixes.py:_is_i_zombie:56": [
+2412,
+2
+],
+"legacy_fixes.py:wrapped:61": [
+2412,
+9
+],
+"maps.py:_cell:77": [
+22,
+13
+],
+"native_animation.py:<dictcomp>:118": [
+3590,
+12
+],
+"native_animation.py:<dictcomp>:64": [
+5000,
+72
+],
+"native_animation.py:<genexpr>:320": [
+11,
+23
+],
+"native_animation.py:<genexpr>:503": [
+441,
+5
+],
+"native_animation.py:<genexpr>:51": [
+81,
+72
+],
+"native_animation.py:<lambda>:510": [
+128366,
+1
+],
+"native_animation.py:<listcomp>:116": [
+286159,
+12
+],
+"native_animation.py:<listcomp>:50": [
+1,
+72
+],
+"native_animation.py:<listcomp>:61": [
+5000,
+72
+],
+"native_animation.py:<setcomp>:57": [
+2,
+72
+],
+"native_animation.py:Surface:393": [
+1038,
+4
+],
+"native_animation.py:__getattr__:375": [
+4130,
+12
+],
+"native_animation.py:__getattr__:392": [
+862,
+1
+],
+"native_animation.py:__init__:131": [
+26034,
+2
+],
+"native_animation.py:__init__:229": [
+25247,
+10
+],
+"native_animation.py:__init__:256": [
+189977,
+2
+],
+"native_animation.py:_append:411": [
+69934,
+12
+],
+"native_animation.py:_deferred_size:309": [
+25251,
+23
+],
+"native_animation.py:_execute:303": [
+5,
+6
+],
+"native_animation.py:_own:144": [
+9349,
+5
+],
+"native_animation.py:_plain:108": [
+969876,
+12
+],
+"native_animation.py:_run:332": [
+114115,
+15
+],
+"native_animation.py:_run_miss:347": [
+25251,
+18
+],
+"native_animation.py:begin_frame:406": [
+2500,
+5
+],
+"native_animation.py:blit:212": [
+6,
+8
+],
+"native_animation.py:blit:423": [
+68798,
+11
+],
+"native_animation.py:call:377": [
+3590,
+9
+],
+"native_animation.py:convert_alpha:172": [
+6,
+4
+],
+"native_animation.py:copy:157": [
+1122,
+11
+],
+"native_animation.py:describe:150": [
+29019,
+6
+],
+"native_animation.py:describe:284": [
+68006,
+2
+],
+"native_animation.py:draw_dave:34": [
+5000,
+72
+],
+"native_animation.py:fill:205": [
+510,
+6
+],
+"native_animation.py:flip:367": [
+54104,
+1
+],
+"native_animation.py:frozen:134": [
+24839,
+6
+],
+"native_animation.py:frozen:268": [
+164790,
+4
+],
+"native_animation.py:get:240": [
+60,
+13
+],
+"native_animation.py:get_alpha:186": [
+230154,
+1
+],
+"native_animation.py:get_alpha:281": [
+95077,
+1
+],
+"native_animation.py:get_at:196": [
+32,
+1
+],
+"native_animation.py:get_colorkey:187": [
+117441,
+1
+],
+"native_animation.py:get_colorkey:282": [
+91053,
+1
+],
+"native_animation.py:get_flags:188": [
+86233,
+1
+],
+"native_animation.py:get_height:183": [
+27083,
+1
+],
+"native_animation.py:get_height:276": [
+676,
+1
+],
+"native_animation.py:get_rect:185": [
+45661,
+1
+],
+"native_animation.py:get_rect:277": [
+142273,
+4
+],
+"native_animation.py:get_rect:440": [
+1136,
+2
+],
+"native_animation.py:get_size:184": [
+115890,
+1
+],
+"native_animation.py:get_size:274": [
+215841,
+1
+],
+"native_animation.py:get_width:182": [
+27023,
+1
+],
+"native_animation.py:get_width:275": [
+676,
+1
+],
+"native_animation.py:loaded:500": [
+147,
+5
+],
+"native_animation.py:pixels:259": [
+1080,
+4
+],
+"native_animation.py:pixels:264": [
+60,
+3
+],
+"native_animation.py:primitive:434": [
+1136,
+3
+],
+"native_animation.py:register_asset:477": [
+147,
+7
+],
+"native_animation.py:require_image:484": [
+185373,
+6
+],
+"native_animation.py:retained_bytes:141": [
+26223,
+2
+],
+"native_animation.py:retained_bytes:273": [
+93133,
+1
+],
+"native_animation.py:rotate:368": [
+59945,
+1
+],
+"native_animation.py:scale:365": [
+66,
+1
+],
+"native_animation.py:set_alpha:189": [
+92612,
+5
+],
+"native_animation.py:snapshot:445": [
+300,
+9
+],
+"native_assets.py:__getattr__:28": [
+147,
+1
+],
+"native_assets.py:load:19": [
+147,
+5
+],
+"native_audio.py:<genexpr>:14": [
+2450,
+17
+],
+"native_audio.py:<genexpr>:19": [
+1458,
+17
+],
+"native_audio.py:emit:13": [
+490,
+17
+],
+"native_audio.py:event:41": [
+58,
+9
+],
+"native_barrels.py:<listcomp>:129": [
+2500,
+18
+],
+"native_barrels.py:<setcomp>:38": [
+5000,
+11
+],
+"native_barrels.py:contact_plants:49": [
+500,
+13
+],
+"native_barrels.py:correct_pair:92": [
+500,
+19
+],
+"native_barrels.py:detach:14": [
+39,
+22
+],
+"native_barrels.py:draw:131": [
+60,
+6
+],
+"native_barrels.py:float_on_water:81": [
+500,
+10
+],
+"native_barrels.py:reconcile:37": [
+5000,
+11
+],
+"native_barrels.py:tick:112": [
+2500,
+18
+],
+"native_battle.py:<dictcomp>:2122": [
+50,
+28
+],
+"native_battle.py:<dictcomp>:726": [
+3132,
+11
+],
+"native_battle.py:<lambda>:206": [
+1,
+2
+],
+"native_battle.py:<listcomp>:1017": [
+2500,
+261
+],
+"native_battle.py:<listcomp>:1118": [
+300,
+66
+],
+"native_battle.py:<listcomp>:1142": [
+300,
+52
+],
+"native_battle.py:<listcomp>:206": [
+1,
+2
+],
+"native_battle.py:<listcomp>:957": [
+5000,
+261
+],
+"native_battle.py:<setcomp>:2150": [
+300,
+64
+],
+"native_battle.py:_advance_suns:1377": [
+2500,
+11
+],
+"native_battle.py:_apply_pvp_hardening:2066": [
+4896,
+32
+],
+"native_battle.py:_card:1574": [
+1312,
+3
+],
+"native_battle.py:_deathmatch_water:1356": [
+300,
+14
+],
+"native_battle.py:_economy:1187": [
+300,
+67
+],
+"native_battle.py:_emit:2580": [
+58,
+3
+],
+"native_battle.py:_engine_draws_entity:733": [
+68380,
+14
+],
+"native_battle.py:_finish_sun_source:2395": [
+2500,
+7
+],
+"native_battle.py:_hero_damage_factor:1325": [
+16,
+7
+],
+"native_battle.py:_hero_damaged:763": [
+16,
+14
+],
+"native_battle.py:_hero_lock:662": [
+19116,
+32
+],
+"native_battle.py:_inherit_carried_imp_armor:509": [
+1,
+32
+],
+"native_battle.py:_jump_cap:755": [
+5600,
+7
+],
+"native_battle.py:_masochist:1255": [
+300,
+3
+],
+"native_battle.py:_masochist_seat:1259": [
+300,
+21
+],
+"native_battle.py:_merge_suns:1134": [
+300,
+52
+],
+"native_battle.py:_own_umbrella_effects:1040": [
+5000,
+9
+],
+"native_battle.py:_own_umbrella_pass:1050": [
+5000,
+13
+],
+"native_battle.py:_petrified_torch_ignite_plant_peas:435": [
+2500,
+3
+],
+"native_battle.py:_petrified_torches:402": [
+3402,
+21
+],
+"native_battle.py:_rally_rise:1294": [
+2500,
+30
+],
+"native_battle.py:_rally_speed:1535": [
+87053,
+8
+],
+"native_battle.py:_rally_zombie_gate:1522": [
+137347,
+7
+],
+"native_battle.py:_recover_heroes:1389": [
+300,
+19
+],
+"native_battle.py:_register:1984": [
+3,
+29
+],
+"native_battle.py:_restore_rally_tracking:1519": [
+139847,
+2
+],
+"native_battle.py:_select_hero:1447": [
+2500,
+4
+],
+"native_battle.py:_star_target:695": [
+20,
+16
+],
+"native_battle.py:_step_original:778": [
+2500,
+261
+],
+"native_battle.py:_sturdy:1333": [
+300,
+3
+],
+"native_battle.py:_sturdy_seat:1337": [
+300,
+18
+],
+"native_battle.py:_sync_public:2131": [
+300,
+64
+],
+"native_battle.py:_sync_terrain:2102": [
+300,
+28
+],
+"native_battle.py:_tracking_gate:712": [
+110654,
+8
+],
+"native_battle.py:_tracking_index:721": [
+3132,
+11
+],
+"native_battle.py:_unit_card:1885": [
+22189,
+21
+],
+"native_battle.py:_unit_card_resolved:1907": [
+1,
+6
+],
+"native_battle.py:_update_rally_tracking:1473": [
+2500,
+45
+],
+"native_battle.py:impact:2025": [
+305,
+3
+],
+"native_battle.py:pvp_scan:2028": [
+379,
+13
+],
+"native_battle.py:rally_tracking_for:1530": [
+137347,
+4
+],
+"native_battle.py:spawn_remnant:372": [
+1,
+10
+],
+"native_battle.py:star_hit:2030": [
+14,
+6
+],
+"native_battle.py:step:1064": [
+300,
+66
+],
+"native_battle.py:taunt_gate:266": [
+137347,
+3
+],
+"native_battle.py:tick_asleep:70": [
+44376,
+3
+],
+"native_battle.py:zombie:470": [
+1,
+37
+],
+"native_battle.py:zombie_hero_proxies:2232": [
+2501,
+5
+],
+"native_bites.py:<lambda>:42": [
+73,
+1
+],
+"native_bites.py:bite:22": [
+73,
+8
+],
+"native_bytecode.py:instructions:23": [
+2,
+9
+],
+"native_candidates.py:<dictcomp>:142": [
+101,
+91
+],
+"native_candidates.py:<listcomp>:122": [
+101,
+91
+],
+"native_candidates.py:<listcomp>:129": [
+101,
+91
+],
+"native_candidates.py:<listcomp>:141": [
+99,
+91
+],
+"native_candidates.py:__call__:66": [
+480,
+23
+],
+"native_candidates.py:_geometry:90": [
+101,
+14
+],
+"native_candidates.py:_scan:118": [
+101,
+91
+],
+"native_candidates.py:_unchanged:105": [
+291,
+12
+],
+"native_candidates.py:body:146": [
+1197,
+30
+],
+"native_content.py:<genexpr>:817": [
+30,
+15
+],
+"native_content.py:<lambda>:230": [
+23,
+1
+],
+"native_content.py:<lambda>:453": [
+1932,
+1
+],
+"native_content.py:<lambda>:464": [
+1207,
+1
+],
+"native_content.py:<lambda>:474": [
+87053,
+1
+],
+"native_content.py:<lambda>:507": [
+500,
+1
+],
+"native_content.py:<lambda>:801": [
+2500,
+1
+],
+"native_content.py:<listcomp>:1119": [
+2500,
+60
+],
+"native_content.py:<listcomp>:200": [
+500,
+3
+],
+"native_content.py:<listcomp>:702": [
+2500,
+12
+],
+"native_content.py:<listcomp>:703": [
+2500,
+12
+],
+"native_content.py:<listcomp>:744": [
+2500,
+40
+],
+"native_content.py:<listcomp>:790": [
+2748,
+8
+],
+"native_content.py:<listcomp>:791": [
+3,
+8
+],
+"native_content.py:after_plants:705": [
+2500,
+25
+],
+"native_content.py:aim_point:456": [
+11232,
+5
+],
+"native_content.py:allows_hit:588": [
+494,
+10
+],
+"native_content.py:apply_frost:898": [
+5000,
+5
+],
+"native_content.py:barrel_active:1105": [
+243631,
+2
+],
+"native_content.py:barrel_projectiles:1112": [
+2500,
+60
+],
+"native_content.py:barrel_samples:198": [
+500,
+3
+],
+"native_content.py:before_tick:692": [
+2500,
+12
+],
+"native_content.py:bite_damage:628": [
+13,
+17
+],
+"native_content.py:body_contact:437": [
+11644,
+8
+],
+"native_content.py:card_crush:84": [
+8,
+11
+],
+"native_content.py:card_particles:95": [
+423,
+12
+],
+"native_content.py:clover_blow:731": [
+2500,
+40
+],
+"native_content.py:damage_target:804": [
+20,
+15
+],
+"native_content.py:draw_center:909": [
+311,
+3
+],
+"native_content.py:draw_custom_plant:109": [
+60,
+39
+],
+"native_content.py:draw_dart:904": [
+1695,
+4
+],
+"native_content.py:draw_plant:546": [
+4723,
+40
+],
+"native_content.py:draw_zombie:1195": [
+137347,
+32
+],
+"native_content.py:enemies:788": [
+2748,
+8
+],
+"native_content.py:entity:232": [
+201,
+16
+],
+"native_content.py:finish_zombie:1001": [
+139847,
+96
+],
+"native_content.py:flyer_bite_effect:650": [
+73,
+6
+],
+"native_content.py:gas_hit:657": [
+420,
+4
+],
+"native_content.py:get:414": [
+193,
+4
+],
+"native_content.py:hero_damage:395": [
+14,
+17
+],
+"native_content.py:hit:252": [
+395,
+52
+],
+"native_content.py:homing_aim_y:23": [
+1932,
+7
+],
+"native_content.py:knockback:372": [
+52,
+5
+],
+"native_content.py:move_barrel:1173": [
+500,
+21
+],
+"native_content.py:multi_blue_direct:606": [
+386,
+4
+],
+"native_content.py:nearest:797": [
+500,
+6
+],
+"native_content.py:pepper_solution:217": [
+17,
+11
+],
+"native_content.py:plant_art:68": [
+64,
+13
+],
+"native_content.py:plant_bite:646": [
+86,
+3
+],
+"native_content.py:plant_gate:515": [
+40870,
+12
+],
+"native_content.py:point:782": [
+83808,
+5
+],
+"native_content.py:prepare_dart:772": [
+5,
+9
+],
+"native_content.py:projectile_art:529": [
+69784,
+15
+],
+"native_content.py:projectiles:820": [
+2500,
+77
+],
+"native_content.py:red_tripea:420": [
+9,
+5
+],
+"native_content.py:surface_hit:304": [
+41,
+45
+],
+"native_content.py:zombie_gate:511": [
+137347,
+2
+],
+"native_content.py:zombie_gate:913": [
+137347,
+72
+],
+"native_expansion.py:<genexpr>:844": [
+6016,
+42
+],
+"native_expansion.py:<listcomp>:820": [
+2500,
+42
+],
+"native_expansion.py:absorb_clock_cap:800": [
+2500,
+16
+],
+"native_expansion.py:after_plants:860": [
+2500,
+10
+],
+"native_expansion.py:alias_art:436": [
+27500,
+6
+],
+"native_expansion.py:armor_clear:508": [
+277194,
+5
+],
+"native_expansion.py:armor_drop:314": [
+10,
+13
+],
+"native_expansion.py:armor_gate:443": [
+137347,
+34
+],
+"native_expansion.py:art_key:136": [
+123671,
+9
+],
+"native_expansion.py:atlas_name:147": [
+7700,
+3
+],
+"native_expansion.py:aura:789": [
+40870,
+10
+],
+"native_expansion.py:before_plants:817": [
+2500,
+42
+],
+"native_expansion.py:black_armor_blast:328": [
+1,
+42
+],
+"native_expansion.py:black_armor_radius:72": [
+1,
+3
+],
+"native_expansion.py:carried_imp_armored:119": [
+139106,
+5
+],
+"native_expansion.py:damage:233": [
+380,
+19
+],
+"native_expansion.py:finish_zombie:371": [
+139847,
+14
+],
+"native_expansion.py:head:285": [
+9282,
+6
+],
+"native_expansion.py:imp_headgear:514": [
+1758,
+24
+],
+"native_expansion.py:projectile:254": [
+201,
+26
+],
+"native_expansion.py:raised:585": [
+1758,
+5
+],
+"native_expansion.py:restore_art:432": [
+376155,
+3
+],
+"native_expansion.py:seated_headgear:591": [
+123671,
+42
+],
+"native_expansion.py:show:282": [
+4723,
+12
+],
+"native_expansion.py:source_gate:676": [
+231308,
+11
+],
+"native_expansion.py:worn_black_armor:77": [
+137737,
+6
+],
+"native_expansion.py:zombie_gate:386": [
+137347,
+45
+],
+"native_flood.py:<listcomp>:39": [
+960,
+70
+],
+"native_flood.py:<listcomp>:53": [
+915,
+70
+],
+"native_flood.py:<listcomp>:54": [
+22875,
+70
+],
+"native_flood.py:<listcomp>:55": [
+915,
+70
+],
+"native_flood.py:<module>:1": [
+1,
+85
+],
+"native_flood.py:advance:16": [
+5000,
+70
+],
+"native_gravebuster.py:<dictcomp>:187": [
+778,
+12
+],
+"native_gravebuster.py:<genexpr>:140": [
+7,
+21
+],
+"native_gravebuster.py:<genexpr>:151": [
+1,
+21
+],
+"native_gravebuster.py:<setcomp>:186": [
+778,
+12
+],
+"native_gravebuster.py:_event:157": [
+1,
+7
+],
+"native_gravebuster.py:_target_cell:119": [
+826,
+8
+],
+"native_gravebuster.py:_valid:128": [
+826,
+6
+],
+"native_gravebuster.py:attach:135": [
+1,
+21
+],
+"native_gravebuster.py:before_native_tick:183": [
+5000,
+12
+],
+"native_gravebuster.py:draw:79": [
+4723,
+32
+],
+"native_gravebuster.py:plants:196": [
+5000,
+10
+],
+"native_gravebuster.py:snapshot:45": [
+300,
+5
+],
+"native_multiworker.py:<genexpr>:1018": [
+3029,
+18
+],
+"native_multiworker.py:<lambda>:969": [
+99,
+1
+],
+"native_multiworker.py:<listcomp>:1010": [
+99,
+18
+],
+"native_multiworker.py:<listcomp>:458": [
+99,
+3
+],
+"native_multiworker.py:<listcomp>:963": [
+99,
+4
+],
+"native_multiworker.py:__init__:305": [
+1,
+12
+],
+"native_multiworker.py:box_candidates:208": [
+99,
+18
+],
+"native_multiworker.py:box_candidates:318": [
+99,
+17
+],
+"native_multiworker.py:chunk_ranges:960": [
+99,
+4
+],
+"native_multiworker.py:gather:1004": [
+99,
+18
+],
+"native_multiworker.py:map:456": [
+99,
+3
+],
+"native_multiworker.py:merge_candidates:966": [
+99,
+15
+],
+"native_multiworker.py:native_kernels:337": [
+99,
+31
+],
+"native_multiworker.py:pack_queries:161": [
+99,
+6
+],
+"native_multiworker.py:pack_targets:152": [
+99,
+7
+],
+"native_multiworker.py:run:928": [
+99,
+19
+],
+"native_patch.py:<genexpr>:243": [
+60,
+4
+],
+"native_patch.py:<setcomp>:369": [
+31,
+39
+],
+"native_patch.py:_defaults:198": [
+2555,
+4
+],
+"native_patch.py:_disconnected:71": [
+13626,
+2
+],
+"native_patch.py:_install:219": [
+2555,
+17
+],
+"native_patch.py:_set_time:251": [
+5300,
+6
+],
+"native_patch.py:_time:248": [
+8748,
+2
+],
+"native_patch.py:after_native_tick:262": [
+2500,
+4
+],
+"native_patch.py:before_native_tick:258": [
+2500,
+3
+],
+"native_patch.py:bonus:407": [
+2500,
+8
+],
+"native_patch.py:draw:267": [
+300,
+5
+],
+"native_patch.py:guarded:241": [
+5,
+5
+],
+"native_patch.py:perf_counter:61": [
+3448,
+2
+],
+"native_patch.py:sourced:347": [
+53166,
+40
+],
+"native_patch.py:status_head:151": [
+925,
+12
+],
+"native_patch.py:touches_supported_plant:132": [
+2157,
+17
+],
+"native_periodic_targets.py:<dictcomp>:98": [
+90479,
+2
+],
+"native_periodic_targets.py:<genexpr>:96": [
+2178341,
+2
+],
+"native_periodic_targets.py:<listcomp>:98": [
+638047,
+2
+],
+"native_periodic_targets.py:begin:70": [
+110942,
+33
+],
+"native_periodic_targets.py:column:91": [
+14301392,
+2
+],
+"native_periodic_targets.py:pick_star:50": [
+20,
+5
+],
+"native_periodic_targets.py:pick_tripea:45": [
+288,
+5
+],
+"native_periodic_targets.py:restore:104": [
+118442,
+13
+],
+"native_physics.py:<dictcomp>:121": [
+2,
+40
+],
+"native_physics.py:<dictcomp>:353": [
+12500,
+26
+],
+"native_physics.py:<dictcomp>:372": [
+12500,
+1
+],
+"native_physics.py:<dictcomp>:474": [
+5000,
+30
+],
+"native_physics.py:<dictcomp>:515": [
+2500,
+38
+],
+"native_physics.py:<dictcomp>:523": [
+2500,
+38
+],
+"native_physics.py:<genexpr>:122": [
+6,
+40
+],
+"native_physics.py:<genexpr>:140": [
+4,
+40
+],
+"native_physics.py:<lambda>:359": [
+5000,
+1
+],
+"native_physics.py:<setcomp>:118": [
+2,
+40
+],
+"native_physics.py:__getitem__:174": [
+80000,
+5
+],
+"native_physics.py:__getitem__:191": [
+194995,
+12
+],
+"native_physics.py:__getitem__:209": [
+7804,
+2
+],
+"native_physics.py:__init__:165": [
+22287,
+2
+],
+"native_physics.py:__init__:185": [
+17500,
+2
+],
+"native_physics.py:__init__:206": [
+12500,
+2
+],
+"native_physics.py:__len__:168": [
+114995,
+2
+],
+"native_physics.py:__len__:188": [
+107495,
+2
+],
+"native_physics.py:_capture_displacement:149": [
+162494,
+5
+],
+"native_physics.py:_execute:339": [
+55000,
+9
+],
+"native_physics.py:_instruction:94": [
+7,
+11
+],
+"native_physics.py:_periodic_open_top:160": [
+60000,
+2
+],
+"native_physics.py:_periodic_out:156": [
+47495,
+2
+],
+"native_physics.py:_restore:376": [
+12500,
+6
+],
+"native_physics.py:_select:349": [
+12500,
+26
+],
+"native_physics.py:_tracking_call:486": [
+2500,
+38
+],
+"native_physics.py:advance_hero_effects:455": [
+5000,
+30
+],
+"native_physics.py:flood_step:63": [
+5,
+13
+],
+"native_physics.py:region_for_jump_limit:400": [
+5000,
+13
+],
+"native_physics.py:slice_original:107": [
+2,
+40
+],
+"native_physics.py:step:414": [
+5000,
+40
+],
+"native_physics.py:update_tracking:533": [
+2500,
+21
+],
+"native_plant_zombies.py:<genexpr>:130": [
+8064,
+9
+],
+"native_plant_zombies.py:<lambda>:70": [
+71462,
+1
+],
+"native_plant_zombies.py:<listcomp>:127": [
+96,
+9
+],
+"native_plant_zombies.py:ignite_charmed_peas:144": [
+2500,
+11
+],
+"native_plant_zombies.py:skip_native_collision:133": [
+1602366,
+4
+],
+"native_plant_zombies.py:squash_impact:97": [
+118,
+9
+],
+"native_plant_zombies.py:squash_target:52": [
+96,
+16
+],
+"native_plant_zombies.py:update_squashes:83": [
+480,
+11
+],
+"native_plant_zombies.py:with_enemy_hero:123": [
+96,
+9
+],
+"native_projectiles.py:<lambda>:43": [
+69784,
+1
+],
+"native_projectiles.py:begin_flight:21": [
+141428,
+17
+],
+"native_projectiles.py:cull_flight:102": [
+2500,
+8
+],
+"native_projectiles.py:expired:63": [
+141096,
+38
+],
+"native_projectiles.py:fire_form:16": [
+105080,
+3
+],
+"native_projectiles.py:head_geometry:111": [
+13933,
+6
+],
+"native_projectiles.py:head_overlaps_area:118": [
+351,
+7
+],
+"native_projectiles.py:impact:126": [
+118,
+40
+],
+"native_projectiles.py:seamless:55": [
+902,
+5
+],
+"native_protection.py:amount:120": [
+483,
+10
+],
+"native_protection.py:multiplier:105": [
+483,
+14
+],
+"native_runtime.py:<dictcomp>:104": [
+22189,
+17
+],
+"native_runtime.py:<genexpr>:125": [
+42,
+15
+],
+"native_runtime.py:<genexpr>:127": [
+44,
+15
+],
+"native_runtime.py:<lambda>:217": [
+86,
+1
+],
+"native_runtime.py:<listcomp>:106": [
+22189,
+17
+],
+"native_runtime.py:__getitem__:138": [
+4252073,
+5
+],
+"native_runtime.py:__setitem__:144": [
+20774,
+5
+],
+"native_runtime.py:alias_free_plain:113": [
+43,
+15
+],
+"native_runtime.py:deepcopy:68": [
+2009649,
+21
+],
+"native_runtime.py:draw_plants:337": [
+300,
+19
+],
+"native_runtime.py:entity:327": [
+69730,
+5
+],
+"native_runtime.py:execute:334": [
+40984,
+2
+],
+"native_runtime.py:open_top:322": [
+1697458,
+5
+],
+"native_runtime.py:out:315": [
+1132719,
+7
+],
+"native_runtime.py:plain_clone:94": [
+44378,
+17
+],
+"native_runtime.py:spawn_plant:357": [
+1,
+4
+],
+"native_runtime.py:spawn_zombie:362": [
+1,
+4
+],
+"native_scale.py:allows_hit:106": [
+471,
+18
+],
+"native_scale.py:factor:88": [
+755,
+3
+],
+"native_scale.py:rider_lift:69": [
+1758,
+11
+],
+"native_scale.py:unit_root:93": [
+2687,
+11
+],
+"native_september_content.py:<lambda>:57": [
+86559,
+2
+],
+"native_september_content.py:<listcomp>:239": [
+2500,
+11
+],
+"native_september_content.py:<setcomp>:93": [
+5000,
+18
+],
+"native_september_content.py:draw_effects:237": [
+2500,
+11
+],
+"native_september_content.py:finish_zombie:342": [
+137347,
+3
+],
+"native_september_content.py:hide_ghost_cells:90": [
+10000,
+19
+],
+"native_september_content.py:needs_support:73": [
+39870,
+9
+],
+"native_september_content.py:plant_tick:159": [
+40870,
+46
+],
+"native_september_content.py:supplement_death:64": [
+22,
+8
+],
+"native_september_content.py:targetable:83": [
+163702,
+6
+],
+"native_september_content.py:wave_chase:307": [
+137347,
+34
+],
+"native_september_content.py:zombie_gate:279": [
+137347,
+27
+],
+"native_status.py:tick:44": [
+2500,
+37
+],
+"native_targets.py:<dictcomp>:309": [
+33863,
+45
+],
+"native_targets.py:<dictcomp>:312": [
+33863,
+45
+],
+"native_targets.py:<dictcomp>:425": [
+16,
+1
+],
+"native_targets.py:<dictcomp>:428": [
+16,
+1
+],
+"native_targets.py:<dictcomp>:450": [
+16,
+2
+],
+"native_targets.py:<listcomp>:294": [
+1,
+27
+],
+"native_targets.py:<setcomp>:283": [
+1,
+27
+],
+"native_targets.py:__init__:58": [
+3,
+8
+],
+"native_targets.py:__setitem__:75": [
+485,
+21
+],
+"native_targets.py:_new_entity:265": [
+201,
+2
+],
+"native_targets.py:_player_damage:457": [
+14,
+15
+],
+"native_targets.py:_proxy:473": [
+420,
+3
+],
+"native_targets.py:_record_melon_hit:568": [
+420,
+8
+],
+"native_targets.py:_shielded_damage:560": [
+384,
+7
+],
+"native_targets.py:_surface_damage:523": [
+40,
+9
+],
+"native_targets.py:_tag_added:255": [
+301,
+9
+],
+"native_targets.py:_unit_damage:533": [
+418,
+26
+],
+"native_targets.py:_zombie_damage:510": [
+380,
+12
+],
+"native_targets.py:blood_particles:435": [
+16,
+2
+],
+"native_targets.py:context:297": [
+67726,
+46
+],
+"native_targets.py:context_effects:344": [
+49629,
+37
+],
+"native_targets.py:damage_hero:394": [
+16,
+62
+],
+"native_targets.py:full_targets:268": [
+2,
+28
+],
+"native_targets.py:hero_proxy:185": [
+5359,
+20
+],
+"native_targets.py:hero_source_amount:477": [
+2,
+32
+],
+"native_targets.py:owner:216": [
+564841,
+8
+],
+"native_targets.py:source:206": [
+293850,
+9
+],
+"native_targets.py:source_id:225": [
+262277,
+7
+],
+"native_targets.py:sync:67": [
+157812,
+7
+],
+"native_targets.py:tag_entity:233": [
+332,
+21
+],
+"native_targets.py:tagged:178": [
+100,
+2
+],
+"native_targets.py:target_index:616": [
+10632,
+36
+],
+"original-1.5.0.1-combat:<genexpr>:10432": [
+14,
+-1
+],
+"original-1.5.0.1-combat:<genexpr>:11478": [
+18548,
+-1
+],
+"original-1.5.0.1-combat:<genexpr>:12024": [
+148035,
+-1
+],
+"original-1.5.0.1-combat:<genexpr>:12342": [
+14272,
+-1
+],
+"original-1.5.0.1-combat:<genexpr>:13437": [
+720,
+-1
+],
+"original-1.5.0.1-combat:<genexpr>:8843": [
+853,
+-1
+],
+"original-1.5.0.1-combat:<lambda>:13154": [
+17124,
+-1
+],
+"original-1.5.0.1-combat:<listcomp>:12661": [
+20,
+-1
+],
+"original-1.5.0.1-combat:<listcomp>:12707": [
+6,
+-1
+],
+"original-1.5.0.1-combat:<listcomp>:13346": [
+540,
+-1
+],
+"original-1.5.0.1-combat:<listcomp>:13397": [
+3,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_add_entity_wrapper:13915": [
+201,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_add_zombie_wrapper:10048": [
+5,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_adjust_charm_bite_damage:5471": [
+378,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_angle_in_direction:5406": [
+34485,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_angle_lerp:13172": [
+864,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_append_unique_sequence:3029": [
+31,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_apply_star_vector:12619": [
+100,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_apply_static_patches_from_entity:10318": [
+201,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_block_at:9291": [
+9,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_block_name:11959": [
+83636,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_bonus_scan:13622": [
+2500,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_call_native_add_zombie:2955": [
+5,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_chili_cell_at:12046": [
+41818,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_chili_fire_column:12042": [
+29627,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_chili_fire_scan:12333": [
+480,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_chili_has_plant_slot:12009": [
+41818,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_chili_int_or_none:11509": [
+29627,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_chili_lane_row_from_pos:12055": [
+29627,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_chili_surface_overlay_names:11990": [
+29607,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_clamp:5351": [
+33048,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_clamp_tripea_angle:13177": [
+2592,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_cleanup_stone_placeholders:9383": [
+35,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_compute_solution:10462": [
+17,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_copy_surface:3568": [
+572,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_current_target_from_index:10446": [
+8,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_damage_wrapper:9804": [
+378,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_direction_angle:5397": [
+36977,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_direction_angle_diff:5401": [
+34485,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_draw_bonus_overlays:9021": [
+300,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_draw_fumeshroom_bubbles:8985": [
+300,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_draw_plant_zombie_head_armor:8470": [
+925,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_draw_plant_zombie_heads:8657": [
+300,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_draw_pumpkin_armors:8566": [
+300,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_draw_tripea_plant_heads:13405": [
+180,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_draw_umbrella_zombie_leaf:8617": [
+925,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_draw_zombie_peas:8839": [
+300,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_empty_block_names:11967": [
+70989,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_empty_blocks:9284": [
+9,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_enforce_plant_zombie_motion:6285": [
+1479,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_entity_finished:8205": [
+6013,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_finalize_starbursts:12643": [
+480,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_finish_squash_entities:10651": [
+480,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_fix_cannon_projectiles:12889": [
+35,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_flip_surface:8366": [
+245,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_float:1268": [
+1522806,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_gravebuster_zombie_touching_plant:13482": [
+2157,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_grid:9264": [
+5,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_guide_projectiles:12551": [
+480,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_has_head_hit_projectiles:5577": [
+192,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_has_live_charmed_zombies:5560": [
+480,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_has_live_plant_zombies:5540": [
+1920,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_has_live_zombies:5487": [
+2500,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_has_pending_enemy_squash_zombie_entity:10702": [
+2500,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_i_zombie_zombie_placed:5512": [
+2500,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_init_tripea_plant:9557": [
+288,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_int:1275": [
+10374,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_is_charmed_zombie:5410": [
+195158,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_is_chili_ground_block:12035": [
+41818,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_is_chili_pass_through_block_name:12016": [
+41502,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_is_chili_surface_overlay:12028": [
+41818,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_is_enemy_chili_zombie_fire:11492": [
+13792,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_is_plant_zombie_mode:2382": [
+5,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_is_solid_block:9298": [
+9,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_is_tripea_upgraded:13080": [
+480,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_is_zombie_pea:7783": [
+90751,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_knockback_wrapper:10006": [
+52,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_len2:1282": [
+2216,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_light_therapy_multiplier:6247": [
+96,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_live_zombie:6688": [
+8064,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_load_scaled_image:3351": [
+199,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_local_angle:6049": [
+925,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_log_sampled:1209": [
+14,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_mark_i_zombie_zombie_placed_if_spawned:5528": [
+5,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_maybe_trigger_chili_zombie_death:11061": [
+192,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_maybe_trigger_doom_zombie_death:11272": [
+192,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_maybe_trigger_gravebuster_zombie_death:11435": [
+192,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_maybe_trigger_plant_zombie_death_effects:11457": [
+192,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_note_spawn:10060": [
+5,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_patch_cannons:12931": [
+35,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_patch_plant_zombie_assets:3705": [
+271,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_patch_plant_zombie_display_assets:3658": [
+52,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_patch_projectile:12416": [
+201,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_patch_pumpkin_armor_assets:3367": [
+300,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_patch_starfruit_targeting:12777": [
+480,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_patch_tripea_shooting:13352": [
+480,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_pick_enemy_charmed_zombie_target:5667": [
+1414,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_pick_plant_zombie_target:5703": [
+1414,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_pick_squash_zombie_target:5806": [
+96,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_pick_target:10364": [
+9,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_pick_tripea_targets:13122": [
+288,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_plant_world_point:5334": [
+57432,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_plant_wrapper:9581": [
+1,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_plant_zombie_aim_point:5355": [
+33048,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_plant_zombie_body_source:3606": [
+52,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_plant_zombie_display_name:3602": [
+52,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_plant_zombie_fire_angle:7595": [
+31,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_plant_zombie_head_asset_name:3598": [
+26,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_plant_zombie_head_center:5366": [
+40229,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_plant_zombie_head_hit_scan:8292": [
+480,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_plant_zombie_head_key:3590": [
+951,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_plant_zombie_head_radius:8284": [
+36476,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_plant_zombie_head_surface:8391": [
+845,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_plant_zombie_left_head_key:3594": [
+233,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_plant_zombie_target_point:5761": [
+933,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_play_pumpkin_armor_sound:9774": [
+378,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_play_zombie_pea_splat:7766": [
+18,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_prepare_cannon_projectile:12871": [
+1007,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_projectile_head_damage:8226": [
+5701,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_projectile_pierces_head:8212": [
+5701,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_pumpkin_armor_should_sound:9764": [
+378,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_randint:3577": [
+25,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_reaim_projectile:12487": [
+23,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_record_star:12584": [
+40,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_remember_zombie_max_hp:6184": [
+28566,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_rot_camera_display_wrapper:8807": [
+75262,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_segment_hits_ellipse:7806": [
+46100,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_set_surface_copy:3649": [
+520,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_should_skip_native_plant_zombie_armor_draw:8755": [
+75262,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_show_plant_wrapper:10177": [
+4723,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_sign:1286": [
+84213,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_solve_intercept:10406": [
+24,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_spawn_tripea_projectile:13215": [
+9,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_spawn_zombie_pea:6054": [
+31,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_squash_zombie_candidate:5790": [
+2253,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_squash_zombie_origin:5780": [
+96,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_star_angle_degrees:12572": [
+20,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_star_angles:12560": [
+60,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_star_damage_scan:12836": [
+379,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_star_vector:12580": [
+10800,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_starfruit_target:12735": [
+20,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_surface_damage_wrapper:9900": [
+40,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_sync_plant_zombie_head_angle:5599": [
+956,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_tile_at:9269": [
+9,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_track_zombie_max_hp:6199": [
+480,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_transparent_surface:3610": [
+52,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_tripea_head_centers:13087": [
+468,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_tripea_head_surface:13254": [
+180,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_tripea_local_head_angle:13249": [
+540,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_tripea_vine_surface:13288": [
+540,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_tripea_zombie_point:13110": [
+11232,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_update_chili_launch_guard:12211": [
+5480,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_update_chili_row_hints:12126": [
+480,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_update_chili_zombie_row_hint:12075": [
+29627,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_update_fumeshroom_bubbles:8883": [
+480,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_update_native_lantern_charmed_healing:6610": [
+480,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_update_one_zombie_pea:8123": [
+902,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_update_plant_zombie_deaths:11474": [
+480,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_update_plant_zombie_jump_assist:6354": [
+1479,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_update_plant_zombie_shooting:7599": [
+480,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_update_plant_zombie_target:6116": [
+1414,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_update_squash_zombie:6016": [
+96,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_update_tripea_angles:13187": [
+288,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_update_zombie_peas:8162": [
+480,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_zombie_pea_fire_mult:7983": [
+18,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_zombie_pea_hit_charmed_zombie:7856": [
+884,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_zombie_pea_pvp_active:7979": [
+18,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_zombie_pea_xy:7793": [
+3259,
+-1
+],
+"original-1.5.0.1-combat:__pvz_sb_zombie_velocity:10327": [
+17,
+-1
+],
+"original-1.5.0.1-combat:f:10412": [
+5970,
+-1
+],
+"performance.py:__init__:54": [
+2500,
+2
+],
+"performance.py:add:57": [
+68798,
+13
+],
+"pvp56_plants.py:<listcomp>:189": [
+2500,
+3
+],
+"pvp56_plants.py:<listcomp>:190": [
+2500,
+3
+],
+"pvp56_plants.py:before_tick:188": [
+2500,
+3
+],
+"pvp56_plants.py:plant_tick:115": [
+40870,
+54
+],
+"pvp56_plants.py:projectiles:231": [
+2500,
+56
+],
+"pvp56_plants.py:target_contact:202": [
+284,
+14
+],
+"pvp56_zombies.py:before_tick:106": [
+2500,
+8
+],
+"pvp56_zombies.py:finish_zombie:145": [
+137347,
+24
+],
+"pvp56_zombies.py:zombie_gate:115": [
+137347,
+29
+],
+"pvp58_vines.py:<genexpr>:115": [
+3389,
+9
+],
+"pvp58_vines.py:<lambda>:37": [
+140,
+1
+],
+"pvp58_vines.py:dense:44": [
+140,
+2
+],
+"pvp58_vines.py:is_airborne:23": [
+22,
+5
+],
+"pvp58_vines.py:is_shell:18": [
+44875,
+3
+],
+"pvp58_vines.py:lookup:47": [
+140,
+29
+],
+"pvp58_vines.py:needs_support:112": [
+39870,
+9
+],
+"pvp58_vines.py:tick:163": [
+2500,
+23
+],
+"pvp59_graves.py:_guarded:57": [
+6000,
+12
+],
+"pvp59_graves.py:_touched:70": [
+6000,
+13
+],
+"pvp59_graves.py:advance:41": [
+6742,
+15
+],
+"pvp59_graves.py:drowsy:29": [
+22188,
+2
+],
+"pvp59_graves.py:drowsy_level:21": [
+28188,
+6
+],
+"pvp59_graves.py:sleep_rate:33": [
+6000,
+2
+],
+"pvp59_sea.py:<listcomp>:65": [
+2500,
+19
+],
+"pvp59_sea.py:bubbles:63": [
+2500,
+19
+],
+"pvp59_sea.py:gate:45": [
+40870,
+17
+],
+"pvp59_sea.py:restore:29": [
+43370,
+4
+],
+"pvp59_wind.py:<listcomp>:54": [
+2822,
+3
+],
+"pvp59_wind.py:_accel:41": [
+2500,
+2
+],
+"pvp59_wind.py:_cap:38": [
+2500,
+2
+],
+"pvp59_wind.py:_clovers:53": [
+2822,
+3
+],
+"pvp59_wind.py:after_plants:64": [
+2500,
+8
+],
+"pvp59_wind.py:after_zombies:149": [
+2500,
+36
+],
+"pvp59_wind.py:before_plants:57": [
+2500,
+6
+],
+"pvp61_content.py:<listcomp>:196": [
+2500,
+33
+],
+"pvp61_content.py:<listcomp>:63": [
+8500,
+3
+],
+"pvp61_content.py:aura_cells:241": [
+2500,
+15
+],
+"pvp61_content.py:draw_effects:194": [
+2500,
+33
+],
+"pvp61_content.py:plant_tick:97": [
+40870,
+23
+],
+"pvp61_content.py:scarecrows:62": [
+8500,
+3
+],
+"pvp61_content.py:slow_factor:257": [
+40870,
+3
+],
+"pvp64_catalog.py:multi_blue_cost:178": [
+1313,
+5
+],
+"pvp64_content.py:<dictcomp>:594": [
+2500,
+38
+],
+"pvp64_content.py:<genexpr>:587": [
+2500,
+38
+],
+"pvp64_content.py:<listcomp>:532": [
+2500,
+39
+],
+"pvp64_content.py:<listcomp>:533": [
+2500,
+39
+],
+"pvp64_content.py:<listcomp>:572": [
+2500,
+3
+],
+"pvp64_content.py:<listcomp>:587": [
+2500,
+38
+],
+"pvp64_content.py:<listcomp>:625": [
+137848,
+26
+],
+"pvp64_content.py:<setcomp>:589": [
+2500,
+38
+],
+"pvp64_content.py:_factor:56": [
+250,
+2
+],
+"pvp64_content.py:_held:52": [
+250,
+2
+],
+"pvp64_content.py:apply_taunt:646": [
+137347,
+28
+],
+"pvp64_content.py:before_entities:350": [
+2500,
+5
+],
+"pvp64_content.py:draw_effects:530": [
+2500,
+39
+],
+"pvp64_content.py:draw_projectiles:365": [
+2500,
+25
+],
+"pvp64_content.py:draw_zombie:1088": [
+500,
+38
+],
+"pvp64_content.py:entity_visible:122": [
+68380,
+5
+],
+"pvp64_content.py:finish_zombie:741": [
+137347,
+17
+],
+"pvp64_content.py:grenade_target:910": [
+1,
+31
+],
+"pvp64_content.py:grenadier_step:887": [
+500,
+22
+],
+"pvp64_content.py:landed:819": [
+2500,
+7
+],
+"pvp64_content.py:on_belt:722": [
+274694,
+18
+],
+"pvp64_content.py:plant_tick:234": [
+40870,
+19
+],
+"pvp64_content.py:potatoes:571": [
+2500,
+3
+],
+"pvp64_content.py:restore_taunt:675": [
+2500,
+7
+],
+"pvp64_content.py:set_belts:170": [
+300,
+3
+],
+"pvp64_content.py:tag_belt:132": [
+423,
+16
+],
+"pvp64_content.py:taunt_target:683": [
+501,
+4
+],
+"pvp64_content.py:taunting_potato:619": [
+137848,
+26
+],
+"pvp64_content.py:throw_grenade:942": [
+1,
+34
+],
+"pvp64_content.py:umbrella_reflect:1001": [
+382,
+20
+],
+"pvp64_content.py:update_grenades:977": [
+2500,
+23
+],
+"pvp64_content.py:update_taunts:580": [
+2500,
+38
+],
+"pvp64_content.py:zombie_gate:689": [
+137347,
+32
+],
+"pvp66_secrets.py:cactus:103": [
+5,
+8
+],
+"pvp66_secrets.py:lantern_pulses:159": [
+2500,
+13
+],
+"pvp66_secrets.py:stone_wears:207": [
+40870,
+3
+],
+"pvp70_content.py:<genexpr>:124": [
+1000,
+24
+],
+"pvp70_content.py:<genexpr>:189": [
+602,
+1
+],
+"pvp70_content.py:<genexpr>:264": [
+2,
+13
+],
+"pvp70_content.py:<genexpr>:288": [
+385,
+9
+],
+"pvp70_content.py:<genexpr>:293": [
+243,
+2
+],
+"pvp70_content.py:<genexpr>:305": [
+3000,
+15
+],
+"pvp70_content.py:<genexpr>:477": [
+1471,
+8
+],
+"pvp70_content.py:<genexpr>:493": [
+100,
+17
+],
+"pvp70_content.py:<genexpr>:553": [
+6,
+21
+],
+"pvp70_content.py:<lambda>:179": [
+1863,
+1
+],
+"pvp70_content.py:<lambda>:185": [
+500,
+1
+],
+"pvp70_content.py:<lambda>:432": [
+3,
+1
+],
+"pvp70_content.py:<lambda>:682": [
+536,
+1
+],
+"pvp70_content.py:<listcomp>:137": [
+500,
+2
+],
+"pvp70_content.py:<listcomp>:179": [
+500,
+1
+],
+"pvp70_content.py:<listcomp>:482": [
+2,
+17
+],
+"pvp70_content.py:<listcomp>:692": [
+60,
+1
+],
+"pvp70_content.py:<listcomp>:749": [
+300,
+24
+],
+"pvp70_content.py:<setcomp>:183": [
+500,
+50
+],
+"pvp70_content.py:alive:14": [
+11790,
+2
+],
+"pvp70_content.py:anchor_head:268": [
+1000,
+13
+],
+"pvp70_content.py:before_tick:303": [
+2500,
+15
+],
+"pvp70_content.py:bone_cell:480": [
+2,
+17
+],
+"pvp70_content.py:draw_effects:732": [
+2500,
+24
+],
+"pvp70_content.py:draw_head:646": [
+60,
+85
+],
+"pvp70_content.py:draw_plant:609": [
+120,
+17
+],
+"pvp70_content.py:draw_zombie:627": [
+137347,
+4
+],
+"pvp70_content.py:factor:19": [
+2576,
+2
+],
+"pvp70_content.py:frost:757": [
+11,
+31
+],
+"pvp70_content.py:grave_at:468": [
+738,
+2
+],
+"pvp70_content.py:grave_cell:471": [
+382,
+8
+],
+"pvp70_content.py:graves:456": [
+92,
+11
+],
+"pvp70_content.py:head_hit:254": [
+50,
+13
+],
+"pvp70_content.py:head_only_cells:282": [
+300,
+9
+],
+"pvp70_content.py:head_pose:632": [
+60,
+13
+],
+"pvp70_content.py:head_rest:232": [
+450,
+16
+],
+"pvp70_content.py:head_targets:170": [
+500,
+10
+],
+"pvp70_content.py:heads:136": [
+500,
+2
+],
+"pvp70_content.py:hook:440": [
+1,
+15
+],
+"pvp70_content.py:hook_target:423": [
+1,
+11
+],
+"pvp70_content.py:impact_bone:539": [
+2,
+21
+],
+"pvp70_content.py:is_head:139": [
+6467,
+3
+],
+"pvp70_content.py:needs_support:32": [
+40870,
+5
+],
+"pvp70_content.py:plant_in:292": [
+39,
+2
+],
+"pvp70_content.py:plant_rate:107": [
+1000,
+3
+],
+"pvp70_content.py:plant_tick:111": [
+40870,
+24
+],
+"pvp70_content.py:projectiles:561": [
+2500,
+47
+],
+"pvp70_content.py:reflect:512": [
+382,
+15
+],
+"pvp70_content.py:restore_marks:295": [
+500,
+7
+],
+"pvp70_content.py:seat_has:103": [
+501,
+3
+],
+"pvp70_content.py:segment_hit:249": [
+284,
+4
+],
+"pvp70_content.py:show_plant:39": [
+4903,
+5
+],
+"pvp70_content.py:snapshot:435": [
+3,
+4
+],
+"pvp70_content.py:throw_bone:498": [
+2,
+13
+],
+"pvp70_content.py:update_heads:181": [
+500,
+50
+],
+"pvp70_content.py:wind:528": [
+322,
+10
+],
+"pvp70_content.py:zombie_gate:379": [
+137347,
+19
+],
+"pvzrouge.py:<module>:3": [
+106616,
+-1
+],
+"pvzrouge.py:c:2021": [
+2009649,
+-1
+],
+"pvzrouge.py:jdz:2025": [
+1515804,
+-1
+],
+"pvzrouge.py:不封顶出界:1896": [
+60000,
+-1
+],
+"pvzrouge.py:伤害僵尸:475": [
+378,
+-1
+],
+"pvzrouge.py:位移处理:1011": [
+162994,
+-1
+],
+"pvzrouge.py:出界:1904": [
+47495,
+-1
+],
+"pvzrouge.py:击退僵尸:373": [
+52,
+-1
+],
+"pvzrouge.py:加载图:1998": [
+147,
+-1
+],
+"pvzrouge.py:反:1894": [
+54104,
+-1
+],
+"pvzrouge.py:变图:1988": [
+6,
+-1
+],
+"pvzrouge.py:增粒子:948": [
+423,
+-1
+],
+"pvzrouge.py:扁死:527": [
+8,
+-1
+],
+"pvzrouge.py:按时归位:1908": [
+26631,
+-1
+],
+"pvzrouge.py:掉血:197": [
+16,
+-1
+],
+"pvzrouge.py:摄像显示:2044": [
+123671,
+-1
+],
+"pvzrouge.py:新增僵尸:654": [
+5,
+-1
+],
+"pvzrouge.py:新增实体:853": [
+301,
+-1
+],
+"pvzrouge.py:方向性增粒子:912": [
+62,
+-1
+],
+"pvzrouge.py:旋转摄像显示:975": [
+75262,
+-1
+],
+"pvzrouge.py:无墙位移处理:999": [
+6646,
+-1
+],
+"pvzrouge.py:显示植物:1439": [
+4723,
+-1
+],
+"pvzrouge.py:清除植物:560": [
+18,
+-1
+],
+"pvzrouge.py:种植植物:252": [
+1,
+-1
+],
+"pvzrouge.py:表面伤害僵尸:446": [
+40,
+-1
+],
+"pvzrouge.py:随:2023": [
+516,
+-1
+],
+"scripted_spawn_budget.py:can_spawn:57": [
+1,
+3
+],
+"scripted_spawn_budget.py:drain:91": [
+2500,
+11
+],
+"scripted_spawn_budget.py:inherit:103": [
+4,
+4
+],
+"simulation.py:<listcomp>:126": [
+16981,
+4
+],
+"simulation.py:_emit:171": [
+58,
+4
+],
+"simulation.py:_id:94": [
+3,
+2
+],
+"simulation.py:audit_error:97": [
+300,
+2
+],
+"simulation.py:cell:195": [
+2735,
+5
+],
+"simulation.py:distance:204": [
+6824,
+2
+],
+"simulation.py:rally_for:110": [
+226602,
+2
+],
+"simulation.py:team_seats:124": [
+16981,
+4
+],
+"simulation.py:wrap_delta:20": [
+7469775,
+2
+],
+"teams.py:team_of:45": [
+76845,
+5
+],
+"torch_rules.py:<genexpr>:28": [
+3402,
+7
+],
+"torch_rules.py:<lambda>:10": [
+19569,
+1
+],
+"torch_rules.py:<lambda>:15": [
+902,
+1
+],
+"torch_rules.py:<lambda>:54": [
+7,
+1
+],
+"torch_rules.py:convert:31": [
+25124,
+35
+],
+"torch_rules.py:points:23": [
+3402,
+7
+],
+"torch_rules.py:splash:17": [
+18,
+4
+],
+"torch_rules.py:tick:67": [
+2500,
+4
+],
+"zombie_secret_catalog.py:<setcomp>:104": [
+811,
+3
+],
+"zombie_secret_catalog.py:apply_card:124": [
+811,
+29
+],
+"zombie_secret_catalog.py:is_zombie_secret:98": [
+91,
+2
+],
+"zombie_secret_catalog.py:names:102": [
+811,
+3
+],
+"zombie_secrets.py:<listcomp>:142": [
+181,
+2
+],
+"zombie_secrets.py:_own:162": [
+4,
+2
+],
+"zombie_secrets.py:adjust:227": [
+9,
+16
+],
+"zombie_secrets.py:berserk:446": [
+4,
+3
+],
+"zombie_secrets.py:bite_rate:454": [
+86,
+10
+],
+"zombie_secrets.py:blast_scale:959": [
+1,
+3
+],
+"zombie_secrets.py:day_income_count:882": [
+300,
+8
+],
+"zombie_secrets.py:focused:450": [
+4,
+3
+],
+"zombie_secrets.py:hand_kind:84": [
+149347,
+6
+],
+"zombie_secrets.py:has:138": [
+4550,
+2
+],
+"zombie_secrets.py:holders:141": [
+181,
+2
+],
+"zombie_secrets.py:jump_cap:660": [
+2800,
+3
+],
+"zombie_secrets.py:on_plant_killed:896": [
+1,
+11
+],
+"zombie_secrets.py:on_unit_gone:908": [
+1,
+16
+],
+"zombie_secrets.py:pressure:830": [
+40870,
+15
+],
+"zombie_secrets.py:seat_has:144": [
+5600,
+2
+],
+"zombie_secrets.py:step:289": [
+60,
+34
+],
+"zombie_secrets.py:team_last_stand:813": [
+12000,
+2
+]
+}

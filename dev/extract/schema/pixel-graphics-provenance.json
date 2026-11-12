@@ -1,0 +1,21 @@
+{
+  "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\native_animation.py",
+  "sha256": "c5a1baf68cd5f1ef013b1533aca007af4387ba7a81bfbe42efe99bf843ef2341",
+  "classes": [
+    "DeferredImage",
+    "DrawRecorder",
+    "NamespaceGraphics",
+    "NativeGraphicsError",
+    "NativeImage",
+    "_DeferredTransform",
+    "_Draw",
+    "_Pygame",
+    "_Transforms"
+  ],
+  "functions": [
+    "_plain",
+    "_template_atlas"
+  ],
+  "source_bodies": "unchanged AST; CPython extension install hooks omitted; production class methods preserved",
+  "todo": []
+}

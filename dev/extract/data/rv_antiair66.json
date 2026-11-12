@@ -1,0 +1,16 @@
+{
+ "FLYERS": [
+  "zombie:乌鸦",
+  "zombie:海盗鹦鹉",
+  "zombie:飞贼僵尸"
+ ],
+ "CLIMBERS": [
+  "zombie:梯子僵尸",
+  "zombie:传送带僵尸"
+ ],
+ "RANGED_BEHAVIORS": [
+  "shoot",
+  "lob"
+ ],
+ "RALLY_EVERY": 15.0
+}

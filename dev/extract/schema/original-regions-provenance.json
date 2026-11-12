@@ -1,0 +1,61 @@
+{
+  "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\reverse_engineered\\raw\\pvzrouge.pyc",
+  "sha256": "6f10bada57913dd51bc4c87900d38ba875841d04febe3daafaeaa2d2f4cdf914",
+  "runtime_sha256": "72bc291dc18178b592164fcd3f66374fe86ebee291da045e665c8948e4851d6c",
+  "region_constructor_ast_sha256": "d4866a7d04a313ebbf3a7d50ed59c0fc4982aec9b2798914c47f2243d3ce4e8c",
+  "regions": [
+    {
+      "name": "zombies",
+      "start": 68412,
+      "end": 97986,
+      "raw_bytecode_sha256": "271f0a489dbb7f275a51f7ba8413e2a97db9fe02af0e77877b296288a61d25e1",
+      "isolated_bytecode_sha256": "bc9309281d15a47dfbb54bf9cfdb2a584fc6ee9f803c0b33bd9c4db40f168e83",
+      "ast_sha256": "31e2f3937399681f39eaccc0dd5c124d5fe05e56206955e9ee0a955d52aa0bb6"
+    },
+    {
+      "name": "plants",
+      "start": 121092,
+      "end": 144612,
+      "raw_bytecode_sha256": "ade9a4f5d59aa60b352fb32b4e03490e9703c824c4a998cc2c995501dff52a61",
+      "isolated_bytecode_sha256": "ade9a4f5d59aa60b352fb32b4e03490e9703c824c4a998cc2c995501dff52a61",
+      "ast_sha256": "31612c4190687b1542fede52ec4a035111454652d2f7b617e44ceee63f75779a"
+    },
+    {
+      "name": "entities",
+      "start": 98618,
+      "end": 108808,
+      "raw_bytecode_sha256": "5fcbffcc0fdef415e9fe5338f0bcfc458feb18ea13c7866660eaf3359a210367",
+      "isolated_bytecode_sha256": "5fcbffcc0fdef415e9fe5338f0bcfc458feb18ea13c7866660eaf3359a210367",
+      "ast_sha256": "803b8320b68f7f687c9c7b3049d972e00c891ab6adcd0f74e00e5a25fa3bb79c"
+    },
+    {
+      "name": "plant_maintenance",
+      "start": 113444,
+      "end": 119530,
+      "raw_bytecode_sha256": "d1ce25ffa983cab467e51e4e88d5a738d73d053f171577a237065c0b55c4f6a4",
+      "isolated_bytecode_sha256": "ecd60107fbf50c6eda5df06cc59e0659b929b3163edd0fb6d4e1c1b69d2e5388",
+      "ast_sha256": "f13618f838c90538cb990ef1e1061fadeb82f5f51e514041e3cb7e9d5043f173"
+    }
+  ],
+  "corrections": [
+    {
+      "offset": 116462,
+      "opname": "JUMP_ABSOLUTE",
+      "target": 116036,
+      "loop_head": 116038,
+      "loop_instruction": "FOR_ITER"
+    },
+    {
+      "offset": 116898,
+      "opname": "JUMP_ABSOLUTE",
+      "target": 116472,
+      "loop_head": 116474,
+      "loop_instruction": "FOR_ITER"
+    }
+  ],
+  "dynamic_globals": [],
+  "translator_problems": [],
+  "cpp_sha256": "5f6ae24850235dcae51827e6ad3ef9bd54984045fb7bcc43965802347b00b74e",
+  "role": "original isolated NativeRuntime regions from unchanged original_regions constructor; NativeBattle explicitly selects existing PvP regions",
+  "frame_positions": "callee offsets retained; gated line map omitted"
+}

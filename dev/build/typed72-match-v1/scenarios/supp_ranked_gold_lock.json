@@ -1,0 +1,26 @@
+{
+  "map": "家院",
+  "seed": 3,
+  "durable_heroes": true,
+  "room_ticks": 1050,
+  "place": {"plant": [43.5, 18], "zombie": [66.5, 18]},
+  "rules": {"plant_start": 1000, "zombie_start": 1000, "ranked": true},
+  "decks": {
+    "plant": ["plant:向日葵", "plant:豌豆射手", "plant:黄金蓓蕾"],
+    "zombie": ["zombie:脑光墓碑", "zombie:普通僵尸"]
+  },
+  "inputs": {
+    "0": [
+      {"side": "plant", "type": "deploy", "card": "plant:向日葵", "x": 2088, "y": 840},
+      {"side": "zombie", "type": "deploy", "card": "zombie:脑光墓碑", "x": -264, "y": 744}
+    ],
+    "2": [{"side": "plant", "type": "deploy", "card": "plant:黄金蓓蕾", "x": 2184, "y": 840}],
+    "4": [{"side": "plant", "type": "deploy", "card": "plant:豌豆射手", "x": 2232, "y": 840}],
+    "300": [{"side": "plant", "type": "deploy", "card": "plant:向日葵", "x": 3000, "y": 840}],
+    "302": [{"side": "plant", "type": "deploy", "card": "plant:向日葵", "x": 2136, "y": 840}],
+    "500": [{"side": "plant", "type": "deploy", "card": "plant:黄金蓓蕾", "x": 2184, "y": 840}],
+    "540": [{"side": "plant", "type": "collect", "resource": "$sun"}],
+    "660": [{"side": "plant", "type": "collect", "resource": "$sun"}],
+    "900": [{"side": "plant", "type": "collect", "resource": "$sun"}]
+  }
+}

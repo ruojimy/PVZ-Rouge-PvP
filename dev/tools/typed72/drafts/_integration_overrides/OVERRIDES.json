@@ -1,0 +1,168 @@
+{
+ "zombie_pea.cpp": {
+  "base": "typed72-content-controller-v8 (via integrated-v7)",
+  "base_sha256": "02272203686a2f55bf27966d5924ed6a93cd972ec939bb94672425b4f5e6beda",
+  "reason": "port native_projectiles._install_zombie_pea_seam: prev_x re-expressed next to x before torch_check and hit; add_original_entity: source spawn_zombie_pea uses __pvz_sb_add_entity_original",
+  "source": "modkit/pvp/native_projectiles.py:46-61"
+ },
+ "service_plants.h": {
+  "base": "typed72-content-controller-v8 (via integrated-v7)",
+  "base_sha256": "5747b454d73ce0f5edfff2e070b61022f49a34f810f13597cb9c1f573902f908",
+  "reason": "gold magnet gift uses the PvP bucket HP (balance.GOLD_MAGNET_BUCKET_HP=250, set by NativeBattle.__init__) scaled like __pvz_sb_scaled_plant_zombie_hp; MATCH_MAGNET_TRACE debug print; add_original_entity: source spawn_effect_entity (magnet attract) uses __pvz_sb_add_entity_original; riding-imp magnet recipient (_riding_imp_candidate, pick_bucket/gift_bucket, pick_metal/absorb_metal; native_battle.py:540-640); all _install_imp_armor_hooks behaviour (gift_bucket wrapper incl. black-armour reset, riding-imp fallbacks) gated by imp_armor_hooks, set by the PvP battle only",
+  "source": "src/sim/pvp/gen/pm_native_battle.cpp:611, pm_original_patch1501.cpp gift_bucket_to_zombie"
+ },
+ "service_plants.cpp": {
+  "base": "typed72-content-controller-v8 (via integrated-v7)",
+  "base_sha256": "47b7f918aebe1c364181f5a2114c3d86413bb470f908b39c355b6f1949d550ed",
+  "reason": "gold magnet gift uses the PvP bucket HP (balance.GOLD_MAGNET_BUCKET_HP=250, set by NativeBattle.__init__) scaled like __pvz_sb_scaled_plant_zombie_hp; MATCH_MAGNET_TRACE debug print; add_original_entity: source spawn_effect_entity (magnet attract) uses __pvz_sb_add_entity_original; bucket_target excludes graves and NO_BUCKET content (native_battle.py:57, _install_imp_armor_hooks pick_bucket; pvp64_catalog sha256 13af1cfd...); temporary MATCH_MAGNET_TRACE removed; gift sets _pvp_black_armor=None and drops _pvp_armor_triggered (gift_bucket wrapper, native_battle.py:597-600); riding-imp magnet recipient (_riding_imp_candidate, pick_bucket/gift_bucket, pick_metal/absorb_metal; native_battle.py:540-640); all _install_imp_armor_hooks behaviour (gift_bucket wrapper incl. black-armour reset, riding-imp fallbacks) gated by imp_armor_hooks, set by the PvP battle only",
+  "source": "src/sim/pvp/gen/pm_native_battle.cpp:611, pm_original_patch1501.cpp gift_bucket_to_zombie"
+ },
+ "zombie_pea.h": {
+  "base_sha256": "0e4a7170b3e8a24ab3551bc3e2f92fb9ea19ec6502e3dc4c8a62749fa6e75f13",
+  "base": "typed72-content-controller-v8 (via integrated-v8)",
+  "reason": "add_original_entity: source spawn_zombie_pea uses __pvz_sb_add_entity_original"
+ },
+ "squash_effects.h": {
+  "base_sha256": "dcd3e5d8e378412cc081fa84aef4febec8fad9a701165af5d6f0e18eca799bd1",
+  "base": "typed72-content-controller-v8 (via integrated-v8)",
+  "reason": "add_original_entity: source spawn_squash_zombie_entity uses __pvz_sb_add_entity_original"
+ },
+ "squash_effects.cpp": {
+  "base_sha256": "465f9457ee14c25b3eb1f7d7ea3cc8ad71a68ec93832d4055fba32e175f20f79",
+  "base": "typed72-content-controller-v8 (via integrated-v8)",
+  "reason": "add_original_entity: source spawn_squash_zombie_entity uses __pvz_sb_add_entity_original"
+ },
+ "chili_effects.h": {
+  "base_sha256": "8fe3035d4cb9c04cd9e810e40adb21d8f291ff6ea2a58ea09bcd3c42866f4279",
+  "base": "typed72-content-controller-v8 (via integrated-v8)",
+  "reason": "add_original_entity: source spawn_chili_zombie_fire_row uses __pvz_sb_add_entity_original"
+ },
+ "chili_effects.cpp": {
+  "base_sha256": "df30a03c5036276bf758dfbbc973ca8252a8e26465082c7e3c47f6d601f27801",
+  "base": "typed72-content-controller-v8 (via integrated-v8)",
+  "reason": "add_original_entity: source spawn_chili_zombie_fire_row uses __pvz_sb_add_entity_original"
+ },
+ "doom_effects.h": {
+  "base_sha256": "c6684fd12b7314390e4a34750c1b9fd8975ad79870a8fa777c4ff5582b232ed7",
+  "base": "typed72-content-controller-v8 (via integrated-v8)",
+  "reason": "add_original_entity: source spawn_effect_entity (doom) uses __pvz_sb_add_entity_original"
+ },
+ "doom_effects.cpp": {
+  "base_sha256": "a68414c96b72440edc5740eea22bdf80cdfe6a4e0682a15434554b73643e363a",
+  "base": "typed72-content-controller-v8 (via integrated-v8)",
+  "reason": "add_original_entity: source spawn_effect_entity (doom) uses __pvz_sb_add_entity_original"
+ },
+ "lantern_effects.h": {
+  "base_sha256": "6df1a43b67bfc720ed54cede5ec3829ca9e40c5b002a618ffd47fda37ededd31",
+  "base": "typed72-content-controller-v8 (via integrated-v8)",
+  "reason": "add_original_entity: source spawn_effect_entity (光疗) uses __pvz_sb_add_entity_original"
+ },
+ "lantern_effects.cpp": {
+  "base_sha256": "938439684e2b36ea88ef3f789808ed7bd4b1982e2e3e4c74a437789ac357ca1b",
+  "base": "typed72-content-controller-v8 (via integrated-v8)",
+  "reason": "add_original_entity: source spawn_effect_entity (光疗) uses __pvz_sb_add_entity_original"
+ },
+ "torch_rules.h": {
+  "base": "typed72-content-controller-v8 (via integrated-v8)",
+  "base_sha256": "8a3744ab5d279a653689cd6f5fb624a1189e86cda586fa94aa3eab42ed236999",
+  "reason": "petrified torch reach x2 / sleep x0.5 / blue fire use 暴怒 (zombie_secrets.py:951-957 torch_range_scale, torch_sleep_scale; torch_rules.py blue=... zsecrets.has(\"暴怒\"); RAGE_TORCH_RANGE=2, RAGE_TORCH_SLEEP=.5 in zombie_secret_catalog.py:89-90), not 狂暴/DamageSecret::rage"
+ },
+ "torch_rules.cpp": {
+  "base": "typed72-content-controller-v8 (via integrated-v8)",
+  "base_sha256": "16dacaf1d0372f1cd30cb6bfa5ea764fe7dd1fa15ad0cbdad6c761caee4634ea",
+  "reason": "petrified torch reach x2 / sleep x0.5 / blue fire use 暴怒 (zombie_secrets.py:951-957 torch_range_scale, torch_sleep_scale; torch_rules.py blue=... zsecrets.has(\"暴怒\"); RAGE_TORCH_RANGE=2, RAGE_TORCH_SLEEP=.5 in zombie_secret_catalog.py:89-90), not 狂暴/DamageSecret::rage"
+ },
+ "wind_effects.h": {
+  "base": "typed72-content-controller-v8 (via integrated-v8)",
+  "base_sha256": "89e47dda28a067a7aa8cf2b42399816ec8cb800f02b8c215c94ff7cd0519bfbc",
+  "reason": "clover-zombie radius wind (pvp59_wind.blover_wind, BLOVER_RADIUS 8 tiles, wrap_delta over b.width) reads world_width; the copied constructor width (fixture 960) wrapped a 14-tile gap into range (cards_z0 t=104)"
+ },
+ "wind_effects.cpp": {
+  "base": "typed72-content-controller-v8 (via integrated-v8)",
+  "base_sha256": "38192f84d54ce946cf91f758442598a762e592a2b145b3255ca2d4ad4e817013",
+  "reason": "clover-zombie radius wind (pvp59_wind.blover_wind, BLOVER_RADIUS 8 tiles, wrap_delta over b.width) reads world_width; the copied constructor width (fixture 960) wrapped a 14-tile gap into range (cards_z0 t=104)"
+ },
+ "content_plants70.cpp": {
+  "base": "v8 (via integrated-v19)",
+  "base_sha256": "e548826c2faf0c2ac05fd4d54609715bf8db5d8359598319d8b7809ebf2afe4b",
+  "reason": "clang 14 portability (init-capture for structured bindings; constexpr pi instead of <numbers>)"
+ },
+ "hero_physics.cpp": {
+  "base": "v8 (via integrated-v19)",
+  "base_sha256": "c6643fb925bda716718d050ca6df2e80fd1cd9391b3c63c9ca563bca5651d0f8",
+  "reason": "clang 14 portability (init-capture for structured bindings; constexpr pi instead of <numbers>)"
+ },
+ "native_status.cpp": {
+  "base": "v8 (via integrated-v19)",
+  "base_sha256": "098e6621e021a8ee73c4ec41198bfda6421b6d9fdcc474f4c3a16b5c796509b1",
+  "reason": "clang 14 portability (init-capture for structured bindings; constexpr pi instead of <numbers>)"
+ },
+ "room_scheduler.cpp": {
+  "base": "room-stage (via integrated-v19)",
+  "base_sha256": "7cd066e61233e7ef1697d8f5b40c253ba93b328620d40e7841d8d4baab4c51d6",
+  "reason": "clang 14 portability (init-capture for structured bindings; constexpr pi instead of <numbers>)"
+ },
+ "world_regions.cpp": {
+  "base": "v8 (via integrated-v19)",
+  "base_sha256": "eb4c44c32191337e0a1b5da007fcdda49e20e9be3e7d32cd5968f354c4b02719",
+  "reason": "clang 14 portability (init-capture for structured bindings; constexpr pi instead of <numbers>)"
+ },
+ "zombie_actions.cpp": {
+  "base": "v8 (via integrated-v19)",
+  "base_sha256": "ee8f520ac0b0ed7df754a92b1c8e5ee7aa8095ba47acce1ad8e276db3f75602c",
+  "reason": "clang 14 portability (init-capture for structured bindings; constexpr pi instead of <numbers>)"
+ },
+ "state.h": {
+  "base": "v8 (via integrated-v34)",
+  "base_sha256": "220b5bd6f6ee36a99203ba3e76bd7473ee908222ef589d42992e9219da3bbbb2",
+  "reason": "native_audio: an unpositioned sound takes the current source position (CombatRuntime::sound_source); NativePresentation.screen_height (g['总高']) for the fume bubble bound"
+ },
+ "fume_effects.cpp": {
+  "base": "typed72-content-controller-v8 (via integrated-v38)",
+  "base_sha256": "98301624acfbbb3ffe9a6d06ab1b3d5fda9cccff899ee6572afbde3cb5b1a7d9",
+  "reason": "update_bubbles culls against g['总宽']/g['总高'] (the screen, 1024x768 at tile 48), not the world size; patch1501 __pvz_sb_update_fumeshroom_bubbles reads float(g.get('总宽',20*比)) and float(g.get('总高',12*比)). The world width kept bubbles alive ~150 ticks where V drops them at the first update past x>总宽+2*比.",
+  "source": "src/sim/pvp/gen/pm_patch1501.cpp:11245-11263 (__pvz_sb_update_fumeshroom_bubbles)"
+ },
+ "combat_events.h": {
+  "base": "typed72-content-controller-v8 (via integrated-v41)",
+  "base_sha256": "bfadb85677053171b0fb9ef7755314aebab9501bbc098bcbc69d6be007c6896c",
+  "reason": "ResourceIncomeEvent.sound_at; income sound position: NativeBattle._emit('income') -> NativeAudio.event -> emit('捡阳光', None) places the sound at the current source's 位置 at emission; the typed journal row is flushed after the tick, so the position is captured when the event is pushed",
+  "source": "src/sim/pvp/gen/pm_native_audio.cpp m_event/m_emit"
+ },
+ "resources.cpp": {
+  "base": "typed72-content-controller-v8 (via integrated-v41)",
+  "base_sha256": "700f1de98a27128fde56f224cfd0e262a330e9d5e8e15aa3137613766367f5c9",
+  "reason": "fills ResourceIncomeEvent.sound_at from runtime.sound_source(); income sound position: NativeBattle._emit('income') -> NativeAudio.event -> emit('捡阳光', None) places the sound at the current source's 位置 at emission; the typed journal row is flushed after the tick, so the position is captured when the event is pushed",
+  "source": "src/sim/pvp/gen/pm_native_audio.cpp m_event/m_emit"
+ },
+ "cold_placement.h": {
+  "base": "typed72-cold-runtime-v2 (via integrated-v42)",
+  "base_sha256": "bce507ccd8e5bc8d6c108686c9b4fc16367b7a7bfc1f40a93564958a311b59b9",
+  "reason": "NativeBattle._unit_card memo under sim_fastpath (PVP_SIM_FASTPATH default on), keyed (side,key,secrets,bans,night) without last_copy_card; seeded at the cold boundary from V's _unit_card_memo (native_battle.py:1896-1915)",
+  "source": "tools/pvp72_sources/native_battle.py:1896"
+ },
+ "cold_placement.cpp": {
+  "base": "typed72-cold-runtime-v2 (via integrated-v42)",
+  "base_sha256": "51acdf2b39ad3a068bafbdfbb0898eaa6aefbe32d7ba12117a8baeabbb70e342",
+  "reason": "NativeBattle._unit_card memo under sim_fastpath (PVP_SIM_FASTPATH default on), keyed (side,key,secrets,bans,night) without last_copy_card; seeded at the cold boundary from V's _unit_card_memo (native_battle.py:1896-1915)",
+  "source": "tools/pvp72_sources/native_battle.py:1896"
+ },
+ "terrain.h": {
+  "base": "typed72 v8 (via integrated-v43)",
+  "base_sha256": "08a38e114380b1d5fa055c23f48178c5e3d92174322b44ed9373c6217c1b26ea",
+  "reason": "custom map appearance: _pvp_block_color/_pvp_wall_color carried in TerrainCell, compared by public terrain sync and published in map tiles native (custom_maps.document_cell; world_view tints from map tiles native)",
+  "source": "modkit/pvp/custom_maps.py:54-60, native_battle.py _sync_terrain, world_view.py:227-250"
+ },
+ "room_public_terrain.cpp": {
+  "base": "room-stage (via integrated-v43)",
+  "base_sha256": "2847caf8b10a59833dc45640016356da4649c8ce137392d706096b9a9cbe7490",
+  "reason": "custom map appearance: _pvp_block_color/_pvp_wall_color carried in TerrainCell, compared by public terrain sync and published in map tiles native (custom_maps.document_cell; world_view tints from map tiles native)",
+  "source": "modkit/pvp/custom_maps.py:54-60, native_battle.py _sync_terrain, world_view.py:227-250"
+ },
+ "room_public_codec.cpp": {
+  "base": "room-stage (via integrated-v43)",
+  "base_sha256": "5ba415a8e22a516cc4816beecc031d46234065a12e6290ca14458777eb8d5c50",
+  "reason": "custom map appearance: _pvp_block_color/_pvp_wall_color carried in TerrainCell, compared by public terrain sync and published in map tiles native (custom_maps.document_cell; world_view tints from map tiles native)",
+  "source": "modkit/pvp/custom_maps.py:54-60, native_battle.py _sync_terrain, world_view.py:227-250"
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "PICKUP_DEPLOY_RANGE": 16.0,
+ "PICKUP_RALLY_RANGE": 3.0,
+ "PRESS_MAX_PLANTS": 3,
+ "DEFEND_EVERY": 4.0,
+ "HEAD_VALUE": {
+  "铁桶": 3,
+  "黑铁桶": 3,
+  "橄榄球头盔": 3,
+  "黑橄榄球头盔": 3,
+  "路障": 2,
+  "黑路障": 2
+ },
+ "ARMOURLESS": [
+  "zombie:普通僵尸",
+  "zombie:黑普通僵尸",
+  "zombie:鸭子普通僵尸",
+  "zombie:伴舞僵尸",
+  "zombie:小鬼僵尸"
+ ],
+ "DEFEND_RANGE": 12.0,
+ "DEFEND_AHEAD": 3.0,
+ "SAFE_LIFE": 0.55,
+ "NATIVE_REFUSED": "此处不符合原版种植条件",
+ "RESCUE_LIFE": 0.4,
+ "FRONT_OUT": 8.0
+}

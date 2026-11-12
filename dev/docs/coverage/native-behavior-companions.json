@@ -1,0 +1,91 @@
+[
+  {
+    "id": "test_pvp_native_physics.NativePhysicsTests.test_original_normal_full_block_matches_every_tick_on_ground_air_wall_and_landing",
+    "source_sha256": "1a2e676fd40a05f6bbb5d5f00a3859994fec751a0951910eefa75125ca64ab1c",
+    "original_ast_sha256": "4013b3ba200f66b33e67716c258892cf6abf1758d3ab216e087fcec936d5da54",
+    "native_statement_lines": [
+      95,
+      96,
+      98,
+      99,
+      100,
+      101,
+      108,
+      109
+    ],
+    "cpython_owned_statement_lines": [
+      110,
+      111
+    ],
+    "native_ast_sha256": "e2d0d9c23356c49e633e820c2ff9da7d5b8110ec5d796a9495430660322a747b",
+    "scope": "Supplement only; unchanged raw original ID remains collected. All common behavior assertions, including post-metadata suffix, execute here. Full original case executes separately on its CPython owner."
+  },
+  {
+    "id": "test_pvp_native_physics.NativePhysicsTests.test_zombie_infinite_jump_is_one_documented_operand_change",
+    "source_sha256": "1a2e676fd40a05f6bbb5d5f00a3859994fec751a0951910eefa75125ca64ab1c",
+    "original_ast_sha256": "a3c1e3e4ba556a382e18524032c175306519b7f020e381a8a4138f391b4cb6a7",
+    "native_statement_lines": [
+      151,
+      152,
+      153,
+      154,
+      155,
+      158,
+      159,
+      160,
+      165
+    ],
+    "cpython_owned_statement_lines": [
+      161,
+      163,
+      164
+    ],
+    "native_ast_sha256": "3f7f2b4263d724bbaab18a3623cfef4a63424fd64a459af236f40bfc103d72fa",
+    "scope": "Supplement only; unchanged raw original ID remains collected. All common behavior assertions, including post-metadata suffix, execute here. Full original case executes separately on its CPython owner."
+  },
+  {
+    "id": "test_pvp_native_targets.NativeTargetTests.test_real_native_pea_collision_routes_original_damage_body_to_zombie_dave",
+    "source_sha256": "dd85605bb034b276a7f4894c95195137b99fde5110a894696306ac2210594cf3",
+    "original_ast_sha256": "5d719794fe06dcb9adf32904365a5e60e1d12f6869afc77bb772b0984cb35599",
+    "native_statement_lines": [
+      69,
+      70,
+      71,
+      72,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80
+    ],
+    "cpython_owned_statement_lines": [
+      81,
+      82
+    ],
+    "native_ast_sha256": "4efd6a31e970438f4cb04ff10d4b26589ca31ac9e8c11dd23ddba1c2e8219243",
+    "scope": "Supplement only; unchanged raw original ID remains collected. All common behavior assertions, including post-metadata suffix, execute here. Full original case executes separately on its CPython owner."
+  },
+  {
+    "id": "test_pvp_triple_jump.TripleJumpTests.test_the_raised_cap_is_one_operand_byte",
+    "source_sha256": "74354957accb01659e0de343dddf1b4940f1841bc26c603e946f50598b3e0df6",
+    "original_ast_sha256": "d104a13aedda1a7ae70ec64c90a42cc59976fddadcdab04cc38fcfb0c2438d46",
+    "native_statement_lines": [
+      53,
+      54,
+      55,
+      61,
+      62
+    ],
+    "cpython_owned_statement_lines": [
+      56,
+      57,
+      58,
+      59,
+      60
+    ],
+    "native_ast_sha256": "b391b258e4d435ea16fa64108a8236adfee046719f3420ab03934bb54fa296d0",
+    "scope": "Supplement only; unchanged raw original ID remains collected. All common behavior assertions, including post-metadata suffix, execute here. Full original case executes separately on its CPython owner."
+  }
+]

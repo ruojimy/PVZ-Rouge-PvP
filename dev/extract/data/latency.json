@@ -1,0 +1,9 @@
+{
+ "KINDS": [
+  "latency_probe",
+  "latency_echo"
+ ],
+ "INTERVAL": 2.0,
+ "TIMEOUT": 6.0,
+ "STALE_AFTER": 8.0
+}

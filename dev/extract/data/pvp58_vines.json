@@ -1,0 +1,14 @@
+{
+ "PLANT_VINES": [
+  "阳光藤蔓",
+  "忧郁藤蔓",
+  "抓人草"
+ ],
+ "PUFF_VINE": "忧郁藤蔓",
+ "SUN_VINE": "阳光藤蔓",
+ "VINE_FIRST": 6.0,
+ "VINE_PERIOD": 16.0,
+ "VINE_YIELD": 15,
+ "HARDENING_MIN_BASE_HP": 6,
+ "VINE_HP": 6.0
+}

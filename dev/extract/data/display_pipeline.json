@@ -1,0 +1,17 @@
+{
+ "REVISION": "display-71.2-r1",
+ "QUALITIES": [
+  "native",
+  "balanced",
+  "performance"
+ ],
+ "QUALITY_LABELS": {
+  "native": "原画",
+  "balanced": "均衡",
+  "performance": "流畅"
+ },
+ "FILTERS": [
+  "smooth",
+  "pixel"
+ ]
+}

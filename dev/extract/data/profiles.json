@@ -1,0 +1,6 @@
+{
+ "DEFAULT": "default",
+ "INDEX": "profiles.json",
+ "FOLDER": "profiles",
+ "LIMIT": 8
+}

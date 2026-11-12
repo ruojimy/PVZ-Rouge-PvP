@@ -1,0 +1,588 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\extract\\original\\functions.py",
+      "source_sha256": "bcf67cccf9fb73724c76f974e8ad65d3997f7e36acb0ae1f4439bee72c10d754",
+      "symbol": "种植植物",
+      "lines": [
+        161,
+        281
+      ],
+      "ast_sha256": "a0aa06e4ab86c0e976625606715142a3817d24aa81078545e7b5fb5d51bf3ee4",
+      "typed_target": "plant_original / find_plant / clear_original_plant / destroy_original_block / OriginalPlantLifecycle",
+      "scope": "Literal raw body, including partial constructor failure, RNG order and installed lifecycle callback dispatch. Oracle executes shipped bytecode; PvP/patch plant admission and registration remain pending.",
+      "branch_syntax_nodes": 52,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\extract\\original\\functions.py",
+      "source_sha256": "bcf67cccf9fb73724c76f974e8ad65d3997f7e36acb0ae1f4439bee72c10d754",
+      "symbol": "清除植物",
+      "lines": [
+        477,
+        482
+      ],
+      "ast_sha256": "ab6cb6b25f050807a2291bc3296c49a70dc9ab75d752d2a2bb8ef15a21e4cb45",
+      "typed_target": "plant_original / find_plant / clear_original_plant / destroy_original_block / OriginalPlantLifecycle",
+      "scope": "Literal raw body, including partial constructor failure, RNG order and installed lifecycle callback dispatch. Oracle executes shipped bytecode; PvP/patch plant admission and registration remain pending.",
+      "branch_syntax_nodes": 1,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\extract\\original\\functions.py",
+      "source_sha256": "bcf67cccf9fb73724c76f974e8ad65d3997f7e36acb0ae1f4439bee72c10d754",
+      "symbol": "哪个植物",
+      "lines": [
+        559,
+        568
+      ],
+      "ast_sha256": "05db444ec8c398db67931ed88623a32adae082ace06c8beccd0e6b6f74619f65",
+      "typed_target": "plant_original / find_plant / clear_original_plant / destroy_original_block / OriginalPlantLifecycle",
+      "scope": "Literal raw body, including partial constructor failure, RNG order and installed lifecycle callback dispatch. Oracle executes shipped bytecode; PvP/patch plant admission and registration remain pending.",
+      "branch_syntax_nodes": 3,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\extract\\original\\functions.py",
+      "source_sha256": "bcf67cccf9fb73724c76f974e8ad65d3997f7e36acb0ae1f4439bee72c10d754",
+      "symbol": "哪个无南瓜植物",
+      "lines": [
+        570,
+        578
+      ],
+      "ast_sha256": "3c7a42686a821dc50edbd54fc0b78b747f85351b947031e3e256aefe20445d8b",
+      "typed_target": "plant_original / find_plant / clear_original_plant / destroy_original_block / OriginalPlantLifecycle",
+      "scope": "Literal raw body, including partial constructor failure, RNG order and installed lifecycle callback dispatch. Oracle executes shipped bytecode; PvP/patch plant admission and registration remain pending.",
+      "branch_syntax_nodes": 3,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\extract\\original\\functions.py",
+      "source_sha256": "bcf67cccf9fb73724c76f974e8ad65d3997f7e36acb0ae1f4439bee72c10d754",
+      "symbol": "摧毁方块",
+      "lines": [
+        335,
+        352
+      ],
+      "ast_sha256": "8da5f13bc9efaed3398761cd0752fe998fe61426f8910cb15fea27e81e5a79b9",
+      "typed_target": "plant_original / find_plant / clear_original_plant / destroy_original_block / OriginalPlantLifecycle",
+      "scope": "Literal raw body, including partial constructor failure, RNG order and installed lifecycle callback dispatch. Oracle executes shipped bytecode; PvP/patch plant admission and registration remain pending.",
+      "branch_syntax_nodes": 11,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\extract\\original\\functions.py",
+      "source_sha256": "bcf67cccf9fb73724c76f974e8ad65d3997f7e36acb0ae1f4439bee72c10d754",
+      "symbol": "摧毁实方块",
+      "lines": [
+        331,
+        333
+      ],
+      "ast_sha256": "877ee571cc2958ddd69fe0787d955264a471bcd08249df810c9388b28c61f887",
+      "typed_target": "plant_original / find_plant / clear_original_plant / destroy_original_block / OriginalPlantLifecycle",
+      "scope": "Literal raw body, including partial constructor failure, RNG order and installed lifecycle callback dispatch. Oracle executes shipped bytecode; PvP/patch plant admission and registration remain pending.",
+      "branch_syntax_nodes": 2,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\extract\\original\\functions.py",
+      "source_sha256": "bcf67cccf9fb73724c76f974e8ad65d3997f7e36acb0ae1f4439bee72c10d754",
+      "symbol": "增加重要方块",
+      "lines": [
+        114,
+        117
+      ],
+      "ast_sha256": "b5755466b9cf3f970536c75061f498f16a1986e13b74d6fc0f6330c75dd261c8",
+      "typed_target": "plant_original / find_plant / clear_original_plant / destroy_original_block / OriginalPlantLifecycle",
+      "scope": "Literal raw body, including partial constructor failure, RNG order and installed lifecycle callback dispatch. Oracle executes shipped bytecode; PvP/patch plant admission and registration remain pending.",
+      "branch_syntax_nodes": 0,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\native_battle.py",
+      "source_sha256": "e5e6f9e8c79e0fd31f5c29f1db1c877afede26793ffa551a8e1890ac06a8efbf",
+      "symbol": "keep_bedrock",
+      "lines": [
+        219,
+        222
+      ],
+      "ast_sha256": "ff5b6c62e2a174c219581c35e6cdd15b87f5937f7ee0032e4fbd915fa427a77b",
+      "typed_target": "destroy_pvp_block",
+      "scope": "Exact native PvP bedrock wrapper, including wrapped guard lookup before strict raw bounds.",
+      "branch_syntax_nodes": 2,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_float",
+      "lines": [
+        1268,
+        1272
+      ],
+      "ast_sha256": "b2f352b91d99565a3b8a45c61c5b4f54e6b5c39c4372770cbb42d9fe1c4deecf",
+      "typed_target": "WorldTerrain / GravebusterEffects / chili_lane_row / update_chili_row_hint",
+      "scope": "Canonical record/null terrain and fixed typed fields. Full raw dynamic-input error branches and sourced PvP death wrapper composition are not closed.",
+      "branch_syntax_nodes": 1,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_randint",
+      "lines": [
+        3577,
+        3587
+      ],
+      "ast_sha256": "9ccfcb61109fef5dfd092c436bb48cd691a4c39d38e84b04b784c1110de56b95",
+      "typed_target": "WorldTerrain / GravebusterEffects / chili_lane_row / update_chili_row_hint",
+      "scope": "Canonical record/null terrain and fixed typed fields. Full raw dynamic-input error branches and sourced PvP death wrapper composition are not closed.",
+      "branch_syntax_nodes": 4,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_sign",
+      "lines": [
+        1286,
+        1288
+      ],
+      "ast_sha256": "b494e72b4aae321f4fa9eceff604c2366783817de9fdf0903e2c80d0b6baf88d",
+      "typed_target": "WorldTerrain / GravebusterEffects / chili_lane_row / update_chili_row_hint",
+      "scope": "Canonical record/null terrain and fixed typed fields. Full raw dynamic-input error branches and sourced PvP death wrapper composition are not closed.",
+      "branch_syntax_nodes": 1,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_grid",
+      "lines": [
+        9264,
+        9266
+      ],
+      "ast_sha256": "e075fc9b84e64258f54ee2fcf9f3fd268bbe0e4733978476b5e80d58c5a08e95",
+      "typed_target": "WorldTerrain / GravebusterEffects / chili_lane_row / update_chili_row_hint",
+      "scope": "Canonical record/null terrain and fixed typed fields. Full raw dynamic-input error branches and sourced PvP death wrapper composition are not closed.",
+      "branch_syntax_nodes": 1,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_tile_at",
+      "lines": [
+        9269,
+        9281
+      ],
+      "ast_sha256": "3941057c23a41c8d30519b9e4bcbb7d89f6d334c81ab34b5063fe8b0176b9dac",
+      "typed_target": "WorldTerrain / GravebusterEffects / chili_lane_row / update_chili_row_hint",
+      "scope": "Canonical record/null terrain and fixed typed fields. Full raw dynamic-input error branches and sourced PvP death wrapper composition are not closed.",
+      "branch_syntax_nodes": 6,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_block_name",
+      "lines": [
+        11959,
+        11964
+      ],
+      "ast_sha256": "ccc18df610b99840bb0d5bd7a07797d68660f2ca23421275572d1d8ce4be724a",
+      "typed_target": "WorldTerrain / GravebusterEffects / chili_lane_row / update_chili_row_hint",
+      "scope": "Canonical record/null terrain and fixed typed fields. Full raw dynamic-input error branches and sourced PvP death wrapper composition are not closed.",
+      "branch_syntax_nodes": 2,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_empty_block_names",
+      "lines": [
+        11967,
+        11987
+      ],
+      "ast_sha256": "3f5c9bd2cd91ac418b5ca52dee1f73537f1951e7d38d57636b47d6566ce12509",
+      "typed_target": "WorldTerrain / GravebusterEffects / chili_lane_row / update_chili_row_hint",
+      "scope": "Canonical record/null terrain and fixed typed fields. Full raw dynamic-input error branches and sourced PvP death wrapper composition are not closed.",
+      "branch_syntax_nodes": 2,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_chili_surface_overlay_names",
+      "lines": [
+        11990,
+        12006
+      ],
+      "ast_sha256": "b18fc895ccfcaa4c1032e62907f45e7bb4365ac261019a72fc3396a61fe95f3b",
+      "typed_target": "WorldTerrain / GravebusterEffects / chili_lane_row / update_chili_row_hint",
+      "scope": "Canonical record/null terrain and fixed typed fields. Full raw dynamic-input error branches and sourced PvP death wrapper composition are not closed.",
+      "branch_syntax_nodes": 2,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_chili_has_plant_slot",
+      "lines": [
+        12009,
+        12013
+      ],
+      "ast_sha256": "38ffc0a85660a7cfc03913bc5edc82ed4deadef989cc18b04523158619828440",
+      "typed_target": "WorldTerrain / GravebusterEffects / chili_lane_row / update_chili_row_hint",
+      "scope": "Canonical record/null terrain and fixed typed fields. Full raw dynamic-input error branches and sourced PvP death wrapper composition are not closed.",
+      "branch_syntax_nodes": 1,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_is_chili_pass_through_block_name",
+      "lines": [
+        12016,
+        12025
+      ],
+      "ast_sha256": "3ec19e71042e351fced78be40e43012e6fec92965290164f6ee01525a1e1f0bb",
+      "typed_target": "WorldTerrain / GravebusterEffects / chili_lane_row / update_chili_row_hint",
+      "scope": "Canonical record/null terrain and fixed typed fields. Full raw dynamic-input error branches and sourced PvP death wrapper composition are not closed.",
+      "branch_syntax_nodes": 4,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_is_chili_surface_overlay",
+      "lines": [
+        12028,
+        12032
+      ],
+      "ast_sha256": "1cc1bb765ebaa607e7d790711c75530d953ced2f6f026953fdf1c13bd5f4962b",
+      "typed_target": "WorldTerrain / GravebusterEffects / chili_lane_row / update_chili_row_hint",
+      "scope": "Canonical record/null terrain and fixed typed fields. Full raw dynamic-input error branches and sourced PvP death wrapper composition are not closed.",
+      "branch_syntax_nodes": 1,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_is_chili_ground_block",
+      "lines": [
+        12035,
+        12039
+      ],
+      "ast_sha256": "da9cf01001cb028328e05c17b4681fc39d18637ee0548c191905eb08476208d7",
+      "typed_target": "WorldTerrain / GravebusterEffects / chili_lane_row / update_chili_row_hint",
+      "scope": "Canonical record/null terrain and fixed typed fields. Full raw dynamic-input error branches and sourced PvP death wrapper composition are not closed.",
+      "branch_syntax_nodes": 1,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_chili_fire_column",
+      "lines": [
+        12042,
+        12043
+      ],
+      "ast_sha256": "d8c088329cc2cb76580b3a38ea58c7c52ca8cec815e77e51fac9680d4f6ac91e",
+      "typed_target": "WorldTerrain / GravebusterEffects / chili_lane_row / update_chili_row_hint",
+      "scope": "Canonical record/null terrain and fixed typed fields. Full raw dynamic-input error branches and sourced PvP death wrapper composition are not closed.",
+      "branch_syntax_nodes": 0,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_chili_cell_at",
+      "lines": [
+        12046,
+        12052
+      ],
+      "ast_sha256": "84b7a0a895835704ca63e5b876c084c7af9be2bdbc55ece693b4c8e055572cef",
+      "typed_target": "WorldTerrain / GravebusterEffects / chili_lane_row / update_chili_row_hint",
+      "scope": "Canonical record/null terrain and fixed typed fields. Full raw dynamic-input error branches and sourced PvP death wrapper composition are not closed.",
+      "branch_syntax_nodes": 4,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_chili_lane_row_from_pos",
+      "lines": [
+        12055,
+        12072
+      ],
+      "ast_sha256": "4dc541b8726e2953738bb1d6d7d08fc55de62b2d62e2a2254aa2ae4963403c52",
+      "typed_target": "WorldTerrain / GravebusterEffects / chili_lane_row / update_chili_row_hint",
+      "scope": "Canonical record/null terrain and fixed typed fields. Full raw dynamic-input error branches and sourced PvP death wrapper composition are not closed.",
+      "branch_syntax_nodes": 8,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_chili_int_or_none",
+      "lines": [
+        11509,
+        11515
+      ],
+      "ast_sha256": "8f34a0ddbbf0c1f9fae6a05294425d05e72c1d820f99627fca8fb01e6ded2f89",
+      "typed_target": "WorldTerrain / GravebusterEffects / chili_lane_row / update_chili_row_hint",
+      "scope": "Canonical record/null terrain and fixed typed fields. Full raw dynamic-input error branches and sourced PvP death wrapper composition are not closed.",
+      "branch_syntax_nodes": 2,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_update_chili_zombie_row_hint",
+      "lines": [
+        12075,
+        12096
+      ],
+      "ast_sha256": "0f2faa47f90d164e50271c5ad58e8ed6c642ebdc412c791d5613967b8c407614",
+      "typed_target": "WorldTerrain / GravebusterEffects / chili_lane_row / update_chili_row_hint",
+      "scope": "Canonical record/null terrain and fixed typed fields. Full raw dynamic-input error branches and sourced PvP death wrapper composition are not closed.",
+      "branch_syntax_nodes": 10,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_gravebuster_zombie_cell",
+      "lines": [
+        11296,
+        11334
+      ],
+      "ast_sha256": "999f241d56e07cbda727499aa4ef86de29f3beb1f0083374656b6145c642c002",
+      "typed_target": "WorldTerrain / GravebusterEffects / chili_lane_row / update_chili_row_hint",
+      "scope": "Canonical record/null terrain and fixed typed fields. Full raw dynamic-input error branches and sourced PvP death wrapper composition are not closed.",
+      "branch_syntax_nodes": 9,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_clear_gravebuster_grave_cell",
+      "lines": [
+        11337,
+        11379
+      ],
+      "ast_sha256": "1560ab90daf84144b639d8d6167efb02836056e30244e9bbf427f5fd0cd0727e",
+      "typed_target": "WorldTerrain / GravebusterEffects / chili_lane_row / update_chili_row_hint",
+      "scope": "Canonical record/null terrain and fixed typed fields. Full raw dynamic-input error branches and sourced PvP death wrapper composition are not closed.",
+      "branch_syntax_nodes": 14,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_place_grave_from_gravebuster_zombie",
+      "lines": [
+        11382,
+        11409
+      ],
+      "ast_sha256": "bc53b633a11cf0178827bf5b397193d5e9f50a503937a1348bb7e7b603d8766a",
+      "typed_target": "WorldTerrain / GravebusterEffects / chili_lane_row / update_chili_row_hint",
+      "scope": "Canonical record/null terrain and fixed typed fields. Full raw dynamic-input error branches and sourced PvP death wrapper composition are not closed.",
+      "branch_syntax_nodes": 9,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_spawn_gravebuster_plant_from_zombie",
+      "lines": [
+        11412,
+        11432
+      ],
+      "ast_sha256": "798818fda2e9a7399df075f12b5714b67eabc782a9e68354a1b750be30cad2b6",
+      "typed_target": "WorldTerrain / GravebusterEffects / chili_lane_row / update_chili_row_hint",
+      "scope": "Canonical record/null terrain and fixed typed fields. Full raw dynamic-input error branches and sourced PvP death wrapper composition are not closed.",
+      "branch_syntax_nodes": 6,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_play_named_sound",
+      "lines": [
+        6144,
+        6163
+      ],
+      "ast_sha256": "501b028c3feb80ef0b3d2d0e266460d5eaeb10c95426680c2de26930264a5a40",
+      "typed_target": "WorldTerrain / GravebusterEffects / chili_lane_row / update_chili_row_hint",
+      "scope": "Canonical record/null terrain and fixed typed fields. Full raw dynamic-input error branches and sourced PvP death wrapper composition are not closed.",
+      "branch_syntax_nodes": 7,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\native_content.py",
+      "source_sha256": "184f0cf9e734af398f65cef6d86f0657da21c95fd4404caabd1c485340ff2fb0",
+      "symbol": "NativeContent.point",
+      "lines": [
+        800,
+        808
+      ],
+      "ast_sha256": "0219461adccf20792e51f6e7ea14013684e7f3d88227ea8d36dd10667cbc14ea",
+      "typed_target": "ContentTargets::point / damage",
+      "scope": "Stationary plant, mobile zombie and hero-proxy targets; typed protection and actual raw damage callbacks. Content kind and context preserved. Entire content controller remains pending.",
+      "branch_syntax_nodes": 4,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\native_content.py",
+      "source_sha256": "184f0cf9e734af398f65cef6d86f0657da21c95fd4404caabd1c485340ff2fb0",
+      "symbol": "NativeContent.damage_target",
+      "lines": [
+        852,
+        866
+      ],
+      "ast_sha256": "217450da24f07082adb4a2f3a44cbc9eb4d9f4da2e81fc21c7ff82b75dc138a3",
+      "typed_target": "ContentTargets::point / damage",
+      "scope": "Stationary plant, mobile zombie and hero-proxy targets; typed protection and actual raw damage callbacks. Content kind and context preserved. Entire content controller remains pending.",
+      "branch_syntax_nodes": 9,
+      "full_branch_coverage": false
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\pvp56_plants.py",
+      "source_sha256": "97529c8cead858fdb240d19f642076c383098b3e875e698f6d919ae8f5deb659",
+      "symbol": "FlyingPlants.target_contact",
+      "lines": [
+        202,
+        215
+      ],
+      "ast_sha256": "7b6c7bbf5932c33e2751e47c10813b8d76d0af584b27bc03a8eef318c4c7e97f",
+      "typed_target": "ContentTargets::contact / flying_target_contact",
+      "scope": "Plant .45-tile ellipse, mobile body/head geometry and cached hero position. Complete flying projectile driver remains pending.",
+      "branch_syntax_nodes": 3,
+      "full_branch_coverage": false
+    }
+  ],
+  "source_ownership": {
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\gen\\original_funcs.cpp": "27b75e68f5b0d6bc59075004820abd43eabcf51de553fcd6e4a7b6648d069dc3",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\pvp\\gen\\pm_patch1501.cpp": "ed4e8ed7e682ab5434c1c636ba85b5c86b65c7be8bc64b2f8e8163e5cf83a65d",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\pvp\\gen\\pm_native_content.cpp": "2e7c5ea70667ad437e3256467c244cf85bbeb9550e5e413f53982e7d4af9014b",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\pvp\\gen\\pm_native_battle.cpp": "9704467c24b112222a20bcbdc365f832dcaecb907c83e478481779338266f09f",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\pvp\\hand\\misc.cpp": "dc5e2b511cc4bc553a7660634e1a50c4454bda7c798e4034c1753a6199a14367",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\pvp\\hand\\targeting72.cpp": "6a35cd043fdae8709abd12c1b63c9a840b0706acee77cad05b28ae06f5d939f9",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp2cpp.py": "7f621b04f62fcf72c3cfc5593ce02b18b61d1b882635d98a9af4a1a0954b3aaf"
+  },
+  "raw_functions": {
+    "种植植物": {
+      "first_line": 252,
+      "bytecode_size": 1658,
+      "marshal_sha256": "6f5f6f57c55a6cf8692b4fa6fe41e0ab472f623577c3412397ba91ea82f84679"
+    },
+    "清除植物": {
+      "first_line": 560,
+      "bytecode_size": 38,
+      "marshal_sha256": "f638324abba3ec44392aadaea8eb91d55c0eaf09ae351a9ffcb72cf382a1e7c3"
+    },
+    "哪个植物": {
+      "first_line": 636,
+      "bytecode_size": 94,
+      "marshal_sha256": "98280abccdfe095a5fd85b80b39d161636099f2d149ed74ad00b98174c948eab"
+    },
+    "哪个无南瓜植物": {
+      "first_line": 645,
+      "bytecode_size": 88,
+      "marshal_sha256": "a356bd069ca414bb111ba0a936c38afd134174199cb0403bc0133477574d0ab4"
+    },
+    "摧毁方块": {
+      "first_line": 419,
+      "bytecode_size": 354,
+      "marshal_sha256": "662af508619705d56c9998a59f2c5a2ed7491f64643cda8763e2a882ba38a8dd"
+    },
+    "摧毁实方块": {
+      "first_line": 415,
+      "bytecode_size": 60,
+      "marshal_sha256": "a26b3beae786b643b5f4fd4e668908337dc22d08cc58e7b443e9ee2837f91bbe"
+    },
+    "增加重要方块": {
+      "first_line": 209,
+      "bytecode_size": 42,
+      "marshal_sha256": "1b682e0d6774332f04d70478942cf92dd8619b727063b325098d0fd5f03eedb7"
+    }
+  },
+  "implementation": {
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\allegiance.h": "04e57e55993a06e992f2e582908b897e1ce00a8ec6e5a29eb8f3aa0178c5b09f",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\attack_identity.cpp": "f52d991c2ff26bb5596c068b94b828c7ef47e5abffae980f13a55a927de3f87d",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\attack_identity.h": "dc48b4ef49e9ec5bce62a6231e756b1ab6ed856476eebe8005cdebaab35275c4",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\attack_source.h": "216efc878517ca41e876ef2248a9ccd5ae15313d9e2ea23146c140212d75bb9a",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\chili_effects.cpp": "30487d4c7556abe5ab23a6d793c52374b805a71f81eb8f4ad3a330080595149a",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\chili_effects.h": "f085a0e0544adec706ad2cd6753e7dafe14542970debd4f8ff1140edcc925025",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\chili_state.h": "e54c8ff5ff7b5e03b61f12a1da3d60bf2709137924406deb77b1fab11a2dd4fc",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\CMakeLists.txt": "36bb0e186f30ddd81896c92fe52894c2d12ac01227940732d12b2d4b6bed52b7",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\combat_events.h": "2aa250e41deb152174da42d53c4aed7c1c2b140eee99e198010a5e011c7fc418",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\content_target.cpp": "efdf6f541f85e98afdf85e65e952b6e3adea5c5570c62bdfda85c77888e29041",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\content_target.h": "7013e24ef8bf54bf3fcacc3c08919a5ade1f770014c6bd4710ac941581f66b6b",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\damage.cpp": "2f5ef8620013526cb5d5652ea2307a638e8aa3852861069b0ec3881bcd09410c",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\damage_patch.cpp": "377e7851bcbc73332a33a38a92978fc68093ec80573e475409d91ccecbe73a0b",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\damage_patch.h": "4f547690c6a23c7f112925aebb726e2f2616be82c77d14cbeb113c4523aef9d4",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\death_chain.cpp": "f4b8ff484d0882e1337584fdaec62102f79794235316d0b874135fd13593599f",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\death_chain.h": "8e3fe5631457b6fcb4b2e4cb3ede7145051f99ad6610b7c6fc6a42f138d7c1fa",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\death_marker.h": "224038cc0367f21d5aaebe5476a7e882aa05bb02a247723f4b701a476b15c2d3",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\doom_effects.cpp": "6c87a9c035532e042c9bfa443629e15911b4052a2c6f58a9cb052e515f06a76e",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\doom_effects.h": "b5b34fc680c2f6e89611113a60ca6168d94f64a067f410e5b948d1a269fd2518",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\field.h": "663abc5d8b88032b3069e05b320f67d212c886551f9dfd7579a5a054af479834",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\flood.cpp": "cd84b9ebcc65d94392c065ec1afd10880b68f4dc453f89849ca8179e1186f87b",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\flood.h": "720c74fd6b3b857a3d5b9aeebcaac4b8f78dc8ab7934e633264b8096a388c797",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\geometry.h": "0e50be880081d510e2c9bddeaf222876caada8731f34a04e54a57180bfdfc24b",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\hero.cpp": "a167d7ecd9fbf07e660e8a1227a9e375eb0dd43cdc6e7c1859d3af07b04b30be",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\hero.h": "b7a050db0f533cc69c51e4dbde971699b54b8b46072274debc6c04fa3df7b383",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\native_registry.cpp": "9b965ba7dffd50f200b629cd551a4e22708376599168d6559a76ffccf528b5d5",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\native_registry.h": "5fbb0ad4f5e158188c370ec7e758839ad2b819ae3094af7d330a8e8d854cbe70",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\particles.cpp": "c9aa64f72c867bc6e791a61658d78311f7e0e71602f181e5f85313920609b0d6",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\physics.cpp": "46bd4e338069aad3e44b4e805e68c69f25f062f352efc99ab32aee1bf8047e86",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\plant.h": "9b8df028787bead5b6b1e23d360e729e8cce1938effdc41c063dc16a9db2dd32",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\plant_spawn.cpp": "c98e8e7572a07c1c30085d0dc00af8e70b66d11a31804c4a451b50c2f8298c0a",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\plant_spawn.h": "72da4851d697c9989a4f910bd83781a57fdfb21841ddb3034121bead777f3f82",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\projectile.cpp": "6bb290a6b8b5e6a29c25c7184ee2c6f3bd4eb498d4de615a301d32e9ab101a25",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\projectile.h": "8c2c28bfdf5e7b24c6bc1fac126f41e711ec5662dbfbd7c7aafe10304bd04290",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\projectile_rules.cpp": "0e3649e30d21961a0c7b16d39762ed6ecec2274c341d5ff77d579931cc065a3d",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\projectile_rules.h": "8feebcf68bc4725e412b76ff7018561a22d6fd67ddb1ad94d67f13894acbe923",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\projectile_state.h": "a105a76e67bc514926e25c81c4bb0b89b3504dcda4607d600f1f27613ac05562",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\protection.cpp": "33cb08381c1efbff8ca556a923b1b7ef0140b70ceb85c86cc8c531609d14b7ff",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\protection.h": "da914bea3e2e27efaa8dcc313c6b50883fe39e3ea4b401f148412924fa0ae85c",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\record_identity.h": "711b48556b670757213ca7d293a313654603b4881504613f4a6c6488f12fa2ae",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\shooter.cpp": "3c124afcb0ef50bfb1e108226cbf3e5f40c5e29cd7488212e5c1e265cd61f399",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\sourced_context.cpp": "37c3b5c0bb5633b81f2c6211e1f64cde0b734d7eae25a95e24e7dbda42e95a31",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\sourced_context.h": "1708586e2c69e6c8c22f6330a2ac07cc0f71d5d79fe5d4e7aeb09b3e8706a609",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\state.h": "3c3884c803d9271395a2282722f6ffeeb1442e75eb500f356fab0b8784adad4d",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\targets.cpp": "a6459efc402a48b993eb0273d9f0cb7050ea2928cfa99365b52dd2be6a7e4254",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\targets.h": "9b4ee9c7bea557d1f7a2a92ebc1efca87d060601ba4669a802a48a070cda3ed4",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\terrain.h": "26d6b4a83fd58a4f163af99df50ff7cff19cb1c7c1aa852b82dc260f2f00f687",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\terrain_effects.cpp": "3ac4caa3d3e02394fc0a95f149a81bee3cd9e20fe1abc11babb9a76e04dcc490",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\terrain_effects.h": "676cfdebf6dcede641468fa4d3a55eb6e97a73a6c9fc310dd2d2a455e444c337",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\zombie_spawn.cpp": "72ebdcdc48ab86fedfa3cef1bb64d7d51ab5d755c440e7963adda4e016e6a816",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\zombie_spawn.h": "d5df7319ebd02fffef42d3e86787f18a2516d12e29de2939244a71bcfccfba55"
+  },
+  "evidence": {
+    "regression": {
+      "path": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\typed72-20261105\\registry-portable-regression\\summary.json",
+      "sha256": "ece15d29945abb228504ab473053e8869176274868e7abe741dbc0b56c39d4af"
+    },
+    "negative": {
+      "path": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\typed72-20261105\\chili-plant-negative\\summary.json",
+      "sha256": "8220e024e5239e247cf47422c76fbc83b562ca8d4fbf7abe2a451d4c65e8d5f2"
+    }
+  },
+  "authoritative_plant_and_tile_records": true,
+  "per_tick_map_copy": false,
+  "world_tick_implemented": false,
+  "full_product_acceptance": false,
+  "full_branch_coverage": false,
+  "pending": [
+    "PvP/patch plant admission, constructor wrappers, registration and direct writable fields",
+    "Production lifecycle/admission wiring; chili/doom and sourced synchronous death composition have separate evidence",
+    "Remaining NativeContent controller, enemy collection, taunt/route targeting and projectile drivers",
+    "Complete ordinary zombie/pea/hero tick, all current mechanics, AI, multiplayer and replay",
+    "Full original suite, source/branch closure, whole-battle differential, formal PC/Android performance and products"
+  ]
+}

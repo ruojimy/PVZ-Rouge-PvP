@@ -1,0 +1,8 @@
+{
+  "role": "real SDL subsystem, device handles and event conversion replacing fixed get_init/get_count placeholders; no physical controller operation claimed",
+  "primary_sources": [
+    "https://raw.githubusercontent.com/pygame-community/pygame-ce/2.4.0/src_c/event.c",
+    "https://raw.githubusercontent.com/pygame-community/pygame-ce/2.4.0/src_c/joystick.c"
+  ],
+  "validation": "SDL virtual device state and raw SDL events in framework self-test; unchanged original UI/controller tests"
+}

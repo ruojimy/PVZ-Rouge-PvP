@@ -1,0 +1,11 @@
+{
+ "HOOK": "钩索僵尸",
+ "REAPER": "死神僵尸",
+ "BASIN": "水盆",
+ "GRABBER": "抓人草",
+ "HEAD": "抓人草触手",
+ "LETTUCE": "冰冻生菜",
+ "ANCHOR_SECRET": "zsecret:船锚",
+ "TENTACLE_SECRET": "secret:触手",
+ "AIRDROP_SECRET": "zsecret:空输"
+}

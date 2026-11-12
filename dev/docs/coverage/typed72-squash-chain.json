@@ -1,0 +1,566 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_squash_zombie_origin",
+      "owner": null,
+      "lines": [
+        5780,
+        5787
+      ],
+      "ast_sha256": "b868a25c95ca8458f0910df7d070ac8ef35ae7c573adb181edad58fb7a0160a4",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_squash_zombie_candidate",
+      "owner": null,
+      "lines": [
+        5790,
+        5803
+      ],
+      "ast_sha256": "0632e2b91e62f203389ad80a7e047ee31600947a082c7745d3bbbb7aef9049ee",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_pick_squash_zombie_target",
+      "owner": null,
+      "lines": [
+        5806,
+        5906
+      ],
+      "ast_sha256": "2cbadfd9d4a2f18c3e7c25f453d191a270fd5bb1ad308c5007c2de59db729e3d",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_squash_zombie_target_record",
+      "owner": null,
+      "lines": [
+        5909,
+        5919
+      ],
+      "ast_sha256": "194f4109817fcdcd689ca9d86076956967f527a2758251dcc4b4da9be70b8d41",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_squash_zombie_ballistic_target",
+      "owner": null,
+      "lines": [
+        5922,
+        5931
+      ],
+      "ast_sha256": "47826ee1d77d182704a957380721a290578234381dbf081862b35a386fa286e0",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_squash_zombie_target_velocity",
+      "owner": null,
+      "lines": [
+        5934,
+        5937
+      ],
+      "ast_sha256": "4456433f5de9e3860bcf5fcd1119dedd3f7e55617a3549e09bc7bd9579b55bac",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_play_squash_zombie_sound",
+      "owner": null,
+      "lines": [
+        5940,
+        5953
+      ],
+      "ast_sha256": "97080f486f547f24c5d735424e3d0dd80a6f40fac8105700dda0bef2adda234f",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_spawn_squash_zombie_entity",
+      "owner": null,
+      "lines": [
+        5956,
+        6013
+      ],
+      "ast_sha256": "a2ac904981fd90968b50c6fe8aaca02e385af7153ddd4ca00282284d8906ca4c",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_update_squash_zombie",
+      "owner": null,
+      "lines": [
+        6016,
+        6046
+      ],
+      "ast_sha256": "7fffa85e8d176cb4199e23c66ca507cfc9702807a41d482ecaa553e0aaf79b57",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_zombie_velocity",
+      "owner": null,
+      "lines": [
+        10327,
+        10361
+      ],
+      "ast_sha256": "ce070bd1de3c3e32f9ad524bffa1b54bbb5eb3aaa2d343c120c2ac4c2629ba09",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_pick_target",
+      "owner": null,
+      "lines": [
+        10364,
+        10403
+      ],
+      "ast_sha256": "1a1acb406105e61d6b9a7f58f30fe91f100be4b51b29d1368c82c8b731b82f90",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_solve_intercept",
+      "owner": null,
+      "lines": [
+        10406,
+        10443
+      ],
+      "ast_sha256": "06a2d44c1b8f879c9f30237b4f5d9ae6736f6009d46fccfc68487a5c27ffa23b",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_current_target_from_index",
+      "owner": null,
+      "lines": [
+        10446,
+        10459
+      ],
+      "ast_sha256": "d8aa1bf65772bf2b591c21a35a4c0760d7b1239ad42b8e8ffcdd11b100a752c1",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_compute_solution",
+      "owner": null,
+      "lines": [
+        10462,
+        10483
+      ],
+      "ast_sha256": "d4ec513608cbba0fe3fd1a78d1727bd40f56ee38e7a58e7d12efd21a30d41362",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_pick_squash_target",
+      "owner": null,
+      "lines": [
+        10486,
+        10527
+      ],
+      "ast_sha256": "c9b7779fccc70d24013122fa4f85eff7609f5d9a230ec2884fb99ecfd5c07781",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_squash_target_from_lock",
+      "owner": null,
+      "lines": [
+        10530,
+        10557
+      ],
+      "ast_sha256": "7c60d964066129334d0c1c2bb028fee7aa68587c1839e7d1dad9c86c2df61961",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_apply_squash_solution",
+      "owner": null,
+      "lines": [
+        10560,
+        10605
+      ],
+      "ast_sha256": "35d7e7cf71c55f601405a600524dea0ce790c94571c66ad0bb4402197b434278",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_patch_squash_entity",
+      "owner": null,
+      "lines": [
+        10608,
+        10648
+      ],
+      "ast_sha256": "4632219757bbbf20d0aa4656bce40b907144c009a94d45468cc3452e45f665c4",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_finish_squash_entities",
+      "owner": null,
+      "lines": [
+        10651,
+        10691
+      ],
+      "ast_sha256": "48698e82e17a268895f9f8fee31826157939afaf502039080af1cd97dfa1fd69",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_is_enemy_squash_zombie_entity",
+      "owner": null,
+      "lines": [
+        10694,
+        10699
+      ],
+      "ast_sha256": "4c8836387c707c3bc3335b1da28b9db5d690fafca580a7b63111902c38ae529e",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_has_pending_enemy_squash_zombie_entity",
+      "owner": null,
+      "lines": [
+        10702,
+        10711
+      ],
+      "ast_sha256": "e4eab1838f3b61fb240ace8512a7758a98efba665843fc5d22572236d5270c7c",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_target_from_record",
+      "owner": null,
+      "lines": [
+        10728,
+        10742
+      ],
+      "ast_sha256": "ada380e8f414b25ffd94ca40db781554ebc077fdf54ef694712c9122b020d09e",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_resolve_squash_zombie_target",
+      "owner": null,
+      "lines": [
+        10745,
+        10774
+      ],
+      "ast_sha256": "41088de7ef8214cd821382db52332dfc1b18f826a4ad1d790a700ff2e20b8c9d",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_squash_zombie_kill_plant",
+      "owner": null,
+      "lines": [
+        10777,
+        10788
+      ],
+      "ast_sha256": "088971e3b04ff5871fc3076dba049421b2b46e6bcb48d967e23f4711425cdfe0",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_squash_zombie_damage_charmed_zombie",
+      "owner": null,
+      "lines": [
+        10791,
+        10806
+      ],
+      "ast_sha256": "f7069e94235ff3bda6d54dee6f965dc0e361ce52510b73cd148213f51fcc6b80",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_squash_zombie_damage_player",
+      "owner": null,
+      "lines": [
+        10809,
+        10836
+      ],
+      "ast_sha256": "50d06e610fd4fb0b5883fb3071ce469d069e50e0dfd55c02aabc9a7e8d4717d1",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_apply_squash_zombie_hit",
+      "owner": null,
+      "lines": [
+        10839,
+        10863
+      ],
+      "ast_sha256": "53a70f8a26128c3843a786d144ee290c299895918880ab2a8bddd145da713c22",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_update_squash_zombie_entities",
+      "owner": null,
+      "lines": [
+        10866,
+        10899
+      ],
+      "ast_sha256": "ecf4061a52c4bdd760bf969bf5529deadb468413a3bb9f2f21df1efbec902054",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_len2",
+      "owner": null,
+      "lines": [
+        1282,
+        1283
+      ],
+      "ast_sha256": "c7cf7758c2aa3f6ec15f225a842a33ebbfe3cfbe2a11adb12583571e8a468097",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_sign",
+      "owner": null,
+      "lines": [
+        1286,
+        1288
+      ],
+      "ast_sha256": "b494e72b4aae321f4fa9eceff604c2366783817de9fdf0903e2c80d0b6baf88d",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_plant_world_point",
+      "owner": null,
+      "lines": [
+        5334,
+        5348
+      ],
+      "ast_sha256": "749af3d17707f505692f77f6c48d5c43f5f2ab478d839973a618c1fb9cf1d7d7",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvzrouge_runtime_patch_source_20260904.py",
+      "source_sha256": "cba637e4d6a643a97e1e4bbae57c4c8eb6d4fc21a1bcede1c51b1d529dc2eb75",
+      "symbol": "__pvz_sb_zombie_target_point",
+      "owner": null,
+      "lines": [
+        5611,
+        5626
+      ],
+      "ast_sha256": "5f0a1a21ac9ee4c8e5c57afb85d0eb19ee2c3257d000374e130338fa1ff99a3a",
+      "typed_target": "SquashEffects / NativeBallistics / PlantZombieTargeting"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\native_patch.py",
+      "source_sha256": "101eaea66d5c31f9535d5517dc7673bf5ab7e70ebe027a5b90e4a43628c4be39",
+      "symbol": "bind",
+      "owner": "bind_targets",
+      "lines": [
+        341,
+        387
+      ],
+      "ast_sha256": "7e7d9d5faaf77db7a6a1937ba58a13ab5f957fc3ed521e15cb713d220395fd5b",
+      "typed_target": "SquashEffects::spawn / update / hit / SourcedContext"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\legacy_fixes.py",
+      "source_sha256": "d2faa39c010c102c8c78123d3b20ecf8b34bbaa50fb6d1eb6c607e20bc22fa38",
+      "symbol": "_target_wrapper",
+      "owner": null,
+      "lines": [
+        60,
+        70
+      ],
+      "ast_sha256": "bffe692eb5e9ad916a97154738b434576f550b3270ffb0fa312c192cdb2ccc7d",
+      "typed_target": "SquashEffects legacy I-Zombie guards"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\legacy_fixes.py",
+      "source_sha256": "d2faa39c010c102c8c78123d3b20ecf8b34bbaa50fb6d1eb6c607e20bc22fa38",
+      "symbol": "_damage_wrapper",
+      "owner": null,
+      "lines": [
+        73,
+        81
+      ],
+      "ast_sha256": "0a115a64ffbc3d749e570b8a9f9274ebd0a8adf972231a55fce375ba20244c0f",
+      "typed_target": "SquashEffects legacy I-Zombie guards"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp\\legacy_fixes.py",
+      "source_sha256": "d2faa39c010c102c8c78123d3b20ecf8b34bbaa50fb6d1eb6c607e20bc22fa38",
+      "symbol": "resolve",
+      "owner": "install",
+      "lines": [
+        179,
+        182
+      ],
+      "ast_sha256": "bb7fbd1ca5aeb0ad58af5697b734858b5d1482ce707cab309b44d3ac50b9ead6",
+      "typed_target": "SquashEffects::resolve"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\pvp66_secrets.py",
+      "source_sha256": "b86332f3f9792aeaada6d1f8a907e5e9fa5b818da295b148f2163dac2d8c38ff",
+      "symbol": "wrap_delta",
+      "owner": null,
+      "lines": [
+        25,
+        27
+      ],
+      "ast_sha256": "47f042eb0c6f483eb0edd22f56a85d69e30b79adbd200abbfc8211cca357671b",
+      "typed_target": "SquashEffects::splash_secret"
+    },
+    {
+      "source": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\pvp72_sources\\pvp66_secrets.py",
+      "source_sha256": "b86332f3f9792aeaada6d1f8a907e5e9fa5b818da295b148f2163dac2d8c38ff",
+      "symbol": "squash",
+      "owner": "PlantSecrets66",
+      "lines": [
+        113,
+        134
+      ],
+      "ast_sha256": "069df8aa8567b865d1469b31ece0475af291d3130b409b0ee1ba251561953651",
+      "typed_target": "SquashEffects::splash_secret"
+    }
+  ],
+  "evidence": {
+    "regression": {
+      "path": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\typed72-20261105\\squash-regression\\summary.json",
+      "sha256": "dbcee8c80079f631d36e3c1248ff478336fffd52fe9f57f06d1bcc5ec6bdd88a"
+    },
+    "negative": {
+      "path": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\typed72-20261105\\squash-negative-accepted\\summary.json",
+      "sha256": "bef521015f7829df5841c69f2ee5e6e2d99ef7b0712efb5e429f7cf071ba29b3"
+    }
+  },
+  "implementation": {
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\allegiance.h": "04e57e55993a06e992f2e582908b897e1ce00a8ec6e5a29eb8f3aa0178c5b09f",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\attack_identity.cpp": "f52d991c2ff26bb5596c068b94b828c7ef47e5abffae980f13a55a927de3f87d",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\attack_identity.h": "dc48b4ef49e9ec5bce62a6231e756b1ab6ed856476eebe8005cdebaab35275c4",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\attack_source.h": "216efc878517ca41e876ef2248a9ccd5ae15313d9e2ea23146c140212d75bb9a",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\ballistics.cpp": "1f4440fa1ff984c837ecb152f77a3b1fab0ab304666dee263dc5c7e583d264f0",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\ballistics.h": "7d858f43f9a8c6e11a0e2715f441d8eb6060c142e23b150fc0d8a127cbd239d5",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\chili_effects.cpp": "8fe0416ca2fbc30f3a47766c68e1ba315744a0999f4b8d931247faa459b1ed3b",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\chili_effects.h": "f085a0e0544adec706ad2cd6753e7dafe14542970debd4f8ff1140edcc925025",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\chili_state.h": "e54c8ff5ff7b5e03b61f12a1da3d60bf2709137924406deb77b1fab11a2dd4fc",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\CMakeLists.txt": "128ea7bf9e34d59a9caab935f4a8805c8a19dc78e17059b004bf183cf7f777a1",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\combat_events.h": "9723e89c5c1c5da5bb60fc6f1717eb19deabaf7bd71e9ee5ebad8e4c9dcc363f",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\content_target.cpp": "d211b5f62fb1ded0aef80a75c8b80677fe91accb50c2fc4004578934e4ab5b7b",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\content_target.h": "7013e24ef8bf54bf3fcacc3c08919a5ade1f770014c6bd4710ac941581f66b6b",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\damage.cpp": "d1bb5c1ae5f87126bc22edaaf4074430cf7152d490929c29856c1e3c9e07f077",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\damage_patch.cpp": "f433ea1e7d9dcc77a9c730f7d2821813fd5d061e99aafcb7d5cdf0d7cfefb1ad",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\damage_patch.h": "4f547690c6a23c7f112925aebb726e2f2616be82c77d14cbeb113c4523aef9d4",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\death_chain.cpp": "9aa4680e1a980cbe75ed25041dc2b3c746f6b5dde9965de2d6dd9d8d0c073bbd",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\death_chain.h": "8e3fe5631457b6fcb4b2e4cb3ede7145051f99ad6610b7c6fc6a42f138d7c1fa",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\death_marker.h": "224038cc0367f21d5aaebe5476a7e882aa05bb02a247723f4b701a476b15c2d3",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\doom_effects.cpp": "45c23458d9319d5dc6d3a80f60b03cc4d05dcf565c5ef1aae496c3516c60236c",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\doom_effects.h": "b5b34fc680c2f6e89611113a60ca6168d94f64a067f410e5b948d1a269fd2518",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\field.h": "663abc5d8b88032b3069e05b320f67d212c886551f9dfd7579a5a054af479834",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\flood.cpp": "cd84b9ebcc65d94392c065ec1afd10880b68f4dc453f89849ca8179e1186f87b",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\flood.h": "720c74fd6b3b857a3d5b9aeebcaac4b8f78dc8ab7934e633264b8096a388c797",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\fume_effects.cpp": "4d4c906c0570f1d924740b0c65437f30a2be7979fda776cefb7e28b4224dad9b",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\fume_effects.h": "b0783bf99e275c3c73fbe24deff807e0a996ae62035a8aeabb758daa28fb5328",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\fume_state.h": "5abd1e0386f548da1ac1b4ba5144ee59383e19f0fe7f539c3f3a14e478ba4707",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\geometry.h": "856daf5de9e1b02f5f95df0f17228feff06e4ec02bfb899506a659b6d589852e",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\hero.cpp": "a2f544455c0e1350d1df22e470f5f1a971dd7f8b0257b4ef6ecb44562089fc30",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\hero.h": "1dcbec588773eaf8e07abb6be0e908673e6161fcad5ee259c1c0b1d657917319",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\lantern_effects.cpp": "0a2b98169a4eecb6f0b8dddd0ace372772f6f4606d7527047909726aa83c5dbc",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\lantern_effects.h": "6df1a43b67bfc720ed54cede5ec3829ca9e40c5b002a618ffd47fda37ededd31",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\native_registry.cpp": "9b965ba7dffd50f200b629cd551a4e22708376599168d6559a76ffccf528b5d5",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\native_registry.h": "5fbb0ad4f5e158188c370ec7e758839ad2b819ae3094af7d330a8e8d854cbe70",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\particles.cpp": "c9aa64f72c867bc6e791a61658d78311f7e0e71602f181e5f85313920609b0d6",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\physics.cpp": "46bd4e338069aad3e44b4e805e68c69f25f062f352efc99ab32aee1bf8047e86",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\plant.h": "01b9e3912382673fb00ad6ddea1171804f326be0d5258421b15791db2683c937",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\plant_spawn.cpp": "c98e8e7572a07c1c30085d0dc00af8e70b66d11a31804c4a451b50c2f8298c0a",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\plant_spawn.h": "72da4851d697c9989a4f910bd83781a57fdfb21841ddb3034121bead777f3f82",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\plant_zombie_catalog.cpp": "8b4b994041bbb66db21e3ad3516306d4419f4bc3f72db07db7850834729719c8",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\plant_zombie_catalog.h": "9292d972d32a92a774e77570edbb1084e9216b15572c753e0361fc42fbd323de",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\plant_zombie_target.cpp": "72a98bda7d53032be21c13d371ba9754f3de6541d5770af5e58216deef1e8ab9",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\plant_zombie_target.h": "aee42bbff729eac92ae7c38f75b2d61c2cb6c794cd6e6633e32df5706858d292",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\projectile.cpp": "6bb290a6b8b5e6a29c25c7184ee2c6f3bd4eb498d4de615a301d32e9ab101a25",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\projectile.h": "8c2c28bfdf5e7b24c6bc1fac126f41e711ec5662dbfbd7c7aafe10304bd04290",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\projectile_rules.cpp": "8e6c34b7d3b39b71726bd73a2f4b46fcd317c2ec2a5b558e2ef6112eb1964e68",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\projectile_rules.h": "88a6a316e1bf1df0bdbb9506e6cab389d68e6f33c04bac3191c9359c50072dde",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\projectile_state.h": "a105a76e67bc514926e25c81c4bb0b89b3504dcda4607d600f1f27613ac05562",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\protection.cpp": "33cb08381c1efbff8ca556a923b1b7ef0140b70ceb85c86cc8c531609d14b7ff",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\protection.h": "da914bea3e2e27efaa8dcc313c6b50883fe39e3ea4b401f148412924fa0ae85c",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\record_identity.h": "711b48556b670757213ca7d293a313654603b4881504613f4a6c6488f12fa2ae",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\service_plants.cpp": "f5be2abde5207d1f9cea1a476038449b2a51e42e216176bcdbf05b00356f0ed7",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\service_plants.h": "5747b454d73ce0f5edfff2e070b61022f49a34f810f13597cb9c1f573902f908",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\service_state.h": "4a59f0b1f6cbdcea0ab786c348cd8535ac2e9ec3c498e6ade5b01b5e5f7fadc8",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\shooter.cpp": "3c124afcb0ef50bfb1e108226cbf3e5f40c5e29cd7488212e5c1e265cd61f399",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\sourced_context.cpp": "29e3ae627b80fc1966ee676d05274652cf5b48064b8a95ceb404fb68d116f215",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\sourced_context.h": "1708586e2c69e6c8c22f6330a2ac07cc0f71d5d79fe5d4e7aeb09b3e8706a609",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\squash_effects.cpp": "ab4066ffb3a92c3d0aa41124ccb1e360ea4f875e60108942f7c59b97d9c94c26",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\squash_effects.h": "5d27167ab00b76231c375bd1b3a8522dd519f478d9da7ac9a8294f88a15b6bd7",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\squash_state.h": "841588e8d8f764d251327ab7195b128b41df96301be65a99d5923d6c6db8c4b0",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\state.h": "448d0fa73d5bad838357589dd15c7242739889955afae3a415e3360f14771293",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\targets.cpp": "a6459efc402a48b993eb0273d9f0cb7050ea2928cfa99365b52dd2be6a7e4254",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\targets.h": "69b8a079bf7ec4359b63be009c7a966ace52e5363ec224e996eede5703c78862",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\terrain.h": "26d6b4a83fd58a4f163af99df50ff7cff19cb1c7c1aa852b82dc260f2f00f687",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\terrain_effects.cpp": "4e62c220e1a4f7d6f180b46ff0ab0a7c16a5e654e117b1964ad1b90a7f28fddb",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\terrain_effects.h": "676cfdebf6dcede641468fa4d3a55eb6e97a73a6c9fc310dd2d2a455e444c337",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\wind_effects.cpp": "bb31e5655c352f54ef9e1881247042dd0285455741baad65190dc72a66980580",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\wind_effects.h": "89e47dda28a067a7aa8cf2b42399816ec8cb800f02b8c215c94ff7cd0519bfbc",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\wind_state.h": "ee28c744b15127dff1e637c7eb79608ae785bf89008cb9a1b50fb1bb7e368e40",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\zombie_fields.h": "8ba2a8fc132648ba02d09ea373ce0c5e4dc875581e4a6902e40235a25c32e1cb",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\zombie_spawn.cpp": "72ebdcdc48ab86fedfa3cef1bb64d7d51ab5d755c440e7963adda4e016e6a816",
+    "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\src\\sim\\typed\\zombie_spawn.h": "d5df7319ebd02fffef42d3e86787f18a2516d12e29de2939244a71bcfccfba55"
+  },
+  "semantics": [
+    "Source target precedence and strict candidate ties, including dead-but-positive records.",
+    "World-owned velocity observations and exact native bracket/bisection order; first-root exit is equivalent to minimum-root selection.",
+    "Early and late ballistic locks distinguish missing, None, empty and armed fields.",
+    "Birth callbacks retain the original entity-list identity; current source charm is read after the callback.",
+    "Damage resolves recorded identities again, preserves numeric callback indices and each exception fallback.",
+    "Native I-Zombie guards and all three sourced entry wrappers remain in the chain.",
+    "Enemy entity timing and once-only hit markers retain native frame semantics.",
+    "PvP66 pressure splash uses ring distance, ordered live references and the shared typed event journal."
+  ],
+  "full_branch_coverage": false,
+  "whole_battle_supported": false,
+  "production_entry_switched": false,
+  "full_product_acceptance": false,
+  "pending": [
+    "Other three sourced hooks and bonus scheduler",
+    "Complete original plant maintenance and PvP content scheduling",
+    "Complete authoritative unit/entity/hero loops and custom content",
+    "AI/network/spectators/replay",
+    "Old full suite, whole-battle comparisons, current Android validation, formal performance and game products"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+ "FIRE": {
+  "__set__": [
+   "flying56",
+   "mortar",
+   "reed61",
+   "shoot",
+   "spring"
+  ]
+ },
+ "DEFAULT_WEIGHTS": {
+  "quality": 1.0,
+  "economy": 35.0,
+  "fire": 26.0,
+  "opening": 28.0,
+  "finisher": 15.0,
+  "emergency": 18.0,
+  "control": 8.0,
+  "coverage": 12.0,
+  "redundancy": -22.0,
+  "expensive": -18.0,
+  "support": 28.0,
+  "sleeping": -35.0,
+  "dependency": -65.0,
+  "counter": 22.0,
+  "synergy": 16.0,
+  "unsupported": -45.0,
+  "water": 10.0
+ },
+ "WEIGHTS65": {
+  "quality": 1.0,
+  "economy": 35.0,
+  "fire": 26.0,
+  "opening": 28.0,
+  "finisher": 15.0,
+  "emergency": 18.0,
+  "control": 8.0,
+  "coverage": 12.0,
+  "redundancy": -22.0,
+  "expensive": -18.0,
+  "support": 28.0,
+  "sleeping": -35.0,
+  "dependency": -65.0,
+  "counter": 22.0,
+  "synergy": 16.0,
+  "unsupported": -45.0,
+  "water": 10.0,
+  "cheap_fire": 22.0,
+  "wall": 10.0,
+  "econ_depth": 12.0
+ },
+ "POT_FREE": [
+  "flying56",
+  "gold_bloom",
+  "ghost",
+  "vine",
+  "pot",
+  "lily",
+  "coffee",
+  "gravebuster",
+  "wind"
+ ]
+}

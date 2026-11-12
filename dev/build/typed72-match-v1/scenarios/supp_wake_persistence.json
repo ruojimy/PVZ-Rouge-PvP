@@ -1,0 +1,20 @@
+{
+  "map": "家院",
+  "seed": 3,
+  "durable_heroes": true,
+  "room_ticks": 2100,
+  "rules": {"plant_start": 1000, "zombie_start": 1000},
+  "decks": {
+    "plant": ["plant:向日葵"],
+    "zombie": ["zombie:脑光墓碑", "zsecret:起床！"]
+  },
+  "inputs": {
+    "0": [{"side": "zombie", "type": "deploy", "card": "zombie:脑光墓碑", "x": -264, "y": 744}],
+    "40": [{"side": "zombie", "type": "teleport", "target": "$grave"}],
+    "41": [{"side": "zombie", "type": "move", "move": -1, "jump": true}],
+    "220": [{"side": "zombie", "type": "move", "move": 0, "jump": false}],
+    "800": [{"side": "zombie", "type": "teleport", "target": "$grave"}],
+    "801": [{"side": "zombie", "type": "move", "move": -1, "jump": true}],
+    "1000": [{"side": "zombie", "type": "move", "move": 0, "jump": false}]
+  }
+}

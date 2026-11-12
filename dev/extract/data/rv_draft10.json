@@ -1,0 +1,28 @@
+{
+ "RECURRING": [
+  "plant:向日葵",
+  "plant:双子向日葵",
+  "plant:阳光菇",
+  "plant:阳光藤蔓"
+ ],
+ "POT_MAP_HARD": 0.3,
+ "UMBRELLA": "zombie:萝卜伞僵尸",
+ "NEEDS": {
+  "plant": [
+   [
+    "econ",
+    3
+   ],
+   [
+    "pot",
+    null
+   ]
+  ],
+  "zombie": [
+   [
+    "graves",
+    2
+   ]
+  ]
+ }
+}

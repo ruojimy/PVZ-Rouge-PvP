@@ -1,0 +1,29 @@
+{
+ "STONE_BLACK_BITE": 3.0,
+ "STONE_HURT_WRITE": [
+  [
+   "LOAD_CONST",
+   1
+  ],
+  [
+   "LOAD_NAME",
+   "植物"
+  ],
+  [
+   "LOAD_NAME",
+   "z"
+  ],
+  [
+   "BINARY_SUBSCR",
+   null
+  ],
+  [
+   "LOAD_CONST",
+   "受伤"
+  ],
+  [
+   "STORE_SUBSCR",
+   null
+  ]
+ ]
+}

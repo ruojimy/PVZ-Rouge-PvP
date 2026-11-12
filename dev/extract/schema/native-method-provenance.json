@@ -1,0 +1,7 @@
+{
+  "reference": "CPython3.8 types.MethodType actual runtime",
+  "reference_trace": "test_results\\codex-resume-20261102-220027\\methodtype-python41.json",
+  "scope": "actual callable/receiver binding, argument forwarding, read-only metadata, method type identity/equality, rejection of invalid construction; no arbitrary Python code execution",
+  "ownership": "weak_ptr for native instance references; explicit refusal of callbacks and function weakrefs; no cycle collector",
+  "generator": "native instance methods expose their real receiver; applied to NativeBattle, other translations receive this rule on future regeneration"
+}

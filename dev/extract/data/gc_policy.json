@@ -1,0 +1,15 @@
+{
+ "YOUNG_THRESHOLDS": [
+  5000,
+  20,
+  50
+ ],
+ "DEFAULT_THRESHOLDS": [
+  700,
+  10,
+  10
+ ],
+ "_holders": {
+  "__set__": []
+ }
+}

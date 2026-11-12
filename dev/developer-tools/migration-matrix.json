@@ -1,0 +1,620 @@
+[
+  {
+    "name": "native-export",
+    "purpose": "规则/卡池导出",
+    "source_version": "PvP71 developer ZIP",
+    "source_paths": [
+      "modkit/export_pvp_rules.py"
+    ],
+    "source_hashes": {
+      "modkit/export_pvp_rules.py": "6ccb2d36227516a6de94ea15057f2cde88cad326ee63b6cc173cc8f4c0dc65eb"
+    },
+    "old_dependencies": "native-api",
+    "migration_plan": "native-api",
+    "status": "end-to-end-verified",
+    "acceptance": "导出运行时 CARDS/RULES/describe，与版本哈希及18血原始土豆地雷核对",
+    "documentation_adapted": true,
+    "tool_ran": true,
+    "game_accepted": false,
+    "end_to_end": true,
+    "evidence": [
+      "validation/results.json: runtime-export",
+      "validation/results.json: runtime-export-context",
+      "validation/results.json: invalid-secret-rejected"
+    ],
+    "limitations": [
+      "cards为actual_card在context条件下的解析值；raw_templates不是有效战斗数值；战斗时经济/CD和放置合法性仍需原生规则执行。"
+    ],
+    "old_internal_dependencies": "from pvp.catalog import CARDS/RULES/describe; embedded Python game imports",
+    "native_entry": "tools/pvz_tools.py export → --developer-tools/export → pm_catalog CARDS/RULES/f_describe",
+    "outputs": "运行时export JSON，版本及规则/卡池哈希",
+    "supporting_tools": [
+      "tools/pvz_tools.py"
+    ],
+    "templates_and_data": "仅示例请求/启动脚本；规则/卡池/地图schema从目标原生导出，不内置PvP71数值",
+    "runtime_dependencies": "Python 3.10+ standard library and explicitly selected native release",
+    "native_integration_verified": true,
+    "game_acceptance_applicable": false,
+    "actual_result": {
+      "cases": [
+        {
+          "name": "runtime-export",
+          "passed": true,
+          "exit_code": 0
+        },
+        {
+          "name": "runtime-export-context",
+          "passed": true,
+          "exit_code": 0
+        },
+        {
+          "name": "invalid-secret-rejected",
+          "passed": true,
+          "exit_code": 2
+        }
+      ],
+      "tested_game_sha256": "1fb0fd2cb2f7dd12011c0f81b86385ac1ade1a5493aad19e5edb1e9bf76fd0c2"
+    }
+  },
+  {
+    "name": "native-maps",
+    "purpose": "地图制作、导入和房间消费",
+    "source_version": "PvP71 developer ZIP",
+    "source_paths": [
+      "docs/PVP46_MAP_EDITOR.md",
+      "modkit/pvp/custom_maps.py"
+    ],
+    "source_hashes": {
+      "docs/PVP46_MAP_EDITOR.md": "d80f2e781d242ef7042ca93228f492dbafce37cc7cc0dcf79ac365127487bc0c",
+      "modkit/pvp/custom_maps.py": "3d6f9fe40d5a03d2e31a4699e5dd9b3d3cc196688b9abb294dd240f9d21474b4"
+    },
+    "old_dependencies": "native-api",
+    "migration_plan": "native-api",
+    "status": "end-to-end-verified",
+    "acceptance": "生成底图文档、改名、验证、保存至隔离MapStore并由Room消费；坏出生点拒绝",
+    "documentation_adapted": true,
+    "tool_ran": true,
+    "game_accepted": true,
+    "end_to_end": true,
+    "evidence": [
+      "validation/results.json: map-new",
+      "validation/results.json: map-check",
+      "validation/results.json: map-import",
+      "validation/results.json: duplicate-map-rejected",
+      "validation/results.json: invalid-map-rejected"
+    ],
+    "limitations": [
+      "验证原生MapStore、房间地图处理和2tick战斗；未进行人工编辑器/公网传图体验验收。"
+    ],
+    "old_internal_dependencies": "pvp.custom_maps/maps/native_bridge/Room/NativeBattle and filesystem MapStore",
+    "native_entry": "tools/pvz_tools.py map-* → native API → f_validate_document/f_snapshot_from_document/C_Room::m__map_proposal/C_NativeBattle::step/C_MapStore::save/load",
+    "outputs": "地图JSON、原生地图库文件、房间与战斗接受结果",
+    "supporting_tools": [
+      "tools/pvz_tools.py"
+    ],
+    "templates_and_data": "仅示例请求/启动脚本；规则/卡池/地图schema从目标原生导出，不内置PvP71数值",
+    "runtime_dependencies": "Python 3.10+ standard library and explicitly selected native release",
+    "native_integration_verified": true,
+    "game_acceptance_applicable": true,
+    "actual_result": {
+      "cases": [
+        {
+          "name": "map-new",
+          "passed": true,
+          "exit_code": 0
+        },
+        {
+          "name": "map-check",
+          "passed": true,
+          "exit_code": 0
+        },
+        {
+          "name": "map-import",
+          "passed": true,
+          "exit_code": 0
+        },
+        {
+          "name": "duplicate-map-rejected",
+          "passed": true,
+          "exit_code": 2
+        },
+        {
+          "name": "invalid-map-rejected",
+          "passed": true,
+          "exit_code": 2
+        }
+      ],
+      "tested_game_sha256": "1fb0fd2cb2f7dd12011c0f81b86385ac1ade1a5493aad19e5edb1e9bf76fd0c2"
+    }
+  },
+  {
+    "name": "native-replay",
+    "purpose": "原生回放记录及终点校验",
+    "source_version": "PvP71 developer ZIP",
+    "source_paths": [
+      "modkit/pvp/replay.py"
+    ],
+    "source_hashes": {
+      "modkit/pvp/replay.py": "ac7b638e198367622f096d63ff584d436ba3c73cf6872ef05fe9e877a70a7770"
+    },
+    "old_dependencies": "native-api",
+    "migration_plan": "native-api",
+    "status": "end-to-end-verified",
+    "acceptance": "原生记录输入、导出、从独立文件重新读取并实际Playback至终点；改终点/版本拒绝",
+    "documentation_adapted": true,
+    "tool_ran": true,
+    "game_accepted": true,
+    "end_to_end": true,
+    "evidence": [
+      "validation/results.json: replay-record-and-playback",
+      "validation/results.json: bad-replay-final-rejected",
+      "validation/results.json: bad-replay-version-rejected"
+    ],
+    "limitations": [
+      "真实移动/跳跃样本和终点校验已验证；非所有卡组/长回放覆盖；工具离线预算120000tick/180秒。"
+    ],
+    "old_internal_dependencies": "pvp.replay Recording/Playback/state_hash and NativeBattle",
+    "native_entry": "tools/pvz_tools.py replay-* → native API → C_Recording::export/f_read_recording/C_Playback::update",
+    "outputs": "回放JSON、真实输入返回值、终点哈希验证",
+    "supporting_tools": [
+      "tools/pvz_tools.py"
+    ],
+    "templates_and_data": "仅示例请求/启动脚本；规则/卡池/地图schema从目标原生导出，不内置PvP71数值",
+    "runtime_dependencies": "Python 3.10+ standard library and explicitly selected native release",
+    "native_integration_verified": true,
+    "game_acceptance_applicable": true,
+    "actual_result": {
+      "cases": [
+        {
+          "name": "replay-record-and-playback",
+          "passed": true,
+          "exit_code": 0
+        },
+        {
+          "name": "bad-replay-final-rejected",
+          "passed": true,
+          "exit_code": 2
+        },
+        {
+          "name": "bad-replay-version-rejected",
+          "passed": true,
+          "exit_code": 2
+        }
+      ],
+      "tested_game_sha256": "1fb0fd2cb2f7dd12011c0f81b86385ac1ade1a5493aad19e5edb1e9bf76fd0c2"
+    }
+  },
+  {
+    "name": "native-relay",
+    "purpose": "独立relay服务与原生客户端",
+    "source_version": "PvP71 developer ZIP",
+    "source_paths": [
+      "server/relay_server.py",
+      "server/health.py",
+      "docs/SERVER_DEPLOY.md"
+    ],
+    "source_hashes": {
+      "docs/SERVER_DEPLOY.md": "3324f3e510094a21b644cc6d373e8f69b2bbb1fbb3e8bc1e4795b828e35cb3b9",
+      "server/health.py": "7c7402677ddbaf5c103ab1366c2b9974da9680b68776d9b2aac494a51fb9b194",
+      "server/relay_server.py": "f24d8de5a9e3f603b3fa410454d9de7a55ba6819b26837da5df31bef4fcc6287"
+    },
+    "old_dependencies": "standalone-python+native-api",
+    "migration_plan": "standalone-python+native-api",
+    "status": "end-to-end-verified",
+    "acceptance": "本地标准库relay服务、原生主客机传输双向消息；非法协议拒绝",
+    "documentation_adapted": true,
+    "tool_ran": true,
+    "game_accepted": true,
+    "end_to_end": true,
+    "evidence": [
+      "validation/results.json: native-relay-roundtrip"
+    ],
+    "limitations": [
+      "仅本地回环原生主客机；Linux systemd、公网真人联机、容量/压力和设备未验证。"
+    ],
+    "old_internal_dependencies": "server source is standalone standard library; client originally pvp.relay/network",
+    "native_entry": "tools/relay/relay_server.py + --developer-tools/relay-probe → compiled C_RelayHostTransport/C_RelayClientTransport",
+    "outputs": "本地监听、健康响应、原生双向payload验证；不记录凭证",
+    "supporting_tools": [
+      "tools/pvz_tools.py"
+    ],
+    "templates_and_data": "仅示例请求/启动脚本；规则/卡池/地图schema从目标原生导出，不内置PvP71数值",
+    "runtime_dependencies": "Python 3.10+ standard library and explicitly selected native release",
+    "native_integration_verified": true,
+    "game_acceptance_applicable": true,
+    "actual_result": {
+      "cases": [
+        {
+          "name": "native-relay-roundtrip",
+          "passed": true,
+          "exit_code": 0
+        }
+      ],
+      "tested_game_sha256": "1fb0fd2cb2f7dd12011c0f81b86385ac1ade1a5493aad19e5edb1e9bf76fd0c2"
+    }
+  },
+  {
+    "name": "native-acceptance",
+    "purpose": "正式程序自动验收",
+    "source_version": "PvP71 developer ZIP",
+    "source_paths": [
+      "tests/run_pvp_exe_smoke.ps1"
+    ],
+    "source_hashes": {
+      "tests/run_pvp_exe_smoke.ps1": "11c2dad9be1ffcfb52d8942c9cbb60df0fa6f0707a30ad38952824d8e8c512bb"
+    },
+    "old_dependencies": "existing-native-cli",
+    "migration_plan": "existing-native-cli",
+    "status": "end-to-end-verified",
+    "acceptance": "独立解压主EXE --smoke-report；1250tick、native_checks与rematch",
+    "documentation_adapted": true,
+    "tool_ran": true,
+    "game_accepted": true,
+    "end_to_end": true,
+    "evidence": [
+      "validation/results.json: candidate-smoke",
+      "validation/results.json: stock-smoke"
+    ],
+    "limitations": [
+      "固定脚本场景，不能声称全量旧测试或人工试玩通过。"
+    ],
+    "old_internal_dependencies": "old EXE smoke script launches a PyInstaller game, not the native game",
+    "native_entry": "tools/pvz_tools.py smoke → actual native EXE --smoke-report",
+    "outputs": "1250tick/部署/结算/再战报告；隔离userdata",
+    "supporting_tools": [
+      "tools/pvz_tools.py"
+    ],
+    "templates_and_data": "仅示例请求/启动脚本；规则/卡池/地图schema从目标原生导出，不内置PvP71数值",
+    "runtime_dependencies": "Python 3.10+ standard library and explicitly selected native release",
+    "native_integration_verified": true,
+    "game_acceptance_applicable": true,
+    "actual_result": {
+      "cases": [
+        {
+          "name": "candidate-smoke",
+          "passed": true,
+          "exit_code": 0
+        },
+        {
+          "name": "stock-smoke",
+          "passed": true,
+          "exit_code": 0
+        }
+      ],
+      "tested_game_sha256": "1fb0fd2cb2f7dd12011c0f81b86385ac1ade1a5493aad19e5edb1e9bf76fd0c2"
+    }
+  },
+  {
+    "name": "native-performance",
+    "purpose": "实际程序性能采样",
+    "source_version": "PvP71 developer ZIP",
+    "source_paths": [
+      "cpp_port/tools/app_frame_probe.py",
+      "modkit/android/performance_probe.py"
+    ],
+    "source_hashes": {
+      "cpp_port/tools/app_frame_probe.py": "3bd21a10e2f1dbfc6d2150603d8fdfa259d03cf9fbaac1326b14e448a43f650d",
+      "modkit/android/performance_probe.py": "10d81220026b39bd99e29d552a57b7453c4cd7153a55a149d75a87e470b91983"
+    },
+    "old_dependencies": "existing-native-cli",
+    "migration_plan": "existing-native-cli",
+    "status": "end-to-end-verified",
+    "acceptance": "正式主EXE --diagnostic，读取真实PVP72报告；非法场景拒绝",
+    "documentation_adapted": true,
+    "tool_ran": true,
+    "game_accepted": true,
+    "end_to_end": true,
+    "evidence": [
+      "validation/results.json: candidate-diagnostic",
+      "validation/results.json: stock-diagnostic",
+      "validation/results.json: invalid-diagnostic-rejected"
+    ],
+    "limitations": [
+      "本次每个Windows构建仅2单位/1秒短样本用于管线验收，不用于性能倍数结论；Android设备未测。"
+    ],
+    "old_internal_dependencies": "old probes inspect CPython objects, bytecode/core hooks and game modules",
+    "native_entry": "tools/pvz_tools.py diagnostic → actual native EXE --diagnostic → run_diagnostic72",
+    "outputs": "真实诊断JSON/计数；不等于长时间性能或设备结果",
+    "supporting_tools": [
+      "tools/pvz_tools.py"
+    ],
+    "templates_and_data": "仅示例请求/启动脚本；规则/卡池/地图schema从目标原生导出，不内置PvP71数值",
+    "runtime_dependencies": "Python 3.10+ standard library and explicitly selected native release",
+    "native_integration_verified": true,
+    "game_acceptance_applicable": true,
+    "actual_result": {
+      "cases": [
+        {
+          "name": "candidate-diagnostic",
+          "passed": true,
+          "exit_code": 0
+        },
+        {
+          "name": "stock-diagnostic",
+          "passed": true,
+          "exit_code": 0
+        },
+        {
+          "name": "invalid-diagnostic-rejected",
+          "passed": true,
+          "exit_code": 2
+        }
+      ],
+      "tested_game_sha256": "1fb0fd2cb2f7dd12011c0f81b86385ac1ade1a5493aad19e5edb1e9bf76fd0c2"
+    }
+  },
+  {
+    "name": "native-package-audit",
+    "purpose": "发布完整性与APK本地检查",
+    "source_version": "PvP71 developer ZIP",
+    "source_paths": [
+      "modkit/verify_pvp_package.py",
+      "modkit/android/verify_apk.py"
+    ],
+    "source_hashes": {
+      "modkit/android/verify_apk.py": "2729249c24a7f95e69277a10fa87509c538cb41ada61dcddd0de38e18fb98848",
+      "modkit/verify_pvp_package.py": "ac4b02eba8e2e77a34ec37633bb8d9d7d1238cdf4bad0dab3fdbd0232b5dcf46"
+    },
+    "old_dependencies": "external-data",
+    "migration_plan": "external-data",
+    "status": "end-to-end-verified",
+    "acceptance": "允许清单+SHA逐文件；APK ZIP/身份/ABI/ELF页对齐；篡改拒绝",
+    "documentation_adapted": true,
+    "tool_ran": true,
+    "game_accepted": false,
+    "end_to_end": true,
+    "evidence": [
+      "validation/results.json: extension-allowlist",
+      "validation/results.json: apk-local-structure"
+    ],
+    "limitations": [
+      "APK只本地CRC/AXML/ELF/版本检查，不验证签名或设备；正确报告现有库非全部16KiB对齐。"
+    ],
+    "old_internal_dependencies": "old APK/package guard requires staging manifests, Python game/core and old layout",
+    "native_entry": "tools/pvz_tools.py audit/apk-inspect → stdlib ZIP/SHA256/AXML/ELF readers",
+    "outputs": "允许清单/SHA证据和APK结构；签名/设备不在此工具承诺",
+    "supporting_tools": [
+      "tools/pvz_tools.py"
+    ],
+    "templates_and_data": "仅示例请求/启动脚本；规则/卡池/地图schema从目标原生导出，不内置PvP71数值",
+    "runtime_dependencies": "Python 3.10+ standard library and explicitly selected native release",
+    "native_integration_verified": false,
+    "game_acceptance_applicable": false,
+    "actual_result": {
+      "cases": [
+        {
+          "name": "extension-allowlist",
+          "passed": true,
+          "exit_code": 0
+        },
+        {
+          "name": "apk-local-structure",
+          "passed": true,
+          "exit_code": 0
+        }
+      ],
+      "tested_game_sha256": "1fb0fd2cb2f7dd12011c0f81b86385ac1ade1a5493aad19e5edb1e9bf76fd0c2"
+    }
+  },
+  {
+    "name": "native-ai-source",
+    "purpose": "编译型AI同步",
+    "source_version": "PvP71 developer ZIP",
+    "source_paths": [
+      "modkit/sync_ai.py",
+      "docs/AI_ROOM.md"
+    ],
+    "source_hashes": {
+      "docs/AI_ROOM.md": "a223dd5f3a6da4129ea6f67b3eccca5bb04d9174f11b0fd8d11d2ed0f953507a",
+      "modkit/sync_ai.py": "84a18bdd607b8ce04622ef0d51177cc5d43f97bc1255c1982910137daed81e77"
+    },
+    "old_dependencies": "source-required",
+    "migration_plan": "source-required",
+    "status": "source-required-documentation-only",
+    "acceptance": "需要原生源码/编译器，不能将Python大脑复制进发布包；本轮不声明行为迁移完成",
+    "documentation_adapted": true,
+    "tool_ran": false,
+    "game_accepted": false,
+    "end_to_end": false,
+    "evidence": [],
+    "limitations": [
+      "原生源码/编译器不随扩展分发；该功能的实际源码变更与完整端到端流程未在本次实施。"
+    ],
+    "old_internal_dependencies": "sync_ai.py flattens AI/brain Python modules and knowledge; compiled native rv_* cannot import them",
+    "native_entry": "独立源码 tools/pvp72_sources/及src/ui/gen/pm_rv_*.cpp，按现有生成归属更新/构建/回归",
+    "outputs": "本轮仅源码指南；未同步/替换AI",
+    "supporting_tools": [],
+    "templates_and_data": "仅示例请求/启动脚本；规则/卡池/地图schema从目标原生导出，不内置PvP71数值",
+    "runtime_dependencies": "独立原生游戏源码、构建依赖和受影响回归；不随扩展提供"
+  },
+  {
+    "name": "native-build-source",
+    "purpose": "原生构建与发行",
+    "source_version": "PvP71 developer ZIP",
+    "source_paths": [
+      "rebuild-pvp.cmd",
+      "docs/PVP69_BUILD.md",
+      "modkit/build_pvp71.py"
+    ],
+    "source_hashes": {
+      "docs/PVP69_BUILD.md": "a9e08706aa51f67e7b77c5479b84c40b9a7d22d63ab4e464c0c87f61c285d839",
+      "modkit/build_pvp71.py": "6170761c07a5186a7a15f7f4f5341e7b212f896f67c3d36827e38236a5fbeeec",
+      "rebuild-pvp.cmd": "6cbc985fd66ed0b3fbd8c55f8023eb91f2405b250e9a92fa6dd0bc0301bbcaa9"
+    },
+    "old_dependencies": "source-required",
+    "migration_plan": "source-required",
+    "status": "source-required-documentation-only",
+    "acceptance": "独立候选构建只验证本次CLI变更；旧PyInstaller/NDK工具链不随包",
+    "documentation_adapted": true,
+    "tool_ran": false,
+    "game_accepted": false,
+    "end_to_end": false,
+    "evidence": [],
+    "limitations": [
+      "原生源码/编译器不随扩展分发；该功能的实际源码变更与完整端到端流程未在本次实施。"
+    ],
+    "old_internal_dependencies": "PyInstaller/marshal/_pvpcore.pyd/Python Android and full build inputs",
+    "native_entry": "CMakeLists.txt/PVZ_BUILD_DEVELOPER_CANDIDATE/PvZPvPNativeDev；游戏源码留在工程",
+    "outputs": "本次独立Windows候选；完整开发环境不随工具包",
+    "supporting_tools": [],
+    "templates_and_data": "仅示例请求/启动脚本；规则/卡池/地图schema从目标原生导出，不内置PvP71数值",
+    "runtime_dependencies": "独立原生游戏源码、构建依赖和受影响回归；不随扩展提供"
+  },
+  {
+    "name": "native-test-source",
+    "purpose": "按影响范围的回归",
+    "source_version": "PvP71 developer ZIP",
+    "source_paths": [
+      "modkit/run_pvp_affected.py",
+      "docs/PVP_TEST_MATRIX.md",
+      "modkit/pvp_test_catalog.json"
+    ],
+    "source_hashes": {
+      "docs/PVP_TEST_MATRIX.md": "14fe9734dbd240523e7e9e4a7240f80f3cde82345af3898d6741ba3e8876c402",
+      "modkit/pvp_test_catalog.json": "8472e302ed2fe1b97e569793e1687fc177992a8179840cba6dd42fa59d1efd65",
+      "modkit/run_pvp_affected.py": "91e5d5acc6ce30ac584648f6727cc81409f924371ce6b3617a7742901a6db9a9"
+    },
+    "old_dependencies": "source-required",
+    "migration_plan": "source-required",
+    "status": "source-required-documentation-only",
+    "acceptance": "保持既有失败和豁免，执行此次接口相关阶段门禁；不声称可在玩家包执行全套源码测试",
+    "documentation_adapted": true,
+    "tool_ran": false,
+    "game_accepted": false,
+    "end_to_end": false,
+    "evidence": [],
+    "limitations": [
+      "原生源码/编译器不随扩展分发；该功能的实际源码变更与完整端到端流程未在本次实施。"
+    ],
+    "old_internal_dependencies": "tests/, unittest, pvp game objects and catalog plus original/reference evidence",
+    "native_entry": "原生源码测试工具/定向conformance；发布包只运行smoke而非冒充完整套件",
+    "outputs": "本次相关原生阶段门禁；保留既有非通过状态",
+    "supporting_tools": [],
+    "templates_and_data": "仅示例请求/启动脚本；规则/卡池/地图schema从目标原生导出，不内置PvP71数值",
+    "runtime_dependencies": "独立原生游戏源码、构建依赖和受影响回归；不随扩展提供"
+  },
+  {
+    "name": "pvz-rouge-add-plant",
+    "purpose": "旧版新增plant",
+    "source_version": "v1.5.0.1 archival extracted release; secondary reference, not PvP71 developer extras",
+    "source_paths": [
+      "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\PVZ-Rouge-v1.4.8\\.workbuddy\\unpack\\旧解包备份-20260904\\e2e测试解压-可删\\PVZ-Rouge-v1.5.0.1改版-发布包\\codex-skills\\pvz-rouge-add-plant\\SKILL.md"
+    ],
+    "source_hashes": {
+      "pvz-rouge-add-plant/agents/openai.yaml": "3c78a63b92a0e623c586479d347f8ce304ffdcaacec1954d41d6a770cb31633d",
+      "pvz-rouge-add-plant/references/current-plant-patterns.md": "201443712d4ed803bb6c559d36b68908f16a78c3ac11f19675ea5b2f5d640ef1",
+      "pvz-rouge-add-plant/SKILL.md": "12cf567e1c32a9b1953e4bcdfc3e06b669f10f505a392d518599d883fe376643"
+    },
+    "old_dependencies": "ballistic_inprocess_patch.py globals, monkey patches, native wrappers, PyInstaller rebuild; optional legacy assets",
+    "migration_plan": "source-required; trace owning compiled native modules, no replacement data-only skill claim",
+    "status": "source-required-documentation-only",
+    "acceptance": "需要按实际新内容设计实现、编译并验证卡池/部署/动画/存档/模式；文档改接不计端到端通过",
+    "documentation_adapted": true,
+    "tool_ran": false,
+    "game_accepted": false,
+    "end_to_end": false,
+    "evidence": [],
+    "limitations": [
+      "原生源码/编译器不随扩展分发；该功能的实际源码变更与完整端到端流程未在本次实施。"
+    ],
+    "old_internal_dependencies": "SKILL.md → ballistic_inprocess_patch.py + build_smart_ballistics_exe.py → globals/monkey patches/PyInstaller；开发者包冻结副本为modkit/pvzrouge_runtime_patch_source_20260904.py",
+    "native_entry": "src/sim/pvp/gen/pm_catalog.cpp → C_NativeBattle::m_spawn/m__configure_plant → src/sim/pvp/gen/pm_native_content.cpp 与 src/sim/gen/原生分支；同源包装器已编译在src/sim/pvp/gen/pm_patch1501.cpp、pm_original_patch1501.cpp",
+    "outputs": "仅源码迁移路线；未新增对应内容，未生成虚假功能产物",
+    "supporting_tools": [],
+    "templates_and_data": "仅示例请求/启动脚本；规则/卡池/地图schema从目标原生导出，不内置PvP71数值",
+    "runtime_dependencies": "独立原生游戏源码、构建依赖和受影响回归；不随扩展提供"
+  },
+  {
+    "name": "pvz-rouge-add-zombie",
+    "purpose": "旧版新增zombie",
+    "source_version": "v1.5.0.1 archival extracted release; secondary reference, not PvP71 developer extras",
+    "source_paths": [
+      "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\PVZ-Rouge-v1.4.8\\.workbuddy\\unpack\\旧解包备份-20260904\\e2e测试解压-可删\\PVZ-Rouge-v1.5.0.1改版-发布包\\codex-skills\\pvz-rouge-add-zombie\\SKILL.md"
+    ],
+    "source_hashes": {
+      "pvz-rouge-add-zombie/agents/openai.yaml": "ae030aaa8c3b2c8b4f5077cec0d73079ef3806f8243020f45e3d4179a67aa604",
+      "pvz-rouge-add-zombie/references/plant-zombie-contract.md": "b8dae81d90afa9d9df06b288b933cdf6b22f93de30269afa038f9ebbffc45820",
+      "pvz-rouge-add-zombie/SKILL.md": "3866f41af2662a2cae6d11d05316f8d1f4ea596fc5dc39b057391f578245341b"
+    },
+    "old_dependencies": "ballistic_inprocess_patch.py globals, monkey patches, native wrappers, PyInstaller rebuild; optional legacy assets",
+    "migration_plan": "source-required; trace owning compiled native modules, no replacement data-only skill claim",
+    "status": "source-required-documentation-only",
+    "acceptance": "需要按实际新内容设计实现、编译并验证卡池/部署/动画/存档/模式；文档改接不计端到端通过",
+    "documentation_adapted": true,
+    "tool_ran": false,
+    "game_accepted": false,
+    "end_to_end": false,
+    "evidence": [],
+    "limitations": [
+      "原生源码/编译器不随扩展分发；该功能的实际源码变更与完整端到端流程未在本次实施。"
+    ],
+    "old_internal_dependencies": "SKILL.md → ballistic_inprocess_patch.py + build_smart_ballistics_exe.py → globals/monkey patches/PyInstaller；开发者包冻结副本为modkit/pvzrouge_runtime_patch_source_20260904.py",
+    "native_entry": "src/sim/pvp/gen/pm_catalog.cpp → C_NativeBattle::m_spawn/m__register → pm_native_expansion/pm_plant_zombies 与已编译原生僵尸分支；同源包装器已编译在src/sim/pvp/gen/pm_patch1501.cpp、pm_original_patch1501.cpp",
+    "outputs": "仅源码迁移路线；未新增对应内容，未生成虚假功能产物",
+    "supporting_tools": [],
+    "templates_and_data": "仅示例请求/启动脚本；规则/卡池/地图schema从目标原生导出，不内置PvP71数值",
+    "runtime_dependencies": "独立原生游戏源码、构建依赖和受影响回归；不随扩展提供"
+  },
+  {
+    "name": "pvz-rouge-add-boss",
+    "purpose": "旧版新增boss",
+    "source_version": "v1.5.0.1 archival extracted release; secondary reference, not PvP71 developer extras",
+    "source_paths": [
+      "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\PVZ-Rouge-v1.4.8\\.workbuddy\\unpack\\旧解包备份-20260904\\e2e测试解压-可删\\PVZ-Rouge-v1.5.0.1改版-发布包\\codex-skills\\pvz-rouge-add-boss\\SKILL.md"
+    ],
+    "source_hashes": {
+      "pvz-rouge-add-boss/agents/openai.yaml": "d53177eedef7a679da56bd67cee3d7456a705e67fbb0dd99ad377957eb916e71",
+      "pvz-rouge-add-boss/references/boss-bridge-pattern.md": "8e1d8c970f083baad836a75a50b3c5b7ebf4e0040fba28360d2afa50c3bfb867",
+      "pvz-rouge-add-boss/SKILL.md": "ee980c38b9f2ca778824bed71e7696cb6add5eec9e6b362778a56d8ad947735e"
+    },
+    "old_dependencies": "ballistic_inprocess_patch.py globals, monkey patches, native wrappers, PyInstaller rebuild; optional legacy assets",
+    "migration_plan": "source-required; trace owning compiled native modules, no replacement data-only skill claim",
+    "status": "source-required-documentation-only",
+    "acceptance": "需要按实际新内容设计实现、编译并验证卡池/部署/动画/存档/模式；文档改接不计端到端通过",
+    "documentation_adapted": true,
+    "tool_ran": false,
+    "game_accepted": false,
+    "end_to_end": false,
+    "evidence": [],
+    "limitations": [
+      "原生源码/编译器不随扩展分发；该功能的实际源码变更与完整端到端流程未在本次实施。"
+    ],
+    "old_internal_dependencies": "SKILL.md → ballistic_inprocess_patch.py + build_smart_ballistics_exe.py → globals/monkey patches/PyInstaller；开发者包冻结副本为modkit/pvzrouge_runtime_patch_source_20260904.py",
+    "native_entry": "src/sim/pvp/gen/pm_catalog.cpp 的 BOSS_NAMES/EXCLUDED/f_allowed → pm_pve/pm_native_battle → 对应原生Boss分支；同源包装器已编译在src/sim/pvp/gen/pm_patch1501.cpp、pm_original_patch1501.cpp",
+    "outputs": "仅源码迁移路线；未新增对应内容，未生成虚假功能产物",
+    "supporting_tools": [],
+    "templates_and_data": "仅示例请求/启动脚本；规则/卡池/地图schema从目标原生导出，不内置PvP71数值",
+    "runtime_dependencies": "独立原生游戏源码、构建依赖和受影响回归；不随扩展提供"
+  },
+  {
+    "name": "pvz-rouge-add-mode",
+    "purpose": "旧版新增mode",
+    "source_version": "v1.5.0.1 archival extracted release; secondary reference, not PvP71 developer extras",
+    "source_paths": [
+      "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\PVZ-Rouge-v1.4.8\\.workbuddy\\unpack\\旧解包备份-20260904\\e2e测试解压-可删\\PVZ-Rouge-v1.5.0.1改版-发布包\\codex-skills\\pvz-rouge-add-mode\\SKILL.md"
+    ],
+    "source_hashes": {
+      "pvz-rouge-add-mode/agents/openai.yaml": "57c1d79ebc735a84759c544c0f0c78e5d1dd83252a90ff8b0ff621161bcba6cb",
+      "pvz-rouge-add-mode/references/mode-wiring-pattern.md": "13b9b093a25b8a97e3d7eb97a8126bf055433e684cca3ffe68316e1f7037c52c",
+      "pvz-rouge-add-mode/SKILL.md": "e80d168ca2dcfddf779c6a1ca41ebbf9a3765ebb103b7e1b081b33827db3d120"
+    },
+    "old_dependencies": "ballistic_inprocess_patch.py globals, monkey patches, native wrappers, PyInstaller rebuild; optional legacy assets",
+    "migration_plan": "source-required; trace owning compiled native modules, no replacement data-only skill claim",
+    "status": "source-required-documentation-only",
+    "acceptance": "需要按实际新内容设计实现、编译并验证卡池/部署/动画/存档/模式；文档改接不计端到端通过",
+    "documentation_adapted": true,
+    "tool_ran": false,
+    "game_accepted": false,
+    "end_to_end": false,
+    "evidence": [],
+    "limitations": [
+      "原生源码/编译器不随扩展分发；该功能的实际源码变更与完整端到端流程未在本次实施。"
+    ],
+    "old_internal_dependencies": "SKILL.md → ballistic_inprocess_patch.py + build_smart_ballistics_exe.py → globals/monkey patches/PyInstaller；开发者包冻结副本为modkit/pvzrouge_runtime_patch_source_20260904.py",
+    "native_entry": "src/sim/pvp/gen/pm_teams.cpp 的 MODES → src/ui/gen/pm_room.cpp 和 pm_app.cpp → pm_pve/pm_coop_progress 与 userdata；同源包装器已编译在src/sim/pvp/gen/pm_patch1501.cpp、pm_original_patch1501.cpp",
+    "outputs": "仅源码迁移路线；未新增对应内容，未生成虚假功能产物",
+    "supporting_tools": [],
+    "templates_and_data": "仅示例请求/启动脚本；规则/卡池/地图schema从目标原生导出，不内置PvP71数值",
+    "runtime_dependencies": "独立原生游戏源码、构建依赖和受影响回归；不随扩展提供"
+  }
+]

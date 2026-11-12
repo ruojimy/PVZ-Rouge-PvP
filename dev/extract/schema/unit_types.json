@@ -1,0 +1,3582 @@
+{
+ "僵尸": {
+  "坚持分兵": {
+   "type": "int",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "int": 64244
+   },
+   "example": 0
+  },
+  "再出场": {
+   "type": "int",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "int": 64244
+   },
+   "example": 10000
+  },
+  "大小": {
+   "type": "int",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "int": 64244
+   },
+   "example": 2
+  },
+  "出场": {
+   "type": "int",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "int": 64244
+   },
+   "example": 400
+  },
+  "出场初位置": {
+   "type": "vec2",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "vec2": 64244
+   },
+   "example": [
+    2688,
+    1200
+   ]
+  },
+  "炸音": {
+   "type": "int",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "int": 64244
+   },
+   "example": 0
+  },
+  "憋气": {
+   "type": "int",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "int": 64244
+   },
+   "example": 0
+  },
+  "僵尸": {
+   "type": "str",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "str": 64244
+   },
+   "example": "普通僵尸"
+  },
+  "防具": {
+   "type": "str",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "str": 64244
+   },
+   "example": ""
+  },
+  "手持": {
+   "type": "str",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "str": 64244
+   },
+   "example": ""
+  },
+  "手持血量": {
+   "type": "int",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "int": 64244
+   },
+   "example": 0
+  },
+  "防具血量": {
+   "type": "float",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "int": 63843,
+    "float": 401
+   },
+   "example": 312.5
+  },
+  "方向": {
+   "type": "int",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "int": 64244
+   },
+   "example": -1
+  },
+  "血量": {
+   "type": "float",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "int": 63541,
+    "float": 703
+   },
+   "example": 72.5
+  },
+  "受伤": {
+   "type": "int",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "int": 64244
+   },
+   "example": 0
+  },
+  "手持受伤": {
+   "type": "int",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "int": 64244
+   },
+   "example": 0
+  },
+  "跳跃cd": {
+   "type": "int",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "int": 64244
+   },
+   "example": 0
+  },
+  "位置": {
+   "type": "vec4",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "vec4": 64244
+   },
+   "example": [
+    2688,
+    864,
+    0.0,
+    0.0
+   ]
+  },
+  "啃咬": {
+   "type": "int",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "int": 64244
+   },
+   "example": 0
+  },
+  "移速": {
+   "type": "float",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "float": 62633,
+    "int": 1611
+   },
+   "example": 0.18239999999999998
+  },
+  "入水": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "bool": 64244
+   },
+   "example": false
+  },
+  "出场末位置": {
+   "type": "vec2",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "vec2": 64244
+   },
+   "example": [
+    2688,
+    873.6
+   ]
+  },
+  "_pvp_id": {
+   "type": "str",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "str": 64244
+   },
+   "example": "u4"
+  },
+  "_pvp_card": {
+   "type": "str",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "str": 64244
+   },
+   "example": "zombie:普通僵尸"
+  },
+  "_pvp_owner": {
+   "type": "str",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "str": 64244
+   },
+   "example": "zombie"
+  },
+  "_pvp_temporary": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "bool": 64244
+   },
+   "example": false
+  },
+  "_pvp_max_hp": {
+   "type": "float",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "int": 63843,
+    "float": 401
+   },
+   "example": 93.75
+  },
+  "_pvp_armor_max": {
+   "type": "float",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "int": 63843,
+    "float": 401
+   },
+   "example": 312.5
+  },
+  "_pvp_born": {
+   "type": "float",
+   "nullable": false,
+   "seen": 64244,
+   "share": 1.0,
+   "kinds": {
+    "int": 58951,
+    "float": 5293
+   },
+   "example": 0.13333333333333333
+  },
+  "__pvz_sb_zombie_observed_max_hp": {
+   "type": "float",
+   "nullable": false,
+   "seen": 63928,
+   "share": 0.9951,
+   "kinds": {
+    "int": 63528,
+    "float": 400
+   },
+   "example": 93.75
+  },
+  "__pvz_sb_chili_zombie_row_hint": {
+   "type": "int",
+   "nullable": false,
+   "seen": 63910,
+   "share": 0.9948,
+   "kinds": {
+    "int": 63910
+   },
+   "example": 17
+  },
+  "_pvp_content_position_before": {
+   "type": "vec4",
+   "nullable": false,
+   "seen": 56952,
+   "share": 0.8865,
+   "kinds": {
+    "vec4": 56952
+   },
+   "example": [
+    2688.0,
+    897.6648192,
+    0,
+    0
+   ]
+  },
+  "_pvp_zs_hurt": {
+   "type": "int",
+   "nullable": false,
+   "seen": 22569,
+   "share": 0.3513,
+   "kinds": {
+    "int": 22569
+   },
+   "example": 0
+  },
+  "_pvp_grave": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 6962,
+   "share": 0.1084,
+   "kinds": {
+    "bool": 6962
+   },
+   "example": true
+  },
+  "_pvp_floating": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 6962,
+   "share": 0.1084,
+   "kinds": {
+    "bool": 6962
+   },
+   "example": false
+  },
+  "_pvp_anchor": {
+   "type": "vec2",
+   "nullable": false,
+   "seen": 6962,
+   "share": 0.1084,
+   "kinds": {
+    "vec2": 6962
+   },
+   "example": [
+    2616.0,
+    864
+   ]
+  },
+  "_pvp_producer": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 6962,
+   "share": 0.1084,
+   "kinds": {
+    "bool": 6962
+   },
+   "example": true
+  },
+  "_pvp_production_rate": {
+   "type": "int",
+   "nullable": false,
+   "seen": 6940,
+   "share": 0.108,
+   "kinds": {
+    "int": 6940
+   },
+   "example": 1.0
+  },
+  "_pvp_zs_timer": {
+   "type": "dict",
+   "nullable": false,
+   "seen": 6604,
+   "share": 0.1028,
+   "kinds": {
+    "dict": 6604
+   },
+   "example": {}
+  },
+  "_pvp_idle": {
+   "type": "float",
+   "nullable": false,
+   "seen": 6420,
+   "share": 0.0999,
+   "kinds": {
+    "float": 6420
+   },
+   "example": 0.02
+  },
+  "_pvp_base_speed": {
+   "type": "float",
+   "nullable": false,
+   "seen": 6184,
+   "share": 0.0963,
+   "kinds": {
+    "float": 6184
+   },
+   "example": 0.21599999999999997
+  },
+  "撑杆": {
+   "type": "int",
+   "nullable": false,
+   "seen": 4985,
+   "share": 0.0776,
+   "kinds": {
+    "int": 4985
+   },
+   "example": 0
+  },
+  "_pvp_content": {
+   "type": "str",
+   "nullable": false,
+   "seen": 4768,
+   "share": 0.0742,
+   "kinds": {
+    "str": 4768
+   },
+   "example": "中型史莱姆"
+  },
+  "_pvp_seat": {
+   "type": "str",
+   "nullable": false,
+   "seen": 4252,
+   "share": 0.0662,
+   "kinds": {
+    "str": 4252
+   },
+   "example": "zombie"
+  },
+  "植物僵尸": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 3991,
+   "share": 0.0621,
+   "kinds": {
+    "bool": 3991
+   },
+   "example": true
+  },
+  "植物僵尸名": {
+   "type": "str",
+   "nullable": false,
+   "seen": 3991,
+   "share": 0.0621,
+   "kinds": {
+    "str": 3991
+   },
+   "example": "三叶草僵尸"
+  },
+  "植物僵尸头": {
+   "type": "str",
+   "nullable": false,
+   "seen": 3991,
+   "share": 0.0621,
+   "kinds": {
+    "str": 3991
+   },
+   "example": "三叶草僵尸-植物头"
+  },
+  "植物僵尸基础体": {
+   "type": "str",
+   "nullable": false,
+   "seen": 3991,
+   "share": 0.0621,
+   "kinds": {
+    "str": 3991
+   },
+   "example": "普通僵尸"
+  },
+  "植物僵尸显示": {
+   "type": "str",
+   "nullable": false,
+   "seen": 3991,
+   "share": 0.0621,
+   "kinds": {
+    "str": 3991
+   },
+   "example": "三叶草僵尸"
+  },
+  "植物僵尸鸭子": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 3991,
+   "share": 0.0621,
+   "kinds": {
+    "bool": 3991
+   },
+   "example": false
+  },
+  "__pvz_sb_plant_zombie_max_hp": {
+   "type": "int",
+   "nullable": false,
+   "seen": 3991,
+   "share": 0.0621,
+   "kinds": {
+    "int": 3991
+   },
+   "example": 200
+  },
+  "植物僵尸射cd": {
+   "type": "int",
+   "nullable": false,
+   "seen": 3991,
+   "share": 0.0621,
+   "kinds": {
+    "int": 3991
+   },
+   "example": -1
+  },
+  "植物僵尸连发": {
+   "type": "int",
+   "nullable": false,
+   "seen": 3991,
+   "share": 0.0621,
+   "kinds": {
+    "int": 3991
+   },
+   "example": 0
+  },
+  "植物僵尸连发cd": {
+   "type": "int",
+   "nullable": false,
+   "seen": 3991,
+   "share": 0.0621,
+   "kinds": {
+    "int": 3991
+   },
+   "example": 0
+  },
+  "植物僵尸发射动画": {
+   "type": "int",
+   "nullable": false,
+   "seen": 3991,
+   "share": 0.0621,
+   "kinds": {
+    "int": 3991
+   },
+   "example": 0
+  },
+  "植物僵尸角": {
+   "type": "float",
+   "nullable": false,
+   "seen": 3991,
+   "share": 0.0621,
+   "kinds": {
+    "int": 2671,
+    "float": 1320
+   },
+   "example": 179.02281409232998
+  },
+  "_pvp_zs_hand": {
+   "type": "str",
+   "nullable": false,
+   "seen": 3208,
+   "share": 0.0499,
+   "kinds": {
+    "str": 3208
+   },
+   "example": "报纸"
+  },
+  "_pvp_zs_hand_max": {
+   "type": "int",
+   "nullable": false,
+   "seen": 3208,
+   "share": 0.0499,
+   "kinds": {
+    "int": 3208
+   },
+   "example": 100
+  },
+  "冰冻": {
+   "type": "int",
+   "nullable": false,
+   "seen": 2932,
+   "share": 0.0456,
+   "kinds": {
+    "int": 2932
+   },
+   "example": 996
+  },
+  "射": {
+   "type": "int",
+   "nullable": false,
+   "seen": 2886,
+   "share": 0.0449,
+   "kinds": {
+    "int": 2886
+   },
+   "example": 1
+  },
+  "牛顿": {
+   "type": "float",
+   "nullable": false,
+   "seen": 2717,
+   "share": 0.0423,
+   "kinds": {
+    "float": 2717
+   },
+   "example": 0.0096
+  },
+  "_pvp_bite_plant": {
+   "type": "int",
+   "nullable": false,
+   "seen": 2301,
+   "share": 0.0358,
+   "kinds": {
+    "int": 2301
+   },
+   "example": 3.0
+  },
+  "手持动画": {
+   "type": "vec6",
+   "nullable": false,
+   "seen": 2181,
+   "share": 0.0339,
+   "kinds": {
+    "vec6": 2181
+   },
+   "example": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "半血": {
+   "type": "int",
+   "nullable": false,
+   "seen": 2181,
+   "share": 0.0339,
+   "kinds": {
+    "int": 2181
+   },
+   "example": 500
+  },
+  "_pvp_variant": {
+   "type": "str",
+   "nullable": false,
+   "seen": 2059,
+   "share": 0.032,
+   "kinds": {
+    "str": 2059
+   },
+   "example": "角斗士巨人"
+  },
+  "_pvp_wave_index": {
+   "type": "int",
+   "nullable": false,
+   "seen": 1700,
+   "share": 0.0265,
+   "kinds": {
+    "int": 1700
+   },
+   "example": 0
+  },
+  "跳舞": {
+   "type": "int",
+   "nullable": false,
+   "seen": 1447,
+   "share": 0.0225,
+   "kinds": {
+    "int": 1447
+   },
+   "example": 1
+  },
+  "_pvp_produced": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 1000,
+   "share": 0.0156,
+   "kinds": {
+    "bool": 1000
+   },
+   "example": true
+  },
+  "植物僵尸抗击退": {
+   "type": "float",
+   "nullable": false,
+   "seen": 986,
+   "share": 0.0153,
+   "kinds": {
+    "float": 986
+   },
+   "example": 0.35
+  },
+  "_pvp_zs_crowd": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 881,
+   "share": 0.0137,
+   "kinds": {
+    "bool": 881
+   },
+   "example": true
+  },
+  "_pvp_zs_dance_parent": {
+   "type": "str",
+   "nullable": false,
+   "seen": 804,
+   "share": 0.0125,
+   "kinds": {
+    "str": 804
+   },
+   "example": "u12"
+  },
+  "_pvp_split": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 764,
+   "share": 0.0119,
+   "kinds": {
+    "bool": 764
+   },
+   "example": false
+  },
+  "_pvp_slime_sticky": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 764,
+   "share": 0.0119,
+   "kinds": {
+    "bool": 764
+   },
+   "example": false
+  },
+  "撞车": {
+   "type": "int",
+   "nullable": false,
+   "seen": 764,
+   "share": 0.0119,
+   "kinds": {
+    "int": 764
+   },
+   "example": 0
+  },
+  "轮子": {
+   "type": "int",
+   "nullable": false,
+   "seen": 764,
+   "share": 0.0119,
+   "kinds": {
+    "int": 764
+   },
+   "example": 0
+  },
+  "前进": {
+   "type": "int",
+   "nullable": false,
+   "seen": 643,
+   "share": 0.01,
+   "kinds": {
+    "int": 643
+   },
+   "example": 0
+  },
+  "篮球cd": {
+   "type": "int",
+   "nullable": false,
+   "seen": 643,
+   "share": 0.01,
+   "kinds": {
+    "int": 643
+   },
+   "example": 500
+  },
+  "篮球总量": {
+   "type": "int",
+   "nullable": false,
+   "seen": 643,
+   "share": 0.01,
+   "kinds": {
+    "int": 643
+   },
+   "example": 48
+  },
+  "篮球": {
+   "type": "int",
+   "nullable": false,
+   "seen": 643,
+   "share": 0.01,
+   "kinds": {
+    "int": 643
+   },
+   "example": 3
+  },
+  "投篮": {
+   "type": "int",
+   "nullable": false,
+   "seen": 643,
+   "share": 0.01,
+   "kinds": {
+    "int": 643
+   },
+   "example": 0
+  },
+  "_pvp_cart_deadline": {
+   "type": "int",
+   "nullable": false,
+   "seen": 643,
+   "share": 0.01,
+   "kinds": {
+    "int": 643
+   },
+   "example": 20000
+  },
+  "_pvp70_clock": {
+   "type": "int",
+   "nullable": false,
+   "seen": 643,
+   "share": 0.01,
+   "kinds": {
+    "int": 643
+   },
+   "example": 0.0
+  },
+  "_pvp_summon_clock": {
+   "type": "int",
+   "nullable": false,
+   "seen": 585,
+   "share": 0.0091,
+   "kinds": {
+    "int": 585
+   },
+   "example": 0.0
+  },
+  "_pvp_grenade": {
+   "type": "str",
+   "nullable": false,
+   "seen": 522,
+   "share": 0.0081,
+   "kinds": {
+    "str": 522
+   },
+   "example": "ready"
+  },
+  "_pvp_grenade_clock": {
+   "type": "int",
+   "nullable": false,
+   "seen": 522,
+   "share": 0.0081,
+   "kinds": {
+    "int": 522
+   },
+   "example": 0.0
+  },
+  "_pvp_seen_hp": {
+   "type": "int",
+   "nullable": false,
+   "seen": 522,
+   "share": 0.0081,
+   "kinds": {
+    "int": 522
+   },
+   "example": 75.0
+  },
+  "_pvp_dance_clock": {
+   "type": "int",
+   "nullable": false,
+   "seen": 522,
+   "share": 0.0081,
+   "kinds": {
+    "int": 522
+   },
+   "example": 0.0
+  },
+  "_pvp_dancing": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 522,
+   "share": 0.0081,
+   "kinds": {
+    "bool": 522
+   },
+   "example": true
+  },
+  "_pvp_dance_side": {
+   "type": "str",
+   "nullable": false,
+   "seen": 522,
+   "share": 0.0081,
+   "kinds": {
+    "str": 522
+   },
+   "example": "zombie"
+  },
+  "_pvp_dance_rate": {
+   "type": "int",
+   "nullable": false,
+   "seen": 520,
+   "share": 0.0081,
+   "kinds": {
+    "int": 520
+   },
+   "example": 1.0
+  },
+  "__pvz_sb_umbrella_zombie_cd": {
+   "type": "int",
+   "nullable": false,
+   "seen": 520,
+   "share": 0.0081,
+   "kinds": {
+    "int": 520
+   },
+   "example": 0
+  },
+  "_pvp_squad_owner": {
+   "type": "str",
+   "nullable": false,
+   "seen": 484,
+   "share": 0.0075,
+   "kinds": {
+    "str": 484
+   },
+   "example": "u12"
+  },
+  "__pvz_sb_plant_zombie_jump_cd": {
+   "type": "int",
+   "nullable": false,
+   "seen": 464,
+   "share": 0.0072,
+   "kinds": {
+    "int": 464
+   },
+   "example": 0
+  },
+  "大蒜": {
+   "type": "int",
+   "nullable": false,
+   "seen": 444,
+   "share": 0.0069,
+   "kinds": {
+    "int": 444
+   },
+   "example": 398
+  },
+  "_pvp_poison": {
+   "type": "dict",
+   "nullable": false,
+   "seen": 444,
+   "share": 0.0069,
+   "kinds": {
+    "dict": 444
+   },
+   "example": "<large>"
+  },
+  "眩晕": {
+   "type": "int",
+   "nullable": false,
+   "seen": 421,
+   "share": 0.0066,
+   "kinds": {
+    "int": 421
+   },
+   "example": 50
+  },
+  "绳初位置": {
+   "type": "vec2",
+   "nullable": false,
+   "seen": 421,
+   "share": 0.0066,
+   "kinds": {
+    "vec2": 421
+   },
+   "example": [
+    2688,
+    -720
+   ]
+  },
+  "_pvp_zs_speed": {
+   "type": "dict",
+   "nullable": false,
+   "seen": 401,
+   "share": 0.0062,
+   "kinds": {
+    "dict": 401
+   },
+   "example": {
+    "体育生": 0.25
+   }
+  },
+  "_pvp_zs_headhunt": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 401,
+   "share": 0.0062,
+   "kinds": {
+    "bool": 401
+   },
+   "example": true
+  },
+  "_pvp_zs_pole": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 401,
+   "share": 0.0062,
+   "kinds": {
+    "bool": 401
+   },
+   "example": true
+  },
+  "_pvp_umbrella_secret": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 401,
+   "share": 0.0062,
+   "kinds": {
+    "bool": 401
+   },
+   "example": true
+  },
+  "_pvp_zs_volley": {
+   "type": "int",
+   "nullable": false,
+   "seen": 400,
+   "share": 0.0062,
+   "kinds": {
+    "int": 400
+   },
+   "example": 5
+  },
+  "_pvp_torch_brain": {
+   "type": "int",
+   "nullable": false,
+   "seen": 400,
+   "share": 0.0062,
+   "kinds": {
+    "int": 400
+   },
+   "example": 90
+  },
+  "_pvp_umbrella_initialized": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 400,
+   "share": 0.0062,
+   "kinds": {
+    "bool": 400
+   },
+   "example": true
+  },
+  "_pvp_zs_first_used": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 390,
+   "share": 0.0061,
+   "kinds": {
+    "bool": 390
+   },
+   "example": true
+  },
+  "中场": {
+   "type": "int",
+   "nullable": false,
+   "seen": 363,
+   "share": 0.0057,
+   "kinds": {
+    "int": 363
+   },
+   "example": 0
+  },
+  "_pvp_torch_sleep_until": {
+   "type": "int",
+   "nullable": false,
+   "seen": 274,
+   "share": 0.0043,
+   "kinds": {
+    "int": 274
+   },
+   "example": 5134
+  },
+  "_pvp_imp_armor": {
+   "type": "str",
+   "nullable": false,
+   "seen": 259,
+   "share": 0.004,
+   "kinds": {
+    "str": 259
+   },
+   "example": "黑铁桶"
+  },
+  "_pvp_imp_armor_hp": {
+   "type": "int",
+   "nullable": false,
+   "seen": 259,
+   "share": 0.004,
+   "kinds": {
+    "int": 259
+   },
+   "example": 375
+  },
+  "_pvp_flight": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 242,
+   "share": 0.0038,
+   "kinds": {
+    "bool": 242
+   },
+   "example": true
+  },
+  "_pvp_no_hero_attack": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 242,
+   "share": 0.0038,
+   "kinds": {
+    "bool": 242
+   },
+   "example": true
+  },
+  "_pvp_target": {
+   "type": "str",
+   "nullable": false,
+   "seen": 240,
+   "share": 0.0037,
+   "kinds": {
+    "str": 240
+   },
+   "example": "hero:zombie"
+  },
+  "_pvp_barrel_direction": {
+   "type": "int",
+   "nullable": false,
+   "seen": 222,
+   "share": 0.0035,
+   "kinds": {
+    "int": 222
+   },
+   "example": -1
+  },
+  "_pvp_barrel_position": {
+   "type": "vec4",
+   "nullable": false,
+   "seen": 222,
+   "share": 0.0035,
+   "kinds": {
+    "vec4": 222
+   },
+   "example": [
+    2452.8,
+    864,
+    0.0,
+    0.0
+   ]
+  },
+  "_pvp_barrel_remaining": {
+   "type": "int",
+   "nullable": false,
+   "seen": 222,
+   "share": 0.0035,
+   "kinds": {
+    "int": 222
+   },
+   "example": 400.0
+  },
+  "_pvp_poison_killed": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 138,
+   "share": 0.0021,
+   "kinds": {
+    "bool": 138
+   },
+   "example": true
+  },
+  "_pvp_armor_triggered": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 138,
+   "share": 0.0021,
+   "kinds": {
+    "bool": 138
+   },
+   "example": true
+  },
+  "_pvp_cannon_anim": {
+   "type": "int",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0019,
+   "kinds": {
+    "int": 121
+   },
+   "example": 0.0
+  },
+  "_pvp_cannon_recoil": {
+   "type": "int",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0019,
+   "kinds": {
+    "int": 121
+   },
+   "example": 0.0
+  },
+  "_pvp_cannon_loaded": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0019,
+   "kinds": {
+    "bool": 121
+   },
+   "example": false
+  },
+  "_pvp_reaper_hurt": {
+   "type": "int",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0019,
+   "kinds": {
+    "int": 121
+   },
+   "example": 0
+  },
+  "__pvz_sb_doom_zombie_life_ticks": {
+   "type": "float",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0019,
+   "kinds": {
+    "int": 1,
+    "float": 120
+   },
+   "example": 1.2
+  },
+  "__pvz_sb_doom_zombie_life_time": {
+   "type": "float",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0019,
+   "kinds": {
+    "int": 1,
+    "float": 120
+   },
+   "example": 0.02
+  },
+  "气球": {
+   "type": "int",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0019,
+   "kinds": {
+    "int": 121
+   },
+   "example": 0
+  },
+  "出土": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0019,
+   "kinds": {
+    "bool": 121
+   },
+   "example": false
+  },
+  "_pvp_no_attack": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0019,
+   "kinds": {
+    "bool": 121
+   },
+   "example": true
+  },
+  "_pvp_hop_clock": {
+   "type": "int",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0019,
+   "kinds": {
+    "int": 121
+   },
+   "example": 0
+  },
+  "_pvp_walk_speed": {
+   "type": "float",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0019,
+   "kinds": {
+    "float": 121
+   },
+   "example": 0.20639999999999997
+  },
+  "丢小鬼": {
+   "type": "int",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0019,
+   "kinds": {
+    "int": 121
+   },
+   "example": 0
+  },
+  "_pvp_throw_clock": {
+   "type": "int",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0019,
+   "kinds": {
+    "int": 121
+   },
+   "example": 0.0
+  },
+  "_pvp_grab": {
+   "type": "none",
+   "nullable": true,
+   "seen": 121,
+   "share": 0.0019,
+   "kinds": {
+    "none": 121
+   },
+   "example": null
+  },
+  "雪容量": {
+   "type": "int",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0019,
+   "kinds": {
+    "int": 121
+   },
+   "example": 30
+  },
+  "__pvz_sb_blover_zombie_cd": {
+   "type": "int",
+   "nullable": false,
+   "seen": 120,
+   "share": 0.0019,
+   "kinds": {
+    "int": 120
+   },
+   "example": 17
+  },
+  "__pvz_sb_gold_magnet_zombie_cd": {
+   "type": "int",
+   "nullable": false,
+   "seen": 120,
+   "share": 0.0019,
+   "kinds": {
+    "int": 120
+   },
+   "example": 0
+  },
+  "__pvz_sb_fumeshroom_zombie_attack_angle": {
+   "type": "int",
+   "nullable": false,
+   "seen": 120,
+   "share": 0.0019,
+   "kinds": {
+    "int": 120
+   },
+   "example": 180.0
+  },
+  "__pvz_sb_fumeshroom_zombie_damage_done": {
+   "type": "int",
+   "nullable": false,
+   "seen": 120,
+   "share": 0.0019,
+   "kinds": {
+    "int": 120
+   },
+   "example": 0
+  },
+  "__pvz_sb_fumeshroom_zombie_bubble_tick": {
+   "type": "int",
+   "nullable": false,
+   "seen": 120,
+   "share": 0.0019,
+   "kinds": {
+    "int": 120
+   },
+   "example": 0
+  },
+  "__pvz_sb_fumeshroom_zombie_cd": {
+   "type": "int",
+   "nullable": false,
+   "seen": 120,
+   "share": 0.0019,
+   "kinds": {
+    "int": 120
+   },
+   "example": 100
+  },
+  "_pvp_cannon_rate": {
+   "type": "int",
+   "nullable": false,
+   "seen": 120,
+   "share": 0.0019,
+   "kinds": {
+    "int": 120
+   },
+   "example": 1.0
+  },
+  "__pvz_sb_lantern_zombie_cd": {
+   "type": "int",
+   "nullable": false,
+   "seen": 120,
+   "share": 0.0019,
+   "kinds": {
+    "int": 120
+   },
+   "example": 5
+  },
+  "_pvp_charging": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 120,
+   "share": 0.0019,
+   "kinds": {
+    "bool": 120
+   },
+   "example": false
+  },
+  "_pvp_black_armor": {
+   "type": "none",
+   "nullable": true,
+   "seen": 119,
+   "share": 0.0019,
+   "kinds": {
+    "none": 119
+   },
+   "example": null
+  },
+  "狂暴": {
+   "type": "int",
+   "nullable": false,
+   "seen": 101,
+   "share": 0.0016,
+   "kinds": {
+    "int": 101
+   },
+   "example": 0
+  },
+  "__pvz_sb_blover_zombie_wind_tick": {
+   "type": "int",
+   "nullable": false,
+   "seen": 100,
+   "share": 0.0016,
+   "kinds": {
+    "int": 100
+   },
+   "example": 0
+  },
+  "_pvp_charge_until": {
+   "type": "int",
+   "nullable": false,
+   "seen": 100,
+   "share": 0.0016,
+   "kinds": {
+    "int": 100
+   },
+   "example": 1601
+  },
+  "离开": {
+   "type": "int",
+   "nullable": false,
+   "seen": 100,
+   "share": 0.0016,
+   "kinds": {
+    "int": 100
+   },
+   "example": 0
+  }
+ },
+ "植物": {
+  "坐标": {
+   "type": "vec2",
+   "nullable": false,
+   "seen": 54354,
+   "share": 1.0,
+   "kinds": {
+    "vec2": 54354
+   },
+   "example": [
+    17,
+    45
+   ]
+  },
+  "植物": {
+   "type": "str",
+   "nullable": false,
+   "seen": 54354,
+   "share": 1.0,
+   "kinds": {
+    "str": 54354
+   },
+   "example": "豌豆射手"
+  },
+  "根动画": {
+   "type": "int",
+   "nullable": false,
+   "seen": 54354,
+   "share": 1.0,
+   "kinds": {
+    "int": 54354
+   },
+   "example": 0
+  },
+  "头动画": {
+   "type": "int",
+   "nullable": false,
+   "seen": 54354,
+   "share": 1.0,
+   "kinds": {
+    "int": 54354
+   },
+   "example": 0
+  },
+  "方向": {
+   "type": "int",
+   "nullable": false,
+   "seen": 54354,
+   "share": 1.0,
+   "kinds": {
+    "int": 54354
+   },
+   "example": 1
+  },
+  "植物血": {
+   "type": "int",
+   "nullable": false,
+   "seen": 54354,
+   "share": 1.0,
+   "kinds": {
+    "int": 54354
+   },
+   "example": 6
+  },
+  "受伤": {
+   "type": "int",
+   "nullable": false,
+   "seen": 54354,
+   "share": 1.0,
+   "kinds": {
+    "int": 54354
+   },
+   "example": 0
+  },
+  "植物血上限": {
+   "type": "int",
+   "nullable": false,
+   "seen": 54354,
+   "share": 1.0,
+   "kinds": {
+    "int": 54354
+   },
+   "example": 6
+  },
+  "_pvp_id": {
+   "type": "str",
+   "nullable": false,
+   "seen": 54352,
+   "share": 1.0,
+   "kinds": {
+    "str": 54352
+   },
+   "example": "u1"
+  },
+  "_pvp_card": {
+   "type": "str",
+   "nullable": false,
+   "seen": 54352,
+   "share": 1.0,
+   "kinds": {
+    "str": 54352
+   },
+   "example": "plant:豌豆射手"
+  },
+  "_pvp_owner": {
+   "type": "str",
+   "nullable": false,
+   "seen": 54352,
+   "share": 1.0,
+   "kinds": {
+    "str": 54352
+   },
+   "example": "plant"
+  },
+  "_pvp_temporary": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 54352,
+   "share": 1.0,
+   "kinds": {
+    "bool": 54352
+   },
+   "example": false
+  },
+  "_pvp_max_hp": {
+   "type": "int",
+   "nullable": false,
+   "seen": 54352,
+   "share": 1.0,
+   "kinds": {
+    "int": 54352
+   },
+   "example": 6
+  },
+  "_pvp_armor_max": {
+   "type": "int",
+   "nullable": false,
+   "seen": 54352,
+   "share": 1.0,
+   "kinds": {
+    "int": 54352
+   },
+   "example": 0
+  },
+  "_pvp_born": {
+   "type": "float",
+   "nullable": false,
+   "seen": 54352,
+   "share": 1.0,
+   "kinds": {
+    "int": 52754,
+    "float": 1598
+   },
+   "example": 1.2
+  },
+  "_pvp_aura_factor": {
+   "type": "float",
+   "nullable": false,
+   "seen": 49797,
+   "share": 0.9162,
+   "kinds": {
+    "int": 48337,
+    "float": 1460
+   },
+   "example": 0.8
+  },
+  "射cd": {
+   "type": "int",
+   "nullable": false,
+   "seen": 32542,
+   "share": 0.5987,
+   "kinds": {
+    "int": 32542
+   },
+   "example": 0
+  },
+  "_pvp_clock_delta": {
+   "type": "dict",
+   "nullable": false,
+   "seen": 31559,
+   "share": 0.5806,
+   "kinds": {
+    "dict": 31559
+   },
+   "example": {
+    "射cd": 0,
+    "射": 0
+   }
+  },
+  "射": {
+   "type": "int",
+   "nullable": false,
+   "seen": 31215,
+   "share": 0.5743,
+   "kinds": {
+    "int": 31215
+   },
+   "example": 0
+  },
+  "爆了": {
+   "type": "int",
+   "nullable": false,
+   "seen": 11367,
+   "share": 0.2091,
+   "kinds": {
+    "int": 11367
+   },
+   "example": 0
+  },
+  "阳光": {
+   "type": "int",
+   "nullable": false,
+   "seen": 10548,
+   "share": 0.1941,
+   "kinds": {
+    "int": 10548
+   },
+   "example": 1
+  },
+  "_pvp_rest_since": {
+   "type": "int",
+   "nullable": false,
+   "seen": 10510,
+   "share": 0.1934,
+   "kinds": {
+    "int": 10510
+   },
+   "example": 1
+  },
+  "_pvp_rest_hp": {
+   "type": "int",
+   "nullable": false,
+   "seen": 10510,
+   "share": 0.1934,
+   "kinds": {
+    "int": 10510
+   },
+   "example": 6
+  },
+  "_pvp_sun_due": {
+   "type": "float",
+   "nullable": false,
+   "seen": 10390,
+   "share": 0.1912,
+   "kinds": {
+    "int": 7765,
+    "float": 2625
+   },
+   "example": 2494.999444444444
+  },
+  "_pvp_seat": {
+   "type": "str",
+   "nullable": false,
+   "seen": 9944,
+   "share": 0.1829,
+   "kinds": {
+    "str": 9944
+   },
+   "example": "plant"
+  },
+  "睡觉": {
+   "type": "int",
+   "nullable": false,
+   "seen": 4339,
+   "share": 0.0798,
+   "kinds": {
+    "int": 4339
+   },
+   "example": 0
+  },
+  "_pvp_content": {
+   "type": "str",
+   "nullable": false,
+   "seen": 3704,
+   "share": 0.0681,
+   "kinds": {
+    "str": 3704
+   },
+   "example": "冰冻生菜"
+  },
+  "_pvp_hardening_form": {
+   "type": "str",
+   "nullable": false,
+   "seen": 3628,
+   "share": 0.0667,
+   "kinds": {
+    "str": 3628
+   },
+   "example": "阳光藤蔓"
+  },
+  "_pvp_health_form": {
+   "type": "str",
+   "nullable": false,
+   "seen": 2855,
+   "share": 0.0525,
+   "kinds": {
+    "str": 2855
+   },
+   "example": "仙人掌"
+  },
+  "双发": {
+   "type": "int",
+   "nullable": false,
+   "seen": 2021,
+   "share": 0.0372,
+   "kinds": {
+    "int": 2021
+   },
+   "example": 0
+  },
+  "机枪": {
+   "type": "int",
+   "nullable": false,
+   "seen": 1465,
+   "share": 0.027,
+   "kinds": {
+    "int": 1465
+   },
+   "example": 0
+  },
+  "消亡": {
+   "type": "int",
+   "nullable": false,
+   "seen": 1268,
+   "share": 0.0233,
+   "kinds": {
+    "int": 1268
+   },
+   "example": 0
+  },
+  "_pvp_pea_angle": {
+   "type": "float",
+   "nullable": false,
+   "seen": 1100,
+   "share": 0.0202,
+   "kinds": {
+    "float": 1100
+   },
+   "example": 1.7716916087020762
+  },
+  "_pvp_interval": {
+   "type": "int",
+   "nullable": false,
+   "seen": 1061,
+   "share": 0.0195,
+   "kinds": {
+    "int": 1061
+   },
+   "example": 750
+  },
+  "_pvp_before_shot": {
+   "type": "int",
+   "nullable": false,
+   "seen": 1053,
+   "share": 0.0194,
+   "kinds": {
+    "int": 1053
+   },
+   "example": 0
+  },
+  "_pvp_before_cd": {
+   "type": "int",
+   "nullable": false,
+   "seen": 1053,
+   "share": 0.0194,
+   "kinds": {
+    "int": 1053
+   },
+   "example": -1
+  },
+  "_pvp_content_age": {
+   "type": "int",
+   "nullable": false,
+   "seen": 994,
+   "share": 0.0183,
+   "kinds": {
+    "int": 994
+   },
+   "example": 0
+  },
+  "虚血": {
+   "type": "int",
+   "nullable": false,
+   "seen": 923,
+   "share": 0.017,
+   "kinds": {
+    "int": 923
+   },
+   "example": 3
+  },
+  "吸": {
+   "type": "int",
+   "nullable": false,
+   "seen": 904,
+   "share": 0.0166,
+   "kinds": {
+    "int": 904
+   },
+   "example": 0
+  },
+  "_pvp_clock_credit": {
+   "type": "dict",
+   "nullable": false,
+   "seen": 900,
+   "share": 0.0166,
+   "kinds": {
+    "dict": 900
+   },
+   "example": {
+    "射": 0.25
+   }
+  },
+  "_pvp70_clock": {
+   "type": "int",
+   "nullable": false,
+   "seen": 764,
+   "share": 0.0141,
+   "kinds": {
+    "int": 764
+   },
+   "example": 0.0
+  },
+  "路灯": {
+   "type": "int",
+   "nullable": false,
+   "seen": 623,
+   "share": 0.0115,
+   "kinds": {
+    "int": 623
+   },
+   "example": 600
+  },
+  "吃": {
+   "type": "int",
+   "nullable": false,
+   "seen": 522,
+   "share": 0.0096,
+   "kinds": {
+    "int": 522
+   },
+   "example": 0
+  },
+  "_pvp_heads": {
+   "type": "list",
+   "nullable": false,
+   "seen": 522,
+   "share": 0.0096,
+   "kinds": {
+    "list": 522
+   },
+   "example": []
+  },
+  "_pvp_parent": {
+   "type": "str",
+   "nullable": false,
+   "seen": 522,
+   "share": 0.0096,
+   "kinds": {
+    "str": 522
+   },
+   "example": "u3"
+  },
+  "_pvp_head_clock": {
+   "type": "int",
+   "nullable": false,
+   "seen": 522,
+   "share": 0.0096,
+   "kinds": {
+    "int": 522
+   },
+   "example": 0.0
+  },
+  "_pvp_head_phase": {
+   "type": "str",
+   "nullable": false,
+   "seen": 522,
+   "share": 0.0096,
+   "kinds": {
+    "str": 522
+   },
+   "example": "idle"
+  },
+  "_pvp_head_age": {
+   "type": "int",
+   "nullable": false,
+   "seen": 522,
+   "share": 0.0096,
+   "kinds": {
+    "int": 522
+   },
+   "example": 0.0
+  },
+  "_pvp_head_hits": {
+   "type": "list",
+   "nullable": false,
+   "seen": 522,
+   "share": 0.0096,
+   "kinds": {
+    "list": 522
+   },
+   "example": []
+  },
+  "_pvp_head_point": {
+   "type": "vec2",
+   "nullable": false,
+   "seen": 522,
+   "share": 0.0096,
+   "kinds": {
+    "vec2": 522
+   },
+   "example": [
+    1464.0,
+    837.5999999999999
+   ]
+  },
+  "_pvp_head_color": {
+   "type": "int",
+   "nullable": false,
+   "seen": 522,
+   "share": 0.0096,
+   "kinds": {
+    "int": 522
+   },
+   "example": 0
+  },
+  "_pvp_head_aim": {
+   "type": "vec2",
+   "nullable": false,
+   "seen": 522,
+   "share": 0.0096,
+   "kinds": {
+    "vec2": 522
+   },
+   "example": [
+    1,
+    0.0
+   ]
+  },
+  "胆小": {
+   "type": "int",
+   "nullable": false,
+   "seen": 522,
+   "share": 0.0096,
+   "kinds": {
+    "int": 522
+   },
+   "example": 0
+  },
+  "_pvp_was_asleep": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 520,
+   "share": 0.0096,
+   "kinds": {
+    "bool": 520
+   },
+   "example": false
+  },
+  "三向角": {
+   "type": "vec3",
+   "nullable": false,
+   "seen": 424,
+   "share": 0.0078,
+   "kinds": {
+    "vec3": 424
+   },
+   "example": [
+    -15.0,
+    0.0,
+    15.0
+   ]
+  },
+  "三向目标": {
+   "type": "mixed:list/vec3",
+   "nullable": false,
+   "seen": 424,
+   "share": 0.0078,
+   "kinds": {
+    "list": 4,
+    "vec3": 420
+   },
+   "example": [
+    null,
+    null,
+    null
+   ]
+  },
+  "黑白": {
+   "type": "int",
+   "nullable": false,
+   "seen": 402,
+   "share": 0.0074,
+   "kinds": {
+    "int": 402
+   },
+   "example": 0
+  },
+  "小喷": {
+   "type": "int",
+   "nullable": false,
+   "seen": 401,
+   "share": 0.0074,
+   "kinds": {
+    "int": 401
+   },
+   "example": 15
+  },
+  "_pvp_lantern_timer": {
+   "type": "int",
+   "nullable": false,
+   "seen": 400,
+   "share": 0.0074,
+   "kinds": {
+    "int": 400
+   },
+   "example": 595
+  },
+  "_pvp_head_target": {
+   "type": "str",
+   "nullable": false,
+   "seen": 400,
+   "share": 0.0074,
+   "kinds": {
+    "str": 400
+   },
+   "example": "u4"
+  },
+  "_pvp_attack_clock": {
+   "type": "int",
+   "nullable": false,
+   "seen": 363,
+   "share": 0.0067,
+   "kinds": {
+    "int": 363
+   },
+   "example": 0.0
+  },
+  "_pvp_one_shot": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 268,
+   "share": 0.0049,
+   "kinds": {
+    "bool": 268
+   },
+   "example": true
+  },
+  "埋藏": {
+   "type": "int",
+   "nullable": false,
+   "seen": 242,
+   "share": 0.0045,
+   "kinds": {
+    "int": 242
+   },
+   "example": 6000.0
+  },
+  "出来": {
+   "type": "int",
+   "nullable": false,
+   "seen": 242,
+   "share": 0.0045,
+   "kinds": {
+    "int": 242
+   },
+   "example": 0
+  },
+  "闪": {
+   "type": "int",
+   "nullable": false,
+   "seen": 242,
+   "share": 0.0045,
+   "kinds": {
+    "int": 242
+   },
+   "example": 0
+  },
+  "_pvp_flying_clock": {
+   "type": "int",
+   "nullable": false,
+   "seen": 242,
+   "share": 0.0045,
+   "kinds": {
+    "int": 242
+   },
+   "example": 0.0
+  },
+  "_pvp_flying_rest": {
+   "type": "int",
+   "nullable": false,
+   "seen": 242,
+   "share": 0.0045,
+   "kinds": {
+    "int": 242
+   },
+   "example": 0.0
+  },
+  "_pvp_flying_mode": {
+   "type": "str",
+   "nullable": false,
+   "seen": 242,
+   "share": 0.0045,
+   "kinds": {
+    "str": 242
+   },
+   "example": "idle"
+  },
+  "_pvp_reed_clock": {
+   "type": "float",
+   "nullable": false,
+   "seen": 242,
+   "share": 0.0045,
+   "kinds": {
+    "int": 197,
+    "float": 45
+   },
+   "example": 6.25
+  },
+  "钱钱": {
+   "type": "int",
+   "nullable": false,
+   "seen": 222,
+   "share": 0.0041,
+   "kinds": {
+    "int": 222
+   },
+   "example": 1
+  },
+  "金钱": {
+   "type": "int",
+   "nullable": false,
+   "seen": 222,
+   "share": 0.0041,
+   "kinds": {
+    "int": 222
+   },
+   "example": 0
+  },
+  "_pvp_effect_done": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 147,
+   "share": 0.0027,
+   "kinds": {
+    "bool": 147
+   },
+   "example": false
+  },
+  "模仿": {
+   "type": "str",
+   "nullable": false,
+   "seen": 122,
+   "share": 0.0022,
+   "kinds": {
+    "str": 122
+   },
+   "example": "小喷菇"
+  },
+  "模仿cd": {
+   "type": "int",
+   "nullable": false,
+   "seen": 122,
+   "share": 0.0022,
+   "kinds": {
+    "int": 122
+   },
+   "example": 300
+  },
+  "滚蛋": {
+   "type": "int",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0022,
+   "kinds": {
+    "int": 121
+   },
+   "example": 0
+  },
+  "发射cd": {
+   "type": "int",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0022,
+   "kinds": {
+    "int": 121
+   },
+   "example": 0
+  },
+  "发射动画": {
+   "type": "int",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0022,
+   "kinds": {
+    "int": 121
+   },
+   "example": 0
+  },
+  "发射闪闪": {
+   "type": "int",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0022,
+   "kinds": {
+    "int": 121
+   },
+   "example": 0
+  },
+  "副射": {
+   "type": "int",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0022,
+   "kinds": {
+    "int": 121
+   },
+   "example": 0
+  },
+  "副射cd": {
+   "type": "int",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0022,
+   "kinds": {
+    "int": 121
+   },
+   "example": 0
+  },
+  "副双发": {
+   "type": "int",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0022,
+   "kinds": {
+    "int": 121
+   },
+   "example": 0
+  },
+  "长大": {
+   "type": "int",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0022,
+   "kinds": {
+    "int": 121
+   },
+   "example": 0
+  },
+  "成长": {
+   "type": "int",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0022,
+   "kinds": {
+    "int": 121
+   },
+   "example": 20000
+  },
+  "_pvp_basin_terrain": {
+   "type": "dict",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0022,
+   "kinds": {
+    "dict": 121
+   },
+   "example": {
+    "方块": "空",
+    "里方块": "墙砖"
+   }
+  },
+  "_pvp_vine_clock": {
+   "type": "float",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0022,
+   "kinds": {
+    "int": 1,
+    "float": 120
+   },
+   "example": 0.02
+  },
+  "_pvp_vine_produced": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 121,
+   "share": 0.0022,
+   "kinds": {
+    "bool": 121
+   },
+   "example": false
+  },
+  "_pvp_last_fired": {
+   "type": "int",
+   "nullable": false,
+   "seen": 21,
+   "share": 0.0004,
+   "kinds": {
+    "int": 21
+   },
+   "example": 500
+  },
+  "死": {
+   "type": "int",
+   "nullable": false,
+   "seen": 7,
+   "share": 0.0001,
+   "kinds": {
+    "int": 7
+   },
+   "example": 0
+  }
+ },
+ "实体": {
+  "名": {
+   "type": "str",
+   "nullable": false,
+   "seen": 42712,
+   "share": 1.0,
+   "kinds": {
+    "str": 42712
+   },
+   "example": "豌豆"
+  },
+  "方向": {
+   "type": "int",
+   "nullable": false,
+   "seen": 42712,
+   "share": 1.0,
+   "kinds": {
+    "int": 42712
+   },
+   "example": 1
+  },
+  "位置": {
+   "type": "vec4",
+   "nullable": false,
+   "seen": 42712,
+   "share": 1.0,
+   "kinds": {
+    "vec4": 42712
+   },
+   "example": [
+    2198.4,
+    840.0,
+    0.96,
+    0
+   ]
+  },
+  "_pvp_id": {
+   "type": "str",
+   "nullable": false,
+   "seen": 42386,
+   "share": 0.9924,
+   "kinds": {
+    "str": 42386
+   },
+   "example": "native:1"
+  },
+  "_pvp_owner": {
+   "type": "str",
+   "nullable": false,
+   "seen": 42386,
+   "share": 0.9924,
+   "kinds": {
+    "str": 42386
+   },
+   "example": "plant"
+  },
+  "_pvp_original_owner": {
+   "type": "str",
+   "nullable": false,
+   "seen": 42386,
+   "share": 0.9924,
+   "kinds": {
+    "str": 42386
+   },
+   "example": "plant"
+  },
+  "_pvp_source_entity": {
+   "type": "str",
+   "nullable": false,
+   "seen": 42386,
+   "share": 0.9924,
+   "kinds": {
+    "str": 42386
+   },
+   "example": "u1"
+  },
+  "_pvp_root_source": {
+   "type": "str",
+   "nullable": false,
+   "seen": 42386,
+   "share": 0.9924,
+   "kinds": {
+    "str": 42386
+   },
+   "example": "u1"
+  },
+  "_pvp_instant_attack": {
+   "type": "list",
+   "nullable": false,
+   "seen": 42386,
+   "share": 0.9924,
+   "kinds": {
+    "list": 42386
+   },
+   "example": [
+    "u1",
+    100
+   ]
+  },
+  "_pvp_plant_kind": {
+   "type": "str",
+   "nullable": true,
+   "seen": 36403,
+   "share": 0.8523,
+   "kinds": {
+    "str": 36086,
+    "none": 317
+   },
+   "example": "豌豆射手"
+  },
+  "_pvp_flight_last": {
+   "type": "vec2",
+   "nullable": false,
+   "seen": 34106,
+   "share": 0.7985,
+   "kinds": {
+    "vec2": 34106
+   },
+   "example": [
+    2198.4,
+    840.0
+   ]
+  },
+  "_pvp_flight_distance": {
+   "type": "float",
+   "nullable": false,
+   "seen": 34106,
+   "share": 0.7985,
+   "kinds": {
+    "int": 1160,
+    "float": 32946
+   },
+   "example": 4.800000000000182
+  },
+  "_pvp_flight_limit_tiles": {
+   "type": "int",
+   "nullable": false,
+   "seen": 32313,
+   "share": 0.7565,
+   "kinds": {
+    "int": 32313
+   },
+   "example": 32.0
+  },
+  "_pvp_flight_form": {
+   "type": "list",
+   "nullable": false,
+   "seen": 29730,
+   "share": 0.6961,
+   "kinds": {
+    "list": 29730
+   },
+   "example": [
+    "豌豆",
+    false,
+    ""
+   ]
+  },
+  "消亡": {
+   "type": "int",
+   "nullable": false,
+   "seen": 12569,
+   "share": 0.2943,
+   "kinds": {
+    "int": 12569
+   },
+   "example": 5
+  },
+  "_pvp_torch_visits": {
+   "type": "list",
+   "nullable": false,
+   "seen": 9469,
+   "share": 0.2217,
+   "kinds": {
+    "list": 9469
+   },
+   "example": []
+  },
+  "_pvp_torch_previous": {
+   "type": "vec2",
+   "nullable": false,
+   "seen": 9469,
+   "share": 0.2217,
+   "kinds": {
+    "vec2": 9469
+   },
+   "example": [
+    2202.2400000000002,
+    840.0
+   ]
+  },
+  "穿墙": {
+   "type": "int",
+   "nullable": false,
+   "seen": 4977,
+   "share": 0.1165,
+   "kinds": {
+    "int": 4977
+   },
+   "example": 0
+  },
+  "x": {
+   "type": "float",
+   "nullable": false,
+   "seen": 4121,
+   "share": 0.0965,
+   "kinds": {
+    "float": 4121
+   },
+   "example": 2474.64
+  },
+  "y": {
+   "type": "float",
+   "nullable": false,
+   "seen": 4121,
+   "share": 0.0965,
+   "kinds": {
+    "float": 4121
+   },
+   "example": 829.9660799999999
+  },
+  "prev_x": {
+   "type": "float",
+   "nullable": false,
+   "seen": 4121,
+   "share": 0.0965,
+   "kinds": {
+    "float": 4121
+   },
+   "example": 2474.64
+  },
+  "prev_y": {
+   "type": "float",
+   "nullable": false,
+   "seen": 4121,
+   "share": 0.0965,
+   "kinds": {
+    "float": 4121
+   },
+   "example": 829.9660799999999
+  },
+  "vx": {
+   "type": "float",
+   "nullable": false,
+   "seen": 4121,
+   "share": 0.0965,
+   "kinds": {
+    "int": 1043,
+    "float": 3078
+   },
+   "example": -0.9999982694873748
+  },
+  "vy": {
+   "type": "float",
+   "nullable": false,
+   "seen": 4121,
+   "share": 0.0965,
+   "kinds": {
+    "float": 3870,
+    "int": 251
+   },
+   "example": 1.2246467991473532e-16
+  },
+  "age": {
+   "type": "int",
+   "nullable": false,
+   "seen": 4121,
+   "share": 0.0965,
+   "kinds": {
+    "int": 4121
+   },
+   "example": 1
+  },
+  "僵尸豌豆弹": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 4121,
+   "share": 0.0965,
+   "kinds": {
+    "bool": 4121
+   },
+   "example": true
+  },
+  "__pvz_sb_native_move": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 4121,
+   "share": 0.0965,
+   "kinds": {
+    "bool": 4121
+   },
+   "example": true
+  },
+  "智能杨桃": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 2565,
+   "share": 0.0601,
+   "kinds": {
+    "bool": 2565
+   },
+   "example": true
+  },
+  "智能星命中": {
+   "type": "mixed:list/vec1/vec11/vec12/vec13/vec14/vec16/vec18/vec19/vec2/vec20/vec22/vec23/vec24/vec3/vec4/vec5/vec6/vec7/vec8/vec9",
+   "nullable": false,
+   "seen": 2565,
+   "share": 0.0601,
+   "kinds": {
+    "list": 2116,
+    "vec1": 42,
+    "vec3": 64,
+    "vec2": 111,
+    "vec4": 26,
+    "vec5": 5,
+    "vec7": 2,
+    "vec8": 1,
+    "vec9": 1,
+    "vec11": 2,
+    "vec12": 3,
+    "vec13": 1,
+    "vec14": 1,
+    "vec6": 148,
+    "vec16": 2,
+    "vec18": 11,
+    "vec19": 4,
+    "vec20": 2,
+    "vec22": 1,
+    "vec23": 2,
+    "vec24": 20
+   },
+   "example": []
+  },
+  "_pvp_cattail": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 2394,
+   "share": 0.056,
+   "kinds": {
+    "bool": 2394
+   },
+   "example": false
+  },
+  "牛顿": {
+   "type": "int",
+   "nullable": false,
+   "seen": 2280,
+   "share": 0.0534,
+   "kinds": {
+    "int": 2280
+   },
+   "example": 0
+  },
+  "_pvp_content": {
+   "type": "str",
+   "nullable": false,
+   "seen": 2228,
+   "share": 0.0522,
+   "kinds": {
+    "str": 2228
+   },
+   "example": "原始豌豆射手"
+  },
+  "_pvp_art_name": {
+   "type": "str",
+   "nullable": false,
+   "seen": 2055,
+   "share": 0.0481,
+   "kinds": {
+    "str": 2055
+   },
+   "example": "原始豌豆弹"
+  },
+  "__pvz_sb_zombie_pea_fire": {
+   "type": "str",
+   "nullable": false,
+   "seen": 1827,
+   "share": 0.0428,
+   "kinds": {
+    "str": 1827
+   },
+   "example": "blue"
+  },
+  "植物僵尸头命中表": {
+   "type": "list",
+   "nullable": false,
+   "seen": 1771,
+   "share": 0.0415,
+   "kinds": {
+    "list": 1771
+   },
+   "example": []
+  },
+  "_pvp_content_ready": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 1599,
+   "share": 0.0374,
+   "kinds": {
+    "bool": 1599
+   },
+   "example": true
+  },
+  "旋转": {
+   "type": "float",
+   "nullable": false,
+   "seen": 1564,
+   "share": 0.0366,
+   "kinds": {
+    "int": 969,
+    "float": 595
+   },
+   "example": 3.6779480218090854
+  },
+  "_pvp_dart": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 1483,
+   "share": 0.0347,
+   "kinds": {
+    "bool": 1483
+   },
+   "example": true
+  },
+  "_pvp_distance": {
+   "type": "float",
+   "nullable": false,
+   "seen": 1483,
+   "share": 0.0347,
+   "kinds": {
+    "int": 20,
+    "float": 1463
+   },
+   "example": 4.8
+  },
+  "_pvp_leg_hits": {
+   "type": "list",
+   "nullable": false,
+   "seen": 1483,
+   "share": 0.0347,
+   "kinds": {
+    "list": 1483
+   },
+   "example": []
+  },
+  "_pvp_return": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 1483,
+   "share": 0.0347,
+   "kinds": {
+    "bool": 1483
+   },
+   "example": false
+  },
+  "_pvp_turned": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 1483,
+   "share": 0.0347,
+   "kinds": {
+    "bool": 1483
+   },
+   "example": false
+  },
+  "_pvp_launch_direction": {
+   "type": "int",
+   "nullable": false,
+   "seen": 1483,
+   "share": 0.0347,
+   "kinds": {
+    "int": 1483
+   },
+   "example": 1
+  },
+  "_pvp_speed": {
+   "type": "float",
+   "nullable": false,
+   "seen": 1483,
+   "share": 0.0347,
+   "kinds": {
+    "float": 1483
+   },
+   "example": 0.96
+  },
+  "智能辣椒火": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 762,
+   "share": 0.0178,
+   "kinds": {
+    "bool": 762
+   },
+   "example": true
+  },
+  "智能火行": {
+   "type": "int",
+   "nullable": false,
+   "seen": 762,
+   "share": 0.0178,
+   "kinds": {
+    "int": 762
+   },
+   "example": 17
+  },
+  "智能火列": {
+   "type": "int",
+   "nullable": false,
+   "seen": 762,
+   "share": 0.0178,
+   "kinds": {
+    "int": 762
+   },
+   "example": 34
+  },
+  "智能火命中": {
+   "type": "list",
+   "nullable": false,
+   "seen": 762,
+   "share": 0.0178,
+   "kinds": {
+    "list": 762
+   },
+   "example": []
+  },
+  "智能火地面行": {
+   "type": "int",
+   "nullable": false,
+   "seen": 762,
+   "share": 0.0178,
+   "kinds": {
+    "int": 762
+   },
+   "example": 18
+  },
+  "智能火地面": {
+   "type": "float",
+   "nullable": false,
+   "seen": 762,
+   "share": 0.0178,
+   "kinds": {
+    "float": 762
+   },
+   "example": 812.16
+  },
+  "火了": {
+   "type": "int",
+   "nullable": false,
+   "seen": 690,
+   "share": 0.0162,
+   "kinds": {
+    "int": 690
+   },
+   "example": 0
+  },
+  "_pvp_fire_color": {
+   "type": "str",
+   "nullable": false,
+   "seen": 602,
+   "share": 0.0141,
+   "kinds": {
+    "str": 602
+   },
+   "example": "blue"
+  },
+  "追踪": {
+   "type": "int",
+   "nullable": false,
+   "seen": 601,
+   "share": 0.0141,
+   "kinds": {
+    "int": 601
+   },
+   "example": 0
+  },
+  "__pvz_sb_smart_projectile_skip": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 360,
+   "share": 0.0084,
+   "kinds": {
+    "bool": 360
+   },
+   "example": true
+  },
+  "扁": {
+   "type": "str",
+   "nullable": false,
+   "seen": 88,
+   "share": 0.0021,
+   "kinds": {
+    "str": 88
+   },
+   "example": "<NativeImage>"
+  },
+  "_pvp_mortar": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 65,
+   "share": 0.0015,
+   "kinds": {
+    "bool": 65
+   },
+   "example": true
+  },
+  "_pvp_mortar_speed": {
+   "type": "float",
+   "nullable": false,
+   "seen": 65,
+   "share": 0.0015,
+   "kinds": {
+    "float": 65
+   },
+   "example": 3.84
+  },
+  "_pvp_mortar_target": {
+   "type": "str",
+   "nullable": false,
+   "seen": 65,
+   "share": 0.0015,
+   "kinds": {
+    "str": 65
+   },
+   "example": "u10"
+  },
+  "智能弹道": {
+   "type": "dict",
+   "nullable": false,
+   "seen": 53,
+   "share": 0.0012,
+   "kinds": {
+    "dict": 53
+   },
+   "example": "<large>"
+  },
+  "上次制导": {
+   "type": "float",
+   "nullable": false,
+   "seen": 24,
+   "share": 0.0006,
+   "kinds": {
+    "float": 24
+   },
+   "example": 0.48
+  },
+  "制导次数": {
+   "type": "int",
+   "nullable": false,
+   "seen": 24,
+   "share": 0.0006,
+   "kinds": {
+    "int": 24
+   },
+   "example": 1
+  }
+ },
+ "avatar": {
+  "玩家位置": {
+   "type": "vec4",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "vec4": 19965
+   },
+   "example": [
+    1752.0,
+    288.0,
+    0.0,
+    0.0
+   ]
+  },
+  "玩家跳跃": {
+   "type": "int",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "int": 19965
+   },
+   "example": 0
+  },
+  "二段跳": {
+   "type": "int",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "int": 19965
+   },
+   "example": 0
+  },
+  "玩家入水": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "bool": 19965
+   },
+   "example": false
+  },
+  "玩家方向": {
+   "type": "int",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "int": 19965
+   },
+   "example": 1
+  },
+  "玩家倒地": {
+   "type": "int",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "int": 19965
+   },
+   "example": 0
+  },
+  "玩家血量": {
+   "type": "int",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "int": 19965
+   },
+   "example": 1000000.0
+  },
+  "玩家恢复": {
+   "type": "int",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "int": 19965
+   },
+   "example": 0
+  },
+  "玩家受伤": {
+   "type": "int",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "int": 19965
+   },
+   "example": 0
+  },
+  "玩家皮肤": {
+   "type": "str",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "str": 19965
+   },
+   "example": "疯狂戴夫"
+  },
+  "气球": {
+   "type": "int",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "int": 19965
+   },
+   "example": 0
+  },
+  "冻水": {
+   "type": "int",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "int": 19965
+   },
+   "example": 0
+  },
+  "模式": {
+   "type": "str",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "str": 19965
+   },
+   "example": "正常模式"
+  },
+  "秘籍": {
+   "type": "list",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "list": 19965
+   },
+   "example": [
+    "猫尾",
+    "蓝火"
+   ]
+  },
+  "dushu": {
+   "type": "float",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "int": 15331,
+    "float": 4634
+   },
+   "example": 2.0250000000000004
+  },
+  "xx": {
+   "type": "int",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "int": 19965
+   },
+   "example": 0
+  },
+  "yy": {
+   "type": "float",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "int": 19717,
+    "float": 248
+   },
+   "example": 2.3040000000000003
+  },
+  "citoux": {
+   "type": "int",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "int": 19965
+   },
+   "example": 0.0
+  },
+  "toudushu": {
+   "type": "int",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "int": 19965
+   },
+   "example": 0.0
+  },
+  "辣飞天": {
+   "type": "int",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "int": 19965
+   },
+   "example": 0
+  },
+  "__pvz_sb_chili_launch_lock_until": {
+   "type": "int",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "int": 19965
+   },
+   "example": 0.0
+  },
+  "speedmax": {
+   "type": "float",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "float": 19965
+   },
+   "example": 0.96
+  },
+  "猫尾": {
+   "type": "int",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "int": 19965
+   },
+   "example": 0
+  },
+  "猫尾cd": {
+   "type": "int",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "int": 19965
+   },
+   "example": 1
+  },
+  "猫尾摇摆": {
+   "type": "int",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "int": 19965
+   },
+   "example": 0
+  },
+  "_pvp_owner": {
+   "type": "str",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "str": 19965
+   },
+   "example": "plant"
+  },
+  "_pvp_id": {
+   "type": "str",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "str": 19965
+   },
+   "example": "hero:plant"
+  },
+  "_pvp_max_hp": {
+   "type": "int",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "int": 19965
+   },
+   "example": 1000000.0
+  },
+  "_pvp_last_damage": {
+   "type": "float",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "int": 19708,
+    "float": 257
+   },
+   "example": 0.4
+  },
+  "_pvp_previous_hp": {
+   "type": "int",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "int": 19965
+   },
+   "example": 1000000.0
+  },
+  "_pvp_regen_progress": {
+   "type": "int",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "int": 19965
+   },
+   "example": 0.0
+  },
+  "_pvp_balloon_hp": {
+   "type": "int",
+   "nullable": false,
+   "seen": 19965,
+   "share": 1.0,
+   "kinds": {
+    "int": 19965
+   },
+   "example": 10
+  },
+  "入水": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 18140,
+   "share": 0.9086,
+   "kinds": {
+    "bool": 18140
+   },
+   "example": false
+  },
+  "sbs": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 18140,
+   "share": 0.9086,
+   "kinds": {
+    "bool": 18140
+   },
+   "example": false
+  },
+  "speed": {
+   "type": "float",
+   "nullable": false,
+   "seen": 18140,
+   "share": 0.9086,
+   "kinds": {
+    "float": 18140
+   },
+   "example": 0.96
+  },
+  "wjx": {
+   "type": "int",
+   "nullable": false,
+   "seen": 18140,
+   "share": 0.9086,
+   "kinds": {
+    "int": 18140
+   },
+   "example": 36
+  },
+  "wjy": {
+   "type": "int",
+   "nullable": false,
+   "seen": 18140,
+   "share": 0.9086,
+   "kinds": {
+    "int": 18140
+   },
+   "example": 6
+  },
+  "landing_result": {
+   "type": "int",
+   "nullable": false,
+   "seen": 18140,
+   "share": 0.9086,
+   "kinds": {
+    "int": 18140
+   },
+   "example": 0
+  },
+  "native_ticks": {
+   "type": "int",
+   "nullable": false,
+   "seen": 18140,
+   "share": 0.9086,
+   "kinds": {
+    "int": 18140
+   },
+   "example": 5
+  },
+  "_pvp_ice": {
+   "type": "int",
+   "nullable": false,
+   "seen": 18140,
+   "share": 0.9086,
+   "kinds": {
+    "int": 18140
+   },
+   "example": 0
+  },
+  "_pvp_butter": {
+   "type": "int",
+   "nullable": false,
+   "seen": 18140,
+   "share": 0.9086,
+   "kinds": {
+    "int": 18140
+   },
+   "example": 0
+  },
+  "_pvp_stun": {
+   "type": "int",
+   "nullable": false,
+   "seen": 18140,
+   "share": 0.9086,
+   "kinds": {
+    "int": 18140
+   },
+   "example": 0
+  },
+  "_pvp_water_damage_clock": {
+   "type": "int",
+   "nullable": false,
+   "seen": 18066,
+   "share": 0.9049,
+   "kinds": {
+    "int": 18066
+   },
+   "example": 0.0
+  },
+  "_pvp_seat": {
+   "type": "str",
+   "nullable": false,
+   "seen": 7681,
+   "share": 0.3847,
+   "kinds": {
+    "str": 7681
+   },
+   "example": "plant"
+  },
+  "_pvp_rally_before": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 555,
+   "share": 0.0278,
+   "kinds": {
+    "bool": 555
+   },
+   "example": true
+  },
+  "_pvp_pea_head": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 401,
+   "share": 0.0201,
+   "kinds": {
+    "bool": 401
+   },
+   "example": true
+  },
+  "_pvp_base_speedmax": {
+   "type": "float",
+   "nullable": false,
+   "seen": 399,
+   "share": 0.02,
+   "kinds": {
+    "float": 399
+   },
+   "example": 1.2
+  },
+  "_pvp_masochist_ready": {
+   "type": "float",
+   "nullable": false,
+   "seen": 175,
+   "share": 0.0088,
+   "kinds": {
+    "float": 175
+   },
+   "example": 7.5
+  },
+  "_pvp_sturdy_down": {
+   "type": "bool",
+   "nullable": false,
+   "seen": 168,
+   "share": 0.0084,
+   "kinds": {
+    "bool": 168
+   },
+   "example": true
+  }
+ }
+}

@@ -1,0 +1,659 @@
+{
+  "primal_mine": {
+    "source_sheet": "docs/pvp64_references/painted-v2/primal_mine.png",
+    "frames": [
+      {
+        "file": "primal_mine_0_0.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "0b6aabd2bb30d01b262705a817e704f48057dbc53f450885c51d942bf88ac0e3"
+      },
+      {
+        "file": "primal_mine_0_1.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "14b322e14532fccf2ffbdfd23f1781faa973ed16bcf9b3a986c7d3efafea5a9e"
+      },
+      {
+        "file": "primal_mine_0_2.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "6f0370b620db4b0299cae1f48107eb33717e0b90905eab521a845d95654bd311"
+      },
+      {
+        "file": "primal_mine_0_3.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "33296581152cfa8707b5b84f3107f145411272ba1341ec8fb17ddad15a839569"
+      },
+      {
+        "file": "primal_mine_1_0.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "55c2ed3a62b8c81b1806dc95d7a426bd5cbdb29114e5a795d8228a9240967f16"
+      },
+      {
+        "file": "primal_mine_1_1.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "36ea52739a9b13d4954a3273ba2c2abc13cfb812234b4fba8827dbe836c72ca1"
+      },
+      {
+        "file": "primal_mine_1_2.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "66336b98a4f429017a883e39805d5587cac902792dffa5f6d1df5c69718adf4e"
+      },
+      {
+        "file": "primal_mine_1_3.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "a2c49ead4bcfcc15d531f7dece8d716b697d0a57dfc73adb8d45948fe28a23e7"
+      },
+      {
+        "file": "primal_mine_2_0.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "fe192e6c6ad1cbfc51a62ee6b4e0ce4c0083acdcedbbaa326180a2ac47907626"
+      },
+      {
+        "file": "primal_mine_2_1.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "b20c2a8bae303105eb8dcf819c8a3c2626ea49f9dac0856523d459d9680b038b"
+      },
+      {
+        "file": "primal_mine_2_2.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "ad8f8c720830ef5bc1be653c64f6e1d672fed1f20cbf26fefcae037f9032c4f7"
+      },
+      {
+        "file": "primal_mine_2_3.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "07fc17b37ef17aee773b5de6514df7ec4a4d41217492d0005bba5310fae6049f"
+      }
+    ],
+    "ground_anchor": [
+      64,
+      126
+    ],
+    "style": "painted-cartoon"
+  },
+  "sweet_potato": {
+    "source_sheet": "docs/pvp64_references/painted-v2/sweet_potato.png",
+    "frames": [
+      {
+        "file": "sweet_potato_0_0.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "216ffce7cd4b84bdce0f3419264305c9258fe3cdf997bd02852af29a9caa8705"
+      },
+      {
+        "file": "sweet_potato_0_1.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "01ed51a160c6720f0551c53d5c5b7c036418898ec61d15b5b780122a39df54b1"
+      },
+      {
+        "file": "sweet_potato_0_2.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "776d97fb578ee34925fbe3200b49703024ecc632bdd9de71f86e2a5d0b03b9ab"
+      },
+      {
+        "file": "sweet_potato_0_3.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "0f0079340436467dbce397edcbb8e4f78b338e5ee9290d8be8a637e8967c2ed7"
+      },
+      {
+        "file": "sweet_potato_1_0.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "4ccac2d8f263fef9b9259d174243b590887714e8372538a04217869e5f060057"
+      },
+      {
+        "file": "sweet_potato_1_1.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "dd10b6630818057e33f8a720f5f9e10b1a4a21ed196478bb4ebd6e647253f16d"
+      },
+      {
+        "file": "sweet_potato_1_2.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "dd696c8247fc54143a016fb4c8e17f93354ee5c971d96ddc7a6332cc4f660956"
+      },
+      {
+        "file": "sweet_potato_1_3.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "ecfafac9ec9c64ae47fd8db33b547732cf97d59099d4d9eafc493ef70495429c"
+      },
+      {
+        "file": "sweet_potato_2_0.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "d94626b6f2c123e4588922699c255f90f405d2b5cc3b6a7c21a610ab9055a149"
+      },
+      {
+        "file": "sweet_potato_2_1.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "8d8e3712b0f70f8dcd9fefa0b4adc5aa965f062ae4b29a9bf0b6b1c0babb5ef3"
+      },
+      {
+        "file": "sweet_potato_2_2.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "34c78bca2889ac19fd6040b7f58de299164134bbf21c4889731fce3e042004f5"
+      },
+      {
+        "file": "sweet_potato_2_3.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "c2b8682cfd7b187fdf62045b3f23c4034828eecb69702d144c5f53e8a10d44f4"
+      }
+    ],
+    "ground_anchor": [
+      64,
+      126
+    ],
+    "style": "painted-cartoon"
+  },
+  "pea_mortar": {
+    "source_sheet": "docs/pvp64_references/painted-v2/pea_mortar.png",
+    "frames": [
+      {
+        "file": "pea_mortar_0_0.png",
+        "size": [
+          32,
+          32
+        ],
+        "sha256": "39e5ffab6841416cb4fa583ddca4e1d70768c40ac8a83d595726eafc0118e53e"
+      },
+      {
+        "file": "pea_mortar_0_1.png",
+        "size": [
+          32,
+          32
+        ],
+        "sha256": "e1db5f56cef211ba78d5f9b8239809da951da6d1d8f611b18fcd6445f89a2a9b"
+      },
+      {
+        "file": "pea_mortar_0_2.png",
+        "size": [
+          32,
+          32
+        ],
+        "sha256": "fc65c08f5ab8ad27ab690f079a99f027840a42c951e610fbbe08d6e48c2a1c41"
+      },
+      {
+        "file": "pea_mortar_0_3.png",
+        "size": [
+          32,
+          32
+        ],
+        "sha256": "015d3c238f6e5bdebf8822c3ad096e96d9a20ea26e07eb9201864ced3e6d8568"
+      },
+      {
+        "file": "pea_mortar_1_0.png",
+        "size": [
+          32,
+          32
+        ],
+        "sha256": "9d4f7cc95e1b19db7e93c6c6f886203385ce6824df35052722b7e13a81f1801c"
+      },
+      {
+        "file": "pea_mortar_1_1.png",
+        "size": [
+          32,
+          32
+        ],
+        "sha256": "88895bb61131757c3f955bea6b134afdd7fe3cf4806b104064735ec60fc3c83e"
+      },
+      {
+        "file": "pea_mortar_1_2.png",
+        "size": [
+          32,
+          32
+        ],
+        "sha256": "a254f05b8ac8d40393d72e7d96db224775e58128b5edb632aaefad5d52b52206"
+      },
+      {
+        "file": "pea_mortar_1_3.png",
+        "size": [
+          32,
+          32
+        ],
+        "sha256": "f26c30413ccbbe04002471102549f9ed24b0bd0c66f978318a7d9671f0cafa90"
+      },
+      {
+        "file": "pea_mortar_2_0.png",
+        "size": [
+          32,
+          32
+        ],
+        "sha256": "7dc399c4b6cf1472f8bbe899825e7b08e84b67a8f92bf64d2b7e767aae6b7330"
+      },
+      {
+        "file": "pea_mortar_2_1.png",
+        "size": [
+          32,
+          32
+        ],
+        "sha256": "460f789d459fba5371e5b8d5a88b260f354821d1a331faa196d609fddc4b39ed"
+      },
+      {
+        "file": "pea_mortar_2_2.png",
+        "size": [
+          32,
+          32
+        ],
+        "sha256": "a5eec17acd5675dc9422e7d43e4e3a0b8efef2b22db024f7b973e2bf1b6cc410"
+      },
+      {
+        "file": "pea_mortar_2_3.png",
+        "size": [
+          32,
+          32
+        ],
+        "sha256": "7700816e34f9af65f47a2743003c40c167c2034a82efbdb9b2f362f3c8a319ed"
+      }
+    ],
+    "ground_anchor": [
+      16,
+      30
+    ],
+    "style": "native-32px-pixel"
+  },
+  "spring_grass": {
+    "source_sheet": "docs/pvp64_references/painted-v2/spring_grass.png",
+    "frames": [
+      {
+        "file": "spring_grass_0_0.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "b474625a922fb8abe493cdc813f2299130afe72e8676887670a3b6cfefeda84e"
+      },
+      {
+        "file": "spring_grass_0_1.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "6516578740205350d51a20b951052d728b4336887333fc1a85f01fcee6077bf4"
+      },
+      {
+        "file": "spring_grass_0_2.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "8b892a27641593adaf746d752b536454fa0fa25f471dea7bcc7702ad95a21bb6"
+      },
+      {
+        "file": "spring_grass_0_3.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "81736c5e21dbf8f3d375e4d59c2145acbca6e67220ca0cb745970934700f6fae"
+      },
+      {
+        "file": "spring_grass_1_0.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "b5310a74565245a446154338da03e9c7e189cb3a74221f4ad1071d26fbadaaa7"
+      },
+      {
+        "file": "spring_grass_1_1.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "846d7d08488a647475bdb008da7756e844acd2bfb8f104065ca7df010062eb7d"
+      },
+      {
+        "file": "spring_grass_1_2.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "e2fa1d2bd1d900b926818818ad15d627dc720393513e09138706214c867a7c35"
+      },
+      {
+        "file": "spring_grass_1_3.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "b2945d9399fe805e17efc0eaa8eef2fd06ec8c75919f29c6282710b31de86ef9"
+      },
+      {
+        "file": "spring_grass_2_0.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "070b21d10ee26793fab60cb6a919cfaf25774f4131e5c9056defbf98f1806357"
+      },
+      {
+        "file": "spring_grass_2_1.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "9638cf91d1caeedd84c37303bbfb5ed80c8753c02f7e499ffd93b23d5ef7a0b9"
+      },
+      {
+        "file": "spring_grass_2_2.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "8897d9b3e2398e50d2be8910bbaf58f8c8840ce31737fdf5a04fc620576a08ec"
+      },
+      {
+        "file": "spring_grass_2_3.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "6f6407c60bf6a877b9946aa3618acec0e900d431ff5145d94837013b7fc0ee6f"
+      }
+    ],
+    "ground_anchor": [
+      64,
+      126
+    ],
+    "style": "painted-cartoon"
+  },
+  "zom_blob": {
+    "source_sheet": "docs/pvp64_references/painted-v2/zom_blob.png",
+    "frames": [
+      {
+        "file": "zom_blob_0_0.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "d6e090f9539aa7f42b26f61b08524a2520d760306e616db475bd73b1e24ced79"
+      },
+      {
+        "file": "zom_blob_0_1.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "6c96cdfa185b78f2ddf3c8fe22fc7d41e08a9ea72752e7fd6a4eaaddefa8d4cc"
+      },
+      {
+        "file": "zom_blob_0_2.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "f1e619ad62899600dd250b40f4d902d23f6ab12546d02b43cdfc442159efcf65"
+      },
+      {
+        "file": "zom_blob_0_3.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "f4988b711284b3d3946fe68dfb1006673d9c9a68232c88918d4f6688621f90d9"
+      },
+      {
+        "file": "zom_blob_1_0.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "73040a02aacabef6add1f9cd72517a48c768a3df96b70fa186a0bc6d6339cc8c"
+      },
+      {
+        "file": "zom_blob_1_1.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "d580ac1263bd4d3445f2c64cb7dd5985091ae9c08345d543cb1fb51acc4b18cf"
+      },
+      {
+        "file": "zom_blob_1_2.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "8a4b6a4a88e43feded3c675cc293891d47f3d6bb4738861690db7ca5c4f006c8"
+      },
+      {
+        "file": "zom_blob_1_3.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "5aff466290eebf2f21d5726a5d4188891c3c1d180e09d87dfa233609ca0f1884"
+      },
+      {
+        "file": "zom_blob_2_0.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "428d2f77cc72599f7deae7e49425f66a3e31e5ed4ebaff43e50fd6a191686c59"
+      },
+      {
+        "file": "zom_blob_2_1.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "c9090e337053b655add3901ef807b33888f1e4f965331b8b2043ab73d276ec7b"
+      },
+      {
+        "file": "zom_blob_2_2.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "6dfa1fe8456fce32a322a047b9cca2e69a1791bbce0d081ebfe0517c82253495"
+      },
+      {
+        "file": "zom_blob_2_3.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "d78b556875036dce315993e704f765a638c86fe2fdf97869c2518a9db9a73a38"
+      }
+    ],
+    "ground_anchor": [
+      64,
+      126
+    ],
+    "style": "painted-cartoon"
+  },
+  "grenadier": {
+    "source_sheet": "docs/pvp64_references/painted-v2/grenadier.png",
+    "frames": [
+      {
+        "file": "grenadier_0_0.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "35aa687c1e35588ef94e89b11af87c6c35c0e069d5118256338c17847d0791b9"
+      },
+      {
+        "file": "grenadier_0_1.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "4e45920cc0de1d991f005789bb1b1241c13234c19be02d830cd1f30d2c260d8c"
+      },
+      {
+        "file": "grenadier_0_2.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "92450cbf10473b42cedb24ecca95297cde09de34663da37796b43a2f3ede9cb8"
+      },
+      {
+        "file": "grenadier_0_3.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "2b0791d39f3e689f71ed7f75d28bcfdcd79f8869201093092c67791b6f72c1d1"
+      },
+      {
+        "file": "grenadier_1_0.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "f6db0767b69fba511194826cf6fd3786c70bdccd6706edb11112390c7950e2f0"
+      },
+      {
+        "file": "grenadier_1_1.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "fa40f0ac91bfca5b9a472a9ecdaa861644a826e0aa2827337a49d0b00db13349"
+      },
+      {
+        "file": "grenadier_1_2.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "29382738eefcd9c011eced3248e4c09924e299cc2e8687ec1317ac2cf744714c"
+      },
+      {
+        "file": "grenadier_1_3.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "6489b4475621216ab43841e7f3effc2a0eeb73326044c4860ef0a83c2074e30d"
+      },
+      {
+        "file": "grenadier_2_0.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "6cb6512a71cac308aa78cb2acde32640f345329a9c0dcbb08023da7c08d27702"
+      },
+      {
+        "file": "grenadier_2_1.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "3e2a949fa1205feda446ddc9a22d21d1d3d9477469257205b8f80b2e875ef563"
+      },
+      {
+        "file": "grenadier_2_2.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "64f272a9ee25d8e892e4093695f5e2ad5a3196d7ba213107562324023d16f8d2"
+      },
+      {
+        "file": "grenadier_2_3.png",
+        "size": [
+          128,
+          128
+        ],
+        "sha256": "d0a698a4f22777eb172a0001c3d32525024b0f364c08c20acaf12830e5c2a6bd"
+      }
+    ],
+    "ground_anchor": [
+      64,
+      126
+    ],
+    "style": "painted-cartoon"
+  },
+  "conveyor_native_parts": {
+    "template": "native ladder zombie, 36x36 exact part canvases",
+    "frames": [
+      {
+        "file": "conveyor_body.png",
+        "sha256": "69241b03dc857892f6f2d3cc967446a429f0ec65976622727747a3a2fc70b3a2"
+      },
+      {
+        "file": "conveyor_head.png",
+        "sha256": "d54bb4988bf856316206b58ee2b53f5e977b359b4366cdb2c1cc987eb9b58e1c"
+      },
+      {
+        "file": "conveyor_held.png",
+        "sha256": "3d03732bccc73c02e26c705b8ca72e7b213280ba0205b3cd18a0830aafbb0e4b"
+      },
+      {
+        "file": "conveyor_icon.png",
+        "sha256": "7c3f995e0532897325f4897aa30fb7114c8528660c21235a1518ab4b2773f7e9"
+      }
+    ]
+  }
+}

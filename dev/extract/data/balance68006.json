@@ -1,0 +1,10 @@
+{
+ "PEAS": [
+  "豌豆",
+  "冰豆",
+  "火豆",
+  "蓝火豆",
+  "僵尸豌豆"
+ ],
+ "ZOMBIE_FIRE": "__pvz_sb_zombie_pea_fire"
+}

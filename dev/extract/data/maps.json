@@ -1,0 +1,57 @@
+{
+ "MAP_NAMES": [
+  "山地",
+  "沙城",
+  "家院",
+  "要塞",
+  "大桥",
+  "铁道",
+  "遗迹",
+  "绿洲",
+  "小镇",
+  "古堡",
+  "木船",
+  "大楼"
+ ],
+ "ADAPTER_REVISION": "pvp-native-map-adapter-3-protected-spawns",
+ "DEFAULT_WATERLINES": {
+  "家院": 20,
+  "大桥": 20,
+  "绿洲": 20,
+  "木船": 20
+ },
+ "RAIN_WATERLINES": {
+  "家院": 13,
+  "大桥": 18,
+  "绿洲": 18,
+  "木船": 20,
+  "遗迹": 14,
+  "小镇": 17,
+  "要塞": 18,
+  "古堡": 14,
+  "大楼": 14
+ },
+ "WEATHER_MODES": [
+  [
+   "晴天",
+   false,
+   "clear"
+  ],
+  [
+   "雨天",
+   false,
+   "rain"
+  ],
+  [
+   "黑夜",
+   true,
+   "clear"
+  ],
+  [
+   "黑雨",
+   true,
+   "rain"
+  ]
+ ],
+ "ENVIRONMENT_SOURCE": "original-module:51944-52418,52594-52846"
+}

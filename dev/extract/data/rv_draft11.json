@@ -1,0 +1,21 @@
+{
+ "NEEDS": {
+  "plant": [
+   [
+    "econ",
+    3
+   ],
+   [
+    "pot",
+    null
+   ]
+  ],
+  "zombie": [
+   [
+    "graves",
+    2
+   ]
+  ]
+ },
+ "SHROOM": "plant:阳光菇"
+}

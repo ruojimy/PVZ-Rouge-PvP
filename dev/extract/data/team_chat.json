@@ -1,0 +1,29 @@
+{
+ "COOP": "coop",
+ "DUO": "duo",
+ "CHAT_MODES": [
+  "duo",
+  "coop"
+ ],
+ "CHAT_MAX": 60,
+ "CHAT_KEEP": 60,
+ "CHAT_SHOWN": 20,
+ "CHAT_GAP": 0.6,
+ "CHAT_FADE": 10.0,
+ "SEAT_NAMES": {
+  "plant": "植物1",
+  "plant2": "植物2",
+  "zombie": "僵尸1",
+  "zombie2": "僵尸2"
+ },
+ "IME_HINTS": [
+  [
+   "SDL_IME_SHOW_UI",
+   "1"
+  ],
+  [
+   "SDL_ALLOW_TOPMOST",
+   "0"
+  ]
+ ]
+}

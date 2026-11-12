@@ -1,0 +1,12 @@
+{
+  "scope": "Native acceptance owns an exact original test-selection catalog plus the one previously missing source test; no test, predicate or original reference source changed.",
+  "source": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\pvp_test_catalog.json",
+  "source_sha256": "8eb1e498de776c186ed8d3bc7b1f3c4bd5aa76fa52ce4c0083c87513dfb29e2e",
+  "added_case": "test_pvp_52_performance.Pixels52.test_actual_app_diagnostic_takes_world_quality_from_config",
+  "categories": [
+    "performance.rendering",
+    "performance.simulation",
+    "release.android"
+  ],
+  "result_sha256": "5fb696905309b20fa91744e5268dabcd5649bc41d67f0fe8934598d3cc7ec31d"
+}
