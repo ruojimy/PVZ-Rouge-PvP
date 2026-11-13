@@ -1,5 +1,6 @@
 #pragma once
 #include "sim/typed/zombie_pea.h"
+#include "sim/typed/coverage_grid.h"
 
 namespace pvz::typed72 {
 // Tables are materialized at match admission. The damage-entity list is
@@ -19,11 +20,25 @@ public:
     bool strike(size_t l, const std::string& frame_name, double driving);
     void home(size_t l, std::optional<size_t> nearest);
     void freeze_melon(size_t l);
+    mutable uint64_t queries=0,candidates=0,full_scan_equivalent=0,index_builds=0,narrow_queries=0,empty_cell_skips=0;
+    void invalidate_spatial()const{contact_tick_=-1;}
+    size_t occupied_cells()const{return contact_grid_.occupied_cells();}
+    size_t spatial_bytes()const{return contact_grid_.storage_bytes();}
 private:
     TypedBattleState& world_;
     ZombiePeaCallbacks& callbacks_;
     const CollisionCatalog& collision_;
     const EntityRegionRules& rules_;
+    // Per native tick / target view broad phase. Buckets retain original roster
+    // indices so the reverse-order narrow phase and simultaneous-hit rules stay intact.
+    mutable const TargetRoster* contact_roster_=nullptr;
+    mutable const CombatTarget* contact_data_=nullptr;
+    mutable size_t contact_count_=0;
+    mutable int64_t contact_tick_=-1;
+    mutable CoverageGrid contact_grid_;
+    mutable std::vector<size_t> contact_heroes_,contact_candidates_;
+    bool occupied_contact_cell(size_t l)const;
+    void prepare_contacts() const;
     Entity& entity(size_t l) const {return *world_.runtime.entities.list()->at(l);}
     CombatTarget target(size_t z) const {return world_.targets->at(z);}
     ZombieRecordFields& body(const CombatTarget&) const;

@@ -566,7 +566,22 @@ class WorldView:
             # 二手: a dropped half-life piece waiting for a zombie to pick it up.
             px,py=self.point(item["x"],item["y"])
             size=pixel_tile*.7
-            if self.art.blit(screen,item.get("asset") or item["name"],(px-size/2,py-size*.8),size) is None:
+            asset=item.get("asset") or item["name"]
+            key=('pickup',asset,int(size))
+            image=self.art.scaled.get(key)
+            if image is None:
+                raw=self.art.raw(asset)
+                if raw is not None:
+                    # Worn armour uses a padded full-body canvas. Crop its
+                    # painted bounds so the dropped piece has a readable size.
+                    box=raw.get_bounding_rect()
+                    if box.width>0 and box.height>0:
+                        factor=size/max(box.width,box.height)
+                        image=self.pg.transform.scale(raw.subsurface(box),(max(1,round(box.width*factor)),max(1,round(box.height*factor))))
+                        self.art.scaled[key]=image
+            if image is not None:
+                screen.blit(image,(px-image.get_width()/2,py-image.get_height()))
+            else:
                 self.pg.draw.rect(screen,(150,150,150),(px-size/3,py-size/2,size*2/3,size/3))
         for effect in (battle.get('zsecrets') or {}).get('effects',()):
             if effect.get('kind')!='taco':continue

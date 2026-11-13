@@ -1,0 +1,5 @@
+PvP74 材质工坊
+解压后运行 PvZPvPNative.exe 或 launch_pvp.cmd。
+覆盖安装请将 PvZ-PvP-Native 文件夹内容覆盖到旧目录。
+材质入口与地图编辑器并列；联机由房主共享材质，客机离开后恢复本地包。
+请保留现有 pvp_userdata 存档。

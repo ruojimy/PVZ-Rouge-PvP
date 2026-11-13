@@ -225,6 +225,9 @@ void push_converted(const SDL_Event& e, std::vector<V>& out) {
             out.push_back(ev);
             break;
         }
+        case SDL_DROPFILE: {
+            V ev=make_event(SDL_DROPFILE);set(ev,"file",V(e.drop.file?e.drop.file:""));if(e.drop.file)SDL_free(e.drop.file);out.push_back(ev);break;
+        }
         case SDL_MOUSEWHEEL: {
             V ev = make_event(SDL_MOUSEWHEEL);
             int y = e.wheel.direction == SDL_MOUSEWHEEL_FLIPPED ? -e.wheel.y : e.wheel.y;
@@ -541,6 +544,7 @@ V load_image(const V& src) {
     SDL_Surface* raw;
     if (src.t == V::STR || (src.t == V::INST && src.box->inst->type_name() == std::string("Path"))) {
         std::string p = path_str(src);
+        if(py::has_native_hook("texture74.image_path")){V image=py::native_hook(V("texture74.image_path"),Args{V(p)});if(!image.is_none())return image;} // PvP74 display-only raw files
         SDL_RWops* rw = SDL_RWFromFile(sdl_path(p).c_str(), "rb");
         if (!rw) throw PyError("FileNotFoundError", "No file '" + p + "' found in working directory");
         raw = IMG_Load_RW(rw, 1);

@@ -165,6 +165,9 @@ class NativeBattle(RoomContract):
         # This namespace belongs only to this PvP match.  The shared source
         # remains at its original value for every non-PvP mode.
         self.patch.ns["__pvz_sb_GOLD_MAGNET_BUCKET_HP"] = GOLD_MAGNET_BUCKET_HP
+        # PvP owns bite damage, including HP thresholds, charm and modifiers.
+        # The original post-tick helper otherwise tops every small hit up to 6.
+        self.patch.ns["__pvz_sb_update_gravebuster_zombie_plant_damage"] = lambda g: None
         self.avatars = {}
         self._jump_presses = {side: 0 for side in self.players}
         self._press_reported = {side: False for side in self.players}

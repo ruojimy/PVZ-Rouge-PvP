@@ -23,7 +23,7 @@ double ContentZombieBindings::bite_damage(const ZombieRef& unit,const ContentTar
     double base;
     if(listed(unit->source.variant,rules_.black_variants))base=3.;
     else if(named(unit->protection.card,"zombie:墓碑吞噬者僵尸") || unit->body.kind=="墓碑吞噬者僵尸")
-        base=unit->body.hp<=unit->max_hp.or_missing(300.)*.5?6.:3.;  // PvP73
+        base=unit->body.hp<=unit->max_hp.or_missing(300.)*.5?6.:3.;  // PvP73.1
     else base=unit->patch.bite_plant.or_missing(1.);
     if(named(unit->protection.card,"zombie:巨人僵尸") || named(unit->protection.card,"zombie:红眼巨人") ||
        named(unit->protection.card,"zombie:角斗士巨人"))base=10.;

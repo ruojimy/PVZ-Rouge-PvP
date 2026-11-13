@@ -1,0 +1,7 @@
+PvP74.1 材质工坊
+解压后运行 PvZPvPNative.exe 或 launch_pvp.cmd。
+覆盖安装请将 PvZ-PvP-Native 文件夹内容覆盖到旧目录。
+材质入口与地图编辑器并列；联机由房主共享材质，客机离开后恢复本地包。
+请保留现有 pvp_userdata 存档。
+
+PvP74.1 共用生产代码同时用于 Windows 与 Android。图鉴、回归约束与本轮定向验收详见 PvP74.1_进度.md。

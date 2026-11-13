@@ -25,9 +25,27 @@ public:
     std::optional<Point> point(const NativeAimTarget&,Point center)const;
     NativeAim raw_update(const ZombieRef&);
     NativeAim update(const ZombieRef&);
+    // Only the shooting phase owns this read-only position cache. Special
+    // callbacks invalidate it before the next ordinary shooter is considered.
+    void begin_phase(){phase_=true;invalidate_phase();}
+    void end_phase(){phase_=false;invalidate_phase();}
+    void invalidate_phase()const{plant_data_=nullptr;zombie_data_=nullptr;enemy_data_=nullptr;}
+    mutable uint64_t aim_queries=0,aim_candidates=0,aim_full_scan=0;
 private:
     TypedBattleState& world_;
     const CollisionCatalog& catalog_;
+    bool phase_=false;
+    struct Search {double x;size_t index;};
+    mutable std::vector<Search> plant_search_,zombie_search_;
+    mutable const PlantRef* plant_data_=nullptr;
+    mutable const CombatTarget* zombie_data_=nullptr;
+    mutable size_t plant_count_=0,zombie_count_=0;
+    mutable TargetRoster enemy_view_;
+    mutable const CombatTarget* enemy_data_=nullptr;
+    mutable size_t enemy_count_=0;
+    void prepare_plants()const;
+    void prepare_zombies(const TargetRoster&)const;
+    const TargetRoster& enemy_view(const ZombieRef&)const;
     std::optional<Point> player_point()const;
     void consider_zombies(const TargetRoster&,const ZombieRef&,Point center,bool charmed_targets,
                           std::optional<NativeAimTarget>& best,std::optional<double>& score)const;

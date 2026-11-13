@@ -1,0 +1,612 @@
+{
+  "passed": true,
+  "cases": 113,
+  "all_trajectories_state_rng_equal": true,
+  "checks": [
+    {
+      "kind": "梯子僵尸",
+      "mode": "attack",
+      "passed": true
+    },
+    {
+      "kind": "梯子僵尸",
+      "mode": "follow",
+      "passed": true
+    },
+    {
+      "kind": "梯子僵尸",
+      "mode": "rally",
+      "passed": true
+    },
+    {
+      "kind": "梯子僵尸",
+      "mode": "charmed",
+      "passed": true
+    },
+    {
+      "kind": "传送带僵尸",
+      "mode": "attack",
+      "passed": true
+    },
+    {
+      "kind": "传送带僵尸",
+      "mode": "follow",
+      "passed": true
+    },
+    {
+      "kind": "传送带僵尸",
+      "mode": "rally",
+      "passed": true
+    },
+    {
+      "kind": "传送带僵尸",
+      "mode": "charmed",
+      "passed": true
+    },
+    {
+      "kind": "矿工僵尸",
+      "mode": "attack",
+      "passed": true
+    },
+    {
+      "kind": "矿工僵尸",
+      "mode": "follow",
+      "passed": true
+    },
+    {
+      "kind": "矿工僵尸",
+      "mode": "rally",
+      "passed": true
+    },
+    {
+      "kind": "矿工僵尸",
+      "mode": "charmed",
+      "passed": true
+    },
+    {
+      "kind": "潜水僵尸",
+      "mode": "attack",
+      "passed": true
+    },
+    {
+      "kind": "潜水僵尸",
+      "mode": "follow",
+      "passed": true
+    },
+    {
+      "kind": "潜水僵尸",
+      "mode": "rally",
+      "passed": true
+    },
+    {
+      "kind": "潜水僵尸",
+      "mode": "charmed",
+      "passed": true
+    },
+    {
+      "kind": "海豚僵尸",
+      "mode": "attack",
+      "passed": true
+    },
+    {
+      "kind": "海豚僵尸",
+      "mode": "follow",
+      "passed": true
+    },
+    {
+      "kind": "海豚僵尸",
+      "mode": "rally",
+      "passed": true
+    },
+    {
+      "kind": "海豚僵尸",
+      "mode": "charmed",
+      "passed": true
+    },
+    {
+      "kind": "气球僵尸",
+      "mode": "attack",
+      "passed": true
+    },
+    {
+      "kind": "气球僵尸",
+      "mode": "follow",
+      "passed": true
+    },
+    {
+      "kind": "气球僵尸",
+      "mode": "rally",
+      "passed": true
+    },
+    {
+      "kind": "气球僵尸",
+      "mode": "charmed",
+      "passed": true
+    },
+    {
+      "kind": "飞贼僵尸",
+      "mode": "attack",
+      "passed": true
+    },
+    {
+      "kind": "飞贼僵尸",
+      "mode": "follow",
+      "passed": true
+    },
+    {
+      "kind": "飞贼僵尸",
+      "mode": "rally",
+      "passed": true
+    },
+    {
+      "kind": "飞贼僵尸",
+      "mode": "charmed",
+      "passed": true
+    },
+    {
+      "kind": "撑杆跳僵尸",
+      "mode": "attack",
+      "passed": true
+    },
+    {
+      "kind": "撑杆跳僵尸",
+      "mode": "follow",
+      "passed": true
+    },
+    {
+      "kind": "撑杆跳僵尸",
+      "mode": "rally",
+      "passed": true
+    },
+    {
+      "kind": "撑杆跳僵尸",
+      "mode": "charmed",
+      "passed": true
+    },
+    {
+      "kind": "黑撑杆僵尸",
+      "mode": "attack",
+      "passed": true
+    },
+    {
+      "kind": "黑撑杆僵尸",
+      "mode": "follow",
+      "passed": true
+    },
+    {
+      "kind": "黑撑杆僵尸",
+      "mode": "rally",
+      "passed": true
+    },
+    {
+      "kind": "黑撑杆僵尸",
+      "mode": "charmed",
+      "passed": true
+    },
+    {
+      "kind": "蹦蹦僵尸",
+      "mode": "attack",
+      "passed": true
+    },
+    {
+      "kind": "蹦蹦僵尸",
+      "mode": "follow",
+      "passed": true
+    },
+    {
+      "kind": "蹦蹦僵尸",
+      "mode": "rally",
+      "passed": true
+    },
+    {
+      "kind": "蹦蹦僵尸",
+      "mode": "charmed",
+      "passed": true
+    },
+    {
+      "kind": "雪人僵尸",
+      "mode": "attack",
+      "passed": true
+    },
+    {
+      "kind": "雪人僵尸",
+      "mode": "follow",
+      "passed": true
+    },
+    {
+      "kind": "雪人僵尸",
+      "mode": "rally",
+      "passed": true
+    },
+    {
+      "kind": "雪人僵尸",
+      "mode": "charmed",
+      "passed": true
+    },
+    {
+      "kind": "海盗鹦鹉",
+      "mode": "attack",
+      "passed": true
+    },
+    {
+      "kind": "海盗鹦鹉",
+      "mode": "follow",
+      "passed": true
+    },
+    {
+      "kind": "海盗鹦鹉",
+      "mode": "rally",
+      "passed": true
+    },
+    {
+      "kind": "海盗鹦鹉",
+      "mode": "charmed",
+      "passed": true
+    },
+    {
+      "kind": "乌鸦",
+      "mode": "attack",
+      "passed": true
+    },
+    {
+      "kind": "乌鸦",
+      "mode": "follow",
+      "passed": true
+    },
+    {
+      "kind": "乌鸦",
+      "mode": "rally",
+      "passed": true
+    },
+    {
+      "kind": "乌鸦",
+      "mode": "charmed",
+      "passed": true
+    },
+    {
+      "kind": "雪橇车僵尸",
+      "mode": "attack",
+      "passed": true
+    },
+    {
+      "kind": "雪橇车僵尸",
+      "mode": "follow",
+      "passed": true
+    },
+    {
+      "kind": "雪橇车僵尸",
+      "mode": "rally",
+      "passed": true
+    },
+    {
+      "kind": "雪橇车僵尸",
+      "mode": "charmed",
+      "passed": true
+    },
+    {
+      "kind": "投篮车僵尸",
+      "mode": "attack",
+      "passed": true
+    },
+    {
+      "kind": "投篮车僵尸",
+      "mode": "follow",
+      "passed": true
+    },
+    {
+      "kind": "投篮车僵尸",
+      "mode": "rally",
+      "passed": true
+    },
+    {
+      "kind": "投篮车僵尸",
+      "mode": "charmed",
+      "passed": true
+    },
+    {
+      "kind": "小鬼炮",
+      "mode": "attack",
+      "passed": true
+    },
+    {
+      "kind": "小鬼炮",
+      "mode": "follow",
+      "passed": true
+    },
+    {
+      "kind": "小鬼炮",
+      "mode": "rally",
+      "passed": true
+    },
+    {
+      "kind": "小鬼炮",
+      "mode": "charmed",
+      "passed": true
+    },
+    {
+      "kind": "滚桶僵尸",
+      "mode": "attack",
+      "passed": true
+    },
+    {
+      "kind": "滚桶僵尸",
+      "mode": "follow",
+      "passed": true
+    },
+    {
+      "kind": "滚桶僵尸",
+      "mode": "rally",
+      "passed": true
+    },
+    {
+      "kind": "滚桶僵尸",
+      "mode": "charmed",
+      "passed": true
+    },
+    {
+      "kind": "钩索僵尸",
+      "mode": "attack",
+      "passed": true
+    },
+    {
+      "kind": "钩索僵尸",
+      "mode": "follow",
+      "passed": true
+    },
+    {
+      "kind": "钩索僵尸",
+      "mode": "rally",
+      "passed": true
+    },
+    {
+      "kind": "钩索僵尸",
+      "mode": "charmed",
+      "passed": true
+    },
+    {
+      "kind": "稻草人",
+      "mode": "attack",
+      "passed": true
+    },
+    {
+      "kind": "稻草人",
+      "mode": "follow",
+      "passed": true
+    },
+    {
+      "kind": "稻草人",
+      "mode": "rally",
+      "passed": true
+    },
+    {
+      "kind": "稻草人",
+      "mode": "charmed",
+      "passed": true
+    },
+    {
+      "kind": "舞王僵尸",
+      "mode": "attack",
+      "passed": true
+    },
+    {
+      "kind": "舞王僵尸",
+      "mode": "follow",
+      "passed": true
+    },
+    {
+      "kind": "舞王僵尸",
+      "mode": "rally",
+      "passed": true
+    },
+    {
+      "kind": "舞王僵尸",
+      "mode": "charmed",
+      "passed": true
+    },
+    {
+      "kind": "黑橄榄僵尸",
+      "mode": "attack",
+      "passed": true
+    },
+    {
+      "kind": "黑橄榄僵尸",
+      "mode": "follow",
+      "passed": true
+    },
+    {
+      "kind": "黑橄榄僵尸",
+      "mode": "rally",
+      "passed": true
+    },
+    {
+      "kind": "黑橄榄僵尸",
+      "mode": "charmed",
+      "passed": true
+    },
+    {
+      "kind": "红眼巨人",
+      "mode": "attack",
+      "passed": true
+    },
+    {
+      "kind": "红眼巨人",
+      "mode": "follow",
+      "passed": true
+    },
+    {
+      "kind": "红眼巨人",
+      "mode": "rally",
+      "passed": true
+    },
+    {
+      "kind": "红眼巨人",
+      "mode": "charmed",
+      "passed": true
+    },
+    {
+      "kind": "豌豆僵尸",
+      "mode": "attack",
+      "passed": true
+    },
+    {
+      "kind": "豌豆僵尸",
+      "mode": "follow",
+      "passed": true
+    },
+    {
+      "kind": "豌豆僵尸",
+      "mode": "rally",
+      "passed": true
+    },
+    {
+      "kind": "豌豆僵尸",
+      "mode": "charmed",
+      "passed": true
+    },
+    {
+      "blocking": "none",
+      "kind": "海盗鹦鹉",
+      "mode": "follow",
+      "passed": true,
+      "selected_target": "hero:zombie"
+    },
+    {
+      "blocking": "plant",
+      "kind": "海盗鹦鹉",
+      "mode": "follow",
+      "passed": true,
+      "selected_target": "u2"
+    },
+    {
+      "blocking": "charmed",
+      "kind": "海盗鹦鹉",
+      "mode": "follow",
+      "passed": true,
+      "selected_target": "u2"
+    },
+    {
+      "blocking": "dave",
+      "kind": "海盗鹦鹉",
+      "mode": "follow",
+      "passed": true,
+      "selected_target": "hero:plant"
+    },
+    {
+      "blocking": "sweet",
+      "kind": "海盗鹦鹉",
+      "mode": "follow",
+      "passed": true,
+      "selected_target": "u2"
+    },
+    {
+      "blocking": "none",
+      "kind": "海盗鹦鹉",
+      "mode": "rally",
+      "passed": true,
+      "selected_target": "native:8"
+    },
+    {
+      "blocking": "plant",
+      "kind": "海盗鹦鹉",
+      "mode": "rally",
+      "passed": true,
+      "selected_target": "u2"
+    },
+    {
+      "blocking": "charmed",
+      "kind": "海盗鹦鹉",
+      "mode": "rally",
+      "passed": true,
+      "selected_target": "u2"
+    },
+    {
+      "blocking": "dave",
+      "kind": "海盗鹦鹉",
+      "mode": "rally",
+      "passed": true,
+      "selected_target": "hero:plant"
+    },
+    {
+      "blocking": "sweet",
+      "kind": "海盗鹦鹉",
+      "mode": "rally",
+      "passed": true,
+      "selected_target": "u2"
+    },
+    {
+      "blocking": "none",
+      "kind": "乌鸦",
+      "mode": "follow",
+      "passed": true,
+      "selected_target": "hero:zombie"
+    },
+    {
+      "blocking": "plant",
+      "kind": "乌鸦",
+      "mode": "follow",
+      "passed": true,
+      "selected_target": "u2"
+    },
+    {
+      "blocking": "charmed",
+      "kind": "乌鸦",
+      "mode": "follow",
+      "passed": true,
+      "selected_target": "u2"
+    },
+    {
+      "blocking": "dave",
+      "kind": "乌鸦",
+      "mode": "follow",
+      "passed": true,
+      "selected_target": "hero:plant"
+    },
+    {
+      "blocking": "sweet",
+      "kind": "乌鸦",
+      "mode": "follow",
+      "passed": true,
+      "selected_target": "u2"
+    },
+    {
+      "blocking": "none",
+      "kind": "乌鸦",
+      "mode": "rally",
+      "passed": true,
+      "selected_target": "native:8"
+    },
+    {
+      "blocking": "plant",
+      "kind": "乌鸦",
+      "mode": "rally",
+      "passed": true,
+      "selected_target": "u2"
+    },
+    {
+      "blocking": "charmed",
+      "kind": "乌鸦",
+      "mode": "rally",
+      "passed": true,
+      "selected_target": "u2"
+    },
+    {
+      "blocking": "dave",
+      "kind": "乌鸦",
+      "mode": "rally",
+      "passed": true,
+      "selected_target": "hero:plant"
+    },
+    {
+      "blocking": "sweet",
+      "kind": "乌鸦",
+      "mode": "rally",
+      "passed": true,
+      "selected_target": "u2"
+    },
+    {
+      "kind": "斩首行动雪人",
+      "passed": true,
+      "plant_hp": 1000.0
+    }
+  ]
+}

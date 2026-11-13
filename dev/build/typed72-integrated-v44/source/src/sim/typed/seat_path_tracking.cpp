@@ -1,3 +1,5 @@
+#include "core/function_profile.h"
+#include "sim/typed/spatial_mode.h"
 #include "sim/typed/seat_path_tracking.h"
 #include <tuple>
 #include <unordered_map>
@@ -54,6 +56,7 @@ std::span<const Seat> SeatPathTracking::team_seats(std::span<const Seat> present
     return {output.data(),count};
 }
 Seat SeatPathTracking::advance_team(std::span<const Seat> present){
+    PVP_PROFILE_SCOPE("SeatPathTracking::advance_team");
     const bool duo=world_.mode==MatchMode::duo;
     const auto team=commands_.shared==PathMode::follow_hero?Seat::zombie:Seat::plant;
     std::array<Seat,4> selected_team,selected_match;
@@ -81,6 +84,7 @@ Seat SeatPathTracking::advance_team(std::span<const Seat> present){
     return active.front();
 }
 std::optional<Point> SeatPathTracking::destination(std::optional<Seat> owner,uint64_t revision){
+    PVP_PROFILE_SCOPE("SeatPathTracking::destination");
     const auto flag=flags_.for_owner(world_.mode,owner);
     if(!flag)return {};
     const auto matches=[&](const std::optional<DestinationCache>& cache){
@@ -91,9 +95,12 @@ std::optional<Point> SeatPathTracking::destination(std::optional<Seat> owner,uin
     if(!matches(shared_destination_)){
         const auto requested=terrain_cell(*flag,world_.runtime.tile);
         Cell cell=requested;
+        const bool in_grid=requested.y>=0&&size_t(requested.y)<published_.solid.size()&&requested.x>=0&&!published_.solid.empty()&&uint64_t(requested.x)<published_.solid.front().size();
+        const bool indexed=spatial741_enabled()&&in_grid;
+        if(indexed){if(const auto chosen=legal_destinations_.query(published_.solid,requested))cell=*chosen;}
         std::optional<std::tuple<int64_t,int,int64_t>> best;
         const auto columns=int64_t(published_.solid.at(0).size());
-        for(size_t y=0;y<published_.solid.size();++y){
+        if(!indexed)for(size_t y=0;y<published_.solid.size();++y){
             const auto& row=published_.solid[y];
             for(size_t x=0;x<row.size();++x){
                 if(row[x])continue;

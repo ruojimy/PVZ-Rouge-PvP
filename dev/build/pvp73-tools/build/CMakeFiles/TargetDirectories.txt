@@ -1,0 +1,6 @@
+C:/Users/xiech/Downloads/PVZ_rougePvP_native/build/pvp73-tools/build/CMakeFiles/ref73_record.dir
+C:/Users/xiech/Downloads/PVZ_rougePvP_native/build/pvp73-tools/build/CMakeFiles/cold73_export.dir
+C:/Users/xiech/Downloads/PVZ_rougePvP_native/build/pvp73-tools/build/CMakeFiles/v_cold_catalog_probe.dir
+C:/Users/xiech/Downloads/PVZ_rougePvP_native/build/pvp73-tools/build/CMakeFiles/deck73_corpus.dir
+C:/Users/xiech/Downloads/PVZ_rougePvP_native/build/pvp73-tools/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/xiech/Downloads/PVZ_rougePvP_native/build/pvp73-tools/build/CMakeFiles/ZERO_CHECK.dir

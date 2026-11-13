@@ -1,0 +1,34 @@
+{
+  "baseline_comparison_passed": true,
+  "all_green": false,
+  "counts": {
+    "PASS": 2324,
+    "FAIL": 30,
+    "ERROR": 12,
+    "SKIP": 0
+  },
+  "cases": 2366,
+  "new_nonpass": [],
+  "detail_changes": [
+    {
+      "id": "test_pvp_57_producer_protection.ProducerProtection57Tests.test_native_supplemental_bite_scales_desired_total",
+      "old": "AssertionError: 2649012776272 not found in {}",
+      "new": "AssertionError: 2293492892976 not found in {}",
+      "reason": "Runtime object address differs; same missing identity assertion."
+    },
+    {
+      "id": "test_pvp_63_features.CatalogTests.test_prices_descriptions_and_export_are_current",
+      "old": "AssertionError: '1.6.0.74-typed.20261113' != '1.6.0.71.2-pvp.71'",
+      "new": "AssertionError: '1.6.0.74.1-typed.20261113' != '1.6.0.71.2-pvp.71'",
+      "reason": "Intentional new release version; old assertion still expects PvP71.2."
+    }
+  ],
+  "unexplained_detail_changes": [],
+  "resolved": [],
+  "waived": 15,
+  "unexpected_existing": 27,
+  "pure_typed_passed": true,
+  "source_changed_during_run": [],
+  "fixture_changed_during_run": [],
+  "exe_sha256": "7adabcfc942d8362497f48fa449f775ecde075e26c3c83f4a8061e06e36f8c61"
+}

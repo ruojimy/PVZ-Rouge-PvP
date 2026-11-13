@@ -66,6 +66,14 @@ BattleHandle battle_from_scenario(const nlohmann::json& sc) {
     // (team_maps.bundled_snapshot); otherwise an original map by name.
     V terrain = sc.contains("team_map") ? pm_team_maps::f_bundled_snapshot(Args{V(sc["team_map"].get<std::string>())})
                                          : pm_maps::f_build_snapshot(Args({h.bridge, V(map), V(seed)}, {{Sym("weather"), V(weather)}}));
+    if(sc.value("fixture_flat",false)) {
+        V rows=V::list();
+        for(int y=0;y<24;++y){V row=V::list();for(int x=0;x<72;++x)callm(row,Sym("append"),Args{pm_maps::f__cell(Args{
+            jv({{"方块",y>=20?"土":"空"},{"里方块","空"}}),
+            V::tuple({V("空"),V("水"),V("花盆块"),V("梯子块"),V("坟墓")})})});callm(rows,Sym("append"),Args{row});}
+        terrain=pm_maps::new_MapSnapshot(Args({V("性能固定场景"),V(seed),V("spatial741"),rows},
+            {{Sym("spawns"),jv({{"plant",{1800.,960.}},{"zombie",{2800.,960.}}})},{Sym("source"),V("spatial741")}}));
+    }
     if (sc.value("night", false)) {
         // Night is part of the snapshot's environment and checksum (MapSnapshot.terrain_hash):
         // rebuild through from_dict so NativeBattle accepts it, exactly like a room set to 黑夜.

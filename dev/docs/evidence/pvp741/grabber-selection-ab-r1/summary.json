@@ -1,0 +1,248 @@
+{
+  "passed": true,
+  "state_rng_native_equal": true,
+  "runs": [
+    {
+      "spatial": false,
+      "step_cpu_ms": {
+        "p50": 19.1852,
+        "p95": 30.0848,
+        "p99": 33.6806
+      },
+      "live_units": 300,
+      "functions": {
+        "BonusProjectiles::head_hits": {
+          "calls": 278,
+          "max_ms": 0.0005,
+          "total_ms": 0.03429999999999995
+        },
+        "ContentPlants70::head_targets": {
+          "calls": 90000,
+          "max_ms": 0.3293,
+          "total_ms": 810.2619999998539
+        },
+        "EntityPhase::run": {
+          "calls": 1500,
+          "max_ms": 0.1098,
+          "total_ms": 13.559499999999991
+        },
+        "NativeTick::after_plants": {
+          "calls": 1500,
+          "max_ms": 0.1542,
+          "total_ms": 21.373000000000143
+        },
+        "NativeTick::effects_and_draw_plants": {
+          "calls": 1500,
+          "max_ms": 11.3196,
+          "total_ms": 865.807500000002
+        },
+        "NativeTick::finish_frame": {
+          "calls": 1500,
+          "max_ms": 0.0484,
+          "total_ms": 6.374399999999994
+        },
+        "NativeTick::maintenance_and_economy": {
+          "calls": 1500,
+          "max_ms": 0.1594,
+          "total_ms": 22.589800000000032
+        },
+        "NativeTick::particles": {
+          "calls": 1500,
+          "max_ms": 0.0026,
+          "total_ms": 0.2577999999999971
+        },
+        "NativeTick::plant_actions": {
+          "calls": 1500,
+          "max_ms": 4.6051,
+          "total_ms": 2084.8989999999994
+        },
+        "NativeTick::run": {
+          "calls": 1500,
+          "max_ms": 12.9781,
+          "total_ms": 3555.2867000000006
+        },
+        "NativeTick::setup": {
+          "calls": 1500,
+          "max_ms": 6.0925,
+          "total_ms": 418.4654999999993
+        },
+        "NativeTickPatches::content_projectiles": {
+          "calls": 1500,
+          "max_ms": 0.026,
+          "total_ms": 1.1951999999999785
+        },
+        "NativeTracking::begin": {
+          "calls": 360000,
+          "max_ms": 0.1091,
+          "total_ms": 737.2856000013672
+        },
+        "NativeTracking::hero_lock": {
+          "calls": 4500,
+          "max_ms": 0.0128,
+          "total_ms": 1.2984999999999443
+        },
+        "NativeTracking::restore": {
+          "calls": 364500,
+          "max_ms": 0.2809,
+          "total_ms": 86.70720000009631
+        },
+        "NativeTracking::target_index": {
+          "calls": 4500,
+          "max_ms": 0.0799,
+          "total_ms": 21.667000000000296
+        },
+        "PathTracking::advance": {
+          "calls": 1500,
+          "max_ms": 0.0231,
+          "total_ms": 2.9177999999999926
+        },
+        "PathTracking::choose_target": {
+          "calls": 1500,
+          "max_ms": 0.0033,
+          "total_ms": 0.05860000000000066
+        },
+        "TorchRules::points": {
+          "calls": 1500,
+          "max_ms": 0.0101,
+          "total_ms": 0.5107000000000058
+        },
+        "ZombiePeas::update_all": {
+          "calls": 278,
+          "max_ms": 0.0008,
+          "total_ms": 0.045000000000000005
+        },
+        "ZombiePhase::run": {
+          "calls": 1500,
+          "max_ms": 0.8139,
+          "total_ms": 118.53040000000001
+        },
+        "advance_flood::world": {
+          "calls": 3000,
+          "max_ms": 0.0195,
+          "total_ms": 2.0575999999999923
+        }
+      }
+    },
+    {
+      "spatial": true,
+      "step_cpu_ms": {
+        "p50": 15.6216,
+        "p95": 27.3321,
+        "p99": 31.4465
+      },
+      "live_units": 300,
+      "functions": {
+        "BonusProjectiles::head_hits": {
+          "calls": 278,
+          "max_ms": 0.0007,
+          "total_ms": 0.037899999999999996
+        },
+        "ContentPlants70::head_targets": {
+          "calls": 62760,
+          "max_ms": 0.2205,
+          "total_ms": 494.16559999988687
+        },
+        "EntityPhase::run": {
+          "calls": 1500,
+          "max_ms": 0.0671,
+          "total_ms": 13.404799999999979
+        },
+        "NativeTick::after_plants": {
+          "calls": 1500,
+          "max_ms": 0.3392,
+          "total_ms": 22.069300000000105
+        },
+        "NativeTick::effects_and_draw_plants": {
+          "calls": 1500,
+          "max_ms": 13.7587,
+          "total_ms": 934.7867000000017
+        },
+        "NativeTick::finish_frame": {
+          "calls": 1500,
+          "max_ms": 0.1306,
+          "total_ms": 6.309699999999988
+        },
+        "NativeTick::maintenance_and_economy": {
+          "calls": 1500,
+          "max_ms": 0.152,
+          "total_ms": 23.949000000000094
+        },
+        "NativeTick::particles": {
+          "calls": 1500,
+          "max_ms": 0.0018,
+          "total_ms": 0.2819999999999984
+        },
+        "NativeTick::plant_actions": {
+          "calls": 1500,
+          "max_ms": 4.3161,
+          "total_ms": 1301.4044000000004
+        },
+        "NativeTick::run": {
+          "calls": 1500,
+          "max_ms": 15.1879,
+          "total_ms": 2913.659599999999
+        },
+        "NativeTick::setup": {
+          "calls": 1500,
+          "max_ms": 8.8197,
+          "total_ms": 485.9509999999994
+        },
+        "NativeTickPatches::content_projectiles": {
+          "calls": 1500,
+          "max_ms": 0.0138,
+          "total_ms": 1.271599999999984
+        },
+        "NativeTracking::begin": {
+          "calls": 360000,
+          "max_ms": 0.4834,
+          "total_ms": 277.9830999998061
+        },
+        "NativeTracking::hero_lock": {
+          "calls": 4500,
+          "max_ms": 0.0092,
+          "total_ms": 1.3068999999999469
+        },
+        "NativeTracking::restore": {
+          "calls": 364500,
+          "max_ms": 0.4626,
+          "total_ms": 89.31900000008324
+        },
+        "NativeTracking::target_index": {
+          "calls": 4500,
+          "max_ms": 0.0714,
+          "total_ms": 14.942200000000039
+        },
+        "PathTracking::advance": {
+          "calls": 1500,
+          "max_ms": 0.0368,
+          "total_ms": 3.3914999999999944
+        },
+        "PathTracking::choose_target": {
+          "calls": 1500,
+          "max_ms": 0.0009,
+          "total_ms": 0.06360000000000061
+        },
+        "TorchRules::points": {
+          "calls": 1500,
+          "max_ms": 0.0043,
+          "total_ms": 0.523300000000004
+        },
+        "ZombiePeas::update_all": {
+          "calls": 278,
+          "max_ms": 0.0015,
+          "total_ms": 0.06610000000000002
+        },
+        "ZombiePhase::run": {
+          "calls": 1500,
+          "max_ms": 0.8838,
+          "total_ms": 122.04010000000002
+        },
+        "advance_flood::world": {
+          "calls": 3000,
+          "max_ms": 0.0363,
+          "total_ms": 2.5037000000000216
+        }
+      }
+    }
+  ]
+}

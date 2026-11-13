@@ -28,7 +28,7 @@ int run_diagnostic72(const std::string& raw) {
     json config=json::parse(raw);
     if(!config.is_object())throw std::runtime_error("Diagnostic config must be an object");
     auto scenario=config.value("scenario",std::string("ordinary"));
-    if(scenario!="ordinary" && scenario!="mixed" && scenario!="barrage")throw std::runtime_error("Unknown diagnostic scene");
+    if(scenario!="ordinary" && scenario!="mixed" && scenario!="barrage" && scenario!="grabber")throw std::runtime_error("Unknown diagnostic scene");
     int units=config.value("units",20);double warm=config.value("warmup_seconds",5.),seconds=config.value("seconds",30.);
     if(units<1 || units>300 || !std::isfinite(warm) || !std::isfinite(seconds) || warm<0 || warm>60 || seconds<1 || seconds>600)
         throw std::runtime_error("Diagnostic bounds invalid");

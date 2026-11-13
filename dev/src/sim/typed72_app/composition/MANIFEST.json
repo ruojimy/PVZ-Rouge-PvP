@@ -1195,8 +1195,8 @@
    "production_changes": []
   },
   "match_probe.cpp": {
-   "source_sha256": "36230defa5ea877bab3e3d40dc68144b71bfbf6410dea409e95c6e815a2f2be3",
-   "generated_sha256": "38a76b32289131a55f72167d49fa0a60bd3bb0538c6a40691d1966684cebb4e3",
+   "source_sha256": "a8ee93eeedbb96f3751926d0365fc89248666e4f9d0b906a634b0512be5e84a9",
+   "generated_sha256": "60d0642b469869bc046acfd7196a4a2a2549c75a4f891ad539996e4579277b42",
    "removed": [
     "spawn_events.push_back({\"black_armor\",name});",
     "spawn_events.push_back({\"spawn_blocked\",card});"
@@ -1220,15 +1220,15 @@
    ]
   },
   "frame_layer.inc": {
-   "source_sha256": "f946b6385674f7dd873e6b7dfa1c89917ccb788af672fe6e55db512b7dddebf5",
-   "generated_sha256": "8a875f40f14bb8f58587ee577604d9fedc52b9c6bf4db84d681e18ae2ca7bbb8",
+   "source_sha256": "ffb0b817f9758671cf75a905978a57b48b3f46c05acfc9d3c5799ce081142d78",
+   "generated_sha256": "9458176651420b915c0da443c7b925505ec4ac805dc4ac85add8d115d3e2f2b3",
    "removed": [],
    "production_observers": [],
    "production_changes": []
   },
   "snapshot_layer.inc": {
-   "source_sha256": "1b2509bdac554dccaf7aea14c0169dd4d7b9c9671bcc5576b3e5812c8e4d892d",
-   "generated_sha256": "69c353cf52503e5a31a4cefee542879f6920a5b3daee6967c5d5272e02d08241",
+   "source_sha256": "ab799d5df9d70365ad7a12fbf3f6de787e381647a54e89d4b18680ccae44b8ee",
+   "generated_sha256": "31f9520cb45095f154b51476f149c70ce480f47e4037554560b6e4e0c0ec29dd",
    "removed": [],
    "production_observers": [],
    "production_changes": []

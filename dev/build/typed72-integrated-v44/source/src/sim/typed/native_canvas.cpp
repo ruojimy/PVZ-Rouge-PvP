@@ -90,6 +90,11 @@ void NativeCanvas::draw_on(const NativeArt& target,const std::string& primitive,
     r->external=std::make_shared<const Json>(std::move(recipe));
     target->recipe=r;target->pixels.reset();
 }
+void NativeCanvas::draw_batch(const NativeArt& target,Json strokes){
+    Json recipe={{"op","draw_batch"},{"source",describe(target)},{"strokes",std::move(strokes)}};
+    auto r=std::make_shared<NativeArtRecipe>();r->kind=NativeArtRecipe::Kind::canvas;
+    r->external=std::make_shared<const Json>(std::move(recipe));target->recipe=r;target->pixels.reset();
+}
 NativeArt NativeCanvas::crop(const NativeArt& image,double x,double y,double width,double height)const{
     // hand graphics subsurface: copy_image (alpha, pixel alpha kept), op crop, int size.
     auto out=NativeArtStore::copy(image);out->width=int(width);out->height=int(height);

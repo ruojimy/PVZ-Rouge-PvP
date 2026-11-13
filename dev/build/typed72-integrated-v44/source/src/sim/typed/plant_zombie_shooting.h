@@ -23,6 +23,7 @@ public:
     PlantZombieShooting(TypedBattleState& w,PlantZombieSystems systems,const CollisionCatalog& c)
         :world_(w),systems_(systems),aim_(w,c){}
     uint64_t motion_fixes=0;
+    std::array<uint64_t,3> aim_counters()const{return {aim_.aim_queries,aim_.aim_candidates,aim_.aim_full_scan};}
     static bool live(std::span<const CombatTarget>,std::optional<std::span<const std::string>> names={});
     void enforce_motion(const ZombieRef&,const PlantZombieConfig&);
     void jump_assist(const ZombieRef&,const PlantZombieConfig&);

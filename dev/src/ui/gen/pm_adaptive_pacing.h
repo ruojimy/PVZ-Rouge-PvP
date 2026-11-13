@@ -8,6 +8,11 @@ struct C_AdaptivePacing;
 V new_AdaptivePacing(const Args& A);
 V cls_AdaptivePacing();
 struct C_AdaptivePacing : PyObj {
+    bool frame_gated=false;
+    double frame_age=0.,frame_work=0.,pressure_seconds=0.,recovery_seconds=0.;
+    double advance_cost=0.,advance_delta=0.,last_game_time=0.;
+    double advance_rate=0.,game_rate=0.,base_work=0.,control_target=1.;
+    bool advance_pending=false,game_time_known=false;
     V a_scale;
     V a_ratio;
     V a_observed;

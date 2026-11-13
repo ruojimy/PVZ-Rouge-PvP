@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "scene": "40 gatling + 40 starfruit + 40 cattail + 120 ordinary zombies",
+  "fps": 10.704804797361751,
+  "seconds": 60.066485299990745,
+  "min_zombies": 120,
+  "min_scale": 1,
+  "final_scale": 1,
+  "game_seconds": 60.13333333333333
+}

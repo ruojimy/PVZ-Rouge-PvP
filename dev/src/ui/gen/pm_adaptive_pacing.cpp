@@ -63,6 +63,7 @@ V C_AdaptivePacing::m_sample(const Args& A) {
     a_observed = py::iadd(a_observed, L_simulated);
     a_over = ((a_ratio > V(0.9)) ? V((a_over + L_simulated)) : V(V(0.0)));
     a_under = (((a_ratio * a_scale) < V(0.58)) ? V((a_under + L_simulated)) : V(V(0.0)));
+    if(frame_gated)return a_scale; // real Application uses sustained frame pressure, below
     if (((a_observed >= V(1.0)) && (a_over >= V(0.35)))) {
         a_scale = py::max_it(V::list({V(0.1), py::min_it(V::list({a_scale, (V(0.75) / py::max_it(V::list({V(0.001), a_ratio}), py::Key(), V()))}), py::Key(), V())}), py::Key(), V());
         a_over = V(0.0);

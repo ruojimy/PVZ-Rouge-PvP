@@ -42,7 +42,19 @@ void SeptemberZombies::gate(const ZombieRef& unit) {
     if(yeti)for(const auto part:{"-身","-首"})services_.alias_art(unit->body.kind+part,std::string("雪人僵尸")+part);
     if(garbage(*unit) && unit->body.hand=="钢门" && unit->body.hand_hp>0.)services_.alias_art("钢门","垃圾桶-手持");
     if(!yeti || unit->source.charmed.present() || unit->body.hp<=0.)return;
-    if(yes(unit->content.headhunt)){services_.hide_headhunt_plants(unit);return;}
+    if(yes(unit->content.headhunt)){
+        // Head-hunting borrows the selected Dave field, never the ordinary
+        // yeti's nearest-plant field. Share it by goal cell and map revision.
+        const auto hero=world_.heroes.globals.position.get();const double tile=world_.runtime.tile;
+        chase(unit,hero,{true,int64_t(std::floor(hero->x/tile)),int64_t(std::floor(hero->y/tile)),revision_},hero);
+        const auto& p=unit->body.motion.get();const auto row=int(std::floor(p.y/tile));const auto col=int64_t(std::floor(p.x/tile));
+        for(int y=row-3;y<row+2;++y)if(world_.terrain.valid_row(y))for(auto x=col-2;x<col+3;++x){
+            const auto cell=world_.terrain.at(y,world_.terrain.wrap(x));if(cell&&cell->plant.present()){
+                hidden_plants_.emplace_back(cell,cell->plant);cell->plant.erase();
+            }
+        }
+        services_.hide_headhunt_plants(unit);return;
+    }
     if(ordered(unit))return;
     const auto origin=targets_.point(CombatTarget::zombie(unit));PlantRef chosen;double closest=0.;
     for(const auto& plant:*world_.plant_roster)if(september_targetable(*plant)) {
@@ -72,7 +84,12 @@ bool SeptemberZombies::wave_chase(const ZombieRef& unit) {
     return true;
 }
 void SeptemberZombies::finish(const ZombieRef& unit) {
+    restore_hidden_plants();
     auto& value=unit->content.yeti_tracking;if(!value.present())return;
     const auto saved=value;value.erase();if(!saved.is_null())snapshots_.restore(*saved.get());
+}
+void SeptemberZombies::restore_hidden_plants(){
+    for(auto at=hidden_plants_.rbegin();at!=hidden_plants_.rend();++at)at->first->plant=at->second;
+    hidden_plants_.clear();
 }
 } // namespace pvz::typed72

@@ -1,0 +1,179 @@
+{
+  "description": "Selected release evidence; original per-case traces remain in project test_results.",
+  "files": [
+    {
+      "file": "spatial-math-r2.json",
+      "origin": "test_results/pvp741/spatial-math-r2.json",
+      "sha256": "9cba51cdec0654818e2d32c193f7df76db9d5ad70c598b471571d2940cb58431",
+      "bytes": 1442
+    },
+    {
+      "file": "spatial-production-r3/summary.json",
+      "origin": "test_results/pvp741/spatial-production-r3/summary.json",
+      "sha256": "30cdfbe60973e4e03232c372f7b1a03d26ceba62ae468a97b35ea39eb190e524",
+      "bytes": 43667
+    },
+    {
+      "file": "contact-comparison-r1.json",
+      "origin": "test_results/pvp741/contact-comparison-r1.json",
+      "sha256": "efb00326ba41287c42bd8373dad554fbdea3bec148fe846275188515e2315142",
+      "bytes": 3999
+    },
+    {
+      "file": "grabber-selection-ab-r1/summary.json",
+      "origin": "test_results/pvp741/grabber-selection-ab-r1/summary.json",
+      "sha256": "85594a847870292d0323aaa02d19a68ea31d5d037fe5679b3b42aa465322af34",
+      "bytes": 6993
+    },
+    {
+      "file": "function-profile-release-r1/summary.json",
+      "origin": "test_results/pvp741/function-profile-release-r1/summary.json",
+      "sha256": "4d5ae124af0497626a8c0f1c0f755441bdc67902e3488f06f1ced65e005c453b",
+      "bytes": 79276
+    },
+    {
+      "file": "movement-final-r2/summary.json",
+      "origin": "test_results/pvp741/movement-final-r2/summary.json",
+      "sha256": "963b76e432d334d786e6b155285b84f59a095859901f36aa67f62381224ac474",
+      "bytes": 11837
+    },
+    {
+      "file": "fire-production-final-r2.json",
+      "origin": "test_results/pvp741/fire-production-final-r2.json",
+      "sha256": "cf6a92b3d4c60f6525745ef0529f090a85054e62c6c911f79713384eaa84f29c",
+      "bytes": 74333
+    },
+    {
+      "file": "combat-final-r4.json",
+      "origin": "test_results/pvp741/combat-final-r4.json",
+      "sha256": "8523e07b232f927578b19a2ed4027e827954b6536485558bc71e1263b18fa57d",
+      "bytes": 6397
+    },
+    {
+      "file": "hero-texture-final-r1/summary.json",
+      "origin": "test_results/pvp741/hero-texture-final-r1/summary.json",
+      "sha256": "860fc3712281a1c8c53f3d25051841169c786b31f91c8978ebfd9601ffafaee0",
+      "bytes": 1888
+    },
+    {
+      "file": "material-final-r2/summary.json",
+      "origin": "test_results/pvp741/material-final-r2/summary.json",
+      "sha256": "9b676eefcc03063e6aaadcc08f48afe46d3c3dc741855633ffa4da0d29799516",
+      "bytes": 3666
+    },
+    {
+      "file": "pressure-stress-final-r3/summary.json",
+      "origin": "test_results/pvp741/pressure-stress-final-r3/summary.json",
+      "sha256": "e9f828f7ba9c237f9d902121306e726fe5cec05b412a9cd8dd37ce51df8830ce",
+      "bytes": 308258
+    },
+    {
+      "file": "watch-barrage-raw-r1/summary.json",
+      "origin": "test_results/pvp741/watch-barrage-raw-r1/summary.json",
+      "sha256": "ef308053b12f4c52cce5649285804e03132caafbcdd3082d7538760f1c1593d1",
+      "bytes": 264
+    },
+    {
+      "file": "watch-barrage-live-r1/summary.json",
+      "origin": "test_results/pvp741/watch-barrage-live-r1/summary.json",
+      "sha256": "2009f2921fa9474d61f20fc84015549b2b03a023cc478c0e3e5deb506a35af45",
+      "bytes": 261
+    },
+    {
+      "file": "network-daylight-direct-final-r2/summary.json",
+      "origin": "test_results/pvp741/network-daylight-direct-final-r2/summary.json",
+      "sha256": "f9324301773c6195ee6734cecf2a72bdef3c0a127f9b69b2b981b529d722b11c",
+      "bytes": 1427
+    },
+    {
+      "file": "network-daylight-relay-final-r2/summary.json",
+      "origin": "test_results/pvp741/network-daylight-relay-final-r2/summary.json",
+      "sha256": "4cc4e0b05b1ff25dc5d77fdfbed657d44dbd356a5eeb2e30d7f552f2adcdf1b4",
+      "bytes": 1411
+    },
+    {
+      "file": "full-suite-r5/summary.json",
+      "origin": "test_results/pvp741/full-suite-r5/summary.json",
+      "sha256": "6f3dcab98a9acc8bdec8f86ea744ec9d3899621b5d53510d8142c9de3b423a0b",
+      "bytes": 151765
+    },
+    {
+      "file": "full-suite-r5/waivers-applied.json",
+      "origin": "test_results/pvp741/full-suite-r5/waivers-applied.json",
+      "sha256": "c2f542dcb2713642a7626858126a83671497009928f1c963730c7646ebdadf33",
+      "bytes": 13027
+    },
+    {
+      "file": "regression-comparison-final.json",
+      "origin": "test_results/pvp741/regression-comparison-final.json",
+      "sha256": "7c9f55a21fd233f4f0d94fbb07e86fa6a9214790414851bffdf0f07c92d2976e",
+      "bytes": 1232
+    },
+    {
+      "file": "post-suite-packaging-source-audit.json",
+      "origin": "test_results/pvp741/post-suite-packaging-source-audit.json",
+      "sha256": "d88758529add98ed45dd40636488e8ce744284021f9e053c52bdea0fc0635177",
+      "bytes": 480
+    },
+    {
+      "file": "android-final-verification.json",
+      "origin": "test_results/pvp741/android-final-verification.json",
+      "sha256": "6ce34ada2c15800fd1fd5339e0833351083e795036eab1c6fe43f2f340f62549",
+      "bytes": 1024
+    },
+    {
+      "file": "pc-package-20261113-pvp741-r1/summary.json",
+      "origin": "test_results/pvp741/pc-package-20261113-pvp741-r1/summary.json",
+      "sha256": "5e51a4f9b6adf3005b85d0786b811b3734b4e022d241d100b5d841ac6db359e6",
+      "bytes": 1419
+    },
+    {
+      "file": "release-final-verification.json",
+      "origin": "test_results/pvp741/release-final-verification.json",
+      "sha256": "936dfca819f1558ba4e26a0562ffe112e92d78cee87de15bf0067e2269f048ce",
+      "bytes": 1526
+    },
+    {
+      "file": "full-suite-r5/source-hashes.json",
+      "origin": "test_results/pvp741/full-suite-r5/source-hashes.json",
+      "sha256": "f0381cf8c63d82abc52bfb317ece029efc5f2e76a5da714d6a3384d45033b11f",
+      "bytes": 238075
+    },
+    {
+      "file": "hero-texture-final-r1/heroes-library.png",
+      "origin": "test_results/pvp741/hero-texture-final-r1/heroes-library.png",
+      "sha256": "08b5e2511c6804c5d9a6776da00fe4d3badf73128e006158f3fff53aa90c16a2",
+      "bytes": 38932
+    },
+    {
+      "file": "hero-texture-final-r1/grave-world-original.png",
+      "origin": "test_results/pvp741/hero-texture-final-r1/grave-world-original.png",
+      "sha256": "8c4d94e12b1f767a5582231f610a50b8b49bf2463d5fd428b53daec0de18be74",
+      "bytes": 12439
+    },
+    {
+      "file": "hero-texture-final-r1/grave-world-custom.png",
+      "origin": "test_results/pvp741/hero-texture-final-r1/grave-world-custom.png",
+      "sha256": "cd059c4d9b0b4b137108deca185f2f61b8e9c11d5ce57444cef2718179df3915",
+      "bytes": 10846
+    },
+    {
+      "file": "network-daylight-direct-final-r2/guest-phase1.png",
+      "origin": "test_results/pvp741/network-daylight-direct-final-r2/guest-phase1.png",
+      "sha256": "20b563aa7b18cf4f729e9cd74ad336f4473e9342a9520ce5b064112215eaff63",
+      "bytes": 73539
+    },
+    {
+      "file": "network-daylight-direct-final-r2/guest-phase2.png",
+      "origin": "test_results/pvp741/network-daylight-direct-final-r2/guest-phase2.png",
+      "sha256": "74c17705b9db7174918dbc7a807f1d916c97c745c8b641d5a158046731cb02e0",
+      "bytes": 76590
+    },
+    {
+      "file": "network-daylight-direct-final-r2/guest-phase3.png",
+      "origin": "test_results/pvp741/network-daylight-direct-final-r2/guest-phase3.png",
+      "sha256": "3592c2766939012a04e4a946901db4d2ef3e44479f1871df2e673052c2a6ed7e",
+      "bytes": 79739
+    }
+  ]
+}

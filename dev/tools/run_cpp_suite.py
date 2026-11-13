@@ -141,6 +141,11 @@ def main():
     source_files+=list((ROOT/"tools/pvp72_sources").glob("*.py"))+list((ROOT/"tools/pvp72_sources").glob("*.json"))
     source_files+=list((ROOT/"references/bytecode").glob("*.json"))+list((ROOT/"extract/data").glob("*.json"))+list((ROOT/"extract/schema").glob("*.json"))
     source_files+=list((ROOT/"extract/original").glob("*.py"))+list((ROOT/"docs/coverage").glob("*.json"))
+    # The shipped kernel is the integrated stage, not src/sim/typed. Freeze the
+    # actual compiled authority and its owning composition drivers as well.
+    source_files+=sorted(p for p in (ROOT/"build/typed72-integrated-v44/source/src/sim/typed").rglob("*") if p.is_file() and p.suffix in (".cpp",".h",".inc"))
+    source_files+=[ROOT/"build/typed72-match-v1"/n for n in ("match_probe.cpp","frame_layer.inc","snapshot_layer.inc")]
+    source_files.append(ROOT/"tools/pvp741_hooks.json")
     source_hashes={str(p.relative_to(ROOT)):file_sha(p) for p in source_files}
     (out/"source-hashes.json").write_text(json.dumps(source_hashes,indent=2),encoding="utf-8")
     started=time.time()

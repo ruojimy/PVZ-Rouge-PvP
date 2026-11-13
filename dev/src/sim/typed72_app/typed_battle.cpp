@@ -1,3 +1,4 @@
+#include "core/function_profile.h"
 #include <set>
 #include <map>
 #include "sim/typed72_app/typed_battle.h"
@@ -218,6 +219,12 @@ struct TypedBattle:PyObj {
         map_tiles=session->map_tiles();
         V m=V::dict();const V base=pvz::getattr(native,Sym("map"),V::none());
         if(base.is_dict())for(auto& kv:base.kv())m.at(kv.first)=kv.second;
+        // Only co-op has a running daylight cycle. PvP/PvE retain the exact
+        // admitted static environment, including absent optional keys.
+        if(const auto night=session->coop_map_night()){
+            V environment=py::dict_of(m.get(V("environment"),V::dict()));
+            environment.at(V("night"))=V(*night);m.at(V("environment"))=environment;
+        }
         m.at(V("tiles"))=jv(map_tiles);map_v=m;map_revision=revision;return map_v;
     }
     // g["ditu"] edits (whole-cell replacement or key writes) since the last projection.
@@ -264,6 +271,7 @@ struct TypedBattle:PyObj {
         session->set_ai_subsidy_seats(seats);
     }
     void refresh(){
+    PVP_PROFILE_SCOPE("TypedBattle::refresh");
         if(fresh)return;
         last_json=session->snapshot();++snapshot_projections;fresh=true;
         // Units carry their resolved card: convert each distinct card once.
@@ -281,6 +289,7 @@ struct TypedBattle:PyObj {
     // detached (room privacy masking edits them); actors are deep copies, or per-actor shallow
     // copies with copy_state=False; the finished native frame is immutable and shared.
     V snapshot(bool include_map,bool copy_state=true){
+    PVP_PROFILE_SCOPE("TypedBattle::snapshot");
         if(!session)return callm(native,Sym("snapshot"),Args({},{{Sym("include_map"),V(include_map)},{Sym("copy_state"),V(copy_state)}}));
         refresh();
         V out=V::dict();
@@ -629,7 +638,9 @@ struct TypedBattle:PyObj {
             out=d;return true;
         }
         if(n=="backend_audit"){
+            if(a.has_kw(Sym("reset_function_profile"))&&a.get(0,Sym("reset_function_profile"),nullptr).truthy())function_profile::reset();
             V d=V::dict();d.at(V("backend"))=V("typed72");d.at(V("session"))=V(bool(session));
+            if(session)d.at(V("performance"))=jv(session->performance_counters());
             // PvP73 pure-typed gate: V boxes/calls made inside the dynamic entry points (must stay 0).
             {V g=V::dict();for(const auto& [k,v]:dynamic_v_work){V e=V::dict();e.at(V("boxes"))=V(double(v.boxes));e.at(V("calls"))=V(double(v.calls));e.at(V("entries"))=V(double(dynamic_v_entries[k]));g.at(V(k))=e;}
              d.at(V("dynamic_v_work"))=g;}

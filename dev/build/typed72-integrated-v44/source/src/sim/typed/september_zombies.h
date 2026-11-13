@@ -44,6 +44,8 @@ private:
     const bool& scripted_;
     SeptemberZombieServices& services_;
     std::map<SeptemberPathKey,std::shared_ptr<SeptemberPathBank>> banks_;
+    std::vector<std::pair<TileRef,Field<bool>>> hidden_plants_;
+    void restore_hidden_plants();
     bool ordered(const ZombieRef&)const;
 };
 } // namespace pvz::typed72

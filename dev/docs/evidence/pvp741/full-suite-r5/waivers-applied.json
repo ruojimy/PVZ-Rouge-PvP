@@ -1,0 +1,262 @@
+{
+  "enabled": true,
+  "policy": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\docs\\coverage\\temporary-native-waivers.json",
+  "policy_sha256": "d9cd282df3272aa7ce9cf61c9f78508003279831e3ea92cec5d3a4d7c7d8b244",
+  "applied": [
+    {
+      "id": "test_pvp_62_tick_rate.GcPolicyTests.test_overlapping_battles_keep_the_policy_until_the_last_closes",
+      "outcome": "ERROR",
+      "detail_sha256": "18767fe1f0da3a13bac23201440e107bb5b74921b92780360950a8a92911e891",
+      "reason": "CPython generation GC 阈值检查；C++ 使用 RAII，该接口不适用。"
+    },
+    {
+      "id": "test_pvp_66_ai_gates.VersionSync.test_default_brain_generated_copy_and_factory_agree",
+      "outcome": "FAIL",
+      "detail_sha256": "ffc97af828b733d3b347336b61a82b568e90561ad07f87061783d26e28ef35a3",
+      "reason": "Python AI 源码同步/版本元数据工具检查；原 Python owner 已通过。"
+    },
+    {
+      "id": "test_pvp_66_ai_gates.VersionSync.test_missing_feature_data_is_an_error",
+      "outcome": "ERROR",
+      "detail_sha256": "37dcf96c804abebc1a6d5f98566d30c9840fd9d4030801767d2d699ce1381fc1",
+      "reason": "Python AI 源码同步/版本元数据工具检查；原 Python owner 已通过。"
+    },
+    {
+      "id": "test_pvp_66_ai_gates.VersionSync.test_tampering_old_default_stale_and_factory_are_detected",
+      "outcome": "ERROR",
+      "detail_sha256": "6fe75126365e04160b3235b8b36d1c4ae86d80703511b7292324af7db5d78d56",
+      "reason": "Python AI 源码同步/版本元数据工具检查；原 Python owner 已通过。"
+    },
+    {
+      "id": "test_pvp_hero_isolation.HeroIsolationTests.test_every_hero_switch_site_is_registered",
+      "outcome": "FAIL",
+      "detail_sha256": "114fff7c6785c1c1cec5e54d49a5492bceaf72d8b8998cbaa10b4195ae571dc1",
+      "reason": "扫描 Python AST 登记切换位置；原 Python owner 和真实 C++ 英雄隔离监控已通过。"
+    },
+    {
+      "id": "test_pvp_input_latency.PatchSourceCacheTests.test_the_first_build_still_pays_the_parse",
+      "outcome": "FAIL",
+      "detail_sha256": "48773f1bca2131b0a69b0228f2c76b2505b6820b9211a2448a264a7ffc6c21fc",
+      "reason": "断言 Python 编译代码对象缓存；原 Python owner 已通过。"
+    },
+    {
+      "id": "test_pvp_integration.EmbeddedBuilderTests.test_authoritative_start_is_delayed_without_editing_source",
+      "outcome": "ERROR",
+      "detail_sha256": "c1c7ad697c3ca95e27d65192db3d01fd4179f7e209ee926360298e9d548ceaa4",
+      "reason": "Python 动态加载/compile/meta_path 构建器检查；原 Python owner 已通过。"
+    },
+    {
+      "id": "test_pvp_integration.EmbeddedBuilderTests.test_loader_supports_relative_imports_and_missing_standard_library",
+      "outcome": "ERROR",
+      "detail_sha256": "d109d1bb189a0c54b6e67269ee49126d14f002cf0a8ca7d88f98f56d21fc109e",
+      "reason": "Python 动态加载/compile/meta_path 构建器检查；原 Python owner 已通过。"
+    },
+    {
+      "id": "test_pvp_integration.EmbeddedBuilderTests.test_payload_install_order_and_original_bytecode_are_auditable",
+      "outcome": "ERROR",
+      "detail_sha256": "e34f9924777de552fe009c6e6629a16546fcce69873f9df275a92cca8bf697ff",
+      "reason": "Python 动态加载/compile/meta_path 构建器检查；原 Python owner 已通过。"
+    },
+    {
+      "id": "test_pvp_native_physics.NativePhysicsTests.test_original_normal_full_block_matches_every_tick_on_ground_air_wall_and_landing",
+      "outcome": "ERROR",
+      "detail_sha256": "6ff26307e32bfbf22585a180e204902f7ae06b618f58f1fa8f878653285abed4",
+      "reason": "Python __code__/co_code 元数据检查；原 Python owner 和同例 C++ 实际物理行为补验通过。"
+    },
+    {
+      "id": "test_pvp_native_physics.NativePhysicsTests.test_zombie_infinite_jump_is_one_documented_operand_change",
+      "outcome": "ERROR",
+      "detail_sha256": "00d470ddfbe421d14e414d3f0fec79d23a754eba522d45f3865947de83a06244",
+      "reason": "Python __code__/co_code 元数据检查；原 Python owner 和同例 C++ 实际物理行为补验通过。"
+    },
+    {
+      "id": "test_pvp_native_targets.NativeTargetTests.test_real_native_pea_collision_routes_original_damage_body_to_zombie_dave",
+      "outcome": "ERROR",
+      "detail_sha256": "6ff26307e32bfbf22585a180e204902f7ae06b618f58f1fa8f878653285abed4",
+      "reason": "Python __code__ 元数据检查；原 Python owner 和同例 C++ 实际碰撞行为补验通过。"
+    },
+    {
+      "id": "test_pvp_network.IdnaCodecRaceTests.test_fresh_process_direct_host_creation_survives_the_codec_race",
+      "outcome": "ERROR",
+      "detail_sha256": "452bae7efecba16cf3fec35f1c6a5a166a3650c7a7527d7f006d483fab19f897",
+      "reason": "Python 新进程 IDNA 编码夹具；原 Python owner 和真实 C++ 新进程建房/网络检查通过。"
+    },
+    {
+      "id": "test_pvp_relay.RelayTests.test_collision_retry_is_bounded",
+      "outcome": "ERROR",
+      "detail_sha256": "1f8448df912bf873fb1ac0986c25f9d186d62a9b03204c190ab4581b02871c2b",
+      "reason": "Python 服务端 secrets.choice 猴子补丁检查；原服务端 owner 和真实 C++ 中继客户端集成通过。"
+    },
+    {
+      "id": "test_pvp_triple_jump.TripleJumpTests.test_the_raised_cap_is_one_operand_byte",
+      "outcome": "ERROR",
+      "detail_sha256": "00d470ddfbe421d14e414d3f0fec79d23a754eba522d45f3865947de83a06244",
+      "reason": "Python co_code 操作数字节检查；原 Python owner 和同例 C++ 实际跳跃行为补验通过。"
+    }
+  ],
+  "unexpected_nonpass": [
+    {
+      "id": "test_pvp_57_producer_protection.ProducerProtection57Tests.test_ash_500_packet_has_protected_death_threshold_and_no_repeat_fire",
+      "outcome": "FAIL",
+      "detail_sha256": "a821a971619db7110377c95c5a654e6b4a291ad624c0512bfb4f413431551fa1",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_57_producer_protection.ProducerProtection57Tests.test_native_supplemental_bite_scales_desired_total",
+      "outcome": "FAIL",
+      "detail_sha256": "526f671dc9e56dbad42ddb519d335f174f5ee03672a08564dcd12651c55e8de5",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_59_features.PvP59Tests.test_masochist_dave_rises_after_3_seconds_instead_of_8",
+      "outcome": "FAIL",
+      "detail_sha256": "eb45ff06a4508052fb848fed7d738afd5a5372fb8c9aa9b8569c686e67a3f48a",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_60_features.PvP60Tests.test_catalog_hud_almanac_and_export_share_prices",
+      "outcome": "FAIL",
+      "detail_sha256": "651715e59225ee77a424396d3cbb82f885b3a2c9232b4379803f14e93c441648",
+      "reason": "waiver_signature_changed"
+    },
+    {
+      "id": "test_pvp_61_features.BalanceAndCatalogTests.test_card_numbers_almanac_and_export",
+      "outcome": "FAIL",
+      "detail_sha256": "651715e59225ee77a424396d3cbb82f885b3a2c9232b4379803f14e93c441648",
+      "reason": "waiver_signature_changed"
+    },
+    {
+      "id": "test_pvp_62_features.BattleTests.test_dense_zombies_bite_the_shell_first",
+      "outcome": "FAIL",
+      "detail_sha256": "a8ec80fb21214689a993df0e53c9cea76a50c77925553a6530c0cd11bdbc94a7",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_63_features.CatalogTests.test_prices_descriptions_and_export_are_current",
+      "outcome": "FAIL",
+      "detail_sha256": "af5d73c43ca3a1d7bdec899e1d4e8237c33cdf43400e4eb82435730c0e150069",
+      "reason": "waiver_signature_changed"
+    },
+    {
+      "id": "test_pvp_63_features.RuntimeTests.test_actual_plant_deployment_charges_each_new_price",
+      "outcome": "FAIL",
+      "detail_sha256": "83eefba975405b642e2a75950f91e2413b608563aa4846b14cd1c7a7cc663259",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_63_features.RuntimeTests.test_actual_zombie_deployment_charges_hp_and_cooldown",
+      "outcome": "FAIL",
+      "detail_sha256": "25ba16bd407adf4695f2a06762e6397e5d0c4d31c375cd36fbff61c6d4a4aa05",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_66_feedback.FeedbackCombat.test_new_speed_secrets_change_car_and_air_travel",
+      "outcome": "FAIL",
+      "detail_sha256": "13f296b514685e82e46d8e302ca71d00de67b523fdacacd3eebe6111367efd9c",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_66_feedback.FeedbackCombat.test_taco_changes_actual_walking_car_and_bird_distance",
+      "outcome": "FAIL",
+      "detail_sha256": "3fc3c85550a2dde80fb0e8f74bd247c886563a539440f1206acc3e72217e941b",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_66_feedback.FeedbackCombat.test_taco_real_twenty_second_timer_and_no_duplicate_buff",
+      "outcome": "FAIL",
+      "detail_sha256": "67303e33f0ce9657f3203ff0a0cf44578b552a55cde3c5d521fe7129de941543",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_66_material_maps_oct16.NativeMaterials.test_taco_effect_survives_snapshot_and_does_not_delay_or_duplicate_buff",
+      "outcome": "FAIL",
+      "detail_sha256": "4ec3738fba66aee2b64381cfe4fd62d646a4d395e7e4c26543c0fda663596aa9",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_66_zombie_secrets.EconomyAndAuraTests.test_heal_and_taco_from_the_holder_dave",
+      "outcome": "FAIL",
+      "detail_sha256": "67303e33f0ce9657f3203ff0a0cf44578b552a55cde3c5d521fe7129de941543",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_66_zombie_secrets.MoreSecretTests.test_trinity_needs_land_water_air_in_own_deck",
+      "outcome": "FAIL",
+      "detail_sha256": "7ce575889d0e4971850f462de5b140e536d214fb6c9b92e9c79ce1dab93caab2",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_69002_balance.Balance.test_all_mobile_cards_keep_charm_and_reciprocal_native_bite_values",
+      "outcome": "FAIL",
+      "detail_sha256": "f896e0b10410fff3a80649e2dd8c5f4a678d9cb6765a2855381780bdc1250676",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_69002_balance.Balance.test_zombie_prices_charge_the_new_amounts_in_duel_and_duo",
+      "outcome": "FAIL",
+      "detail_sha256": "6d2243c742747d8ac9da205f5f14b78a38052f74e64429666af69e6ef3ab2a1f",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_balance.BalanceTests.test_native_ashes_and_instant_kills_take_exactly_500_from_a_giant",
+      "outcome": "FAIL",
+      "detail_sha256": "e92a6143e7993324a7cf63a924e96939e22fccb487cec8d2cfa855af419e310b",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_balance50.PvP50BalanceTests.test_requested_prices_and_cooldowns",
+      "outcome": "FAIL",
+      "detail_sha256": "4269c5843e559e3e6a0c714d1f6df702058f88555e7f5b8c3ae165efbcceaa76",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_chili_zombie_fire.ChiliZombieFireTests.test_ash_marked_grave_burns_out",
+      "outcome": "FAIL",
+      "detail_sha256": "de247f8f058cda52c047f32cca765b12dfe615facd31ce9ee48e264f5a420c26",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_content_acceptance.ContentAcceptance.test_actual_native_charm_bites_and_reciprocal_damage",
+      "outcome": "FAIL",
+      "detail_sha256": "c36d163682193f2a92b1eda00781952538233a9d944f9d6bcae6012b01a28fd0",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_content_acceptance.ContentAcceptance.test_charmed_units_walk_towards_nearest_enemy_and_bite_dave",
+      "outcome": "FAIL",
+      "detail_sha256": "a26184f13409708f29ad760bb3cbc551d87b90f3d4fecb5a555993a9269881a5",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_hardening_copy.HardeningCopyTests.test_hardening_reaches_the_pvp_health_override_in_catalogue_and_field",
+      "outcome": "FAIL",
+      "detail_sha256": "40b7571cd35025d7d45f8a9fdd66e92dc641b61103fccd1678adc3f1efb3dca9",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_hero_damage_balance.HeroDamageBalanceTests.test_bite_damage_by_zombie_kind",
+      "outcome": "FAIL",
+      "detail_sha256": "83276c94c49adf68be75e11fdf8eea025faba8fc4f8d821f9b6256b366d737d3",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_plant_zombie_allegiance.PlantZombieAllegianceTests.test_charmed_peas_cross_torch_at_head_height_and_hit_enemy_zombies",
+      "outcome": "FAIL",
+      "detail_sha256": "a7606f3a149cbb3b075a198c864b32d2a28b3628be2d243e94b1621e3337bbee",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_review_followup.ReviewFollowupTests.test_chili_giant_survives_entire_first_fire_but_second_chili_kills",
+      "outcome": "FAIL",
+      "detail_sha256": "f0fd4f9fd952fc39f6efe0809376b679ef35b8df54c0930d26e3c6eb7672a25c",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_ui.PvpUITests.test_deck_version_and_almanac_controls",
+      "outcome": "FAIL",
+      "detail_sha256": "8063a868c0acd670ec40a86723da149be428faa5d50a326fcbbdd6ae8ea6849d",
+      "reason": "not_waived"
+    }
+  ],
+  "resolved": []
+}

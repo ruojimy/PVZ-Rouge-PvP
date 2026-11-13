@@ -23,7 +23,7 @@ for abi in "${ABIS[@]}"; do
   SEEN_ABIS[$abi]=1
 done
 CURRENT=$(mktemp "$NATIVE/apk-source-XXXXXXXX.sha256")
-(cd "$SRC"; find src android extract/data extract/schema tools/pvp72_sources -type f ! -path '*/__pycache__/*' ! -path 'src/uitools/*' ! -path 'src/cpptests/*' ! -path 'src/tools/*' ! -path 'src/sim/pvp/shim_headless/*' -print0 | sort -z | xargs -0 sha256sum) > "$CURRENT"
+(cd "$SRC"; find src android extract/data extract/schema tools/pvp72_sources build/typed72-integrated-v44/source/src/sim/typed build/typed72-match-v1/match_probe.cpp build/typed72-match-v1/frame_layer.inc build/typed72-match-v1/snapshot_layer.inc tools/pvp741_hooks.json -type f ! -path '*/__pycache__/*' ! -path 'src/uitools/*' ! -path 'src/cpptests/*' ! -path 'src/tools/*' ! -path 'src/sim/pvp/shim_headless/*' -print0 | sort -z | xargs -0 sha256sum) > "$CURRENT"
 for abi in "${ABIS[@]}"; do
   [[ "$abi" == arm64-v8a || "$abi" == x86_64 ]] || { echo 'Unsupported ABI' >&2; exit 2; }
   [[ -f "$NATIVE/jniLibs/$abi/libmain.so" && -f "$NATIVE/jniLibs/$abi/SHA256SUMS" ]] || { echo "Missing verified native candidate for $abi" >&2; exit 2; }

@@ -1,0 +1,87 @@
+{
+  "checks": [
+    {
+      "evidence": {
+        "buttons": 2,
+        "canvas": [
+          96,
+          96
+        ]
+      },
+      "name": "heroes_browser_and_exact_canvas",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "ignored_old_aliases": 13,
+        "unknown_rejected": true
+      },
+      "name": "terrain_excluded_and_old_pack_migrates",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "silhouette_preserved": true,
+        "states": [
+          "normal",
+          "slow",
+          "frozen",
+          "poison1",
+          "poison2",
+          "frozen_poison"
+        ]
+      },
+      "name": "production_hero_status_疯狂戴夫",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "silhouette_preserved": true,
+        "states": [
+          "normal",
+          "slow",
+          "frozen",
+          "poison1",
+          "poison2",
+          "frozen_poison"
+        ]
+      },
+      "name": "production_hero_status_僵尸戴夫",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "actual_world_changed": true,
+        "grave_kinds_changed": 5,
+        "resource_variants_editable": 5
+      },
+      "name": "production_grave_variants_and_world_override",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "same_hash": "c03ffc2544c6672f452807cacabb522b19c18764dfab35076591563cf8c15657"
+      },
+      "name": "hero_grave_paint_cannot_change_authoritative_state",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "host_pack_received": true,
+        "local_document_preserved": true
+      },
+      "name": "host_share_retains_hero_and_grave_then_restores_local",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "bound_call": true,
+        "eviction_order": true
+      },
+      "name": "lru_bound_methods_keep_order",
+      "passed": true
+    }
+  ],
+  "failures": 0,
+  "passed": true
+}

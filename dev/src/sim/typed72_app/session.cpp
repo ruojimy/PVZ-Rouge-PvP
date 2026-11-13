@@ -1,3 +1,4 @@
+#include "core/function_profile.h"
 // The typed composition (generated into composition/ from build/typed72-match-v1 by
 // tools/typed72/make_app_composition.py) wrapped as a Session.
 #define TYPED72_NO_MAIN
@@ -47,7 +48,7 @@ public:
     }
     void clear_input(const std::string& side)override{match_->scheduler.clear_input(parse_seat(side));}
     void step()override{auto& m=*match_;m.scheduler.step();m.flush_journal();++m.current_room;}
-    nlohmann::json snapshot()override{return match_->snapshot_json();}
+    nlohmann::json snapshot()override{PVP_PROFILE_SCOPE("MatchProbe::snapshot_json");return match_->snapshot_json();}
     size_t log_size()const override{return match_->log.size();}
     nlohmann::json log_entry(size_t index)const override{return nlohmann::json(match_->log.at(index));}
     int64_t tick()const override{return match_->room.tick;}
@@ -294,6 +295,23 @@ public:
     nlohmann::json map_tiles()override{return nlohmann::json(match_->map_tiles_json());}
     void fixture_ditu(int64_t row,int64_t col,const nlohmann::json& cell)override{match_->fixture_ditu(row,col,J(cell));}
     int64_t terrain_revision()const override{return match_->published.terrain.revision;}
+    std::optional<bool> coop_map_night()const override{
+        if(!match_->director.coop_cycle())return {};
+        return match_->battle.placement.day=="黑天";
+    }
+    nlohmann::json performance_counters()const override{
+        const auto& c=match_->contacts;const auto entities=match_->battle.runtime.entities.list();
+        const auto t=match_->owner_phase.tracking_counters();const auto& chart=match_->chart;
+        const auto& p=match_->peas;const auto& heads=match_->bonus_projectiles;const auto aim=match_->shooting.aim_counters();const auto& f=match_->navigation.flood;const auto& legal=match_->path_banks.destination_field();const auto path=match_->path_banks.target_work();
+        nlohmann::json functions=nlohmann::json::object();for(const auto& [name,row]:function_profile::snapshot())functions[name]={{"calls",row.calls},{"total_ms",row.total_ms},{"max_ms",row.max_ms}};
+        return {{"function_profile",std::move(functions)},{"nearest_queries",t[0]+chart.nearest_queries},{"nearest_candidates",t[1]+chart.nearest_candidates},{"nearest_full_scan",t[2]+chart.nearest_full_scan},{"zombie_collision_queries",p.spatial_queries},{"zombie_collision_candidates",p.spatial_candidates},{"zombie_collision_full_scan",p.full_scan_pairs},{"zombie_exact_tests",p.exact_tests},{"spatial_bytes",c.spatial_bytes()+p.spatial_bytes()},
+            {"primal_knock_targets",match_->content_damage.primal_knock_targets},{"primal_knock_velocity",match_->content_damage.primal_knock_velocity},
+            {"content_queries",match_->queries.local_queries},{"content_candidates",match_->queries.local_candidates},{"point_grid_builds",match_->queries.moving_index().rebuilds},{"point_grid_moves",match_->queries.moving_index().moves},{"point_grid_cell_changes",match_->queries.moving_index().cell_changes},
+            {"aim_queries",aim[0]},{"aim_candidates",aim[1]},{"aim_full_scan",aim[2]},{"head_queries",heads.head_queries},{"head_candidates",heads.head_candidates},{"head_full_scan",heads.head_full_scan},{"head_exact_tests",heads.head_exact_tests},{"head_spatial_bytes",heads.spatial_bytes()},
+            {"flood_calls",f[0].calls+f[1].calls},{"flood_expansions",f[0].expansions+f[1].expansions},{"flood_cycles",f[0].cycles+f[1].cycles},{"flood_neighbors",f[0].neighbours+f[1].neighbours},
+            {"destination_queries",legal.queries},{"destination_rebuilds",legal.rebuilds},{"destination_reuses",legal.reused},{"plant_target_scans",path[0]+match_->paths.target_scans},{"plant_target_candidates",path[1]+match_->paths.target_candidates},{"plant_target_reuses",path[2]+match_->paths.target_cache_hits},
+            {"torch_scans",match_->torches.roster_scans},{"torch_candidates",match_->torches.roster_candidates},{"torch_batch_reuses",match_->torches.batch_reuses},{"collision_queries",c.queries},{"find_contact_calls",c.narrow_queries},{"empty_cell_skips",c.empty_cell_skips},{"occupied_cells",c.occupied_cells()},{"collision_candidates",c.candidates},{"full_scan_equivalent",c.full_scan_equivalent},{"index_builds",c.index_builds},{"native_entities",entities->size()}};
+    }
     nlohmann::json events(size_t n)const override{return nlohmann::json(match_->recent_events(n));}
 private:
     // Owner-seat hero as snapshot_players publishes it: physics/status from the

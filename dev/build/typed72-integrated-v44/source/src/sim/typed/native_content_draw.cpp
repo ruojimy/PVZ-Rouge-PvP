@@ -143,15 +143,16 @@ bool NativeContentDraw::draw_plant(const CombatPlant& p){
     }
     if(name=="水盆"){
         // pvp70_content.draw_plant BASIN: scaled water with an open-topped two-tone rim.
-        const auto image=NativeArtStore::copy(canvas_.resize(canvas_.image("水"),tile,tile));
+        const bool grey=p.monochrome.present();
+        const auto image=NativeArtStore::copy(canvas_.resize(canvas_.image(grey&&canvas_.has("水-黑白")?"水-黑白":"水"),tile,tile));
         using J=NativeCanvas::Json;
         const auto rim=[&](J color,double inset,int width){
             const double a=inset,b=tile-2.-inset;
             canvas_.draw_on(image,"lines",J::array({std::move(color),false,J::array({J::array({a,0}),J::array({a,b}),J::array({b,b}),J::array({b,0})}),width}));
         };
-        rim(J::array({91,48,24}),0.,std::max(2,int(std::nearbyint(tile*.09))));
+        rim(grey?J::array({58,58,58}):J::array({91,48,24}),0.,std::max(2,int(std::nearbyint(tile*.09))));
         // Second rim: (2,0),(2,tile-4),(tile-4,tile-4),(tile-4,0).
-        canvas_.draw_on(image,"lines",J::array({J::array({162,99,48}),false,J::array({J::array({2,0}),J::array({2,tile-4.}),J::array({tile-4.,tile-4.}),J::array({tile-4.,0})}),std::max(1,int(std::nearbyint(tile*.035)))}));
+        canvas_.draw_on(image,"lines",J::array({grey?J::array({112,112,112}):J::array({162,99,48}),false,J::array({J::array({2,0}),J::array({2,tile-4.}),J::array({tile-4.,tile-4.}),J::array({tile-4.,0})}),std::max(1,int(std::nearbyint(tile*.035)))}));
         if(num(p.hurt)>0.)rim(J::array({220,171,99}),0.,2);
         canvas_.display(image,{col*tile,row*tile});
         return true;
@@ -269,12 +270,14 @@ void NativeContentDraw::draw_head(const CombatPlant& z){
         points.push_back(J::array({a,b}));lifted.push_back(J::array({a,b-tile*.025}));
     }
     const auto w=[&](double v,int lo){return std::max(lo,int(std::nearbyint(v)));};
-    canvas_.draw_on(canvas,"lines",J::array({tone({48,24,30}),false,points,w(tile*.15,3)}));
+    J strokes=J::array();
+    const auto stroke=[&](const std::string& primitive,J args){strokes.push_back({{"primitive",primitive},{"args",std::move(args)}});};
+    stroke("lines",J::array({tone({48,24,30}),false,points,w(tile*.15,3)}));
     static constexpr std::array<std::array<int,3>,3> mids{{{155,64,61},{165,72,82},{130,77,60}}},lights{{{216,115,94},{222,119,129},{186,130,93}}};
     const int ci=((color%3)+3)%3;
     const auto mid=tone(mids[ci]),light=tone(lights[ci]);
-    canvas_.draw_on(canvas,"lines",J::array({mid,false,points,w(tile*.10,2)}));
-    canvas_.draw_on(canvas,"lines",J::array({light,false,lifted,w(tile*.025,1)}));
+    stroke("lines",J::array({mid,false,points,w(tile*.10,2)}));
+    stroke("lines",J::array({light,false,lifted,w(tile*.025,1)}));
     const double length=std::hypot(dx,neck_y-by);
     const int joints=std::max(2,std::min(48,int(length/(tile*.55))));
     for(int i=1;i<joints;++i){
@@ -283,12 +286,13 @@ void NativeContentDraw::draw_head(const CombatPlant& z){
         double tx=dx,ty=neck_y-by+std::cos(f*kpi)*kpi*tile*.2;
         double norm=std::hypot(tx,ty);if(norm==0.)norm=1.;tx/=norm;ty/=norm;
         const double nx=-ty,ny=tx;
-        canvas_.draw_on(canvas,"line",J::array({tone({85,39,41}),J::array({a-nx*tile*.05,b-ny*tile*.05}),J::array({a+nx*tile*.05,b+ny*tile*.05}),w(tile*.035,1)}));
+        stroke("line",J::array({tone({85,39,41}),J::array({a-nx*tile*.05,b-ny*tile*.05}),J::array({a+nx*tile*.05,b+ny*tile*.05}),w(tile*.035,1)}));
         const double side=i%2?1.:-1.;
         const double tipx=a+nx*tile*.14*side-tx*tile*.025,tipy=b+ny*tile*.14*side-ty*tile*.025;
-        canvas_.draw_on(canvas,"polygon",J::array({tone({67,33,33}),J::array({J::array({a-tx*tile*.055,b-ty*tile*.055}),J::array({tipx,tipy}),J::array({a+tx*tile*.065,b+ty*tile*.065})})}));
-        canvas_.draw_on(canvas,"line",J::array({light,J::array({a,b}),J::array({a+(tipx-a)*.62,b+(tipy-b)*.62}),w(tile*.02,1)}));
+        stroke("polygon",J::array({tone({67,33,33}),J::array({J::array({a-tx*tile*.055,b-ty*tile*.055}),J::array({tipx,tipy}),J::array({a+tx*tile*.065,b+ty*tile*.065})})}));
+        stroke("line",J::array({light,J::array({a,b}),J::array({a+(tipx-a)*.62,b+(tipy-b)*.62}),w(tile*.02,1)}));
     }
+    canvas_.draw_batch(canvas,std::move(strokes));
     canvas_.display(canvas,{ox,oy});
     const double frame=sleeping?0.:py::mod(py::floordiv(now,45.),4.);
     const std::string key=head+"-帧"+itext(frame);

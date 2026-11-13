@@ -1,5 +1,7 @@
+#include "core/function_profile.h"
 #include "sim/typed/entity_contacts.h"
 #include "sim/typed/flood.h"
+#include "sim/typed/spatial_mode.h"
 #include "core/pymath.h"
 #include <algorithm>
 #include <cmath>
@@ -47,21 +49,67 @@ bool EntityContacts::allows_contact(const Entity& e,const CombatTarget& t) const
     return found==collision_.unit_scale.end() || found->second>=1. ||
            std::abs(feet-p.y)<=1.75*tile*found->second;
 }
+void EntityContacts::prepare_contacts() const {
+    const auto& roster=*world_.targets;
+    if(contact_roster_==world_.targets.get()&&contact_data_==roster.data()&&
+       contact_count_==roster.size()&&contact_tick_==world_.heroes.tick)return;
+    contact_roster_=world_.targets.get();contact_data_=roster.data();
+    contact_count_=roster.size();contact_tick_=world_.heroes.tick;
+    ++index_builds;
+    const auto tile=world_.runtime.tile,width=world_.world_width.get();
+    contact_grid_.reset(tile,width,world_.terrain.rows(),roster.size());contact_heroes_.clear();
+    for(size_t z=roster.size();z-- >0;){
+        const auto t=target(z);
+        // Hero proxy Motion pointers are resolved live, including context swaps.
+        if(t.is_hero()){contact_heroes_.push_back(z);continue;}
+        const auto& m=motion(t);const double size=body(t).size.get(),radius=tile*.15*size;
+        // Corpse offsets only shrink this conservative alive envelope.
+        double bottom=m.y;
+        if(t.unit->orphan_barrel&&t.unit->barrel_position.present()&&!t.unit->barrel_position.is_null())
+            bottom=std::max(bottom,t.unit->barrel_position.get()->y+tile*.05);
+        contact_grid_.cover(z,{m.x-radius,m.y-tile*.85*size,m.x+radius,bottom});
+    }
+    contact_grid_.finish();
+}
+bool EntityContacts::occupied_contact_cell(size_t l)const{
+    prepare_contacts();const auto& p=entity(l).motion.get();
+    const double tile=world_.runtime.tile,width=world_.world_width.get();
+    if(!std::isfinite(p.x)||!std::isfinite(p.y))return false;
+    const double cell=contact_grid_.cell_size();const auto cols=contact_grid_.columns();
+    const auto indexed=contact_grid_.point({p.x,p.y});contact_candidates_.assign(indexed.rbegin(),indexed.rend());
+    const int64_t row=int64_t(std::floor(p.y/cell)),col=int64_t(std::floor(py::mod(p.x,width)/cell));
+    bool hero_added=false;
+    for(const auto z:contact_heroes_){
+        const auto t=target(z);const auto& m=motion(t);const double size=body(t).size.get(),r=tile*.15*size;
+        const auto top=int64_t(std::floor((m.y-tile*.85*size)/cell)),bottom=int64_t(std::floor(m.y/cell));
+        if(row<top||row>bottom)continue;
+        const auto lo=int64_t(std::floor((py::mod(m.x,width)-r)/cell)),hi=int64_t(std::floor((py::mod(m.x,width)+r)/cell));
+        for(auto c=lo;c<=hi;++c)if((c%cols+cols)%cols==col){contact_candidates_.push_back(z);hero_added=true;break;}
+    }
+    if(hero_added)std::sort(contact_candidates_.begin(),contact_candidates_.end(),std::greater<size_t>{});
+    return !contact_candidates_.empty();
+}
 std::optional<size_t> EntityContacts::find_contact(size_t l) const {
+    PVP_PROFILE_SCOPE("EntityContacts::find_contact");
     const auto& e=entity(l);
     if(yes(e.squash.zombie_entity))return {};
     const auto& p=e.motion.get();
     const auto tile=world_.runtime.tile;
-    for(size_t z=world_.targets->size();z-- >0;) {
+    ++narrow_queries;
+    const auto contact=[&](size_t z){
+        ++candidates;
         const auto t=target(z);
         const auto& source=t.is_hero()?world_.heroes.cached_proxy(t.hero).source:t.unit->source;
         const auto& b=body(t);
-        if(source.charmed.present() || b.ash.present())continue;
+        if(source.charmed.present() || b.ash.present())return false;
         const auto& m=motion(t);
         const double dx=b.size.get(), offset=corpse_offset(b,tile);
-        if(p.x>m.x-tile*.15*dx && p.x<m.x+tile*.15*dx &&
-           p.y>m.y-tile*.85*dx+offset && allows_contact(e,t))return z;
-    }
+        return p.x>m.x-tile*.15*dx && p.x<m.x+tile*.15*dx &&
+           p.y>m.y-tile*.85*dx+offset && allows_contact(e,t);
+    };
+    if(spatial741_enabled()){
+        for(const size_t z:contact_candidates_)if(contact(z))return z;
+    }else for(size_t z=world_.targets->size();z-- >0;)if(contact(z))return z;
     return {};
 }
 void EntityContacts::set_status(size_t z,HeroStatus status,double value) {
@@ -96,7 +144,11 @@ bool EntityContacts::strike(size_t l,const std::string& name,double driving) {
     if(thrown || name=="窝瓜" || name=="篮球x")p.vx+=shot.facing*w.plk*2.;
     // TorchRules installs a constant-false predicate at 101468. Conversion
     // is run by the dedicated pre-entity phase, before the owner split.
+    if(yes(shot.squash.zombie_entity))return false;
+    ++queries;full_scan_equivalent+=world_.targets->size();
+    if(spatial741_enabled()&&!occupied_contact_cell(l)){++empty_cell_skips;return false;}
     const auto hit=find_contact(l);
+    if(hit)invalidate_spatial();
     if(!hit)return false;
     const size_t z=*hit;
     const auto t=target(z);
@@ -132,7 +184,7 @@ bool EntityContacts::strike(size_t l,const std::string& name,double driving) {
         body(target(z)).ice.erase();
         w.sound("火豆"+std::to_string(w.rng.randint(1,2)),entity(l).motion.get());
     } else if(name!="西瓜" && name!="冰瓜" && !surface)splat(z);
-    return true;
+    invalidate_spatial();return true;
 }
 void EntityContacts::home(size_t l,std::optional<size_t> nearest) {
     auto& e=entity(l);
@@ -143,11 +195,11 @@ void EntityContacts::home(size_t l,std::optional<size_t> nearest) {
     const auto& m=motion(t);
     auto& p=e.motion.get();
     const double x=m.x-p.x;
-    if(x==0.)return;
     const auto& source=t.is_hero()?world_.heroes.cached_proxy(t.hero).source:t.unit->source;
     const auto found=rules_.homing_height.find(unit_root(source,body(t)));
     const double height=found==rules_.homing_height.end()?2.:found->second;
     const double y=m.y-world_.runtime.tile*std::min(1.,height/2.)-p.y;
+    if(x==0.&&y==0.)return;
     e.rotation.set(std::atan2(y,x)*(180./pi));
     const double angle=pi*2.*(-e.rotation.get()/360.);
     const double speed=py::floordiv(e.tracking.get(),2.);

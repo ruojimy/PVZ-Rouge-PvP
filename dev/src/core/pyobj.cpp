@@ -1,3 +1,4 @@
+#include "core/function_profile.h"
 #include "core/native_closure.h"
 #include "core/gil.h"
 #include "core/pyobj.h"
@@ -357,6 +358,7 @@ static V callm_builtin(const V& o, Sym name, const Args& a) {
         if (name == SY("pop")) return nargs > 1 ? py::pop(self, a.pos[0], a.pos[1]) : py::pop(self, arg(a, 0, "pop"));
         if (name == SY("setdefault")) return py::setdefault(self, arg(a, 0, "setdefault"), nargs > 1 ? a.pos[1] : V::none());
         if (o.t == V::DICT && name == SY("move_to_end")) {
+            PVP_PROFILE_SCOPE("OrderedDict::move_to_end");
             if(!is_ordered_dict(o))throw PyError("AttributeError","dict has no attribute move_to_end");
             if(nargs<1 || nargs>2 || (nargs>1 && a.has_kw(SY("last"))))throw PyError("TypeError","move_to_end expects a key and optional last");
             for(const auto& kw:a.kw)if(kw.first!=SY("last"))throw PyError("TypeError","unexpected move_to_end keyword");

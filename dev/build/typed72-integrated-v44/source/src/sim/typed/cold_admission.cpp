@@ -33,8 +33,10 @@ bool ColdAdmission::imitate(const PlantRef& imitater,Cell cell,double facing){
     // Admission concerns the copied card; its implementation template may be banned independently.
     (void)factory_.plant(cell,card.native_input_name,facing);
     ColdParent parent;if(value(source->source.id))parent.id=source->source.id.get();
-    for(size_t i=before;i<world_.plant_roster->size();++i){
-        const auto native=world_.plant_roster->at(i);
+    // Configuring a grabber root appends its heads to this same roster. Only
+    // transform the factory's original results; a head must never become a root.
+    const std::vector<PlantRef> transformed(world_.plant_roster->begin()+before,world_.plant_roster->end());
+    for(const auto& native:transformed){
         registration_.configure_plant(native,card,secrets);
         registration_.register_unit(native,card,Seat::plant,true,context(),&parent);
         content_.configure(native,card);native->monochrome.set(DeathMarker(0.));

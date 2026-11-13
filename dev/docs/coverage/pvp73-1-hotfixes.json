@@ -1,0 +1,26 @@
+{
+  "build": "1.6.0.73.1-typed.20261113",
+  "gravebuster_bite_above_half": 3,
+  "gravebuster_bite_at_or_below_half": 6,
+  "legacy_top_up_to_six": false,
+  "sha256": {
+    "build/typed72-integrated-v44/source/src/sim/typed/bonus_scan.cpp": "6e6528f7d1ea41cac6093a223ecdf09a2f2ce1a16615a14717521128051a3d1e",
+    "build/typed72-integrated-v44/source/src/sim/typed/cold_admission.cpp": "5cd5c48de91505d06468674054da7f8deb75a96dfbd0458307758ac84c289771",
+    "build/typed72-integrated-v44/source/src/sim/typed/cold_catalog_data.cpp": "9919073ddec975710e14daa8da205d53624a30cae23d1e86e08cd2b3fd167ad1",
+    "build/typed72-integrated-v44/source/src/sim/typed/content_plants70.cpp": "12dbd619d63255388aa026efaa5a4f223fbe4bb8b6dbf5179f8cae74550d211d",
+    "build/typed72-integrated-v44/source/src/sim/typed/content_plants70.h": "31252db475f910ca6faca7a26111ec2f5fecd431211adecd5bcdbd1ae9472609",
+    "build/typed72-integrated-v44/source/src/sim/typed/content_zombie_bindings.cpp": "2db9de51b6179e81719bad35fdd14c0256f900d7a4f373cbcbb0ddddb8a84781",
+    "build/typed72-integrated-v44/source/src/sim/typed/damage_patch.cpp": "6b6d263f550bf34c8369f892f043282fd370f9fda435ae8f9e6c826d595f4340",
+    "build/typed72-integrated-v44/source/src/sim/typed/hero.cpp": "e0412bdd17cd372b75a3173fa996babca8259ebbdfa18332ce06ed971eed0d19",
+    "build/typed72-integrated-v44/source/src/sim/typed/native_content_draw.cpp": "5b6929f1395d7e65b9977279f3c73265dd22ff17e704ad50a5080b448b54d8f8",
+    "build/typed72-integrated-v44/source/src/sim/typed/native_content_phase.cpp": "8c19ea33bac7b919e6c2fa1b211dcc038be0a4c6e65c48bb5824c174f32a47e8",
+    "build/typed72-integrated-v44/source/src/sim/typed/native_content_phase.h": "e72c4dfd913692304e501b9f5c385975e672dbccbde94dba7914ad217c1a3ddf",
+    "build/typed72-integrated-v44/source/src/sim/typed/native_plant_draw.cpp": "9af4019ff7852ddca078937ad299437a815f1faecc4d038aa39dc82a15dacf1a",
+    "build/typed72-integrated-v44/source/src/sim/typed/native_tick.cpp": "4b911a13e838e354925cd4e435e3d0300760c88d720553b95dd3b7c70a46c4b2",
+    "build/typed72-integrated-v44/source/src/sim/typed/state.h": "87ced7270e9de7b35ee814ae99e1bd468cc7193de18a0b2547774a5928721d04",
+    "build/typed72-integrated-v44/source/src/sim/typed/zombie_motion.cpp": "b8cdaab613a9018a63f698c193368730c06907f8e779cacf31f972c5a4c3cef9",
+    "build/typed72-match-v1/frame_layer.inc": "ffb0b817f9758671cf75a905978a57b48b3f46c05acfc9d3c5799ce081142d78",
+    "build/typed72-match-v1/snapshot_layer.inc": "ab799d5df9d70365ad7a12fbf3f6de787e381647a54e89d4b18680ccae44b8ee",
+    "extract/assets/index.json": "61f89e0af989dcfc3a9a1725f960f37ed36b567475ba74a25a9945bd940d8a88"
+  }
+}

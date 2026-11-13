@@ -33,7 +33,7 @@ ZOMBIE_SECRETS = {
     "植物僵尸": ("僵尸击杀植物时，若该植物有对应的植物僵尸，则在原地生成该僵尸，生命值折半。", None, (), "豌豆僵尸"),
     "僵王出品": ("所有一类、二类防具生命 +25%；二类防具挡住穿透攻击（先扣防具血量），中毒持续伤害仍直接扣本体生命。", None, (), "铁桶"),
     "生生不息": ("僵尸戴夫每 12 秒治疗半径 8 格内己方僵尸 40 生命（不含墓碑），同时治疗自身 4 生命（不超过上限）。", None, (), "路灯花僵尸"),
-    "补贴": ("初始脑光 +25；场上没有僵尸时，周期脑光补给的间隔减半。", None, (), "脑子"),
+    "补贴": ("场上没有僵尸时，周期脑光补给的间隔减半。", None, (), "脑子"),
     "狂野舞步": ("舞王僵尸生成的伴舞成为独立的伴舞僵尸，不再固定队形。舞王脑光消耗 300。锁定前体：舞王僵尸。",
              "zombie:舞王僵尸", ("zombie:舞王僵尸",), "舞王僵尸"),
     "三五成群": ("普通/鸭子普通/黑普通僵尸脑光消耗 -25；半径 6 格内每有一只同类，获得 15% 减伤（上限 75%）；旗帜召唤的不参与。", None,
@@ -85,7 +85,7 @@ HP_FACTOR = {"体育生": (1.25, ("zombie:撑杆跳僵尸", "zombie:橄榄球僵
              "斩首行动": (2., ("zombie:雪人僵尸",)),"散弹攻击":(2.,("zombie:机枪僵尸",))}
 RUSH_COOLDOWN = .75          # 加急
 STONE_HERO_HP = 20.          # 石更！
-SUBSIDY_START_BRAINS = 25    # 补贴: opening brains
+SUBSIDY_START_BRAINS = 0     # PvP73.1: no opening bonus; recurring subsidy is unchanged
 RAGE_TORCH_RANGE = 2.       # 暴怒: petrified torch reach x2
 RAGE_TORCH_SLEEP = .5       # 暴怒: its sleep x0.5
 RAGE_TORCH_ART = "石化火炬-蓝火"   # 暴怒 icon, and the torch card while 暴怒 is carried

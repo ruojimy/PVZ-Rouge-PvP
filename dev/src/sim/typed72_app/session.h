@@ -102,6 +102,8 @@ public:
     virtual nlohmann::json map_tiles()=0;
     virtual void fixture_ditu(int64_t row,int64_t col,const nlohmann::json& cell)=0;
     virtual int64_t terrain_revision()const=0;
+    virtual std::optional<bool> coop_map_night()const=0;
+    virtual nlohmann::json performance_counters()const=0;
     virtual nlohmann::json events(size_t n)const=0;   // Simulation.events[-n:]
     static std::unique_ptr<Session> create(ColdExport cold,const std::string& map_name);
 };

@@ -609,6 +609,8 @@ V C_NativeBattle::m___init__(const Args& A) {
     a_recorder = callm(a_graphics, SY("install"), Args{a_g, L_root});
     a_patch = pm_native_patch::new_NativeCombatPatch(Args{a_g, a_patch_namespace});
     pvz::setitem(pvz::getattr(a_patch, SY("ns")), SV("__pvz_sb_GOLD_MAGNET_BUCKET_HP"), pm_balance::GOLD_MAGNET_BUCKET_HP);
+    // PvP73.1: the hit site owns the full bite; disable the legacy top-up to 6.
+    pvz::setitem(pvz::getattr(a_patch, SY("ns")), SV("__pvz_sb_update_gravebuster_zombie_plant_damage"), V::func([](const Args&){return V::none();}));
     a_avatars = py_dict({});
     a__jump_presses = [&]() -> V { V out_ = V::dict(); V L_side; { V it4_ = py::iter_list(a_players); for (size_t i4_ = 0; i4_ < it4_.len(); ++i4_) { L_side = it4_.idx(int64_t(i4_)); out_.at(L_side) = V(0.0); }}return out_; }();
     a__press_reported = [&]() -> V { V out_ = V::dict(); V L_side; { V it5_ = py::iter_list(a_players); for (size_t i5_ = 0; i5_ < it5_.len(); ++i5_) { L_side = it5_.idx(int64_t(i5_)); out_.at(L_side) = V(false); }}return out_; }();

@@ -1,3 +1,5 @@
+#include "core/function_profile.h"
+#include "sim/typed/spatial_mode.h"
 #include "sim/typed/path_tracking.h"
 #include "core/pymath.h"
 
@@ -21,16 +23,21 @@ void PathTracking::initialize(Point hero){
     navigation_.initialized=true;
 }
 void PathTracking::choose_target(PathMode mode){
+    PVP_PROFILE_SCOPE("PathTracking::choose_target");
     auto& n=navigation_;const auto& map=world_.terrain;
     n.output_plants=0;n.target_plant=-1;
     if(mode==PathMode::attack_plants){
         const auto& plants=*world_.plant_roster;
+        if(phase_active_&&phase_choice_&&spatial741_enabled()){n.output_plants=phase_choice_->outputs;n.target_plant=phase_choice_->index;++target_cache_hits;}else{
+        ++target_scans;target_candidates+=plants.size();
         for(size_t i=0;i<plants.size();++i){
             const auto& p=*plants[i];const auto c=p.cell;
             if(!has(rules_.targets,p.kind) || p.sleep.present())continue;
             if(!map.outside(c.y-1,c.x) && !map.empty(c.y-1,c.x))continue;
             if(!has(rules_.producers,p.kind))++n.output_plants;
             if(n.target_plant==-1)n.target_plant=int64_t(i);
+        }
+        if(phase_active_&&spatial741_enabled())phase_choice_=PlantChoice{n.target_plant,n.output_plants};
         }
         if(n.target_plant!=-1){
             if(n.hold_plant>0.)--n.hold_plant;
@@ -43,6 +50,7 @@ void PathTracking::choose_target(PathMode mode){
     n.running=std::max(1.,py::floordiv(6.-n.output_plants,2.));
 }
 void PathTracking::advance(Point hero,PathMode mode){
+    PVP_PROFILE_SCOPE("PathTracking::advance");
     if(!navigation_.initialized)initialize(hero);
     const auto& map=world_.terrain;auto& n=navigation_;
     n.hero_cell=terrain_cell(hero,world_.runtime.tile);

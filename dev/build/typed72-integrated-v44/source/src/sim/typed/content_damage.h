@@ -50,6 +50,8 @@ public:
     HitResult head_impact(const EntityRef&,size_t,double,double,bool surface);
     void primal_knockback(size_t,double,const EntityRef&);
     double primal_damage(const EntityRef&)const;
+    uint64_t primal_knock_targets=0;
+    double primal_knock_velocity=0.;
     bool allows_hit(const CombatTarget&,const std::shared_ptr<AttackSource>&)const;
     static bool content_projectile(const EntityRef&);
     static bool multi_blue_direct(const EntityRef&);

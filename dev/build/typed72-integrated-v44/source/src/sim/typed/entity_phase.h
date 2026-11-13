@@ -24,6 +24,7 @@ public:
                 EntityPhaseServices& services):world_(w),torches_(torches),indexes_(indexes),tracking_(w,indexes,sight),
                 services_(services),region_(w,environment,rules,contacts,flight,squash,damage,plants,*this){}
     void run();
+    std::array<uint64_t,3> tracking_counters()const{return {tracking_.nearest_queries,tracking_.nearest_candidates,tracking_.nearest_full_scan};}
     void bind_content_gate(EntityContentGate& gate){if(content_gate_&&content_gate_!=&gate)throw std::logic_error("entity content gate already bound");content_gate_=&gate;}
     void require_content_gate(bool required=true){content_required_=required;}
 private:

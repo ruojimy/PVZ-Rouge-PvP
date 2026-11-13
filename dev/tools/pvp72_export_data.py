@@ -7,7 +7,7 @@ reference=Path(r'C:\Users\xiech\Downloads\PVZ-Rouge-v1.4.8\next-pvp71')
 sys.path[:0]=[str(root/'tools'),str(reference/'modkit')]
 import pvp
 pvp.__path__.insert(0,str(root/'tools/pvp72_sources'))
-pvp.BUILD='1.6.0.73-typed.20261112'
+pvp.BUILD='1.6.0.74.1-typed.20261113'
 from export_data import plain,Skip
 modules='balance catalog pvp58_catalog pvp71_catalog zombie_secret_catalog pvp66_secrets zombie_secrets'.split()
 for name in modules:

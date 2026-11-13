@@ -1,5 +1,6 @@
 #pragma once
 #include "sim/typed/plant_zombie_target.h"
+#include "sim/typed/coverage_grid.h"
 namespace pvz::typed72 {
 class TorchRules;
 class ZombiePeaCallbacks {
@@ -23,6 +24,8 @@ public:
     ZombiePeas(TypedBattleState& w,ZombiePeaCallbacks& cb,const CollisionCatalog& c,TorchRules& torches)
         :ZombiePeas(w,cb,c){torches_=&torches;}
     uint64_t shots=0;
+    uint64_t spatial_queries=0,spatial_candidates=0,full_scan_pairs=0,exact_tests=0;
+    size_t spatial_bytes()const{return plant_grid_.storage_bytes()+zombie_grid_.storage_bytes();}
     static bool is_pea(const EntityRef&);
     static Point xy(const EntityRef&);
     static bool segment_hits(Point start,Point end,Point center,Point radii);
@@ -51,6 +54,16 @@ private:
     const CollisionCatalog& catalog_;
     PlantZombieTargeting aim_;
     TorchRules* torches_=nullptr;
+    CoverageGrid plant_grid_,zombie_grid_;
+    const PlantRoster* plant_view_=nullptr;const PlantRef* plant_data_=nullptr;
+    const TargetRoster* zombie_view_=nullptr;const CombatTarget* zombie_data_=nullptr;
+    size_t plant_count_=0,zombie_count_=0;int64_t plant_tick_=-1,zombie_tick_=-1;
+    void index_plants(const std::shared_ptr<PlantRoster>&);
+    void index_zombies(const std::shared_ptr<TargetRoster>&);
+    SpatialSelection<PlantRef> sweep_plants(const std::shared_ptr<PlantRoster>&,Point,Point);
+    SpatialSelection<PlantRef> area_plants(const std::shared_ptr<PlantRoster>&,CoverageBox);
+    SpatialSelection<CombatTarget> sweep_zombies(const std::shared_ptr<TargetRoster>&,Point,Point);
+    SpatialSelection<CombatTarget> area_zombies(const std::shared_ptr<TargetRoster>&,CoverageBox);
     bool i_zombie()const;
     void splat(Point);
     bool hit_charmed(const EntityRef&,Point start,Point end,double scale,const LegacyView*);

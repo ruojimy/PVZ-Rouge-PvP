@@ -1,0 +1,29 @@
+{
+  "build": "1.6.0.74.1-typed.20261113",
+  "resources": 4188,
+  "cards": 232,
+  "display_only": true,
+  "sha256": {
+    "src/ui/hand/texture74_editor.cpp": "093344f356b006d70a3874b516cb454b391a60d59be6773b332dc7e4cb0dde6f",
+    "src/ui/hand/texture74_files.cpp": "b4caafe66573d46b72b0bb1b78762644dd901de362935233bb393855a5ce9196",
+    "src/ui/hand/texture74_internal.h": "cc5d5c6a8578fb21c616e4d6a028ad4c1ad31087750b1a9a007256ef0ae064a6",
+    "src/ui/hand/texture74_model.cpp": "b4f26f9fd51fcc40ed19f8dae96cdf89c937bd5ceffc0026e21afb3a7dd4d7f3",
+    "src/ui/hand/texture74_network.cpp": "5e62c73f849996d87a089f34c17b08b5ed0fdb3fb4eba94427b7428fb0bd2e12",
+    "src/ui/hand/texture_pack.h": "4912d841d7e36d91471037fb91e7a58992e2cc8e82ffcab18ea05a1b40c52fc9",
+    "tools/pvp74_apply_hooks.py": "f8457b0c5e0959b3f7ebe265ff8ad71c92f84098c9155c53ccc53f2fddf082a8",
+    "tools/pvp74_resource_catalog.py": "59d6193edbd83b40e689d5fa47a6cac4520622844034a4c7119aa87b168dc42b",
+    "extract/data/texture_resources74.json": "fb99646124c5b5e6da0900ffbaf63450e69fd1282d42a0a8ed4d6f993da1e4b6",
+    "extract/data/texture_card_icons74.json": "b441645af004b6c947f55f75d13be4f7e27c07b203c8502eb2c31ada1d9d147a",
+    "src/ui/gen/pm_app.cpp": "93393897ec59213a9642e772f1cf7610dd50e87c2ec4e15aa178197f6f930c2b",
+    "src/ui/gen/pm_menu_view.cpp": "3c620dfdd6ddfe61f7137732532addf3506482cb9a8f00b8f9d78ba02b33f799",
+    "src/ui/gen/pm_rendering.cpp": "fada97405c1e328406be60b038ef561086432f66d79df34ee6f44dbde4458b82",
+    "src/ui/gen/pm_native_style.cpp": "319d4b03f14aefa5f1f0042f95fede04d9df6f69d859969ddfc92e602b5897b5",
+    "src/ui/gen/pm_world_view.cpp": "a96d7b776b7b2b0fd90fffcdc1913d02f37cf4e7fb4a32773833a2bced86f539",
+    "src/ui/gen/pm_network.cpp": "bac7d7324bf968915c7360e24d1aea719c895705e2764301c1f30124b3e9fa0a",
+    "src/ui/hand/draw_replay.cpp": "3f17d71fa717baaf03d8e55d48e6e2d00d90170c2c746f7ed9031766123bb1f2",
+    "src/sim/pvp/gen/pm_native_animation.cpp": "6c7a11ae7ede3c9c5ed9f173b499dff170620a48db2166ad1945aee61ef09d77",
+    "src/pg/system.cpp": "dd97a44fb556a772fd38d6f43e15da009a07c8b0936bc29a500a70d5b247de61",
+    "android/project/java/org/pvzrouge/pvzpvpnative/PvPActivity.java": "7c172468950b1a8aa6464ddd6497eb8ea516d9ee992b050e99d2c49953cdfc38",
+    "android/build_native.sh": "bcda2d62eb63ced4c7849f5b5ebcbd1984b6639eef2d7995faaea9fa63427c01"
+  }
+}

@@ -524,6 +524,10 @@ for _field in ('description','native_description'):
 # 71002 after the text overrides above, so its notes extend the final wording.
 _install_pvp71(CARDS)
 
+# PvP74.1: user-confirmed rule is four hero damage; the old almanac said eight.
+for _field in ('description','native_description'):
+    CARDS['plant:抓人草'][_field] = CARDS['plant:抓人草'][_field].replace('僵尸戴夫受8伤害','僵尸戴夫受4伤害')
+
 # PvP behaviour of original plants that their almanac text did not state. The
 # brief almanac reads `description`, empty for these, so it keeps the original
 # sentence first and then the PvP note.

@@ -37,14 +37,14 @@
     bool team_mode=false;
     // pvp native_audio.NativeAudio: bounded presentation sound events (never touches RNG).
     std::deque<J> audio_events;int64_t audio_sequence=0;std::map<std::pair<std::string,std::optional<int64_t>>,int64_t> audio_last;
-    void audio_emit(const std::string& name,std::optional<Point> position){
+    void audio_emit(const std::string& name,std::optional<Point> position,std::optional<int64_t> at_tick={}){
         if(name.empty()||name.size()>64*4||name.find_first_of("/\\.:")!=std::string::npos)return;
         J point=nullptr;std::optional<int64_t> column;
         if(position&&std::isfinite(position->x)&&std::isfinite(position->y)){
             point=J::array({pvz::py::roundn(position->x,1),pvz::py::roundn(position->y,1)});
             column=int64_t(point[0].get<double>()/(battle.runtime.tile*4.));
         }
-        const int64_t tick=battle.heroes.tick;const auto bucket=std::pair{name,column};
+        const int64_t tick=at_tick.value_or(battle.heroes.tick);const auto bucket=std::pair{name,column};
         const auto found=audio_last.find(bucket);if(tick-(found==audio_last.end()?-1000:found->second)<20)return;
         audio_last[bucket]=tick;
         if(audio_last.size()>512)std::erase_if(audio_last,[&](const auto& item){return !(tick-item.second<500);});
@@ -55,7 +55,7 @@
     // Native sounds played before journal row `mark` (Sound::journal_mark <= mark); all by default.
     void drain_sounds(size_t mark=size_t(-1)){
         auto& sounds=battle.runtime.sounds;size_t n=0;
-        for(;n<sounds.size()&&sounds[n].journal_mark<=mark;++n)audio_emit(sounds[n].name,sounds[n].spatial?std::optional<Point>(sounds[n].position):std::nullopt);
+        for(;n<sounds.size()&&sounds[n].journal_mark<=mark;++n)audio_emit(sounds[n].name,sounds[n].spatial?std::optional<Point>(sounds[n].position):std::nullopt,sounds[n].tick>=0?std::optional<int64_t>(sounds[n].tick):std::nullopt);
         sounds.erase(sounds.begin(),sounds.begin()+std::ptrdiff_t(n));
     }
     void audio_event(const J& row,size_t mark=size_t(-1),std::optional<Point> source_at={}){

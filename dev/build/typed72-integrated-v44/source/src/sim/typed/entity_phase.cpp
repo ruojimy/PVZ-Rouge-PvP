@@ -1,3 +1,4 @@
+#include "core/function_profile.h"
 #include "sim/typed/entity_phase.h"
 #include "sim/typed/plant_lookup.h"
 #include <cmath>
@@ -43,6 +44,7 @@ void EntityPhase::switch_dave(Seat seat) {
     services_.release_pending_destination();world_.heroes.switch_plant_globals(seat);
 }
 void EntityPhase::tracking_gate(size_t index) {
+    PVP_PROFILE_SCOPE("EntityPhase::tracking_gate");
     const auto e=world_.runtime.entities.list()->at(index);
     if(entry_){const auto& p=e->motion.get();switch_dave(nearest_plant({p.x,p.y-world_.runtime.tile*.5}));}
     auto& art=world_.runtime.presentation.source_art;

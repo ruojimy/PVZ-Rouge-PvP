@@ -53,6 +53,13 @@ public:
         const auto& block=native_at(row,wrap(col)).block;if(!block.present())throw std::logic_error("missing terrain block");
         return !block.is_null()&&is_empty(block.get());
     }
+    bool empty_canonical(int row,int col)const {
+        const auto& cells=grid.at(size_t(row));
+        if(cells.size()!=size_t(cols()))return empty(row,col);
+        const auto& cell=cells.at(size_t(col));if(!cell)throw std::logic_error("native terrain cell is not a record");
+        const auto& block=cell->block;if(!block.present())throw std::logic_error("missing terrain block");
+        return !block.is_null()&&is_empty(block.get());
+    }
     bool water(int64_t row,int64_t col)const {
         if(row<0||row>=rows())throw std::out_of_range("terrain query row");
         const auto& block=native_at(row,wrap(col)).block;if(!block.present())throw std::logic_error("missing terrain block");

@@ -1,0 +1,160 @@
+{
+  "checks": [
+    {
+      "evidence": {
+        "cards": 230,
+        "resources": 4175
+      },
+      "name": "inventory_and_home_entry",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "height": 48,
+        "key": "world:原始豌豆射手",
+        "width": 48
+      },
+      "name": "card_resource_and_canvas_size",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "layers": 2,
+        "undo_redo": true
+      },
+      "name": "real_pointer_paint_undo_and_layers",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "fit_import_undo": true,
+        "format": "pvz-texture-pack-v1",
+        "layers_retained": true
+      },
+      "name": "save_reload_export_and_png_import",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "display_replaced": true,
+        "simulation_original": true
+      },
+      "name": "cosmetic_resolver_and_materializer_separation",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "rejected": 3
+      },
+      "name": "pack_validation_rejects_corruption",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "same_hash": "c2dabc84ea9d84fd4a3a9454dbef520251d95c9916cd75fd5020df2777eee888"
+      },
+      "name": "battle_state_hash_independent_of_texture",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "imitation_gray": true,
+        "status_variants": 4,
+        "world_pixels_changed": true
+      },
+      "name": "production_world_render_and_monochrome",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "default_persists": true,
+        "local_pack_preserved": true
+      },
+      "name": "default_toggle_survives_leaving_editor",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "card_coverage": 230,
+        "missing": 0,
+        "originals_opened": 4175
+      },
+      "name": "complete_card_coverage_and_file_inventory",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "formats": [
+          "PNG",
+          "JPEG",
+          "BMP"
+        ],
+        "modes": 3
+      },
+      "name": "jpeg_bmp_and_png_import_modes",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "display_only": true,
+        "original_safeguard": true
+      },
+      "name": "raw_file_override_cannot_change_original_loader",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "atomic": true,
+        "cache_reused": true,
+        "corruption_rejected": true
+      },
+      "name": "corrupt_transfer_is_atomic_and_cache_is_validated",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "composite_card_replaced": true
+      },
+      "name": "complete_card_icon_override",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "background_saved": true
+      },
+      "name": "editor_background_and_close_persist",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "alpha_eraser": true,
+        "bounded_fill": true,
+        "shape_undo": true,
+        "source_over_rgba": true
+      },
+      "name": "fill_eraser_shapes_and_layer_composition",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "double_flip": true,
+        "four_rotations": true,
+        "selection_roundtrip": true
+      },
+      "name": "selection_copy_move_and_transform_invariants",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "resolution": [
+          960,
+          640
+        ]
+      },
+      "name": "resource_browser_960_and_editor_960",
+      "passed": true
+    }
+  ],
+  "failures": 0,
+  "passed": true
+}

@@ -112,6 +112,17 @@ if(UI_SRC)
   target_include_directories(pvzui PUBLIC ${SDL_INCLUDES})
   target_link_libraries(pvzui PUBLIC pvzcore ${SDL_LIBS})
   target_link_libraries(pvzui PUBLIC pvztyped72app)
+  if(WIN32)
+    target_link_libraries(pvzui PUBLIC comdlg32)
+  endif()
+  add_custom_target(texture74_hooks_check
+    COMMAND "${Python3_EXECUTABLE}" -I -B "${CMAKE_SOURCE_DIR}/tools/pvp74_apply_hooks.py" --check
+    WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}" VERBATIM)
+  add_dependencies(pvzui texture74_hooks_check)
+  add_custom_target(pvp741_hooks_check
+    COMMAND "${Python3_EXECUTABLE}" -I -B "${CMAKE_SOURCE_DIR}/tools/pvp741_apply_hooks.py" --check
+    WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}" VERBATIM)
+  add_dependencies(pvzui pvp741_hooks_check)
   # The AISeat typed-observation bodies in src/ui/gen/pm_lobby_room.cpp are
   # generated from tools/pvp72_sources/lobby_room.py; reject a stale copy.
   add_custom_target(typed72_ai_bridge_check
@@ -131,6 +142,10 @@ if(UI_SRC)
     get_filename_component(n ${f} NAME_WE)
     add_executable(${n} ${f})
     target_link_libraries(${n} PRIVATE pvzui)
+    if(n STREQUAL "pvp741_hero_texture_audit")
+      # This verifier constructs production HeroState (including typed poison).
+      target_include_directories(${n} BEFORE PRIVATE ${PVZ_TYPED72_STAGE}/src)
+    endif()
     target_compile_definitions(${n} PRIVATE SDL_MAIN_HANDLED)
     add_custom_command(TARGET ${n} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${SDL_DLLS} $<TARGET_FILE_DIR:${n}>)
   endforeach()

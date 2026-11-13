@@ -1,0 +1,58 @@
+{
+  "checks": [
+    {
+      "evidence": {
+        "occupied_cells": 1655,
+        "oracle_intersections": 60795,
+        "queries": 1800,
+        "storage_bytes": 186584,
+        "unique_candidates": 71263
+      },
+      "name": "coverage_points_segments_wrap_large_bodies_and_dedup",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "builds": 2,
+        "dense_units": 1000,
+        "stale_ids": 0
+      },
+      "name": "coverage_rebuild_removes_dead_or_moved_ids_and_dense_dedup",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "cell_changes": 12992,
+        "moves": 13000,
+        "oracle_matches": 647034,
+        "queries": 1200
+      },
+      "name": "incremental_point_buckets_preserve_moved_ids_and_wrapped_queries",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "exact_queries": 34002,
+        "maps": 60,
+        "rebuilds": 120
+      },
+      "name": "voronoi_projection_matches_old_manhattan_and_ties",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "checksum": 6756208015591860219,
+        "old_ms": 29.7454,
+        "rebuilds": 1,
+        "requests": 20000,
+        "reuses": 19999,
+        "scope": "Legal rally-cell projection CPU loop, not rendered FPS or a replacement for native movement fields",
+        "shared_ms": 1.2341
+      },
+      "name": "shared_destination_cpu_and_rebuild_evidence",
+      "passed": true
+    }
+  ],
+  "failures": 0,
+  "passed": true
+}

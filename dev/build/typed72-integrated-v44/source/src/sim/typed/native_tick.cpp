@@ -1,3 +1,4 @@
+#include "core/function_profile.h"
 #include "sim/typed/native_tick.h"
 #include "core/pymath.h"
 #include <cmath>
@@ -26,6 +27,8 @@ std::optional<int> dave_state(HeroState& hero) {
 }
 }
 void NativeTick::tracking() {
+    systems_.paths.begin_tracking_phase();systems_.seat_paths.begin_tracking_phase();
+    struct EndTracking {PathTracking& paths;SeatPathTracking& seats;~EndTracking(){paths.end_tracking_phase();seats.end_tracking_phase();}} end_tracking{systems_.paths,systems_.seat_paths};
     auto& heroes=world_.heroes;
     if(state_.multi_target || world_.mode==MatchMode::pve) {
         systems_.seat_paths.advance_team(state_.present);
@@ -112,8 +115,15 @@ void NativeTick::finish_frame(bool draw) {
 }
 
 void NativeTick::run(bool draw) {
+    PVP_PROFILE_SCOPE("NativeTick::run");
+    function_profile::Phases profile;
     LiveBattleSources sources(world_);
     auto& heroes=world_.heroes;
+    // Stamp at emission, never at a later drain. Native callbacks use this
+    // tick; room-level economy callbacks between ticks keep the last completed
+    // tick even if their sounds are drained by the following native frame.
+    world_.runtime.sound_tick=heroes.tick+1;
+    struct SoundClock {CombatRuntime& runtime;HeroCombat& heroes;~SoundClock(){runtime.sound_tick=heroes.tick;}} sound_clock{world_.runtime,heroes};
     auto& systems=systems_;
     if(!heroes.published_tick)heroes.published_tick=heroes.tick;
     ++heroes.tick;
@@ -135,7 +145,9 @@ void NativeTick::run(bool draw) {
     systems.regions.water_animation();
     systems.regions.important_blocks();
     systems.patches.before_native_tick(now);
+    profile.mark("NativeTick::setup");
     const auto graves=systems.zombies.run(state_.present,state_.multi_plant);
+    profile.mark("ZombiePhase::run");
     systems.wind.after_zombies();
     for(const auto& plant:*world_.plant_roster)
         if(plant->hp.or_missing(1.)<=0. && !plant->dead.present())plant->dead.set(DeathMarker(0.));
@@ -145,8 +157,11 @@ void NativeTick::run(bool draw) {
     for(size_t index=0;index<world_.targets->size();++index)systems.zombie_motion.register_stationary(index);
     systems.heroes.effects(state_.present,now,state_.tail_activation_seconds);
     if(draw)systems.presentation.draw_plants();
+    profile.mark("NativeTick::effects_and_draw_plants");
     systems.entities.run();
+    profile.mark("EntityPhase::run");
     systems.patches.content_projectiles();
+    profile.mark("NativeTickPatches::content_projectiles");
     systems.projectiles.cull_flight();
     Point shake;
     if(world_.runtime.screen_shake.present()) {
@@ -157,6 +172,7 @@ void NativeTick::run(bool draw) {
     // region_particles draws each live particle as a screen rect in this same order.
     if(draw)systems.presentation.draw_particles(world_.runtime.particle_rects);
     world_.runtime.particle_rects.clear();
+    profile.mark("NativeTick::particles");
     systems.grave_binding.before_native_tick();
     {
         HeroContext context(heroes,{Seat::zombie,Seat::plant,CombatPhase::plants,{},{}});
@@ -168,7 +184,9 @@ void NativeTick::run(bool draw) {
     systems.economy.plant_production(production);
     owner_umbrella_effects(world_,false,state_.present);
     systems.wind.before_plants();
+    profile.mark("NativeTick::maintenance_and_economy");
     plant_actions();
+    profile.mark("NativeTick::plant_actions");
     systems.sea.restore();
     owner_umbrella_effects(world_,true,state_.present);
     systems.wind.after_plants();
@@ -178,7 +196,9 @@ void NativeTick::run(bool draw) {
     systems.patches.content_after_plants();
     systems.regions.ice_clock();
     if(draw)systems.patches.draw_patch(now);
+    profile.mark("NativeTick::after_plants");
     finish_frame(draw);
+    profile.mark("NativeTick::finish_frame");
     if(state_.observer)state_.observer->native_tick_done();
 }
 } // namespace pvz::typed72

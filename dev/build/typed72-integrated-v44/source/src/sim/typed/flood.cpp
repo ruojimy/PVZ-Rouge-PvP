@@ -1,3 +1,5 @@
+#include "core/function_profile.h"
+#include "sim/typed/spatial_mode.h"
 #include "flood.h"
 #include "core/pymath.h"
 #include <cmath>
@@ -43,6 +45,7 @@ template<class Terrain> void advance_flood_impl(const Terrain& map, FloodState& 
     if (state.cooldown != 0) return;
     state.cooldown = input.plants && !input.has_target ? 20 : 3;
     if (state.queue->empty()) {
+        ++state.cycles;
         state.seed_scratch = input.seed;
         if (map.valid_row(input.seed.y)) state.queue->push_back(input.seed);
         state.sign = -state.sign;
@@ -58,12 +61,15 @@ template<class Terrain> void advance_flood_impl(const Terrain& map, FloodState& 
             point.x == std::numeric_limits<int64_t>::max()) throw std::out_of_range("typed flood frontier");
         const std::array<Cell, 4> neighbours{{{point.y-1, point.x}, {point.y+1, point.x},
                                              {point.y, point.x-1}, {point.y, point.x+1}}};
+        const bool indexed=spatial741_enabled();
+        const int base=indexed?map.wrap(point.x):0;
+        const int columns[4]={base,base,base?base-1:map.cols()-1,base+1<map.cols()?base+1:0};
         for (int direction = 1; direction <= 4; ++direction) {
             ++state.neighbours;
             const Cell n = neighbours[direction-1];
             if (!map.valid_row(n.y)) continue;
-            const int col = map.wrap(n.x);
-            if (!map.empty(n.y, col) || n.y > input.surface) continue;
+            const int col=indexed?columns[direction-1]:map.wrap(n.x);
+            if (!(indexed?map.empty_canonical(n.y,col):map.empty(n.y,col)) || n.y > input.surface) continue;
             int& old = state.field->at(size_t(n.y) * map.cols() + col);
             if (old != 0 && int64_t(state.sign) * old >= 0) continue;
             if (0 < n.y && n.y < 23 && !map.empty(n.y-1, col) && !map.empty(n.y+1, col)) continue;
@@ -73,6 +79,6 @@ template<class Terrain> void advance_flood_impl(const Terrain& map, FloodState& 
     }
     if (!state.frontier->empty()) state.last_scratch = state.frontier->back();
 }
-void advance_flood(const FloodTerrain& map,FloodState& state,const FloodInput& input){advance_flood_impl(map,state,input);}
-void advance_flood(const WorldTerrain& map,FloodState& state,const FloodInput& input){advance_flood_impl(map,state,input);}
+void advance_flood(const FloodTerrain& map,FloodState& state,const FloodInput& input){PVP_PROFILE_SCOPE("advance_flood::fixture");advance_flood_impl(map,state,input);}
+void advance_flood(const WorldTerrain& map,FloodState& state,const FloodInput& input){PVP_PROFILE_SCOPE("advance_flood::world");advance_flood_impl(map,state,input);}
 } // namespace pvz::typed72

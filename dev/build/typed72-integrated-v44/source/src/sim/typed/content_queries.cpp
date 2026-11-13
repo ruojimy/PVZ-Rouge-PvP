@@ -1,10 +1,77 @@
 #include "sim/typed/content_queries.h"
 #include "sim/typed/plant_lookup.h"
 #include "sim/typed/projectile_rules.h"
+#include "sim/typed/spatial_mode.h"
+#include "core/function_profile.h"
 #include <algorithm>
 #include <limits>
 
 namespace pvz::typed72 {
+namespace {
+const void* object_key(const ContentTarget& t){if(const auto* p=std::get_if<PlantRef>(&t))return p->get();return std::get<CombatTarget>(t).unit.get();}
+}
+bool ContentQueries::valid_index()const{return index_tick_==world_.heroes.tick&&zombie_roster_==world_.targets.get()&&plant_roster_==world_.plant_roster.get()&&zombie_data_==world_.targets->data()&&zombie_count_==world_.targets->size()&&plant_data_==world_.plant_roster->data()&&plant_count_==world_.plant_roster->size();}
+void ContentQueries::prepare(){
+    if(valid_index())return;PVP_PROFILE_SCOPE("ContentQueries::prepare");
+    indexed_.clear();object_ids_.clear();indexed_.reserve(world_.targets->size()+world_.plant_roster->size());
+    for(const auto& t:*world_.targets)if(!t.is_hero())indexed_.emplace_back(t);
+    for(const auto& p:*world_.plant_roster)indexed_.emplace_back(p);
+    points_.reset(world_.runtime.tile,world_.world_width.get(),indexed_.size());
+    query_seen_.assign(indexed_.size(),0);query_stamp_=0;
+    for(size_t i=0;i<indexed_.size();++i){object_ids_[object_key(indexed_[i])]=i;points_.move(i,targets_.point(indexed_[i]));}
+    index_tick_=world_.heroes.tick;zombie_roster_=world_.targets.get();plant_roster_=world_.plant_roster.get();zombie_data_=world_.targets->data();zombie_count_=world_.targets->size();plant_data_=world_.plant_roster->data();plant_count_=world_.plant_roster->size();
+}
+void ContentQueries::moved(const ContentTarget& target){
+    if(!valid_index())return;const auto found=object_ids_.find(object_key(target));if(found!=object_ids_.end())points_.move(found->second,targets_.point(target));
+}
+bool ContentQueries::eligible(const ContentTarget& t,std::optional<Seat> owner)const{
+    if(const auto* p=std::get_if<PlantRef>(&t))return owner==Seat::zombie&&september_targetable(**p);
+    const auto& z=std::get<CombatTarget>(t);return !z.is_hero()&&z.unit->body.hp>0.&&world_.heroes.owner(source_ref(z.unit))!=owner;
+}
+std::vector<ContentTarget> ContentQueries::enemy_heroes(std::optional<Seat> owner){
+    std::vector<ContentTarget> out;const auto foe=owner==Seat::plant?Seat::zombie:Seat::plant;
+    for(const auto side:seats_for(world_.mode))if(team_of(side)==foe&&world_.heroes.proxy(side).hp>0.)out.emplace_back(CombatTarget::player(side));return out;
+}
+std::optional<ContentTarget> ContentQueries::route_enemies(const ContentTarget& origin,std::optional<ContentTarget> goal,bool heroes){
+    PVP_PROFILE_SCOPE("ContentQueries::route_enemies");
+    if(!spatial741_enabled()){auto all=enemies(source(origin));if(!heroes)std::erase_if(all,[](const auto& t){const auto* c=std::get_if<CombatTarget>(&t);return c&&c->is_hero();});return route(origin,goal,all);}
+    if(!goal)return {};prepare();++local_queries;const auto owner=world_.heroes.owner(source(origin));
+    const auto a=targets_.point(origin),b=targets_.point(*goal);const auto width=world_.world_width.get();const double dx=wrap_delta(a.x,b.x,width),dy=b.y-a.y,length2=dx*dx+dy*dy;
+    if(length2<=1.e-12)return goal;const double radius=world_.runtime.tile*.65,r2=radius*radius;
+    auto chosen=goal;double first=1.;size_t ordinal=std::numeric_limits<size_t>::max();
+    const auto consider=[&](const ContentTarget& target,size_t id){++local_candidates;if(target==*goal)return;
+        const auto p=targets_.point(target);const double x=wrap_delta(a.x,p.x,width),y=p.y-a.y,along=(x*dx+y*dy)/length2;
+        if(along<0.||along>=1.||along>first||(along==first&&id>=ordinal))return;
+        const double ex=x-along*dx,ey=y-along*dy;if(ex*ex+ey*ey<=r2){chosen=target;first=along;ordinal=id;}
+    };
+    // Query the swept route expanded by the original .65-tile intercept
+    // radius, then retain its exact projection test and roster-order tie.
+    const auto ids=points_.rectangle({std::min(a.x,a.x+dx)-radius,std::min(a.y,b.y)-radius,std::max(a.x,a.x+dx)+radius,std::max(a.y,b.y)+radius});
+    for(const auto i:ids)if(eligible(indexed_[i],owner))consider(indexed_[i],i);
+    if(heroes){size_t i=indexed_.size();for(const auto& h:enemy_heroes(owner))consider(h,i++);}
+    return chosen;
+}
+std::optional<ContentTarget> ContentQueries::spatial_nearest(const ContentTarget& origin){
+    const auto record=source(origin);const auto owner=world_.heroes.owner(record);const auto p=targets_.point(origin);const auto width=world_.world_width.get();
+    const bool no_hero=record->no_hero_attack.present()&&!record->no_hero_attack.is_null()&&record->no_hero_attack.get();
+    auto heroes=enemy_heroes(owner);if(no_hero)heroes.clear();
+    std::optional<ContentTarget> best;double distance=std::numeric_limits<double>::infinity();size_t ordinal=std::numeric_limits<size_t>::max();
+    const auto consider=[&](const ContentTarget& t,size_t i){++local_candidates;const auto q=targets_.point(t);const double dx=wrap_delta(p.x,q.x,width),dy=q.y-p.y,d=dx*dx+dy*dy;
+        if(d<distance||(d==distance&&i<ordinal)){best=t;distance=d;ordinal=i;}
+    };
+    for(size_t i=0;i<heroes.size();++i)consider(heroes[i],std::numeric_limits<size_t>::max()-heroes.size()+i);
+    // In the original selector a charmed unit always chooses the nearest
+    // opposing Dave and then intercepts entities on that route. Computing a
+    // nearest ordinary unit first cannot affect that result.
+    if(record->charmed.present()&&best)return taunts_.taunt_target(origin,route_enemies(origin,best));
+    prepare();++local_queries;const double limit=points_.covering_radius(p);double radius=std::min(world_.runtime.tile,limit);
+    if(++query_stamp_==0){std::fill(query_seen_.begin(),query_seen_.end(),0);++query_stamp_;}
+    for(;;){const auto ids=points_.rectangle({p.x-radius,p.y-radius,p.x+radius,p.y+radius});
+        for(const auto i:ids)if(query_seen_[i]!=query_stamp_){query_seen_[i]=query_stamp_;if(eligible(indexed_[i],owner))consider(indexed_[i],i);}
+        if(distance<=radius*radius||radius>=limit)break;radius=std::min(limit,radius*2.);
+    }
+    return taunts_.taunt_target(origin,std::move(best));
+}
 std::shared_ptr<AttackSource> ContentQueries::source(const ContentTarget& target)const {
     if(const auto* plant=std::get_if<PlantRef>(&target))return source_ref(*plant);
     const auto& body=std::get<CombatTarget>(target);
@@ -48,6 +115,8 @@ std::optional<ContentTarget> ContentQueries::route(const ContentTarget& source,s
     return chosen;
 }
 std::optional<ContentTarget> ContentQueries::nearest(const ContentTarget& origin) {
+    PVP_PROFILE_SCOPE("ContentQueries::nearest");
+    if(spatial741_enabled())return spatial_nearest(origin);
     const auto record=source(origin);
     auto candidates=enemies(record);
     const auto point=targets_.point(origin);

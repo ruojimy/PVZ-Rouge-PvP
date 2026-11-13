@@ -248,6 +248,7 @@ void EntityRegion::run() {
         move(f);
         if(flight_.expired(entity(l))){entities.erase_at(l);continue;}
         special(f);basketball(f);
+        if(f.name=="窝瓜")contacts_.invalidate_spatial();
         if(contacts_.strike(l,f.name,env_.driving))f.remove=true;
         if(f.name=="篮球x"){f.name="篮球";world_.heroes.globals.xx.get()+=world_.runtime.tile*.5;}
         contacts_.home(l,bindings_.nearest_target());
@@ -256,8 +257,9 @@ void EntityRegion::run() {
             if(n<900.){age.set(n+1.);continue;}
             f.name+=n<930.?"1.1":n<960.?"1.2":n<990.?"1.3":n<1010.?"2":"3";
         }
-        seaweed(f);environment(f);render(f);
-        if(f.remove){impact(f);entities.erase_at(l);}
+        seaweed(f);if(f.name=="缠绕海草")contacts_.invalidate_spatial();
+        environment(f);render(f);
+        if(f.remove){impact(f);contacts_.invalidate_spatial();entities.erase_at(l);}
     }
 }
 } // namespace pvz::typed72

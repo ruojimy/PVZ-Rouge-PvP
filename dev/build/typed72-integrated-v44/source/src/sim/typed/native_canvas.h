@@ -50,6 +50,9 @@ public:
     // pygame.draw.<primitive>(target, *args) on an image: the recipe becomes op "draw".
     // Pixels are not rasterised (frames only describe); a drawn image is never measured.
     void draw_on(const NativeArt& target,const std::string& primitive,Json args,Json kwargs=Json::object());
+    // Flat display-only stroke list: avoids recursively copying a long vine's
+    // entire prior recipe for every thorn and joint.
+    void draw_batch(const NativeArt& target,Json strokes);
     // Image.fill(color, rect, special_flags) on an image: the recipe becomes op "fill".
     void fill(const NativeArt& target,Json color,Json rect=nullptr,int flags=0);
     // native_status.tint_poison: an alpha-masked colour wash over a copy (level 1 or 2).

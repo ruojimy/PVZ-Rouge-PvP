@@ -5,6 +5,7 @@
 #include "sim/pvp/gen/pm_expansion_catalog.h"
 #include "sim/pvp/gen/pm_native_targets.h"
 #include "sim/pvp/gen/pm_native_scale.h"
+#include "sim/pvp/shim/pm_content_assets.h"
 #include "sim/pvp/gen/pm_balance.h"
 #include "sim/pvp/gen/pm_pvp56_plants_catalog.h"
 #include <SDL.h>
@@ -86,6 +87,12 @@ ColdExport export_cold(const V& b,double seed){
             // (a patched/rebalanced value reaches the typed GraveClock); inf travels as text.
             {"grave_idle",[]{J g=J::object();for(const char* k:{"GRAVE_IDLE_SECONDS","GRAVE_DOZE_SECONDS","DROWSY_RATE","SCARECROW_RADIUS"}){
                 const double v=pvz::getattr(pm_pvp59_graves::module_ns(),Sym(k)).num();g[k]=std::isfinite(v)?J(v):J(v>0.?"inf":"-inf");}return g;}()}};
+    // NativeContent.homing_aim_y uses both tables, with shrunk sizes taking precedence.
+    pm_content_assets::init();pm_native_scale::init();
+    J heights=parsed(pm_content_assets::SCALE_TILES);
+    const J shrunk_heights=parsed(pm_native_scale::SCALE_TILES);
+    for(const auto& [name,height]:shrunk_heights.items())heights[name]=height;
+    out["constants"]["homing_height"]=std::move(heights);
     out["globals"]=globals;out["skipped_globals"]=skipped;
     // pvp64 plant_sink: ground gap measured from each plant's -帧0 PNG (cold, cached by V too).
     {J sinks=J::object();const V content=pvz::getattr(b,Sym("content"),V::none());

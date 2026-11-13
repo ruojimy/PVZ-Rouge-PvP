@@ -237,7 +237,7 @@ std::optional<double> HeroCombat::player_damage(double amount) {
     if(amount==1 && s && s->has_zombie_name()) {
         const auto v=name(s->variant);
         if(v=="黑普通僵尸"||v=="黑路障僵尸"||v=="黑铁桶僵尸"||v=="黑旗帜僵尸"||v=="黑撑杆僵尸"||v=="黑橄榄僵尸")amount=3.;
-        else if(s->zombie_name()=="墓碑吞噬者僵尸"){  // PvP73: 3 above half HP, 6 at/below half
+        else if(s->zombie_name()=="墓碑吞噬者僵尸"){  // PvP73.1: 3 above half HP, 6 at/below half
             amount=6.;if(const auto u=s->unit.lock())amount=u->body.hp<=u->max_hp.or_missing(300.)*.5?6.:3.;}
     }
     auto override=balanced_hero_amount(s.get(),active->target,globals);

@@ -43,7 +43,7 @@ void NativePlantDraw::show(size_t index){
     }
     auto& atlas=canvas_.atlas.atlas;std::vector<std::pair<std::string,NativeArt>> saved;
     const std::vector<std::string> parts=content=="甜椒投手"?std::vector<std::string>{"","-投","-投空"}:std::vector<std::string>{""};
-    for(const auto& part:parts)for(const auto suffix:{"","-受伤","-冰冻","-灰烬","-魅惑"}){
+    for(const auto& part:parts)for(const auto suffix:{"","-黑白","-受伤","-冰冻","-灰烬","-魅惑"}){
         const auto old=p.kind+part+suffix,next=content+part+suffix;
         if(atlas.contains(old)&&atlas.contains(next)){saved.emplace_back(old,atlas.at(old));atlas[old]=NativeArtStore::copy(atlas.at(next));}
     }
@@ -87,11 +87,12 @@ void NativePlantDraw::patch_layer(size_t index){
     if((p.bonus.stone_placeholder.present()&&!p.bonus.stone_placeholder.is_null()&&p.bonus.stone_placeholder.get())||p.kind=="石块")return;
     auto& atlas=canvas_.atlas.atlas;
     if(p.kind=="三向射手"){
-        const auto full=canvas_.atlas.find("三向射手"),body=canvas_.atlas.find("三向射手根");
+        const std::string key=p.monochrome.present()?"三向射手-黑白":"三向射手";
+        const auto full=canvas_.atlas.find(key),body=canvas_.atlas.find(p.monochrome.present()&&canvas_.has("三向射手根-黑白")?"三向射手根-黑白":"三向射手根");
         if(body){
-            atlas["三向射手"]=body;
-            try{original(index);}catch(...){if(full)atlas["三向射手"]=full;throw;}
-            if(full)atlas["三向射手"]=full;
+            atlas[key]=body;
+            try{original(index);}catch(...){if(full)atlas[key]=full;throw;}
+            if(full)atlas[key]=full;
             tripea_heads(p);
             return;
         }
@@ -101,10 +102,11 @@ void NativePlantDraw::patch_layer(size_t index){
 void NativePlantDraw::tripea_heads(const CombatPlant& p){
     // patch1501 __pvz_sb_draw_tripea_plant_heads with its head/vine helpers.
     auto& c=canvas_;const double direction=p.facing<0.?-1.:1.;
-    NativeArt head=c.atlas.find("三向射手头");if(!head)return;
+    const std::string grey=p.monochrome.present()&&c.has("三向射手头-黑白")?"-黑白":"";
+    NativeArt head=c.atlas.find("三向射手头"+grey);if(!head)return;
     if(direction<=0.){
-        if(const auto left=c.atlas.find("三向射手头左"))head=left;
-        else{head=NativeCanvas::flip(head);c.atlas.atlas["三向射手头左"]=head;}
+        if(const auto left=c.atlas.find("三向射手头左"+grey))head=left;
+        else{head=NativeCanvas::flip(head);c.atlas.atlas["三向射手头左"+grey]=head;}
     }
     const double head_w=double(head->width),head_h=double(head->height),scale=world_.runtime.tile;
     const double root=num(p.root_animation),sway=(std::sin(root/28.)*scale)*.018;

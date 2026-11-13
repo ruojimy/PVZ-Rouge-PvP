@@ -1,9 +1,12 @@
+#include "core/function_profile.h"
+#include "sim/typed/spatial_mode.h"
 #include "sim/typed/zombie_pea.h"
 #include "sim/typed/projectile_rules.h"
 #include "sim/typed/torch_rules.h"
 #include "sim/typed/plant_lookup.h"
 #include "core/pymath.h"
 #include <cmath>
+#include <limits>
 namespace pvz::typed72 {
 namespace {
 constexpr double pi=0x1.921fb54442d18p+1;
@@ -12,6 +15,36 @@ bool truth(const Field<bool>& v){return v.present()&&!v.is_null()&&v.get();}
 std::string_view text(const Field<std::string>& v){return v.present()&&!v.is_null()?std::string_view(v.get()):std::string_view{};}
 bool live(const PlantRef& p){return !p->dead.present()&&!p->shovel_dead.present()&&number(p->hp,1.)>0.;}
 bool charmed(const CombatTarget& t){return !t.is_hero()&&t.unit->source.charmed.present();}
+}
+void ZombiePeas::index_plants(const std::shared_ptr<PlantRoster>& roster){
+    if(plant_tick_==world_.heroes.tick&&plant_view_==roster.get()&&plant_data_==roster->data()&&plant_count_==roster->size())return;
+    plant_tick_=world_.heroes.tick;plant_view_=roster.get();plant_data_=roster->data();plant_count_=roster->size();
+    const double tile=world_.runtime.tile;plant_grid_.reset(tile,world_.world_width.get(),world_.terrain.rows(),roster->size());
+    for(size_t i=0;i<roster->size();++i){const auto& p=*roster->at(i);const Point q{(p.cell.x+.5)*tile,(p.cell.y+.45)*tile};plant_grid_.cover(i,{q.x-tile*.55,q.y-tile*.65,q.x+tile*.55,q.y+tile*.65});}
+    plant_grid_.finish();
+}
+void ZombiePeas::index_zombies(const std::shared_ptr<TargetRoster>& roster){
+    if(zombie_tick_==world_.heroes.tick&&zombie_view_==roster.get()&&zombie_data_==roster->data()&&zombie_count_==roster->size())return;
+    zombie_tick_=world_.heroes.tick;zombie_view_=roster.get();zombie_data_=roster->data();zombie_count_=roster->size();
+    const double tile=world_.runtime.tile;zombie_grid_.reset(tile,world_.world_width.get(),world_.terrain.rows(),roster->size());
+    for(size_t i=0;i<roster->size();++i){const auto& t=roster->at(i);if(t.is_hero())continue;try{const auto center=aim_.zombie_point(t);const auto head=plant_zombie_head(*t.unit,tile,catalog_);const double size=std::max(.35,number(t.unit->body.size,1.));const double rx=head?head->rx:tile*.45*size,ry=head?head->ry:tile*.70*size;zombie_grid_.cover(i,{center.x-rx,center.y-ry,center.x+rx,center.y+ry});}catch(const std::exception&){const double n=std::numeric_limits<double>::quiet_NaN();zombie_grid_.cover(i,{n,n,n,n});}}
+    zombie_grid_.finish();
+}
+SpatialSelection<PlantRef> ZombiePeas::sweep_plants(const std::shared_ptr<PlantRoster>& roster,Point a,Point b){
+    ++spatial_queries;full_scan_pairs+=roster->size();if(!spatial741_enabled()){spatial_candidates+=roster->size();return SpatialSelection<PlantRef>::legacy(*roster);}
+    index_plants(roster);const auto ids=plant_grid_.segment(a,b);spatial_candidates+=ids.size();return SpatialSelection<PlantRef>::local(*roster,ids);
+}
+SpatialSelection<PlantRef> ZombiePeas::area_plants(const std::shared_ptr<PlantRoster>& roster,CoverageBox box){
+    ++spatial_queries;full_scan_pairs+=roster->size();if(!spatial741_enabled()){spatial_candidates+=roster->size();return SpatialSelection<PlantRef>::legacy(*roster);}
+    index_plants(roster);const auto ids=plant_grid_.rectangle(box);spatial_candidates+=ids.size();return SpatialSelection<PlantRef>::local(*roster,ids);
+}
+SpatialSelection<CombatTarget> ZombiePeas::sweep_zombies(const std::shared_ptr<TargetRoster>& roster,Point a,Point b){
+    ++spatial_queries;full_scan_pairs+=roster->size();if(!spatial741_enabled()){spatial_candidates+=roster->size();return SpatialSelection<CombatTarget>::legacy(*roster);}
+    index_zombies(roster);const auto ids=zombie_grid_.segment(a,b);spatial_candidates+=ids.size();return SpatialSelection<CombatTarget>::local(*roster,ids);
+}
+SpatialSelection<CombatTarget> ZombiePeas::area_zombies(const std::shared_ptr<TargetRoster>& roster,CoverageBox box){
+    ++spatial_queries;full_scan_pairs+=roster->size();if(!spatial741_enabled()){spatial_candidates+=roster->size();return SpatialSelection<CombatTarget>::legacy(*roster);}
+    index_zombies(roster);const auto ids=zombie_grid_.rectangle(box);spatial_candidates+=ids.size();return SpatialSelection<CombatTarget>::local(*roster,ids);
 }
 bool ZombiePeas::is_pea(const EntityRef& e){return truth(e->pea.zombie_pea)||e->kind=="僵尸豌豆";}
 Point ZombiePeas::xy(const EntityRef& e){const auto& p=e->motion.get();return {p.x,p.y};}
@@ -22,6 +55,7 @@ void ZombiePeas::splat(Point p){world_.runtime.sound("splat"+std::to_string(worl
 std::shared_ptr<AttackSource> ZombiePeas::source_ref_for(const CombatTarget& t)const {return t.is_hero()?world_.heroes.proxy_source(t.hero):source_ref(t.unit);}
 RecordId ZombiePeas::identity(const CombatTarget& t)const{return t.is_hero()?world_.heroes.cached_proxy(t.hero).identity:t.unit->identity;}
 bool ZombiePeas::damage_player(double direction) {
+    if(torches_)torches_->invalidate_pea_batch();
     if(i_zombie())return false;auto& g=world_.heroes.globals;const auto before=g.hp;
     try{callbacks_.player_damage(1.);}catch(const std::exception&){}
     if(before.present()&&!before.is_null()&&g.hp.present()&&!g.hp.is_null()&&g.hp.get()==before.get()){g.hp.set(before.get()-1.);g.hurt.set(1.);}
@@ -32,11 +66,12 @@ bool ZombiePeas::damage_charmed(size_t index,CombatTarget target,const EntityRef
     try{result=callbacks_.surface_damage(index,direction,amount);surface_hit=result.value_or(false);}catch(const std::exception&){}
     if(!result){try{callbacks_.ordinary_damage(index,direction,amount);}catch(const std::exception&){if(target.is_hero()){const auto& p=world_.heroes.cached_proxy(target.hero);world_.heroes.write_proxy_hp(target.hero,p.hp-amount);}else target.unit->body.hp-=amount;}}
     if(!surface_hit&&amount>5.&&!e->tracking.present())try{callbacks_.knockback(index,direction*world_.runtime.plk*200.);}catch(const std::exception&){}
-    return surface_hit;
+    if(torches_)torches_->invalidate_pea_batch();zombie_tick_=-1;return surface_hit;
 }
 void ZombiePeas::plant_damage(const PlantRef& p,double amount) {
+    if(torches_)torches_->invalidate_pea_batch();
     p->hurt.set(1.);double hp=number(p->hp);static const std::string no_hand;hp-=world_.protection.amount({hp,no_hand,p->source,p->protection},amount);p->hp.set(hp);
-    if(hp<=0.)try{callbacks_.clear_plant(p->cell);}catch(const std::exception&){}
+    if(hp<=0.){plant_tick_=-1;try{callbacks_.clear_plant(p->cell);}catch(const std::exception&){}}
 }
 namespace {
 void seam(TypedBattleState& world,const EntityRef& e){
@@ -49,12 +84,13 @@ void ZombiePeas::torch_check(const EntityRef& e) {
     if(torches_){torches_->zombie_pea(e);return;}
     if(!world_.zombie_peas.pvp_active||!text(e->source.zombie_fire).empty())return;const double scale=world_.runtime.tile;if(scale<=0.)return;
     const auto point=xy(e);const double previous=number(e->pea.previous_x,point.x),lo=std::min(previous,point.x)-scale*.75,hi=std::max(previous,point.x)+scale*.75;
-    const auto plants=*world_.plant_roster;
-    for(const auto& p:plants)try{if(p->kind!="火炬树桩"||!live(p))continue;const auto q=patch_plant_point(world_,*p);if(!q||!(lo<=q->x&&q->x<=hi)||std::abs(point.y-q->y)>scale*1.7)continue;
+    const auto selected=area_plants(world_.plant_roster,{lo,point.y-scale*1.7,hi,point.y+scale*1.7});
+    for(const auto& p:selected.values)try{if(p->kind!="火炬树桩"||!live(p))continue;const auto q=patch_plant_point(world_,*p);if(!q||!(lo<=q->x&&q->x<=hi)||std::abs(point.y-q->y)>scale*1.7)continue;
         const auto& secrets=world_.heroes.globals.secrets;const bool blue=secrets.present()&&!secrets.is_null()&&secrets.get()&&std::find(secrets.get()->begin(),secrets.get()->end(),"蓝火")!=secrets.get()->end();e->source.zombie_fire.set(blue?"blue":"fire");return;
     }catch(const std::exception&){}
 }
 void ZombiePeas::splash(const EntityRef& e,Point impact,const PlantRef& direct_plant,std::optional<CombatTarget> direct_zombie,bool direct_player,const LegacyView* view) {
+    PVP_PROFILE_SCOPE("ZombiePeas::splash");
     struct SplashScope {
         Field<bool>* marker;
         explicit SplashScope(Field<bool>* value):marker(value){if(marker)marker->set(true);}
@@ -63,10 +99,10 @@ void ZombiePeas::splash(const EntityRef& e,Point impact,const PlantRef& direct_p
     if(!world_.zombie_peas.pvp_active||text(e->source.zombie_fire).empty())return;const double mult=fire_multiplier(e),scale=world_.runtime.tile;if(scale<=0.)return;
     const double left=impact.x-scale*1.3,right=impact.x+scale*1.3,top=impact.y-scale*2.7,bottom=impact.y+scale;
     const auto in_range=[&](Point p){return left<=p.x&&p.x<=right&&top<p.y&&p.y<bottom;};
-    const auto plants=*(view?view->plants:world_.plant_roster);
-    for(const auto& p:plants)try{if(p==direct_plant||!live(p)||p->kind=="火炬树桩")continue;const auto point=patch_plant_point(world_,*p);if(point&&in_range(*point))plant_damage(p,2.*mult/3.);}catch(const std::exception&){}
-    const auto targets=*(view?view->targets:world_.targets);
-    for(size_t i=0;i<targets.size();++i)try{const auto t=targets[i];if((direct_zombie&&t==*direct_zombie)||t.is_hero()||!charmed(t)||t.unit->body.ash.present()||t.unit->body.hp<=0.)continue;
+    const auto plants=area_plants(view?view->plants:world_.plant_roster,{left,top,right,bottom});
+    for(const auto& p:plants.values)try{if(p==direct_plant||!live(p)||p->kind=="火炬树桩")continue;const auto point=patch_plant_point(world_,*p);if(point&&in_range(*point))plant_damage(p,2.*mult/3.);}catch(const std::exception&){}
+    const auto targets=area_zombies(view?view->targets:world_.targets,{left,top,right,bottom});
+    for(size_t selected=0;selected<targets.values.size();++selected)try{const auto i=targets.ordinal(selected);const auto t=targets.values[selected];if((direct_zombie&&t==*direct_zombie)||t.is_hero()||!charmed(t)||t.unit->body.ash.present()||t.unit->body.hp<=0.)continue;
         if(in_range(aim_.zombie_point(t)))callbacks_.ordinary_damage(i,e->facing,20.*mult/3.);
     }catch(const std::exception&){}
     const auto& player=world_.heroes.globals.position;
@@ -74,19 +110,20 @@ void ZombiePeas::splash(const EntityRef& e,Point impact,const PlantRef& direct_p
 }
 void ZombiePeas::fire_splash(const EntityRef& e,Point p,const PlantRef& direct_plant,std::optional<CombatTarget> direct_zombie,bool direct_player){splash(e,p,direct_plant,direct_zombie,direct_player,nullptr);}
 bool ZombiePeas::hit_charmed(const EntityRef& e,Point start,Point end,double scale,const LegacyView* view) {
-    const auto targets=*(view?view->targets:world_.targets);
-    for(size_t i=0;i<targets.size();++i)try{const auto t=targets[i];if(!charmed(t)||t.unit->body.ash.present()||t.unit->body.hp<=0.)continue;
+    const auto targets=sweep_zombies(view?view->targets:world_.targets,start,end);
+    for(size_t selected=0;selected<targets.values.size();++selected)try{const auto i=targets.ordinal(selected);const auto t=targets.values[selected];if(!charmed(t)||t.unit->body.ash.present()||t.unit->body.hp<=0.)continue;
         if(e->native_source_zombie.present()&&!e->native_source_zombie.is_null()&&e->native_source_zombie.get()==identity(t))continue;
         const auto center=aim_.zombie_point(t);const auto head=plant_zombie_head(*t.unit,scale,catalog_);const double size=std::max(.35,number(t.unit->body.size,1.));
-        if(!segment_hits(start,end,center,head?Point{head->rx,head->ry}:Point{scale*.45*size,scale*.70*size}))continue;
+        ++exact_tests;if(!segment_hits(start,end,center,head?Point{head->rx,head->ry}:Point{scale*.45*size,scale*.70*size}))continue;
         damage_charmed(i,t,e,e->facing);splash(e,end,{},t,false,view);splat(end);return true;
     }catch(const std::exception&){}return false;
 }
 bool ZombiePeas::raw_hit(const EntityRef& e) {
+    PVP_PROFILE_SCOPE("ZombiePeas::raw_hit");
     std::optional<LegacyView> retained;if(i_zombie())retained=LegacyView{world_.targets,world_.plant_roster};const auto* view=retained?&*retained:nullptr;
     const double scale=world_.runtime.tile;const auto end=xy(e);const Point start{number(e->pea.previous_x,e->pea.previous_x.present()?end.x:number(e->pea.x,end.x)),number(e->pea.previous_y,e->pea.previous_y.present()?end.y:number(e->pea.y,end.y))};
-    const auto plants=*(view?view->plants:world_.plant_roster);
-    for(const auto& p:plants)try{if(!live(p)||p->kind=="火炬树桩")continue;const auto center=patch_plant_point(world_,*p);if(!center||!segment_hits(start,end,*center,{scale*.55,scale*.65}))continue;
+    const auto plants=sweep_plants(view?view->plants:world_.plant_roster,start,end);
+    for(const auto& p:plants.values)try{if(!live(p)||p->kind=="火炬树桩")continue;const auto center=patch_plant_point(world_,*p);if(!center)continue;++exact_tests;if(!segment_hits(start,end,*center,{scale*.55,scale*.65}))continue;
         if(p->kind=="地刺"||p->kind=="地刺王"){splat(end);return true;}plant_damage(p,2.*fire_multiplier(e));splash(e,end,p,{},false,view);splat(end);return true;
     }catch(const std::exception&){}
     if(hit_charmed(e,start,end,scale,view))return true;const auto& player=world_.heroes.globals.position;
@@ -101,6 +138,9 @@ bool ZombiePeas::raw_update_one(const EntityRef& e,double scale,double width,dou
 }
 bool ZombiePeas::update_one(const EntityRef& e,double scale,double width,double height){SourcedContext scope(world_,source_ref(e),CombatPhase::entities);const auto result=raw_update_one(e,scale,width,height);scope.finish();return result;}
 void ZombiePeas::update_all() {
+    PVP_PROFILE_SCOPE("ZombiePeas::update_all");
+    if(torches_)torches_->begin_pea_batch();
+    struct EndBatch {TorchRules* torches;~EndBatch(){if(torches)torches->end_pea_batch();}} end_batch{torches_};
     const auto entities=world_.runtime.entities.list();const double scale=world_.runtime.tile,width=number(world_.world_width,20.*scale),height=number(world_.world_height,12.*scale);
     const auto captured=*entities;EntityRoster kept;kept.reserve(captured.size());bool changed=false;
     for(const auto& e:captured)try{if(is_pea(e)){e->pea.zombie_pea.set(true);e->pea.native_move.set(true);if(update_one(e,scale,width,height))kept.push_back(e);else changed=true;}else kept.push_back(e);}catch(const std::exception&){changed=true;}

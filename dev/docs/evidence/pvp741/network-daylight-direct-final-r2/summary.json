@@ -1,0 +1,71 @@
+{
+  "passed": true,
+  "transport": "direct",
+  "host": {
+    "max_service_gap_ms": 197,
+    "passed": true,
+    "phases": [
+      {
+        "battle_time": 0.0,
+        "night": false,
+        "received": 0.0
+      },
+      {
+        "battle_time": 120.93333333333334,
+        "night": true,
+        "received": 0.0
+      },
+      {
+        "battle_time": 240.23333333333332,
+        "night": false,
+        "received": 0.0
+      }
+    ],
+    "role": "host"
+  },
+  "guest": {
+    "max_service_gap_ms": 47,
+    "passed": true,
+    "phases": [
+      {
+        "battle_time": 0.0,
+        "night": false,
+        "received": 7.0
+      },
+      {
+        "battle_time": 122.66666666666667,
+        "night": true,
+        "received": 70.0
+      },
+      {
+        "battle_time": 240.23333333333332,
+        "night": false,
+        "received": 139.0
+      }
+    ],
+    "role": "guest"
+  },
+  "spectate": {
+    "max_service_gap_ms": 41,
+    "passed": true,
+    "phases": [
+      {
+        "battle_time": 1.6333333333333333,
+        "night": false,
+        "received": 6.0
+      },
+      {
+        "battle_time": 120.93333333333334,
+        "night": true,
+        "received": 43.0
+      },
+      {
+        "battle_time": 240.23333333333332,
+        "night": false,
+        "received": 84.0
+      }
+    ],
+    "role": "spectate"
+  },
+  "seconds": 12.158960580825806
+}

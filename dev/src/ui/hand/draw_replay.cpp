@@ -1,4 +1,5 @@
 // Replay of the simulation's recorded original draw frames ("native-draw-v1") onto the UI screen.
+#include "ui/hand/texture_pack.h"
 // Port of native_animation.DrawReplay plus world_view's asset resolution: recipes name baked atlas
 // images (tools/bake_atlas.py) instead of re-running the original asset loader in a second runtime.
 #include "pg/pg.h"
@@ -71,6 +72,7 @@ const bool registered_materializer = [] {
     register_pixel_graphics_hooks();
     py::register_native_hook("graphics.asset", [](const Args& a) { return resolve_asset(a.pos.at(0).str()); });
     py::register_native_hook("graphics.materialize_image", [](const Args& a) {
+        texture74::OriginalScope texture74_original; // PvP74 never override authoritative pixels
         V metrics=a.pos.size()>1?a.pos[1]:V();
         struct RestoreScope {V previous;~RestoreScope(){exchange_transform_metrics(previous);}} scope{exchange_transform_metrics(metrics)};
         V replay = pm_native_animation::new_DrawReplay(Args{pgmod(), V::func([](const Args& args) { return resolve_asset(args.pos.at(0).str()); })});
@@ -97,7 +99,8 @@ V C_WorldView::m__ensure_native_replay(const Args& A) {
         pm_native_scale::f_install(Args{ns,a_pg});
         V graphics=pm_native_animation::new_NamespaceGraphics(Args{a_pg,tile});callm(graphics,Sym("install"),Args{ns,root});
         a__native_runtime=runtime;a__native_graphics=graphics;a__native_tile=tile;a__native_dynamic_loads=V(0);
-        a__native_replay=pm_native_animation::new_DrawReplay(Args({a_pg},{{Sym("asset_resolver"),pvz::getattr(self(),Sym("_native_asset"))}}));
+        V cosmetic_resolver=pvz::getattr(self(),Sym("_native_asset"));cosmetic_resolver.box->fattrs.emplace_back(Sym("__texture74_display_resolver__"),V(true)); // PvP74
+        a__native_replay=pm_native_animation::new_DrawReplay(Args({a_pg},{{Sym("asset_resolver"),cosmetic_resolver}}));
         return a__native_replay;
     }catch(const PyError& error){a__native_load_error=V(std::string(error.what()).substr(0,200));throw PyError("NativeGraphicsError",a__native_load_error.str());}
 }

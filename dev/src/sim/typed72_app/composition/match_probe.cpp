@@ -984,6 +984,7 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
 #undef P
                 if(k=="植物血"){assign(p.hp,v);continue;}
                 if(k=="植物血上限"){assign(p.max_hp,v);continue;}
+                if(k=="_pvp70_clock"){assign(p.content70.clock,v);continue;}
                 if(k=="受伤"){assign(p.hurt,v);continue;}
                 if(k=="方向"){p.facing=v.get<double>();continue;}
                 throw std::invalid_argument("typed plant field is not writable through the record view: "+k);
@@ -995,7 +996,14 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
                 PVZ72_ZOMBIE_NATIVE_NUMBERS(Z)
 #undef Z
                 if(k=="血量"){b.hp=v.get<double>();continue;}
+                if(k=="_pvp_max_hp"){z.max_hp.set(v.get<double>());continue;}
                 if(k=="位置"){b.motion.replace(motion(v));continue;}
+                if(k=="魅惑"){assign(z.source.charmed,v);continue;}
+                if(k=="_pvp_zs_headhunt"){if(v.is_null())z.content.headhunt.set_null();else z.content.headhunt.set(v.get<bool>());continue;}
+                if(k=="大小"){assign(b.size,v);continue;}
+                if(k=="植物僵尸射cd"){assign(z.patch.shooting_cooldown,v);continue;}
+                if(k=="植物僵尸连发"){assign(z.patch.burst_left,v);continue;}
+                if(k=="植物僵尸连发cd"){assign(z.patch.burst_cooldown,v);continue;}
                 if(k=="方向"){b.facing=v.get<double>();continue;}
                 if(k=="冰冻"){assign(b.ice,v);continue;}
                 if(k=="黄油"){assign(b.butter,v);continue;}
@@ -1089,6 +1097,7 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
         custom_plants=constants.at("content_plants").get<std::vector<std::string>>();content_rules.custom_zombies=constants.at("content_zombies").get<std::vector<std::string>>();
         combat_rules.black_variants=constants.at("black_zombies").get<std::vector<std::string>>();combat_rules.black_hero_bite_variants=constants.at("black_bites").get<std::vector<std::string>>();
         collision.unit_scale=constants.at("scale_factor").get<decltype(collision.unit_scale)>();
+        if(constants.contains("homing_height"))rules.homing_height=constants.at("homing_height").get<decltype(rules.homing_height)>();
         services.bucket_hp=constants.at("gold_magnet_bucket_hp");services.imp_armor_hooks=true;  // NativeBattle._install_imp_armor_hooks
         for(const auto& [name,sprite]:runtime.presentation.atlas)if(name.ends_with("-帧0"))collision.flyer_image_height[name.substr(0,name.size()-5)]=sprite.height;
         if(constants.contains("grave_idle")){

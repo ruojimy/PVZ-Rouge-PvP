@@ -298,7 +298,7 @@ def is_shim(m):
 
 
 def header_path(m):
-    if m.startswith("test_pvp_") or (SHIM / (m + ".py")).exists():
+    if m.startswith("test_pvp_") or ((SHIM / (m + ".py")).exists() and not (GEN_UI[0] and m in UI_MODULES)):
         return "cpptests/gen/pm_%s.h" % m
     if GEN_UI[0] and m in UI_MODULES:
         return "ui/gen/pm_%s.h" % m

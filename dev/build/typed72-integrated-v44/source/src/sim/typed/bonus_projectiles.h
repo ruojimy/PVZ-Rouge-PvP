@@ -19,6 +19,8 @@ public:
                      const CollisionCatalog& collision, const EntityRegionRules& rules)
         : world_(world), services_(services), collision_(collision), rules_(rules), ballistics_(world) {}
     uint64_t patches = 0, seen_throwers = 0, guide_logs = 0, bonus_hits = 0, cannon_patches = 0;
+    uint64_t head_queries=0,head_candidates=0,head_full_scan=0,head_exact_tests=0;
+    size_t spatial_bytes()const{return head_grid_.storage_bytes();}
     bool zombie_placed();
     static bool live(const ZombieRecordFields&);
     bool has_live_zombies() const;
@@ -41,6 +43,7 @@ private:
     const CollisionCatalog& collision_;
     const EntityRegionRules& rules_;
     NativeBallistics ballistics_;
+    CoverageGrid head_grid_;
     std::weak_ptr<TargetRoster> board_zombies_;
     std::weak_ptr<PlantRoster> board_plants_;
     bool placed_ = false;

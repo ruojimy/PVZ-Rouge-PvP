@@ -1530,7 +1530,7 @@ V C_ServerTransport::m__handle_frame(const Args& A) {
     if (!(callm(self(), SY("_control"), Args{L_conn, L_message})).truthy()) {
         L_spectator = py::m_get(pvz::getattr(L_conn, SY("session")), SV("spectator"), V(false));
         L_payload = py::m_get(L_message, SV("payload"));
-        L_allowed = py_or(V(!(L_spectator).truthy()), [&]() -> V { return py_and(V((isinstance(L_payload, "dict"))), [&]() -> V { return py_and(V(py::in(py::m_get(L_payload, SV("type")), (V::tuple({SV("request_full_snapshot"), SV("leave"), SV("result_received"), SV("role_change")}) + pm_network::LATENCY_KINDS))), [&]() -> V { return V((pvz::getattr(L_conn, SY("rate_count")) <= V(8.0))); }); }); });
+        L_allowed = py_or(V(!(L_spectator).truthy()), [&]() -> V { return py_and(V((isinstance(L_payload, "dict"))), [&]() -> V { return py_and(V(py::in(py::m_get(L_payload, SV("type")), (V::tuple({SV("request_full_snapshot"), SV("leave"), SV("result_received"), SV("role_change"), SV("texture74_hello"), SV("texture74_request"), SV("texture74_ack"), SV("spectator_watch")}) + pm_network::LATENCY_KINDS))), [&]() -> V { return V((pvz::getattr(L_conn, SY("rate_count")) <= V(8.0))); }); }); });
         if (((L_spectator).truthy() && (L_allowed).truthy() && (py::m_get(L_payload, SV("type")) == SV("request_full_snapshot")))) {
             L_now = py::stdlib_call(SV("time.monotonic"), Args{});
             L_allowed = V(((L_now - pvz::getattr(L_conn, (SV("last_snapshot_request")).sym(), V(0.0))) >= V(1.0)));

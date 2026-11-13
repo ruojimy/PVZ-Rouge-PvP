@@ -84,7 +84,10 @@ void BonusScan::scan() {
     systems_.plants.tripea();
     track_max_hp();
     systems_.shooting.step();
-    systems_.plants.grave_damage();
+    // PvP73.1 bites are already scaled at their actual hit site. The legacy
+    // post-tick top-up to 6 erased the 1.5/6 HP rule and could amplify unrelated
+    // damage to any plant touching a gravebuster.
+    systems_.plants.grave_bites.clear();
     systems_.lantern.native_charmed_healing();
     systems_.peas.update_all();
     systems_.fume.update_bubbles(now);

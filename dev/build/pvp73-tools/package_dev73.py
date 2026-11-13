@@ -12,7 +12,7 @@ OUT = ROOT / 'dist' / ('PvZ-PvP-Native-%s-Developer-Package.zip' % ID)
 assert not OUT.exists(), OUT
 
 # (directory or file, recursive) relative to ROOT
-INCLUDE = ['CMakeLists.txt', 'README.md', '更新说明-PvP73.md', 'PvP73_进度.md', '待办.md', '工作汇总.md', '启动PvP.cmd',
+INCLUDE = ['CMakeLists.txt', 'README.md', 'AGENTS.md', '更新说明-PvP73.md', '更新说明-PvP73.1.md', 'PvP73_进度.md', '待办.md', '工作汇总.md', '启动PvP.cmd',
            'src', 'tools', 'android', 'docs', 'developer-tools', 'fonts',
            'extract/original', 'extract/live', 'extract/data', 'extract/schema', 'extract/assets', 'extract/golden',
            'third_party/SDL2-2.30.9', 'third_party/SDL2_image-2.8.2', 'third_party/SDL2_mixer-2.8.0',

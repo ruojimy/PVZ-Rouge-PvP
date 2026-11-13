@@ -59,7 +59,7 @@ public:
     void before_tick();
     void projectiles();
     void after_plants();
-    void plant_gate(const PlantRef&);
+    void plant_gate(PlantRef);
     void entity_gate(const EntityRef&)override;
     // The PvP70 controller invokes this after updating its shots. Flash
     // expiration intentionally occurs only on drawing ticks, like the source.

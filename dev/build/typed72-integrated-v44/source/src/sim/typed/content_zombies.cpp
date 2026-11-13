@@ -88,6 +88,8 @@ void ContentZombies::gate(size_t index) {
     const auto unit=world_.targets->at(index).unit;
     if(!unit)throw std::logic_error("content zombie gate requires a body");
     last_=unit;controllers_.cart_before(unit);
+    // The black football dash may push other units before this gate.
+    if(unit->source.variant.or_missing("")=="黑橄榄僵尸"||unit->body.kind=="黑橄榄球僵尸")queries_.invalidate();
     const auto name=name_of(unit);
     controllers_.september_gate(unit);controllers_.zombies56_gate(unit);
     if(!unit->content.player_position.present())controllers_.september_wave_chase(unit);
@@ -171,8 +173,7 @@ void ContentZombies::finish_flyer(const ZombieRef& unit,std::string_view name,do
             temporary->body.motion={flag.x,flag.y+world_.runtime.tile,0.,0.};
             goal=CombatTarget::zombie(temporary);
         }
-        const auto enemies=queries_.enemies(source_ref(unit));
-        const auto blocker=queries_.route(CombatTarget::zombie(unit),goal,enemies);
+        const auto blocker=queries_.route_enemies(CombatTarget::zombie(unit),goal);
         const auto taunted=taunts_.taunt_target(CombatTarget::zombie(unit),{});
         target=taunted?taunted:blocker;
         if(taunted || blocker!=std::optional<ContentTarget>(goal)){rallying=false;following=false;}
@@ -205,6 +206,7 @@ void ContentZombies::finish_flyer(const ZombieRef& unit,std::string_view name,do
 }
 void ContentZombies::finish() {
     const auto unit=std::exchange(last_,{});if(!unit)return;
+    struct Moved {ContentQueries& queries;ZombieRef unit;~Moved(){try{queries.moved(CombatTarget::zombie(unit));}catch(...){queries.invalidate();}}} moved{queries_,unit};
     const auto name=name_of(unit);auto& body=unit->body;auto& state=unit->content;
     const bool alive=body.hp>0. && !body.ash.present();
     controllers_.september_finish(unit);controllers_.zombies56_finish(unit);restore_player(*unit);
@@ -214,6 +216,9 @@ void ContentZombies::finish() {
     if(name=="滚桶僵尸" && !alive)controllers_.barrel_detach(unit,body.hand_hp!=0.?body.hand_hp:state.barrel_remaining.or_missing(0.));
     if(name=="滚桶僵尸" && body.hand_hp<=0. && !unit->source.charmed.present())controllers_.barrel_break(unit);
     zombies64_.finish(unit,alive);
+    // Red-eye carry/throw also relocates a friendly unit, so rebuild before
+    // the next query rather than updating only the giant's own point.
+    if(name=="红眼巨人")queries_.invalidate();
     if(!alive){controllers_.draw_content_zombie(unit);return;}
     if(name=="稻草人")scarecrows_.advance(unit,held(*unit)?0.:body.ice.or_missing(0.)>0.?.5:1.);
     stun_stars(unit,name);

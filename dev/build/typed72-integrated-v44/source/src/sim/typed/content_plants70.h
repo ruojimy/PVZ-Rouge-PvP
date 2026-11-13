@@ -29,12 +29,12 @@ public:
     std::vector<std::pair<std::string,PlantRef>> basins;
     WaterCells head_cells;
     std::vector<LettuceFlash> flashes;
-    bool configure(const PlantRef&,std::string_view,double hp);
-    void plant_tick(const PlantRef&);
+    bool configure(PlantRef,std::string_view,double hp);
+    void plant_tick(PlantRef);
     std::vector<PlantRef> heads(const PlantRef&)const;
     static bool is_head(const PlantRef&);
-    PlantRef spawn_head(const PlantRef&);
-    std::vector<ContentTarget> head_targets(const PlantRef&);
+    PlantRef spawn_head(PlantRef);
+    std::vector<ContentTarget> head_targets(const PlantRef&,std::optional<size_t> limit={});
     void update_heads(const PlantRef&,std::vector<PlantRef>);
     Point head_rest(const PlantRef&,const PlantRef&);
     void head_hit(const PlantRef&,const PlantRef&,Point start,Point end);

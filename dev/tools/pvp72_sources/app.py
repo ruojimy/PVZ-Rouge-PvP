@@ -927,7 +927,7 @@ class Application(MapEditing, ReplayUI, SpectatorUI, PveUI):
                 self.cancel_battle_action()
                 self.state.update(spectator_camera=None,spectator_mode='free')
         if self.mode=='host':self.state['allow_spectators']=value.get('allow_spectators',True)
-        if self.mode == "guest":
+        if self.mode == "guest" or self.state.get('pressure_interpolation'):
             self.presentation.accept(value)
         from .hud import cooperation_hint
         self.state["cooperation_hint"]=cooperation_hint(value)
@@ -987,6 +987,15 @@ class Application(MapEditing, ReplayUI, SpectatorUI, PveUI):
         if not self.transport:
             self.state.update(self.network_latency.display(None))
             return
+        # Watching is an active read-only session. Keep an application-level
+        # round trip even when the viewer never moves a camera or sends input.
+        if self.mode=='guest' and self.state.get('spectating'):
+            elapsed=self.state.get('_spectator_keepalive',0.)+max(0.,dt)
+            if elapsed>=2.:
+                self.transport.send(dict(type='spectator_watch'))
+                elapsed=elapsed%2.
+            self.state['_spectator_keepalive']=elapsed
+        else:self.state['_spectator_keepalive']=0.
         events = self.transport.poll()
         if self.mode == 'guest':
             from .snapshot_delivery import coalesce_snapshot_events
@@ -1016,6 +1025,11 @@ class Application(MapEditing, ReplayUI, SpectatorUI, PveUI):
                     self.message("连接成功，正在同步权威状态" if kind == "connected" else "重连成功，正在恢复战场")
             elif kind == "message":
                 payload = event.get("payload", {})
+                if isinstance(payload,dict) and payload.get('type') in ('spectator_watch','spectator_watch_ack'):
+                    if (payload.get('type')=='spectator_watch' and self.mode=='host'
+                            and event.get('peer_id') in self.room.spectators):
+                        self.transport.send(event['peer_id'],dict(type='spectator_watch_ack'))
+                    continue
                 if self.network_latency.receive(event.get('peer_id'), payload, self.send_latency):
                     continue
                 if self.mode=='host' and isinstance(payload,dict) and payload.get('type')=='player_profile':
@@ -2752,7 +2766,7 @@ class Application(MapEditing, ReplayUI, SpectatorUI, PveUI):
         elif self.view.get("phase") == "result":
             self.renderer.result(self.view, self.state)
         else:
-            self.renderer.battle(self.presentation.sample(self.view) if self.mode == "guest" else self.view, self.state)
+            self.renderer.battle(self.presentation.sample(self.view) if self.mode == "guest" or self.state.get('pressure_interpolation') else self.view, self.state)
             if self.tutorial is not None and screen == "room":
                 self.tutorial.draw(self.renderer)
             if self.view.get("phase") == "loading":

@@ -201,7 +201,8 @@ V f_draw_home(const Args& A) {
     }}
     (void)(callm(L_r, SY("button"), Args({SV("公开大厅"), V::tuple({(L_width - V(175.0)), V(18.0), V(150.0), V(39.0)}), V::tuple({SV("relay_lobby")})}, {{SY("size"), V(17.0)}})));
     (void)(callm(L_r, SY("button"), Args({SV("地图编辑器"), V::tuple({V(25.0), V(18.0), V(150.0), V(39.0)}), V::tuple({SV("maps_open")})}, {{SY("size"), V(17.0)}})));
-    (void)(callm(L_r, SY("button"), Args({SV("对局回放"), V::tuple({V(190.0), V(18.0), V(150.0), V(39.0)}), V::tuple({SV("replay_library")})}, {{SY("size"), V(17.0)}})));
+    (void)callm(L_r,SY("button"),Args({SV("材质工坊"),V::tuple({V(190),V(18),V(150),V(39)}),V::tuple({SV("texture74_open")})},{{SY("size"),V(17)}})); // PvP74
+    (void)(callm(L_r, SY("button"), Args({SV("对局回放"), V::tuple({V(355.0), V(18.0), V(150.0), V(39.0)}), V::tuple({SV("replay_library")})}, {{SY("size"), V(17.0)}})));
     (void)(callm(L_r, SY("button"), Args({SV("教学关卡"), V::tuple({V(280.0), V(68.0), V(150.0), V(36.0)}), V::tuple({SV("tutorial"), SV("menu")})}, {{SY("size"), V(16.0)}})));
     (void)(callm(L_r, SY("button"), Args({(py::m_get(L_state, SV("player_name"), SV("玩家")) + SV(" · 战绩")), V::tuple({V(25.0), V(68.0), V(240.0), V(36.0)}), V::tuple({SV("menu"), SV("profile")})}, {{SY("size"), V(16.0)}})));
     (void)(pm_menu_view::f__center(Args{L_r, rd(pm_catalog::RULES, SV("build")), V::tuple({V(0.0), (L_height - V(57.0)), L_width, V(23.0)}), V(12.0), V::tuple({V(209.0), V(207.0), V(197.0)})}));

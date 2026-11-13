@@ -1,3 +1,5 @@
+#include "core/function_profile.h"
+#include "sim/typed/spatial_mode.h"
 #include "sim/typed/torch_rules.h"
 #include "sim/typed/projectile_rules.h"
 #include <algorithm>
@@ -8,8 +10,23 @@ bool yes(const Field<bool>& value) {return value.present() && !value.is_null() &
 bool truth(const Field<std::string>& value) {return value.present() && !value.is_null() && !value.get().empty();}
 }
 std::vector<TorchRules::Torch> TorchRules::points() const {
+    PVP_PROFILE_SCOPE("TorchRules::points");
     std::vector<Torch> torches;
     const double tile=world_.runtime.tile;
+    const bool shared=batch_depth_>0&&spatial741_enabled();
+    if(shared){
+        const auto& plants=world_.plant_roster;const auto& zombies=world_.targets;
+        if(!batch_ready_||plants_!=plants.get()||plant_data_!=plants->data()||plant_count_!=plants->size()||zombies_!=zombies.get()||zombie_data_!=zombies->data()||zombie_count_!=zombies->size()){
+            ++roster_scans;roster_candidates+=plants->size()+zombies->size();batch_plants_.clear();batch_graves_.clear();
+            for(const auto& p:*plants)if(p->kind=="火炬树桩")batch_plants_.push_back(p);
+            for(const auto& t:*zombies)if(!t.is_hero()&&t.unit->protection.grave&&truth(t.unit->protection.card)&&t.unit->protection.card.get()=="zombie:石化火炬")batch_graves_.push_back(t.unit);
+            plants_=plants.get();plant_data_=plants->data();plant_count_=plants->size();zombies_=zombies.get();zombie_data_=zombies->data();zombie_count_=zombies->size();batch_ready_=true;
+        }else ++batch_reuses;
+        for(const auto& p:batch_plants_)if(p->kind=="火炬树桩"&&p->hp.or_missing(0.)>0.&&!p->dead.present()&&!p->shovel_dead.present())torches.push_back({{(p->cell.x+.5)*tile,(p->cell.y+.5)*tile},source_ref(p),{}});
+        for(const auto& u:batch_graves_)if(u->protection.grave&&u->body.hp>0.&&truth(u->protection.card)&&u->protection.card.get()=="zombie:石化火炬"&&world_.heroes.tick>=u->patch.torch_sleep_until.or_missing(0.)){const auto& p=u->body.motion.get();torches.push_back({{p.x,p.y},source_ref(u),u});}
+        return torches;
+    }
+    ++roster_scans;roster_candidates+=world_.plant_roster->size()+world_.targets->size();
     for(const auto& p:*world_.plant_roster) {
         if(p->kind!="火炬树桩" || p->hp.or_missing(0.)<=0. || p->dead.present() || p->shovel_dead.present())continue;
         torches.push_back({{(p->cell.x+.5)*tile,(p->cell.y+.5)*tile},source_ref(p),{}});
@@ -37,6 +54,7 @@ void TorchRules::reward(const ZombieRef& torch,Point point) {
     torch->patch.torch_brain.set(paid);
 }
 void TorchRules::convert(const EntityRef& e,bool zombie,const std::vector<Torch>* cached) {
+    PVP_PROFILE_SCOPE("TorchRules::convert");
     if(zombie) {
         if(truth(e->source.zombie_fire))return;
     } else if(yes(e->pea.zombie_pea) || (e->kind!="豌豆" && e->kind!="冰豆"))return;
@@ -97,6 +115,7 @@ void TorchRules::tick() {
 }
 void TorchRules::zombie_pea(const EntityRef& e) {convert(e,true,nullptr);}
 void TorchRules::ignite_charmed_peas() {
+    begin_pea_batch();struct EndBatch {TorchRules& t;~EndBatch(){t.end_pea_batch();}} end{*this};
     const auto entities=world_.runtime.entities.list();
     for(size_t i=0;i<entities->size();++i) {
         const auto e=entities->at(i);

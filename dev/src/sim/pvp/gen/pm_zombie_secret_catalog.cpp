@@ -130,7 +130,7 @@ void init() {
     pm_zombie_secret_catalog::HP_FACTOR = py_dict({{SV("体育生"), V::tuple({V(1.25), V::tuple({SV("zombie:撑杆跳僵尸"), SV("zombie:橄榄球僵尸"), SV("zombie:黑撑杆僵尸"), SV("zombie:黑橄榄僵尸")})})}, {SV("斩首行动"), V::tuple({V(2.0), V::tuple({SV("zombie:雪人僵尸")})})}, {SV("散弹攻击"), V::tuple({V(2.0), V::tuple({SV("zombie:机枪僵尸")})})}});
     pm_zombie_secret_catalog::RUSH_COOLDOWN = V(0.75);
     pm_zombie_secret_catalog::STONE_HERO_HP = V(20.0);
-    pm_zombie_secret_catalog::SUBSIDY_START_BRAINS = V(25.0);
+    pm_zombie_secret_catalog::SUBSIDY_START_BRAINS = V(0.0);
     pm_zombie_secret_catalog::RAGE_TORCH_RANGE = V(2.0);
     pm_zombie_secret_catalog::RAGE_TORCH_SLEEP = V(0.5);
     pm_zombie_secret_catalog::RAGE_TORCH_ART = SV("石化火炬-蓝火");

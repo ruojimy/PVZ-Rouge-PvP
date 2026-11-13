@@ -40,6 +40,7 @@ public:
     void target_index(const TrackingSource& source={});
     void tracking_index(const TrackingSource&);
     bool hero_lock(const TrackingSource&,Seat)const;
+    uint64_t nearest_queries=0,nearest_candidates=0,nearest_full_scan=0;
 private:
     TypedBattleState& world_;
     TargetIndexes& indexes_;
@@ -47,6 +48,17 @@ private:
     std::shared_ptr<TargetBuckets> saved_rows_,saved_columns_;
     std::vector<std::pair<CombatTarget,std::shared_ptr<Motion>>> shifted_;
     bool active_=false;
+    struct ChartEntry{double x;CombatTarget target;std::shared_ptr<Motion> motion;size_t index=0;bool ladder=false;};
+    struct SearchEntry{double x;size_t index;};
+    const TargetRoster* chart_roster_=nullptr;
+    const CombatTarget* chart_data_=nullptr;
+    size_t chart_count_=0;int64_t chart_tick_=-1;
+    std::vector<ChartEntry> chart_entries_;
+    std::vector<SearchEntry> search_entries_;
+    std::vector<size_t> ladder_indices_;
+    bool search_ids_ready_=false;
+    std::vector<uint64_t> search_seen_;uint64_t search_stamp_=0;
+    void prepare_chart();
     std::shared_ptr<Motion> position(const CombatTarget&)const;
     bool within_sight(Point,Point,double)const;
 };

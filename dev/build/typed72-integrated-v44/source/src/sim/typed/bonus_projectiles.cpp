@@ -1,4 +1,6 @@
 #include "sim/typed/bonus_projectiles.h"
+#include "sim/typed/spatial_mode.h"
+#include "core/function_profile.h"
 #include "core/pymath.h"
 #include <cmath>
 
@@ -228,6 +230,7 @@ bool BonusProjectiles::surface(const EntityRef& entity, const CombatZombie& unit
     return !(position.y - head.center.y < -std::max(1., head.ry) * .45 && std::abs(position.vy) > std::abs(position.vx) * .35);
 }
 void BonusProjectiles::head_hits() {
+    PVP_PROFILE_SCOPE("BonusProjectiles::head_hits");
     const auto zombies = world_.targets;
     const auto entities = world_.runtime.entities.list();
     if (!std::any_of(zombies->begin(), zombies->end(), [](const CombatTarget& target) {
@@ -236,6 +239,15 @@ void BonusProjectiles::head_hits() {
     if (!std::any_of(entities->begin(), entities->end(), [&](const EntityRef& entity) {
         return !entity->expires.is_true() && head_damage(entity) > 0.;
     })) return;
+    const auto head_of=[&](const CombatZombie& unit){
+        const auto& name=unit.patch.plant_name;
+        const auto found=name.present()&&!name.is_null()?collision_.plant_heads.find(name.get()):collision_.plant_heads.end();
+        const double scale=found==collision_.plant_heads.end()?.68:found->second.head_scale;
+        return Ellipse{native_plant_zombie_head_center(unit,world_.runtime.tile,collision_),
+            std::max(world_.runtime.tile*.20,world_.runtime.tile*scale*.46),
+            std::max(world_.runtime.tile*.20,world_.runtime.tile*scale*.50)};
+    };
+    bool dirty=true;
     const auto captured_entities = *entities;
     for (const auto& entity : captured_entities) try {
         if (entity->expires.is_true()) continue;
@@ -245,25 +257,39 @@ void BonusProjectiles::head_hits() {
         const double amount = head_damage(entity);
         if (amount <= 0.) continue;
         const Point point{entity->motion.get().x, entity->motion.get().y};
-        const auto captured_zombies = *zombies;
-        for (size_t index = 0; index < captured_zombies.size(); ++index) {
-            const auto unit = captured_zombies[index].unit;
+        ++head_queries;head_full_scan+=zombies->size();
+        if(spatial741_enabled()&&dirty){
+            head_grid_.reset(world_.runtime.tile,world_.world_width.get(),world_.terrain.rows(),zombies->size());
+            for(size_t i=0;i<zombies->size();++i)if(const auto u=zombies->at(i).unit;u&&yes(u->patch.plant_zombie)){
+                const auto h=head_of(*u);head_grid_.cover(i,{h.center.x-h.rx,h.center.y-h.ry,h.center.x+h.rx,h.center.y+h.ry});
+            }
+            head_grid_.finish();dirty=false;
+        }
+        // Piercing impacts can synchronously transform or move other units.
+        // Retain that legacy shallow snapshot only for piercing projectiles;
+        // after an actual hit, inspect its remaining original entries live.
+        const auto captured_zombies=piercing||!spatial741_enabled()?*zombies:TargetRoster{};
+        auto selected=spatial741_enabled()?SpatialSelection<CombatTarget>::local(*zombies,head_grid_.point(point)):
+            SpatialSelection<CombatTarget>::legacy(captured_zombies);
+        size_t at=0;bool resumed=false;
+        while(at<selected.values.size()) {
+            const size_t index=selected.ordinal(at);const auto unit=selected.values[at++].unit;
+            ++head_candidates;
             if (!unit || !yes(unit->patch.plant_zombie) || unit->source.charmed.present() || unit->body.hp <= 0.) continue;
             if (entity->native_source_zombie.present() && !entity->native_source_zombie.is_null() && entity->native_source_zombie.get() == unit->identity) continue;
             auto& hits = entity->bonus.head_hits;
             if (piercing && std::find(hits.get().begin(), hits.get().end(), unit->identity) != hits.get().end()) continue;
-            const auto& name = unit->patch.plant_name;
-            const auto found = name.present() && !name.is_null() ? collision_.plant_heads.find(name.get()) : collision_.plant_heads.end();
-            const double scale = found == collision_.plant_heads.end() ? .68 : found->second.head_scale;
-            const Ellipse head{native_plant_zombie_head_center(*unit, world_.runtime.tile, collision_),
-                std::max(world_.runtime.tile * .20, world_.runtime.tile * scale * .46),
-                std::max(world_.runtime.tile * .20, world_.runtime.tile * scale * .50)};
+            const auto head=head_of(*unit);++head_exact_tests;
             const double dx = point.x - head.center.x, dy = point.y - head.center.y;
             if (dx * dx / std::max(1., head.rx * head.rx) + dy * dy / std::max(1., head.ry * head.ry) > 1.) continue;
             if (piercing) hits.get().push_back(unit->identity);
             else { entity->bonus.head_hit.set(true); entity->expires.set(true); }
             services_.head_damage(entity, index, entity->facing, amount, surface(entity, *unit, head));
+            dirty=true;
             if (!piercing) break;
+            if(spatial741_enabled()&&!resumed){
+                resumed=true;selected=SpatialSelection<CombatTarget>::legacy(captured_zombies);at=index+1;
+            }
         }
     } catch (const std::exception&) {}
 }

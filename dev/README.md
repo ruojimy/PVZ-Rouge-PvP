@@ -1,8 +1,10 @@
-# PvZ 肉鸽 PvP72 · C++ 原生版
+# PvZ 肉鸽 PvP74 · C++ 原生版
 
 本机游玩：双击根目录 `启动PvP.cmd`，使用内层 `PVZ_rougePvP_native/pvp_userdata` 独立存档。目录安排见 [本机游玩目录说明](docs/本机游玩目录说明.md)。
 
-当前构建：`1.6.0.72-native.20261104`。Windows x64 与 Android ARM64 包位于 `dist/`；改动、验证口径、存档继承及平台边界见 [PVP72 变更与验收](docs/PVP72_变更与验收.md)。最终摘要见 `dist/PVP72-20261104-release-manifest.json`。
+当前构建：`1.6.0.74.1-typed.20261113`。本次修复见 [PvP74.1 更新说明](更新说明-PvP74.1.md)，实际本机启动目标与 EXE 摘要见 `dist/latest-native-release.json`。Windows 与 Android ARM64 包位于 `dist/`；项目备份只保留最近一组 `backup-latest/`。
+
+以下 PvP72 交付和类型化迁移章节为历史记录；当前生产内核、构建入口及启动器约定以 [AGENTS.md](AGENTS.md) 和本次更新记录为准。
 
 当前修复版为R8（Android versionCode1104008）：已完成正式APK的虚拟机选卡、出兵、铲除、前后台、结算与存档冷启动验证，Windows与文件接口回归也已通过。详见 [R8交互与存档验收](docs/PVP72_R8_安卓交互与存档验收_20261104.md) 和 [600字内更新报告](docs/PVP72_更新报告_600字内.md)。[历史实机性能报告](docs/PVP72_安卓实机性能测试_20261104.md) 为R4数据，不代表R8手机FPS。
 

@@ -1,6 +1,7 @@
 #pragma once
 #include "sim/typed/path_tracking.h"
 #include "sim/typed/hero_phase.h"
+#include "sim/typed/legal_destination_field.h"
 
 namespace pvz::typed72 {
 struct PathFieldSnapshot {
@@ -42,6 +43,10 @@ public:
                      const TargetSight& published,const RallyPoints& flags,const SeatCommands& commands)
         :world_(world),navigation_(navigation),paths_(world,navigation,rules),published_(published),
          flags_(flags),commands_(commands){}
+    const LegalDestinationField& destination_field()const{return legal_destinations_;}
+    void begin_tracking_phase(){paths_.begin_tracking_phase();}
+    void end_tracking_phase(){paths_.end_tracking_phase();}
+    std::array<uint64_t,3> target_work()const{return {paths_.target_scans,paths_.target_candidates,paths_.target_cache_hits};}
     PathSnapshot capture()const;
     void restore(const PathSnapshot&);
     ChaseSnapshot capture_chase()const;
@@ -61,6 +66,7 @@ public:
     const auto& rally_base()const{return rally_base_;}
     const auto& selected_seat()const{return selected_;}
 private:
+    LegalDestinationField legal_destinations_;
     struct DestinationCache {Point flag,goal;uint64_t revision=0;};
     TypedBattleState& world_;
     ZombieNavigation& navigation_;

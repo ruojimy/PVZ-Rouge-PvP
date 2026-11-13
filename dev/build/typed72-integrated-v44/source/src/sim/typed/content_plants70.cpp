@@ -1,6 +1,9 @@
 #include "sim/typed/content_plants70.h"
 #include "sim/typed/projectile_rules.h"
 #include "core/pymath.h"
+#include "core/function_profile.h"
+#include "sim/typed/spatial_mode.h"
+#include <algorithm>
 namespace pvz::typed72 {
 namespace {
 constexpr double pi=0x1.921fb54442d18p+1;
@@ -31,7 +34,7 @@ std::optional<ContentTarget> ContentPlants70::registered(const Field<std::string
     const auto object=world_.native_objects.get(key.get());if(!object)return {};
     if(const auto* p=std::get_if<PlantRef>(&*object))return *p;return CombatTarget::zombie(std::get<ZombieRef>(*object));
 }
-bool ContentPlants70::configure(const PlantRef& plant,std::string_view name,double hp) {
+bool ContentPlants70::configure(PlantRef plant,std::string_view name,double hp) {
     if(name!="水盆"&&name!="抓人草"&&name!="冰冻生菜")return false;
     auto& p=*plant;p.source.content.set(std::string(name));p.content70.clock.set(0.);
     p.kind=name;p.hp.set(hp);p.max_hp.set(hp);p.content_state.maximum_hp.set(hp);p.shoot_cd.set(1e9);p.sleep.erase();p.one_shot.erase();
@@ -47,7 +50,7 @@ std::vector<PlantRef> ContentPlants70::heads(const PlantRef& root)const {
     std::vector<PlantRef> result;for(const auto& plant:*world_.plant_roster)
         if(same_optional(plant->content70.parent,root->source.id)&&alive(plant))result.push_back(plant);return result;
 }
-void ContentPlants70::plant_tick(const PlantRef& plant) {
+void ContentPlants70::plant_tick(PlantRef plant) {
     if(named(plant->source.content,"冰冻生菜")){if(alive(plant)&&!plant->sleep.present())try_lettuce(plant);return;}
     if(!named(plant->source.content,"抓人草")||!alive(plant))return;
     const auto children=heads(plant);
@@ -60,7 +63,7 @@ void ContentPlants70::plant_tick(const PlantRef& plant) {
     if(children.size()<limit){plant->content70.clock.get()+=plant_rate(plant);if(plant->content70.clock.get()>=10000.&&spawn_head(plant))plant->content70.clock.get()-=10000.;}
     else plant->content70.clock.set(0.);update_heads(plant,children);
 }
-PlantRef ContentPlants70::spawn_head(const PlantRef& root) {
+PlantRef ContentPlants70::spawn_head(PlantRef root) {
     if(world_.native_objects.size()>=700)return {};const auto point=targets_.point(root);const auto cell_index=root->cell;
     const auto cell=world_.terrain.at(cell_index.y,cell_index.x);if(!cell)throw std::out_of_range("tentacle root terrain");
     const bool had=cell->plant.present();const auto head=services_.spawn_tentacle_native(cell_index,root->facing);
@@ -74,15 +77,18 @@ PlantRef ContentPlants70::spawn_head(const PlantRef& root) {
     if(root->source.seat)head->source.seat=root->source.seat;anchor_head(head);
     services_.plant70_event({Plant70Event::Kind::tentacle_spawn,root->source.id,head->source.id,{},{},{}});return head;
 }
-std::vector<ContentTarget> ContentPlants70::head_targets(const PlantRef& plant) {
-    struct Candidate {double rank;std::string id;ContentTarget target;};std::vector<Candidate> found;
+std::vector<ContentTarget> ContentPlants70::head_targets(const PlantRef& plant,std::optional<size_t> limit) {
+    PVP_PROFILE_SCOPE("ContentPlants70::head_targets");
+    struct Candidate {double rank;std::string id;ContentTarget target;size_t ordinal;};std::vector<Candidate> found;
     const auto point=targets_.point(plant);for(const auto& target:queries_.enemies(source_ref(plant))) {
         if(!alive(target))continue;const auto p=targets_.point(target);const double dx=wrap_delta(point.x,p.x,world_.world_width.get()),dy=p.y-point.y,distance=std::hypot(dx,dy);
         if(distance>16.*world_.runtime.tile||(distance!=0.&&dx*plant->facing/distance<std::cos(80.*pi/180.)))continue;
         double hp=0.;if(const auto* body=std::get_if<CombatTarget>(&target))hp=body->is_hero()?world_.heroes.cached_proxy(body->hero).hp*10.:body->unit->body.hp;
-        found.push_back({-hp,world_.heroes.source_id(queries_.source(target)),target});
+        found.push_back({-hp,world_.heroes.source_id(queries_.source(target)),target,found.size()});
     }
-    std::stable_sort(found.begin(),found.end(),[](const Candidate& a,const Candidate& b){return a.rank<b.rank||(a.rank==b.rank&&a.id<b.id);});
+    const auto less=[](const Candidate& a,const Candidate& b){return a.rank<b.rank||(a.rank==b.rank&&(a.id<b.id||(a.id==b.id&&a.ordinal<b.ordinal)));};
+    const auto keep=std::min(found.size(),limit.value_or(found.size()));
+    if(keep<found.size()){std::partial_sort(found.begin(),found.begin()+keep,found.end(),less);found.resize(keep);}else std::stable_sort(found.begin(),found.end(),less);
     std::vector<ContentTarget> result;for(const auto& item:found)result.push_back(item.target);return result;
 }
 Point ContentPlants70::head_rest(const PlantRef& root,const PlantRef& head) {
@@ -96,7 +102,12 @@ Point ContentPlants70::head_rest(const PlantRef& root,const PlantRef& head) {
     const int lane=head->content70.head_color.or_missing(0)-1;return {base.x+root->facing*tile*(1.7+.15*std::abs(lane)),base.y-tile*(.35+.3*lane)};
 }
 void ContentPlants70::update_heads(const PlantRef& root,std::vector<PlantRef> children) {
-    const auto targets=head_targets(root);std::set<std::optional<std::string>> used;
+    struct MovedHeads {ContentQueries& queries;~MovedHeads(){queries.invalidate();}} moved_heads{queries_};
+    // At most H heads can use H distinct targets, including those already
+    // reserved by active heads. The first H entries of the old full ordering
+    // therefore suffice, with exactly the same HP/ID/roster tie rules.
+    const bool local=spatial741_enabled();const bool idle=std::any_of(children.begin(),children.end(),[](const auto& h){return h->content70.head_phase.get()=="idle";});
+    const auto targets=!local||idle?head_targets(root,local?std::optional<size_t>{children.size()}:std::nullopt):std::vector<ContentTarget>{};std::set<std::optional<std::string>> used;
     for(const auto& head:children)if(head->content70.head_phase.get()!="idle") {
         const auto& id=head->content70.head_target;used.insert(id.present()&&!id.is_null()?std::optional<std::string>(id.get()):std::nullopt);
     }

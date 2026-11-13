@@ -167,7 +167,9 @@ void NativeContentDamage::primal_knockback(size_t index,double speed,const Entit
         if(candidate!=index&&std::hypot(wrap_delta(position.x,p.x,world_.world_width.get()),position.y-(p.y-world_.runtime.tile))>radius*world_.runtime.tile)continue;
         const auto key=world_.heroes.source_id(source(target));
         if(std::find(seen.get().begin(),seen.get().end(),key)!=seen.get().end())continue;seen.get().push_back(key);
+        const double before=motion(target).vx;
         motion(target).vx+=entity->facing*world_.runtime.plk*200.*scale;lower_.knock(candidate,speed*scale);
+        ++primal_knock_targets;primal_knock_velocity+=motion(target).vx-before;
     }
 }
 HitResult NativeContentDamage::head_impact(const EntityRef& entity,size_t index,double facing,double amount,bool surface) {

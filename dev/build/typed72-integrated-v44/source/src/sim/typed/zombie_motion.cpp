@@ -132,7 +132,7 @@ void ZombieMotion::status(ZombieMotionFrame& f) {
 double ZombieMotion::plant_bite(const ZombieRef& u)const{
     if(black(*u))return 3.;
     if(field_is(u->protection.card,"zombie:墓碑吞噬者僵尸") || u->body.kind=="墓碑吞噬者僵尸")
-        return u->body.hp<=value(u->max_hp,300.)*.5?6.:3.;  // PvP73
+        return u->body.hp<=value(u->max_hp,300.)*.5?6.:3.;  // PvP73.1
     return value(u->patch.bite_plant,1.);
 }
 double ZombieMotion::bite_rate(const ZombieRef& u)const{

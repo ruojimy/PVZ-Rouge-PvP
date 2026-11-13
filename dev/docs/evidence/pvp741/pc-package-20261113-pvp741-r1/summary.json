@@ -1,0 +1,33 @@
+{
+ "candidate": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\dist\\PvZ-PvP-Native-20261113-pvp741-r1",
+ "previous": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\dist\\PvZ-PvP-Native-20261113-pvp74-r2",
+ "files": 3630,
+ "mismatch": [],
+ "exe_sha256": "a72f1df1c833dc95cb6a155d564319a0758b30c43f91072dc59df9bc9c9ef482",
+ "zip": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\dist\\PvZ-PvP-Native-20261113-pvp741-r1.zip",
+ "zip_sha256": "07bc781dc89101dd76febd8dc7c596ce04a96ceee64cbecf70413897e154dca6",
+ "smoke_exit": 0,
+ "smoke_seconds": 13.8,
+ "smoke_passed": true,
+ "typed_session_lines": [
+  "[typed72] battle session started: mode=duel cold_ms=5212.1"
+ ],
+ "upgrade": {
+  "stale_removed": true,
+  "cleanup_log": "build 1.6.0.74.1-typed.20261113 (from 1.6.0.72-native.20261104): removed 1 stale files\n  图片\\pvp72-only-stale.png\nnotice: 已升级到 1.6.0.74.1-typed.20261113（原版本 1.6.0.72-native.20261104）。\n存档、设置与回放保持不变；已清理旧版本残留文件 1 个。\n",
+  "marker": "1.6.0.74.1-typed.20261113",
+  "userdata_kept": true,
+  "exe_is_new": true
+ },
+ "unmarked_upgrade": {
+  "notice": [
+   "notice: 已升级到 1.6.0.74.1-typed.20261113（原版本 PvP72 或更早）。"
+  ],
+  "marker": "1.6.0.74.1-typed.20261113"
+ },
+ "fresh_install": {
+  "notice": [],
+  "marker": "1.6.0.74.1-typed.20261113"
+ },
+ "passed": true
+}

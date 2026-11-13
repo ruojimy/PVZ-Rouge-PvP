@@ -105,6 +105,16 @@
         content_draw.draw_center(canvas.has(entity->kind)?canvas.image(entity->kind):canvas.image("豌豆"),p.x,p.y,angle);
     }
     NativeContentDraw& effects(){content_draw.native_tick=battle.heroes.tick;return content_draw;}
+    // FlyingPlantsProbe only records observer calls. Production must emit the
+    // same artwork commands for both asparagus lines and turnip balls.
+    void draw_flying_shot(const EntityRef& entity)override{
+        FlyingPlantsProbe::draw_flying_shot(entity);
+        if(!canvas.drawing())return;
+        const auto& m=entity->motion.get();
+        const bool piercing=entity->flying.piercing.present()&&!entity->flying.piercing.is_null()&&entity->flying.piercing.get();
+        if(piercing)effects().draw_center(canvas.image(entity->kind),m.x,m.y,90.-std::atan2(m.vy,m.vx)*180./3.141592653589793);
+        else{const auto image=canvas.image(entity->kind);canvas.display(image,{m.x-image->width/2.,m.y-image->height/2.});}
+    }
     void draw_ghost_effect(const GhostBlast& v)override{ContentPhaseProbe::draw_ghost_effect(v);effects().ghost_effect(v);}
     void draw_reed_effect(const ReedBolt& v)override{ContentPhaseProbe::draw_reed_effect(v);effects().reed_effect(v);}
     void draw_spring_effect(const SpringSwipe& v)override{ContentPhaseProbe::draw_spring_effect(v);effects().spring_effect(v);}

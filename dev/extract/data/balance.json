@@ -49,7 +49,7 @@
   "plant:路灯花": 40,
   "plant:萝卜伞": 100,
   "plant:大喷菇": 50,
-  "plant:石块": 0,
+  "plant:石块": -25,
   "plant:阳光菇": 0,
   "plant:花盆": 0,
   "plant:睡莲": 0,
@@ -65,7 +65,7 @@
   "zombie:辣椒僵尸": 175,
   "zombie:机枪僵尸": 275,
   "zombie:投篮车僵尸": 275,
-  "zombie:报纸僵尸": 250,
+  "zombie:报纸僵尸": 275,
   "zombie:墓碑吞噬者僵尸": 225,
   "zombie:气球僵尸": 100,
   "zombie:矿工僵尸": 125,
@@ -133,12 +133,14 @@
   "zombie:小丑僵尸": 100,
   "zombie:黑撑杆僵尸": 175,
   "zombie:红眼巨人": 500,
-  "zombie:滚桶僵尸": 200,
-  "zombie:海盗船长": 225,
+  "zombie:滚桶僵尸": 225,
+  "zombie:海盗船长": 250,
   "zombie:舞王僵尸": 225,
   "plant:寒冰辣椒": 150,
   "plant:双子向日葵": 90,
-  "zombie:毁灭菇僵尸": 250
+  "zombie:毁灭菇僵尸": 250,
+  "plant:草坪": 25,
+  "zombie:小鬼炮": 275
  },
  "cost": 300,
  "ZOMBIE_COOLDOWNS": {
@@ -185,7 +187,8 @@
   "zombie:辣椒僵尸": 48.0,
   "zombie:高坚果僵尸": 60.0,
   "zombie:巨人僵尸": 60.0,
-  "zombie:角斗士巨人": 80.0
+  "zombie:角斗士巨人": 80.0,
+  "zombie:石化火炬": 48.0
  },
  "GRAVE_BALANCE": {
   "zombie:脑光墓碑": {

@@ -20,6 +20,8 @@
 using namespace pvz;
 namespace pvz { void install_crash_handler(); void start_sampler(); void stop_sampler_report(int top); }
 #include "core/gil.h"
+#include "ui/hand/texture74_internal.h"
+#include "core/fsutil.h"
 
 int main(int argc, char** argv) {
     SDL_SetMainReady();
@@ -100,7 +102,8 @@ int main(int argc, char** argv) {
                 V app = a.pos.at(0);
                 int fr = int(a.pos.at(1).num());
                 V state = pvz::getattr(app, Sym("state"));
-                bool relay = mode == "relay";   // private room through the public relay (relay.json beside the exe)
+                bool relay = mode == "relay" || mode == "relay_coop";
+                bool coop = mode == "coop" || mode == "relay_coop";
                 if (relay && role == "host" && fr > 2 && !st->joined) {
                     std::string tok = py_str(py::m_get(state, V("token"), V("")));
                     if (!tok.empty()) { std::ofstream(tokenfile, std::ios::binary) << tok; st->joined = true; fprintf(stderr, "NET host relay room code=%s\n", tok.c_str()); }
@@ -113,13 +116,14 @@ int main(int argc, char** argv) {
                     state.at(V("save_replays")) = V(true);
                     fprintf(stderr, "NET host relay endpoint=%s\n", py_str(py::m_get(state, V("relay_endpoint"), V(""))).c_str());
                     callm(app, Sym("create"), Args{});
+                    if(coop)callm(pvz::getattr(app,Sym("room")),Sym("set_mode"),Args{V("coop")});
                 }
                 if (fr == 2 && role == "host" && !relay) {
                     state.at(V("network_mode")) = V("direct");
                     state.at(V("port")) = V(std::to_string(port));
                     state.at(V("save_replays")) = V(true);
                     callm(app, Sym("create"), Args{});
-                    if (mode == "coop") {
+                    if (coop) {
                         V err = callm(pvz::getattr(app, Sym("room")), Sym("set_mode"), Args{V("coop")});
                         fprintf(stderr, "NET host set_mode coop -> '%s'\n", py_str(err).c_str());
                     }
@@ -154,7 +158,10 @@ int main(int argc, char** argv) {
                             dump(py::m_get(view, V("current_side"), V::none())).c_str(), dump(py::m_get(view, V("current_action"), V::none())).substr(0, 120).c_str(),
                             dump(py::m_get(view, V("remaining"), V::none())).c_str(), dump(locals).c_str(), st->attempt,
                             py_str(py::m_get(state, V("message"), V(""))).substr(0, 100).c_str());
-                if (phase == "config" && fr % 30 == 0) callm(app, Sym("action"), Args{V::tuple({V("confirm_map")})});
+                if (phase == "config" && fr % 30 == 0){
+                    if(coop&&std::getenv("PVP741_NIGHT_DIR")&&role=="host")callm(app,Sym("start_pve_day"),Args{});
+                    callm(app, Sym("action"), Args{V::tuple({V("confirm_map")})});
+                }
                 if ((phase == "banning" || phase == "picking") && fr % 6 == 0) {
                     V side = py::m_get(view, V("current_side"), V::none());
                     V act = py::m_get(view, V("current_action"), V::none());
@@ -184,17 +191,18 @@ int main(int argc, char** argv) {
                         for (auto& s : py::iter_list(locals).items()) callm(app, Sym("command"), Args{py_dict({{V("type"), V("ready")}, {V("ready"), V(true)}}), s});
                 }
                 if (role == "spectate") {
-                    if (phase == "battle" && ++st->battle_frames == 120) {
+                    const int watch_frames=std::getenv("NETWATCH_SECONDS")?std::max(120,std::atoi(std::getenv("NETWATCH_SECONDS"))*60):120;
+                    if (phase == "battle" && ++st->battle_frames == watch_frames) {
                         fprintf(stderr, "NET spectate PASS watching battle (received_snapshots=%s spectating=%s)\n", dump(pvz::getattr(app, Sym("received_snapshots"), V(0.0))).c_str(),
                                 dump(py::m_get(state, V("spectating"), V::none())).c_str());
                         st->result = 0;
                         pvz::setattr(app, Sym("running"), V(false));
                     }
-                    if (fr > 60 * 150) { fprintf(stderr, "NET spectate TIMEOUT phase=%s\n", phase.c_str()); pvz::setattr(app, Sym("running"), V(false)); }
+                    if (fr > 60 * (std::getenv("NETWATCH_SECONDS")?std::max(150,std::atoi(std::getenv("NETWATCH_SECONDS"))+240):150)) { fprintf(stderr, "NET spectate TIMEOUT phase=%s\n", phase.c_str()); pvz::setattr(app, Sym("running"), V(false)); }
                     return V::none();
                 }
                 // co-op: team chat from the guest must reach the host's view
-                if (mode == "coop" && !phase.empty()) {
+                if (coop && !phase.empty()&&!std::getenv("PVP741_NIGHT_DIR")) {
                     if (st->chat_ok && fr % 600 == 0) { st->result = 0; pvz::setattr(app, Sym("running"), V(false)); }
                     if (role == "guest" && fr == 200)
                         for (auto& s : py::iter_list(locals).items()) callm(app, Sym("command"), Args{py_dict({{V("type"), V("chat")}, {V("text"), V("native chat check")}}), s});
@@ -239,14 +247,65 @@ int main(int argc, char** argv) {
                     st->result = 0;
                     pvz::setattr(app, Sym("running"), V(false));
                 }
-                if (phase == "battle" && ++st->battle_frames == (mode == "duel" ? 100000 : 240)) {
+                if (phase == "battle" && ++st->battle_frames == (mode == "duel" ? 100000 : 240) && !std::getenv("NETWATCH_SECONDS")) {
                     fprintf(stderr, "NET %s PASS battle reached (received_snapshots=%s)\n", role.c_str(), dump(pvz::getattr(app, Sym("received_snapshots"), V(0.0))).c_str());
                     st->result = 0;
                     pvz::setattr(app, Sym("running"), V(false));
                 }
-                if (fr > 60 * 150) { fprintf(stderr, "NET %s TIMEOUT phase=%s\n", role.c_str(), phase.c_str()); pvz::setattr(app, Sym("running"), V(false)); }
+                if (fr > 60 * (std::getenv("NETWATCH_SECONDS")?std::max(150,std::atoi(std::getenv("NETWATCH_SECONDS"))+240):150)) { fprintf(stderr, "NET %s TIMEOUT phase=%s\n", role.c_str(), phase.c_str()); pvz::setattr(app, Sym("running"), V(false)); }
                 return V::none();
             });
+            // Private real-transport co-op cycle acceptance. Accelerates by
+            // executing actual native ticks, never by replacing a snapshot.
+            if(const char* directory=std::getenv("PVP741_NIGHT_DIR")){
+                const auto folder=u8p(directory);V original_callback=cb;
+                auto phases=std::make_shared<nlohmann::json>(nlohmann::json::array());
+                auto stage=std::make_shared<int>(0);auto last=std::make_shared<uint32_t>(0);auto max_gap=std::make_shared<uint32_t>(0);auto durable=std::make_shared<bool>(false);
+                cb=V::func([=](const Args& a){V result=original_callback.call(a),app=a.pos.at(0);V view=getattr(app,Sym("view"));
+                    if(*stage==3&&(role!="host"||(std::filesystem::exists(folder/"guest.json")&&std::filesystem::exists(folder/"spectate.json")))){st->result=0;setattr(app,Sym("running"),V(false));return result;}
+                    if(py::m_get(view,V("phase"))==V("result")){if(*stage<3)throw PyError("AssertionError","daylight fixture ended before both transitions");return result;}
+                    if(py::m_get(view,V("phase"))!=V("battle"))return result;
+                    const auto now=SDL_GetTicks();if(*last)*max_gap=std::max(*max_gap,now-*last);*last=now;
+                    V snapshot=py::m_get(view,V("battle"),V::dict());V daylight=py::m_get(py::m_get(snapshot,V("team"),V::dict()),V("daylight"),V::dict());
+                    if(!daylight.truthy())throw PyError("AssertionError","co-op cycle not installed");
+                    const bool expected=py::m_get(daylight,V("night")).truthy();
+                    const V map=py::m_get(snapshot,V("map"),V::dict());const bool shown=py::m_get(py::m_get(map,V("environment"),V::dict()),V("night")).truthy();
+                    if(shown!=expected)throw PyError("AssertionError","guest background daylight is stale");
+                    const int wanted=*stage==0?0:*stage==1?1:0;
+                    if(*stage<3&&int(expected)==wanted){
+                        phases->push_back({{"night",expected},{"battle_time",py::m_get(snapshot,V("time"),V(0)).num()},{"received",getattr(app,Sym("received_snapshots"),V(0)).num()}});++*stage;
+                        callm(app,Sym("render"),Args{});callm(pg::image_module(),Sym("save"),Args{getattr(getattr(app,Sym("renderer")),Sym("screen")),V(p8(folder/(role+"-phase"+std::to_string(*stage)+".png")))});
+                        if(*stage==2)std::ofstream(folder/(role+"-night-seen.txt"))<<"night";
+                    }
+                    if(role=="host"){
+                        V b=getattr(getattr(app,Sym("room")),Sym("battle"));
+                        if(!*durable){*durable=true;for(const auto& kv:py::items_vec(getattr(b,Sym("avatars")))){setitem(kv.second,V("玩家血量"),V(1e8));setitem(kv.second,V("_pvp_max_hp"),V(1e8));setitem(kv.second,V("_pvp_previous_hp"),V(1e8));}for(const auto& kv:py::items_vec(getattr(b,Sym("players")))){setitem(kv.second,V("hp"),V(1e8));setitem(kv.second,V("max_hp"),V(1e8));}}
+                        const double t=getattr(b,Sym("time")).num();
+                        if(t<122.||(std::filesystem::exists(folder/"guest-night-seen.txt")&&std::filesystem::exists(folder/"spectate-night-seen.txt")&&t<245.))callm(b,Sym("step"),Args{V(48)});
+                    }
+                    if(*stage==3){
+                        nlohmann::json report={{"role",role},{"phases",*phases},{"max_service_gap_ms",*max_gap},{"passed",true}};
+                        std::ofstream(folder/(role+".json"))<<report.dump(2);
+                        const bool others=role!="host"||(std::filesystem::exists(folder/"guest.json")&&std::filesystem::exists(folder/"spectate.json"));
+                        if(others){st->result=0;setattr(app,Sym("running"),V(false));}
+                    }return result;
+                });
+            }
+            // Optional production-path material transfer verifier; isolated by the caller's PVP_USERDATA.
+            if(const char* audit_file=std::getenv("PVP74_NET_AUDIT_OUT")){
+                const std::string path=audit_file;V original_callback=cb;auto ready_frames=std::make_shared<int>(0);auto attacked=std::make_shared<bool>(false);
+                cb=V::func([=](const Args& a){V result=original_callback.call(a);V app=a.pos.at(0);auto diag=texture74::diagnostics();
+                    const bool ready=role=="host"?(diag.at("acked_peers").get<int>()>=2&&diag.at("rejected").get<int>()>=1):(diag.at("remote").get<bool>()&&diag.at("ready").get<bool>());
+                    if(role=="guest"&&ready&&!*attacked){*attacked=true;(void)callm(getattr(app,Sym("transport")),Sym("send"),Args{py_dict({{V("type"),V("texture74_offer")},{V("hash"),V("invalid-guest-offer")}})});}
+                    if(ready&&++*ready_frames>=60){
+                        const char* expected=std::getenv("PVP74_EXPECTED_HASH");if(!expected||diag.at("wire_hash").get<std::string>()!=std::string(expected))throw PyError("AssertionError","shared material hash differs");
+                        nlohmann::json report={{"role",role},{"received",diag}};
+                        if(role!="host"){callm(app,Sym("close_room"),Args{});texture74::update(app,0.);report["restored"]=texture74::diagnostics();const char* local=std::getenv("PVP74_LOCAL_HASH");if(!local||report["restored"]["wire_hash"].get<std::string>()!=std::string(local)||report["restored"]["remote"].get<bool>())throw PyError("AssertionError","local material not restored");}
+                        std::ofstream(u8p(path))<<report.dump(2);st->result=0;setattr(app,Sym("running"),V(false));
+                    }
+                    return result;
+                });
+            }
             pm_app::f_run(Args({}, {{Sym("auto_test"), cb}}));
             return st->result;
         }

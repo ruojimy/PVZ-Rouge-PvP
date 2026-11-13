@@ -1,0 +1,9 @@
+{
+  "changed_after_suite": [
+    "android/build_apk.sh"
+  ],
+  "runtime_cpp_headers_data_unchanged": true,
+  "reason": "Packaging fingerprint omitted compiled stage, composition owners and shared hooks, unlike native build fingerprint.",
+  "validation": "Fresh native before/after fingerprints, APK source-match guard, signature/package upgrade and embedded library hash are required next.",
+  "sha256": "7533c9e40e9a6bcfdc9e8e83f8d91e85ed8cbeb1179fa563aba1775c5be2c6c1"
+}

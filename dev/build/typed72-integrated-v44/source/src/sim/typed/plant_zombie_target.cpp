@@ -1,13 +1,42 @@
 #include "sim/typed/plant_lookup.h"
 #include "sim/typed/plant_zombie_target.h"
 #include "core/pymath.h"
+#include "core/function_profile.h"
+#include "sim/typed/spatial_mode.h"
 #include <algorithm>
 #include <cmath>
+#include <limits>
 namespace pvz::typed72 {
 namespace {
+template<class Entries,class Bound,class Consider> void near_x(const Entries& entries,double x,Bound bound,Consider consider){
+    auto right=std::lower_bound(entries.begin(),entries.end(),x,[](const auto& e,double p){return e.x<p;});auto left=right;
+    while(left!=entries.begin()||right!=entries.end()){
+        const double a=left==entries.begin()?std::numeric_limits<double>::infinity():x-std::prev(left)->x;
+        const double b=right==entries.end()?std::numeric_limits<double>::infinity():right->x-x;
+        const double d=std::min(a,b),limit=bound();if(d>limit+1.e-7*std::max(1.,limit))break;
+        if(a<=b){--left;consider(left->index);}else{consider(right->index);++right;}
+    }
+}
 double number(const Field<double>& f,double fallback=0.){return f.present()&&!f.is_null()?f.get():fallback;}
 double sign(double n){return n<0.?-1.:1.;}
 double angle(Point from,Point to){return py::mod(std::atan2(to.y-from.y,to.x-from.x)*(180./0x1.921fb54442d18p+1)+360.,360.);}
+}
+void PlantZombieTargeting::prepare_plants()const{
+    const auto& all=*world_.plant_roster;if(plant_data_==all.data()&&plant_count_==all.size())return;
+    plant_data_=all.data();plant_count_=all.size();plant_search_.clear();plant_search_.reserve(all.size());
+    for(size_t i=0;i<all.size();++i)plant_search_.push_back({(all[i]->cell.x+.5)*world_.runtime.tile,i});
+    std::stable_sort(plant_search_.begin(),plant_search_.end(),[](const auto& a,const auto& b){return a.x<b.x;});
+}
+void PlantZombieTargeting::prepare_zombies(const TargetRoster& all)const{
+    if(zombie_data_==all.data()&&zombie_count_==all.size())return;
+    zombie_data_=all.data();zombie_count_=all.size();zombie_search_.clear();zombie_search_.reserve(all.size());
+    for(size_t i=0;i<all.size();++i)if(!all[i].is_hero())zombie_search_.push_back({all[i].unit->body.motion.get().x,i});
+    std::stable_sort(zombie_search_.begin(),zombie_search_.end(),[](const auto& a,const auto& b){return a.x<b.x;});
+}
+const TargetRoster& PlantZombieTargeting::enemy_view(const ZombieRef& source)const{
+    const auto& all=*world_.targets;if(enemy_data_!=all.data()||enemy_count_!=all.size()){
+        enemy_view_=plant_zombie_enemy_view(world_,source);enemy_data_=all.data();enemy_count_=all.size();zombie_data_=nullptr;
+    }return enemy_view_;
 }
 double native_direction_angle(double direction){return sign(direction)>0.?0.:180.;}
 double native_direction_angle_diff(double a,double direction){return py::mod(a-native_direction_angle(direction)+180.,360.)-180.;}
@@ -53,35 +82,48 @@ void PlantZombieTargeting::consider_zombies(const TargetRoster& roster,const Zom
     const double direction=sign(source->body.facing);
     // These fixed geometry helpers cannot mutate rosters. Reading the same
     // ordered references avoids the source's temporary shallow list copy.
-    for(size_t i=0;i<roster.size();++i)try {
-        const auto target=roster.at(i);if(target.unit==source)continue;
+    ++aim_queries;aim_full_scan+=roster.size();
+    const auto consider=[&](size_t i){try {
+        ++aim_candidates;
+        const auto target=roster.at(i);if(target.unit==source)return;
         const bool charmed=!target.is_hero()&&target.unit->source.charmed.present();
-        if(charmed!=charmed_targets)continue;
+        if(charmed!=charmed_targets)return;
         const auto& fields=target.is_hero()?static_cast<const ZombieRecordFields&>(world_.heroes.cached_proxy(target.hero)):
             static_cast<const ZombieRecordFields&>(target.unit->body);
-        if(fields.ash.present()||fields.hp<=0.)continue;
+        if(fields.ash.present()||fields.hp<=0.)return;
         // Unlike doom, the actual target selector does not filter "死".
-        const auto p=zombie_point(target);const double a=angle(center,p);if(!native_angle_in_direction(a,direction))continue;
+        const auto p=zombie_point(target);const double a=angle(center,p);if(!native_angle_in_direction(a,direction))return;
         const double score=std::abs(p.y-center.y)*(charmed_targets?2.2:2.)+std::abs(p.x-center.x)*(charmed_targets?.45:.35);
-        if(!best_score||score<*best_score){best=NativeAimTarget{target,i,p,direction,a};best_score=score;}
-    }catch(const std::exception&){}
+        const bool earlier=best&&std::holds_alternative<CombatTarget>(best->object)&&i<best->index;
+        if(!best_score||score<*best_score||(score==*best_score&&earlier)){best=NativeAimTarget{target,i,p,direction,a};best_score=score;}
+    }catch(const std::exception&){} };
+    if(phase_&&spatial741_enabled()){
+        prepare_zombies(roster);double padding=0.;for(const auto& [name,g]:catalog_.plant_heads)padding=std::max(padding,std::max(std::abs(g.head_x),std::abs(g.duck_head_x))+.05);
+        for(size_t i=0;i<roster.size();++i)if(roster[i].is_hero())consider(i);
+        near_x(zombie_search_,center.x,[&]{return best_score?*best_score/(charmed_targets?.45:.35)+padding*world_.runtime.tile:std::numeric_limits<double>::infinity();},consider);
+    }else for(size_t i=0;i<roster.size();++i)consider(i);
 }
 std::optional<NativeAimTarget> PlantZombieTargeting::pick(const ZombieRef& source)const {
+    PVP_PROFILE_SCOPE("PlantZombieTargeting::pick");
     if(!source)throw std::invalid_argument("missing native aim source");
     const Point center=native_plant_zombie_head_center(*source,world_.runtime.tile,catalog_);
     std::optional<NativeAimTarget> best;std::optional<double> best_score;
     if(source->source.charmed.present()){
-        if(world_.native_plant_zombies_installed)consider_zombies(plant_zombie_enemy_view(world_,source),source,center,false,best,best_score);
+        if(world_.native_plant_zombies_installed){if(phase_&&spatial741_enabled())consider_zombies(enemy_view(source),source,center,false,best,best_score);else consider_zombies(plant_zombie_enemy_view(world_,source),source,center,false,best,best_score);}
         else consider_zombies(*world_.targets,source,center,false,best,best_score);
         return best;
     }
     const double direction=sign(source->body.facing);const auto plants=world_.plant_roster;
-    for(size_t i=0;i<plants->size();++i)try {
-        const auto plant=plants->at(i);if(plant->dead.present()||plant->shovel_dead.present()||number(plant->hp,1.)<=0.)continue;
-        const auto aim=plant_aim(*plant,center);if(!aim)continue;const Point p=*aim;const double a=angle(center,p);if(!native_angle_in_direction(a,direction))continue;
+    ++aim_queries;aim_full_scan+=plants->size();
+    const auto consider=[&](size_t i){try {
+        ++aim_candidates;
+        const auto plant=plants->at(i);if(plant->dead.present()||plant->shovel_dead.present()||number(plant->hp,1.)<=0.)return;
+        const auto aim=plant_aim(*plant,center);if(!aim)return;const Point p=*aim;const double a=angle(center,p);if(!native_angle_in_direction(a,direction))return;
         const double score=std::abs(p.y-center.y)*2.2+std::abs(p.x-center.x)*.45;
-        if(!best_score||score<*best_score){best=NativeAimTarget{plant,i,p,direction,a};best_score=score;}
-    }catch(const std::exception&){}
+        if(!best_score||score<*best_score||(score==*best_score&&best&&i<best->index)){best=NativeAimTarget{plant,i,p,direction,a};best_score=score;}
+    }catch(const std::exception&){} };
+    if(phase_&&spatial741_enabled()){prepare_plants();near_x(plant_search_,center.x,[&]{return best_score?*best_score/.45:std::numeric_limits<double>::infinity();},consider);}
+    else for(size_t i=0;i<plants->size();++i)consider(i);
     consider_zombies(*world_.targets,source,center,true,best,best_score);if(best)return best;
     // legacy_fixes._target_wrapper removes only the allied native player in
     // I-Z mode. The sourced PvP entry establishes normal mode before calling.

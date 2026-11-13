@@ -34,13 +34,31 @@ V f_maybe_record_crowd(const Args& A) {
 
 V f_crowd_sample(const Args& A) {
     V L_b = A.get(0, SY("b"), nullptr, "crowd_sample");
+    V L_audit;
+    V L_avatars;
+    V L_content;
     V L_fields;
+    V L_paths;
+    V L_present;
+    V L_tracking;
+    V L_typed;
     L_fields = V::func([=](const Args& A) mutable -> V {
     V L_state = A.get(0, SY("state"), nullptr, "fields");
     return py_dict({{SV("target"), py::m_get(L_state, SV("目标位置"))}, {SV("plant"), py::m_get(L_state, SV("目标植物"))}, {SV("player_frontier"), py::len(py::m_get(L_state, SV("人洪水圈"), V::tuple({})))}, {SV("plant_frontier"), py::len(py::m_get(L_state, SV("植洪水圈"), V::tuple({})))}, {SV("player_cd"), py::m_get(L_state, SV("人洪水cd"))}, {SV("plant_cd"), py::m_get(L_state, SV("植洪水cd"))}});
     return V::none();
 });
-    return py_dict({{SV("native_tick"), pvz::getattr(pvz::getattr(L_b, SY("engine")), SY("native_tick"))}, {SV("map"), py::m_get(pvz::getattr(L_b, SY("map")), SV("name"), py::m_get(pvz::getattr(L_b, SY("map")), SV("map_id")))}, {SV("terrain_revision"), pvz::getattr(L_b, SY("terrain_revision"))}, {SV("heroes"), [&]() -> V { V out_ = V::dict(); V L_a; V L_seat; { auto it1_ = py::items_vec(pvz::getattr(L_b, SY("hero_states"))); for (size_t i1_ = 0; i1_ < it1_.size(); ++i1_) { L_seat = it1_[i1_].first; L_a = it1_[i1_].second; if (!(py::in(L_seat, pvz::getattr(L_b, SY("present"))))) continue; out_.at(L_seat) = py::list_it(py::slice(rdm(L_a, &Obj::玩家位置, SV("玩家位置")), V::none(), V(2.0))); }}return out_; }()}, {SV("seat_fields"), [&]() -> V { V out_ = V::dict(); V L_seat; V L_state; { auto it2_ = py::items_vec(pvz::getattr(L_b, SY("_seat_tracking"))); for (size_t i2_ = 0; i2_ < it2_.size(); ++i2_) { L_seat = it2_[i2_].first; L_state = it2_[i2_].second; out_.at(L_seat) = (L_fields).call(Args{L_state}); }}return out_; }()}, {SV("hunt_fields"), [&]() -> V { V out_ = V::dict(); V L_key; V L_state; { V it3_ = py::iter_list(py::slice(py::list_it(callm(pvz::getattr(pvz::getattr(pvz::getattr(L_b, SY("content")), SY("september")), SY("paths")), SY("items"), Args{})), V(-8.0), V::none())); for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) { { V ut4_ = py::as_seq(it3_.idx(int64_t(i3_))); L_key = ut4_.idx(0); L_state = ut4_.idx(1); } out_.at(py::str(L_key)) = (L_fields).call(Args{L_state}); }}return out_; }()}, {SV("units"), [&]() -> V { V out_ = V::list(); V L_z; { V it5_ = py::iter_list(py::slice(rdm(pvz::getattr(L_b, SY("g")), &Obj::僵尸, SV("僵尸")), V::none(), V(128.0))); for (size_t i5_ = 0; i5_ < it5_.len(); ++i5_) { L_z = it5_.idx(int64_t(i5_)); if (!(py::in(SV("位置"), L_z))) continue; out_.append(py_dict({{SV("id"), py::m_get_slot(L_z, &Obj::_pvp_id, SV("_pvp_id"))}, {SV("card"), py::m_get_slot(L_z, &Obj::_pvp_card, SV("_pvp_card"), py::m_get_slot(L_z, &Obj::僵尸, SV("僵尸")))}, {SV("position"), py::list_it(rdm(L_z, &Obj::位置, SV("位置")))}, {SV("hp"), py::m_get_slot(L_z, &Obj::血量, SV("血量"))}, {SV("split"), py::m_get_slot(L_z, &Obj::分兵, SV("分兵"))}, {SV("ice"), py::m_get_slot(L_z, &Obj::冰冻, SV("冰冻"), V(0.0))}, {SV("butter"), py::m_get_slot(L_z, &Obj::黄油, SV("黄油"), V(0.0))}, {SV("stun"), py::m_get_slot(L_z, &Obj::眩晕, SV("眩晕"), V(0.0))}, {SV("biting"), py::m_get_slot(L_z, &Obj::啃咬, SV("啃咬"), V(0.0))}, {SV("taunt"), py::m_get(L_z, SV("_pvp_taunted_by"))}})); }}return out_; }()}});
+    L_avatars = pvz::getattr(L_b, (SV("hero_states")).sym(), pvz::getattr(L_b, SY("avatars")));
+    L_present = pvz::getattr(L_b, (SV("present")).sym(), py::tuple_it(L_avatars));
+    L_tracking = pvz::getattr(L_b, (SV("_seat_tracking")).sym(), py_dict({}));
+    L_content = pvz::getattr(L_b, (SV("content")).sym(), V::none());
+    L_paths = pvz::getattr(pvz::getattr(L_content, (SV("september")).sym(), V::none()), (SV("paths")).sym(), py_dict({}));
+    L_audit = pvz::getattr(L_b, (SV("backend_audit")).sym(), V::none());
+    L_typed = py_and(py::callable(L_audit), [&]() -> V { return V((py::m_get((L_audit).call(Args{}), SV("backend")) == SV("typed72"))); });
+    if ((L_typed).truthy()) {
+        L_tracking = py_dict({});
+        L_paths = py_dict({});
+    }
+    return py_dict({{SV("native_tick"), pvz::getattr(pvz::getattr(L_b, SY("engine")), SY("native_tick"))}, {SV("map"), py::m_get(pvz::getattr(L_b, SY("map")), SV("name"), py::m_get(pvz::getattr(L_b, SY("map")), SV("map_id")))}, {SV("terrain_revision"), pvz::getattr(L_b, SY("terrain_revision"))}, {SV("heroes"), [&]() -> V { V out_ = V::dict(); V L_a; V L_seat; { auto it1_ = py::items_vec(L_avatars); for (size_t i1_ = 0; i1_ < it1_.size(); ++i1_) { L_seat = it1_[i1_].first; L_a = it1_[i1_].second; if (!(py::in(L_seat, L_present))) continue; out_.at(L_seat) = py::list_it(py::slice(rdm(L_a, &Obj::玩家位置, SV("玩家位置")), V::none(), V(2.0))); }}return out_; }()}, {SV("seat_fields"), [&]() -> V { V out_ = V::dict(); V L_seat; V L_state; { auto it2_ = py::items_vec(L_tracking); for (size_t i2_ = 0; i2_ < it2_.size(); ++i2_) { L_seat = it2_[i2_].first; L_state = it2_[i2_].second; out_.at(L_seat) = (L_fields).call(Args{L_state}); }}return out_; }()}, {SV("hunt_fields"), [&]() -> V { V out_ = V::dict(); V L_key; V L_state; { V it3_ = py::iter_list(py::slice(py::list_it(callm(L_paths, SY("items"), Args{})), V(-8.0), V::none())); for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) { { V ut4_ = py::as_seq(it3_.idx(int64_t(i3_))); L_key = ut4_.idx(0); L_state = ut4_.idx(1); } out_.at(py::str(L_key)) = (L_fields).call(Args{L_state}); }}return out_; }()}, {SV("routing_scope"), ((L_typed).truthy() ? V(SV("typed routing counters not published")) : V(SV("native routing dictionaries")))}, {SV("units"), [&]() -> V { V out_ = V::list(); V L_z; { V it5_ = py::iter_list(py::slice(rdm(pvz::getattr(L_b, SY("g")), &Obj::僵尸, SV("僵尸")), V::none(), V(128.0))); for (size_t i5_ = 0; i5_ < it5_.len(); ++i5_) { L_z = it5_.idx(int64_t(i5_)); if (!(py::in(SV("位置"), L_z))) continue; out_.append(py_dict({{SV("id"), py::m_get_slot(L_z, &Obj::_pvp_id, SV("_pvp_id"))}, {SV("card"), py::m_get_slot(L_z, &Obj::_pvp_card, SV("_pvp_card"), py::m_get_slot(L_z, &Obj::僵尸, SV("僵尸")))}, {SV("position"), py::list_it(rdm(L_z, &Obj::位置, SV("位置")))}, {SV("hp"), py::m_get_slot(L_z, &Obj::血量, SV("血量"))}, {SV("split"), py::m_get_slot(L_z, &Obj::分兵, SV("分兵"))}, {SV("ice"), py::m_get_slot(L_z, &Obj::冰冻, SV("冰冻"), V(0.0))}, {SV("butter"), py::m_get_slot(L_z, &Obj::黄油, SV("黄油"), V(0.0))}, {SV("stun"), py::m_get_slot(L_z, &Obj::眩晕, SV("眩晕"), V(0.0))}, {SV("biting"), py::m_get_slot(L_z, &Obj::啃咬, SV("啃咬"), V(0.0))}, {SV("taunt"), py::m_get(L_z, SV("_pvp_taunted_by"))}})); }}return out_; }()}});
     return V::none();
 }
 
@@ -351,6 +369,7 @@ V C_AppProfiler::m_bind(const Args& A) {
     V L_gc;
     V L_key;
     V L_name;
+    V L_patch;
     V L_timed;
     L_battle = ((pvz::getattr(a_app, SY("room"))).truthy() ? V(pvz::getattr(pvz::getattr(a_app, SY("room")), SY("battle"))) : V(V::none()));
     if (py_is(L_battle, a_battle)) {
@@ -360,7 +379,7 @@ V C_AppProfiler::m_bind(const Args& A) {
         (void)(py::m_append(a_window_history, py_dict({{SV("mode"), pvz::getattr(a_battle, SY("mode"))}, {SV("measurement"), callm(a_active_window, SY("report"), Args{})}})));
     }
     a_active_window = (py::type(a_active_window)).call(Args{});
-    (void)(m_unbind(Args{}));
+    (void)(callm(self(), SY("unbind"), Args{}));
     a_battle = L_battle;
     (void)(callm(a_inputs, SY("clear"), Args{}));
     if (!(L_battle).truthy()) {
@@ -374,15 +393,19 @@ V C_AppProfiler::m_bind(const Args& A) {
         pvz::setattr(L_battle, SY("profiler"), a_native);
         a_original_seat_profiler = pvz::getattr(L_battle, (SV("seat_profiler")).sym(), V::none());
         pvz::setattr(L_battle, SY("seat_profiler"), a_seat_phases);
+        L_patch = pvz::getattr(L_battle, (SV("patch")).sym(), V::none());
+        if (py_is(L_patch, V::none())) {
+            return V::none();
+        }
         { V it1_ = py::iter_list(a_SCANS);
         for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) {
             L_name = it1_.idx(int64_t(i1_)); 
             L_key = (SV("__pvz_sb_") + L_name);
-            L_fn = py::m_get(pvz::getattr(pvz::getattr(L_battle, SY("patch")), SY("ns")), L_key);
+            L_fn = py::m_get(pvz::getattr(L_patch, SY("ns")), L_key);
             if (!(py::callable(L_fn)).truthy()) {
                 continue;
             }
-            L_timed = V::func([=, this](const Args& A) mutable -> V {
+            L_timed = V::func([=, this, self_owner_ = shared_from_this()](const Args& A) mutable -> V {
     V L__fn = A.has_kw(SY("_fn")) ? A.get(99999, SY("_fn"), nullptr) : V(L_fn);
     V L__name = A.has_kw(SY("_name")) ? A.get(99999, SY("_name"), nullptr) : V(L_name);
     V L_a = A.rest(0);
@@ -392,12 +415,12 @@ V C_AppProfiler::m_bind(const Args& A) {
     { auto fin1_ = py::finally([&]() {
         (void)(callm(a_scans, SY("record"), Args{L__name, ((py::stdlib_call(SV("time.perf_counter"), Args{}) - L_start) * V(1000.0))}));
     });
-      return (L__fn).call(py::star_args({}, L_a, {}, L_kw));
+      return (L__fn).call([&]() -> Args { Args expanded_; { V spread_=py::iter_list(L_a); for(const V& item_:spread_.items())expanded_.pos.push_back(item_); } auto keyword_=[&](Sym key_,const V& value_){ for(const auto& present_:expanded_.kw)if(present_.first==key_)throw PyError("TypeError","multiple values for keyword argument "+key_.str());expanded_.kw.emplace_back(key_,value_); }; { V mapping_=L_kw; V keys_; if(mapping_.t==V::DICT || mapping_.t==V::OBJ) keys_=py::keys(mapping_); else if(mapping_.t==V::INST && pvz::hasattr(mapping_,SY("keys")))keys_=callm(mapping_,SY("keys"),Args{});else throw PyError("TypeError","argument after ** must be a mapping");V held_=py::iter_list(keys_);for(const V& key_:held_.items()){if(!key_.is_str() || key_.byt)throw PyError("TypeError","keywords must be strings");keyword_(key_.sym(),rd(mapping_,key_));} } return expanded_; }());
     }
     return V::none();
 });
-            (void)(py::m_append(a_wrapped, V::tuple({pvz::getattr(pvz::getattr(L_battle, SY("patch")), SY("ns")), L_key, L_fn, L_timed})));
-            pvz::setitem(pvz::getattr(pvz::getattr(L_battle, SY("patch")), SY("ns")), L_key, L_timed);
+            (void)(py::m_append(a_wrapped, V::tuple({pvz::getattr(L_patch, SY("ns")), L_key, L_fn, L_timed})));
+            pvz::setitem(pvz::getattr(L_patch, SY("ns")), L_key, L_timed);
         }}
     }
     return V::none();

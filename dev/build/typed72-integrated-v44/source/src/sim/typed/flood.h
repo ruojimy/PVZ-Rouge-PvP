@@ -15,6 +15,7 @@ public:
     int wrap(int64_t col) const noexcept { auto r = col % cols_; return int(r < 0 ? r + cols_ : r); }
     bool valid_row(int y) const noexcept { return y >= 0 && y < rows_ && valid_[y]; }
     bool empty(int y, int64_t x) const;
+    bool empty_canonical(int y,int x)const{return empty_.at(size_t(y)*cols_+size_t(x))!=0;}
     bool water(int y, int64_t x) const;
     void set_empty(int y, int64_t x, bool value);
     void set_valid(int y, bool value);
@@ -32,7 +33,7 @@ struct FloodState {
     std::shared_ptr<std::vector<Cell>> queue=std::make_shared<std::vector<Cell>>();
     std::shared_ptr<std::vector<Cell>> frontier=std::make_shared<std::vector<Cell>>();
     std::optional<Cell> seed_scratch, last_scratch;
-    uint64_t calls = 0, expansions = 0, neighbours = 0;
+    uint64_t calls = 0, expansions = 0, neighbours = 0,cycles=0;
 };
 
 struct FloodInput {

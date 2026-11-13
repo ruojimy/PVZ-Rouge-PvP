@@ -227,7 +227,7 @@ struct Shooter {
 };
 // journal_mark: events.size() when played. V NativeAudio records event sounds the moment
 // _emit fires, so native sounds and journal events interleave by this mark.
-struct Sound { std::string name; Point position; bool spatial=true; size_t journal_mark=0; };
+struct Sound { std::string name; Point position; bool spatial=true; size_t journal_mark=0; int64_t tick=-1; };
 struct ParticleRequest { std::string name; Point position; int count = 0; };
 using Color = std::array<uint8_t, 4>;
 struct SpritePixels {
@@ -275,7 +275,7 @@ struct CombatRuntime : NativeEntityConstructor {
     // The original constructor is the base layer. A battle phase installs its
     // typed global constructor so nested head/armor drops enter the same chain.
     NativeEntityConstructor* native_constructor=this;
-    std::vector<Sound> sounds;
+    std::vector<Sound> sounds; int64_t sound_tick=0;
     std::vector<ParticleRequest> particles;
     std::vector<Particle> particle_state;
     std::vector<ParticleRect> particle_rects;
@@ -290,13 +290,13 @@ struct CombatRuntime : NativeEntityConstructor {
         }
         return result;
     }
-    void sound(std::string name, const Motion& m) { sounds.push_back({std::move(name), {m.x, m.y}, true, events.size()}); }
+    void sound(std::string name, const Motion& m) { sounds.push_back({std::move(name), {m.x, m.y}, true, events.size(), sound_tick}); }
     // native_audio.emit(name) without a position: V places it at the current source's 位置
     // (units and entities; an avatar source has none). The composition installs the lookup.
     std::function<std::optional<Point>()> sound_source;
     void play_sound(std::string name){
-        if(sound_source)if(const auto at=sound_source()){sounds.push_back({std::move(name),*at,true,events.size()});return;}
-        sounds.push_back({std::move(name),{},false,events.size()});
+        if(sound_source)if(const auto at=sound_source()){sounds.push_back({std::move(name),*at,true,events.size(),sound_tick});return;}
+        sounds.push_back({std::move(name),{},false,events.size(),sound_tick});
     }
     Entity& spawn(std::string name, double facing, Motion motion) {
         auto e=std::make_shared<Entity>(std::move(name),facing,motion);entities.emplace(e);

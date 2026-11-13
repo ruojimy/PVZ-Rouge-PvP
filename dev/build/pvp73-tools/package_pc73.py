@@ -30,8 +30,12 @@ shutil.copy2(BUILD / 'PvZPvPNative.exe', pc / 'PvZPvPNative.exe')
 for dll in ('SDL2.dll', 'SDL2_image.dll', 'SDL2_mixer.dll', 'SDL2_ttf.dll'):
     shutil.copy2(BUILD / dll, pc / dll)
 shutil.copy2(ROOT / 'extract/data/__init__.json', pc / 'extract/data/__init__.json')
+shutil.copytree(ROOT / 'extract/data', pc / 'extract/data', dirs_exist_ok=True)
+shutil.copytree(ROOT / 'extract/assets', pc / 'extract/assets', dirs_exist_ok=True)
 shutil.copy2(ROOT / 'build/pvp73-tools/启动说明-PvP73.txt', pc / '启动说明.txt')
 (pc / '更新说明-PvP73.txt').write_bytes((ROOT / '更新说明-PvP73.md').read_text('utf-8').replace('\n', '\r\n').encode('utf-8-sig'))
+if (ROOT / '更新说明-PvP73.1.md').exists():
+    (pc / '更新说明-PvP73.1.txt').write_bytes((ROOT / '更新说明-PvP73.1.md').read_text('utf-8').replace('\n', '\r\n').encode('utf-8-sig'))
 for stray in list(pc.glob('crash-*.txt')) + list(pc.glob('reports')):
     shutil.rmtree(stray) if stray.is_dir() else stray.unlink()
 names = sorted(p.relative_to(pc).as_posix() for p in pc.rglob('*') if p.is_file())
@@ -98,3 +102,7 @@ out['passed'] = bool(rc == 0 and res.get('passed') and typed and out['upgrade'][
                      and not out['fresh_install']['notice'] and out['fresh_install']['marker'].startswith('1.6.0.73'))
 (ev / 'summary.json').write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding='utf-8')
 print(json.dumps(out, ensure_ascii=False, indent=1)[:3000])
+if out['passed']:
+    deploy = subprocess.run(['pwsh.exe', '-NoProfile', '-File', str(ROOT / 'tools/deploy_latest.ps1'), '-ReleaseDirectory', str(pc)], cwd=str(ROOT), capture_output=True)
+    (ev / 'local-deployment.log').write_bytes(deploy.stdout + deploy.stderr)
+    if deploy.returncode:raise RuntimeError('Local launcher deployment failed; see local-deployment.log')

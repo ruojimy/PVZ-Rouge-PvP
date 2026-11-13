@@ -46,6 +46,7 @@ void PlantZombieShooting::jump_assist(const ZombieRef& u,const PlantZombieConfig
 }
 void PlantZombieShooting::step(std::span<const PlantZombieConfig> catalog) {
     const auto roster=world_.targets;if(!live(*roster))return;const auto captured=*roster;
+    aim_.begin_phase();struct EndAim {PlantZombieTargeting& aim;~EndAim(){aim.end_phase();}} end_aim{aim_};
     for(const auto& t:captured)try {
         if(t.is_hero())continue;const auto u=t.unit;auto& p=u->patch;if(!flag(p.plant_zombie)||u->body.hp<=0.)continue;
         const auto found=std::find_if(catalog.begin(),catalog.end(),[&](const auto& c){return c.kind==name(p.plant_name);});if(found==catalog.end())continue;const auto& c=*found;
@@ -53,12 +54,12 @@ void PlantZombieShooting::step(std::span<const PlantZombieConfig> catalog) {
         const double cooldown=std::max(1.,integer(c.cooldown,100.)),initial=std::max(0.,integer(c.initial_cooldown_max,25.)),gap=std::max(1.,integer(c.burst_gap,6.)),frames=std::max(1.,integer(c.fire_anim,24.));
         const double animation=number(p.fire_animation);if(animation>0.)p.fire_animation.set(animation-1.);else if(number(p.shoot)!=0.)p.shoot.set(0.);
         jump_assist(u,c);
-        if(flag(c.squash)){systems_.squash.update(u,c);continue;}
-        if(flag(c.blover)){systems_.wind.update(u,c);continue;}
-        if(flag(c.lantern)){systems_.lantern.update(u,c);continue;}
-        if(flag(c.umbrella)){systems_.services.umbrella(u,c);continue;}
-        if(flag(c.gold_magnet)){systems_.services.magnet(u,c);continue;}
-        if(flag(c.fumeshroom)){systems_.fume.update(u,c);continue;}
+        if(flag(c.squash)){systems_.squash.update(u,c);aim_.invalidate_phase();continue;}
+        if(flag(c.blover)){systems_.wind.update(u,c);aim_.invalidate_phase();continue;}
+        if(flag(c.lantern)){systems_.lantern.update(u,c);aim_.invalidate_phase();continue;}
+        if(flag(c.umbrella)){systems_.services.umbrella(u,c);aim_.invalidate_phase();continue;}
+        if(flag(c.gold_magnet)){systems_.services.magnet(u,c);aim_.invalidate_phase();continue;}
+        if(flag(c.fumeshroom)){systems_.fume.update(u,c);aim_.invalidate_phase();continue;}
         // Admission requires a complete four-coordinate position, so the
         // literal helper's malformed-position/None-center branch is excluded
         // at the boundary. Target absence still updates the facing angle.

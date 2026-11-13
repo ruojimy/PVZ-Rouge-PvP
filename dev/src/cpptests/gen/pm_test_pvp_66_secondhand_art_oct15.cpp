@@ -349,7 +349,11 @@ V C_SecondHandArt::m_test_actual_wire_render_uses_existing_material_and_is_reado
             L_item = rd(rd(rd(L_snapshot, SV("zsecrets")), SV("pickups")), V(0.0));
             { V ut6_ = py::as_seq(callm(L_view, SY("point"), Args{rdm(L_item, &Obj::x, SV("x")), rdm(L_item, &Obj::y, SV("y"))})); L_px = ut6_.idx(0); L_py = ut6_.idx(1); } 
             L_size = ((pvz::getattr(L_b, SY("tile")) * rd(pvz::getattr(L_view, SY("camera")), V(2.0))) * V(0.7));
-            (void)(callm(pvz::getattr(L_view, SY("art")), SY("blit"), Args{L_expected, L_asset, V::tuple({(L_px - (L_size / V(2.0))), (L_py - (L_size * V(0.8)))}), L_size}));
+            // PvP73.1: compare the actual cropped, aspect-preserving dropped piece.
+            {V box=callm(L_raw,SY("get_bounding_rect"),Args{});
+             const double width=pvz::getattr(box,SY("width")).num(),height=pvz::getattr(box,SY("height")).num(),factor=L_size.num()/std::max(width,height);
+             V piece=callm(pvz::getattr(a_pg,SY("transform")),SY("scale"),Args{callm(L_raw,SY("subsurface"),Args{box}),V::tuple({V(std::max(1.,pvz::py::round0(width*factor))),V(std::max(1.,pvz::py::round0(height*factor)))})});
+             (void)callm(L_expected,SY("blit"),Args{piece,V::tuple({V(L_px.num()-callm(piece,SY("get_width"),Args{}).num()/2.),V(L_py.num()-callm(piece,SY("get_height"),Args{}).num())})});}
             (void)(m_assertEqual(Args{m_pixels(Args{L_expected}), m_pixels(Args{L_actual}), L_asset}));
             (void)(m_assertEqual(Args{L_before, L_snapshot}));
             (void)(m_assertEqual(Args{L_authority, pvz::getattr(pvz::getattr(L_b, SY("zsecrets")), SY("pickups"))}));
@@ -386,11 +390,11 @@ V C_SecondHandArt::m_test_legacy_pickup_snapshot_without_asset_keeps_ordinary_ar
     L_before = py::stdlib_call(SV("copy.deepcopy"), Args{L_snapshot});
     L_patch = py::stdlib(SV("unittest.mock.patch"));
     {
-      py::WithGuard wg2_(callm(L_patch, SY("object"), Args({pvz::getattr(L_view, SY("art")), SV("blit")}, {{SY("wraps"), pvz::getattr(pvz::getattr(L_view, SY("art")), SY("blit"))}})));
+      py::WithGuard wg2_(callm(L_patch, SY("object"), Args({pvz::getattr(L_view, SY("art")), SV("raw")}, {{SY("wraps"), pvz::getattr(pvz::getattr(L_view, SY("art")), SY("raw"))}})));
       L_blits = wg2_.value; 
         (void)(callm(L_view, SY("render"), Args({L_screen, L_snapshot, callm(L_screen, SY("get_rect"), Args{})}, {{SY("settings"), py_dict({{SV("show_health"), V(false)}})}})));
     }
-    (void)(m_assertTrue(Args{[&]() -> V { V L_call; { V it4_ = py::iter_list(pvz::getattr(L_blits, SY("call_args_list"))); for (size_t i4_ = 0; i4_ < it4_.len(); ++i4_) { L_call = it4_.idx(int64_t(i4_)); if ((rd(pvz::getattr(L_call, SY("args")), V(1.0)) == SV("铁桶"))) return V(true); }}return V(false); }()}));
+    (void)(m_assertTrue(Args{[&]() -> V { V L_call; { V it4_ = py::iter_list(pvz::getattr(L_blits, SY("call_args_list"))); for (size_t i4_ = 0; i4_ < it4_.len(); ++i4_) { L_call = it4_.idx(int64_t(i4_)); if ((rd(pvz::getattr(L_call, SY("args")), V(0.0)) == SV("铁桶"))) return V(true); }}return V(false); }()}));
     (void)(m_assertEqual(Args{L_before, L_snapshot}));
     return V::none();
 }

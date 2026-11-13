@@ -20,7 +20,7 @@ void NativeContentPhases::projectiles() {
     systems_.grenadiers.update();systems_.zombies70.projectiles();draw_projectiles();
     systems_.flying.projectiles();systems_.sea.bubbles();systems_.frost.apply();systems_.darts.projectiles();
 }
-void NativeContentPhases::plant_gate(const PlantRef& plant) {
+void NativeContentPhases::plant_gate(PlantRef plant) {
     systems_.sea.gate(plant);systems_.september.advance(plant);systems_.flying.advance(plant);
     systems_.reeds.advance(plant);systems_.mortar.advance(plant);systems_.plants70.plant_tick(plant);
     if(custom(plant->source.content)){plant->content_state.before_shot.set(plant->shooting.or_missing(0.));plant->content_state.before_cd.set(plant->shoot_cd.or_missing(0.));}

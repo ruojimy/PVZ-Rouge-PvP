@@ -1007,7 +1007,8 @@ V C_ZombieSecretTuningTests::m_test_subsidy_adds_25_opening_brains(const Args& A
     L_plain = m_battle(Args({}, {{SY("zombies"), V::list({SV("zombie:脑光墓碑"), SV("zombie:普通僵尸")})}, {SY("zombie_start"), V(75.0)}}));
     L_subsidy = m_battle(Args({}, {{SY("zombies"), V::list({SV("zombie:脑光墓碑"), SV("zombie:普通僵尸"), pm_zombie_secret_catalog::f_key(Args{SV("补贴")})})}, {SY("zombie_start"), V(75.0)}}));
     (void)(m_assertEqual(Args{V(75.0), rd(rd(pvz::getattr(L_plain, SY("players")), SV("zombie")), SV("resource"))}));
-    (void)(m_assertEqual(Args{V(100.0), rd(rd(pvz::getattr(L_subsidy, SY("players")), SV("zombie")), SV("resource"))}));
+    // PvP73.1: subsidy no longer grants an opening +25.
+    (void)(m_assertEqual(Args{V(75.0), rd(rd(pvz::getattr(L_subsidy, SY("players")), SV("zombie")), SV("resource"))}));
     return V::none();
 }
 

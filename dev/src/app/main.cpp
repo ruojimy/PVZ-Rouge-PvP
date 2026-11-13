@@ -64,10 +64,11 @@ static std::string utf8_message(const std::string& s) {
 #endif
 }
 
-static void report_fatal(const std::string& raw) {
+static void report_fatal(const std::string& raw,bool interactive=true) {
     std::string msg = utf8_message(raw);
     std::ofstream("crash-native.txt", std::ios::binary) << msg << "\n";   // UTF-8
-    SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "PvZ PvP Native", msg.c_str(), nullptr);
+    fprintf(stderr,"PvZ native fatal: %s\n",msg.c_str());
+    if(interactive)SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "PvZ PvP Native", msg.c_str(), nullptr);
 }
 
 #ifdef __ANDROID__
@@ -219,6 +220,7 @@ static void release_upgrade_check(const std::filesystem::path& exe_dir, const st
 #endif
 
 int main(int argc, char** argv) {
+    const bool diagnostic_mode=argc>1&&(std::string(argv[1])=="--diagnostic"||std::string(argv[1])=="--diagnostic-json");
     int exit_status=0;
     bool default_pc_userdata=false;
     install_crash_handler();
@@ -311,10 +313,10 @@ int main(int argc, char** argv) {
             pm_app::f_run(Args{});
         }
     } catch (PyError& e) {
-        report_fatal(std::string("PyError ") + e.what());
+        report_fatal(std::string("PyError ") + e.what(),!diagnostic_mode);
         return 2;
     } catch (std::exception& e) {
-        report_fatal(std::string("error ") + e.what());
+        report_fatal(std::string("error ") + e.what(),!diagnostic_mode);
         return 3;
     }
     // network / AI threads may still be parked on the GIL: skip static destruction
