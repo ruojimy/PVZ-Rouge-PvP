@@ -1,0 +1,571 @@
+{
+  "build": "1.6.0.74.1-typed.20261113",
+  "apk_sha256": "d898356524092ef367e27ed899443f712b112358fecf3570e8f1b1e5adae322d",
+  "device": "vivo V2456A",
+  "soc": "SM7635",
+  "production_apk": true,
+  "adb_transport": "WLAN host route bypasses Mihomo TUN",
+  "tests": [
+    {
+      "scene": "ordinary20",
+      "scenario": "ordinary",
+      "requested_units": 20,
+      "composition": {
+        "zombie:普通僵尸": 20
+      },
+      "fps": 23.505034912692352,
+      "wall_seconds": 30.03611790505238,
+      "simulated_seconds": 30.032,
+      "effective_simulation_rate": 0.9998629015552077,
+      "frame_interval_ms": {
+        "p50": 41.60005203448236,
+        "p95": 51.11468699760735,
+        "p99": 59.943176922388375,
+        "mean": 42.54189581702734,
+        "max": 125.71791699156165,
+        "samples": 705
+      },
+      "phases_ms": {
+        "room_update": {
+          "total": 1803.7071386352181,
+          "mean": 2.554825975403992,
+          "p50": 2.0247389329597354,
+          "p95": 3.616926958784461,
+          "p99": 6.193593959324062,
+          "samples": 706
+        },
+        "refresh": {
+          "total": 4299.098168499768,
+          "mean": 6.08937417634528,
+          "p50": 6.049323012121022,
+          "p95": 6.589062046259642,
+          "p99": 8.0633849138394,
+          "samples": 706
+        },
+        "render": {
+          "total": 14299.530297284946,
+          "mean": 20.254292205786044,
+          "p50": 20.257708965800703,
+          "p95": 24.00088496506214,
+          "p99": 26.465937960892916,
+          "samples": 706
+        },
+        "screen_scale_blit": {
+          "total": 6247.8680305648595,
+          "mean": 8.849671431394984,
+          "p50": 8.77109298016876,
+          "p95": 8.844895986840129,
+          "p99": 8.928021066822112,
+          "samples": 706
+        },
+        "present": {
+          "total": 1992.6001485437155,
+          "mean": 2.8223798138012968,
+          "p50": 2.769791055470705,
+          "p95": 3.1676560174673796,
+          "p99": 3.6165110068395734,
+          "samples": 706
+        }
+      },
+      "peak_sampled_pss_mib": 677.849609375,
+      "battery_temperature_c": [
+        39.1,
+        39.5
+      ],
+      "min_plants": 0,
+      "min_zombies": 20,
+      "min_scale": 1,
+      "final_pacing": {
+        "cost_ratio": 0.055,
+        "scale": 1,
+        "slow": false
+      },
+      "initial_pacing": {
+        "cost_ratio": 0,
+        "scale": 1,
+        "slow": false
+      },
+      "final_population": {
+        "backlog_seconds": 0.0236666666666671,
+        "native_tick": 8758,
+        "plants": 0,
+        "projectiles": 0,
+        "zombies": 20
+      },
+      "native_performance_counters": {
+        "aim_candidates": 0,
+        "aim_full_scan": 0,
+        "aim_queries": 0,
+        "collision_candidates": 0,
+        "collision_queries": 0,
+        "content_candidates": 0,
+        "content_queries": 0,
+        "destination_queries": 0,
+        "destination_rebuilds": 0,
+        "destination_reuses": 0,
+        "empty_cell_skips": 0,
+        "find_contact_calls": 0,
+        "flood_calls": 17516,
+        "flood_cycles": 63,
+        "flood_expansions": 3358,
+        "flood_neighbors": 345564,
+        "full_scan_equivalent": 0,
+        "function_profile": {},
+        "head_candidates": 0,
+        "head_exact_tests": 0,
+        "head_full_scan": 0,
+        "head_queries": 0,
+        "head_spatial_bytes": 0,
+        "index_builds": 0,
+        "native_entities": 0,
+        "nearest_candidates": 0,
+        "nearest_full_scan": 0,
+        "nearest_queries": 0,
+        "occupied_cells": 0,
+        "plant_target_candidates": 0,
+        "plant_target_reuses": 0,
+        "plant_target_scans": 0,
+        "point_grid_builds": 0,
+        "point_grid_cell_changes": 0,
+        "point_grid_moves": 0,
+        "primal_knock_targets": 0,
+        "primal_knock_velocity": 0,
+        "spatial_bytes": 0,
+        "torch_batch_reuses": 0,
+        "torch_candidates": 183918,
+        "torch_scans": 8758,
+        "zombie_collision_candidates": 0,
+        "zombie_collision_full_scan": 0,
+        "zombie_collision_queries": 0,
+        "zombie_exact_tests": 0
+      },
+      "completed": true,
+      "local_crash_lines": [],
+      "report_sha256": "5de8923d91fb328fee5d99940dd05158184950018d6bfbe1bee57447c59ee0b8"
+    },
+    {
+      "scene": "mixed120",
+      "scenario": "mixed",
+      "requested_units": 120,
+      "composition": {
+        "plant:豌豆射手": 60,
+        "zombie:普通僵尸": 60
+      },
+      "fps": 9.489984816183867,
+      "wall_seconds": 30.137034520041198,
+      "simulated_seconds": 20.236,
+      "effective_simulation_rate": 0.6714661983926459,
+      "frame_interval_ms": {
+        "p50": 92.35588600859046,
+        "p95": 164.06489594373852,
+        "p99": 186.80010398384184,
+        "mean": 105.20022784915278,
+        "max": 224.827968981117,
+        "samples": 285
+      },
+      "phases_ms": {
+        "room_update": {
+          "total": 3634.4493308570236,
+          "mean": 12.707864793206376,
+          "p50": 11.117396061308682,
+          "p95": 18.28286494128406,
+          "p99": 67.74453108664602,
+          "samples": 286
+        },
+        "refresh": {
+          "total": 11274.235879420303,
+          "mean": 39.42040517279826,
+          "p50": 39.655936998315156,
+          "p95": 43.05036389268935,
+          "p99": 44.136042008176446,
+          "samples": 286
+        },
+        "render": {
+          "total": 7562.5303708948195,
+          "mean": 26.44241388424762,
+          "p50": 26.015260023996234,
+          "p95": 31.424843007698655,
+          "p99": 32.780832960270345,
+          "samples": 286
+        },
+        "screen_scale_blit": {
+          "total": 2557.0945243816823,
+          "mean": 8.940889945390497,
+          "p50": 8.894896018318832,
+          "p95": 9.156823041848838,
+          "p99": 9.665103978477418,
+          "samples": 286
+        },
+        "present": {
+          "total": 811.8853218620643,
+          "mean": 2.8387598666505744,
+          "p50": 2.778697991743684,
+          "p95": 3.3480729907751083,
+          "p99": 3.8046870613470674,
+          "samples": 286
+        }
+      },
+      "peak_sampled_pss_mib": 671.8466796875,
+      "battery_temperature_c": [
+        39.5,
+        40.0
+      ],
+      "min_plants": 60,
+      "min_zombies": 60,
+      "min_scale": 0.65,
+      "final_pacing": {
+        "cost_ratio": 0.297,
+        "scale": 0.65,
+        "slow": true
+      },
+      "initial_pacing": {
+        "cost_ratio": 0,
+        "scale": 1,
+        "slow": false
+      },
+      "final_population": {
+        "backlog_seconds": 0.02777078000000066,
+        "native_tick": 6275,
+        "plants": 60,
+        "projectiles": 18,
+        "zombies": 60
+      },
+      "native_performance_counters": {
+        "aim_candidates": 0,
+        "aim_full_scan": 0,
+        "aim_queries": 0,
+        "collision_candidates": 77756,
+        "collision_queries": 90640,
+        "content_candidates": 0,
+        "content_queries": 0,
+        "destination_queries": 0,
+        "destination_rebuilds": 0,
+        "destination_reuses": 0,
+        "empty_cell_skips": 85570,
+        "find_contact_calls": 5070,
+        "flood_calls": 12550,
+        "flood_cycles": 46,
+        "flood_expansions": 2406,
+        "flood_neighbors": 247228,
+        "full_scan_equivalent": 5529040,
+        "function_profile": {},
+        "head_candidates": 0,
+        "head_exact_tests": 0,
+        "head_full_scan": 0,
+        "head_queries": 0,
+        "head_spatial_bytes": 0,
+        "index_builds": 6529,
+        "native_entities": 18,
+        "nearest_candidates": 0,
+        "nearest_full_scan": 0,
+        "nearest_queries": 0,
+        "occupied_cells": 26,
+        "plant_target_candidates": 0,
+        "plant_target_reuses": 0,
+        "plant_target_scans": 0,
+        "point_grid_builds": 0,
+        "point_grid_cell_changes": 0,
+        "point_grid_moves": 0,
+        "primal_knock_targets": 0,
+        "primal_knock_velocity": 0,
+        "spatial_bytes": 26248,
+        "torch_batch_reuses": 0,
+        "torch_candidates": 759275,
+        "torch_scans": 6275,
+        "zombie_collision_candidates": 0,
+        "zombie_collision_full_scan": 0,
+        "zombie_collision_queries": 0,
+        "zombie_exact_tests": 0
+      },
+      "completed": true,
+      "local_crash_lines": [],
+      "report_sha256": "3889106a677e383367de2150c3a72c9bde66d59d843353d57c622d117070c8ab"
+    },
+    {
+      "scene": "barrage240",
+      "scenario": "barrage",
+      "requested_units": 240,
+      "composition": {
+        "plant:机枪射手": 40,
+        "zombie:普通僵尸": 120,
+        "plant:杨桃": 40,
+        "plant:香蒲": 40
+      },
+      "fps": 2.656746928145575,
+      "wall_seconds": 60.22402747697197,
+      "simulated_seconds": 27.532,
+      "effective_simulation_rate": 0.4571597276606499,
+      "frame_interval_ms": {
+        "p50": 354.07364601269364,
+        "p95": 653.5402090521529,
+        "p99": 1018.2955730706453,
+        "mean": 374.38009321431883,
+        "max": 1159.1002600034699,
+        "samples": 159
+      },
+      "phases_ms": {
+        "room_update": {
+          "total": 17458.55520281475,
+          "mean": 109.11597001759219,
+          "p50": 100.2010420197621,
+          "p95": 197.61963502969593,
+          "p99": 247.6512499852106,
+          "samples": 160
+        },
+        "refresh": {
+          "total": 16312.372907996178,
+          "mean": 101.95233067497611,
+          "p50": 98.05156197398901,
+          "p95": 125.03760401159525,
+          "p99": 128.17807297687978,
+          "samples": 160
+        },
+        "render": {
+          "total": 12855.046351905912,
+          "mean": 80.34403969941195,
+          "p50": 64.46937506552786,
+          "p95": 125.28562499210238,
+          "p99": 132.24312500096858,
+          "samples": 160
+        },
+        "screen_scale_blit": {
+          "total": 1403.7045255536214,
+          "mean": 8.773153284710133,
+          "p50": 8.763125049881637,
+          "p95": 8.84525990113616,
+          "p99": 8.894426980987191,
+          "samples": 160
+        },
+        "present": {
+          "total": 439.42282046191394,
+          "mean": 2.746392627886962,
+          "p50": 2.709271037019789,
+          "p95": 3.0454170191660523,
+          "p99": 3.5603129072114825,
+          "samples": 160
+        }
+      },
+      "peak_sampled_pss_mib": 719.568359375,
+      "battery_temperature_c": [
+        40.0,
+        40.8
+      ],
+      "min_plants": 120,
+      "min_zombies": 120,
+      "min_scale": 0.65,
+      "final_pacing": {
+        "cost_ratio": 0.78,
+        "scale": 0.65,
+        "slow": true
+      },
+      "initial_pacing": {
+        "cost_ratio": 0,
+        "scale": 1,
+        "slow": false
+      },
+      "final_population": {
+        "backlog_seconds": 0.02881266666666754,
+        "native_tick": 7633,
+        "plants": 120,
+        "projectiles": 130,
+        "zombies": 120
+      },
+      "native_performance_counters": {
+        "aim_candidates": 0,
+        "aim_full_scan": 0,
+        "aim_queries": 0,
+        "collision_candidates": 598700,
+        "collision_queries": 524513,
+        "content_candidates": 0,
+        "content_queries": 0,
+        "destination_queries": 0,
+        "destination_rebuilds": 0,
+        "destination_reuses": 0,
+        "empty_cell_skips": 487906,
+        "find_contact_calls": 36607,
+        "flood_calls": 15266,
+        "flood_cycles": 55,
+        "flood_expansions": 2927,
+        "flood_neighbors": 301496,
+        "full_scan_equivalent": 63466073,
+        "function_profile": {},
+        "head_candidates": 0,
+        "head_exact_tests": 0,
+        "head_full_scan": 0,
+        "head_queries": 0,
+        "head_spatial_bytes": 0,
+        "index_builds": 11389,
+        "native_entities": 130,
+        "nearest_candidates": 8951902,
+        "nearest_full_scan": 77335093,
+        "nearest_queries": 639133,
+        "occupied_cells": 31,
+        "plant_target_candidates": 0,
+        "plant_target_reuses": 0,
+        "plant_target_scans": 0,
+        "point_grid_builds": 0,
+        "point_grid_cell_changes": 0,
+        "point_grid_moves": 0,
+        "primal_knock_targets": 0,
+        "primal_knock_velocity": 0,
+        "spatial_bytes": 38656,
+        "torch_batch_reuses": 0,
+        "torch_candidates": 1839553,
+        "torch_scans": 7633,
+        "zombie_collision_candidates": 0,
+        "zombie_collision_full_scan": 0,
+        "zombie_collision_queries": 0,
+        "zombie_exact_tests": 0
+      },
+      "completed": true,
+      "local_crash_lines": [],
+      "report_sha256": "af550452e8f1942b2e092451b1491aa30c37ea5fd3fc6e31b2aca4f0066f6949"
+    },
+    {
+      "scene": "grabber120",
+      "scenario": "grabber",
+      "requested_units": 120,
+      "composition": {
+        "plant:抓人草": 30,
+        "zombie:普通僵尸": 60,
+        "plant:机枪射手": 30
+      },
+      "fps": 1.910726626354896,
+      "wall_seconds": 60.18652716395445,
+      "simulated_seconds": 19.5,
+      "effective_simulation_rate": 0.3239927757732215,
+      "frame_interval_ms": {
+        "p50": 490.75906293001026,
+        "p95": 682.1189579786733,
+        "p99": 898.407708038576,
+        "mean": 524.2262036496725,
+        "max": 903.8121349876747,
+        "samples": 114
+      },
+      "phases_ms": {
+        "room_update": {
+          "total": 20889.900778303854,
+          "mean": 181.6513111156857,
+          "p50": 169.9314060388133,
+          "p95": 244.5528650423512,
+          "p99": 517.6082809921354,
+          "samples": 115
+        },
+        "refresh": {
+          "total": 17332.14207936544,
+          "mean": 150.71427895100382,
+          "p50": 155.97010403871536,
+          "p95": 180.3363539511338,
+          "p99": 197.24859297275543,
+          "samples": 115
+        },
+        "render": {
+          "total": 16338.16717355512,
+          "mean": 142.07101890047932,
+          "p50": 141.2838539108634,
+          "p95": 172.55906201899052,
+          "p99": 187.21177091356367,
+          "samples": 115
+        },
+        "screen_scale_blit": {
+          "total": 1008.6003618780524,
+          "mean": 8.770437929374369,
+          "p50": 8.765156962908804,
+          "p95": 8.8408860610798,
+          "p99": 8.881718968041241,
+          "samples": 115
+        },
+        "present": {
+          "total": 318.26323457062244,
+          "mean": 2.76750638757063,
+          "p50": 2.7054159436374903,
+          "p95": 3.210886032320559,
+          "p99": 3.6213540006428957,
+          "samples": 115
+        }
+      },
+      "peak_sampled_pss_mib": 767.5283203125,
+      "battery_temperature_c": [
+        40.8,
+        40.2
+      ],
+      "min_plants": 147,
+      "min_zombies": 60,
+      "min_scale": 0.507,
+      "final_pacing": {
+        "cost_ratio": 1.067,
+        "scale": 0.507,
+        "slow": true
+      },
+      "initial_pacing": {
+        "cost_ratio": 0,
+        "scale": 1,
+        "slow": false
+      },
+      "final_population": {
+        "backlog_seconds": 0.03033119188147526,
+        "native_tick": 5575,
+        "plants": 147,
+        "projectiles": 6,
+        "zombies": 60
+      },
+      "native_performance_counters": {
+        "aim_candidates": 0,
+        "aim_full_scan": 0,
+        "aim_queries": 0,
+        "collision_candidates": 16119,
+        "collision_queries": 43522,
+        "content_candidates": 0,
+        "content_queries": 0,
+        "destination_queries": 0,
+        "destination_rebuilds": 0,
+        "destination_reuses": 0,
+        "empty_cell_skips": 36530,
+        "find_contact_calls": 6992,
+        "flood_calls": 11150,
+        "flood_cycles": 41,
+        "flood_expansions": 2138,
+        "flood_neighbors": 219428,
+        "full_scan_equivalent": 2654842,
+        "function_profile": {},
+        "head_candidates": 0,
+        "head_exact_tests": 0,
+        "head_full_scan": 0,
+        "head_queries": 0,
+        "head_spatial_bytes": 0,
+        "index_builds": 5940,
+        "native_entities": 6,
+        "nearest_candidates": 0,
+        "nearest_full_scan": 0,
+        "nearest_queries": 0,
+        "occupied_cells": 104,
+        "plant_target_candidates": 0,
+        "plant_target_reuses": 0,
+        "plant_target_scans": 0,
+        "point_grid_builds": 0,
+        "point_grid_cell_changes": 0,
+        "point_grid_moves": 0,
+        "primal_knock_targets": 0,
+        "primal_knock_velocity": 0,
+        "spatial_bytes": 31712,
+        "torch_batch_reuses": 0,
+        "torch_candidates": 1162000,
+        "torch_scans": 5575,
+        "zombie_collision_candidates": 0,
+        "zombie_collision_full_scan": 0,
+        "zombie_collision_queries": 0,
+        "zombie_exact_tests": 0
+      },
+      "completed": true,
+      "local_crash_lines": [],
+      "report_sha256": "a4306cac448504b895c72ea5ab4d742ed1c2e5a276c7bef5e992f2933cdd5981"
+    }
+  ],
+  "limitations": [
+    "Single run per scene, charging device, coarse periodic adb meminfo sampling.",
+    "Production pressure pacing enabled; FPS and simulated seconds reported separately.",
+    "Warm-up 5 seconds excluded from timing; fixed seed 301, all units 100000000 HP, heroes 1000000 HP.",
+    "Not a before/after benchmark, sustained endurance test, multiplayer test, or full Android acceptance.",
+    "Private savedata inaccessible to shell in non-debuggable production build. Update uses install -r; diagnostics use a temporary userdata directory."
+  ]
+}
