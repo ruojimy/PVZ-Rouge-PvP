@@ -876,7 +876,23 @@ void init() {
         }}
     }}
     (void)(pm_pvp71_catalog::f_install(Args{pm_catalog::CARDS}));
-    { auto it42_ = py::items_vec(py_dict({{SV("plant:路灯花"), SV("对战：横纵2.75格内、视线无遮挡的敌方僵尸戴夫会被标记，植物可锁定并攻击他。站立的植物戴夫靠近僵尸戴夫（约2.75格内且可见）时同样会标记他。")}, {SV("plant:大蒜"), SV("对战：海盗鹦鹉、乌鸦啃咬大蒜后眩晕0.5秒。")}, {SV("plant:南瓜头"), SV("保护壳：可直接套在己方植物上（含空中的飞行植物），每格限一个南瓜头或藤蔓；僵尸啃咬与豌豆优先打保护壳。铲子左键先铲保护壳，右键跳过保护壳。")}, {SV("plant:咖啡豆"), SV("唤醒同一格内全部沉睡植物（含被催眠的藤蔓等保护壳）；密植时不占主体或保护壳名额。")}, {SV("plant:花盆"), SV("花盆上的植物可以作为植物戴夫的传送目标。")}}));
+    // PvP74.2: keep the user-corrected hero damage after imported card installs.
+    for(const char* field : {"description", "native_description"}) {
+        V card = rd(pm_catalog::CARDS, SV("plant:抓人草"));
+        V text = py::m_get(card, V(field), SV(""));
+        pvz::setitem(card, V(field), callm(text, SY("replace"), Args{SV("僵尸戴夫受8伤害"), SV("僵尸戴夫受4伤害")}));
+    }
+    // PvP74.2: mirror the documented route interception without duplication.
+    {
+        const V note = SV("跟随或集结途中，会攻击挡在路径上的合法植物、魅惑僵尸或植物戴夫；受甜薯吸引时优先直奔甜薯。");
+        for(const char* bird : {"zombie:海盗鹦鹉", "zombie:乌鸦"})
+            for(const char* field : {"description", "native_description"}) {
+                V card = rd(pm_catalog::CARDS, V(bird));
+                V text = py::m_get(card, V(field), SV(""));
+                if(!py::in(note, text)) pvz::setitem(card, V(field), text + note);
+            }
+    }
+    { auto it42_ = py::items_vec(py_dict({{SV("plant:路灯花"), SV("对战：约4.6格（标准地图）内、视线无遮挡的敌方僵尸戴夫会被标记，植物可锁定并攻击他。站立的植物戴夫靠近僵尸戴夫（标准地图约4.6格内且可见）时同样会标记他。")}, {SV("plant:大蒜"), SV("对战：海盗鹦鹉、乌鸦啃咬大蒜后眩晕0.5秒。")}, {SV("plant:南瓜头"), SV("保护壳：可直接套在己方植物上（含空中的飞行植物），每格限一个南瓜头或藤蔓；僵尸啃咬与豌豆优先打保护壳。铲子左键先铲保护壳，右键跳过保护壳。")}, {SV("plant:咖啡豆"), SV("唤醒同一格内全部沉睡植物（含被催眠的藤蔓等保护壳）；密植时不占主体或保护壳名额。")}, {SV("plant:花盆"), SV("花盆上的植物可以作为植物戴夫的传送目标。")}}));
     for (size_t i42_ = 0; i42_ < it42_.size(); ++i42_) {
         pm_catalog::_key = it42_[i42_].first; pm_catalog::_note = it42_[i42_].second; 
         pm_catalog::_base = py::m_get(rd(pm_catalog::CARDS, pm_catalog::_key), SV("native_description"), SV(""));

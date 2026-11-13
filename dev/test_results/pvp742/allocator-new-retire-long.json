@@ -1,0 +1,307 @@
+{
+  "aligned_and_payload_intact": true,
+  "allocator_after": {
+    "central_blocks": 5632,
+    "central_reused_blocks": 640322,
+    "cross_thread_frees": 2002,
+    "legacy": false,
+    "slab_bytes": 720432,
+    "slab_count": 11,
+    "thread_cache_flushes": 2001
+  },
+  "allocator_before": {
+    "central_blocks": 586,
+    "central_reused_blocks": 1,
+    "cross_thread_frees": 2,
+    "legacy": false,
+    "slab_bytes": 327584,
+    "slab_count": 5,
+    "thread_cache_flushes": 1
+  },
+  "batch": 128,
+  "iterations": 2000,
+  "new_allocator_bounded": true,
+  "passed": true,
+  "payload_bytes_over_run": 49216000,
+  "private_bytes_after": 1777664,
+  "private_bytes_before": 1097728,
+  "requested_final_live_bytes": 0,
+  "requested_peak_bytes": 24632,
+  "samples": [
+    {
+      "allocator": {
+        "central_blocks": 586,
+        "central_reused_blocks": 1,
+        "cross_thread_frees": 2,
+        "legacy": false,
+        "slab_bytes": 327584,
+        "slab_count": 5,
+        "thread_cache_flushes": 1
+      },
+      "completed_batches": 0,
+      "private_bytes": 1097728,
+      "requested_live_bytes": 0,
+      "requested_peak_bytes": 0,
+      "wall_seconds": 1e-07
+    },
+    {
+      "allocator": {
+        "central_blocks": 4397,
+        "central_reused_blocks": 39682,
+        "cross_thread_frees": 127,
+        "legacy": false,
+        "slab_bytes": 720432,
+        "slab_count": 11,
+        "thread_cache_flushes": 126
+      },
+      "completed_batches": 125,
+      "private_bytes": 1495040,
+      "requested_live_bytes": 0,
+      "requested_peak_bytes": 24632,
+      "wall_seconds": 0.0089817
+    },
+    {
+      "allocator": {
+        "central_blocks": 4522,
+        "central_reused_blocks": 79682,
+        "cross_thread_frees": 252,
+        "legacy": false,
+        "slab_bytes": 720432,
+        "slab_count": 11,
+        "thread_cache_flushes": 251
+      },
+      "completed_batches": 250,
+      "private_bytes": 1495040,
+      "requested_live_bytes": 0,
+      "requested_peak_bytes": 24632,
+      "wall_seconds": 0.0174013
+    },
+    {
+      "allocator": {
+        "central_blocks": 4647,
+        "central_reused_blocks": 119682,
+        "cross_thread_frees": 377,
+        "legacy": false,
+        "slab_bytes": 720432,
+        "slab_count": 11,
+        "thread_cache_flushes": 376
+      },
+      "completed_batches": 375,
+      "private_bytes": 1495040,
+      "requested_live_bytes": 0,
+      "requested_peak_bytes": 24632,
+      "wall_seconds": 0.0253465
+    },
+    {
+      "allocator": {
+        "central_blocks": 4772,
+        "central_reused_blocks": 159682,
+        "cross_thread_frees": 502,
+        "legacy": false,
+        "slab_bytes": 720432,
+        "slab_count": 11,
+        "thread_cache_flushes": 501
+      },
+      "completed_batches": 500,
+      "private_bytes": 1495040,
+      "requested_live_bytes": 0,
+      "requested_peak_bytes": 24632,
+      "wall_seconds": 0.0340807
+    },
+    {
+      "allocator": {
+        "central_blocks": 4897,
+        "central_reused_blocks": 199682,
+        "cross_thread_frees": 627,
+        "legacy": false,
+        "slab_bytes": 720432,
+        "slab_count": 11,
+        "thread_cache_flushes": 626
+      },
+      "completed_batches": 625,
+      "private_bytes": 1495040,
+      "requested_live_bytes": 0,
+      "requested_peak_bytes": 24632,
+      "wall_seconds": 0.041642
+    },
+    {
+      "allocator": {
+        "central_blocks": 5022,
+        "central_reused_blocks": 239682,
+        "cross_thread_frees": 752,
+        "legacy": false,
+        "slab_bytes": 720432,
+        "slab_count": 11,
+        "thread_cache_flushes": 751
+      },
+      "completed_batches": 750,
+      "private_bytes": 1495040,
+      "requested_live_bytes": 0,
+      "requested_peak_bytes": 24632,
+      "wall_seconds": 0.0485671
+    },
+    {
+      "allocator": {
+        "central_blocks": 5147,
+        "central_reused_blocks": 279682,
+        "cross_thread_frees": 877,
+        "legacy": false,
+        "slab_bytes": 720432,
+        "slab_count": 11,
+        "thread_cache_flushes": 876
+      },
+      "completed_batches": 875,
+      "private_bytes": 1495040,
+      "requested_live_bytes": 0,
+      "requested_peak_bytes": 24632,
+      "wall_seconds": 0.0562545
+    },
+    {
+      "allocator": {
+        "central_blocks": 5272,
+        "central_reused_blocks": 319682,
+        "cross_thread_frees": 1002,
+        "legacy": false,
+        "slab_bytes": 720432,
+        "slab_count": 11,
+        "thread_cache_flushes": 1001
+      },
+      "completed_batches": 1000,
+      "private_bytes": 1495040,
+      "requested_live_bytes": 0,
+      "requested_peak_bytes": 24632,
+      "wall_seconds": 0.0644473
+    },
+    {
+      "allocator": {
+        "central_blocks": 5397,
+        "central_reused_blocks": 359682,
+        "cross_thread_frees": 1127,
+        "legacy": false,
+        "slab_bytes": 720432,
+        "slab_count": 11,
+        "thread_cache_flushes": 1126
+      },
+      "completed_batches": 1125,
+      "private_bytes": 1495040,
+      "requested_live_bytes": 0,
+      "requested_peak_bytes": 24632,
+      "wall_seconds": 0.0718667
+    },
+    {
+      "allocator": {
+        "central_blocks": 5522,
+        "central_reused_blocks": 399682,
+        "cross_thread_frees": 1252,
+        "legacy": false,
+        "slab_bytes": 720432,
+        "slab_count": 11,
+        "thread_cache_flushes": 1251
+      },
+      "completed_batches": 1250,
+      "private_bytes": 1495040,
+      "requested_live_bytes": 0,
+      "requested_peak_bytes": 24632,
+      "wall_seconds": 0.080433
+    },
+    {
+      "allocator": {
+        "central_blocks": 5583,
+        "central_reused_blocks": 439746,
+        "cross_thread_frees": 1377,
+        "legacy": false,
+        "slab_bytes": 720432,
+        "slab_count": 11,
+        "thread_cache_flushes": 1376
+      },
+      "completed_batches": 1375,
+      "private_bytes": 1495040,
+      "requested_live_bytes": 0,
+      "requested_peak_bytes": 24632,
+      "wall_seconds": 0.0880671
+    },
+    {
+      "allocator": {
+        "central_blocks": 5580,
+        "central_reused_blocks": 479874,
+        "cross_thread_frees": 1502,
+        "legacy": false,
+        "slab_bytes": 720432,
+        "slab_count": 11,
+        "thread_cache_flushes": 1501
+      },
+      "completed_batches": 1500,
+      "private_bytes": 1495040,
+      "requested_live_bytes": 0,
+      "requested_peak_bytes": 24632,
+      "wall_seconds": 0.0964456
+    },
+    {
+      "allocator": {
+        "central_blocks": 5577,
+        "central_reused_blocks": 520002,
+        "cross_thread_frees": 1627,
+        "legacy": false,
+        "slab_bytes": 720432,
+        "slab_count": 11,
+        "thread_cache_flushes": 1626
+      },
+      "completed_batches": 1625,
+      "private_bytes": 1495040,
+      "requested_live_bytes": 0,
+      "requested_peak_bytes": 24632,
+      "wall_seconds": 0.103889
+    },
+    {
+      "allocator": {
+        "central_blocks": 5574,
+        "central_reused_blocks": 560130,
+        "cross_thread_frees": 1752,
+        "legacy": false,
+        "slab_bytes": 720432,
+        "slab_count": 11,
+        "thread_cache_flushes": 1751
+      },
+      "completed_batches": 1750,
+      "private_bytes": 1495040,
+      "requested_live_bytes": 0,
+      "requested_peak_bytes": 24632,
+      "wall_seconds": 0.112072
+    },
+    {
+      "allocator": {
+        "central_blocks": 5635,
+        "central_reused_blocks": 600194,
+        "cross_thread_frees": 1877,
+        "legacy": false,
+        "slab_bytes": 720432,
+        "slab_count": 11,
+        "thread_cache_flushes": 1876
+      },
+      "completed_batches": 1875,
+      "private_bytes": 1495040,
+      "requested_live_bytes": 0,
+      "requested_peak_bytes": 24632,
+      "wall_seconds": 0.1197689
+    },
+    {
+      "allocator": {
+        "central_blocks": 5632,
+        "central_reused_blocks": 640322,
+        "cross_thread_frees": 2002,
+        "legacy": false,
+        "slab_bytes": 720432,
+        "slab_count": 11,
+        "thread_cache_flushes": 2001
+      },
+      "completed_batches": 2000,
+      "private_bytes": 1495040,
+      "requested_live_bytes": 0,
+      "requested_peak_bytes": 24632,
+      "wall_seconds": 0.127357
+    }
+  ],
+  "scope": "Independent process; requested new/delete bytes exclude slabs and foreign malloc. Windows PrivateBytes includes process commit; non-Windows fallback reports resident bytes.",
+  "slab_bytes_added": 392848,
+  "workload": "retire"
+}

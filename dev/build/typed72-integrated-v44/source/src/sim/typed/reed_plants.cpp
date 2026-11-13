@@ -31,6 +31,7 @@ std::vector<ContentTarget> ReedPlants::enemies(const PlantRef& plant) {
     return result;
 }
 std::optional<double> ReedPlants::in_cone(const PlantRef& plant,const ContentTarget& target)const {
+    ++queries_.range_exact_tests;
     const auto origin=targets_.point(plant),point=targets_.point(target);
     const double dx=wrap_delta(origin.x,point.x,world_.world_width.get()),dy=point.y-origin.y;
     const double distance=std::hypot(dx,dy);
@@ -44,7 +45,8 @@ std::optional<ContentTarget> ReedPlants::select(const PlantRef& plant) {
     std::optional<ContentTarget> chosen;
     std::pair<double,std::string> best;
     const bool closest=plant->source.content.get()=="闪电芦苇";
-    for(const auto& target:enemies(plant)) {
+    const auto origin=targets_.point(plant);const double r=12.*world_.runtime.tile;
+    for(const auto& target:queries_.enemies_in_box(source_ref(plant),{origin.x-r,origin.y-r,origin.x+r,origin.y+r})) {
         const auto distance=in_cone(plant,target);
         if(!distance)continue;
         const auto candidate=std::pair{*distance,world_.heroes.source_id(queries_.source(target))};
@@ -87,7 +89,9 @@ void ReedPlants::lightning(const PlantRef& plant,const ContentTarget& first) {
         const auto origin=targets_.point(current);
         std::optional<ContentTarget> best;
         std::pair<double,std::string> best_key;
-        for(const auto& other:enemies(plant)) {
+        const double r=world_.runtime.tile+1e-6;
+        for(const auto& other:queries_.enemies_in_box(source_ref(plant),{origin.x-r,origin.y-r,origin.x+r,origin.y+r})) {
+            ++queries_.range_exact_tests;
             const auto uid=world_.heroes.source_id(queries_.source(other));
             if(seen.contains(uid))continue;
             const auto point=targets_.point(other);
@@ -104,7 +108,8 @@ void ReedPlants::lightning(const PlantRef& plant,const ContentTarget& first) {
 std::vector<ContentTarget> ReedPlants::contacts(const PlantRef& plant,const ContentTarget& target) {
     const auto origin=targets_.point(plant),point=targets_.point(target);
     const Point delta{wrap_delta(origin.x,point.x,world_.world_width.get()),point.y-origin.y};
-    auto touched=enemies(plant);
+    auto touched=queries_.enemies_in_box(source_ref(plant),{std::min(origin.x,origin.x+delta.x),std::min(origin.y,point.y),std::max(origin.x,origin.x+delta.x),std::max(origin.y,point.y)});
+    queries_.range_exact_tests+=touched.size();
     std::erase_if(touched,[&](const auto& other){return other!=target && !targets_.contact(other,origin,delta);});
     return touched;
 }

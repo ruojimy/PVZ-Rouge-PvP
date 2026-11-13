@@ -528,12 +528,18 @@ _install_pvp71(CARDS)
 for _field in ('description','native_description'):
     CARDS['plant:抓人草'][_field] = CARDS['plant:抓人草'][_field].replace('僵尸戴夫受8伤害','僵尸戴夫受4伤害')
 
+# PvP74.2: following/rally flight can be intercepted; sweet-potato taunts win.
+for _bird in ('zombie:海盗鹦鹉', 'zombie:乌鸦'):
+    for _field in ('description', 'native_description'):
+        if '跟随或集结途中，会攻击挡在路径上的合法植物、魅惑僵尸或植物戴夫；受甜薯吸引时优先直奔甜薯。' not in CARDS[_bird][_field]:
+            CARDS[_bird][_field] += '跟随或集结途中，会攻击挡在路径上的合法植物、魅惑僵尸或植物戴夫；受甜薯吸引时优先直奔甜薯。'
+
 # PvP behaviour of original plants that their almanac text did not state. The
 # brief almanac reads `description`, empty for these, so it keeps the original
 # sentence first and then the PvP note.
 for _key,_note in {
-        'plant:路灯花': ('对战：横纵2.75格内、视线无遮挡的敌方僵尸戴夫会被标记，植物可锁定并攻击他。'
-                       '站立的植物戴夫靠近僵尸戴夫（约2.75格内且可见）时同样会标记他。'),
+        'plant:路灯花': ('对战：约4.6格（标准地图）内、视线无遮挡的敌方僵尸戴夫会被标记，植物可锁定并攻击他。'
+                       '站立的植物戴夫靠近僵尸戴夫（标准地图约4.6格内且可见）时同样会标记他。'),
         'plant:大蒜': '对战：海盗鹦鹉、乌鸦啃咬大蒜后眩晕0.5秒。',
         'plant:南瓜头': ('保护壳：可直接套在己方植物上（含空中的飞行植物），每格限一个南瓜头或藤蔓；'
                        '僵尸啃咬与豌豆优先打保护壳。铲子左键先铲保护壳，右键跳过保护壳。'),

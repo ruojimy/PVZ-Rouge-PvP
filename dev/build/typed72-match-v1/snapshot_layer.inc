@@ -151,7 +151,7 @@
         for(auto i=log.rbegin();i!=log.rend()&&rows.size()<n;++i)if(i->value("event",std::string{})!="input")rows.push_back(&*i);
         J out=J::array();for(auto i=rows.rbegin();i!=rows.rend();++i)out.push_back(**i);return out;
     }
-    J snapshot_json(){
+    J snapshot_json(bool include_frame=true){
         J units=J::array();
         for(const auto& u:published.units){
             J card=nullptr;
@@ -183,8 +183,9 @@
                 {"players",snapshot_players()},{"units",units},{"projectiles",J::array()},{"resources",resources},
                 {"command",commands.shared==PathMode::follow_hero?"follow":"attack"},{"events",events},{"terrain_revision",published.terrain.revision},
                 {"engine","original-native-250hz"},{"native_tick",battle.heroes.tick},
-                {"native_frame",canvas.frame_json(canvas.frames.frame())},{"native_placement_state",placement_state_json()},
+                {"native_placement_state",placement_state_json()},
                 {"audio",audio_snapshot()},{"pvp70",{{"projectiles",pvp70_projectiles()},{"tentacles",tentacles}}}};
+        if(include_frame)out["native_frame"]=canvas.frame_json(canvas.frames.frame());
         if(hero_flags.shared)out["rally_point"]={{"x",hero_flags.shared->x},{"y",hero_flags.shared->y}};
         if(zsecrets.enabled())out["zsecrets"]=zsecrets_json(now);
         if(battle.mode!=MatchMode::duel){

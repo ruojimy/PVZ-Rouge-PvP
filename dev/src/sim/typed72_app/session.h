@@ -10,6 +10,7 @@
 #include <functional>
 #include <memory>
 #include <optional>
+namespace pvz::typed72 {struct NativeFrame;}
 namespace pvz::typed72app {
 // Owned values from the authoritative typed match. No spans or native handles
 // escape a sample; the legacy planner/controller may project these at its exit.
@@ -32,8 +33,10 @@ public:
     // NativeBattle.command_input: "" on success, otherwise the rejection text.
     virtual std::string command(const std::string& side,const nlohmann::json& payload)=0;
     virtual void clear_input(const std::string& side)=0;
-    virtual void step()=0;                        // one room tick (dt seconds)
-    virtual nlohmann::json snapshot()=0;          // NativeBattle.snapshot() without "map"
+    virtual void step()=0;                       // one room tick, including its final display frame
+    virtual nlohmann::json snapshot(bool include_frame=true)=0;
+    virtual const typed72::NativeFrame& native_frame()const=0;
+    virtual nlohmann::json reference_native_frame()const=0; // explicit differential verification
     // Battle event log, read incrementally. The composition keeps it in its own json type
     // (ordered_json), so entries are converted by value; never hand out a reference.
     virtual size_t log_size()const=0;
@@ -86,6 +89,9 @@ public:
     // White-box record writes (battle._native_objects[id][k]=v, avatars[side].update(...)) applied
     // to the typed object; throws for a key the record view cannot write.
     virtual void native_set(bool avatar,const std::string& id,const nlohmann::json& fields)=0;
+    // Acceptance fixture only: retain an actually generated projectile, optionally
+    // isolate it and change its motion; kind, source, damage and RNG stay intact.
+    virtual void fixture_entity(size_t index,const nlohmann::json& fields,bool keep_only)=0;
     // NativeBattle.spawn(card, side, x, y, facing, temporary): unit id or nullopt.
     virtual std::optional<std::string> spawn(const std::string& key,const std::string& side,double x,double y,double facing,bool temporary)=0;
     // engine.rng state: {"mt":[624 words],"mti":index}.

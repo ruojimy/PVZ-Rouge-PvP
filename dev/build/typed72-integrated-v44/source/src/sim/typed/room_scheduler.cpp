@@ -137,7 +137,7 @@ void RoomScheduler::step(int64_t steps){
         const int64_t phase=int64_t(state_.native_phase)+250,count=phase/rules_.tick_rate;
         state_.native_phase=int(phase%rules_.tick_rate);
         const auto started=services_.monotonic_seconds();
-        for(int64_t index=0;index<count;++index)native_.run(index==count-1);
+        for(int64_t index=0;index<count;++index)native_.run(index==count-1&&!state_.defer_capture);
         if(count){
             const auto ratio=(services_.monotonic_seconds()-started)/(count/250.);
             state_.native_cost_ratio=state_.native_cost_ratio?*state_.native_cost_ratio*(1.-.08)+ratio*.08:ratio;

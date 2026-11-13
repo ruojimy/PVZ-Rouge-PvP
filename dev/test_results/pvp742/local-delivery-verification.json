@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "version": "1.6.0.74.2-typed.20261113",
+  "launcher": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\启动PvP.cmd",
+  "target": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\PVZ_rougePvP_native\\PvZPvPNative.exe",
+  "exe_sha256": "c21032a51cdab66e4382865cabd36a1ba3cba07220285064c4b78d78f495b846",
+  "shipped_files_verified": 3629,
+  "userdata_files_verified": 544,
+  "all_user_files_preserved": true,
+  "backup_versions": [
+    "1.6.0.74.1-typed.20261113"
+  ],
+  "backup_files": 2,
+  "backup_folder": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\backup-latest",
+  "source_package": "pending final archive",
+  "github": "pending upload"
+}

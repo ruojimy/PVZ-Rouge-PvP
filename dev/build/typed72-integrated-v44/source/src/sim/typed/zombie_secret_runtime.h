@@ -29,6 +29,12 @@ struct ZombieSecretPickup {
     Point position;
     const CombatZombie* dropper=nullptr;
     std::optional<std::string> black;
+    // Stable identity survives allocator address reuse after the dropper dies.
+    std::string dropper_id;
+    bool dropped_by(const CombatZombie& unit)const{
+        const auto& id=unit.source.id;
+        return !dropper_id.empty()?(id.present()&&!id.is_null()&&id.get()==dropper_id):&unit==dropper;
+    }
 };
 // zombie_secrets.ZombieSecrets runtime: the 30 Hz step and its state hooks.
 // Spawn-time, damage-factor, last-stand and pressure rules already have their

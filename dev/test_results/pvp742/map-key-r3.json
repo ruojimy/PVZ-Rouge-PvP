@@ -1,0 +1,48 @@
+{
+  "checks": [
+    {
+      "evidence": {
+        "expected_exceptions_only": true,
+        "std_map_missing_key": "invalid map<K, T> key",
+        "std_unordered_map_missing_key": "invalid unordered_map<K, T> key"
+      },
+      "name": "toolchain_exception_fingerprint",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "actual_world_frames": 30,
+        "level1_observations": 133,
+        "level2_observations": 134,
+        "room_ticks": 150
+      },
+      "name": "real_poison_levels_and_repeated_world_draw",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "distinct_plants": 70,
+        "room_ticks": 18,
+        "scope": "Observed more than 64 distinct selected plants in separate cells; no claim of measured internal cache rebuild count.",
+        "selected_unique_target_records_max": 70,
+        "world_frames": 6,
+        "yeti_count": 70
+      },
+      "name": "more_than_64_distinct_yeti_goal_cells",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "actual_world_frames": 48,
+        "independent_sessions": 4,
+        "real_spawns": 192,
+        "scope": "Deterministic bounded reproduction attempts, not proof that a rare live cooperative crash cannot occur."
+      },
+      "name": "mixed_dense_sessions_create_draw_destroy",
+      "passed": true
+    }
+  ],
+  "failures": 0,
+  "passed": true,
+  "scope": "Real production Session and WorldView; isolated SDL dummy userdata. No current game interaction, no map exceptions swallowed in production, no default key insertion repair."
+}

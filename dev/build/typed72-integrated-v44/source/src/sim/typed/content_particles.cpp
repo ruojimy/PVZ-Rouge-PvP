@@ -3,6 +3,7 @@
 namespace pvz::typed72 {
 void ContentParticles::emit(CombatRuntime& runtime,const std::string& name,Point position,int count,std::optional<int> direction) {
     if(&runtime!=&world_.runtime)throw std::logic_error("content particles belong to another battle");
+    if(observe)observe(name,position);
     const auto index=world_.heroes.source_index;
     PlantRef plant;
     if(index&&*index>=0&&uint64_t(*index)<world_.plant_roster->size())plant=world_.plant_roster->at(size_t(*index));

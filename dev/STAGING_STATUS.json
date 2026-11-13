@@ -1,0 +1,19 @@
+{
+  "version": "PvP74.2",
+  "status": "source-ready-PC-validated-Android-device-pending",
+  "created_utc": "2026-11-13T19:10:26.703967+00:00",
+  "full_regression_counts": {
+    "PASS": 2324,
+    "FAIL": 30,
+    "ERROR": 12,
+    "SKIP": 0
+  },
+  "new_nonpass": [],
+  "pure_typed_gate_passed": true,
+  "pending": [
+    "real Android performance/device acceptance",
+    "reported unreproduced crashes and long-session memory growth"
+  ],
+  "contains_user_saves_or_raw_device_logs": false,
+  "final_zip_created_by_this_run": false
+}

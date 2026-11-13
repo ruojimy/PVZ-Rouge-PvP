@@ -1,0 +1,1211 @@
+{
+  "bounded_checks_without_exception": true,
+  "full_64_frame_cases": [
+    "mixed 120 requested ->156 actual units",
+    "dense mixed 120 requested ->156 actual units",
+    "grabber60 requested ->30roots+90heads+30zombies=150 actual units",
+    "grabber120 requested ->60roots+180heads+60zombies=300 actual units; explicit followup+512MiB cap"
+  ],
+  "partial_case": "The original300entity +256MiB run stopped after3frames; parent then explicitly authorized one +512MiB64frame followup, both allocator children completed.",
+  "all_four_hashes_equal_at_matching_completed_frames": true,
+  "findings": [
+    "WorldView runtime was created once on first draw and reused for every measured frame; three NativeRuntime initializations total include two setup hosts.",
+    "The global resolved-asset map and WorldView source map remained 3316 entries / 90866884 referenced Surface bytes after first render. They may share Surface ownership and must not be summed.",
+    "No dynamic @load/WxH assets were requested. No per-frame symbol growth was observed after first rendering.",
+    "DrawReplay recipe cache warmed toward its existing 32MiB budget, with bounded item counts. This is expected resident cache cost, not proof of leakage.",
+    "New and legacy allocator runs had identical requested-live payload at matching frames; observed private-commit differences were small compared with common scene/resource costs.",
+    "The 300-entity grabber run is explicitly incomplete and cannot demonstrate steady-state or long-duration stability.",
+    "The300entity followup with the authorized+512MiB limit completed64frames for both allocators. Late32frames requested live increased585966bytes in each child; latePrivateBytes increased4956160/2654208bytes. No cap was hit.",
+    "All measured main DrawReplay cache Surfaces had empty parent chains. At finalframe their unique backing stores were28975668bytes against33523686bytes of accounted cache budget; no hidden larger parent was retained.",
+    "Surface.copy is a true independent allocation. A16MiB source weak pointer expired after its view was released while the8x8 copied crop256bytes and16x16 scale1024bytes remained alive.",
+    "Global SDL-owned backing bytes stabilized around290353308bytes, peak290859888; this includes shared fixturehost/guest resources and is not standaloneguestusage.",
+    "The local_scaled branch already counts both original source and scaled Surface in production when distinct. Actualguest localcache remained empty, so that proposed underbudget cause was excluded."
+  ],
+  "limits": [
+    "All completedcases span64displayframes/about2.13simulatedseconds; no longsessionstabilityclaim.",
+    "Test process retains a real host plus source fixture and guest; absolute PrivateBytes is not standalone guest usage.",
+    "Only the tested original materials, camera, map and unit combinations were exercised; no dynamic resource-size churn, many room changes, real remote host or user content.",
+    "Neither bad allocation nor invalid map<K,T> key was reproduced by these valid bounded cases; actual3.8GiB process growth remains unexplained.",
+    "Initialcase used+256MiB includingcoldfirstdraw; one300entityfollowup explicitly authorized +512MiB before running. Both thresholds and partial/full outcomes retained in evidence."
+  ],
+  "unmodified_source_risks": [
+    {
+      "file": "src/ui/hand/draw_replay.cpp",
+      "function": "resolve_asset",
+      "observation": "process-static map has no byte limit, including dynamic keys; only finite ordinary assets observed, so no behavioral change made"
+    },
+    {
+      "file": "src/sim/pvp/hand/runtime.cpp",
+      "function": "new_match_ns",
+      "observation": "explicit __self_ns cycle; repeated WorldView runtime creation is a lifecycle risk, but runtime reused in these tests"
+    },
+    {
+      "file": "build/typed72-match-v1/frame_layer.inc",
+      "function": "flat_sprite/flat_images",
+      "observation": "one entry per squashed entity without visible retirement; these scenes did not trigger crushing, so no causal claim or change"
+    }
+  ],
+  "code_changes": "Read-onlycachemetrics, opt-inNativeRuntime/WorldViewtimers, defaultoffPVP742_SURFACE_MEMORYownedSDLcounters, reusableactualFrameDecoderfixture, boundedguestdrawaudit/runner. No cachecapacitychange, blanketclearing, or productionexceptionmasking.",
+  "binary_sha256": "0b6a5f396c2668c957c14a358f6cdbeb6b811261c15bfeba3bc8adbb5c08b3f5",
+  "reports": [
+    "test_results/pvp742/guest-render-memory-flat-r5/summary.json",
+    "test_results/pvp742/guest-render-memory-grabber60-r6/summary.json",
+    "test_results/pvp742/guest-render-memory-grabber120-r7/summary.json"
+  ],
+  "comparisons": [
+    {
+      "scene": "mixed",
+      "same_completed_frames": true,
+      "host_state_sha256_equal": true,
+      "native_frame_sha256_equal": true,
+      "guest_view_sha256_equal": true,
+      "rendered_pixels_sha256_equal": true,
+      "0": {
+        "completed_frames": 64,
+        "stopped_at_256MiB": false,
+        "cold_to_last_private_growth": 177086464,
+        "first_to_last_private_growth": 25305088,
+        "late_private_growth": 0,
+        "first_to_last_requested_live_growth": 24870131,
+        "late_requested_live_growth": 221240,
+        "first_to_last_slab_growth": 41929440,
+        "requested_peak_bytes_max": 105240176,
+        "draw_before": {
+          "art_images": 0,
+          "art_scaled": 0,
+          "bridge_surface_cache": {
+            "bytes": 0,
+            "items": 0
+          },
+          "dynamic_loads": 0,
+          "frame_key_bytes": 0,
+          "frame_key_items": 0,
+          "interned_symbols": 7021,
+          "last_visuals": 0,
+          "local_bytes": 0,
+          "local_items": 0,
+          "native_runtime_creations": 2,
+          "recipe_bytes": 0,
+          "recipe_items": 0,
+          "renderer_images": 0,
+          "renderer_scaled": 0,
+          "replay_asset_items": 0,
+          "resolved_asset_cache": {
+            "bytes": 81668536,
+            "dynamic_bytes": 0,
+            "dynamic_items": 0,
+            "items": 3015,
+            "max_height": 1536,
+            "max_width": 960
+          },
+          "sampled_png_cache": {
+            "bytes": 92160,
+            "items": 4
+          },
+          "world_layer_bytes": 0,
+          "world_runtime_creations": 0,
+          "world_source_surface_bytes": 0,
+          "world_sources": 0
+        },
+        "draw_after": {
+          "art_images": 1,
+          "art_scaled": 2,
+          "bridge_surface_cache": {
+            "bytes": 172960,
+            "items": 12
+          },
+          "dynamic_loads": 0,
+          "frame_key_bytes": 950978,
+          "frame_key_items": 224,
+          "interned_symbols": 7425,
+          "last_visuals": 150,
+          "local_bytes": 0,
+          "local_items": 0,
+          "native_runtime_creations": 3,
+          "recipe_bytes": 33475276,
+          "recipe_items": 445,
+          "renderer_images": 16,
+          "renderer_scaled": 10,
+          "replay_asset_items": 0,
+          "resolved_asset_cache": {
+            "bytes": 90866884,
+            "dynamic_bytes": 0,
+            "dynamic_items": 0,
+            "items": 3316,
+            "max_height": 1536,
+            "max_width": 960
+          },
+          "sampled_png_cache": {
+            "bytes": 92160,
+            "items": 4
+          },
+          "world_layer_bytes": 0,
+          "world_runtime_creations": 1,
+          "world_source_surface_bytes": 90866884,
+          "world_sources": 3316
+        },
+        "final_units": 156,
+        "final_draw_commands": 416
+      },
+      "1": {
+        "completed_frames": 64,
+        "stopped_at_256MiB": false,
+        "cold_to_last_private_growth": 178810880,
+        "first_to_last_private_growth": 26759168,
+        "late_private_growth": 0,
+        "first_to_last_requested_live_growth": 24870131,
+        "late_requested_live_growth": 221240,
+        "first_to_last_slab_growth": 41798880,
+        "requested_peak_bytes_max": 105240176,
+        "draw_before": {
+          "art_images": 0,
+          "art_scaled": 0,
+          "bridge_surface_cache": {
+            "bytes": 0,
+            "items": 0
+          },
+          "dynamic_loads": 0,
+          "frame_key_bytes": 0,
+          "frame_key_items": 0,
+          "interned_symbols": 7021,
+          "last_visuals": 0,
+          "local_bytes": 0,
+          "local_items": 0,
+          "native_runtime_creations": 2,
+          "recipe_bytes": 0,
+          "recipe_items": 0,
+          "renderer_images": 0,
+          "renderer_scaled": 0,
+          "replay_asset_items": 0,
+          "resolved_asset_cache": {
+            "bytes": 81668536,
+            "dynamic_bytes": 0,
+            "dynamic_items": 0,
+            "items": 3015,
+            "max_height": 1536,
+            "max_width": 960
+          },
+          "sampled_png_cache": {
+            "bytes": 92160,
+            "items": 4
+          },
+          "world_layer_bytes": 0,
+          "world_runtime_creations": 0,
+          "world_source_surface_bytes": 0,
+          "world_sources": 0
+        },
+        "draw_after": {
+          "art_images": 1,
+          "art_scaled": 2,
+          "bridge_surface_cache": {
+            "bytes": 172960,
+            "items": 12
+          },
+          "dynamic_loads": 0,
+          "frame_key_bytes": 950978,
+          "frame_key_items": 224,
+          "interned_symbols": 7425,
+          "last_visuals": 150,
+          "local_bytes": 0,
+          "local_items": 0,
+          "native_runtime_creations": 3,
+          "recipe_bytes": 33475276,
+          "recipe_items": 445,
+          "renderer_images": 16,
+          "renderer_scaled": 10,
+          "replay_asset_items": 0,
+          "resolved_asset_cache": {
+            "bytes": 90866884,
+            "dynamic_bytes": 0,
+            "dynamic_items": 0,
+            "items": 3316,
+            "max_height": 1536,
+            "max_width": 960
+          },
+          "sampled_png_cache": {
+            "bytes": 92160,
+            "items": 4
+          },
+          "world_layer_bytes": 0,
+          "world_runtime_creations": 1,
+          "world_source_surface_bytes": 90866884,
+          "world_sources": 3316
+        },
+        "final_units": 156,
+        "final_draw_commands": 416
+      }
+    },
+    {
+      "scene": "grabber",
+      "same_completed_frames": true,
+      "host_state_sha256_equal": true,
+      "native_frame_sha256_equal": true,
+      "guest_view_sha256_equal": true,
+      "rendered_pixels_sha256_equal": true,
+      "0": {
+        "completed_frames": 3,
+        "stopped_at_256MiB": true,
+        "cold_to_last_private_growth": 281661440,
+        "first_to_last_private_growth": 88231936,
+        "late_private_growth": 42868736,
+        "first_to_last_requested_live_growth": 42911877,
+        "late_requested_live_growth": 7072995,
+        "first_to_last_slab_growth": 71321280,
+        "requested_peak_bytes_max": 174121062,
+        "draw_before": {
+          "art_images": 0,
+          "art_scaled": 0,
+          "bridge_surface_cache": {
+            "bytes": 0,
+            "items": 0
+          },
+          "dynamic_loads": 0,
+          "frame_key_bytes": 0,
+          "frame_key_items": 0,
+          "interned_symbols": 7012,
+          "last_visuals": 0,
+          "local_bytes": 0,
+          "local_items": 0,
+          "native_runtime_creations": 2,
+          "recipe_bytes": 0,
+          "recipe_items": 0,
+          "renderer_images": 0,
+          "renderer_scaled": 0,
+          "replay_asset_items": 0,
+          "resolved_asset_cache": {
+            "bytes": 81668536,
+            "dynamic_bytes": 0,
+            "dynamic_items": 0,
+            "items": 3015,
+            "max_height": 1536,
+            "max_width": 960
+          },
+          "sampled_png_cache": {
+            "bytes": 92160,
+            "items": 4
+          },
+          "world_layer_bytes": 0,
+          "world_runtime_creations": 0,
+          "world_source_surface_bytes": 0,
+          "world_sources": 0
+        },
+        "draw_after": {
+          "art_images": 1,
+          "art_scaled": 2,
+          "bridge_surface_cache": {
+            "bytes": 172960,
+            "items": 12
+          },
+          "dynamic_loads": 0,
+          "frame_key_bytes": 2969632,
+          "frame_key_items": 445,
+          "interned_symbols": 7414,
+          "last_visuals": 294,
+          "local_bytes": 0,
+          "local_items": 0,
+          "native_runtime_creations": 3,
+          "recipe_bytes": 13851770,
+          "recipe_items": 297,
+          "renderer_images": 16,
+          "renderer_scaled": 10,
+          "replay_asset_items": 0,
+          "resolved_asset_cache": {
+            "bytes": 90866884,
+            "dynamic_bytes": 0,
+            "dynamic_items": 0,
+            "items": 3316,
+            "max_height": 1536,
+            "max_width": 960
+          },
+          "sampled_png_cache": {
+            "bytes": 92160,
+            "items": 4
+          },
+          "world_layer_bytes": 0,
+          "world_runtime_creations": 1,
+          "world_source_surface_bytes": 90866884,
+          "world_sources": 3316
+        },
+        "final_units": 300,
+        "final_draw_commands": 602
+      },
+      "1": {
+        "completed_frames": 3,
+        "stopped_at_256MiB": true,
+        "cold_to_last_private_growth": 280879104,
+        "first_to_last_private_growth": 87162880,
+        "late_private_growth": 41664512,
+        "first_to_last_requested_live_growth": 42911877,
+        "late_requested_live_growth": 7072995,
+        "first_to_last_slab_growth": 71321280,
+        "requested_peak_bytes_max": 174121062,
+        "draw_before": {
+          "art_images": 0,
+          "art_scaled": 0,
+          "bridge_surface_cache": {
+            "bytes": 0,
+            "items": 0
+          },
+          "dynamic_loads": 0,
+          "frame_key_bytes": 0,
+          "frame_key_items": 0,
+          "interned_symbols": 7012,
+          "last_visuals": 0,
+          "local_bytes": 0,
+          "local_items": 0,
+          "native_runtime_creations": 2,
+          "recipe_bytes": 0,
+          "recipe_items": 0,
+          "renderer_images": 0,
+          "renderer_scaled": 0,
+          "replay_asset_items": 0,
+          "resolved_asset_cache": {
+            "bytes": 81668536,
+            "dynamic_bytes": 0,
+            "dynamic_items": 0,
+            "items": 3015,
+            "max_height": 1536,
+            "max_width": 960
+          },
+          "sampled_png_cache": {
+            "bytes": 92160,
+            "items": 4
+          },
+          "world_layer_bytes": 0,
+          "world_runtime_creations": 0,
+          "world_source_surface_bytes": 0,
+          "world_sources": 0
+        },
+        "draw_after": {
+          "art_images": 1,
+          "art_scaled": 2,
+          "bridge_surface_cache": {
+            "bytes": 172960,
+            "items": 12
+          },
+          "dynamic_loads": 0,
+          "frame_key_bytes": 2969632,
+          "frame_key_items": 445,
+          "interned_symbols": 7414,
+          "last_visuals": 294,
+          "local_bytes": 0,
+          "local_items": 0,
+          "native_runtime_creations": 3,
+          "recipe_bytes": 13851770,
+          "recipe_items": 297,
+          "renderer_images": 16,
+          "renderer_scaled": 10,
+          "replay_asset_items": 0,
+          "resolved_asset_cache": {
+            "bytes": 90866884,
+            "dynamic_bytes": 0,
+            "dynamic_items": 0,
+            "items": 3316,
+            "max_height": 1536,
+            "max_width": 960
+          },
+          "sampled_png_cache": {
+            "bytes": 92160,
+            "items": 4
+          },
+          "world_layer_bytes": 0,
+          "world_runtime_creations": 1,
+          "world_source_surface_bytes": 90866884,
+          "world_sources": 3316
+        },
+        "final_units": 300,
+        "final_draw_commands": 602
+      }
+    },
+    {
+      "scene": "dense",
+      "same_completed_frames": true,
+      "host_state_sha256_equal": true,
+      "native_frame_sha256_equal": true,
+      "guest_view_sha256_equal": true,
+      "rendered_pixels_sha256_equal": true,
+      "0": {
+        "completed_frames": 64,
+        "stopped_at_256MiB": false,
+        "cold_to_last_private_growth": 175120384,
+        "first_to_last_private_growth": 26476544,
+        "late_private_growth": 2957312,
+        "first_to_last_requested_live_growth": 25630509,
+        "late_requested_live_growth": -100866,
+        "first_to_last_slab_growth": 42125904,
+        "requested_peak_bytes_max": 102984754,
+        "draw_before": {
+          "art_images": 0,
+          "art_scaled": 0,
+          "bridge_surface_cache": {
+            "bytes": 0,
+            "items": 0
+          },
+          "dynamic_loads": 0,
+          "frame_key_bytes": 0,
+          "frame_key_items": 0,
+          "interned_symbols": 7021,
+          "last_visuals": 0,
+          "local_bytes": 0,
+          "local_items": 0,
+          "native_runtime_creations": 2,
+          "recipe_bytes": 0,
+          "recipe_items": 0,
+          "renderer_images": 0,
+          "renderer_scaled": 0,
+          "replay_asset_items": 0,
+          "resolved_asset_cache": {
+            "bytes": 81668536,
+            "dynamic_bytes": 0,
+            "dynamic_items": 0,
+            "items": 3015,
+            "max_height": 1536,
+            "max_width": 960
+          },
+          "sampled_png_cache": {
+            "bytes": 92160,
+            "items": 4
+          },
+          "world_layer_bytes": 0,
+          "world_runtime_creations": 0,
+          "world_source_surface_bytes": 0,
+          "world_sources": 0
+        },
+        "draw_after": {
+          "art_images": 1,
+          "art_scaled": 2,
+          "bridge_surface_cache": {
+            "bytes": 172960,
+            "items": 12
+          },
+          "dynamic_loads": 0,
+          "frame_key_bytes": 933502,
+          "frame_key_items": 162,
+          "interned_symbols": 7425,
+          "last_visuals": 155,
+          "local_bytes": 0,
+          "local_items": 0,
+          "native_runtime_creations": 3,
+          "recipe_bytes": 33500736,
+          "recipe_items": 280,
+          "renderer_images": 16,
+          "renderer_scaled": 10,
+          "replay_asset_items": 0,
+          "resolved_asset_cache": {
+            "bytes": 90866884,
+            "dynamic_bytes": 0,
+            "dynamic_items": 0,
+            "items": 3316,
+            "max_height": 1536,
+            "max_width": 960
+          },
+          "sampled_png_cache": {
+            "bytes": 92160,
+            "items": 4
+          },
+          "world_layer_bytes": 0,
+          "world_runtime_creations": 1,
+          "world_source_surface_bytes": 90866884,
+          "world_sources": 3316
+        },
+        "final_units": 156,
+        "final_draw_commands": 403
+      },
+      "1": {
+        "completed_frames": 64,
+        "stopped_at_256MiB": false,
+        "cold_to_last_private_growth": 175251456,
+        "first_to_last_private_growth": 26386432,
+        "late_private_growth": 3952640,
+        "first_to_last_requested_live_growth": 25630509,
+        "late_requested_live_growth": -100866,
+        "first_to_last_slab_growth": 41995344,
+        "requested_peak_bytes_max": 102984754,
+        "draw_before": {
+          "art_images": 0,
+          "art_scaled": 0,
+          "bridge_surface_cache": {
+            "bytes": 0,
+            "items": 0
+          },
+          "dynamic_loads": 0,
+          "frame_key_bytes": 0,
+          "frame_key_items": 0,
+          "interned_symbols": 7021,
+          "last_visuals": 0,
+          "local_bytes": 0,
+          "local_items": 0,
+          "native_runtime_creations": 2,
+          "recipe_bytes": 0,
+          "recipe_items": 0,
+          "renderer_images": 0,
+          "renderer_scaled": 0,
+          "replay_asset_items": 0,
+          "resolved_asset_cache": {
+            "bytes": 81668536,
+            "dynamic_bytes": 0,
+            "dynamic_items": 0,
+            "items": 3015,
+            "max_height": 1536,
+            "max_width": 960
+          },
+          "sampled_png_cache": {
+            "bytes": 92160,
+            "items": 4
+          },
+          "world_layer_bytes": 0,
+          "world_runtime_creations": 0,
+          "world_source_surface_bytes": 0,
+          "world_sources": 0
+        },
+        "draw_after": {
+          "art_images": 1,
+          "art_scaled": 2,
+          "bridge_surface_cache": {
+            "bytes": 172960,
+            "items": 12
+          },
+          "dynamic_loads": 0,
+          "frame_key_bytes": 933502,
+          "frame_key_items": 162,
+          "interned_symbols": 7425,
+          "last_visuals": 155,
+          "local_bytes": 0,
+          "local_items": 0,
+          "native_runtime_creations": 3,
+          "recipe_bytes": 33500736,
+          "recipe_items": 280,
+          "renderer_images": 16,
+          "renderer_scaled": 10,
+          "replay_asset_items": 0,
+          "resolved_asset_cache": {
+            "bytes": 90866884,
+            "dynamic_bytes": 0,
+            "dynamic_items": 0,
+            "items": 3316,
+            "max_height": 1536,
+            "max_width": 960
+          },
+          "sampled_png_cache": {
+            "bytes": 92160,
+            "items": 4
+          },
+          "world_layer_bytes": 0,
+          "world_runtime_creations": 1,
+          "world_source_surface_bytes": 90866884,
+          "world_sources": 3316
+        },
+        "final_units": 156,
+        "final_draw_commands": 403
+      }
+    },
+    {
+      "scene": "grabber",
+      "same_completed_frames": true,
+      "host_state_sha256_equal": true,
+      "native_frame_sha256_equal": true,
+      "guest_view_sha256_equal": true,
+      "rendered_pixels_sha256_equal": true,
+      "0": {
+        "completed_frames": 64,
+        "stopped_at_256MiB": false,
+        "cold_to_last_private_growth": 197713920,
+        "first_to_last_private_growth": 37154816,
+        "late_private_growth": 1110016,
+        "first_to_last_requested_live_growth": 34540053,
+        "late_requested_live_growth": 251503,
+        "first_to_last_slab_growth": 51535760,
+        "requested_peak_bytes_max": 121752607,
+        "draw_before": {
+          "art_images": 0,
+          "art_scaled": 0,
+          "bridge_surface_cache": {
+            "bytes": 0,
+            "items": 0
+          },
+          "dynamic_loads": 0,
+          "frame_key_bytes": 0,
+          "frame_key_items": 0,
+          "interned_symbols": 7012,
+          "last_visuals": 0,
+          "local_bytes": 0,
+          "local_items": 0,
+          "native_runtime_creations": 2,
+          "recipe_bytes": 0,
+          "recipe_items": 0,
+          "renderer_images": 0,
+          "renderer_scaled": 0,
+          "replay_asset_items": 0,
+          "resolved_asset_cache": {
+            "bytes": 81668536,
+            "dynamic_bytes": 0,
+            "dynamic_items": 0,
+            "items": 3015,
+            "max_height": 1536,
+            "max_width": 960
+          },
+          "sampled_png_cache": {
+            "bytes": 92160,
+            "items": 4
+          },
+          "world_layer_bytes": 0,
+          "world_runtime_creations": 0,
+          "world_source_surface_bytes": 0,
+          "world_sources": 0
+        },
+        "draw_after": {
+          "art_images": 1,
+          "art_scaled": 2,
+          "bridge_surface_cache": {
+            "bytes": 172960,
+            "items": 12
+          },
+          "dynamic_loads": 0,
+          "frame_key_bytes": 1866264,
+          "frame_key_items": 225,
+          "interned_symbols": 7414,
+          "last_visuals": 148,
+          "local_bytes": 0,
+          "local_items": 0,
+          "native_runtime_creations": 3,
+          "recipe_bytes": 33518014,
+          "recipe_items": 353,
+          "renderer_images": 16,
+          "renderer_scaled": 10,
+          "replay_asset_items": 0,
+          "resolved_asset_cache": {
+            "bytes": 90866884,
+            "dynamic_bytes": 0,
+            "dynamic_items": 0,
+            "items": 3316,
+            "max_height": 1536,
+            "max_width": 960
+          },
+          "sampled_png_cache": {
+            "bytes": 92160,
+            "items": 4
+          },
+          "world_layer_bytes": 0,
+          "world_runtime_creations": 1,
+          "world_source_surface_bytes": 90866884,
+          "world_sources": 3316
+        },
+        "final_units": 150,
+        "final_draw_commands": 302
+      },
+      "1": {
+        "completed_frames": 64,
+        "stopped_at_256MiB": false,
+        "cold_to_last_private_growth": 198406144,
+        "first_to_last_private_growth": 37752832,
+        "late_private_growth": 1486848,
+        "first_to_last_requested_live_growth": 34540053,
+        "late_requested_live_growth": 251503,
+        "first_to_last_slab_growth": 51535760,
+        "requested_peak_bytes_max": 121752607,
+        "draw_before": {
+          "art_images": 0,
+          "art_scaled": 0,
+          "bridge_surface_cache": {
+            "bytes": 0,
+            "items": 0
+          },
+          "dynamic_loads": 0,
+          "frame_key_bytes": 0,
+          "frame_key_items": 0,
+          "interned_symbols": 7012,
+          "last_visuals": 0,
+          "local_bytes": 0,
+          "local_items": 0,
+          "native_runtime_creations": 2,
+          "recipe_bytes": 0,
+          "recipe_items": 0,
+          "renderer_images": 0,
+          "renderer_scaled": 0,
+          "replay_asset_items": 0,
+          "resolved_asset_cache": {
+            "bytes": 81668536,
+            "dynamic_bytes": 0,
+            "dynamic_items": 0,
+            "items": 3015,
+            "max_height": 1536,
+            "max_width": 960
+          },
+          "sampled_png_cache": {
+            "bytes": 92160,
+            "items": 4
+          },
+          "world_layer_bytes": 0,
+          "world_runtime_creations": 0,
+          "world_source_surface_bytes": 0,
+          "world_sources": 0
+        },
+        "draw_after": {
+          "art_images": 1,
+          "art_scaled": 2,
+          "bridge_surface_cache": {
+            "bytes": 172960,
+            "items": 12
+          },
+          "dynamic_loads": 0,
+          "frame_key_bytes": 1866264,
+          "frame_key_items": 225,
+          "interned_symbols": 7414,
+          "last_visuals": 148,
+          "local_bytes": 0,
+          "local_items": 0,
+          "native_runtime_creations": 3,
+          "recipe_bytes": 33518014,
+          "recipe_items": 353,
+          "renderer_images": 16,
+          "renderer_scaled": 10,
+          "replay_asset_items": 0,
+          "resolved_asset_cache": {
+            "bytes": 90866884,
+            "dynamic_bytes": 0,
+            "dynamic_items": 0,
+            "items": 3316,
+            "max_height": 1536,
+            "max_width": 960
+          },
+          "sampled_png_cache": {
+            "bytes": 92160,
+            "items": 4
+          },
+          "world_layer_bytes": 0,
+          "world_runtime_creations": 1,
+          "world_source_surface_bytes": 90866884,
+          "world_sources": 3316
+        },
+        "final_units": 150,
+        "final_draw_commands": 302
+      }
+    },
+    {
+      "scene": "grabber",
+      "same_completed_frames": true,
+      "host_state_sha256_equal": true,
+      "native_frame_sha256_equal": true,
+      "guest_view_sha256_equal": true,
+      "rendered_pixels_sha256_equal": true,
+      "0": {
+        "completed_frames": 64,
+        "stopped_at_memory_cap": false,
+        "cold_to_last_private_growth": 309637120,
+        "first_to_last_private_growth": 115585024,
+        "late_private_growth": 4956160,
+        "first_to_last_requested_live_growth": 72997999,
+        "late_requested_live_growth": 585966,
+        "first_to_last_slab_growth": 117255088,
+        "requested_peak_bytes_max": 219491725,
+        "draw_before": {
+          "art_images": 0,
+          "art_scaled": 0,
+          "bridge_surface_cache": {
+            "bytes": 0,
+            "items": 0
+          },
+          "dynamic_loads": 0,
+          "frame_key_bytes": 0,
+          "frame_key_items": 0,
+          "interned_symbols": 7013,
+          "last_visuals": 0,
+          "local_backing_retained_bytes": 0,
+          "local_bytes": 0,
+          "local_items": 0,
+          "local_parented_surfaces": 0,
+          "local_visible_bytes": 0,
+          "native_runtime_creations": 2,
+          "recipe_backing_retained_bytes": 0,
+          "recipe_bytes": 0,
+          "recipe_items": 0,
+          "recipe_parented_surfaces": 0,
+          "recipe_visible_bytes": 0,
+          "renderer_images": 0,
+          "renderer_scaled": 0,
+          "replay_asset_items": 0,
+          "resolved_asset_cache": {
+            "bytes": 81668536,
+            "dynamic_bytes": 0,
+            "dynamic_items": 0,
+            "items": 3015,
+            "max_height": 1536,
+            "max_width": 960
+          },
+          "sampled_png_cache": {
+            "bytes": 92160,
+            "items": 4
+          },
+          "surface_live_instances": 5856,
+          "surface_live_owned_bytes": 158570300,
+          "surface_peak_owned_bytes": 163491052,
+          "world_layer_bytes": 0,
+          "world_runtime_creations": 0,
+          "world_source_surface_bytes": 0,
+          "world_sources": 0
+        },
+        "draw_after": {
+          "art_images": 1,
+          "art_scaled": 2,
+          "bridge_surface_cache": {
+            "bytes": 172960,
+            "items": 12
+          },
+          "dynamic_loads": 0,
+          "frame_key_bytes": 4156292,
+          "frame_key_items": 449,
+          "interned_symbols": 7414,
+          "last_visuals": 294,
+          "local_backing_retained_bytes": 0,
+          "local_bytes": 0,
+          "local_items": 0,
+          "local_parented_surfaces": 0,
+          "local_visible_bytes": 0,
+          "native_runtime_creations": 3,
+          "recipe_backing_retained_bytes": 28975668,
+          "recipe_bytes": 33523686,
+          "recipe_items": 325,
+          "recipe_parented_surfaces": 0,
+          "recipe_visible_bytes": 28975668,
+          "renderer_images": 16,
+          "renderer_scaled": 10,
+          "replay_asset_items": 0,
+          "resolved_asset_cache": {
+            "bytes": 90866884,
+            "dynamic_bytes": 0,
+            "dynamic_items": 0,
+            "items": 3316,
+            "max_height": 1536,
+            "max_width": 960
+          },
+          "sampled_png_cache": {
+            "bytes": 92160,
+            "items": 4
+          },
+          "surface_live_instances": 9940,
+          "surface_live_owned_bytes": 290353308,
+          "surface_peak_owned_bytes": 290859888,
+          "world_layer_bytes": 0,
+          "world_runtime_creations": 1,
+          "world_source_surface_bytes": 90866884,
+          "world_sources": 3316
+        },
+        "final_units": 300,
+        "final_draw_commands": 602
+      },
+      "1": {
+        "completed_frames": 64,
+        "stopped_at_memory_cap": false,
+        "cold_to_last_private_growth": 306335744,
+        "first_to_last_private_growth": 112947200,
+        "late_private_growth": 2654208,
+        "first_to_last_requested_live_growth": 72998143,
+        "late_requested_live_growth": 585966,
+        "first_to_last_slab_growth": 117320560,
+        "requested_peak_bytes_max": 219491869,
+        "draw_before": {
+          "art_images": 0,
+          "art_scaled": 0,
+          "bridge_surface_cache": {
+            "bytes": 0,
+            "items": 0
+          },
+          "dynamic_loads": 0,
+          "frame_key_bytes": 0,
+          "frame_key_items": 0,
+          "interned_symbols": 7013,
+          "last_visuals": 0,
+          "local_backing_retained_bytes": 0,
+          "local_bytes": 0,
+          "local_items": 0,
+          "local_parented_surfaces": 0,
+          "local_visible_bytes": 0,
+          "native_runtime_creations": 2,
+          "recipe_backing_retained_bytes": 0,
+          "recipe_bytes": 0,
+          "recipe_items": 0,
+          "recipe_parented_surfaces": 0,
+          "recipe_visible_bytes": 0,
+          "renderer_images": 0,
+          "renderer_scaled": 0,
+          "replay_asset_items": 0,
+          "resolved_asset_cache": {
+            "bytes": 81668536,
+            "dynamic_bytes": 0,
+            "dynamic_items": 0,
+            "items": 3015,
+            "max_height": 1536,
+            "max_width": 960
+          },
+          "sampled_png_cache": {
+            "bytes": 92160,
+            "items": 4
+          },
+          "surface_live_instances": 5856,
+          "surface_live_owned_bytes": 158570300,
+          "surface_peak_owned_bytes": 163491052,
+          "world_layer_bytes": 0,
+          "world_runtime_creations": 0,
+          "world_source_surface_bytes": 0,
+          "world_sources": 0
+        },
+        "draw_after": {
+          "art_images": 1,
+          "art_scaled": 2,
+          "bridge_surface_cache": {
+            "bytes": 172960,
+            "items": 12
+          },
+          "dynamic_loads": 0,
+          "frame_key_bytes": 4156292,
+          "frame_key_items": 449,
+          "interned_symbols": 7414,
+          "last_visuals": 294,
+          "local_backing_retained_bytes": 0,
+          "local_bytes": 0,
+          "local_items": 0,
+          "local_parented_surfaces": 0,
+          "local_visible_bytes": 0,
+          "native_runtime_creations": 3,
+          "recipe_backing_retained_bytes": 28975668,
+          "recipe_bytes": 33523686,
+          "recipe_items": 325,
+          "recipe_parented_surfaces": 0,
+          "recipe_visible_bytes": 28975668,
+          "renderer_images": 16,
+          "renderer_scaled": 10,
+          "replay_asset_items": 0,
+          "resolved_asset_cache": {
+            "bytes": 90866884,
+            "dynamic_bytes": 0,
+            "dynamic_items": 0,
+            "items": 3316,
+            "max_height": 1536,
+            "max_width": 960
+          },
+          "sampled_png_cache": {
+            "bytes": 92160,
+            "items": 4
+          },
+          "surface_live_instances": 9940,
+          "surface_live_owned_bytes": 290353308,
+          "surface_peak_owned_bytes": 290859888,
+          "world_layer_bytes": 0,
+          "world_runtime_creations": 1,
+          "world_source_surface_bytes": 90866884,
+          "world_sources": 3316
+        },
+        "final_units": 300,
+        "final_draw_commands": 602
+      }
+    }
+  ],
+  "surface_storage_evidence": [
+    {
+      "allocator": 0,
+      "copy_check": {
+        "copied_parent_chain_empty": true,
+        "crop_copy_owned_bytes": 256,
+        "passed": true,
+        "scaled_owned_bytes": 1024,
+        "source_bytes": 16777216,
+        "source_released": true
+      },
+      "draw_before": {
+        "art_images": 0,
+        "art_scaled": 0,
+        "bridge_surface_cache": {
+          "bytes": 0,
+          "items": 0
+        },
+        "dynamic_loads": 0,
+        "frame_key_bytes": 0,
+        "frame_key_items": 0,
+        "interned_symbols": 7013,
+        "last_visuals": 0,
+        "local_backing_retained_bytes": 0,
+        "local_bytes": 0,
+        "local_items": 0,
+        "local_parented_surfaces": 0,
+        "local_visible_bytes": 0,
+        "native_runtime_creations": 2,
+        "recipe_backing_retained_bytes": 0,
+        "recipe_bytes": 0,
+        "recipe_items": 0,
+        "recipe_parented_surfaces": 0,
+        "recipe_visible_bytes": 0,
+        "renderer_images": 0,
+        "renderer_scaled": 0,
+        "replay_asset_items": 0,
+        "resolved_asset_cache": {
+          "bytes": 81668536,
+          "dynamic_bytes": 0,
+          "dynamic_items": 0,
+          "items": 3015,
+          "max_height": 1536,
+          "max_width": 960
+        },
+        "sampled_png_cache": {
+          "bytes": 92160,
+          "items": 4
+        },
+        "surface_live_instances": 5856,
+        "surface_live_owned_bytes": 158570300,
+        "surface_peak_owned_bytes": 163491052,
+        "world_layer_bytes": 0,
+        "world_runtime_creations": 0,
+        "world_source_surface_bytes": 0,
+        "world_sources": 0
+      },
+      "draw_after": {
+        "art_images": 1,
+        "art_scaled": 2,
+        "bridge_surface_cache": {
+          "bytes": 172960,
+          "items": 12
+        },
+        "dynamic_loads": 0,
+        "frame_key_bytes": 4156292,
+        "frame_key_items": 449,
+        "interned_symbols": 7414,
+        "last_visuals": 294,
+        "local_backing_retained_bytes": 0,
+        "local_bytes": 0,
+        "local_items": 0,
+        "local_parented_surfaces": 0,
+        "local_visible_bytes": 0,
+        "native_runtime_creations": 3,
+        "recipe_backing_retained_bytes": 28975668,
+        "recipe_bytes": 33523686,
+        "recipe_items": 325,
+        "recipe_parented_surfaces": 0,
+        "recipe_visible_bytes": 28975668,
+        "renderer_images": 16,
+        "renderer_scaled": 10,
+        "replay_asset_items": 0,
+        "resolved_asset_cache": {
+          "bytes": 90866884,
+          "dynamic_bytes": 0,
+          "dynamic_items": 0,
+          "items": 3316,
+          "max_height": 1536,
+          "max_width": 960
+        },
+        "sampled_png_cache": {
+          "bytes": 92160,
+          "items": 4
+        },
+        "surface_live_instances": 9940,
+        "surface_live_owned_bytes": 290353308,
+        "surface_peak_owned_bytes": 290859888,
+        "world_layer_bytes": 0,
+        "world_runtime_creations": 1,
+        "world_source_surface_bytes": 90866884,
+        "world_sources": 3316
+      }
+    },
+    {
+      "allocator": 1,
+      "copy_check": {
+        "copied_parent_chain_empty": true,
+        "crop_copy_owned_bytes": 256,
+        "passed": true,
+        "scaled_owned_bytes": 1024,
+        "source_bytes": 16777216,
+        "source_released": true
+      },
+      "draw_before": {
+        "art_images": 0,
+        "art_scaled": 0,
+        "bridge_surface_cache": {
+          "bytes": 0,
+          "items": 0
+        },
+        "dynamic_loads": 0,
+        "frame_key_bytes": 0,
+        "frame_key_items": 0,
+        "interned_symbols": 7013,
+        "last_visuals": 0,
+        "local_backing_retained_bytes": 0,
+        "local_bytes": 0,
+        "local_items": 0,
+        "local_parented_surfaces": 0,
+        "local_visible_bytes": 0,
+        "native_runtime_creations": 2,
+        "recipe_backing_retained_bytes": 0,
+        "recipe_bytes": 0,
+        "recipe_items": 0,
+        "recipe_parented_surfaces": 0,
+        "recipe_visible_bytes": 0,
+        "renderer_images": 0,
+        "renderer_scaled": 0,
+        "replay_asset_items": 0,
+        "resolved_asset_cache": {
+          "bytes": 81668536,
+          "dynamic_bytes": 0,
+          "dynamic_items": 0,
+          "items": 3015,
+          "max_height": 1536,
+          "max_width": 960
+        },
+        "sampled_png_cache": {
+          "bytes": 92160,
+          "items": 4
+        },
+        "surface_live_instances": 5856,
+        "surface_live_owned_bytes": 158570300,
+        "surface_peak_owned_bytes": 163491052,
+        "world_layer_bytes": 0,
+        "world_runtime_creations": 0,
+        "world_source_surface_bytes": 0,
+        "world_sources": 0
+      },
+      "draw_after": {
+        "art_images": 1,
+        "art_scaled": 2,
+        "bridge_surface_cache": {
+          "bytes": 172960,
+          "items": 12
+        },
+        "dynamic_loads": 0,
+        "frame_key_bytes": 4156292,
+        "frame_key_items": 449,
+        "interned_symbols": 7414,
+        "last_visuals": 294,
+        "local_backing_retained_bytes": 0,
+        "local_bytes": 0,
+        "local_items": 0,
+        "local_parented_surfaces": 0,
+        "local_visible_bytes": 0,
+        "native_runtime_creations": 3,
+        "recipe_backing_retained_bytes": 28975668,
+        "recipe_bytes": 33523686,
+        "recipe_items": 325,
+        "recipe_parented_surfaces": 0,
+        "recipe_visible_bytes": 28975668,
+        "renderer_images": 16,
+        "renderer_scaled": 10,
+        "replay_asset_items": 0,
+        "resolved_asset_cache": {
+          "bytes": 90866884,
+          "dynamic_bytes": 0,
+          "dynamic_items": 0,
+          "items": 3316,
+          "max_height": 1536,
+          "max_width": 960
+        },
+        "sampled_png_cache": {
+          "bytes": 92160,
+          "items": 4
+        },
+        "surface_live_instances": 9940,
+        "surface_live_owned_bytes": 290353308,
+        "surface_peak_owned_bytes": 290859888,
+        "world_layer_bytes": 0,
+        "world_runtime_creations": 1,
+        "world_source_surface_bytes": 90866884,
+        "world_sources": 3316
+      }
+    }
+  ]
+}

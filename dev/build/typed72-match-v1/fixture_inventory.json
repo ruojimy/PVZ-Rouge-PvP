@@ -1,0 +1,286 @@
+[
+ {
+  "layer": "hero",
+  "structs": [],
+  "lines": 391,
+  "fixture_lines": 73,
+  "json_ops": 68,
+  "recorders": 1,
+  "fixture_index": 6,
+  "entry_points": 2,
+  "overrides": 0
+ },
+ {
+  "layer": "targets",
+  "structs": [
+   "TargetProbe"
+  ],
+  "lines": 145,
+  "fixture_lines": 43,
+  "json_ops": 37,
+  "recorders": 0,
+  "fixture_index": 8,
+  "entry_points": 4,
+  "overrides": 7
+ },
+ {
+  "layer": "plants",
+  "structs": [
+   "PlantProbe"
+  ],
+  "lines": 168,
+  "fixture_lines": 58,
+  "json_ops": 50,
+  "recorders": 5,
+  "fixture_index": 7,
+  "entry_points": 3,
+  "overrides": 5
+ },
+ {
+  "layer": "doom",
+  "structs": [
+   "DoomProbe"
+  ],
+  "lines": 71,
+  "fixture_lines": 25,
+  "json_ops": 21,
+  "recorders": 5,
+  "fixture_index": 4,
+  "entry_points": 3,
+  "overrides": 6
+ },
+ {
+  "layer": "chili",
+  "structs": [
+   "ChiliProbe"
+  ],
+  "lines": 122,
+  "fixture_lines": 51,
+  "json_ops": 45,
+  "recorders": 4,
+  "fixture_index": 12,
+  "entry_points": 1,
+  "overrides": 9
+ },
+ {
+  "layer": "sourced",
+  "structs": [
+   "SourcedProbe"
+  ],
+  "lines": 40,
+  "fixture_lines": 13,
+  "json_ops": 13,
+  "recorders": 0,
+  "fixture_index": 0,
+  "entry_points": 1,
+  "overrides": 2
+ },
+ {
+  "layer": "death",
+  "structs": [
+   "DeathProbe"
+  ],
+  "lines": 69,
+  "fixture_lines": 27,
+  "json_ops": 27,
+  "recorders": 0,
+  "fixture_index": 8,
+  "entry_points": 1,
+  "overrides": 7
+ },
+ {
+  "layer": "service",
+  "structs": [
+   "ServiceProbe"
+  ],
+  "lines": 89,
+  "fixture_lines": 36,
+  "json_ops": 34,
+  "recorders": 1,
+  "fixture_index": 9,
+  "entry_points": 2,
+  "overrides": 3
+ },
+ {
+  "layer": "squash",
+  "structs": [
+   "SquashProbe"
+  ],
+  "lines": 85,
+  "fixture_lines": 46,
+  "json_ops": 45,
+  "recorders": 5,
+  "fixture_index": 6,
+  "entry_points": 1,
+  "overrides": 7
+ },
+ {
+  "layer": "pea",
+  "structs": [
+   "PeaProbe"
+  ],
+  "lines": 71,
+  "fixture_lines": 34,
+  "json_ops": 33,
+  "recorders": 7,
+  "fixture_index": 5,
+  "entry_points": 1,
+  "overrides": 11
+ },
+ {
+  "layer": "shooting",
+  "structs": [
+   "ShootingProbe"
+  ],
+  "lines": 81,
+  "fixture_lines": 18,
+  "json_ops": 17,
+  "recorders": 0,
+  "fixture_index": 3,
+  "entry_points": 2,
+  "overrides": 8
+ },
+ {
+  "layer": "world_rules",
+  "structs": [
+   "WorldRulesProbe"
+  ],
+  "lines": 226,
+  "fixture_lines": 74,
+  "json_ops": 70,
+  "recorders": 7,
+  "fixture_index": 8,
+  "entry_points": 2,
+  "overrides": 10
+ },
+ {
+  "layer": "resources",
+  "structs": [
+   "ResourcesProbe"
+  ],
+  "lines": 195,
+  "fixture_lines": 72,
+  "json_ops": 70,
+  "recorders": 0,
+  "fixture_index": 2,
+  "entry_points": 2,
+  "overrides": 2
+ },
+ {
+  "layer": "plant_region",
+  "structs": [
+   "PlantRegionProbe"
+  ],
+  "lines": 139,
+  "fixture_lines": 34,
+  "json_ops": 31,
+  "recorders": 1,
+  "fixture_index": 3,
+  "entry_points": 2,
+  "overrides": 12
+ },
+ {
+  "layer": "flying_plants",
+  "structs": [
+   "FlyingPlantsProbe"
+  ],
+  "lines": 163,
+  "fixture_lines": 36,
+  "json_ops": 26,
+  "recorders": 4,
+  "fixture_index": 6,
+  "entry_points": 2,
+  "overrides": 7
+ },
+ {
+  "layer": "grenadiers",
+  "structs": [
+   "GrenadierProbe"
+  ],
+  "lines": 142,
+  "fixture_lines": 28,
+  "json_ops": 23,
+  "recorders": 3,
+  "fixture_index": 5,
+  "entry_points": 2,
+  "overrides": 4
+ },
+ {
+  "layer": "content_zombies64",
+  "structs": [
+   "ContentZombie64Probe"
+  ],
+  "lines": 201,
+  "fixture_lines": 33,
+  "json_ops": 24,
+  "recorders": 6,
+  "fixture_index": 5,
+  "entry_points": 2,
+  "overrides": 9
+ },
+ {
+  "layer": "native_tick",
+  "structs": [
+   "NativeTickProbe"
+  ],
+  "lines": 156,
+  "fixture_lines": 57,
+  "json_ops": 29,
+  "recorders": 25,
+  "fixture_index": 8,
+  "entry_points": 2,
+  "overrides": 39
+ },
+ {
+  "layer": "native_status",
+  "structs": [
+   "NativeStatusProbe"
+  ],
+  "lines": 132,
+  "fixture_lines": 27,
+  "json_ops": 22,
+  "recorders": 3,
+  "fixture_index": 4,
+  "entry_points": 2,
+  "overrides": 6
+ },
+ {
+  "layer": "content_zombies",
+  "structs": [
+   "ContentZombiesProbe"
+  ],
+  "lines": 206,
+  "fixture_lines": 44,
+  "json_ops": 35,
+  "recorders": 6,
+  "fixture_index": 6,
+  "entry_points": 2,
+  "overrides": 32
+ },
+ {
+  "layer": "content_controllers",
+  "structs": [
+   "ContentControllersProbe"
+  ],
+  "lines": 169,
+  "fixture_lines": 32,
+  "json_ops": 22,
+  "recorders": 7,
+  "fixture_index": 7,
+  "entry_points": 2,
+  "overrides": 33
+ },
+ {
+  "layer": "content_phase",
+  "structs": [
+   "ContentPhaseProbe"
+  ],
+  "lines": 287,
+  "fixture_lines": 52,
+  "json_ops": 39,
+  "recorders": 7,
+  "fixture_index": 12,
+  "entry_points": 2,
+  "overrides": 59
+ }
+]

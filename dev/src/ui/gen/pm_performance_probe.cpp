@@ -265,6 +265,7 @@ V C_Driver::m_setup(const Args& A) {
     }
     a_started = py::stdlib_call(SV("time.monotonic"), Args{});
     a_setup_seconds = (py::stdlib_call(SV("time.perf_counter"), Args{}) - L_setup_start);
+    callm(pvz::getattr(L_app,SY("state")),SY("update"),Args({},{{SY("wall_clock_debt"),V(0.)},{SY("wall_clock_reset_pending"),V(true)}}));
     a_warm_ticks = py::int_(py::m_get(a_config, SV("warmup_room_ticks"), V(0.0)));
     a_measure_ticks = py::int_(py::m_get(a_config, SV("measure_room_ticks"), V(0.0)));
     if ((a_measure_ticks).truthy()) {
@@ -326,6 +327,8 @@ V C_Driver::m___call__(const Args& A) {
         if ((a_measure_ticks).truthy()) {
             a_tick_limit = (a_warm_ticks + a_measure_ticks);
         }
+        pvz::setattr(pvz::getattr(L_app,SY("room")),SY("accumulator"),V(0.));
+        callm(pvz::getattr(L_app,SY("state")),SY("update"),Args({},{{SY("wall_clock_debt"),V(0.)},{SY("wall_clock_reset_pending"),V(true)}}));
         (void)(callm(pvz::getattr(pvz::getattr(L_app, SY("room")), SY("battle")), SY("backend_audit"), Args({}, {{SY("reset_function_profile"), V(true)}})));
         L_AppProfiler = pm_performance::cls_AppProfiler();
         pvz::setattr(L_app, SY("profiler"), (L_AppProfiler).call(Args({L_app}, {{SY("detail"), py::bool_(py::m_get(a_config, SV("detail")))}, {SY("path"), callm(a_output, SY("with_suffix"), Args{SV(".live.json")})}})));

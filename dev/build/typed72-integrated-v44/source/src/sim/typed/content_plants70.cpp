@@ -9,6 +9,7 @@ namespace {
 constexpr double pi=0x1.921fb54442d18p+1;
 bool yes(const Field<bool>& value){return value.present()&&!value.is_null()&&value.get();}
 bool named(const Field<std::string>& value,std::string_view name){return value.present()&&!value.is_null()&&value.get()==name;}
+bool local_occupancy(){static const bool enabled=[]{const char* p=std::getenv("PVP742_TARGETING");return !p||*p!='0';}();return enabled&&spatial741_enabled();}
 bool same_optional(const Field<std::string>& a,const Field<std::string>& b) {
     const bool av=a.present()&&!a.is_null(),bv=b.present()&&!b.is_null();return av==bv&&(!av||a.get()==b.get());
 }
@@ -74,13 +75,15 @@ PlantRef ContentPlants70::spawn_head(PlantRef root) {
     head->source.content.set("抓人草触手");auto& state=head->content70;state.parent=root->source.id;
     state.head_clock.set(0.);state.head_phase.set("idle");state.head_age.set(0.);state.head_hits.set({});
     head->head_point.set(point);state.head_color.set(color);state.head_aim.set({root->facing,0.});head->sleep.erase();
-    if(root->source.seat)head->source.seat=root->source.seat;anchor_head(head);
+    if(root->source.seat)head->source.seat=root->source.seat;anchor_head_cached(head);
     services_.plant70_event({Plant70Event::Kind::tentacle_spawn,root->source.id,head->source.id,{},{},{}});return head;
 }
 std::vector<ContentTarget> ContentPlants70::head_targets(const PlantRef& plant,std::optional<size_t> limit) {
     PVP_PROFILE_SCOPE("ContentPlants70::head_targets");
     struct Candidate {double rank;std::string id;ContentTarget target;size_t ordinal;};std::vector<Candidate> found;
-    const auto point=targets_.point(plant);for(const auto& target:queries_.enemies(source_ref(plant))) {
+    const auto point=targets_.point(plant);const double radius=16.*world_.runtime.tile;
+    for(const auto& target:queries_.enemies_in_box(source_ref(plant),{point.x-radius,point.y-radius,point.x+radius,point.y+radius})) {
+        ++queries_.range_exact_tests;
         if(!alive(target))continue;const auto p=targets_.point(target);const double dx=wrap_delta(point.x,p.x,world_.world_width.get()),dy=p.y-point.y,distance=std::hypot(dx,dy);
         if(distance>16.*world_.runtime.tile||(distance!=0.&&dx*plant->facing/distance<std::cos(80.*pi/180.)))continue;
         double hp=0.;if(const auto* body=std::get_if<CombatTarget>(&target))hp=body->is_hero()?world_.heroes.cached_proxy(body->hero).hp*10.:body->unit->body.hp;
@@ -102,7 +105,7 @@ Point ContentPlants70::head_rest(const PlantRef& root,const PlantRef& head) {
     const int lane=head->content70.head_color.or_missing(0)-1;return {base.x+root->facing*tile*(1.7+.15*std::abs(lane)),base.y-tile*(.35+.3*lane)};
 }
 void ContentPlants70::update_heads(const PlantRef& root,std::vector<PlantRef> children) {
-    struct MovedHeads {ContentQueries& queries;~MovedHeads(){queries.invalidate();}} moved_heads{queries_};
+    struct MovedHeads {ContentQueries& queries;const std::vector<PlantRef>& heads;~MovedHeads(){for(const auto& h:heads)queries.moved(h);}} moved_heads{queries_,children};
     // At most H heads can use H distinct targets, including those already
     // reserved by active heads. The first H entries of the old full ordering
     // therefore suffice, with exactly the same HP/ID/roster tie rules.
@@ -139,36 +142,86 @@ void ContentPlants70::update_heads(const PlantRef& root,std::vector<PlantRef> ch
             const double f=std::min(1.,age/100.);const auto start=state.head_start.get(),rest=head_rest(root,head);point={start.x+wrap_delta(start.x,rest.x,width)*f,start.y+(rest.y-start.y)*f};
             if(f>=1.){state.head_phase.set("idle");state.head_age.set(0.);}
         }
-        head->head_point.set({py::mod(point.x,width),point.y});head->facing=root->facing;anchor_head(head);
+        head->head_point.set({py::mod(point.x,width),point.y});head->facing=root->facing;anchor_head_cached(head);
     }
 }
 void ContentPlants70::head_hit(const PlantRef& root,const PlantRef& head,Point start,Point end) {
     const double dx=wrap_delta(start.x,end.x,world_.world_width.get()),dy=end.y-start.y;
-    for(const auto& target:queries_.enemies(source_ref(root))) {
+    for(const auto& target:queries_.enemies_in_box(source_ref(root),{std::min(start.x,start.x+dx),std::min(start.y,end.y),std::max(start.x,start.x+dx),std::max(start.y,end.y)})) {
+        ++queries_.range_exact_tests;
         const auto id=world_.heroes.source_id(queries_.source(target));auto& hits=head->content70.head_hits;
         if(std::find(hits.get().begin(),hits.get().end(),id)!=hits.get().end()||!alive(target)||!targets_.contact(target,start,{dx,dy}))continue;
         hits.get().push_back(id);const auto* body=std::get_if<CombatTarget>(&target);const bool hero=body&&body->is_hero();
         targets_.damage(source_ref(root),target,hero?4.:16.,root->facing,true,HeroHit::tentacle);
+        queries_.invalidate();
         const double direction=dx>=0.?1.:-1.;if(hero)world_.heroes.cached_proxy(body->hero).position->vx+=direction*world_.runtime.plk*400.;
         else if(body) {const auto found=std::find(world_.targets->begin(),world_.targets->end(),*body);if(found!=world_.targets->end())services_.tentacle_knock(size_t(found-world_.targets->begin()),direction*world_.runtime.plk*400.);}
         services_.plant70_event({Plant70Event::Kind::tentacle_hit,root->source.id,head->source.id,Field<std::string>(id),{}, {}});
     }
 }
+std::vector<PlantRef>& ContentPlants70::occupancy_bucket(Cell cell)const {
+    if(cell.y<0||cell.y>=occupancy_rows_||cell.x<0||cell.x>=occupancy_cols_)return occupancy_outside_;
+    return occupancy_buckets_[size_t(cell.y)*occupancy_cols_+size_t(cell.x)];
+}
+void ContentPlants70::prepare_occupancy(bool force)const {
+    const auto& roster=*world_.plant_roster;const int rows=world_.terrain.rows(),cols=world_.terrain.cols();
+    if(!force&&occupancy_tick_==world_.heroes.tick&&occupancy_revision_==world_.plant_roster_revision&&
+       occupancy_roster_==world_.plant_roster.get()&&occupancy_data_==roster.data()&&occupancy_count_==roster.size()&&occupancy_rows_==rows&&occupancy_cols_==cols)return;
+    PVP_PROFILE_SCOPE("ContentPlants70::prepare_occupancy");occupancy_tick_=-1;++occupancy_work_.rebuilds;occupancy_work_.indexed_plants+=roster.size();
+    if(rows!=occupancy_rows_||cols!=occupancy_cols_){occupancy_buckets_.clear();occupancy_buckets_.resize(size_t(rows)*size_t(cols));occupancy_rows_=rows;occupancy_cols_=cols;}
+    else for(auto& bucket:occupancy_buckets_)bucket.clear();
+    occupancy_outside_.clear();occupancy_cells_.clear();
+    // Keep dead/asleep/non-head records too. The original alive/exclude/type
+    // predicates are re-evaluated at query time, never cached as occupancy.
+    for(const auto& plant:roster){occupancy_bucket(plant->cell).push_back(plant);occupancy_cells_[plant.get()]=plant->cell;}
+    occupancy_roster_=world_.plant_roster.get();occupancy_data_=roster.data();occupancy_count_=roster.size();occupancy_revision_=world_.plant_roster_revision;occupancy_tick_=world_.heroes.tick;
+}
+bool ContentPlants70::plant_in_cached(Cell cell,const PlantRef& exclude,bool non_head)const {
+    ++occupancy_work_.queries;occupancy_work_.full_scan_candidates+=world_.plant_roster->size();
+    const auto& candidates=local_occupancy()?occupancy_bucket(cell):*world_.plant_roster;
+    for(const auto& p:candidates){++occupancy_work_.candidates;if(p!=exclude&&alive(p)&&(!non_head||!is_head(p))&&p->cell==cell)return true;}return false;
+}
 bool ContentPlants70::plant_in(Cell cell,const PlantRef& exclude)const {
-    return std::any_of(world_.plant_roster->begin(),world_.plant_roster->end(),[&](const auto& p){return p!=exclude&&alive(p)&&p->cell==cell;});
+    PVP_PROFILE_SCOPE("ContentPlants70::plant_in");
+    // Public white-box calls may edit a record's raw Cell without a lifecycle
+    // hook. Internal movement uses the maintained table; public calls refresh.
+    if(local_occupancy())prepare_occupancy(true);
+    return plant_in_cached(cell,exclude);
 }
 void ContentPlants70::anchor_head(const PlantRef& head) {
+    if(local_occupancy())prepare_occupancy(true);
+    anchor_head_cached(head);
+}
+void ContentPlants70::anchor_head_cached(const PlantRef& head) {
+    PVP_PROFILE_SCOPE("ContentPlants70::anchor_head");
     const auto point=head->head_point.get();const double tile=world_.runtime.tile;
     const Cell cell{std::min(world_.terrain.rows()-2,std::max(0,int(std::floor(point.y/tile)))),world_.terrain.wrap(int64_t(std::floor(point.x/tile)))};
-    if(head->cell!=cell){if(!plant_in(head->cell,head))world_.terrain.native_at(head->cell.y,head->cell.x).plant.erase();head->cell=cell;}
+    const bool indexed=local_occupancy();if(indexed){
+        prepare_occupancy();const auto old=occupancy_cells_.find(head.get());
+        if(old!=occupancy_cells_.end()&&old->second!=head->cell)prepare_occupancy(true);
+    }
+    if(head->cell!=cell){
+        if(!plant_in_cached(head->cell,head))world_.terrain.native_at(head->cell.y,head->cell.x).plant.erase();
+        if(indexed){
+            auto& before=occupancy_bucket(head->cell);auto& after=occupancy_bucket(cell);
+            const auto occurrences=size_t(std::count(before.begin(),before.end(),head));
+            if(&before!=&after&&occurrences){after.reserve(after.size()+occurrences);std::erase(before,head);after.insert(after.end(),occurrences,head);}
+            if(const auto old=occupancy_cells_.find(head.get());old!=occupancy_cells_.end())old->second=cell;
+        }
+        head->cell=cell;
+    }
     world_.terrain.native_at(cell.y,cell.x).plant.set(true);head_cells.emplace(cell.y,cell.x);
 }
 WaterCells ContentPlants70::head_only_cells()const {
-    WaterCells result;for(const auto& head:*world_.plant_roster)if(is_head(head)&&alive(head)&&
-        !std::any_of(world_.plant_roster->begin(),world_.plant_roster->end(),[&](const auto& other){return alive(other)&&!is_head(other)&&other->cell==head->cell;}))result.emplace(head->cell.y,head->cell.x);return result;
+    PVP_PROFILE_SCOPE("ContentPlants70::head_only_cells");
+    // Publication is also the fixture boundary. A single O(P) refresh handles
+    // direct same-tick cell/list edits while avoiding the old H full scans.
+    if(local_occupancy())prepare_occupancy(true);
+    WaterCells result;for(const auto& head:*world_.plant_roster)if(is_head(head)&&alive(head)&&!plant_in_cached(head->cell,{},true))result.emplace(head->cell.y,head->cell.x);return result;
 }
 void ContentPlants70::restore_marks() {
-    for(const auto [row,col]:head_cells){auto& cell=world_.terrain.native_at(row,col);if(!cell.plant.present()&&plant_in({row,col}))cell.plant.set(true);}head_cells.clear();
+    if(local_occupancy())prepare_occupancy();
+    for(const auto [row,col]:head_cells){auto& cell=world_.terrain.native_at(row,col);if(!cell.plant.present()&&plant_in_cached({row,col}))cell.plant.set(true);}head_cells.clear();
 }
 void ContentPlants70::before_tick() {
     const auto captured=basins;for(const auto& [id,plant]:captured)if(!alive(plant)||std::find(world_.plant_roster->begin(),world_.plant_roster->end(),plant)==world_.plant_roster->end()) {
@@ -180,7 +233,7 @@ void ContentPlants70::before_tick() {
         if((!parent||!alive(*parent))&&!yes(head->content70.head_gone)) {
             head->content70.head_gone.set(true);if(alive(head)){head->hp.set(0.);head->dead.set(DeathMarker(0.));
                 if(parent)if(const auto* root=std::get_if<PlantRef>(&*parent);root&&yes((*root)->crushed))head->content70.head_crushed.set(double(world_.heroes.tick));}
-        }else if(alive(head))anchor_head(head);
+        }else if(alive(head))anchor_head_cached(head);
     }
 }
 void ContentPlants70::remove_basin(const PlantRef& plant) {

@@ -1,0 +1,286 @@
+{
+  "cases": [
+    {
+      "name": "same_cell_layers_live_death_and_type_changes",
+      "passed": true,
+      "state": {
+        "head_only": [],
+        "marked_cells": [
+          [
+            10,
+            4
+          ]
+        ],
+        "plants": [
+          {
+            "cell": [
+              10,
+              4
+            ],
+            "dead": false,
+            "head": false,
+            "hp": 54.0,
+            "id": "p0"
+          },
+          {
+            "cell": [
+              10,
+              4
+            ],
+            "dead": true,
+            "head": true,
+            "hp": 54.0,
+            "id": "p1"
+          },
+          {
+            "cell": [
+              10,
+              4
+            ],
+            "dead": false,
+            "head": true,
+            "hp": 54.0,
+            "id": "p2"
+          }
+        ]
+      }
+    },
+    {
+      "name": "moving_heads_preserve_or_clear_old_cell_marks",
+      "passed": true,
+      "state": {
+        "head_only": [
+          [
+            12,
+            8
+          ],
+          [
+            12,
+            9
+          ]
+        ],
+        "marked_cells": [
+          [
+            12,
+            8
+          ],
+          [
+            12,
+            9
+          ]
+        ],
+        "plants": [
+          {
+            "cell": [
+              10,
+              4
+            ],
+            "dead": false,
+            "head": false,
+            "hp": 0.0,
+            "id": "p0"
+          },
+          {
+            "cell": [
+              12,
+              8
+            ],
+            "dead": false,
+            "head": true,
+            "hp": 54.0,
+            "id": "p1"
+          },
+          {
+            "cell": [
+              12,
+              9
+            ],
+            "dead": false,
+            "head": true,
+            "hp": 54.0,
+            "id": "p2"
+          }
+        ]
+      }
+    },
+    {
+      "name": "same_tick_remove_birth_restores_size_and_data_pointer",
+      "passed": true,
+      "state": {
+        "head_only": [
+          [
+            10,
+            5
+          ]
+        ],
+        "marked_cells": [
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            5
+          ],
+          [
+            15,
+            12
+          ]
+        ],
+        "plants": [
+          {
+            "cell": [
+              10,
+              5
+            ],
+            "dead": false,
+            "head": true,
+            "hp": 54.0,
+            "id": "p1"
+          },
+          {
+            "cell": [
+              15,
+              12
+            ],
+            "dead": false,
+            "head": false,
+            "hp": 54.0,
+            "id": "p3"
+          }
+        ]
+      }
+    },
+    {
+      "name": "same_tick_direct_cell_edits_and_roster_replacement",
+      "passed": true,
+      "state": {
+        "head_only": [
+          [
+            12,
+            8
+          ]
+        ],
+        "marked_cells": [
+          [
+            10,
+            4
+          ],
+          [
+            10,
+            5
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            12,
+            8
+          ]
+        ],
+        "plants": [
+          {
+            "cell": [
+              10,
+              6
+            ],
+            "dead": false,
+            "head": false,
+            "hp": 54.0,
+            "id": "p0"
+          },
+          {
+            "cell": [
+              12,
+              8
+            ],
+            "dead": false,
+            "head": true,
+            "hp": 54.0,
+            "id": "p1"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ring_seam_clamped_vertical_edges_and_outside_records",
+      "passed": true,
+      "state": {
+        "head_only": [
+          [
+            0,
+            0
+          ]
+        ],
+        "marked_cells": [
+          [
+            0,
+            0
+          ]
+        ],
+        "plants": [
+          {
+            "cell": [
+              0,
+              0
+            ],
+            "dead": false,
+            "head": true,
+            "hp": 54.0,
+            "id": "p0"
+          },
+          {
+            "cell": [
+              -1,
+              -4
+            ],
+            "dead": false,
+            "head": false,
+            "hp": 54.0,
+            "id": "p1"
+          }
+        ]
+      }
+    }
+  ],
+  "dense": {
+    "elapsed_ms": 5.3835,
+    "head_only_cells": 350,
+    "heads": 350,
+    "plants": 700,
+    "queries": 128,
+    "work": {
+      "candidates": 44800,
+      "full_scan_candidate_upper_bound": 31360000,
+      "indexed_plants": 89600,
+      "queries": 44800,
+      "rebuilds": 128
+    }
+  },
+  "failures": 0,
+  "function_profile": {
+    "ContentPlants70::anchor_head": {
+      "calls": 5,
+      "max_ms": 0.002,
+      "total_ms": 0.0032
+    },
+    "ContentPlants70::head_only_cells": {
+      "calls": 147,
+      "max_ms": 0.1096,
+      "total_ms": 5.1241
+    },
+    "ContentPlants70::plant_in": {
+      "calls": 82,
+      "max_ms": 0.0037,
+      "total_ms": 0.093
+    },
+    "ContentPlants70::prepare_occupancy": {
+      "calls": 235,
+      "max_ms": 0.0876,
+      "total_ms": 2.6840000000000006
+    }
+  },
+  "passed": true,
+  "scope": "Production ContentPlants70 occupancy methods; original full-scan oracle. Services unrelated to these methods reject unexpected calls. End-to-end Session state/RNG/native-frame comparison is separate."
+}

@@ -35,16 +35,17 @@ std::shared_ptr<Motion> NativeTracking::position(const CombatTarget& t)const {
 void NativeTracking::prepare_chart(){
     const auto& roster=*world_.targets;
     bool valid=chart_roster_==world_.targets.get()&&chart_data_==roster.data()&&chart_count_==roster.size()&&chart_tick_==world_.heroes.tick;
-    if(valid)for(const auto& entry:chart_entries_)if(entry.target.unit->body.motion.get().x!=entry.x || (entry.target.unit->body.hand=="梯子"&&entry.target.unit->native.split.present())!=entry.ladder){valid=false;break;}
+    if(valid)for(const auto& entry:chart_entries_)if(entry.target!=roster.at(entry.index)||entry.target.unit->body.motion.get().x!=entry.x || (entry.target.unit->body.hand=="梯子"&&entry.target.unit->native.split.present())!=entry.ladder){valid=false;break;}
+    if(valid)for(const auto i:hero_indices_)if(!roster.at(i).is_hero()){valid=false;break;}
     if(valid)return;
     chart_roster_=world_.targets.get();chart_data_=roster.data();chart_count_=roster.size();chart_tick_=world_.heroes.tick;
-    chart_entries_.clear();chart_entries_.reserve(roster.size());search_entries_.clear();ladder_indices_.clear();search_ids_ready_=true;
+    chart_entries_.clear();chart_entries_.reserve(roster.size());search_entries_.clear();ladder_indices_.clear();hero_indices_.clear();search_ids_ready_=true;
     const double width=world_.world_width.get();
     for(size_t i=0;i<roster.size();++i){
         const auto& target=roster[i];
         const auto& id=target.is_hero()?world_.heroes.cached_proxy(target.hero).source.id:target.unit->source.id;
         if(!id.present()||id.is_null()||id.get().empty())search_ids_ready_=false;
-        if(target.is_hero())continue;
+        if(target.is_hero()){hero_indices_.push_back(i);continue;}
         const double x=target.unit->body.motion.get().x;
         const bool ladder=target.unit->body.hand=="梯子"&&target.unit->native.split.present();
         chart_entries_.push_back({x,target,{},i,ladder});search_entries_.push_back({py::mod(x,width),i});
@@ -86,7 +87,10 @@ void NativeTracking::begin(const TrackingSource& s) {
         const auto live_shift=[&](const ChartEntry& e){const auto p=position(e.target);shift({p->x,e.target,p});};
         for(auto i=chart_entries_.begin();i!=low;++i)live_shift(*i);
         for(auto i=high;i!=chart_entries_.end();++i)live_shift(*i);
-        for(const auto& target:*world_.targets)if(target.is_hero()){const auto p=position(target);shift({p->x,target,p});}
+        // prepare_chart has already validated the roster and all cached bodies.
+        // Resolve the at-most-four hero proxy pointers live, without rescanning
+        // the complete zombie roster for each projectile / plant source.
+        for(const auto i:hero_indices_){const auto& target=world_.targets->at(i);const auto p=position(target);shift({p->x,target,p});}
     }else for(const auto& target:*world_.targets){const auto p=position(target);shift({p->x,target,p});}
     const int64_t count=int64_t(width/tile);
     const double origin=x/tile;
@@ -206,8 +210,8 @@ void NativeTracking::target_index(const TrackingSource& s) {
             if(!world_.targets->empty())heroes.source_index=0;
             std::vector<std::pair<size_t,int64_t>> ladders;
             for(const auto i:ladder_indices_){const auto& t=world_.targets->at(i);if(get_body(t).hand=="梯子"&&native(t).split.present())ladders.emplace_back(i,int64_t(py::floordiv(position(t)->x,tile)));}
-            for(size_t i=world_.targets->size();i-- >0;)if(world_.targets->at(i).is_hero()){
-                const auto& t=world_.targets->at(i);if(get_body(t).hand=="梯子"&&native(t).split.present())ladders.emplace_back(i,int64_t(py::floordiv(position(t)->x,tile)));
+            for(auto it=hero_indices_.rbegin();it!=hero_indices_.rend();++it){
+                const size_t i=*it;const auto& t=world_.targets->at(i);if(get_body(t).hand=="梯子"&&native(t).split.present())ladders.emplace_back(i,int64_t(py::floordiv(position(t)->x,tile)));
             }
             std::sort(ladders.begin(),ladders.end(),std::greater<>{});for(const auto& pair:ladders)indexes_.ladders.push_back(pair.second);
             std::optional<size_t> horizontal,best;double horizontal_distance=0.,best_distance=0.;std::string_view best_id;
@@ -236,7 +240,7 @@ void NativeTracking::target_index(const TrackingSource& s) {
                 const auto p=position(t);const double dx=wrap_delta(origin.x,p->x,width),dy=p->y-tile-origin.y,d=dx*dx+dy*dy;const std::string_view key=id.get();
                 if(!best||d<best_distance||(d==best_distance&&(key<best_id||(key==best_id&&i<*best)))){best=i;best_distance=d;best_id=key;}
             };
-            for(size_t i=0;i<world_.targets->size();++i)if(world_.targets->at(i).is_hero()){horizontal_test(i);homing_test(i);}
+            for(const auto i:hero_indices_){horizontal_test(i);homing_test(i);}
             scan(heroes.globals.position.get()->x,[&]()->std::optional<double>{if(horizontal)return horizontal_distance*horizontal_distance;return {};},horizontal_test);
             scan(origin.x,[&]()->std::optional<double>{if(best)return best_distance;return {};},homing_test);
             if(complete){if(horizontal)indexes_.nearest_distance=horizontal_distance;indexes_.nearest=best;return;}

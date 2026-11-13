@@ -463,7 +463,8 @@ V C_DrawReplay::m_render(const Args& A) {
                   L_identity = V::tuple({py::id(L_description), (!py_is(L_area, V::none()) ? V(py::tuple_it(L_area)) : V(V::none())), L_scale});
                   L_key = py::m_get(a__frame_keys, L_identity);
                   if (py_is(L_key, V::none())) {
-                      {PVP_PROFILE_SCOPE("DrawReplay::recipe_key_json");
+                      L_key=pvz::native_recipe_key(L_description,L_area,L_scale);
+                      if(L_key.is_none()){PVP_PROFILE_SCOPE("DrawReplay::recipe_key_json");
                       L_key = callm(L_json, SY("dumps"), Args({V::tuple({L_description, L_area, L_scale})}, {{SY("sort_keys"), V(true)}, {SY("separators"), V::tuple({SV(","), SV(":")})}}));
                       }
                       a_key_serializations = py::iadd(a_key_serializations, V(1.0));

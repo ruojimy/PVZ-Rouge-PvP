@@ -103,6 +103,8 @@ class Driver:
             self.fixture['input']='Same neutral input after two deterministic growth steps; wall-clock heartbeats disabled.'
         self.started=time.monotonic()
         self.setup_seconds=time.perf_counter()-setup_start
+        # Cold scene construction is outside the live battle timing window.
+        app.state.update(wall_clock_debt=0.,wall_clock_reset_pending=True)
         self.warm_ticks=int(self.config.get('warmup_room_ticks',0))
         self.measure_ticks=int(self.config.get('measure_room_ticks',0))
         if self.measure_ticks:
@@ -138,6 +140,10 @@ class Driver:
         ready=app.room.battle.tick>=self.warm_ticks if self.measure_ticks else elapsed>=warm
         if not self.measuring and ready:
             if self.measure_ticks:self.tick_limit=self.warm_ticks+self.measure_ticks
+            # Both implementations begin with identical logical state and zero
+            # warmup backlog; otherwise catch-up work distorts measured FPS.
+            app.room.accumulator=0.
+            app.state.update(wall_clock_debt=0.,wall_clock_reset_pending=True)
             # Exclude cold fixture construction and warmup from function totals.
             app.room.battle.backend_audit(reset_function_profile=True)
             from pvp.performance import AppProfiler

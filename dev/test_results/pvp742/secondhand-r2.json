@@ -1,0 +1,1582 @@
+{
+  "checks": [
+    {
+      "evidence": {
+        "new_uid_at_same_address_excluded": false,
+        "original_uid_at_other_address_excluded": true,
+        "scope": "exact identity predicate used by production pickup loop; allocator reuse modeled explicitly"
+      },
+      "name": "stable_dropper_identity_survives_reused_native_address",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "item": {
+          "asset": "路障",
+          "break_room_tick": 25,
+          "expected_hp": 50.0,
+          "id": "zs1",
+          "name": "路障",
+          "original_top": 100.0,
+          "real_damage_path": "cherry ash to ordinary head damage",
+          "x": 1752.0,
+          "y": 969.5999999999999
+        },
+        "visible": {
+          "asset": "路障",
+          "different_world_pixels": 309,
+          "raw_bounds": [
+            11.0,
+            12.0
+          ]
+        },
+        "wearer": {
+          "__pvz_sb_chili_zombie_row_hint": 19.0,
+          "__pvz_sb_zombie_observed_max_hp": 100000000.0,
+          "_pvp_armor_max": 50.0,
+          "_pvp_black_armor": null,
+          "_pvp_born": 0.0,
+          "_pvp_card": "zombie:普通僵尸",
+          "_pvp_content_position_before": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "_pvp_id": "u2",
+          "_pvp_max_hp": 100000000.0,
+          "_pvp_owner": "zombie",
+          "_pvp_temporary": false,
+          "_pvp_zs_hurt": 0.0,
+          "位置": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "僵尸": "普通僵尸",
+          "入水": false,
+          "再出场": 10000.0,
+          "出场": 500.0,
+          "出场初位置": [
+            2256.0,
+            1200.0
+          ],
+          "出场末位置": [
+            2256.0,
+            969.6
+          ],
+          "受伤": 0.0,
+          "啃咬": 0.0,
+          "坚持分兵": 0.0,
+          "大小": 2.0,
+          "憋气": 0.0,
+          "手持": "",
+          "手持受伤": 0.0,
+          "手持血量": 0.0,
+          "方向": 1.0,
+          "炸音": 0.0,
+          "移速": 0.18719999999999998,
+          "血量": 100000000.0,
+          "跳跃cd": 0.0,
+          "防具": "路障",
+          "防具血量": 50.0,
+          "黄油": 99999784.0
+        }
+      },
+      "name": "real_head_break_visible_pickup_路障僵尸",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "item": {
+          "asset": "铁桶",
+          "break_room_tick": 25,
+          "expected_hp": 125.0,
+          "id": "zs1",
+          "name": "铁桶",
+          "original_top": 250.0,
+          "real_damage_path": "cherry ash to ordinary head damage",
+          "x": 1752.0,
+          "y": 969.5999999999999
+        },
+        "visible": {
+          "asset": "铁桶",
+          "different_world_pixels": 437,
+          "raw_bounds": [
+            11.0,
+            11.0
+          ]
+        },
+        "wearer": {
+          "__pvz_sb_chili_zombie_row_hint": 19.0,
+          "__pvz_sb_zombie_observed_max_hp": 100000000.0,
+          "_pvp_armor_max": 125.0,
+          "_pvp_black_armor": null,
+          "_pvp_born": 0.0,
+          "_pvp_card": "zombie:普通僵尸",
+          "_pvp_content_position_before": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "_pvp_id": "u2",
+          "_pvp_max_hp": 100000000.0,
+          "_pvp_owner": "zombie",
+          "_pvp_temporary": false,
+          "_pvp_zs_hurt": 0.0,
+          "位置": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "僵尸": "普通僵尸",
+          "入水": false,
+          "再出场": 10000.0,
+          "出场": 500.0,
+          "出场初位置": [
+            2256.0,
+            1200.0
+          ],
+          "出场末位置": [
+            2256.0,
+            969.6
+          ],
+          "受伤": 0.0,
+          "啃咬": 0.0,
+          "坚持分兵": 0.0,
+          "大小": 2.0,
+          "憋气": 0.0,
+          "手持": "",
+          "手持受伤": 0.0,
+          "手持血量": 0.0,
+          "方向": 1.0,
+          "炸音": 0.0,
+          "移速": 0.18719999999999998,
+          "血量": 100000000.0,
+          "跳跃cd": 0.0,
+          "防具": "铁桶",
+          "防具血量": 125.0,
+          "黄油": 99999784.0
+        }
+      },
+      "name": "real_head_break_visible_pickup_铁桶僵尸",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "item": {
+          "asset": "黑路障",
+          "break_room_tick": 25,
+          "expected_hp": 75.0,
+          "id": "zs1",
+          "name": "路障",
+          "original_top": 150.0,
+          "real_damage_path": "cherry ash to ordinary head damage",
+          "x": 1752.0,
+          "y": 969.5999999999999
+        },
+        "visible": {
+          "asset": "黑路障",
+          "different_world_pixels": 260,
+          "raw_bounds": [
+            11.0,
+            10.0
+          ]
+        },
+        "wearer": {
+          "__pvz_sb_chili_zombie_row_hint": 19.0,
+          "__pvz_sb_zombie_observed_max_hp": 100000000.0,
+          "_pvp_armor_max": 75.0,
+          "_pvp_black_armor": "黑路障僵尸",
+          "_pvp_born": 0.0,
+          "_pvp_card": "zombie:普通僵尸",
+          "_pvp_content_position_before": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "_pvp_id": "u2",
+          "_pvp_max_hp": 100000000.0,
+          "_pvp_owner": "zombie",
+          "_pvp_temporary": false,
+          "_pvp_variant": "黑路障僵尸",
+          "_pvp_zs_hurt": 0.0,
+          "位置": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "僵尸": "普通僵尸",
+          "入水": false,
+          "再出场": 10000.0,
+          "出场": 500.0,
+          "出场初位置": [
+            2256.0,
+            1200.0
+          ],
+          "出场末位置": [
+            2256.0,
+            969.6
+          ],
+          "受伤": 0.0,
+          "啃咬": 0.0,
+          "坚持分兵": 0.0,
+          "大小": 2.0,
+          "憋气": 0.0,
+          "手持": "",
+          "手持受伤": 0.0,
+          "手持血量": 0.0,
+          "方向": 1.0,
+          "炸音": 0.0,
+          "移速": 0.18719999999999998,
+          "血量": 100000000.0,
+          "跳跃cd": 0.0,
+          "防具": "路障",
+          "防具血量": 75.0,
+          "黄油": 99999784.0
+        }
+      },
+      "name": "real_head_break_visible_pickup_黑路障僵尸",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "item": {
+          "asset": "黑铁桶",
+          "break_room_tick": 25,
+          "expected_hp": 187.5,
+          "id": "zs1",
+          "name": "铁桶",
+          "original_top": 375.0,
+          "real_damage_path": "cherry ash to ordinary head damage",
+          "x": 1752.0,
+          "y": 969.5999999999999
+        },
+        "visible": {
+          "asset": "黑铁桶",
+          "different_world_pixels": 398,
+          "raw_bounds": [
+            11.0,
+            10.0
+          ]
+        },
+        "wearer": {
+          "__pvz_sb_chili_zombie_row_hint": 19.0,
+          "__pvz_sb_zombie_observed_max_hp": 100000000.0,
+          "_pvp_armor_max": 187.5,
+          "_pvp_black_armor": "黑铁桶僵尸",
+          "_pvp_born": 0.0,
+          "_pvp_card": "zombie:普通僵尸",
+          "_pvp_content_position_before": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "_pvp_id": "u2",
+          "_pvp_max_hp": 100000000.0,
+          "_pvp_owner": "zombie",
+          "_pvp_temporary": false,
+          "_pvp_variant": "黑铁桶僵尸",
+          "_pvp_zs_hurt": 0.0,
+          "位置": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "僵尸": "普通僵尸",
+          "入水": false,
+          "再出场": 10000.0,
+          "出场": 500.0,
+          "出场初位置": [
+            2256.0,
+            1200.0
+          ],
+          "出场末位置": [
+            2256.0,
+            969.6
+          ],
+          "受伤": 0.0,
+          "啃咬": 0.0,
+          "坚持分兵": 0.0,
+          "大小": 2.0,
+          "憋气": 0.0,
+          "手持": "",
+          "手持受伤": 0.0,
+          "手持血量": 0.0,
+          "方向": 1.0,
+          "炸音": 0.0,
+          "移速": 0.18719999999999998,
+          "血量": 100000000.0,
+          "跳跃cd": 0.0,
+          "防具": "铁桶",
+          "防具血量": 187.5,
+          "黄油": 99999784.0
+        }
+      },
+      "name": "real_head_break_visible_pickup_黑铁桶僵尸",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "item": {
+          "asset": "橄榄球头盔",
+          "break_room_tick": 25,
+          "expected_hp": 200.0,
+          "id": "zs1",
+          "name": "橄榄球头盔",
+          "original_top": 400.0,
+          "real_damage_path": "cherry ash to ordinary head damage",
+          "x": 1752.0,
+          "y": 969.5999999999999
+        },
+        "visible": {
+          "asset": "橄榄球头盔",
+          "different_world_pixels": 306,
+          "raw_bounds": [
+            14.0,
+            16.0
+          ]
+        },
+        "wearer": {
+          "__pvz_sb_chili_zombie_row_hint": 19.0,
+          "__pvz_sb_zombie_observed_max_hp": 100000000.0,
+          "_pvp_armor_max": 200.0,
+          "_pvp_black_armor": null,
+          "_pvp_born": 0.0,
+          "_pvp_card": "zombie:普通僵尸",
+          "_pvp_content_position_before": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "_pvp_id": "u2",
+          "_pvp_max_hp": 100000000.0,
+          "_pvp_owner": "zombie",
+          "_pvp_temporary": false,
+          "_pvp_zs_hurt": 0.0,
+          "位置": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "僵尸": "普通僵尸",
+          "入水": false,
+          "再出场": 10000.0,
+          "出场": 500.0,
+          "出场初位置": [
+            2256.0,
+            1200.0
+          ],
+          "出场末位置": [
+            2256.0,
+            969.6
+          ],
+          "受伤": 0.0,
+          "啃咬": 0.0,
+          "坚持分兵": 0.0,
+          "大小": 2.0,
+          "憋气": 0.0,
+          "手持": "",
+          "手持受伤": 0.0,
+          "手持血量": 0.0,
+          "方向": 1.0,
+          "炸音": 0.0,
+          "移速": 0.18719999999999998,
+          "血量": 100000000.0,
+          "跳跃cd": 0.0,
+          "防具": "橄榄球头盔",
+          "防具血量": 200.0,
+          "黄油": 99999784.0
+        }
+      },
+      "name": "real_head_break_visible_pickup_橄榄球僵尸",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "item": {
+          "asset": "黑橄榄球头盔",
+          "break_room_tick": 25,
+          "expected_hp": 225.0,
+          "id": "zs1",
+          "name": "黑橄榄球头盔",
+          "original_top": 450.0,
+          "real_damage_path": "cherry ash to ordinary head damage",
+          "x": 1752.0,
+          "y": 969.5999999999999
+        },
+        "visible": {
+          "asset": "黑橄榄球头盔",
+          "different_world_pixels": 306,
+          "raw_bounds": [
+            14.0,
+            16.0
+          ]
+        },
+        "wearer": {
+          "__pvz_sb_chili_zombie_row_hint": 19.0,
+          "__pvz_sb_zombie_observed_max_hp": 100000000.0,
+          "_pvp_armor_max": 225.0,
+          "_pvp_black_armor": null,
+          "_pvp_born": 0.0,
+          "_pvp_card": "zombie:普通僵尸",
+          "_pvp_content_position_before": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "_pvp_id": "u2",
+          "_pvp_max_hp": 100000000.0,
+          "_pvp_owner": "zombie",
+          "_pvp_temporary": false,
+          "_pvp_zs_hurt": 0.0,
+          "位置": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "僵尸": "普通僵尸",
+          "入水": false,
+          "再出场": 10000.0,
+          "出场": 500.0,
+          "出场初位置": [
+            2256.0,
+            1200.0
+          ],
+          "出场末位置": [
+            2256.0,
+            969.6
+          ],
+          "受伤": 0.0,
+          "啃咬": 0.0,
+          "坚持分兵": 0.0,
+          "大小": 2.0,
+          "憋气": 0.0,
+          "手持": "",
+          "手持受伤": 0.0,
+          "手持血量": 0.0,
+          "方向": 1.0,
+          "炸音": 0.0,
+          "移速": 0.18719999999999998,
+          "血量": 100000000.0,
+          "跳跃cd": 0.0,
+          "防具": "黑橄榄球头盔",
+          "防具血量": 225.0,
+          "黄油": 99999784.0
+        }
+      },
+      "name": "real_head_break_visible_pickup_黑橄榄僵尸",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "item": {
+          "asset": "黑橄榄球头盔",
+          "break_room_tick": 25,
+          "expected_hp": 225.0,
+          "id": "zs1",
+          "name": "黑橄榄球头盔",
+          "original_top": 450.0,
+          "real_damage_path": "cherry ash to ordinary head damage",
+          "x": 1752.0,
+          "y": 969.5999999999999
+        },
+        "visible": {
+          "asset": "黑橄榄球头盔",
+          "different_world_pixels": 289,
+          "raw_bounds": [
+            14.0,
+            16.0
+          ]
+        },
+        "wearer": {
+          "__pvz_sb_chili_zombie_row_hint": 19.0,
+          "__pvz_sb_zombie_observed_max_hp": 100000000.0,
+          "_pvp_armor_max": 225.0,
+          "_pvp_black_armor": null,
+          "_pvp_born": 0.0,
+          "_pvp_card": "zombie:普通僵尸",
+          "_pvp_content_position_before": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "_pvp_id": "u2",
+          "_pvp_max_hp": 100000000.0,
+          "_pvp_owner": "zombie",
+          "_pvp_temporary": false,
+          "_pvp_zs_hurt": 0.0,
+          "位置": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "僵尸": "普通僵尸",
+          "入水": false,
+          "再出场": 10000.0,
+          "出场": 500.0,
+          "出场初位置": [
+            2256.0,
+            1200.0
+          ],
+          "出场末位置": [
+            2256.0,
+            969.6
+          ],
+          "受伤": 0.0,
+          "啃咬": 0.0,
+          "坚持分兵": 0.0,
+          "大小": 2.0,
+          "憋气": 0.0,
+          "手持": "",
+          "手持受伤": 0.0,
+          "手持血量": 0.0,
+          "方向": 1.0,
+          "炸音": 0.0,
+          "移速": 0.17759999999999998,
+          "血量": 100000000.0,
+          "跳跃cd": 0.0,
+          "防具": "黑橄榄球头盔",
+          "防具血量": 225.0,
+          "黄油": 99999784.0
+        }
+      },
+      "name": "real_head_break_visible_pickup_角斗士巨人",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "item": {
+          "asset": "南瓜头防具",
+          "break_room_tick": 25,
+          "expected_hp": 400.0,
+          "id": "zs1",
+          "name": "南瓜头防具",
+          "original_top": 800.0,
+          "real_damage_path": "cherry ash to ordinary head damage",
+          "x": 1752.0,
+          "y": 969.5999999999999
+        },
+        "visible": {
+          "asset": "南瓜头防具",
+          "different_world_pixels": 248,
+          "raw_bounds": [
+            48.0,
+            27.0
+          ]
+        },
+        "wearer": {
+          "__pvz_sb_chili_zombie_row_hint": 19.0,
+          "__pvz_sb_zombie_observed_max_hp": 100000000.0,
+          "_pvp_armor_max": 400.0,
+          "_pvp_black_armor": null,
+          "_pvp_born": 0.0,
+          "_pvp_card": "zombie:普通僵尸",
+          "_pvp_content_position_before": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "_pvp_id": "u2",
+          "_pvp_max_hp": 100000000.0,
+          "_pvp_owner": "zombie",
+          "_pvp_temporary": false,
+          "_pvp_zs_hurt": 0.0,
+          "位置": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "僵尸": "普通僵尸",
+          "入水": false,
+          "再出场": 10000.0,
+          "出场": 500.0,
+          "出场初位置": [
+            2256.0,
+            1200.0
+          ],
+          "出场末位置": [
+            2256.0,
+            969.6
+          ],
+          "受伤": 0.0,
+          "啃咬": 0.0,
+          "坚持分兵": 0.0,
+          "大小": 2.0,
+          "憋气": 0.0,
+          "手持": "",
+          "手持受伤": 0.0,
+          "手持血量": 0.0,
+          "方向": 1.0,
+          "炸音": 0.0,
+          "移速": 0.18719999999999998,
+          "血量": 100000000.0,
+          "跳跃cd": 0.0,
+          "防具": "南瓜头防具",
+          "防具血量": 400.0,
+          "黄油": 99999784.0
+        }
+      },
+      "name": "real_head_break_visible_pickup_南瓜头防具",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "pending_item": [
+          {
+            "asset": "路障",
+            "id": "zs1",
+            "name": "路障",
+            "x": 1752.0,
+            "y": 969.5999999999999
+          }
+        ],
+        "wearer": {
+          "__pvz_sb_chili_zombie_row_hint": 19.0,
+          "__pvz_sb_zombie_observed_max_hp": 100000000.0,
+          "_pvp_armor_max": 800.0,
+          "_pvp_born": 0.0,
+          "_pvp_card": "zombie:普通僵尸",
+          "_pvp_content_position_before": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "_pvp_id": "u2",
+          "_pvp_max_hp": 100000000.0,
+          "_pvp_owner": "zombie",
+          "_pvp_temporary": false,
+          "_pvp_zs_hurt": 0.0,
+          "位置": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "僵尸": "普通僵尸",
+          "入水": false,
+          "再出场": 10000.0,
+          "出场": 500.0,
+          "出场初位置": [
+            2256.0,
+            1200.0
+          ],
+          "出场末位置": [
+            2256.0,
+            969.6
+          ],
+          "受伤": 0.0,
+          "啃咬": 0.0,
+          "坚持分兵": 0.0,
+          "大小": 2.0,
+          "憋气": 0.0,
+          "手持": "",
+          "手持受伤": 0.0,
+          "手持血量": 0.0,
+          "方向": 1.0,
+          "炸音": 0.0,
+          "移速": 0.18719999999999998,
+          "血量": 100000000.0,
+          "跳跃cd": 0.0,
+          "防具": "南瓜头防具",
+          "防具血量": 800.0,
+          "黄油": 99999784.0
+        }
+      },
+      "name": "occupied_pumpkin_head_is_not_overwritten",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "item": {
+          "asset": "钢门",
+          "break_room_tick": 15,
+          "expected_hp": 250.0,
+          "id": "zs1",
+          "name": "钢门",
+          "original_top": 500.0,
+          "real_damage_path": "front-facing pea surface hit",
+          "x": 1752.0,
+          "y": 969.5999999999999
+        },
+        "visible": {
+          "asset": "钢门",
+          "different_world_pixels": 218,
+          "raw_bounds": [
+            16.0,
+            32.0
+          ]
+        },
+        "wearer": {
+          "__pvz_sb_chili_zombie_row_hint": 19.0,
+          "__pvz_sb_zombie_observed_max_hp": 100000000.0,
+          "_pvp_armor_max": 0.0,
+          "_pvp_born": 0.0,
+          "_pvp_card": "zombie:普通僵尸",
+          "_pvp_content_position_before": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "_pvp_id": "u2",
+          "_pvp_max_hp": 100000000.0,
+          "_pvp_owner": "zombie",
+          "_pvp_temporary": false,
+          "_pvp_zs_hand_kind": "钢门",
+          "_pvp_zs_hand_max": 250.0,
+          "_pvp_zs_hurt": 0.0,
+          "位置": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "僵尸": "普通僵尸",
+          "入水": false,
+          "再出场": 10000.0,
+          "出场": 500.0,
+          "出场初位置": [
+            2256.0,
+            1200.0
+          ],
+          "出场末位置": [
+            2256.0,
+            969.6
+          ],
+          "受伤": 0.0,
+          "啃咬": 0.0,
+          "坚持分兵": 0.0,
+          "大小": 2.0,
+          "憋气": 0.0,
+          "手持": "钢门",
+          "手持受伤": 0.0,
+          "手持血量": 250.0,
+          "方向": 1.0,
+          "炸音": 0.0,
+          "移速": 0.18719999999999998,
+          "血量": 100000000.0,
+          "跳跃cd": 0.0,
+          "防具": "",
+          "防具血量": 0.0,
+          "黄油": 99999859.0
+        }
+      },
+      "name": "real_hand_break_visible_pickup_钢门普通僵尸",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "item": {
+          "asset": "垃圾桶",
+          "break_room_tick": 15,
+          "expected_hp": 100.0,
+          "id": "zs1",
+          "name": "垃圾桶",
+          "original_top": 200.0,
+          "real_damage_path": "front-facing pea surface hit",
+          "x": 1752.0,
+          "y": 969.5999999999999
+        },
+        "visible": {
+          "asset": "垃圾桶",
+          "different_world_pixels": 392,
+          "raw_bounds": [
+            22.0,
+            23.0
+          ]
+        },
+        "wearer": {
+          "__pvz_sb_chili_zombie_row_hint": 19.0,
+          "__pvz_sb_zombie_observed_max_hp": 100000000.0,
+          "_pvp_armor_max": 0.0,
+          "_pvp_born": 0.0,
+          "_pvp_card": "zombie:普通僵尸",
+          "_pvp_content_position_before": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "_pvp_id": "u2",
+          "_pvp_max_hp": 100000000.0,
+          "_pvp_owner": "zombie",
+          "_pvp_temporary": false,
+          "_pvp_zs_hand_kind": "垃圾桶",
+          "_pvp_zs_hand_max": 100.0,
+          "_pvp_zs_hurt": 0.0,
+          "位置": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "僵尸": "普通僵尸",
+          "入水": false,
+          "再出场": 10000.0,
+          "出场": 500.0,
+          "出场初位置": [
+            2256.0,
+            1200.0
+          ],
+          "出场末位置": [
+            2256.0,
+            969.6
+          ],
+          "受伤": 0.0,
+          "啃咬": 0.0,
+          "坚持分兵": 0.0,
+          "大小": 2.0,
+          "憋气": 0.0,
+          "手持": "钢门",
+          "手持受伤": 0.0,
+          "手持血量": 100.0,
+          "方向": 1.0,
+          "炸音": 0.0,
+          "移速": 0.18719999999999998,
+          "血量": 100000000.0,
+          "跳跃cd": 0.0,
+          "防具": "",
+          "防具血量": 0.0,
+          "黄油": 99999859.0
+        }
+      },
+      "name": "real_hand_break_visible_pickup_垃圾桶僵尸",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "item": {
+          "asset": "梯子",
+          "break_room_tick": 15,
+          "expected_hp": 125.0,
+          "id": "zs1",
+          "name": "梯子",
+          "original_top": 250.0,
+          "real_damage_path": "front-facing pea surface hit",
+          "x": 1752.0,
+          "y": 969.5999999999999
+        },
+        "visible": {
+          "asset": "梯子",
+          "different_world_pixels": 168,
+          "raw_bounds": [
+            18.0,
+            29.0
+          ]
+        },
+        "wearer": {
+          "__pvz_sb_chili_zombie_row_hint": 19.0,
+          "__pvz_sb_zombie_observed_max_hp": 100000000.0,
+          "_pvp_armor_max": 0.0,
+          "_pvp_born": 0.0,
+          "_pvp_card": "zombie:普通僵尸",
+          "_pvp_content_position_before": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "_pvp_id": "u2",
+          "_pvp_max_hp": 100000000.0,
+          "_pvp_owner": "zombie",
+          "_pvp_temporary": false,
+          "_pvp_zs_hand_kind": "梯子",
+          "_pvp_zs_hand_max": 125.0,
+          "_pvp_zs_hurt": 0.0,
+          "位置": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "僵尸": "普通僵尸",
+          "入水": false,
+          "再出场": 10000.0,
+          "出场": 500.0,
+          "出场初位置": [
+            2256.0,
+            1200.0
+          ],
+          "出场末位置": [
+            2256.0,
+            969.6
+          ],
+          "受伤": 0.0,
+          "啃咬": 0.0,
+          "坚持分兵": 0.0,
+          "大小": 2.0,
+          "憋气": 0.0,
+          "手持": "梯子",
+          "手持受伤": 0.0,
+          "手持血量": 125.0,
+          "方向": 1.0,
+          "炸音": 0.0,
+          "移速": 0.18719999999999998,
+          "血量": 100000000.0,
+          "跳跃cd": 0.0,
+          "防具": "",
+          "防具血量": 0.0,
+          "黄油": 99999859.0
+        }
+      },
+      "name": "real_hand_break_visible_pickup_梯子僵尸",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "item": {
+          "asset": "传送带",
+          "break_room_tick": 15,
+          "expected_hp": 125.0,
+          "id": "zs1",
+          "name": "传送带",
+          "original_top": 250.0,
+          "real_damage_path": "front-facing pea surface hit",
+          "x": 1752.0,
+          "y": 969.5999999999999
+        },
+        "visible": {
+          "asset": "传送带",
+          "different_world_pixels": 169,
+          "raw_bounds": [
+            18.0,
+            29.0
+          ]
+        },
+        "wearer": {
+          "__pvz_sb_chili_zombie_row_hint": 19.0,
+          "__pvz_sb_zombie_observed_max_hp": 100000000.0,
+          "_pvp_armor_max": 0.0,
+          "_pvp_born": 0.0,
+          "_pvp_card": "zombie:普通僵尸",
+          "_pvp_content_position_before": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "_pvp_id": "u2",
+          "_pvp_max_hp": 100000000.0,
+          "_pvp_owner": "zombie",
+          "_pvp_temporary": false,
+          "_pvp_zs_hand_kind": "传送带",
+          "_pvp_zs_hand_max": 125.0,
+          "_pvp_zs_hurt": 0.0,
+          "位置": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "僵尸": "普通僵尸",
+          "入水": false,
+          "再出场": 10000.0,
+          "出场": 500.0,
+          "出场初位置": [
+            2256.0,
+            1200.0
+          ],
+          "出场末位置": [
+            2256.0,
+            969.6
+          ],
+          "受伤": 0.0,
+          "啃咬": 0.0,
+          "坚持分兵": 0.0,
+          "大小": 2.0,
+          "憋气": 0.0,
+          "手持": "梯子",
+          "手持受伤": 0.0,
+          "手持血量": 125.0,
+          "方向": 1.0,
+          "炸音": 0.0,
+          "移速": 0.18719999999999998,
+          "血量": 100000000.0,
+          "跳跃cd": 0.0,
+          "防具": "",
+          "防具血量": 0.0,
+          "黄油": 99999859.0
+        }
+      },
+      "name": "real_hand_break_visible_pickup_传送带僵尸",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "item": {
+          "asset": "报纸",
+          "break_room_tick": 15,
+          "expected_hp": 50.0,
+          "id": "zs1",
+          "name": "报纸",
+          "original_top": 100.0,
+          "real_damage_path": "front-facing pea surface hit",
+          "x": 1752.0,
+          "y": 969.5999999999999
+        },
+        "visible": {
+          "asset": "报纸",
+          "different_world_pixels": 335,
+          "raw_bounds": [
+            19.0,
+            21.0
+          ]
+        },
+        "wearer": {
+          "__pvz_sb_chili_zombie_row_hint": 19.0,
+          "__pvz_sb_zombie_observed_max_hp": 100000000.0,
+          "_pvp_armor_max": 0.0,
+          "_pvp_born": 0.5666666666666667,
+          "_pvp_card": "zombie:报纸僵尸",
+          "_pvp_content_position_before": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "_pvp_id": "u4",
+          "_pvp_max_hp": 100000000.0,
+          "_pvp_owner": "zombie",
+          "_pvp_temporary": false,
+          "_pvp_zs_hand": "报纸",
+          "_pvp_zs_hand_kind": "报纸",
+          "_pvp_zs_hand_max": 50.0,
+          "_pvp_zs_hurt": 141.0,
+          "位置": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "僵尸": "报纸僵尸",
+          "入水": false,
+          "再出场": 10000.0,
+          "出场": 500.0,
+          "出场初位置": [
+            2256.0,
+            1200.0
+          ],
+          "出场末位置": [
+            2256.0,
+            969.6
+          ],
+          "受伤": 0.0,
+          "啃咬": 0.0,
+          "坚持分兵": 0.0,
+          "大小": 2.0,
+          "大蒜": 390.0,
+          "憋气": 0.0,
+          "手持": "报纸",
+          "手持受伤": 0.0,
+          "手持血量": 50.0,
+          "方向": 1.0,
+          "炸音": 0.0,
+          "狂暴": 0.0,
+          "移速": 1.44,
+          "血量": 100000000.0,
+          "跳跃cd": 0.0,
+          "防具": "",
+          "防具血量": 0.0,
+          "黄油": 99999991.0
+        }
+      },
+      "name": "newspaper_preserves_original_compatible_controller_rule",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "final_drop_events": 1,
+        "first_drop_events": 1,
+        "wearer": {
+          "__pvz_sb_chili_zombie_row_hint": 19.0,
+          "__pvz_sb_zombie_observed_max_hp": 100000000.0,
+          "_pvp_armor_max": 50.0,
+          "_pvp_black_armor": null,
+          "_pvp_born": 0.0,
+          "_pvp_card": "zombie:普通僵尸",
+          "_pvp_content_position_before": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "_pvp_id": "u2",
+          "_pvp_max_hp": 100000000.0,
+          "_pvp_owner": "zombie",
+          "_pvp_temporary": false,
+          "_pvp_zs_hurt": 0.0,
+          "位置": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "僵尸": "普通僵尸",
+          "入水": false,
+          "再出场": 10000.0,
+          "出场": 500.0,
+          "出场初位置": [
+            2256.0,
+            1200.0
+          ],
+          "出场末位置": [
+            2256.0,
+            969.6
+          ],
+          "受伤": 0.0,
+          "啃咬": 0.0,
+          "坚持分兵": 0.0,
+          "大小": 2.0,
+          "憋气": 0.0,
+          "手持": "",
+          "手持受伤": 0.0,
+          "手持血量": 0.0,
+          "方向": 1.0,
+          "炸音": 0.0,
+          "移速": 0.18719999999999998,
+          "血量": 100000000.0,
+          "跳跃cd": 0.0,
+          "防具": "",
+          "防具血量": 0.0,
+          "黄油": 99999034.0
+        }
+      },
+      "name": "secondhand_piece_does_not_drop_again",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "gifted": {
+          "__pvz_sb_chili_zombie_row_hint": 19.0,
+          "__pvz_sb_zombie_observed_max_hp": 100000000.0,
+          "_pvp_armor_max": 250.0,
+          "_pvp_black_armor": null,
+          "_pvp_born": 0.0,
+          "_pvp_card": "zombie:普通僵尸",
+          "_pvp_content_position_before": [
+            1752.0,
+            962.3040000000001,
+            0.0,
+            0.288
+          ],
+          "_pvp_id": "u1",
+          "_pvp_max_hp": 100000000.0,
+          "_pvp_owner": "zombie",
+          "_pvp_temporary": false,
+          "_pvp_zs_hurt": 0.0,
+          "位置": [
+            1752.0,
+            962.6112,
+            0.0,
+            0.3072
+          ],
+          "僵尸": "普通僵尸",
+          "入水": false,
+          "再出场": 10000.0,
+          "出场": 500.0,
+          "出场初位置": [
+            1752.0,
+            1200.0
+          ],
+          "出场末位置": [
+            1752.0,
+            969.6
+          ],
+          "受伤": 12.0,
+          "啃咬": 0.0,
+          "坚持分兵": 0.0,
+          "大小": 2.0,
+          "憋气": 0.0,
+          "手持": "",
+          "手持受伤": 0.0,
+          "手持血量": 0.0,
+          "方向": 1.0,
+          "炸音": 0.0,
+          "移速": 0.19679999999999997,
+          "血量": 100000000.0,
+          "跳跃cd": 0.0,
+          "防具": "铁桶",
+          "防具血量": 250.0,
+          "黄油": 99999984.0
+        },
+        "item": {
+          "asset": "铁桶",
+          "break_room_tick": 27,
+          "expected_hp": 125.0,
+          "id": "zs1",
+          "name": "铁桶",
+          "original_top": 250.0,
+          "real_damage_path": "cherry ash to ordinary head damage",
+          "x": 1752.0,
+          "y": 969.5999999999999
+        },
+        "wearer": {
+          "__pvz_sb_chili_zombie_row_hint": 19.0,
+          "__pvz_sb_zombie_observed_max_hp": 100000000.0,
+          "_pvp_armor_max": 125.0,
+          "_pvp_black_armor": null,
+          "_pvp_born": 0.06666666666666667,
+          "_pvp_card": "zombie:普通僵尸",
+          "_pvp_content_position_before": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "_pvp_id": "u3",
+          "_pvp_max_hp": 100000000.0,
+          "_pvp_owner": "zombie",
+          "_pvp_temporary": false,
+          "_pvp_zs_hurt": 16.0,
+          "位置": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "僵尸": "普通僵尸",
+          "入水": false,
+          "再出场": 10000.0,
+          "出场": 500.0,
+          "出场初位置": [
+            2256.0,
+            1200.0
+          ],
+          "出场末位置": [
+            2256.0,
+            969.6
+          ],
+          "受伤": 0.0,
+          "啃咬": 0.0,
+          "坚持分兵": 0.0,
+          "大小": 2.0,
+          "憋气": 0.0,
+          "手持": "",
+          "手持受伤": 0.0,
+          "手持血量": 0.0,
+          "方向": 1.0,
+          "炸音": 0.0,
+          "移速": 0.17759999999999998,
+          "血量": 100000000.0,
+          "跳跃cd": 0.0,
+          "防具": "铁桶",
+          "防具血量": 125.0,
+          "黄油": 99999783.0
+        }
+      },
+      "name": "gifted_bucket_retains_original_max_for_secondhand_half_durability",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "enemy_stun": 1484.0,
+        "inherited": {
+          "__pvz_sb_chili_zombie_row_hint": 19.0,
+          "__pvz_sb_zombie_observed_max_hp": 30.0,
+          "_pvp_armor_max": 375.0,
+          "_pvp_black_armor": "黑铁桶僵尸",
+          "_pvp_born": 0.03333333333333333,
+          "_pvp_card": "zombie:小鬼僵尸",
+          "_pvp_content_position_before": [
+            1774.8432,
+            871.1424,
+            3.782400000000001,
+            -2.7647999999999993
+          ],
+          "_pvp_id": "u2",
+          "_pvp_max_hp": 30.0,
+          "_pvp_owner": "zombie",
+          "_pvp_temporary": true,
+          "位置": [
+            1778.616,
+            868.3968,
+            3.772800000000001,
+            -2.745599999999999
+          ],
+          "僵尸": "小鬼僵尸",
+          "入水": false,
+          "再出场": 10000.0,
+          "出场": 500.0,
+          "出场初位置": [
+            1752.0048,
+            1200.0
+          ],
+          "出场末位置": [
+            1752.0048,
+            969.6192
+          ],
+          "受伤": 0.0,
+          "啃咬": 0.0,
+          "坚持分兵": 0.0,
+          "大小": 2.0,
+          "憋气": 0.0,
+          "手持": "",
+          "手持受伤": 0.0,
+          "手持血量": 0.0,
+          "方向": 1.0,
+          "旋转": 7.0,
+          "炸音": 0.0,
+          "移速": 0.3072,
+          "血量": 30.0,
+          "跳跃cd": 0.0,
+          "防具": "铁桶",
+          "防具血量": 375.0
+        },
+        "item": {
+          "asset": "黑铁桶",
+          "break_room_tick": 26,
+          "expected_hp": 187.5,
+          "id": "zs1",
+          "name": "铁桶",
+          "original_top": 375.0,
+          "real_damage_path": "cherry ash to ordinary head damage",
+          "x": 1752.0,
+          "y": 969.5999999999999
+        },
+        "plant_sleep": true,
+        "visible": {
+          "asset": "黑铁桶",
+          "different_world_pixels": 398,
+          "raw_bounds": [
+            11.0,
+            10.0
+          ]
+        },
+        "wearer": {
+          "__pvz_sb_chili_zombie_row_hint": 19.0,
+          "__pvz_sb_zombie_observed_max_hp": 100000000.0,
+          "_pvp_armor_max": 187.5,
+          "_pvp_black_armor": "黑铁桶僵尸",
+          "_pvp_born": 0.03333333333333333,
+          "_pvp_card": "zombie:普通僵尸",
+          "_pvp_content_position_before": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "_pvp_id": "u5",
+          "_pvp_max_hp": 100000000.0,
+          "_pvp_owner": "zombie",
+          "_pvp_temporary": false,
+          "_pvp_variant": "黑铁桶僵尸",
+          "_pvp_zs_hurt": 8.0,
+          "位置": [
+            1752.0,
+            969.5999999999999,
+            0.0,
+            -0.0
+          ],
+          "僵尸": "普通僵尸",
+          "入水": false,
+          "再出场": 10000.0,
+          "出场": 500.0,
+          "出场初位置": [
+            2448.0,
+            1200.0
+          ],
+          "出场末位置": [
+            2448.0,
+            969.6
+          ],
+          "受伤": 0.0,
+          "啃咬": 0.0,
+          "坚持分兵": 0.0,
+          "大小": 2.0,
+          "憋气": 0.0,
+          "手持": "",
+          "手持受伤": 0.0,
+          "手持血量": 0.0,
+          "方向": 1.0,
+          "炸音": 0.0,
+          "移速": 0.21119999999999997,
+          "血量": 100000000.0,
+          "跳跃cd": 0.0,
+          "防具": "铁桶",
+          "防具血量": 187.5,
+          "黄油": 99999783.0
+        }
+      },
+      "name": "natural_thrown_black_bucket_imp_break_effect_drop_and_pickup",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "first_build_tick_after_move": 4,
+        "item": {
+          "asset": "梯子",
+          "break_room_tick": 15,
+          "expected_hp": 125.0,
+          "id": "zs1",
+          "name": "梯子",
+          "original_top": 250.0,
+          "real_damage_path": "front-facing pea surface hit",
+          "x": 1752.0,
+          "y": 969.5999999999999
+        },
+        "placed": [
+          {
+            "belt": false,
+            "col": 41,
+            "row": 19
+          }
+        ],
+        "wearer": {
+          "__pvz_sb_chili_zombie_row_hint": 19.0,
+          "__pvz_sb_zombie_observed_max_hp": 100000000.0,
+          "_pvp_armor_max": 0.0,
+          "_pvp_born": 0.0,
+          "_pvp_card": "zombie:普通僵尸",
+          "_pvp_content_position_before": [
+            1995.7823999999996,
+            963.744,
+            0.0384,
+            -0.9408
+          ],
+          "_pvp_id": "u2",
+          "_pvp_max_hp": 100000000.0,
+          "_pvp_owner": "zombie",
+          "_pvp_temporary": false,
+          "_pvp_zs_hand_kind": "梯子",
+          "_pvp_zs_hand_max": 125.0,
+          "_pvp_zs_hurt": 0.0,
+          "位置": [
+            1995.8255999999997,
+            962.8224,
+            0.0432,
+            -0.9216
+          ],
+          "僵尸": "普通僵尸",
+          "入水": false,
+          "再出场": 10000.0,
+          "出场": 500.0,
+          "出场初位置": [
+            2256.0,
+            1200.0
+          ],
+          "出场末位置": [
+            2256.0,
+            969.6
+          ],
+          "受伤": 0.0,
+          "啃咬": 0.0,
+          "坚持分兵": 0.0,
+          "大小": 2.0,
+          "憋气": 0.0,
+          "手持": "梯子",
+          "手持受伤": 0.0,
+          "手持血量": 125.0,
+          "方向": 1.0,
+          "炸音": 0.0,
+          "移速": 0.18719999999999998,
+          "血量": 100000000.0,
+          "跳跃cd": 68.0,
+          "防具": "",
+          "防具血量": 0.0,
+          "黄油": 0.0
+        }
+      },
+      "name": "ordinary_wearer_automatically_builds_梯子僵尸",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "first_build_tick_after_move": 4,
+        "item": {
+          "asset": "传送带",
+          "break_room_tick": 15,
+          "expected_hp": 125.0,
+          "id": "zs1",
+          "name": "传送带",
+          "original_top": 250.0,
+          "real_damage_path": "front-facing pea surface hit",
+          "x": 1752.0,
+          "y": 969.5999999999999
+        },
+        "placed": [
+          {
+            "belt": true,
+            "col": 41,
+            "row": 19
+          }
+        ],
+        "wearer": {
+          "__pvz_sb_chili_zombie_row_hint": 19.0,
+          "__pvz_sb_zombie_observed_max_hp": 100000000.0,
+          "_pvp_armor_max": 0.0,
+          "_pvp_born": 0.0,
+          "_pvp_card": "zombie:普通僵尸",
+          "_pvp_content_position_before": [
+            1995.7823999999996,
+            963.744,
+            0.0384,
+            -0.9984
+          ],
+          "_pvp_id": "u2",
+          "_pvp_max_hp": 100000000.0,
+          "_pvp_owner": "zombie",
+          "_pvp_temporary": false,
+          "_pvp_zs_hand_kind": "传送带",
+          "_pvp_zs_hand_max": 125.0,
+          "_pvp_zs_hurt": 0.0,
+          "位置": [
+            1995.8255999999997,
+            962.7648,
+            0.0432,
+            -1.0368
+          ],
+          "僵尸": "普通僵尸",
+          "入水": false,
+          "再出场": 10000.0,
+          "出场": 500.0,
+          "出场初位置": [
+            2256.0,
+            1200.0
+          ],
+          "出场末位置": [
+            2256.0,
+            969.6
+          ],
+          "受伤": 0.0,
+          "啃咬": 0.0,
+          "坚持分兵": 0.0,
+          "大小": 2.0,
+          "憋气": 0.0,
+          "手持": "梯子",
+          "手持受伤": 0.0,
+          "手持血量": 125.0,
+          "方向": 1.0,
+          "炸音": 0.0,
+          "移速": 0.18719999999999998,
+          "血量": 100000000.0,
+          "跳跃cd": 68.0,
+          "防具": "",
+          "防具血量": 0.0,
+          "黄油": 0.0
+        }
+      },
+      "name": "ordinary_wearer_automatically_builds_传送带僵尸",
+      "passed": true
+    }
+  ],
+  "failures": 0,
+  "passed": true,
+  "scope": "Real Session: cherry head damage or front-facing pea surface hit breaks a one-HP piece while preserving its original max; no direct drop/pickup helper calls. Actual WorldView pixel comparison checks visibility. Taker is a normal zombie; native path/motion must place the inherited ladder/conveyor. One separate identity-predicate test explicitly models pointer reuse."
+}

@@ -48,7 +48,8 @@ std::vector<ContentTarget> MortarPlants::mortar_targets(const PlantRef& plant) {
     const auto [origin,direction]=muzzle(plant);const double tile=world_.runtime.tile;
     struct Candidate {double distance;std::string id;ContentTarget target;};
     std::vector<Candidate> candidates;
-    for(const auto& target:enemies(plant)) {
+    for(const auto& target:queries_.enemies_in_box(source_ref(plant),{origin.x-16.*tile,origin.y-10.*tile,origin.x+16.*tile,origin.y+10.*tile})) {
+        ++queries_.range_exact_tests;
         const auto point=targets_.point(target);
         const double dx=wrap_delta(origin.x,point.x,world_.world_width.get()),dy=point.y-origin.y;
         if(dx*direction<-.5*tile || std::abs(dx)>16.*tile || std::abs(dy)>10.*tile)continue;
@@ -138,7 +139,8 @@ bool MortarPlants::spring(const PlantRef& plant) {
     const Point origin{(plant->cell.x+.5)*tile,(plant->cell.y+.45)*tile};
     struct Candidate {double distance;std::string id;ContentTarget target;Point delta;};
     std::vector<Candidate> candidates;
-    for(const auto& target:enemies(plant)) {
+    for(const auto& target:queries_.enemies_in_box(source_ref(plant),{origin.x-2.4*tile,origin.y-2.4*tile,origin.x+2.4*tile,origin.y+2.4*tile})) {
+        ++queries_.range_exact_tests;
         const auto point=targets_.point(target);
         const Point delta{wrap_delta(origin.x,point.x,world_.world_width.get()),point.y-origin.y};
         const double distance=std::hypot(delta.x,delta.y);

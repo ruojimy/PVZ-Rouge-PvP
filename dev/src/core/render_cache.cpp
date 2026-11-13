@@ -4,6 +4,7 @@
 #include <list>
 #include <unordered_map>
 #include <cstring>
+#include <cmath>
 namespace pvz { namespace {
 uint64_t hash_key(const V& key){
     switch(key.t){
@@ -48,5 +49,40 @@ V native_render_cache(){
     const auto legacy=std::getenv("PVP741_RENDER_LRU");
     if(legacy&&std::string(legacy)=="0")return py::stdlib_call(V("collections.OrderedDict"),Args{});
     return V::inst(std::make_shared<RenderLRU>());
+}
+V native_recipe_key(const V& description,const V& area,const V& scale){
+    static const bool enabled=[]{const char* p=std::getenv("PVP742_RECIPE_KEY");return !p||*p!='0';}();
+    if(!enabled)return V::none();
+    PVP_PROFILE_SCOPE("DrawReplay::recipe_key_native");
+    std::string out;out.reserve(512);
+    const auto encode=[&](const auto& self,const V& v,int depth)->bool{
+        if(depth>512)return false;
+        switch(v.t){
+        case V::NONE:out+='n';return true;
+        case V::BOOL:out+=v.b?'t':'f';return true;
+        case V::NUM:{
+            double d=v.num();if(d==0.)d=0.;uint64_t bits;
+            std::memcpy(&bits,&d,8);if(std::isnan(d))bits=0x7ff8000000000000ull;
+            out+='d';static const char hex[]="0123456789abcdef";
+            for(int shift=60;shift>=0;shift-=4)out+=hex[(bits>>shift)&15];return true;
+        }
+        case V::STR:{const auto& s=v.str();out+='s';out+=std::to_string(s.size());out+=':';out+=s;return true;}
+        case V::LIST:case V::TUPLE:
+            out+='a';out+=std::to_string(v.len());out+=':';
+            for(const auto& x:v.items())if(!self(self,x,depth+1))return false;
+            return true;
+        case V::DICT:case V::OBJ:{
+            auto rows=py::items_vec(v);
+            for(const auto& row:rows)if(row.first.t!=V::STR)return false;
+            std::sort(rows.begin(),rows.end(),[](const auto& a,const auto& b){return a.first.str()<b.first.str();});
+            out+='o';out+=std::to_string(rows.size());out+=':';
+            for(const auto& [k,x]:rows)if(!self(self,k,depth+1)||!self(self,x,depth+1))return false;
+            return true;
+        }
+        default:return false;
+        }
+    };
+    if(!encode(encode,description,0)||!encode(encode,area,0)||!encode(encode,scale,0))return V::none();
+    return V(std::move(out));
 }
 }

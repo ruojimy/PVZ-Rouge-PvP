@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "apk": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\dist\\apk-pvp742-20261114\\PvZ-PvP-Native-1.6.0.74.2-typed.20261113-1114071-20261114-pvp742-r5.apk",
+  "sha256": "f36372208bf4b92b94759819c07037cc3b5dc5e8c49875ca1e67e0bc84a1b697",
+  "version_code": 1114071,
+  "native_libraries": {
+    "libSDL2.so": true,
+    "libSDL2_image.so": true,
+    "libSDL2_mixer.so": true,
+    "libSDL2_ttf.so": true,
+    "libmain.so": true
+  },
+  "version": {
+    "BUILD": "1.6.0.74.2-typed.20261113",
+    "PROTOCOL": 1
+  },
+  "asset_files": 3621,
+  "source_assets_hashed": 2955,
+  "certificate_continuity_verified_by_build": true,
+  "device_installed": false,
+  "device_performance": "pending current wireless-debugging port"
+}

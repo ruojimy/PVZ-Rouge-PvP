@@ -13,6 +13,52 @@ std::shared_ptr<pm_adaptive_pacing::C_AdaptivePacing> policy(const V& app){
 }
 }
 double now(){return std::chrono::duration<double>(std::chrono::steady_clock::now().time_since_epoch()).count();}
+FrameServiceScope::FrameServiceScope(const V& app):state_(pvz::getattr(app,SY("state"))){
+    previous_=py::m_get(state_,SV("frame_service_active"),V(false));setitem(state_,SV("frame_service_active"),V(true));
+}
+FrameServiceScope::~FrameServiceScope(){setitem(state_,SV("frame_service_active"),previous_);}
+bool command_refresh_needed(const V& app,const V& request){
+    static const bool enabled=[]{const char* p=std::getenv("PVP742_INPUT_REFRESH");return !p||*p!='0';}();
+    if(!enabled||!request.is_dict()||py::m_get(request,SV("type"))!=SV("input"))return true;
+    const V input=py::m_get(request,SV("input"));
+    if(!input.is_dict()||py::m_get(input,SV("type"))!=SV("move"))return true;
+    const V state=pvz::getattr(app,SY("state"));
+    if(!py::m_get(state,SV("frame_service_active"),V(false)).truthy())return true;
+    setitem(state,SV("deferred_move_refreshes"),V(py::m_get(state,SV("deferred_move_refreshes"),V(0.)).num()+1.));
+    return false;
+}
+double service_delta(const V& app,double milliseconds){
+    const double elapsed=milliseconds/1000.;
+    if(!std::isfinite(elapsed)||elapsed<0.)return 0.;
+    static const bool enabled=[]{const char* p=std::getenv("PVP742_WALL_CLOCK");return !p||*p!='0';}();
+    const V state=pvz::getattr(app,SY("state")),view=pvz::getattr(app,SY("view"));
+    const V mode=pvz::getattr(app,SY("mode"));
+    const bool active=enabled&&(mode==SV("local")||mode==SV("host"))&&view.is_dict()&&
+        py::m_get(view,SV("phase"))==SV("battle")&&!py::m_get(view,SV("paused")).truthy()&&!py::m_get(view,SV("audit_error")).truthy();
+    if(!active){setitem(state,SV("wall_clock_debt"),V(0.));return std::min(.25,elapsed);}
+    const double pending=std::max(0.,py::m_get(state,SV("wall_clock_debt"),V(0.)).num())+elapsed;
+    const double credited=std::min(2.,pending);
+    setitem(state,SV("wall_clock_debt"),V(pending-credited));
+    return credited;
+}
+void reset_wall_clock(const V& app){
+    const V state=pvz::getattr(app,SY("state"));
+    setitem(state,SV("wall_clock_debt"),V(0.));
+    setitem(state,SV("wall_clock_reset_pending"),V(true));
+}
+double authority_delta(const V& app,double seconds){
+    const V state=pvz::getattr(app,SY("state"));
+    // Lifecycle events are collected after the outer clock tick. Discard the
+    // suspension interval at this boundary, before Room can credit it.
+    if(py::m_get(state,SV("wall_clock_reset_pending"),V(false)).truthy()){
+        setitem(state,SV("wall_clock_reset_pending"),V(false));
+        setitem(state,SV("wall_clock_debt"),V(0.));return 0.;
+    }
+    if(!std::isfinite(seconds)||seconds<0.)return 0.;
+    static const bool enabled=[]{const char* p=std::getenv("PVP742_WALL_CLOCK");return !p||*p!='0';}();
+    const V mode=pvz::getattr(app,SY("mode"));
+    return std::min(enabled&&(mode==SV("host")||mode==SV("local"))?2.:1.,seconds);
+}
 void record_advance(const V& app,double cost){
     auto p=policy(app);if(!p||!std::isfinite(cost)||cost<0.)return;
     p->advance_pending=false;

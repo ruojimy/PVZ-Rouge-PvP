@@ -1,0 +1,25 @@
+expected map fingerprint: invalid map<K, T> key
+C++ original throw stack (before unwinding):
+  00007FFA06896DF6 exe-relative=358456df6 RtlWow64GetCurrentMachine+ac6
+  00007FFA06896595 exe-relative=358456595 RtlWow64GetCurrentMachine+265
+  00007FFA067E9F3D exe-relative=3583a9f3d RtlRaiseException+18d
+  00007FFA0408569A exe-relative=355c4569a RaiseException+8a
+  00007FF6AE55D103 exe-relative=11d103 _CxxThrowException+97 D:\a\_work\1\s\src\vctools\crt\vcruntime\src\eh\throw.cpp:80
+  00007FF6AE508D1A exe-relative=c8d1a std::_Xout_of_range+22 D:\a\_work\1\s\src\vctools\crt\github\stl\src\xthrow.cpp:23
+  00007FF6AE4419AC exe-relative=19ac main+24c C:\Users\xiech\Downloads\PVZ_rougePvP_native\src\tools\pvp742_throw_trace_audit.cpp:12
+  00007FF6AE55B4FC exe-relative=11b4fc __scrt_common_main_seh+10c D:\a\_work\1\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+  00007FFA0557DDA7 exe-relative=35713dda7 BaseThreadInitThunk+17
+  00007FFA06899C5C exe-relative=358459c5c RtlUserThreadStart+2c
+expected oversized allocation: bad allocation
+C++ original throw stack (before unwinding):
+  00007FFA06896DF6 exe-relative=358456df6 RtlWow64GetCurrentMachine+ac6
+  00007FFA06896595 exe-relative=358456595 RtlWow64GetCurrentMachine+265
+  00007FFA067E9F3D exe-relative=3583a9f3d RtlRaiseException+18d
+  00007FFA0408569A exe-relative=355c4569a RaiseException+8a
+  00007FF6AE55D103 exe-relative=11d103 _CxxThrowException+97 D:\a\_work\1\s\src\vctools\crt\vcruntime\src\eh\throw.cpp:80
+  00007FF6AE441B4E exe-relative=1b4e operator new+2e C:\Users\xiech\Downloads\PVZ_rougePvP_native\src\core\alloc.cpp:192
+  00007FF6AE441876 exe-relative=1876 main+116 C:\Users\xiech\Downloads\PVZ_rougePvP_native\src\tools\pvp742_throw_trace_audit.cpp:14
+  00007FF6AE55B4FC exe-relative=11b4fc __scrt_common_main_seh+10c D:\a\_work\1\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+  00007FFA0557DDA7 exe-relative=35713dda7 BaseThreadInitThunk+17
+  00007FFA06899C5C exe-relative=358459c5c RtlUserThreadStart+2c
+allocator failure count=1 size=18446744073709551615

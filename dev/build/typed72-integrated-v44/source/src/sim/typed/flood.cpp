@@ -72,7 +72,11 @@ template<class Terrain> void advance_flood_impl(const Terrain& map, FloodState& 
             if (!(indexed?map.empty_canonical(n.y,col):map.empty(n.y,col)) || n.y > input.surface) continue;
             int& old = state.field->at(size_t(n.y) * map.cols() + col);
             if (old != 0 && int64_t(state.sign) * old >= 0) continue;
-            if (0 < n.y && n.y < 23 && !map.empty(n.y-1, col) && !map.empty(n.y+1, col)) continue;
+            // A body cannot traverse a one-cell-high slot. Extended maps are
+            // taller than the original 24 rows; retaining 23 here routed whole
+            // crowds into the Oasis tower's row-24 slot and stopped climbing.
+            // The predicate remains exactly the old one on a 24-row map.
+            if (0 < n.y && n.y+1 < map.rows() && !map.empty(n.y-1, col) && !map.empty(n.y+1, col)) continue;
             state.queue->push_back(n);
             old = direction * state.sign;
         }

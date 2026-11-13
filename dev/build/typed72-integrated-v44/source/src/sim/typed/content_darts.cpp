@@ -47,7 +47,9 @@ void ContentDarts::projectiles() {
             const auto point=damage_.point(*plant);
             if(std::abs(wrap_delta(point.x,position->x,width))<tile*.6&&std::abs(point.y-position->y)<tile)continue;
         }
-        for(const auto& target:queries_.enemies(source_ref(entity))) {
+        const CoverageBox sweep{std::min(oldx,oldx+position->vx),std::min(oldy,position->y),std::max(oldx,oldx+position->vx),std::max(oldy,position->y)};
+        for(const auto& target:queries_.enemies_in_box(source_ref(entity),sweep)) {
+            ++queries_.range_exact_tests;
             const auto id=world_.heroes.source_id(queries_.source(target));const auto& hits=state.leg_hits.get();
             if(std::find(hits.begin(),hits.end(),id)!=hits.end())continue;
             auto point=damage_.point(target);const double dx=wrap_delta(oldx,point.x,width);const auto unit=body(target);
@@ -73,10 +75,12 @@ void ContentDarts::projectiles() {
             const bool poison=named(entity->source.content,"毒镖射手");
             if(barrel_contact)state.barrel_contact.set(true);
             {RemoveMarker clear{state.barrel_contact};damage_.damage(source_ref(entity),target,poison?8.:4.,entity->facing);}
+            queries_.invalidate();
             if(poison) {
                 const auto owner=world_.heroes.owner(source_ref(entity));if(!owner)throw std::logic_error("dart has no allegiance");
                 status_.apply(target,2,4.,*owner);
-                for(const auto& other:queries_.enemies(source_ref(entity))) {
+                for(const auto& other:queries_.enemies_in_box(source_ref(entity),{point.x-1.3*tile,point.y-1.3*tile,point.x+1.3*tile,point.y+1.3*tile})) {
+                    ++queries_.range_exact_tests;
                     if(same(other,target))continue;const auto other_point=damage_.point(other);
                     if((std::abs(wrap_delta(point.x,other_point.x,width))<1.3*tile&&std::abs(point.y-other_point.y)<1.3*tile)||head_overlaps(other,point,1.3*tile)) {
                         entity->source.area_damage.set(true);

@@ -180,9 +180,13 @@ void EntityRegion::render(Frame& f) {
     if(f.name=="火豆") {
         const auto e=entity(f.index);auto& lit=e->source.fire_lit;
         std::string tail="火尾"+std::to_string(int(py::mod(py::floordiv(lit.get(),10.),3.))+1);
-        if(has(*world_.heroes.globals.secrets.get(),"蓝火")){f.name="蓝火豆";tail="蓝"+tail;}
+        // Explicit shot colour (multi-direction red fire) takes priority over
+        // the global blue-torch secret, just as it does for damage / splash.
+        if(projectile_fire_color(e->source,world_.heroes.globals)=="blue"){f.name="蓝火豆";tail="蓝"+tail;}
         lit.set(lit.get()+1.);const bool flip=e->facing!=1.;
-        bindings_.draw({tail,get_pos(flip?.1:.9,0.),flip});
+        // The content drawing pass owns the velocity-aligned trail for these
+        // shots; keep their legacy flame timer advancing without drawing twice.
+        if(!yes(e->mortar.mortar)&&!yes(e->mortar.multi_red))bindings_.draw({tail,get_pos(flip?.1:.9,0.),flip});
     }
     const auto e=entity(f.index);const auto& sit=e->squash.sit;
     if(f.name=="窝瓜" && sit.present() && sit.get()>0.) {

@@ -13,16 +13,42 @@ const void* object_key(const ContentTarget& t){if(const auto* p=std::get_if<Plan
 bool ContentQueries::valid_index()const{return index_tick_==world_.heroes.tick&&zombie_roster_==world_.targets.get()&&plant_roster_==world_.plant_roster.get()&&zombie_data_==world_.targets->data()&&zombie_count_==world_.targets->size()&&plant_data_==world_.plant_roster->data()&&plant_count_==world_.plant_roster->size();}
 void ContentQueries::prepare(){
     if(valid_index())return;PVP_PROFILE_SCOPE("ContentQueries::prepare");
-    indexed_.clear();object_ids_.clear();indexed_.reserve(world_.targets->size()+world_.plant_roster->size());
-    for(const auto& t:*world_.targets)if(!t.is_hero())indexed_.emplace_back(t);
-    for(const auto& p:*world_.plant_roster)indexed_.emplace_back(p);
+    coverage_tick_=-1;
+    std::vector<ContentTarget> next;next.reserve(world_.targets->size()+world_.plant_roster->size());
+    for(const auto& t:*world_.targets)if(!t.is_hero())next.emplace_back(t);
+    for(const auto& p:*world_.plant_roster)next.emplace_back(p);
+    if(next!=indexed_){indexed_=std::move(next);object_ids_.clear();zombie_coverage_.reset(world_.runtime.tile,world_.world_width.get(),indexed_.size());plant_coverage_.reset(world_.runtime.tile,world_.world_width.get(),indexed_.size());}
     points_.reset(world_.runtime.tile,world_.world_width.get(),indexed_.size());
     query_seen_.assign(indexed_.size(),0);query_stamp_=0;
     for(size_t i=0;i<indexed_.size();++i){object_ids_[object_key(indexed_[i])]=i;points_.move(i,targets_.point(indexed_[i]));}
     index_tick_=world_.heroes.tick;zombie_roster_=world_.targets.get();plant_roster_=world_.plant_roster.get();zombie_data_=world_.targets->data();zombie_count_=world_.targets->size();plant_data_=world_.plant_roster->data();plant_count_=world_.plant_roster->size();
 }
+void ContentQueries::prepare_coverage(){
+    if(coverage_tick_==world_.heroes.tick)return;
+    PVP_PROFILE_SCOPE("ContentQueries::prepare_coverage");
+    for(size_t i=0;i<indexed_.size();++i)(std::holds_alternative<PlantRef>(indexed_[i])?plant_coverage_:zombie_coverage_).cover(i,targets_.bounds(indexed_[i]));
+    coverage_tick_=world_.heroes.tick;
+}
 void ContentQueries::moved(const ContentTarget& target){
-    if(!valid_index())return;const auto found=object_ids_.find(object_key(target));if(found!=object_ids_.end())points_.move(found->second,targets_.point(target));
+    if(!valid_index())return;const auto found=object_ids_.find(object_key(target));if(found!=object_ids_.end()){points_.move(found->second,targets_.point(target));if(coverage_tick_==world_.heroes.tick)(std::holds_alternative<PlantRef>(target)?plant_coverage_:zombie_coverage_).cover(found->second,targets_.bounds(target));}
+}
+std::vector<ContentTarget> ContentQueries::enemies_in_box(const std::shared_ptr<AttackSource>& record,CoverageBox box){
+    PVP_PROFILE_SCOPE("ContentQueries::enemies_in_box");++range_queries;
+    if(record&&record->plant.present()){
+        if(seeking_tick_!=world_.heroes.tick){seeking_tick_=world_.heroes.tick;seeking_.clear();}
+        if(seeking_.insert(record.get()).second){++seeking_plant_ticks;max_seeking_plants=std::max<uint64_t>(max_seeking_plants,seeking_.size());}
+    }
+    const auto owner=world_.heroes.owner(record);
+    range_full_scan+=world_.targets->size()+(owner==Seat::zombie?world_.plant_roster->size():0);
+    static const bool enabled=[]{const char* p=std::getenv("PVP742_TARGETING");return !p||*p!='0';}();
+    if(!enabled||!spatial741_enabled()){auto result=enemies(record);range_candidates+=result.size();return result;}
+    prepare();prepare_coverage();std::vector<ContentTarget> result;
+    const auto ids=zombie_coverage_.rectangle(box);result.reserve(ids.size()+4);
+    for(const auto id:ids)if(eligible(indexed_[id],owner)){++range_candidates;result.push_back(indexed_[id]);}
+    if(owner==Seat::zombie)for(const auto id:plant_coverage_.rectangle(box))if(eligible(indexed_[id],owner)){++range_candidates;result.push_back(indexed_[id]);}
+    // Hero context swaps are live and are not frozen into either shared index.
+    for(const auto& hero:enemy_heroes(owner)){++range_candidates;result.push_back(hero);}
+    return result;
 }
 bool ContentQueries::eligible(const ContentTarget& t,std::optional<Seat> owner)const{
     if(const auto* p=std::get_if<PlantRef>(&t))return owner==Seat::zombie&&september_targetable(**p);

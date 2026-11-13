@@ -87,7 +87,7 @@
   {
     "file": "src/sim/pvp/gen/pm_native_animation.cpp",
     "before": "                      L_key = callm(L_json, SY(\"dumps\"), Args({V::tuple({L_description, L_area, L_scale})}, {{SY(\"sort_keys\"), V(true)}, {SY(\"separators\"), V::tuple({SV(\",\"), SV(\":\")})}}));",
-    "after": "                      {PVP_PROFILE_SCOPE(\"DrawReplay::recipe_key_json\");\n                      L_key = callm(L_json, SY(\"dumps\"), Args({V::tuple({L_description, L_area, L_scale})}, {{SY(\"sort_keys\"), V(true)}, {SY(\"separators\"), V::tuple({SV(\",\"), SV(\":\")})}}));\n                      }"
+    "after": "                      L_key=pvz::native_recipe_key(L_description,L_area,L_scale);\n                      if(L_key.is_none()){PVP_PROFILE_SCOPE(\"DrawReplay::recipe_key_json\");\n                      L_key = callm(L_json, SY(\"dumps\"), Args({V::tuple({L_description, L_area, L_scale})}, {{SY(\"sort_keys\"), V(true)}, {SY(\"separators\"), V::tuple({SV(\",\"), SV(\":\")})}}));\n                      }"
   },
   {
     "file": "src/sim/pvp/gen/pm_native_animation.cpp",
@@ -98,5 +98,95 @@
     "file": "src/sim/pvp/gen/pm_native_animation.cpp",
     "before": "    a__local_scaled = (L_OrderedDict).call(Args{});",
     "after": "    a__local_scaled = pvz::native_render_cache();"
+  },
+  {
+    "file": "src/ui/gen/pm_app.cpp",
+    "before": "              L_dt = py::min_it(V::list({V(0.25), (callm(L_clock, SY(\"tick\"), Args{callm(pm_perf_hooks::module_ns(), SY(\"frame_rate\"), Args{V(60.0)})}) / V(1000.0))}), py::Key(), V());",
+    "after": "              L_dt = V(pressure741::service_delta(L_app,callm(L_clock,SY(\"tick\"),Args{callm(pm_perf_hooks::module_ns(),SY(\"frame_rate\"),Args{V(60.)})}).num()));"
+  },
+  {
+    "file": "src/ui/gen/pm_app.cpp",
+    "before": "V C_Application::m_refresh(const Args& A) {",
+    "after": "V C_Application::m_refresh(const Args& A) {\n    PVP_PROFILE_SCOPE(\"Application::refresh\");"
+  },
+  {
+    "file": "src/ui/gen/pm_app.cpp",
+    "before": "V C_Application::m_step(const Args& A) {",
+    "after": "V C_Application::m_step(const Args& A) {\n    pressure741::FrameServiceScope frame_service(self_v());"
+  },
+  {
+    "file": "src/ui/gen/pm_app.cpp",
+    "before": "                (void)(callm(self(), SY(\"refresh\"), Args{}));\n            } else if (((a_mode == SV(\"host\")) && (py::m_get(L_payload, SV(\"type\")) == SV(\"request_full_snapshot\")))) {",
+    "after": "                if(pressure741::command_refresh_needed(self_v(),L_request))(void)(callm(self(), SY(\"refresh\"), Args{}));\n            } else if (((a_mode == SV(\"host\")) && (py::m_get(L_payload, SV(\"type\")) == SV(\"request_full_snapshot\")))) {"
+  },
+  {
+    "file": "src/ui/gen/pm_app.cpp",
+    "before": "        (void)(callm(self(), SY(\"refresh\"), Args{}));\n        if ((L_error).truthy()) {\n            (void)(callm(self(), SY(\"message\"), Args{L_error}));\n        }\n        return L_error;",
+    "after": "        if(pressure741::command_refresh_needed(self_v(),L_payload))(void)(callm(self(), SY(\"refresh\"), Args{}));\n        if ((L_error).truthy()) {\n            (void)(callm(self(), SY(\"message\"), Args{L_error}));\n        }\n        return L_error;"
+  },
+  {
+    "file": "src/ui/gen/pm_pve_ui.cpp",
+    "before": "#include \"ui/gen/pm_pve_ui.h\"\n",
+    "after": "#include \"ui/gen/pm_pve_ui.h\"\n#include \"ui/hand/seat_view.h\"\n"
+  },
+  {
+    "file": "src/ui/gen/pm_pve_ui.cpp",
+    "before": "        L_key = L_seat;\n        L_local = py::m_get(L_battle, SV(\"local_seat\"));\n        L_players = py::m_get(L_battle, SV(\"players\"), py_dict({}));\n        L_team = ((L_local).truthy() ? V(callm(pm_pve_ui::module_ns(), SY(\"team_of\"), Args{L_local})) : V(V::none()));\n        if (((L_local).truthy() && (L_local != L_team) && py::in(L_local, L_players) && py::in(L_team, L_players))) {\n            if ((L_seat == L_team)) {\n                L_key = L_local;\n            } else if ((L_seat == L_local)) {\n                L_key = L_team;\n            }\n        }\n        L_p = py::m_get(L_players, L_key, py_dict({}));\n",
+    "after": "        L_p = seat_view::player_for_authority_seat(L_battle, L_seat); // PvP74.2 authority result seats\n"
+  },
+  {
+    "file": "src/ui/gen/pm_rendering.cpp",
+    "before": "    if (py::in(L_name, V::tuple({SV(\"石化火炬\"), SV(\"水上石化火炬\"), SV(\"石化火炬-蓝火\")}))) {\n        L_NativeArt = pm_native_style::cls_NativeArt();\n        L_image = callm(a_pg, SY(\"Surface\"), Args{V::tuple({V(128.0), V(128.0)}), pvz::getattr(a_pg, SY(\"SRCALPHA\"))});\n        (void)(callm((L_NativeArt).call(Args{a_pg, a_bridge, a_asset_dir}), SY(\"grave\"), Args({L_image, L_name, V(64.0), V(120.0), V(80.0)}, {{SY(\"floating\"), callm(L_name, SY(\"startswith\"), Args{SV(\"水上\")})}, {SY(\"blue\"), callm(L_name, SY(\"endswith\"), Args{SV(\"-蓝火\")})}})));\n        pvz::setitem(a_images, L_name, L_image);\n        return L_image;\n    }\n",
+    "after": "    // PvP74.2: bake the actual dynamic grave composition for cards / workshop.\n    if (L_name == SV(\"石化火炬\") || L_name == SV(\"水上石化火炬\") || L_name == SV(\"石化火炬-蓝火\")) {\n        V image = callm(a_pg, SY(\"Surface\"), Args{V::tuple({V(128), V(128)}), pvz::getattr(a_pg, SY(\"SRCALPHA\"))});\n        V art = pm_native_style::new_NativeArt(Args{a_pg, a_bridge, a_asset_dir});\n        callm(art, SY(\"grave\"), Args({image, L_name, V(64), V(120), V(80)},\n            {{SY(\"floating\"), V(L_name == SV(\"水上石化火炬\"))}, {SY(\"blue\"), V(L_name == SV(\"石化火炬-蓝火\"))}}));\n        pvz::setitem(a_images, L_name, image);\n        return image;\n    }\n"
+  },
+  {
+    "file": "src/ui/gen/pm_app.cpp",
+    "before": "#include \"ui/gen/pm_app.h\"\n",
+    "after": "#include \"ui/gen/pm_app.h\"\n#include \"ui/hand/seat_view.h\"\n"
+  },
+  {
+    "file": "src/ui/gen/pm_app.cpp",
+    "before": "        L_key = L_seat;\n        L_local = py::m_get(L_battle, SV(\"local_seat\"));\n        L_players = py::m_get(L_battle, SV(\"players\"), py_dict({}));\n        L_team = ((L_local).truthy() ? V(callm(pm_pve_ui::module_ns(), SY(\"team_of\"), Args{L_local})) : V(V::none()));\n        if (((L_local).truthy() && (L_local != L_team) && py::in(L_local, L_players) && py::in(L_team, L_players))) {\n            if ((L_seat == L_team)) {\n                L_key = L_local;\n            } else if ((L_seat == L_local)) {\n                L_key = L_team;\n            }\n        }\n        L_p = py::m_get(L_players, L_key, py_dict({}));\n",
+    "after": "        L_p = seat_view::player_for_authority_seat(L_battle, L_seat); // PvP74.2 authority result seats\n"
+  },
+  {
+    "file": "src/ui/gen/pm_app.cpp",
+    "before": "V C_Application::m_app_background(const Args& A) {",
+    "after": "V C_Application::m_app_background(const Args& A) {\n    pressure741::reset_wall_clock(self_v());"
+  },
+  {
+    "file": "src/ui/gen/pm_app.cpp",
+    "before": "V C_Application::m_app_foreground(const Args& A) {",
+    "after": "V C_Application::m_app_foreground(const Args& A) {\n    pressure741::reset_wall_clock(self_v());"
+  },
+  {
+    "file": "src/ui/gen/pm_app.cpp",
+    "before": "        (void)(callm(a_room, SY(\"update\"), Args{py::min_it(V::list({V(1.0), L_dt}), py::Key(), V())}));",
+    "after": "        (void)(callm(a_room, SY(\"update\"), Args{V(pressure741::authority_delta(self_v(),L_dt.num()))}));"
+  },
+  {
+    "file": "src/ui/gen/pm_app.cpp",
+    "before": "                    { V it2_ = py::iter_list(callm(self(), SY(\"local_sides\"), Args{}));\n                    for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) {\n                        L_side = it2_.idx(int64_t(i2_)); \n                        L_acknowledged = py::m_get(py::m_get(py::m_get(py_or(py::m_get(L_value, SV(\"battle\")), [&]() -> V { return py_dict({}); }), SV(\"players\"), py_dict({})), L_side, py_dict({})), SV(\"seq\"), V(-1.0));\n                        pvz::setitem(a_sequence, L_side, py::max_it(V::list({rd(a_sequence, L_side), L_acknowledged}), py::Key(), V()));\n                    }}",
+    "after": "                    { V it2_ = py::iter_list(callm(self(), SY(\"local_seats\"), Args{}));\n                    for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) {\n                        L_side = it2_.idx(int64_t(i2_));\n                        L_acknowledged = py::m_get(seat_view::player_for_authority_seat(py_or(py::m_get(L_value, SV(\"battle\")), [&]() -> V { return py_dict({}); }), L_side), SV(\"seq\"), V(-1.0));\n                        pvz::setitem(a_sequence, L_side, py::max_it(V::list({rd(a_sequence, L_side), L_acknowledged}), py::Key(), V()));\n                    }}"
+  },
+  {
+    "file": "src/sim/pvp/gen/pm_zombie_secret_catalog.cpp",
+    "before": "初始脑光 +25；场上没有僵尸时，周期脑光补给的间隔减半。",
+    "after": "场上没有僵尸时，周期脑光补给的间隔减半。"
+  },
+  {
+    "file": "src/sim/pvp/gen/pm_almanac_text.cpp",
+    "before": "僵尸戴夫8",
+    "after": "僵尸戴夫4"
+  },
+  {
+    "file": "src/ui/gen/pm_rendering.cpp",
+    "before": "猫尾秘籍开局前80秒不生效",
+    "after": "猫尾秘籍开局前120秒不生效"
+  },
+  {
+    "file": "src/sim/pvp/gen/pm_catalog.cpp",
+    "before": "    (void)(pm_pvp71_catalog::f_install(Args{pm_catalog::CARDS}));\n",
+    "after": "    (void)(pm_pvp71_catalog::f_install(Args{pm_catalog::CARDS}));\n    // PvP74.2: keep the user-corrected hero damage after imported card installs.\n    for(const char* field : {\"description\", \"native_description\"}) {\n        V card = rd(pm_catalog::CARDS, SV(\"plant:抓人草\"));\n        V text = py::m_get(card, V(field), SV(\"\"));\n        pvz::setitem(card, V(field), callm(text, SY(\"replace\"), Args{SV(\"僵尸戴夫受8伤害\"), SV(\"僵尸戴夫受4伤害\")}));\n    }\n    // PvP74.2: mirror the documented route interception without duplication.\n    {\n        const V note = SV(\"跟随或集结途中，会攻击挡在路径上的合法植物、魅惑僵尸或植物戴夫；受甜薯吸引时优先直奔甜薯。\");\n        for(const char* bird : {\"zombie:海盗鹦鹉\", \"zombie:乌鸦\"})\n            for(const char* field : {\"description\", \"native_description\"}) {\n                V card = rd(pm_catalog::CARDS, V(bird));\n                V text = py::m_get(card, V(field), SV(\"\"));\n                if(!py::in(note, text)) pvz::setitem(card, V(field), text + note);\n            }\n    }\n"
   }
 ]

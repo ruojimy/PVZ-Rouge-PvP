@@ -1,0 +1,166 @@
+{
+  "source_changed_during_run": [],
+  "fixture_changed_during_run": [],
+  "exe_changed_during_run": false,
+  "collection_mismatch": {},
+  "exe": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\build\\app-typed72-v2\\Release\\cpp_tests.exe",
+  "exe_sha256": "6889530b73027025fdf7aac9758ddddd417eefc1fce11768ec30633d52548636",
+  "seconds": 503.476,
+  "modules": [
+    {
+      "module": "test_pvp_51_ui",
+      "exit": 0,
+      "seconds": 3.402,
+      "expected": 2,
+      "results": 2,
+      "report_error": null,
+      "hero_guard_violations": 0,
+      "success": true,
+      "accepted": true,
+      "counts": {
+        "PASS": 2,
+        "FAIL": 0,
+        "ERROR": 0,
+        "SKIP": 0
+      },
+      "missing": [],
+      "extra": [],
+      "duplicates": [],
+      "infrastructure_errors": [],
+      "waived": [],
+      "unexpected_nonpass": [],
+      "resolved_waivers": []
+    },
+    {
+      "module": "test_pvp_53_features",
+      "exit": 0,
+      "seconds": 6.854,
+      "expected": 13,
+      "results": 13,
+      "report_error": null,
+      "hero_guard_violations": 0,
+      "success": true,
+      "accepted": true,
+      "counts": {
+        "PASS": 13,
+        "FAIL": 0,
+        "ERROR": 0,
+        "SKIP": 0
+      },
+      "missing": [],
+      "extra": [],
+      "duplicates": [],
+      "infrastructure_errors": [],
+      "waived": [],
+      "unexpected_nonpass": [],
+      "resolved_waivers": []
+    },
+    {
+      "module": "test_pvp_56_ui",
+      "exit": 0,
+      "seconds": 5.439,
+      "expected": 9,
+      "results": 9,
+      "report_error": null,
+      "hero_guard_violations": 0,
+      "success": true,
+      "accepted": true,
+      "counts": {
+        "PASS": 9,
+        "FAIL": 0,
+        "ERROR": 0,
+        "SKIP": 0
+      },
+      "missing": [],
+      "extra": [],
+      "duplicates": [],
+      "infrastructure_errors": [],
+      "waived": [],
+      "unexpected_nonpass": [],
+      "resolved_waivers": []
+    },
+    {
+      "module": "test_pvp_57_map_editor",
+      "exit": 0,
+      "seconds": 3.102,
+      "expected": 8,
+      "results": 8,
+      "report_error": null,
+      "hero_guard_violations": 0,
+      "success": true,
+      "accepted": true,
+      "counts": {
+        "PASS": 8,
+        "FAIL": 0,
+        "ERROR": 0,
+        "SKIP": 0
+      },
+      "missing": [],
+      "extra": [],
+      "duplicates": [],
+      "infrastructure_errors": [],
+      "waived": [],
+      "unexpected_nonpass": [],
+      "resolved_waivers": []
+    },
+    {
+      "module": "test_pvp_57_room_requests",
+      "exit": 0,
+      "seconds": 4.374,
+      "expected": 8,
+      "results": 8,
+      "report_error": null,
+      "hero_guard_violations": 0,
+      "success": true,
+      "accepted": true,
+      "counts": {
+        "PASS": 8,
+        "FAIL": 0,
+        "ERROR": 0,
+        "SKIP": 0
+      },
+      "missing": [],
+      "extra": [],
+      "duplicates": [],
+      "infrastructure_errors": [],
+      "waived": [],
+      "unexpected_nonpass": [],
+      "resolved_waivers": []
+    }
+  ],
+  "counts": {
+    "PASS": 40,
+    "FAIL": 0,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": 0,
+  "execution_success": false,
+  "success": false,
+  "accepted_with_waivers": false,
+  "waived": 0,
+  "waivers": {
+    "enabled": false,
+    "policy": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\docs\\coverage\\temporary-native-waivers.json",
+    "policy_sha256": "d9cd282df3272aa7ce9cf61c9f78508003279831e3ea92cec5d3a4d7c7d8b244",
+    "applied": [],
+    "unexpected_nonpass": [],
+    "resolved": []
+  },
+  "scheduling": {
+    "max_workers": 1,
+    "peak_workers": 1,
+    "peak_native_processes": 1,
+    "initial_worker_memory_mib": 1536,
+    "final_worker_budget_bytes": 1610612736,
+    "peak_observed_worker_private_bytes": 860962816,
+    "memory_reserve_mib": 1024,
+    "memory_metric": "minimum of available physical memory and available system commit; reserve unallocated worker growth",
+    "requested_workers": 1
+  },
+  "pure_typed_gate": {
+    "passed": false,
+    "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\xiech\\\\Downloads\\\\PVZ_rougePvP_native\\\\test_results\\\\pvp742\\\\null-battle-suite-r1\\\\pure-typed-gate\\\\pure-typed-gate.json'",
+    "exit": 1
+  }
+}

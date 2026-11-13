@@ -1,0 +1,107 @@
+{
+  "checks": [
+    {
+      "evidence": {
+        "colors": 59,
+        "matches_world_compositor": true,
+        "transparent_pixels": 9709,
+        "visible_pixels": 6675
+      },
+      "name": "rage_uses_world_stump_and_blue_flame",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "file": "extract/assets/_png/pvp74-icon-9f22c3ea19975904.png",
+        "matches_live_card_icon": true,
+        "resource": "icon:石化火炬-蓝火"
+      },
+      "name": "rage_workshop_original_matches_card_icon",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "authority_ids_preserved": true,
+        "local_seat": "plant",
+        "snapshot_unchanged": true
+      },
+      "name": "authority_seat_lookup_plant",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "authority_ids_preserved": true,
+        "local_seat": "plant2",
+        "snapshot_unchanged": true
+      },
+      "name": "authority_seat_lookup_plant2",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "authority_ids_preserved": true,
+        "local_seat": "zombie",
+        "snapshot_unchanged": true
+      },
+      "name": "authority_seat_lookup_zombie",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "authority_ids_preserved": true,
+        "local_seat": "zombie2",
+        "snapshot_unchanged": true
+      },
+      "name": "authority_seat_lookup_zombie2",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "rows": [
+          "",
+          "第 9 天 · 通关！",
+          "全部僵尸已消灭",
+          "本局拾取 $20",
+          "金币获取已折半，尾数随结算累计",
+          "HOST_111",
+          "阳光收入 111 · 消费 25",
+          "拾币 6 · 剩余生命 31",
+          "GUEST_777",
+          "阳光收入 777 · 消费 350",
+          "拾币 14 · 剩余生命 17",
+          "等待房主开始下一天……",
+          "离开"
+        ],
+        "seat_name_stats_matched": true,
+        "snapshot_unchanged": true
+      },
+      "name": "coop_result_names_and_stats_plant",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "rows": [
+          "",
+          "第 9 天 · 通关！",
+          "全部僵尸已消灭",
+          "本局拾取 $20",
+          "金币获取已折半，尾数随结算累计",
+          "HOST_111",
+          "阳光收入 111 · 消费 25",
+          "拾币 6 · 剩余生命 31",
+          "GUEST_777",
+          "阳光收入 777 · 消费 350",
+          "拾币 14 · 剩余生命 17",
+          "等待房主开始下一天……",
+          "离开"
+        ],
+        "seat_name_stats_matched": true,
+        "snapshot_unchanged": true
+      },
+      "name": "coop_result_names_and_stats_plant2",
+      "passed": true
+    }
+  ],
+  "failures": 0,
+  "passed": true
+}

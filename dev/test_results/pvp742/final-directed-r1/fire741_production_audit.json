@@ -1,0 +1,2802 @@
+{
+  "cases": [
+    {
+      "ally_damage": 0.0,
+      "charmed": false,
+      "damage": 10.0,
+      "fire": 0,
+      "ignited": false,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "performance": {
+        "aim_candidates": 0,
+        "aim_full_scan": 0,
+        "aim_queries": 0,
+        "collision_candidates": 33,
+        "collision_queries": 220,
+        "content_candidates": 900,
+        "content_queries": 225,
+        "destination_queries": 0,
+        "destination_rebuilds": 0,
+        "destination_reuses": 0,
+        "empty_cell_skips": 209,
+        "find_contact_calls": 11,
+        "flood_calls": 450,
+        "flood_cycles": 5,
+        "flood_expansions": 87,
+        "flood_neighbors": 7136,
+        "full_scan_equivalent": 880,
+        "function_profile": {},
+        "head_candidates": 0,
+        "head_exact_tests": 0,
+        "head_full_scan": 0,
+        "head_queries": 0,
+        "head_spatial_bytes": 0,
+        "index_builds": 220,
+        "max_seeking_plants": 0,
+        "native_entities": 0,
+        "nearest_candidates": 0,
+        "nearest_full_scan": 0,
+        "nearest_queries": 0,
+        "occupied_cells": 6,
+        "plant_target_candidates": 0,
+        "plant_target_reuses": 0,
+        "plant_target_scans": 0,
+        "point_grid_builds": 225,
+        "point_grid_cell_changes": 900,
+        "point_grid_moves": 1575,
+        "primal_knock_targets": 0,
+        "primal_knock_velocity": 0.0,
+        "range_cache_hits": 0,
+        "range_candidates": 0,
+        "range_cell_changes": 0,
+        "range_exact_tests": 0,
+        "range_full_scan": 0,
+        "range_grid_resets": 1,
+        "range_index_bytes": 320,
+        "range_queries": 0,
+        "seeking_plant_ticks": 0,
+        "spatial_bytes": 14328,
+        "torch_batch_reuses": 0,
+        "torch_candidates": 1125,
+        "torch_scans": 225,
+        "zombie_collision_candidates": 0,
+        "zombie_collision_full_scan": 0,
+        "zombie_collision_queries": 0,
+        "zombie_exact_tests": 0
+      },
+      "projectile_samples": [
+        {
+          "_pvp_flight_distance": 6.720000000000255,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2157.1200000000003,
+            840.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            1
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆射手",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2157.1200000000003,
+            840.0,
+            0.96,
+            0.0
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_flight_distance": 167.04000000000633,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2317.4400000000064,
+            840.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            1
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆射手",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2317.4400000000064,
+            840.0,
+            0.96,
+            0.0
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        }
+      ],
+      "source": "plant:豌豆射手"
+    },
+    {
+      "ally_damage": 0.0,
+      "charmed": false,
+      "damage": 20.0,
+      "fire": 1,
+      "ignited": true,
+      "neighbor_damage": 6.666666666627862,
+      "passed": true,
+      "performance": {
+        "aim_candidates": 0,
+        "aim_full_scan": 0,
+        "aim_queries": 0,
+        "collision_candidates": 33,
+        "collision_queries": 220,
+        "content_candidates": 900,
+        "content_queries": 225,
+        "destination_queries": 0,
+        "destination_rebuilds": 0,
+        "destination_reuses": 0,
+        "empty_cell_skips": 209,
+        "find_contact_calls": 11,
+        "flood_calls": 450,
+        "flood_cycles": 5,
+        "flood_expansions": 87,
+        "flood_neighbors": 7136,
+        "full_scan_equivalent": 880,
+        "function_profile": {},
+        "head_candidates": 0,
+        "head_exact_tests": 0,
+        "head_full_scan": 0,
+        "head_queries": 0,
+        "head_spatial_bytes": 0,
+        "index_builds": 220,
+        "max_seeking_plants": 0,
+        "native_entities": 0,
+        "nearest_candidates": 0,
+        "nearest_full_scan": 0,
+        "nearest_queries": 0,
+        "occupied_cells": 6,
+        "plant_target_candidates": 0,
+        "plant_target_reuses": 0,
+        "plant_target_scans": 0,
+        "point_grid_builds": 225,
+        "point_grid_cell_changes": 1125,
+        "point_grid_moves": 1800,
+        "primal_knock_targets": 0,
+        "primal_knock_velocity": 0.0,
+        "range_cache_hits": 0,
+        "range_candidates": 0,
+        "range_cell_changes": 0,
+        "range_exact_tests": 0,
+        "range_full_scan": 0,
+        "range_grid_resets": 1,
+        "range_index_bytes": 400,
+        "range_queries": 0,
+        "seeking_plant_ticks": 0,
+        "spatial_bytes": 14328,
+        "torch_batch_reuses": 0,
+        "torch_candidates": 1350,
+        "torch_scans": 225,
+        "zombie_collision_candidates": 0,
+        "zombie_collision_full_scan": 0,
+        "zombie_collision_queries": 0,
+        "zombie_exact_tests": 0
+      },
+      "projectile_samples": [
+        {
+          "_pvp_flight_distance": 6.720000000000255,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2157.1200000000003,
+            840.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            1
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆射手",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2156.1600000000003,
+            840.0
+          ],
+          "_pvp_torch_visits": [],
+          "位置": [
+            2157.1200000000003,
+            840.0,
+            0.96,
+            0.0
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 108.48000000000411,
+          "_pvp_flight_form": [
+            "火豆",
+            true,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2317.4400000000064,
+            840.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            1
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆射手",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2208.0000000000023,
+            840.0
+          ],
+          "_pvp_torch_visits": [
+            "u2"
+          ],
+          "位置": [
+            2317.4400000000064,
+            840.0,
+            0.96,
+            0.0
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 114.0
+        }
+      ],
+      "source": "plant:豌豆射手"
+    },
+    {
+      "ally_damage": 0.0,
+      "charmed": false,
+      "damage": 30.0,
+      "fire": 2,
+      "ignited": true,
+      "neighbor_damage": 10.0,
+      "passed": true,
+      "performance": {
+        "aim_candidates": 0,
+        "aim_full_scan": 0,
+        "aim_queries": 0,
+        "collision_candidates": 33,
+        "collision_queries": 220,
+        "content_candidates": 900,
+        "content_queries": 225,
+        "destination_queries": 0,
+        "destination_rebuilds": 0,
+        "destination_reuses": 0,
+        "empty_cell_skips": 209,
+        "find_contact_calls": 11,
+        "flood_calls": 450,
+        "flood_cycles": 5,
+        "flood_expansions": 87,
+        "flood_neighbors": 7136,
+        "full_scan_equivalent": 880,
+        "function_profile": {},
+        "head_candidates": 0,
+        "head_exact_tests": 0,
+        "head_full_scan": 0,
+        "head_queries": 0,
+        "head_spatial_bytes": 0,
+        "index_builds": 220,
+        "max_seeking_plants": 0,
+        "native_entities": 0,
+        "nearest_candidates": 0,
+        "nearest_full_scan": 0,
+        "nearest_queries": 0,
+        "occupied_cells": 6,
+        "plant_target_candidates": 0,
+        "plant_target_reuses": 0,
+        "plant_target_scans": 0,
+        "point_grid_builds": 225,
+        "point_grid_cell_changes": 1125,
+        "point_grid_moves": 1800,
+        "primal_knock_targets": 0,
+        "primal_knock_velocity": 0.0,
+        "range_cache_hits": 0,
+        "range_candidates": 0,
+        "range_cell_changes": 0,
+        "range_exact_tests": 0,
+        "range_full_scan": 0,
+        "range_grid_resets": 1,
+        "range_index_bytes": 400,
+        "range_queries": 0,
+        "seeking_plant_ticks": 0,
+        "spatial_bytes": 14328,
+        "torch_batch_reuses": 0,
+        "torch_candidates": 1350,
+        "torch_scans": 225,
+        "zombie_collision_candidates": 0,
+        "zombie_collision_full_scan": 0,
+        "zombie_collision_queries": 0,
+        "zombie_exact_tests": 0
+      },
+      "projectile_samples": [
+        {
+          "_pvp_flight_distance": 6.720000000000255,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2157.1200000000003,
+            840.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            1
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆射手",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2156.1600000000003,
+            840.0
+          ],
+          "_pvp_torch_visits": [],
+          "位置": [
+            2157.1200000000003,
+            840.0,
+            0.96,
+            0.0
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_fire_color": "blue",
+          "_pvp_flight_distance": 108.48000000000411,
+          "_pvp_flight_form": [
+            "蓝火豆",
+            true,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2317.4400000000064,
+            840.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            1
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆射手",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2208.0000000000023,
+            840.0
+          ],
+          "_pvp_torch_visits": [
+            "u2"
+          ],
+          "位置": [
+            2317.4400000000064,
+            840.0,
+            0.96,
+            0.0
+          ],
+          "名": "蓝火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        }
+      ],
+      "source": "plant:豌豆射手"
+    },
+    {
+      "ally_damage": 0.0,
+      "charmed": false,
+      "damage": 30.0,
+      "fire": 0,
+      "ignited": false,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "performance": {
+        "aim_candidates": 0,
+        "aim_full_scan": 0,
+        "aim_queries": 0,
+        "collision_candidates": 33,
+        "collision_queries": 220,
+        "content_candidates": 900,
+        "content_queries": 225,
+        "destination_queries": 0,
+        "destination_rebuilds": 0,
+        "destination_reuses": 0,
+        "empty_cell_skips": 209,
+        "find_contact_calls": 11,
+        "flood_calls": 450,
+        "flood_cycles": 5,
+        "flood_expansions": 87,
+        "flood_neighbors": 7136,
+        "full_scan_equivalent": 880,
+        "function_profile": {},
+        "head_candidates": 0,
+        "head_exact_tests": 0,
+        "head_full_scan": 0,
+        "head_queries": 0,
+        "head_spatial_bytes": 0,
+        "index_builds": 220,
+        "max_seeking_plants": 0,
+        "native_entities": 0,
+        "nearest_candidates": 0,
+        "nearest_full_scan": 0,
+        "nearest_queries": 0,
+        "occupied_cells": 6,
+        "plant_target_candidates": 0,
+        "plant_target_reuses": 0,
+        "plant_target_scans": 0,
+        "point_grid_builds": 225,
+        "point_grid_cell_changes": 900,
+        "point_grid_moves": 1575,
+        "primal_knock_targets": 1,
+        "primal_knock_velocity": 1.92,
+        "range_cache_hits": 0,
+        "range_candidates": 0,
+        "range_cell_changes": 0,
+        "range_exact_tests": 0,
+        "range_full_scan": 0,
+        "range_grid_resets": 1,
+        "range_index_bytes": 320,
+        "range_queries": 0,
+        "seeking_plant_ticks": 0,
+        "spatial_bytes": 14328,
+        "torch_batch_reuses": 0,
+        "torch_candidates": 1125,
+        "torch_scans": 225,
+        "zombie_collision_candidates": 0,
+        "zombie_collision_full_scan": 0,
+        "zombie_collision_queries": 0,
+        "zombie_exact_tests": 0
+      },
+      "projectile_samples": [
+        {
+          "_pvp_art_name": "原始豌豆弹",
+          "_pvp_content": "原始豌豆射手",
+          "_pvp_content_ready": true,
+          "_pvp_flight_distance": 6.720000000000255,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2157.1200000000003,
+            840.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            1
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆射手",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2157.1200000000003,
+            840.0,
+            0.96,
+            0.0
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_art_name": "原始豌豆弹",
+          "_pvp_content": "原始豌豆射手",
+          "_pvp_content_ready": true,
+          "_pvp_flight_distance": 167.04000000000633,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2317.4400000000064,
+            840.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            1
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆射手",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2317.4400000000064,
+            840.0,
+            0.96,
+            0.0
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        }
+      ],
+      "source": "plant:原始豌豆射手"
+    },
+    {
+      "ally_damage": 0.0,
+      "charmed": false,
+      "damage": 60.0,
+      "fire": 1,
+      "ignited": true,
+      "neighbor_damage": 20.0,
+      "passed": true,
+      "performance": {
+        "aim_candidates": 0,
+        "aim_full_scan": 0,
+        "aim_queries": 0,
+        "collision_candidates": 33,
+        "collision_queries": 220,
+        "content_candidates": 900,
+        "content_queries": 225,
+        "destination_queries": 0,
+        "destination_rebuilds": 0,
+        "destination_reuses": 0,
+        "empty_cell_skips": 209,
+        "find_contact_calls": 11,
+        "flood_calls": 450,
+        "flood_cycles": 5,
+        "flood_expansions": 87,
+        "flood_neighbors": 7136,
+        "full_scan_equivalent": 880,
+        "function_profile": {},
+        "head_candidates": 0,
+        "head_exact_tests": 0,
+        "head_full_scan": 0,
+        "head_queries": 0,
+        "head_spatial_bytes": 0,
+        "index_builds": 220,
+        "max_seeking_plants": 0,
+        "native_entities": 0,
+        "nearest_candidates": 0,
+        "nearest_full_scan": 0,
+        "nearest_queries": 0,
+        "occupied_cells": 6,
+        "plant_target_candidates": 0,
+        "plant_target_reuses": 0,
+        "plant_target_scans": 0,
+        "point_grid_builds": 225,
+        "point_grid_cell_changes": 1125,
+        "point_grid_moves": 1800,
+        "primal_knock_targets": 1,
+        "primal_knock_velocity": 2.4,
+        "range_cache_hits": 0,
+        "range_candidates": 0,
+        "range_cell_changes": 0,
+        "range_exact_tests": 0,
+        "range_full_scan": 0,
+        "range_grid_resets": 1,
+        "range_index_bytes": 400,
+        "range_queries": 0,
+        "seeking_plant_ticks": 0,
+        "spatial_bytes": 14328,
+        "torch_batch_reuses": 0,
+        "torch_candidates": 1350,
+        "torch_scans": 225,
+        "zombie_collision_candidates": 0,
+        "zombie_collision_full_scan": 0,
+        "zombie_collision_queries": 0,
+        "zombie_exact_tests": 0
+      },
+      "projectile_samples": [
+        {
+          "_pvp_art_name": "原始豌豆弹",
+          "_pvp_content": "原始豌豆射手",
+          "_pvp_content_ready": true,
+          "_pvp_flight_distance": 6.720000000000255,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2157.1200000000003,
+            840.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            1
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆射手",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2156.1600000000003,
+            840.0
+          ],
+          "_pvp_torch_visits": [],
+          "位置": [
+            2157.1200000000003,
+            840.0,
+            0.96,
+            0.0
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_art_name": "原始豌豆弹",
+          "_pvp_content": "原始豌豆射手",
+          "_pvp_content_ready": true,
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 108.48000000000411,
+          "_pvp_flight_form": [
+            "火豆",
+            true,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2317.4400000000064,
+            840.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            1
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆射手",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2208.0000000000023,
+            840.0
+          ],
+          "_pvp_torch_visits": [
+            "u2"
+          ],
+          "位置": [
+            2317.4400000000064,
+            840.0,
+            0.96,
+            0.0
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 114.0
+        }
+      ],
+      "source": "plant:原始豌豆射手"
+    },
+    {
+      "ally_damage": 0.0,
+      "charmed": false,
+      "damage": 90.0,
+      "fire": 2,
+      "ignited": true,
+      "neighbor_damage": 30.0,
+      "passed": true,
+      "performance": {
+        "aim_candidates": 0,
+        "aim_full_scan": 0,
+        "aim_queries": 0,
+        "collision_candidates": 33,
+        "collision_queries": 220,
+        "content_candidates": 900,
+        "content_queries": 225,
+        "destination_queries": 0,
+        "destination_rebuilds": 0,
+        "destination_reuses": 0,
+        "empty_cell_skips": 209,
+        "find_contact_calls": 11,
+        "flood_calls": 450,
+        "flood_cycles": 5,
+        "flood_expansions": 87,
+        "flood_neighbors": 7136,
+        "full_scan_equivalent": 880,
+        "function_profile": {},
+        "head_candidates": 0,
+        "head_exact_tests": 0,
+        "head_full_scan": 0,
+        "head_queries": 0,
+        "head_spatial_bytes": 0,
+        "index_builds": 220,
+        "max_seeking_plants": 0,
+        "native_entities": 0,
+        "nearest_candidates": 0,
+        "nearest_full_scan": 0,
+        "nearest_queries": 0,
+        "occupied_cells": 6,
+        "plant_target_candidates": 0,
+        "plant_target_reuses": 0,
+        "plant_target_scans": 0,
+        "point_grid_builds": 225,
+        "point_grid_cell_changes": 1125,
+        "point_grid_moves": 1800,
+        "primal_knock_targets": 2,
+        "primal_knock_velocity": 5.76,
+        "range_cache_hits": 0,
+        "range_candidates": 0,
+        "range_cell_changes": 0,
+        "range_exact_tests": 0,
+        "range_full_scan": 0,
+        "range_grid_resets": 1,
+        "range_index_bytes": 400,
+        "range_queries": 0,
+        "seeking_plant_ticks": 0,
+        "spatial_bytes": 14328,
+        "torch_batch_reuses": 0,
+        "torch_candidates": 1350,
+        "torch_scans": 225,
+        "zombie_collision_candidates": 0,
+        "zombie_collision_full_scan": 0,
+        "zombie_collision_queries": 0,
+        "zombie_exact_tests": 0
+      },
+      "projectile_samples": [
+        {
+          "_pvp_art_name": "原始豌豆弹",
+          "_pvp_content": "原始豌豆射手",
+          "_pvp_content_ready": true,
+          "_pvp_flight_distance": 6.720000000000255,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2157.1200000000003,
+            840.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            1
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆射手",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2156.1600000000003,
+            840.0
+          ],
+          "_pvp_torch_visits": [],
+          "位置": [
+            2157.1200000000003,
+            840.0,
+            0.96,
+            0.0
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_art_name": "原始豌豆弹",
+          "_pvp_content": "原始豌豆射手",
+          "_pvp_content_ready": true,
+          "_pvp_fire_color": "blue",
+          "_pvp_flight_distance": 108.48000000000411,
+          "_pvp_flight_form": [
+            "蓝火豆",
+            true,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2317.4400000000064,
+            840.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            1
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆射手",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2208.0000000000023,
+            840.0
+          ],
+          "_pvp_torch_visits": [
+            "u2"
+          ],
+          "位置": [
+            2317.4400000000064,
+            840.0,
+            0.96,
+            0.0
+          ],
+          "名": "蓝火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        }
+      ],
+      "source": "plant:原始豌豆射手"
+    },
+    {
+      "ally_damage": 0.0,
+      "charmed": false,
+      "damage": 2.0,
+      "fire": 0,
+      "ignited": false,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "performance": {
+        "aim_candidates": 160,
+        "aim_full_scan": 160,
+        "aim_queries": 80,
+        "collision_candidates": 0,
+        "collision_queries": 0,
+        "content_candidates": 0,
+        "content_queries": 0,
+        "destination_queries": 0,
+        "destination_rebuilds": 0,
+        "destination_reuses": 0,
+        "empty_cell_skips": 0,
+        "find_contact_calls": 0,
+        "flood_calls": 416,
+        "flood_cycles": 5,
+        "flood_expansions": 81,
+        "flood_neighbors": 6348,
+        "full_scan_equivalent": 0,
+        "function_profile": {},
+        "head_candidates": 0,
+        "head_exact_tests": 0,
+        "head_full_scan": 0,
+        "head_queries": 0,
+        "head_spatial_bytes": 0,
+        "index_builds": 0,
+        "max_seeking_plants": 0,
+        "native_entities": 0,
+        "nearest_candidates": 0,
+        "nearest_full_scan": 0,
+        "nearest_queries": 0,
+        "occupied_cells": 0,
+        "plant_target_candidates": 0,
+        "plant_target_reuses": 0,
+        "plant_target_scans": 0,
+        "point_grid_builds": 0,
+        "point_grid_cell_changes": 0,
+        "point_grid_moves": 0,
+        "primal_knock_targets": 0,
+        "primal_knock_velocity": 0.0,
+        "range_cache_hits": 0,
+        "range_candidates": 0,
+        "range_cell_changes": 0,
+        "range_exact_tests": 0,
+        "range_full_scan": 0,
+        "range_grid_resets": 0,
+        "range_index_bytes": 0,
+        "range_queries": 0,
+        "seeking_plant_ticks": 0,
+        "spatial_bytes": 28464,
+        "torch_batch_reuses": 0,
+        "torch_candidates": 984,
+        "torch_scans": 246,
+        "zombie_collision_candidates": 22,
+        "zombie_collision_full_scan": 150,
+        "zombie_collision_queries": 75,
+        "zombie_exact_tests": 19
+      },
+      "projectile_samples": [
+        {
+          "__pvz_sb_native_move": true,
+          "_pvp_flight_distance": 3.0,
+          "_pvp_flight_form": [
+            "僵尸豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2158.2000000000003,
+            829.9660799999999
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            5
+          ],
+          "_pvp_original_owner": "zombie",
+          "_pvp_owner": "zombie",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2155.2000000000003,
+            829.9660799999999
+          ],
+          "_pvp_torch_visits": [],
+          "age": 1.0,
+          "prev_x": 2155.2000000000003,
+          "prev_y": 829.9660799999999,
+          "vx": 1.0,
+          "vy": 0.0,
+          "x": 2155.2000000000003,
+          "y": 829.9660799999999,
+          "位置": [
+            2158.2000000000003,
+            829.9660799999999,
+            1.0,
+            0.0
+          ],
+          "僵尸豌豆弹": true,
+          "名": "僵尸豌豆",
+          "方向": 1.0
+        },
+        {
+          "__pvz_sb_native_move": true,
+          "_pvp_flight_distance": 170.0,
+          "_pvp_flight_form": [
+            "僵尸豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2325.2000000000003,
+            829.9660799999999
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            5
+          ],
+          "_pvp_original_owner": "zombie",
+          "_pvp_owner": "zombie",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2321.2000000000003,
+            829.9660799999999
+          ],
+          "_pvp_torch_visits": [],
+          "age": 32.0,
+          "prev_x": 2316.2000000000003,
+          "prev_y": 829.9660799999999,
+          "vx": 1.0,
+          "vy": 0.0,
+          "x": 2321.2000000000003,
+          "y": 829.9660799999999,
+          "位置": [
+            2325.2000000000003,
+            829.9660799999999,
+            1.0,
+            0.0
+          ],
+          "僵尸豌豆弹": true,
+          "名": "僵尸豌豆",
+          "方向": 1.0
+        }
+      ],
+      "source": "zombie:豌豆僵尸"
+    },
+    {
+      "ally_damage": 0.0,
+      "charmed": false,
+      "damage": 4.0,
+      "fire": 1,
+      "ignited": true,
+      "neighbor_damage": 1.3333333333721384,
+      "passed": true,
+      "performance": {
+        "aim_candidates": 120,
+        "aim_full_scan": 200,
+        "aim_queries": 80,
+        "collision_candidates": 0,
+        "collision_queries": 0,
+        "content_candidates": 0,
+        "content_queries": 0,
+        "destination_queries": 0,
+        "destination_rebuilds": 0,
+        "destination_reuses": 0,
+        "empty_cell_skips": 0,
+        "find_contact_calls": 0,
+        "flood_calls": 416,
+        "flood_cycles": 5,
+        "flood_expansions": 81,
+        "flood_neighbors": 6348,
+        "full_scan_equivalent": 0,
+        "function_profile": {},
+        "head_candidates": 0,
+        "head_exact_tests": 0,
+        "head_full_scan": 0,
+        "head_queries": 0,
+        "head_spatial_bytes": 0,
+        "index_builds": 0,
+        "max_seeking_plants": 0,
+        "native_entities": 0,
+        "nearest_candidates": 0,
+        "nearest_full_scan": 0,
+        "nearest_queries": 0,
+        "occupied_cells": 0,
+        "plant_target_candidates": 0,
+        "plant_target_reuses": 0,
+        "plant_target_scans": 0,
+        "point_grid_builds": 0,
+        "point_grid_cell_changes": 0,
+        "point_grid_moves": 0,
+        "primal_knock_targets": 0,
+        "primal_knock_velocity": 0.0,
+        "range_cache_hits": 0,
+        "range_candidates": 0,
+        "range_cell_changes": 0,
+        "range_exact_tests": 0,
+        "range_full_scan": 0,
+        "range_grid_resets": 0,
+        "range_index_bytes": 0,
+        "range_queries": 0,
+        "seeking_plant_ticks": 0,
+        "spatial_bytes": 28936,
+        "torch_batch_reuses": 0,
+        "torch_candidates": 1085,
+        "torch_scans": 217,
+        "zombie_collision_candidates": 53,
+        "zombie_collision_full_scan": 193,
+        "zombie_collision_queries": 77,
+        "zombie_exact_tests": 19
+      },
+      "projectile_samples": [
+        {
+          "__pvz_sb_native_move": true,
+          "_pvp_flight_distance": 3.0,
+          "_pvp_flight_form": [
+            "僵尸豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2158.2000000000003,
+            829.9660799999999
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            5
+          ],
+          "_pvp_original_owner": "zombie",
+          "_pvp_owner": "zombie",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2155.2000000000003,
+            829.9660799999999
+          ],
+          "_pvp_torch_visits": [],
+          "age": 1.0,
+          "prev_x": 2155.2000000000003,
+          "prev_y": 829.9660799999999,
+          "vx": 1.0,
+          "vy": 0.0,
+          "x": 2155.2000000000003,
+          "y": 829.9660799999999,
+          "位置": [
+            2158.2000000000003,
+            829.9660799999999,
+            1.0,
+            0.0
+          ],
+          "僵尸豌豆弹": true,
+          "名": "僵尸豌豆",
+          "方向": 1.0
+        },
+        {
+          "__pvz_sb_native_move": true,
+          "__pvz_sb_zombie_pea_fire": "fire",
+          "_pvp_flight_distance": 125.0,
+          "_pvp_flight_form": [
+            "僵尸豌豆",
+            false,
+            "fire"
+          ],
+          "_pvp_flight_last": [
+            2325.2000000000003,
+            829.9660799999999
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            5
+          ],
+          "_pvp_original_owner": "zombie",
+          "_pvp_owner": "zombie",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2199.2000000000003,
+            829.9660799999999
+          ],
+          "_pvp_torch_visits": [
+            "u2"
+          ],
+          "age": 32.0,
+          "prev_x": 2316.2000000000003,
+          "prev_y": 829.9660799999999,
+          "vx": 1.0,
+          "vy": 0.0,
+          "x": 2321.2000000000003,
+          "y": 829.9660799999999,
+          "位置": [
+            2325.2000000000003,
+            829.9660799999999,
+            1.0,
+            0.0
+          ],
+          "僵尸豌豆弹": true,
+          "名": "僵尸豌豆",
+          "方向": 1.0
+        }
+      ],
+      "source": "zombie:豌豆僵尸"
+    },
+    {
+      "ally_damage": 0.0,
+      "charmed": false,
+      "damage": 6.0,
+      "fire": 2,
+      "ignited": true,
+      "neighbor_damage": 2.0,
+      "passed": true,
+      "performance": {
+        "aim_candidates": 120,
+        "aim_full_scan": 200,
+        "aim_queries": 80,
+        "collision_candidates": 0,
+        "collision_queries": 0,
+        "content_candidates": 0,
+        "content_queries": 0,
+        "destination_queries": 0,
+        "destination_rebuilds": 0,
+        "destination_reuses": 0,
+        "empty_cell_skips": 0,
+        "find_contact_calls": 0,
+        "flood_calls": 416,
+        "flood_cycles": 5,
+        "flood_expansions": 81,
+        "flood_neighbors": 6348,
+        "full_scan_equivalent": 0,
+        "function_profile": {},
+        "head_candidates": 0,
+        "head_exact_tests": 0,
+        "head_full_scan": 0,
+        "head_queries": 0,
+        "head_spatial_bytes": 0,
+        "index_builds": 0,
+        "max_seeking_plants": 0,
+        "native_entities": 0,
+        "nearest_candidates": 0,
+        "nearest_full_scan": 0,
+        "nearest_queries": 0,
+        "occupied_cells": 0,
+        "plant_target_candidates": 0,
+        "plant_target_reuses": 0,
+        "plant_target_scans": 0,
+        "point_grid_builds": 0,
+        "point_grid_cell_changes": 0,
+        "point_grid_moves": 0,
+        "primal_knock_targets": 0,
+        "primal_knock_velocity": 0.0,
+        "range_cache_hits": 0,
+        "range_candidates": 0,
+        "range_cell_changes": 0,
+        "range_exact_tests": 0,
+        "range_full_scan": 0,
+        "range_grid_resets": 0,
+        "range_index_bytes": 0,
+        "range_queries": 0,
+        "seeking_plant_ticks": 0,
+        "spatial_bytes": 28936,
+        "torch_batch_reuses": 0,
+        "torch_candidates": 1085,
+        "torch_scans": 217,
+        "zombie_collision_candidates": 53,
+        "zombie_collision_full_scan": 193,
+        "zombie_collision_queries": 77,
+        "zombie_exact_tests": 19
+      },
+      "projectile_samples": [
+        {
+          "__pvz_sb_native_move": true,
+          "_pvp_flight_distance": 3.0,
+          "_pvp_flight_form": [
+            "僵尸豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2158.2000000000003,
+            829.9660799999999
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            5
+          ],
+          "_pvp_original_owner": "zombie",
+          "_pvp_owner": "zombie",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2155.2000000000003,
+            829.9660799999999
+          ],
+          "_pvp_torch_visits": [],
+          "age": 1.0,
+          "prev_x": 2155.2000000000003,
+          "prev_y": 829.9660799999999,
+          "vx": 1.0,
+          "vy": 0.0,
+          "x": 2155.2000000000003,
+          "y": 829.9660799999999,
+          "位置": [
+            2158.2000000000003,
+            829.9660799999999,
+            1.0,
+            0.0
+          ],
+          "僵尸豌豆弹": true,
+          "名": "僵尸豌豆",
+          "方向": 1.0
+        },
+        {
+          "__pvz_sb_native_move": true,
+          "__pvz_sb_zombie_pea_fire": "blue",
+          "_pvp_flight_distance": 125.0,
+          "_pvp_flight_form": [
+            "僵尸豌豆",
+            false,
+            "blue"
+          ],
+          "_pvp_flight_last": [
+            2325.2000000000003,
+            829.9660799999999
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            5
+          ],
+          "_pvp_original_owner": "zombie",
+          "_pvp_owner": "zombie",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2199.2000000000003,
+            829.9660799999999
+          ],
+          "_pvp_torch_visits": [
+            "u2"
+          ],
+          "age": 32.0,
+          "prev_x": 2316.2000000000003,
+          "prev_y": 829.9660799999999,
+          "vx": 1.0,
+          "vy": 0.0,
+          "x": 2321.2000000000003,
+          "y": 829.9660799999999,
+          "位置": [
+            2325.2000000000003,
+            829.9660799999999,
+            1.0,
+            0.0
+          ],
+          "僵尸豌豆弹": true,
+          "名": "僵尸豌豆",
+          "方向": 1.0
+        }
+      ],
+      "source": "zombie:豌豆僵尸"
+    },
+    {
+      "ally_damage": 0.0,
+      "charmed": true,
+      "damage": 10.0,
+      "fire": 0,
+      "ignited": false,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "performance": {
+        "aim_candidates": 205,
+        "aim_full_scan": 205,
+        "aim_queries": 41,
+        "collision_candidates": 37,
+        "collision_queries": 207,
+        "content_candidates": 1728,
+        "content_queries": 432,
+        "destination_queries": 0,
+        "destination_rebuilds": 0,
+        "destination_reuses": 0,
+        "empty_cell_skips": 192,
+        "find_contact_calls": 15,
+        "flood_calls": 432,
+        "flood_cycles": 5,
+        "flood_expansions": 83,
+        "flood_neighbors": 6628,
+        "full_scan_equivalent": 1035,
+        "function_profile": {},
+        "head_candidates": 1,
+        "head_exact_tests": 0,
+        "head_full_scan": 195,
+        "head_queries": 39,
+        "head_spatial_bytes": 13968,
+        "index_builds": 207,
+        "max_seeking_plants": 0,
+        "native_entities": 0,
+        "nearest_candidates": 0,
+        "nearest_full_scan": 0,
+        "nearest_queries": 0,
+        "occupied_cells": 9,
+        "plant_target_candidates": 0,
+        "plant_target_reuses": 0,
+        "plant_target_scans": 0,
+        "point_grid_builds": 216,
+        "point_grid_cell_changes": 864,
+        "point_grid_moves": 1728,
+        "primal_knock_targets": 0,
+        "primal_knock_velocity": 0.0,
+        "range_cache_hits": 0,
+        "range_candidates": 0,
+        "range_cell_changes": 0,
+        "range_exact_tests": 0,
+        "range_full_scan": 0,
+        "range_grid_resets": 1,
+        "range_index_bytes": 320,
+        "range_queries": 0,
+        "seeking_plant_ticks": 0,
+        "spatial_bytes": 14528,
+        "torch_batch_reuses": 0,
+        "torch_candidates": 2115,
+        "torch_scans": 423,
+        "zombie_collision_candidates": 0,
+        "zombie_collision_full_scan": 0,
+        "zombie_collision_queries": 0,
+        "zombie_exact_tests": 0
+      },
+      "projectile_samples": [
+        {
+          "__pvz_sb_charmed_plant_zombie_pea": true,
+          "__pvz_sb_source_zombie_id": {
+            "temporary": true
+          },
+          "_pvp_flight_distance": 3.0000000000003535,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2158.1963776412645,
+            830.3211081151279
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            5
+          ],
+          "_pvp_original_owner": "zombie",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2157.196585822801,
+            830.3007042004654
+          ],
+          "_pvp_torch_visits": [],
+          "age": 0.0,
+          "prev_x": 2157.196585822801,
+          "prev_y": 830.3007042004654,
+          "vx": 0.9997918184634462,
+          "vy": 0.02040391466251951,
+          "x": 2155.1970021858738,
+          "y": 830.2598963711403,
+          "位置": [
+            2158.1963776412645,
+            830.3211081151279,
+            0.9997918184634462,
+            0.02040391466251951
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "__pvz_sb_charmed_plant_zombie_pea": true,
+          "__pvz_sb_source_zombie_id": {
+            "temporary": true
+          },
+          "_pvp_flight_distance": 170.00000000001967,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2325.1616113246796,
+            833.7285618637741
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            5
+          ],
+          "_pvp_original_owner": "zombie",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2324.161819506216,
+            833.7081579491115
+          ],
+          "_pvp_torch_visits": [],
+          "age": 0.0,
+          "prev_x": 2324.161819506216,
+          "prev_y": 833.7081579491115,
+          "vx": 0.9997918184634462,
+          "vy": 0.02040391466251951,
+          "x": 2155.1970021858738,
+          "y": 830.2598963711403,
+          "位置": [
+            2325.1616113246796,
+            833.7285618637741,
+            0.9997918184634462,
+            0.02040391466251951
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        }
+      ],
+      "source": "zombie:豌豆僵尸"
+    },
+    {
+      "ally_damage": 0.0,
+      "charmed": true,
+      "damage": 40.0,
+      "fire": 1,
+      "ignited": true,
+      "neighbor_damage": 13.333333333372138,
+      "passed": true,
+      "performance": {
+        "aim_candidates": 205,
+        "aim_full_scan": 205,
+        "aim_queries": 41,
+        "collision_candidates": 37,
+        "collision_queries": 207,
+        "content_candidates": 1728,
+        "content_queries": 432,
+        "destination_queries": 0,
+        "destination_rebuilds": 0,
+        "destination_reuses": 0,
+        "empty_cell_skips": 192,
+        "find_contact_calls": 15,
+        "flood_calls": 432,
+        "flood_cycles": 5,
+        "flood_expansions": 83,
+        "flood_neighbors": 6628,
+        "full_scan_equivalent": 1035,
+        "function_profile": {},
+        "head_candidates": 1,
+        "head_exact_tests": 0,
+        "head_full_scan": 195,
+        "head_queries": 39,
+        "head_spatial_bytes": 13968,
+        "index_builds": 207,
+        "max_seeking_plants": 0,
+        "native_entities": 0,
+        "nearest_candidates": 0,
+        "nearest_full_scan": 0,
+        "nearest_queries": 0,
+        "occupied_cells": 9,
+        "plant_target_candidates": 0,
+        "plant_target_reuses": 0,
+        "plant_target_scans": 0,
+        "point_grid_builds": 216,
+        "point_grid_cell_changes": 1080,
+        "point_grid_moves": 1944,
+        "primal_knock_targets": 0,
+        "primal_knock_velocity": 0.0,
+        "range_cache_hits": 0,
+        "range_candidates": 0,
+        "range_cell_changes": 0,
+        "range_exact_tests": 0,
+        "range_full_scan": 0,
+        "range_grid_resets": 1,
+        "range_index_bytes": 400,
+        "range_queries": 0,
+        "seeking_plant_ticks": 0,
+        "spatial_bytes": 14528,
+        "torch_batch_reuses": 0,
+        "torch_candidates": 1548,
+        "torch_scans": 258,
+        "zombie_collision_candidates": 0,
+        "zombie_collision_full_scan": 0,
+        "zombie_collision_queries": 0,
+        "zombie_exact_tests": 0
+      },
+      "projectile_samples": [
+        {
+          "__pvz_sb_charmed_plant_zombie_pea": true,
+          "__pvz_sb_source_zombie_id": {
+            "temporary": true
+          },
+          "_pvp_flight_distance": 3.0000000000003535,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2158.1963776412645,
+            830.3211081151279
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            5
+          ],
+          "_pvp_original_owner": "zombie",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2157.196585822801,
+            830.3007042004654
+          ],
+          "_pvp_torch_visits": [],
+          "age": 0.0,
+          "prev_x": 2157.196585822801,
+          "prev_y": 830.3007042004654,
+          "vx": 0.9997918184634462,
+          "vy": 0.02040391466251951,
+          "x": 2155.1970021858738,
+          "y": 830.2598963711403,
+          "位置": [
+            2158.1963776412645,
+            830.3211081151279,
+            0.9997918184634462,
+            0.02040391466251951
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "__pvz_sb_charmed_plant_zombie_pea": true,
+          "__pvz_sb_source_zombie_id": {
+            "temporary": true
+          },
+          "__pvz_sb_zombie_pea_fire": "fire",
+          "_pvp_flight_distance": 128.0000000000149,
+          "_pvp_flight_form": [
+            "火豆",
+            true,
+            "fire"
+          ],
+          "_pvp_flight_last": [
+            2325.1616113246796,
+            833.7285618637741
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            5
+          ],
+          "_pvp_original_owner": "zombie",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2196.18846674288,
+            831.0964568723049
+          ],
+          "_pvp_torch_visits": [
+            "u2"
+          ],
+          "age": 0.0,
+          "prev_x": 2196.18846674288,
+          "prev_y": 831.0964568723049,
+          "vx": 0.9997918184634462,
+          "vy": 0.02040391466251951,
+          "x": 2155.1970021858738,
+          "y": 830.2598963711403,
+          "位置": [
+            2325.1616113246796,
+            833.7285618637741,
+            0.9997918184634462,
+            0.02040391466251951
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 129.0
+        }
+      ],
+      "source": "zombie:豌豆僵尸"
+    },
+    {
+      "ally_damage": 0.0,
+      "charmed": true,
+      "damage": 60.0,
+      "fire": 2,
+      "ignited": true,
+      "neighbor_damage": 20.0,
+      "passed": true,
+      "performance": {
+        "aim_candidates": 205,
+        "aim_full_scan": 205,
+        "aim_queries": 41,
+        "collision_candidates": 37,
+        "collision_queries": 207,
+        "content_candidates": 1728,
+        "content_queries": 432,
+        "destination_queries": 0,
+        "destination_rebuilds": 0,
+        "destination_reuses": 0,
+        "empty_cell_skips": 192,
+        "find_contact_calls": 15,
+        "flood_calls": 432,
+        "flood_cycles": 5,
+        "flood_expansions": 83,
+        "flood_neighbors": 6628,
+        "full_scan_equivalent": 1035,
+        "function_profile": {},
+        "head_candidates": 1,
+        "head_exact_tests": 0,
+        "head_full_scan": 195,
+        "head_queries": 39,
+        "head_spatial_bytes": 13968,
+        "index_builds": 207,
+        "max_seeking_plants": 0,
+        "native_entities": 0,
+        "nearest_candidates": 0,
+        "nearest_full_scan": 0,
+        "nearest_queries": 0,
+        "occupied_cells": 9,
+        "plant_target_candidates": 0,
+        "plant_target_reuses": 0,
+        "plant_target_scans": 0,
+        "point_grid_builds": 216,
+        "point_grid_cell_changes": 1080,
+        "point_grid_moves": 1944,
+        "primal_knock_targets": 0,
+        "primal_knock_velocity": 0.0,
+        "range_cache_hits": 0,
+        "range_candidates": 0,
+        "range_cell_changes": 0,
+        "range_exact_tests": 0,
+        "range_full_scan": 0,
+        "range_grid_resets": 1,
+        "range_index_bytes": 400,
+        "range_queries": 0,
+        "seeking_plant_ticks": 0,
+        "spatial_bytes": 14528,
+        "torch_batch_reuses": 0,
+        "torch_candidates": 1548,
+        "torch_scans": 258,
+        "zombie_collision_candidates": 0,
+        "zombie_collision_full_scan": 0,
+        "zombie_collision_queries": 0,
+        "zombie_exact_tests": 0
+      },
+      "projectile_samples": [
+        {
+          "__pvz_sb_charmed_plant_zombie_pea": true,
+          "__pvz_sb_source_zombie_id": {
+            "temporary": true
+          },
+          "_pvp_flight_distance": 3.0000000000003535,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2158.1963776412645,
+            830.3211081151279
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            5
+          ],
+          "_pvp_original_owner": "zombie",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2157.196585822801,
+            830.3007042004654
+          ],
+          "_pvp_torch_visits": [],
+          "age": 0.0,
+          "prev_x": 2157.196585822801,
+          "prev_y": 830.3007042004654,
+          "vx": 0.9997918184634462,
+          "vy": 0.02040391466251951,
+          "x": 2155.1970021858738,
+          "y": 830.2598963711403,
+          "位置": [
+            2158.1963776412645,
+            830.3211081151279,
+            0.9997918184634462,
+            0.02040391466251951
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "__pvz_sb_charmed_plant_zombie_pea": true,
+          "__pvz_sb_source_zombie_id": {
+            "temporary": true
+          },
+          "__pvz_sb_zombie_pea_fire": "blue",
+          "_pvp_flight_distance": 128.0000000000149,
+          "_pvp_flight_form": [
+            "火豆",
+            true,
+            "blue"
+          ],
+          "_pvp_flight_last": [
+            2325.1616113246796,
+            833.7285618637741
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            5
+          ],
+          "_pvp_original_owner": "zombie",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2196.18846674288,
+            831.0964568723049
+          ],
+          "_pvp_torch_visits": [
+            "u2"
+          ],
+          "age": 0.0,
+          "prev_x": 2196.18846674288,
+          "prev_y": 831.0964568723049,
+          "vx": 0.9997918184634462,
+          "vy": 0.02040391466251951,
+          "x": 2155.1970021858738,
+          "y": 830.2598963711403,
+          "位置": [
+            2325.1616113246796,
+            833.7285618637741,
+            0.9997918184634462,
+            0.02040391466251951
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 129.0
+        }
+      ],
+      "source": "zombie:豌豆僵尸"
+    },
+    {
+      "ally_damage": 0.0,
+      "charmed": false,
+      "damage": 2.0,
+      "fire": 0,
+      "ignited": false,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "performance": {
+        "aim_candidates": 160,
+        "aim_full_scan": 160,
+        "aim_queries": 80,
+        "collision_candidates": 0,
+        "collision_queries": 0,
+        "content_candidates": 0,
+        "content_queries": 0,
+        "destination_queries": 0,
+        "destination_rebuilds": 0,
+        "destination_reuses": 0,
+        "empty_cell_skips": 0,
+        "find_contact_calls": 0,
+        "flood_calls": 416,
+        "flood_cycles": 5,
+        "flood_expansions": 81,
+        "flood_neighbors": 6348,
+        "full_scan_equivalent": 0,
+        "function_profile": {},
+        "head_candidates": 0,
+        "head_exact_tests": 0,
+        "head_full_scan": 0,
+        "head_queries": 0,
+        "head_spatial_bytes": 0,
+        "index_builds": 0,
+        "max_seeking_plants": 0,
+        "native_entities": 0,
+        "nearest_candidates": 0,
+        "nearest_full_scan": 0,
+        "nearest_queries": 0,
+        "occupied_cells": 0,
+        "plant_target_candidates": 0,
+        "plant_target_reuses": 0,
+        "plant_target_scans": 0,
+        "point_grid_builds": 0,
+        "point_grid_cell_changes": 0,
+        "point_grid_moves": 0,
+        "primal_knock_targets": 0,
+        "primal_knock_velocity": 0.0,
+        "range_cache_hits": 0,
+        "range_candidates": 0,
+        "range_cell_changes": 0,
+        "range_exact_tests": 0,
+        "range_full_scan": 0,
+        "range_grid_resets": 0,
+        "range_index_bytes": 0,
+        "range_queries": 0,
+        "seeking_plant_ticks": 0,
+        "spatial_bytes": 28560,
+        "torch_batch_reuses": 0,
+        "torch_candidates": 984,
+        "torch_scans": 246,
+        "zombie_collision_candidates": 24,
+        "zombie_collision_full_scan": 150,
+        "zombie_collision_queries": 75,
+        "zombie_exact_tests": 19
+      },
+      "projectile_samples": [
+        {
+          "__pvz_sb_native_move": true,
+          "_pvp_flight_distance": 3.0,
+          "_pvp_flight_form": [
+            "僵尸豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2160.36,
+            829.9660799999999
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            5
+          ],
+          "_pvp_original_owner": "zombie",
+          "_pvp_owner": "zombie",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2157.36,
+            829.9660799999999
+          ],
+          "_pvp_torch_visits": [],
+          "age": 1.0,
+          "prev_x": 2157.36,
+          "prev_y": 829.9660799999999,
+          "vx": 1.0,
+          "vy": 0.0,
+          "x": 2157.36,
+          "y": 829.9660799999999,
+          "位置": [
+            2160.36,
+            829.9660799999999,
+            1.0,
+            0.0
+          ],
+          "僵尸豌豆弹": true,
+          "名": "僵尸豌豆",
+          "方向": 1.0
+        },
+        {
+          "__pvz_sb_native_move": true,
+          "_pvp_flight_distance": 170.0,
+          "_pvp_flight_form": [
+            "僵尸豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2327.36,
+            829.9660799999999
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            5
+          ],
+          "_pvp_original_owner": "zombie",
+          "_pvp_owner": "zombie",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2323.36,
+            829.9660799999999
+          ],
+          "_pvp_torch_visits": [],
+          "age": 32.0,
+          "prev_x": 2318.36,
+          "prev_y": 829.9660799999999,
+          "vx": 1.0,
+          "vy": 0.0,
+          "x": 2323.36,
+          "y": 829.9660799999999,
+          "位置": [
+            2327.36,
+            829.9660799999999,
+            1.0,
+            0.0
+          ],
+          "僵尸豌豆弹": true,
+          "名": "僵尸豌豆",
+          "方向": 1.0
+        }
+      ],
+      "source": "zombie:机枪僵尸"
+    },
+    {
+      "ally_damage": 0.0,
+      "charmed": false,
+      "damage": 4.0,
+      "fire": 1,
+      "ignited": true,
+      "neighbor_damage": 1.3333333333721384,
+      "passed": true,
+      "performance": {
+        "aim_candidates": 120,
+        "aim_full_scan": 200,
+        "aim_queries": 80,
+        "collision_candidates": 0,
+        "collision_queries": 0,
+        "content_candidates": 0,
+        "content_queries": 0,
+        "destination_queries": 0,
+        "destination_rebuilds": 0,
+        "destination_reuses": 0,
+        "empty_cell_skips": 0,
+        "find_contact_calls": 0,
+        "flood_calls": 416,
+        "flood_cycles": 5,
+        "flood_expansions": 81,
+        "flood_neighbors": 6348,
+        "full_scan_equivalent": 0,
+        "function_profile": {},
+        "head_candidates": 0,
+        "head_exact_tests": 0,
+        "head_full_scan": 0,
+        "head_queries": 0,
+        "head_spatial_bytes": 0,
+        "index_builds": 0,
+        "max_seeking_plants": 0,
+        "native_entities": 0,
+        "nearest_candidates": 0,
+        "nearest_full_scan": 0,
+        "nearest_queries": 0,
+        "occupied_cells": 0,
+        "plant_target_candidates": 0,
+        "plant_target_reuses": 0,
+        "plant_target_scans": 0,
+        "point_grid_builds": 0,
+        "point_grid_cell_changes": 0,
+        "point_grid_moves": 0,
+        "primal_knock_targets": 0,
+        "primal_knock_velocity": 0.0,
+        "range_cache_hits": 0,
+        "range_candidates": 0,
+        "range_cell_changes": 0,
+        "range_exact_tests": 0,
+        "range_full_scan": 0,
+        "range_grid_resets": 0,
+        "range_index_bytes": 0,
+        "range_queries": 0,
+        "seeking_plant_ticks": 0,
+        "spatial_bytes": 29032,
+        "torch_batch_reuses": 0,
+        "torch_candidates": 1080,
+        "torch_scans": 216,
+        "zombie_collision_candidates": 55,
+        "zombie_collision_full_scan": 193,
+        "zombie_collision_queries": 77,
+        "zombie_exact_tests": 19
+      },
+      "projectile_samples": [
+        {
+          "__pvz_sb_native_move": true,
+          "_pvp_flight_distance": 3.0,
+          "_pvp_flight_form": [
+            "僵尸豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2160.36,
+            829.9660799999999
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            5
+          ],
+          "_pvp_original_owner": "zombie",
+          "_pvp_owner": "zombie",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2157.36,
+            829.9660799999999
+          ],
+          "_pvp_torch_visits": [],
+          "age": 1.0,
+          "prev_x": 2157.36,
+          "prev_y": 829.9660799999999,
+          "vx": 1.0,
+          "vy": 0.0,
+          "x": 2157.36,
+          "y": 829.9660799999999,
+          "位置": [
+            2160.36,
+            829.9660799999999,
+            1.0,
+            0.0
+          ],
+          "僵尸豌豆弹": true,
+          "名": "僵尸豌豆",
+          "方向": 1.0
+        },
+        {
+          "__pvz_sb_native_move": true,
+          "__pvz_sb_zombie_pea_fire": "fire",
+          "_pvp_flight_distance": 130.0,
+          "_pvp_flight_form": [
+            "僵尸豌豆",
+            false,
+            "fire"
+          ],
+          "_pvp_flight_last": [
+            2327.36,
+            829.9660799999999
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            5
+          ],
+          "_pvp_original_owner": "zombie",
+          "_pvp_owner": "zombie",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2196.36,
+            829.9660799999999
+          ],
+          "_pvp_torch_visits": [
+            "u2"
+          ],
+          "age": 32.0,
+          "prev_x": 2318.36,
+          "prev_y": 829.9660799999999,
+          "vx": 1.0,
+          "vy": 0.0,
+          "x": 2323.36,
+          "y": 829.9660799999999,
+          "位置": [
+            2327.36,
+            829.9660799999999,
+            1.0,
+            0.0
+          ],
+          "僵尸豌豆弹": true,
+          "名": "僵尸豌豆",
+          "方向": 1.0
+        }
+      ],
+      "source": "zombie:机枪僵尸"
+    },
+    {
+      "ally_damage": 0.0,
+      "charmed": false,
+      "damage": 6.0,
+      "fire": 2,
+      "ignited": true,
+      "neighbor_damage": 2.0,
+      "passed": true,
+      "performance": {
+        "aim_candidates": 120,
+        "aim_full_scan": 200,
+        "aim_queries": 80,
+        "collision_candidates": 0,
+        "collision_queries": 0,
+        "content_candidates": 0,
+        "content_queries": 0,
+        "destination_queries": 0,
+        "destination_rebuilds": 0,
+        "destination_reuses": 0,
+        "empty_cell_skips": 0,
+        "find_contact_calls": 0,
+        "flood_calls": 416,
+        "flood_cycles": 5,
+        "flood_expansions": 81,
+        "flood_neighbors": 6348,
+        "full_scan_equivalent": 0,
+        "function_profile": {},
+        "head_candidates": 0,
+        "head_exact_tests": 0,
+        "head_full_scan": 0,
+        "head_queries": 0,
+        "head_spatial_bytes": 0,
+        "index_builds": 0,
+        "max_seeking_plants": 0,
+        "native_entities": 0,
+        "nearest_candidates": 0,
+        "nearest_full_scan": 0,
+        "nearest_queries": 0,
+        "occupied_cells": 0,
+        "plant_target_candidates": 0,
+        "plant_target_reuses": 0,
+        "plant_target_scans": 0,
+        "point_grid_builds": 0,
+        "point_grid_cell_changes": 0,
+        "point_grid_moves": 0,
+        "primal_knock_targets": 0,
+        "primal_knock_velocity": 0.0,
+        "range_cache_hits": 0,
+        "range_candidates": 0,
+        "range_cell_changes": 0,
+        "range_exact_tests": 0,
+        "range_full_scan": 0,
+        "range_grid_resets": 0,
+        "range_index_bytes": 0,
+        "range_queries": 0,
+        "seeking_plant_ticks": 0,
+        "spatial_bytes": 29032,
+        "torch_batch_reuses": 0,
+        "torch_candidates": 1080,
+        "torch_scans": 216,
+        "zombie_collision_candidates": 55,
+        "zombie_collision_full_scan": 193,
+        "zombie_collision_queries": 77,
+        "zombie_exact_tests": 19
+      },
+      "projectile_samples": [
+        {
+          "__pvz_sb_native_move": true,
+          "_pvp_flight_distance": 3.0,
+          "_pvp_flight_form": [
+            "僵尸豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2160.36,
+            829.9660799999999
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            5
+          ],
+          "_pvp_original_owner": "zombie",
+          "_pvp_owner": "zombie",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2157.36,
+            829.9660799999999
+          ],
+          "_pvp_torch_visits": [],
+          "age": 1.0,
+          "prev_x": 2157.36,
+          "prev_y": 829.9660799999999,
+          "vx": 1.0,
+          "vy": 0.0,
+          "x": 2157.36,
+          "y": 829.9660799999999,
+          "位置": [
+            2160.36,
+            829.9660799999999,
+            1.0,
+            0.0
+          ],
+          "僵尸豌豆弹": true,
+          "名": "僵尸豌豆",
+          "方向": 1.0
+        },
+        {
+          "__pvz_sb_native_move": true,
+          "__pvz_sb_zombie_pea_fire": "blue",
+          "_pvp_flight_distance": 130.0,
+          "_pvp_flight_form": [
+            "僵尸豌豆",
+            false,
+            "blue"
+          ],
+          "_pvp_flight_last": [
+            2327.36,
+            829.9660799999999
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            5
+          ],
+          "_pvp_original_owner": "zombie",
+          "_pvp_owner": "zombie",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2196.36,
+            829.9660799999999
+          ],
+          "_pvp_torch_visits": [
+            "u2"
+          ],
+          "age": 32.0,
+          "prev_x": 2318.36,
+          "prev_y": 829.9660799999999,
+          "vx": 1.0,
+          "vy": 0.0,
+          "x": 2323.36,
+          "y": 829.9660799999999,
+          "位置": [
+            2327.36,
+            829.9660799999999,
+            1.0,
+            0.0
+          ],
+          "僵尸豌豆弹": true,
+          "名": "僵尸豌豆",
+          "方向": 1.0
+        }
+      ],
+      "source": "zombie:机枪僵尸"
+    },
+    {
+      "ally_damage": 0.0,
+      "charmed": true,
+      "damage": 10.0,
+      "fire": 0,
+      "ignited": false,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "performance": {
+        "aim_candidates": 205,
+        "aim_full_scan": 205,
+        "aim_queries": 41,
+        "collision_candidates": 35,
+        "collision_queries": 205,
+        "content_candidates": 1728,
+        "content_queries": 432,
+        "destination_queries": 0,
+        "destination_rebuilds": 0,
+        "destination_reuses": 0,
+        "empty_cell_skips": 192,
+        "find_contact_calls": 13,
+        "flood_calls": 432,
+        "flood_cycles": 5,
+        "flood_expansions": 83,
+        "flood_neighbors": 6628,
+        "full_scan_equivalent": 1025,
+        "function_profile": {},
+        "head_candidates": 4,
+        "head_exact_tests": 0,
+        "head_full_scan": 195,
+        "head_queries": 39,
+        "head_spatial_bytes": 14064,
+        "index_builds": 205,
+        "max_seeking_plants": 0,
+        "native_entities": 0,
+        "nearest_candidates": 0,
+        "nearest_full_scan": 0,
+        "nearest_queries": 0,
+        "occupied_cells": 9,
+        "plant_target_candidates": 0,
+        "plant_target_reuses": 0,
+        "plant_target_scans": 0,
+        "point_grid_builds": 216,
+        "point_grid_cell_changes": 864,
+        "point_grid_moves": 1728,
+        "primal_knock_targets": 0,
+        "primal_knock_velocity": 0.0,
+        "range_cache_hits": 0,
+        "range_candidates": 0,
+        "range_cell_changes": 0,
+        "range_exact_tests": 0,
+        "range_full_scan": 0,
+        "range_grid_resets": 1,
+        "range_index_bytes": 320,
+        "range_queries": 0,
+        "seeking_plant_ticks": 0,
+        "spatial_bytes": 14528,
+        "torch_batch_reuses": 0,
+        "torch_candidates": 2105,
+        "torch_scans": 421,
+        "zombie_collision_candidates": 0,
+        "zombie_collision_full_scan": 0,
+        "zombie_collision_queries": 0,
+        "zombie_exact_tests": 0
+      },
+      "projectile_samples": [
+        {
+          "__pvz_sb_charmed_plant_zombie_pea": true,
+          "__pvz_sb_source_zombie_id": {
+            "temporary": true
+          },
+          "_pvp_flight_distance": 3.0000000000005294,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2160.356310201721,
+            830.3243974088924
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            5
+          ],
+          "_pvp_original_owner": "zombie",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2159.3565222590933,
+            830.3038044543583
+          ],
+          "_pvp_torch_visits": [],
+          "age": 0.0,
+          "prev_x": 2159.3565222590933,
+          "prev_y": 830.3038044543583,
+          "vx": 0.999787942627615,
+          "vy": 0.02059295453403987,
+          "x": 2157.3569463738377,
+          "y": 830.2626185452901,
+          "位置": [
+            2160.356310201721,
+            830.3243974088924,
+            0.999787942627615,
+            0.02059295453403987
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "__pvz_sb_charmed_plant_zombie_pea": true,
+          "__pvz_sb_source_zombie_id": {
+            "temporary": true
+          },
+          "_pvp_flight_distance": 170.00000000002942,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2327.320896620562,
+            833.7634208160863
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            5
+          ],
+          "_pvp_original_owner": "zombie",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2326.3211086779343,
+            833.7428278615522
+          ],
+          "_pvp_torch_visits": [],
+          "age": 0.0,
+          "prev_x": 2326.3211086779343,
+          "prev_y": 833.7428278615522,
+          "vx": 0.999787942627615,
+          "vy": 0.02059295453403987,
+          "x": 2157.3569463738377,
+          "y": 830.2626185452901,
+          "位置": [
+            2327.320896620562,
+            833.7634208160863,
+            0.999787942627615,
+            0.02059295453403987
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        }
+      ],
+      "source": "zombie:机枪僵尸"
+    },
+    {
+      "ally_damage": 0.0,
+      "charmed": true,
+      "damage": 40.0,
+      "fire": 1,
+      "ignited": true,
+      "neighbor_damage": 13.333333333372138,
+      "passed": true,
+      "performance": {
+        "aim_candidates": 205,
+        "aim_full_scan": 205,
+        "aim_queries": 41,
+        "collision_candidates": 35,
+        "collision_queries": 205,
+        "content_candidates": 1728,
+        "content_queries": 432,
+        "destination_queries": 0,
+        "destination_rebuilds": 0,
+        "destination_reuses": 0,
+        "empty_cell_skips": 192,
+        "find_contact_calls": 13,
+        "flood_calls": 432,
+        "flood_cycles": 5,
+        "flood_expansions": 83,
+        "flood_neighbors": 6628,
+        "full_scan_equivalent": 1025,
+        "function_profile": {},
+        "head_candidates": 4,
+        "head_exact_tests": 0,
+        "head_full_scan": 195,
+        "head_queries": 39,
+        "head_spatial_bytes": 14064,
+        "index_builds": 205,
+        "max_seeking_plants": 0,
+        "native_entities": 0,
+        "nearest_candidates": 0,
+        "nearest_full_scan": 0,
+        "nearest_queries": 0,
+        "occupied_cells": 9,
+        "plant_target_candidates": 0,
+        "plant_target_reuses": 0,
+        "plant_target_scans": 0,
+        "point_grid_builds": 216,
+        "point_grid_cell_changes": 1080,
+        "point_grid_moves": 1944,
+        "primal_knock_targets": 0,
+        "primal_knock_velocity": 0.0,
+        "range_cache_hits": 0,
+        "range_candidates": 0,
+        "range_cell_changes": 0,
+        "range_exact_tests": 0,
+        "range_full_scan": 0,
+        "range_grid_resets": 1,
+        "range_index_bytes": 400,
+        "range_queries": 0,
+        "seeking_plant_ticks": 0,
+        "spatial_bytes": 14528,
+        "torch_batch_reuses": 0,
+        "torch_candidates": 1536,
+        "torch_scans": 256,
+        "zombie_collision_candidates": 0,
+        "zombie_collision_full_scan": 0,
+        "zombie_collision_queries": 0,
+        "zombie_exact_tests": 0
+      },
+      "projectile_samples": [
+        {
+          "__pvz_sb_charmed_plant_zombie_pea": true,
+          "__pvz_sb_source_zombie_id": {
+            "temporary": true
+          },
+          "_pvp_flight_distance": 3.0000000000005294,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2160.356310201721,
+            830.3243974088924
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            5
+          ],
+          "_pvp_original_owner": "zombie",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2159.3565222590933,
+            830.3038044543583
+          ],
+          "_pvp_torch_visits": [],
+          "age": 0.0,
+          "prev_x": 2159.3565222590933,
+          "prev_y": 830.3038044543583,
+          "vx": 0.999787942627615,
+          "vy": 0.02059295453403987,
+          "x": 2157.3569463738377,
+          "y": 830.2626185452901,
+          "位置": [
+            2160.356310201721,
+            830.3243974088924,
+            0.999787942627615,
+            0.02059295453403987
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "__pvz_sb_charmed_plant_zombie_pea": true,
+          "__pvz_sb_source_zombie_id": {
+            "temporary": true
+          },
+          "__pvz_sb_zombie_pea_fire": "fire",
+          "_pvp_flight_distance": 130.0000000000226,
+          "_pvp_flight_form": [
+            "火豆",
+            true,
+            "fire"
+          ],
+          "_pvp_flight_last": [
+            2327.320896620562,
+            833.7634208160863
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            5
+          ],
+          "_pvp_original_owner": "zombie",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2196.3486761363215,
+            831.0657437721198
+          ],
+          "_pvp_torch_visits": [
+            "u2"
+          ],
+          "age": 0.0,
+          "prev_x": 2196.3486761363215,
+          "prev_y": 831.0657437721198,
+          "vx": 0.999787942627615,
+          "vy": 0.02059295453403987,
+          "x": 2157.3569463738377,
+          "y": 830.2626185452901,
+          "位置": [
+            2327.320896620562,
+            833.7634208160863,
+            0.999787942627615,
+            0.02059295453403987
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 131.0
+        }
+      ],
+      "source": "zombie:机枪僵尸"
+    },
+    {
+      "ally_damage": 0.0,
+      "charmed": true,
+      "damage": 60.0,
+      "fire": 2,
+      "ignited": true,
+      "neighbor_damage": 20.0,
+      "passed": true,
+      "performance": {
+        "aim_candidates": 205,
+        "aim_full_scan": 205,
+        "aim_queries": 41,
+        "collision_candidates": 35,
+        "collision_queries": 205,
+        "content_candidates": 1728,
+        "content_queries": 432,
+        "destination_queries": 0,
+        "destination_rebuilds": 0,
+        "destination_reuses": 0,
+        "empty_cell_skips": 192,
+        "find_contact_calls": 13,
+        "flood_calls": 432,
+        "flood_cycles": 5,
+        "flood_expansions": 83,
+        "flood_neighbors": 6628,
+        "full_scan_equivalent": 1025,
+        "function_profile": {},
+        "head_candidates": 4,
+        "head_exact_tests": 0,
+        "head_full_scan": 195,
+        "head_queries": 39,
+        "head_spatial_bytes": 14064,
+        "index_builds": 205,
+        "max_seeking_plants": 0,
+        "native_entities": 0,
+        "nearest_candidates": 0,
+        "nearest_full_scan": 0,
+        "nearest_queries": 0,
+        "occupied_cells": 9,
+        "plant_target_candidates": 0,
+        "plant_target_reuses": 0,
+        "plant_target_scans": 0,
+        "point_grid_builds": 216,
+        "point_grid_cell_changes": 1080,
+        "point_grid_moves": 1944,
+        "primal_knock_targets": 0,
+        "primal_knock_velocity": 0.0,
+        "range_cache_hits": 0,
+        "range_candidates": 0,
+        "range_cell_changes": 0,
+        "range_exact_tests": 0,
+        "range_full_scan": 0,
+        "range_grid_resets": 1,
+        "range_index_bytes": 400,
+        "range_queries": 0,
+        "seeking_plant_ticks": 0,
+        "spatial_bytes": 14528,
+        "torch_batch_reuses": 0,
+        "torch_candidates": 1536,
+        "torch_scans": 256,
+        "zombie_collision_candidates": 0,
+        "zombie_collision_full_scan": 0,
+        "zombie_collision_queries": 0,
+        "zombie_exact_tests": 0
+      },
+      "projectile_samples": [
+        {
+          "__pvz_sb_charmed_plant_zombie_pea": true,
+          "__pvz_sb_source_zombie_id": {
+            "temporary": true
+          },
+          "_pvp_flight_distance": 3.0000000000005294,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2160.356310201721,
+            830.3243974088924
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            5
+          ],
+          "_pvp_original_owner": "zombie",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2159.3565222590933,
+            830.3038044543583
+          ],
+          "_pvp_torch_visits": [],
+          "age": 0.0,
+          "prev_x": 2159.3565222590933,
+          "prev_y": 830.3038044543583,
+          "vx": 0.999787942627615,
+          "vy": 0.02059295453403987,
+          "x": 2157.3569463738377,
+          "y": 830.2626185452901,
+          "位置": [
+            2160.356310201721,
+            830.3243974088924,
+            0.999787942627615,
+            0.02059295453403987
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "__pvz_sb_charmed_plant_zombie_pea": true,
+          "__pvz_sb_source_zombie_id": {
+            "temporary": true
+          },
+          "__pvz_sb_zombie_pea_fire": "blue",
+          "_pvp_flight_distance": 130.0000000000226,
+          "_pvp_flight_form": [
+            "火豆",
+            true,
+            "blue"
+          ],
+          "_pvp_flight_last": [
+            2327.320896620562,
+            833.7634208160863
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            5
+          ],
+          "_pvp_original_owner": "zombie",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "_pvp_torch_previous": [
+            2196.3486761363215,
+            831.0657437721198
+          ],
+          "_pvp_torch_visits": [
+            "u2"
+          ],
+          "age": 0.0,
+          "prev_x": 2196.3486761363215,
+          "prev_y": 831.0657437721198,
+          "vx": 0.999787942627615,
+          "vy": 0.02059295453403987,
+          "x": 2157.3569463738377,
+          "y": 830.2626185452901,
+          "位置": [
+            2327.320896620562,
+            833.7634208160863,
+            0.999787942627615,
+            0.02059295453403987
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 131.0
+        }
+      ],
+      "source": "zombie:机枪僵尸"
+    }
+  ],
+  "failures": 0,
+  "passed": true
+}

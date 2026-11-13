@@ -55,7 +55,7 @@ private:
     size_t chart_count_=0;int64_t chart_tick_=-1;
     std::vector<ChartEntry> chart_entries_;
     std::vector<SearchEntry> search_entries_;
-    std::vector<size_t> ladder_indices_;
+    std::vector<size_t> ladder_indices_,hero_indices_;
     bool search_ids_ready_=false;
     std::vector<uint64_t> search_seen_;uint64_t search_stamp_=0;
     void prepare_chart();

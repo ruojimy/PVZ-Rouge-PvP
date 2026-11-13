@@ -7,6 +7,7 @@
 #include <cstring>
 #include <chrono>
 #include <cstdlib>
+#include <atomic>
 #if defined(_M_X64) || defined(__SSE2__)
 #include <emmintrin.h>
 #elif defined(__aarch64__)
@@ -16,6 +17,9 @@
 namespace pvz::pg {
 static thread_local RenderStats72 stats72;
 static thread_local int reference72_override=-1;
+static std::atomic<uint64_t> surface_live_count{0},surface_owned_bytes{0},surface_peak_bytes{0};
+SurfaceMemoryStats surface_memory_stats(){return {surface_live_count.load(),surface_owned_bytes.load(),surface_peak_bytes.load()};}
+static bool surface_memory_enabled(){static const bool enabled=[]{const auto* value=std::getenv("PVP742_SURFACE_MEMORY");return value&&*value=='1';}();return enabled;}
 RenderStats72 render_stats72(){return stats72;}
 void reset_render_stats72(){stats72={};}
 int set_render_reference72(int value){int old=reference72_override;reference72_override=value;return old;}
@@ -325,7 +329,7 @@ SDL_Color color_of(const V& v) {
 }
 
 // ------------------------------------------------------------------ Surface
-Surface::~Surface() { if (s) SDL_FreeSurface(s); }
+Surface::~Surface() { if(diagnostic_counted){surface_live_count.fetch_sub(1);surface_owned_bytes.fetch_sub(diagnostic_storage_bytes);}if (s) SDL_FreeSurface(s); }
 
 static SDL_Surface* raw_surface(int w, int h) {
     SDL_Surface* s = SDL_CreateRGBSurfaceWithFormat(0, std::max(w, 0), std::max(h, 0), 32, SDL_PIXELFORMAT_ARGB8888);
@@ -336,6 +340,12 @@ V wrap_surface(SDL_Surface* s, bool srcalpha) {
     auto p = std::make_shared<Surface>();
     p->s = s;
     p->srcalpha = srcalpha;
+    if(surface_memory_enabled()){
+        p->diagnostic_counted=true;surface_live_count.fetch_add(1);
+        p->diagnostic_storage_bytes=s&&!(s->flags&SDL_PREALLOC)?uint64_t(s->pitch)*uint64_t(s->h):0;
+        const auto live=surface_owned_bytes.fetch_add(p->diagnostic_storage_bytes)+p->diagnostic_storage_bytes;
+        auto peak=surface_peak_bytes.load();while(peak<live&&!surface_peak_bytes.compare_exchange_weak(peak,live)){}
+    }
     return V::inst(p);
 }
 V new_surface(int w, int h, bool srcalpha) {

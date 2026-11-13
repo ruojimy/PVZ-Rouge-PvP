@@ -1,0 +1,53 @@
+{
+  "scope": "Absolute final buffer capacity estimate, excludes map node allocator overhead; max is per native tick rather than display frame. Measured deltas separately labelled.",
+  "rows": [
+    {
+      "scene": "idle-1000-current",
+      "coverage_buffer_bytes_final": 186448,
+      "max_seeking_plants_per_native_tick": 500,
+      "seeking_plant_ticks_measured": 375000,
+      "coverage_queries_measured": 375000,
+      "coverage_cache_hits_measured": 375000
+    },
+    {
+      "scene": "asparagus-200-current",
+      "coverage_buffer_bytes_final": 36088,
+      "max_seeking_plants_per_native_tick": 100,
+      "seeking_plant_ticks_measured": 0,
+      "coverage_queries_measured": 52759,
+      "coverage_cache_hits_measured": 51467
+    },
+    {
+      "scene": "grabber-500-current",
+      "coverage_buffer_bytes_final": 168528,
+      "max_seeking_plants_per_native_tick": 233,
+      "seeking_plant_ticks_measured": 140033,
+      "coverage_queries_measured": 140033,
+      "coverage_cache_hits_measured": 138390
+    },
+    {
+      "scene": "mixed-1000-current",
+      "coverage_buffer_bytes_final": 201008,
+      "max_seeking_plants_per_native_tick": 229,
+      "seeking_plant_ticks_measured": 100399,
+      "coverage_queries_measured": 169888,
+      "coverage_cache_hits_measured": 169420
+    },
+    {
+      "scene": "dense-500-current",
+      "coverage_buffer_bytes_final": 133584,
+      "max_seeking_plants_per_native_tick": 155,
+      "seeking_plant_ticks_measured": 80972,
+      "coverage_queries_measured": 116226,
+      "coverage_cache_hits_measured": 115733
+    },
+    {
+      "scene": "moving-200-current",
+      "coverage_buffer_bytes_final": 55400,
+      "max_seeking_plants_per_native_tick": 50,
+      "seeking_plant_ticks_measured": 13109,
+      "coverage_queries_measured": 50367,
+      "coverage_cache_hits_measured": 48028
+    }
+  ]
+}

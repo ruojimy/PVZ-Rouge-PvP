@@ -1,0 +1,102 @@
+{
+  "passed": true,
+  "scope": "Full untruncated real 3-mode gate records; compared complete counter key sets to pre-tool-change duel audit",
+  "rows": [
+    {
+      "scenario": "duel_ai",
+      "rc": 0,
+      "passed": true,
+      "json_line_characters": 1940,
+      "performance_counter_keys": 55,
+      "performance_counter_keys_equal_pre_tool_change": true,
+      "has_final_native_tick_field": true,
+      "typed_steps": 1221,
+      "typed_commands": 1573,
+      "v_activity_total_calls": 33658702,
+      "native_entries": [
+        {
+          "entry": "step",
+          "entries": 1221,
+          "boxes": 0,
+          "calls": 0
+        },
+        {
+          "entry": "command_input",
+          "entries": 1573,
+          "boxes": 0,
+          "calls": 0
+        },
+        {
+          "entry": "ai_tick",
+          "entries": 566,
+          "boxes": 0,
+          "calls": 0
+        }
+      ]
+    },
+    {
+      "scenario": "coop_ai",
+      "rc": 0,
+      "passed": true,
+      "json_line_characters": 1898,
+      "performance_counter_keys": 55,
+      "performance_counter_keys_equal_pre_tool_change": true,
+      "has_final_native_tick_field": true,
+      "typed_steps": 906,
+      "typed_commands": 1197,
+      "v_activity_total_calls": 8354894,
+      "native_entries": [
+        {
+          "entry": "step",
+          "entries": 896,
+          "boxes": 0,
+          "calls": 0
+        },
+        {
+          "entry": "command_input",
+          "entries": 1197,
+          "boxes": 0,
+          "calls": 0
+        },
+        {
+          "entry": "ai_tick",
+          "entries": 443,
+          "boxes": 0,
+          "calls": 0
+        }
+      ]
+    },
+    {
+      "scenario": "duo_ai",
+      "rc": 0,
+      "passed": true,
+      "json_line_characters": 2151,
+      "performance_counter_keys": 55,
+      "performance_counter_keys_equal_pre_tool_change": true,
+      "has_final_native_tick_field": true,
+      "typed_steps": 1229,
+      "typed_commands": 2325,
+      "v_activity_total_calls": 91253940,
+      "native_entries": [
+        {
+          "entry": "step",
+          "entries": 1229,
+          "boxes": 0,
+          "calls": 0
+        },
+        {
+          "entry": "command_input",
+          "entries": 2325,
+          "boxes": 0,
+          "calls": 0
+        },
+        {
+          "entry": "ai_tick",
+          "entries": 2272,
+          "boxes": 0,
+          "calls": 0
+        }
+      ]
+    }
+  ]
+}

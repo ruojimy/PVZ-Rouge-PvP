@@ -1,0 +1,288 @@
+{
+  "passed": true,
+  "production_changed": false,
+  "reported_crash_reproduced": false,
+  "runs": [
+    {
+      "name": "flat-240-new",
+      "passed": true,
+      "rounds": 240,
+      "commands": 2632,
+      "steps": 1638,
+      "application_renders": 31,
+      "imitations": 123,
+      "peak_units": 154,
+      "milestones": [
+        {
+          "stage": "initial_dense",
+          "tick": 18,
+          "units": 154
+        },
+        {
+          "round": 0,
+          "tick": 26,
+          "units": 154
+        },
+        {
+          "round": 20,
+          "tick": 162,
+          "units": 148
+        },
+        {
+          "round": 40,
+          "tick": 296,
+          "units": 147
+        },
+        {
+          "round": 60,
+          "tick": 434,
+          "units": 144
+        },
+        {
+          "round": 80,
+          "tick": 567,
+          "units": 146
+        },
+        {
+          "round": 100,
+          "tick": 702,
+          "units": 146
+        },
+        {
+          "round": 120,
+          "tick": 838,
+          "units": 146
+        },
+        {
+          "round": 140,
+          "tick": 972,
+          "units": 146
+        },
+        {
+          "round": 160,
+          "tick": 1107,
+          "units": 145
+        },
+        {
+          "round": 180,
+          "tick": 1243,
+          "units": 144
+        },
+        {
+          "round": 200,
+          "tick": 1377,
+          "units": 145
+        },
+        {
+          "round": 220,
+          "tick": 1513,
+          "units": 145
+        }
+      ]
+    },
+    {
+      "name": "flat-240-reference",
+      "passed": true,
+      "rounds": 240,
+      "commands": 2632,
+      "steps": 1638,
+      "application_renders": 31,
+      "imitations": 123,
+      "peak_units": 154,
+      "milestones": [
+        {
+          "stage": "initial_dense",
+          "tick": 18,
+          "units": 154
+        },
+        {
+          "round": 0,
+          "tick": 26,
+          "units": 154
+        },
+        {
+          "round": 20,
+          "tick": 162,
+          "units": 148
+        },
+        {
+          "round": 40,
+          "tick": 296,
+          "units": 147
+        },
+        {
+          "round": 60,
+          "tick": 434,
+          "units": 144
+        },
+        {
+          "round": 80,
+          "tick": 567,
+          "units": 146
+        },
+        {
+          "round": 100,
+          "tick": 702,
+          "units": 146
+        },
+        {
+          "round": 120,
+          "tick": 838,
+          "units": 146
+        },
+        {
+          "round": 140,
+          "tick": 972,
+          "units": 146
+        },
+        {
+          "round": 160,
+          "tick": 1107,
+          "units": 145
+        },
+        {
+          "round": 180,
+          "tick": 1243,
+          "units": 144
+        },
+        {
+          "round": 200,
+          "tick": 1377,
+          "units": 145
+        },
+        {
+          "round": 220,
+          "tick": 1513,
+          "units": 145
+        }
+      ]
+    },
+    {
+      "name": "oasis-120-new",
+      "passed": true,
+      "rounds": 120,
+      "commands": 1374,
+      "steps": 3600,
+      "application_renders": 17,
+      "imitations": 69,
+      "peak_units": 190,
+      "milestones": [
+        {
+          "stage": "initial_dense",
+          "tick": 18,
+          "units": 154
+        },
+        {
+          "round": 0,
+          "tick": 26,
+          "units": 154
+        },
+        {
+          "round": 20,
+          "tick": 156,
+          "units": 153
+        },
+        {
+          "round": 40,
+          "tick": 287,
+          "units": 150
+        },
+        {
+          "round": 60,
+          "tick": 420,
+          "units": 148
+        },
+        {
+          "round": 80,
+          "tick": 551,
+          "units": 148
+        },
+        {
+          "round": 100,
+          "tick": 682,
+          "units": 149
+        },
+        {
+          "night": true,
+          "stage": "coop_cycle_transition",
+          "tick": 3600
+        }
+      ]
+    },
+    {
+      "name": "terminal-new",
+      "passed": true,
+      "rounds": 0,
+      "commands": 177,
+      "steps": 46,
+      "application_renders": 8,
+      "imitations": 16,
+      "peak_units": 160,
+      "milestones": [
+        {
+          "stage": "initial_dense",
+          "tick": 18,
+          "units": 154
+        },
+        {
+          "stage": "pot_support_removed",
+          "tick": 23
+        },
+        {
+          "stage": "basin_lily_support_removed",
+          "tick": 31
+        },
+        {
+          "after_plants": 28,
+          "before_plants": 128,
+          "blasts": 5,
+          "stage": "native_explosion_support_and_plant_deaths",
+          "tick": 46
+        }
+      ]
+    },
+    {
+      "name": "terminal-reference",
+      "passed": true,
+      "rounds": 0,
+      "commands": 177,
+      "steps": 46,
+      "application_renders": 8,
+      "imitations": 16,
+      "peak_units": 160,
+      "milestones": [
+        {
+          "stage": "initial_dense",
+          "tick": 18,
+          "units": 154
+        },
+        {
+          "stage": "pot_support_removed",
+          "tick": 23
+        },
+        {
+          "stage": "basin_lily_support_removed",
+          "tick": 31
+        },
+        {
+          "after_plants": 28,
+          "before_plants": 128,
+          "blasts": 5,
+          "stage": "native_explosion_support_and_plant_deaths",
+          "tick": 46
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "rounds": 600,
+    "commands": 6992,
+    "steps": 6968,
+    "application_renders": 95,
+    "imitations": 347
+  },
+  "peak_units": 190,
+  "flat_targeting_native_rng_equal": true,
+  "terminal_targeting_native_rng_equal": true,
+  "scope": "Real production coop Session/plant2 deploy, shovel, coffee and copy; Application guest render; actual 32-row Oasis day9 and native day/night; pot/basin/lily support removal and native clown terrain/plant explosions. Full state/RNG comparisons are same final executable TARGETING=0/1, not the released 74.1 binary. No production fix is claimed without a reproduced game fault. Root-owned new first-throw and allocation diagnostics supply further live evidence."
+}

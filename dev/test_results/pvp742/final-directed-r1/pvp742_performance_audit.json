@@ -1,0 +1,29 @@
+{
+  "checks": [
+    {
+      "name": "wall_time_credit_debt_pause_and_guest",
+      "passed": true
+    },
+    {
+      "name": "recipe_key_exact_fields_and_order",
+      "passed": true
+    },
+    {
+      "name": "early_result_keeps_the_final_native_frame",
+      "passed": true
+    },
+    {
+      "name": "movement_refresh_protocol_and_frame_boundary",
+      "passed": true
+    },
+    {
+      "name": "moving_volume_grid_dynamic_coverage_and_cache",
+      "passed": true
+    },
+    {
+      "name": "cached_and_uncached_frame_pixels",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

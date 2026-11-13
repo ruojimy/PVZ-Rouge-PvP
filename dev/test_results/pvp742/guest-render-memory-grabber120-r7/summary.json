@@ -1,0 +1,252 @@
+{
+  "passed": true,
+  "children_completed_without_exception": true,
+  "simulation_and_guest_state_equal": true,
+  "all_requested_frames_completed_without_memory_cap": true,
+  "private_growth_cap_mib": 512,
+  "comparisons": [
+    {
+      "scene": "grabber",
+      "same_completed_frames": true,
+      "host_state_sha256_equal": true,
+      "native_frame_sha256_equal": true,
+      "guest_view_sha256_equal": true,
+      "rendered_pixels_sha256_equal": true,
+      "0": {
+        "completed_frames": 64,
+        "stopped_at_memory_cap": false,
+        "cold_to_last_private_growth": 309637120,
+        "first_to_last_private_growth": 115585024,
+        "late_private_growth": 4956160,
+        "first_to_last_requested_live_growth": 72997999,
+        "late_requested_live_growth": 585966,
+        "first_to_last_slab_growth": 117255088,
+        "requested_peak_bytes_max": 219491725,
+        "draw_before": {
+          "art_images": 0,
+          "art_scaled": 0,
+          "bridge_surface_cache": {
+            "bytes": 0,
+            "items": 0
+          },
+          "dynamic_loads": 0,
+          "frame_key_bytes": 0,
+          "frame_key_items": 0,
+          "interned_symbols": 7013,
+          "last_visuals": 0,
+          "local_backing_retained_bytes": 0,
+          "local_bytes": 0,
+          "local_items": 0,
+          "local_parented_surfaces": 0,
+          "local_visible_bytes": 0,
+          "native_runtime_creations": 2,
+          "recipe_backing_retained_bytes": 0,
+          "recipe_bytes": 0,
+          "recipe_items": 0,
+          "recipe_parented_surfaces": 0,
+          "recipe_visible_bytes": 0,
+          "renderer_images": 0,
+          "renderer_scaled": 0,
+          "replay_asset_items": 0,
+          "resolved_asset_cache": {
+            "bytes": 81668536,
+            "dynamic_bytes": 0,
+            "dynamic_items": 0,
+            "items": 3015,
+            "max_height": 1536,
+            "max_width": 960
+          },
+          "sampled_png_cache": {
+            "bytes": 92160,
+            "items": 4
+          },
+          "surface_live_instances": 5856,
+          "surface_live_owned_bytes": 158570300,
+          "surface_peak_owned_bytes": 163491052,
+          "world_layer_bytes": 0,
+          "world_runtime_creations": 0,
+          "world_source_surface_bytes": 0,
+          "world_sources": 0
+        },
+        "draw_after": {
+          "art_images": 1,
+          "art_scaled": 2,
+          "bridge_surface_cache": {
+            "bytes": 172960,
+            "items": 12
+          },
+          "dynamic_loads": 0,
+          "frame_key_bytes": 4156292,
+          "frame_key_items": 449,
+          "interned_symbols": 7414,
+          "last_visuals": 294,
+          "local_backing_retained_bytes": 0,
+          "local_bytes": 0,
+          "local_items": 0,
+          "local_parented_surfaces": 0,
+          "local_visible_bytes": 0,
+          "native_runtime_creations": 3,
+          "recipe_backing_retained_bytes": 28975668,
+          "recipe_bytes": 33523686,
+          "recipe_items": 325,
+          "recipe_parented_surfaces": 0,
+          "recipe_visible_bytes": 28975668,
+          "renderer_images": 16,
+          "renderer_scaled": 10,
+          "replay_asset_items": 0,
+          "resolved_asset_cache": {
+            "bytes": 90866884,
+            "dynamic_bytes": 0,
+            "dynamic_items": 0,
+            "items": 3316,
+            "max_height": 1536,
+            "max_width": 960
+          },
+          "sampled_png_cache": {
+            "bytes": 92160,
+            "items": 4
+          },
+          "surface_live_instances": 9940,
+          "surface_live_owned_bytes": 290353308,
+          "surface_peak_owned_bytes": 290859888,
+          "world_layer_bytes": 0,
+          "world_runtime_creations": 1,
+          "world_source_surface_bytes": 90866884,
+          "world_sources": 3316
+        },
+        "final_units": 300,
+        "final_draw_commands": 602
+      },
+      "1": {
+        "completed_frames": 64,
+        "stopped_at_memory_cap": false,
+        "cold_to_last_private_growth": 306335744,
+        "first_to_last_private_growth": 112947200,
+        "late_private_growth": 2654208,
+        "first_to_last_requested_live_growth": 72998143,
+        "late_requested_live_growth": 585966,
+        "first_to_last_slab_growth": 117320560,
+        "requested_peak_bytes_max": 219491869,
+        "draw_before": {
+          "art_images": 0,
+          "art_scaled": 0,
+          "bridge_surface_cache": {
+            "bytes": 0,
+            "items": 0
+          },
+          "dynamic_loads": 0,
+          "frame_key_bytes": 0,
+          "frame_key_items": 0,
+          "interned_symbols": 7013,
+          "last_visuals": 0,
+          "local_backing_retained_bytes": 0,
+          "local_bytes": 0,
+          "local_items": 0,
+          "local_parented_surfaces": 0,
+          "local_visible_bytes": 0,
+          "native_runtime_creations": 2,
+          "recipe_backing_retained_bytes": 0,
+          "recipe_bytes": 0,
+          "recipe_items": 0,
+          "recipe_parented_surfaces": 0,
+          "recipe_visible_bytes": 0,
+          "renderer_images": 0,
+          "renderer_scaled": 0,
+          "replay_asset_items": 0,
+          "resolved_asset_cache": {
+            "bytes": 81668536,
+            "dynamic_bytes": 0,
+            "dynamic_items": 0,
+            "items": 3015,
+            "max_height": 1536,
+            "max_width": 960
+          },
+          "sampled_png_cache": {
+            "bytes": 92160,
+            "items": 4
+          },
+          "surface_live_instances": 5856,
+          "surface_live_owned_bytes": 158570300,
+          "surface_peak_owned_bytes": 163491052,
+          "world_layer_bytes": 0,
+          "world_runtime_creations": 0,
+          "world_source_surface_bytes": 0,
+          "world_sources": 0
+        },
+        "draw_after": {
+          "art_images": 1,
+          "art_scaled": 2,
+          "bridge_surface_cache": {
+            "bytes": 172960,
+            "items": 12
+          },
+          "dynamic_loads": 0,
+          "frame_key_bytes": 4156292,
+          "frame_key_items": 449,
+          "interned_symbols": 7414,
+          "last_visuals": 294,
+          "local_backing_retained_bytes": 0,
+          "local_bytes": 0,
+          "local_items": 0,
+          "local_parented_surfaces": 0,
+          "local_visible_bytes": 0,
+          "native_runtime_creations": 3,
+          "recipe_backing_retained_bytes": 28975668,
+          "recipe_bytes": 33523686,
+          "recipe_items": 325,
+          "recipe_parented_surfaces": 0,
+          "recipe_visible_bytes": 28975668,
+          "renderer_images": 16,
+          "renderer_scaled": 10,
+          "replay_asset_items": 0,
+          "resolved_asset_cache": {
+            "bytes": 90866884,
+            "dynamic_bytes": 0,
+            "dynamic_items": 0,
+            "items": 3316,
+            "max_height": 1536,
+            "max_width": 960
+          },
+          "sampled_png_cache": {
+            "bytes": 92160,
+            "items": 4
+          },
+          "surface_live_instances": 9940,
+          "surface_live_owned_bytes": 290353308,
+          "surface_peak_owned_bytes": 290859888,
+          "world_layer_bytes": 0,
+          "world_runtime_creations": 1,
+          "world_source_surface_bytes": 90866884,
+          "world_sources": 3316
+        },
+        "final_units": 300,
+        "final_draw_commands": 602
+      }
+    }
+  ],
+  "runs": [
+    {
+      "allocator": 0,
+      "scene": "grabber",
+      "passed": true,
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp742\\guest-render-memory-grabber120-r7\\grabber-allocator-0.json",
+      "exit_code": 0,
+      "completed_frames": 64,
+      "stopped_at_memory_cap": false,
+      "phase": null,
+      "error": null
+    },
+    {
+      "allocator": 1,
+      "scene": "grabber",
+      "passed": true,
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp742\\guest-render-memory-grabber120-r7\\grabber-allocator-1.json",
+      "exit_code": 0,
+      "completed_frames": 64,
+      "stopped_at_memory_cap": false,
+      "phase": null,
+      "error": null
+    }
+  ],
+  "scope": "Each process owns one evolving real host and guest, one overwriting wire slot, actual background outer decoder and UI unpack/merge/render. First-render resources are included in the explicitly reported cap. Raw test processes also retain a test host; absolute memory is not standalone guest usage. A bounded passing run is not long-duration stability proof."
+}

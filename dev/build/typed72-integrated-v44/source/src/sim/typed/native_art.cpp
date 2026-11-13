@@ -45,7 +45,10 @@ std::pair<int,int> NativeArtStore::rotated_size(int width,int height,double degr
 NativeArt NativeArtStore::canvas(int width,int height,int flags) {
     auto out=std::make_shared<NativeArtImage>();out->width=width;out->height=height;out->pixel_alpha=(flags&65536)!=0;
     auto recipe=std::make_shared<NativeArtRecipe>();recipe->kind=NativeArtRecipe::Kind::canvas;recipe->flags=flags;out->recipe=recipe;
-    out->pixels=empty(width,height);return out;
+    // Most native canvases only record strokes and are never sampled by combat.
+    // pixels()/materialize() already create exactly this transparent payload on demand.
+    static const bool lazy=[]{const char* p=std::getenv("PVP742_LAZY_CANVAS");return !p||*p!='0';}();
+    if(!lazy)out->pixels=empty(width,height);return out;
 }
 NativeArt NativeArtStore::transformed(const NativeArt& image,NativeArtRecipe recipe,int width,int height) {
     if(!image)throw std::invalid_argument("missing native art");

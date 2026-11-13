@@ -13,6 +13,10 @@
 #include "sim/pvp/gen/pm_native_runtime.h"
 #include "sim/pvp/gen/pm_patch1501.h"
 namespace pvz { void register_original_funcs(Match&); V gated_combat_regions(const V&); }
+namespace pvz::gfx {
+namespace {auto& bridge_surfaces(){static std::map<std::string,V> cache;return cache;}}
+AtlasPixelCacheStats native_bridge_surface_cache_stats(){AtlasPixelCacheStats out;for(const auto& [key,image]:bridge_surfaces()){++out.entries;out.bytes+=uint64_t(callm(image,SY("get_width"),Args{}).num())*uint64_t(callm(image,SY("get_height"),Args{}).num())*4;}return out;}
+}
 
 namespace pvz::pm_native_gate {
 // The translated regions (src/sim/gen/regions.cpp) were decompiled from the live, already-gated
@@ -146,7 +150,7 @@ V C_NativeBridge::m_surface(const Args& A) {
     if (name.t != V::STR) return V::none();
     std::string file = gfx::atlas_file(ui ? "ui图集" : "图集", name.str());
     if (file.empty()) return V::none();
-    static std::map<std::string, V> cache;
+    auto& cache=gfx::bridge_surfaces();
     auto it = cache.find(file);
     if (it != cache.end()) return it->second;
     V pygame = py::stdlib_module(V("pygame"));

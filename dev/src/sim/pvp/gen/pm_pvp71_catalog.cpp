@@ -39,7 +39,7 @@ void init() {
     pm_pvp71_catalog::IMITATER = SV("plant:模仿者");
     pm_pvp71_catalog::IMITATE_COOLDOWN_FACTOR = V(0.5);
     pm_pvp71_catalog::IMITATE_TEXT = SV("模仿者部署冷却减半（80秒→40秒），阳光消耗为当前模仿目标的实际费用减100，可为负值以获得阳光；目标的其他秘籍与昼夜费用修正一并计入。锁定前体：模仿者。变身时间不变，复制出的植物仍是灰色。");
-    pm_pvp71_catalog::MARK_TEXT = SV("标记：僵尸戴夫受伤后3秒内、或位于路灯花或站立的植物戴夫约2.75格内且可见时视为被标记；香蒲与猫尾秘籍只能在标记期间、近距且可见时锁定僵尸戴夫。");
+    pm_pvp71_catalog::MARK_TEXT = SV("标记：僵尸戴夫受伤后3秒内、或位于路灯花或站立的植物戴夫约4.6格（标准地图）内且可见时视为被标记；香蒲与猫尾秘籍只能在标记期间、近距且可见时锁定僵尸戴夫。");
 }
 static V modattr_(Sym n) {
     init();

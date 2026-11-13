@@ -681,7 +681,11 @@ int main(int argc, char** argv) {
                             std::vector<V> xs; for (int i = 2; i < n; ++i) { V x = cmd.idx(i);
                                 if (x.t == V::STR && py_str(x) == "$screen") { V pygame = py::stdlib_module(V("pygame")); x = callm(pvz::getattr(pygame, Sym("display")), Sym("get_surface"), Args{}); }
                                 xs.push_back(x); }
-                            V r = callm(owner, Sym(k), Args{xs}); say("frame " + std::to_string(fr) + " call " + p + " -> " + dump(r).substr(0, 2000));
+                            V r = callm(owner, Sym(k), Args{xs});
+                            // The typed gate parses this complete JSON record. Counters
+                            // may legitimately exceed the generic script log budget.
+                            if (p == "room.battle.backend_audit") say("PURE_TYPED_AUDIT " + dump(r));
+                            else say("frame " + std::to_string(fr) + " call " + p + " -> " + dump(r).substr(0, 2000));
                         }
                         else if (op == "room_cmd") { V room = pvz::getattr(app, Sym("room"), V::none()); V r = callm(room, Sym("command"), Args{cmd.idx(1), cmd.idx(2)}); say("frame " + std::to_string(fr) + " room_cmd -> " + dump(r).substr(0, 300)); }
                         else if (op == "find") {   // ["find", path, needle]: occurrences + context snippets of a big value

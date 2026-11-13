@@ -1,5 +1,7 @@
 // Replay of the simulation's recorded original draw frames ("native-draw-v1") onto the UI screen.
 #include "ui/hand/texture_pack.h"
+#include "ui/hand/draw_replay_diagnostics.h"
+#include "core/function_profile.h"
 // Port of native_animation.DrawReplay plus world_view's asset resolution: recipes name baked atlas
 // images (tools/bake_atlas.py) instead of re-running the original asset loader in a second runtime.
 #include "pg/pg.h"
@@ -32,9 +34,10 @@ std::string exe_dir() {
     return s == std::string::npos ? std::string(".") : e.substr(0, s);
 }
 
+auto& resolved_assets(){static std::unordered_map<std::string,V> cache;return cache;}
 // recipe asset key -> real Surface (baked PNG at its recorded size), cached for the process
 V resolve_asset(const std::string& key) {
-    static std::unordered_map<std::string, V> cache;
+    auto& cache=resolved_assets();
     auto it = cache.find(key);
     if (it != cache.end()) return it->second;
     static const std::pair<const char*, const char*> prefixes[] = {{"world:", "图集"}, {"ui:", "ui图集"}, {"bg:", "背景图集"}, {"near:", "近景图集"}};
@@ -81,6 +84,14 @@ const bool registered_materializer = [] {
     return true;
 }();
 }  // namespace
+ReplayAssetCacheStats replay_asset_cache_stats(){
+    ReplayAssetCacheStats out;
+    for(const auto& [key,image]:resolved_assets()){
+        const auto* pixels=surf(image);const auto bytes=uint64_t(pixels->s->pitch)*uint64_t(pixels->h());
+        ++out.entries;out.bytes+=bytes;out.max_width=std::max(out.max_width,uint64_t(pixels->w()));out.max_height=std::max(out.max_height,uint64_t(pixels->h()));
+        if(key.rfind("world:@load/",0)==0){++out.dynamic_entries;out.dynamic_bytes+=bytes;}
+    }return out;
+}
 }  // namespace pvz::pg
 
 namespace pvz::pm_world_view {
@@ -89,6 +100,7 @@ V C_WorldView::m__ensure_native_replay(const Args& A) {
     if(a__native_replay.has() && !a__native_replay.is_none() && a__native_tile==tile)return a__native_replay;
     if(a__native_load_error.truthy())throw PyError("NativeGraphicsError",a__native_load_error.str());
     try {
+        PVP_PROFILE_SCOPE("WorldView::create_native_replay");
         if(a_bridge.is_none() || !py::callable(pvz::getattr(a_bridge,Sym("combat_payload"),V::none())).truthy())throw PyError("NativeGraphicsError","Local native combat source and assets are unavailable");
         V payload=callm(a_bridge,Sym("combat_payload"),Args{}),root=payload.idx(0),source=payload.idx(1),assets=payload.idx(2);
         V runtime=pm_native_runtime::new_NativeRuntime(Args({root,terrain},{{Sym("seed"),V(0)},{Sym("pygame"),a_pg}}));

@@ -161,6 +161,8 @@ struct TypedBattleState : EntityBirthObserver {
     Store<ZombieRef> units;
     Store<PlantRef> plants;
     std::shared_ptr<PlantRoster> plant_roster=std::make_shared<PlantRoster>();
+    // Spatial-cache membership stamp only; never serialized into battle state.
+    uint64_t plant_roster_revision=0;
     WorldTerrain terrain;
     PlantCatalog plant_catalog;
     PlantPlacementState placement;
@@ -196,7 +198,7 @@ struct TypedBattleState : EntityBirthObserver {
         if(!plant)throw std::invalid_argument("null world plant");
         if(!plant->identity.value)plant->identity=runtime.identities.assign();
         plant_roster->push_back(plant);
-        try{return plants.emplace(std::move(plant));}
+        try{const auto id=plants.emplace(std::move(plant));++plant_roster_revision;return id;}
         catch(...){plant_roster->pop_back();throw;}
     }
     void erase_plant_at(size_t index){
@@ -207,6 +209,7 @@ struct TypedBattleState : EntityBirthObserver {
             if(found!=order.end())plants.erase(*found);
         }
         plant_roster->erase(plant_roster->begin()+index);
+        ++plant_roster_revision;
     }
     bool remove_zombie(UnitId id){auto* unit=units.find(id);if(!unit)return false;const auto retained=*unit;std::erase_if(*targets,[&](const CombatTarget& t){return t.unit==retained;});return units.erase(id);}
     void erase_mobile_at(size_t index){

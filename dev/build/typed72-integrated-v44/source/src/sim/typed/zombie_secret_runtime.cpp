@@ -13,7 +13,7 @@ constexpr double CROWD_RADIUS=6.,CROWD_STEP=.15,CROWD_MAX=.75,HEAL_PERIOD=12.,HE
 constexpr double TACO_PERIOD=20.,RALLY_RADIUS=6.,RALLY_REFUND=15.,RALLY_DAVE_SPEED=1.25,PICKUP_SECONDS=30.,PICKUP_REACH=.7;
 constexpr double PEA_PERIOD=2.,POLE_REACH=2.,POLE_DAMAGE=4.;
 const std::array<const char*,3> GIANTS{"zombie:巨人僵尸","zombie:红眼巨人","zombie:角斗士巨人"};
-const std::array<const char*,6> HEAD_ARMORS{"路障","铁桶","黑路障","黑铁桶","橄榄球头盔","黑橄榄球头盔"};
+const std::array<const char*,7> HEAD_ARMORS{"路障","铁桶","黑路障","黑铁桶","橄榄球头盔","黑橄榄球头盔","南瓜头防具"};
 const std::array<const char*,4> SHARED_HAND_ARMOR{"钢门","垃圾桶","梯子","传送带"};
 template<class A>bool among(const A& list,std::string_view v){return std::find(list.begin(),list.end(),v)!=list.end();}
 template<class T>bool truth(const Field<T>& f){return f.present()&&!f.is_null()&&bool(f.get());}
@@ -227,7 +227,7 @@ void ZombieSecretRuntime::on_armor_break(const ZombieRef& z,ArmorSlot slot,const
     ++pickup_serial;const auto& m=z->body.motion.get();ZombieSecretPickup item;
     item.id="zs"+std::to_string(pickup_serial);item.slot=head?"防具":"手持";item.name=name;item.hp=top/2.;
     if(!head){const auto kind=hand_kind(*z);item.kind=kind.empty()?name:kind;}else item.kind=name;
-    item.dropper=z.get();item.position={m.x,m.y};item.until=world_.heroes.time+PICKUP_SECONDS;
+    item.dropper=z.get();item.dropper_id=text(z->source.id);item.position={m.x,m.y};item.until=world_.heroes.time+PICKUP_SECONDS;
     if(head){const auto black=ExpansionCombat::worn_black_armor(z);if(black&&(*black=="黑路障僵尸"||*black=="黑铁桶僵尸"))item.black=black;}
     pickups.push_back(std::move(item));
     services_.secret_event({"zsecret_armor_drop",{},{},{},name,head?"防具":"手持"});
@@ -249,7 +249,8 @@ void ZombieSecretRuntime::take_pickups(){
         if(world_.heroes.time>=item.until)continue;
         ZombieRef taker;bool riding=false;
         for(const auto& t:*world_.targets){
-            if(!t.unit||t.unit.get()==item.dropper||!zombie(*t.unit))continue;const auto& p=t.unit->body.motion.get();
+            if(!t.unit||!zombie(*t.unit))continue;
+            if(item.dropped_by(*t.unit))continue;const auto& p=t.unit->body.motion.get();
             if(distance(item.position.x,item.position.y,p.x,p.y)>reach)continue;
             if(own(t.unit)&&wearer(*t.unit,item)){taker=t.unit;break;}
             if(riding_wearer(t.unit,item)){taker=t.unit;riding=true;break;}

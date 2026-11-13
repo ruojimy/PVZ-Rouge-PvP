@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "runs": [
+    {
+      "name": "pvp742_performance_audit",
+      "exit": 0,
+      "passed": true,
+      "exe_sha256": "eecc4890170b086ddf7ecde3b508640a9563a59e75926df852dbdca812daaf29"
+    },
+    {
+      "name": "pvp741_combat_audit",
+      "exit": 0,
+      "passed": true,
+      "exe_sha256": "bf76f2b620b9d613e216affa10de0bc6c5cdc607958962153bee074f94c417d7"
+    },
+    {
+      "name": "fire741_production_audit",
+      "exit": 0,
+      "passed": true,
+      "exe_sha256": "2c61901663bd7b84655afa4f88272788c50b72b9847ff0dd2635cc299f7697ca"
+    },
+    {
+      "name": "spatial741_movement_audit",
+      "exit": 0,
+      "passed": true,
+      "exe_sha256": "443cf0fb1ab591c9532518660e61f150edaa31f96738486191eb547a640aeecf"
+    }
+  ]
+}

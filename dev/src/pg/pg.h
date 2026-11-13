@@ -21,6 +21,8 @@ struct Surface : PyObj {
     V parent;                       // subsurface: keeps the pixel owner alive
     int off_x = 0, off_y = 0;       // subsurface offset in the parent
     bool is_display = false;
+    uint64_t diagnostic_storage_bytes = 0;
+    bool diagnostic_counted = false;
     ~Surface() override;
     const char* type_name() const override { return "Surface"; }
     bool isa(const char* c) const override { return std::string(c) == "Surface" || std::string(c) == "object"; }

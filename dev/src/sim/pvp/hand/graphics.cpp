@@ -21,6 +21,7 @@ std::map<std::string, std::map<std::string, AtlasEntry>> g_index;
 std::string g_png_dir;
 // recipe key prefix -> atlas dictionary name
 const std::pair<const char*, const char*> kPrefixes[] = {{"world:", "图集"}, {"ui:", "ui图集"}, {"bg:", "背景图集"}, {"near:", "近景图集"}};
+auto& sampled_pixels_cache(){static std::map<std::string,png::Image> cache;return cache;}
 
 // Real pixels of an untransformed atlas image (the simulation samples them: 原版 增粒子).
 const png::Image* pixels_of(const Image* im) {
@@ -32,7 +33,7 @@ const png::Image* pixels_of(const Image* im) {
         if (a == g_index.end()) return nullptr;
         auto e = a->second.find(im->r.key.substr(n));
         if (e == a->second.end() || e->second.w != im->w || e->second.h != im->h) return nullptr;
-        static std::map<std::string, png::Image> cache;
+        auto& cache=sampled_pixels_cache();
         auto c = cache.find(e->second.file);
         if (c == cache.end()) {
             std::string err;
@@ -45,6 +46,7 @@ const png::Image* pixels_of(const Image* im) {
 }
 }
 
+AtlasPixelCacheStats sampled_atlas_pixel_cache_stats(){AtlasPixelCacheStats out;for(const auto& [key,image]:sampled_pixels_cache()){++out.entries;out.bytes+=image.rgba.size();}return out;}
 std::string atlas_file(const std::string& atlas, const std::string& key) {
     auto a = g_index.find(atlas);
     if (a == g_index.end()) return "";

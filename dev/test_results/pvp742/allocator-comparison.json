@@ -1,0 +1,772 @@
+{
+  "passed": true,
+  "environment": "Windows independent processes, same executable. Legacy mode only reproduces former allocator free-list routing. Small-block synthetic workload, not an end-to-end game memory attribution.",
+  "old_control_expected_unbounded": [
+    "cross",
+    "retire"
+  ],
+  "note": "Old-path new_allocator_bounded in raw audit is a skipped-threshold sentinel, not proof of bounded growth; use measured slab/private curves below.",
+  "cases": [
+    {
+      "implementation": "old",
+      "workload": "same",
+      "passed": true,
+      "slab_mib_added": 0.1247406005859375,
+      "private_mib_delta": 0.5,
+      "live_final": 0,
+      "requested_peak": 24608,
+      "cross_frees": 0,
+      "central_reused_blocks": 0,
+      "thread_cache_flushes": 0,
+      "first_sample_private": 1081344,
+      "last_sample_private": 1212416,
+      "sample_live_min": 0,
+      "sample_live_max": 0,
+      "raw_curve": [
+        {
+          "batch": 0,
+          "slab_mib": 0.0,
+          "private_mib": 0.0,
+          "requested_live": 0
+        },
+        {
+          "batch": 375,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 750,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 1125,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 1500,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 1875,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 2250,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 2625,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 3000,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 3375,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 3750,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 4125,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 4500,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 4875,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 5250,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 5625,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 6000,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        }
+      ]
+    },
+    {
+      "implementation": "new",
+      "workload": "same",
+      "passed": true,
+      "slab_mib_added": 0.1247406005859375,
+      "private_mib_delta": 0.4375,
+      "live_final": 0,
+      "requested_peak": 24608,
+      "cross_frees": 0,
+      "central_reused_blocks": 0,
+      "thread_cache_flushes": 0,
+      "first_sample_private": 1085440,
+      "last_sample_private": 1216512,
+      "sample_live_min": 0,
+      "sample_live_max": 0,
+      "raw_curve": [
+        {
+          "batch": 0,
+          "slab_mib": 0.0,
+          "private_mib": 0.0,
+          "requested_live": 0
+        },
+        {
+          "batch": 375,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 750,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 1125,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 1500,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 1875,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 2250,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 2625,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 3000,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 3375,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 3750,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 4125,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 4500,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 4875,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 5250,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 5625,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        },
+        {
+          "batch": 6000,
+          "slab_mib": 0.1247,
+          "private_mib": 0.125,
+          "requested_live": 0
+        }
+      ]
+    },
+    {
+      "implementation": "old",
+      "workload": "cross",
+      "passed": true,
+      "slab_mib_added": 152.70289611816406,
+      "private_mib_delta": 153.90625,
+      "live_final": 0,
+      "requested_peak": 24640,
+      "cross_frees": 0,
+      "central_reused_blocks": 0,
+      "thread_cache_flushes": 0,
+      "first_sample_private": 1077248,
+      "last_sample_private": 162164736,
+      "sample_live_min": 0,
+      "sample_live_max": 32,
+      "raw_curve": [
+        {
+          "batch": 0,
+          "slab_mib": 0.0,
+          "private_mib": 0.0,
+          "requested_live": 0
+        },
+        {
+          "batch": 375,
+          "slab_mib": 9.7351,
+          "private_mib": 9.8359,
+          "requested_live": 32
+        },
+        {
+          "batch": 750,
+          "slab_mib": 19.2829,
+          "private_mib": 19.4414,
+          "requested_live": 32
+        },
+        {
+          "batch": 1125,
+          "slab_mib": 28.8308,
+          "private_mib": 29.043,
+          "requested_live": 32
+        },
+        {
+          "batch": 1500,
+          "slab_mib": 38.3786,
+          "private_mib": 38.6484,
+          "requested_live": 32
+        },
+        {
+          "batch": 1875,
+          "slab_mib": 47.9264,
+          "private_mib": 48.25,
+          "requested_live": 32
+        },
+        {
+          "batch": 2250,
+          "slab_mib": 57.4118,
+          "private_mib": 57.7852,
+          "requested_live": 32
+        },
+        {
+          "batch": 2625,
+          "slab_mib": 66.9597,
+          "private_mib": 67.3906,
+          "requested_live": 32
+        },
+        {
+          "batch": 3000,
+          "slab_mib": 76.5076,
+          "private_mib": 76.9922,
+          "requested_live": 32
+        },
+        {
+          "batch": 3375,
+          "slab_mib": 85.9929,
+          "private_mib": 86.5312,
+          "requested_live": 32
+        },
+        {
+          "batch": 3750,
+          "slab_mib": 95.6032,
+          "private_mib": 96.1992,
+          "requested_live": 32
+        },
+        {
+          "batch": 4125,
+          "slab_mib": 105.0261,
+          "private_mib": 105.6719,
+          "requested_live": 32
+        },
+        {
+          "batch": 4500,
+          "slab_mib": 114.6364,
+          "private_mib": 115.3398,
+          "requested_live": 32
+        },
+        {
+          "batch": 4875,
+          "slab_mib": 124.0593,
+          "private_mib": 124.8125,
+          "requested_live": 32
+        },
+        {
+          "batch": 5250,
+          "slab_mib": 133.6072,
+          "private_mib": 134.418,
+          "requested_live": 32
+        },
+        {
+          "batch": 5625,
+          "slab_mib": 143.2175,
+          "private_mib": 144.0898,
+          "requested_live": 32
+        },
+        {
+          "batch": 6000,
+          "slab_mib": 152.7029,
+          "private_mib": 153.625,
+          "requested_live": 32
+        }
+      ]
+    },
+    {
+      "implementation": "new",
+      "workload": "cross",
+      "passed": true,
+      "slab_mib_added": 0.3746490478515625,
+      "private_mib_delta": 0.6328125,
+      "live_final": 0,
+      "requested_peak": 24640,
+      "cross_frees": 768001,
+      "central_reused_blocks": 764417,
+      "thread_cache_flushes": 1,
+      "first_sample_private": 1093632,
+      "last_sample_private": 1523712,
+      "sample_live_min": 0,
+      "sample_live_max": 32,
+      "raw_curve": [
+        {
+          "batch": 0,
+          "slab_mib": 0.0,
+          "private_mib": 0.0,
+          "requested_live": 0
+        },
+        {
+          "batch": 375,
+          "slab_mib": 0.3746,
+          "private_mib": 0.4102,
+          "requested_live": 32
+        },
+        {
+          "batch": 750,
+          "slab_mib": 0.3746,
+          "private_mib": 0.4102,
+          "requested_live": 32
+        },
+        {
+          "batch": 1125,
+          "slab_mib": 0.3746,
+          "private_mib": 0.4102,
+          "requested_live": 32
+        },
+        {
+          "batch": 1500,
+          "slab_mib": 0.3746,
+          "private_mib": 0.4102,
+          "requested_live": 32
+        },
+        {
+          "batch": 1875,
+          "slab_mib": 0.3746,
+          "private_mib": 0.4102,
+          "requested_live": 32
+        },
+        {
+          "batch": 2250,
+          "slab_mib": 0.3746,
+          "private_mib": 0.4102,
+          "requested_live": 32
+        },
+        {
+          "batch": 2625,
+          "slab_mib": 0.3746,
+          "private_mib": 0.4102,
+          "requested_live": 32
+        },
+        {
+          "batch": 3000,
+          "slab_mib": 0.3746,
+          "private_mib": 0.4102,
+          "requested_live": 32
+        },
+        {
+          "batch": 3375,
+          "slab_mib": 0.3746,
+          "private_mib": 0.4102,
+          "requested_live": 32
+        },
+        {
+          "batch": 3750,
+          "slab_mib": 0.3746,
+          "private_mib": 0.4102,
+          "requested_live": 32
+        },
+        {
+          "batch": 4125,
+          "slab_mib": 0.3746,
+          "private_mib": 0.4102,
+          "requested_live": 32
+        },
+        {
+          "batch": 4500,
+          "slab_mib": 0.3746,
+          "private_mib": 0.4102,
+          "requested_live": 32
+        },
+        {
+          "batch": 4875,
+          "slab_mib": 0.3746,
+          "private_mib": 0.4102,
+          "requested_live": 32
+        },
+        {
+          "batch": 5250,
+          "slab_mib": 0.3746,
+          "private_mib": 0.4102,
+          "requested_live": 32
+        },
+        {
+          "batch": 5625,
+          "slab_mib": 0.3746,
+          "private_mib": 0.4102,
+          "requested_live": 32
+        },
+        {
+          "batch": 6000,
+          "slab_mib": 0.3746,
+          "private_mib": 0.4102,
+          "requested_live": 32
+        }
+      ]
+    },
+    {
+      "implementation": "old",
+      "workload": "retire",
+      "passed": true,
+      "slab_mib_added": 20.041000366210938,
+      "private_mib_delta": 20.5625,
+      "live_final": 0,
+      "requested_peak": 24632,
+      "cross_frees": 0,
+      "central_reused_blocks": 0,
+      "thread_cache_flushes": 0,
+      "first_sample_private": 1085440,
+      "last_sample_private": 22315008,
+      "sample_live_min": 0,
+      "sample_live_max": 0,
+      "raw_curve": [
+        {
+          "batch": 0,
+          "slab_mib": 0.0,
+          "private_mib": 0.0,
+          "requested_live": 0
+        },
+        {
+          "batch": 4,
+          "slab_mib": 1.3111,
+          "private_mib": 1.332,
+          "requested_live": 0
+        },
+        {
+          "batch": 8,
+          "slab_mib": 2.5598,
+          "private_mib": 2.6055,
+          "requested_live": 0
+        },
+        {
+          "batch": 12,
+          "slab_mib": 3.8085,
+          "private_mib": 3.875,
+          "requested_live": 0
+        },
+        {
+          "batch": 16,
+          "slab_mib": 5.0571,
+          "private_mib": 5.1445,
+          "requested_live": 0
+        },
+        {
+          "batch": 20,
+          "slab_mib": 6.3058,
+          "private_mib": 6.4141,
+          "requested_live": 0
+        },
+        {
+          "batch": 24,
+          "slab_mib": 7.5544,
+          "private_mib": 7.6875,
+          "requested_live": 0
+        },
+        {
+          "batch": 28,
+          "slab_mib": 8.8031,
+          "private_mib": 8.957,
+          "requested_live": 0
+        },
+        {
+          "batch": 32,
+          "slab_mib": 10.0517,
+          "private_mib": 10.2227,
+          "requested_live": 0
+        },
+        {
+          "batch": 36,
+          "slab_mib": 11.3004,
+          "private_mib": 11.4922,
+          "requested_live": 0
+        },
+        {
+          "batch": 40,
+          "slab_mib": 12.5491,
+          "private_mib": 12.6992,
+          "requested_live": 0
+        },
+        {
+          "batch": 44,
+          "slab_mib": 13.7977,
+          "private_mib": 13.9648,
+          "requested_live": 0
+        },
+        {
+          "batch": 48,
+          "slab_mib": 15.0464,
+          "private_mib": 15.2344,
+          "requested_live": 0
+        },
+        {
+          "batch": 52,
+          "slab_mib": 16.295,
+          "private_mib": 16.5078,
+          "requested_live": 0
+        },
+        {
+          "batch": 56,
+          "slab_mib": 17.5437,
+          "private_mib": 17.7734,
+          "requested_live": 0
+        },
+        {
+          "batch": 60,
+          "slab_mib": 18.7923,
+          "private_mib": 19.043,
+          "requested_live": 0
+        },
+        {
+          "batch": 64,
+          "slab_mib": 20.041,
+          "private_mib": 20.2461,
+          "requested_live": 0
+        }
+      ]
+    },
+    {
+      "implementation": "new",
+      "workload": "retire",
+      "passed": true,
+      "slab_mib_added": 0.3746490478515625,
+      "private_mib_delta": 0.63671875,
+      "live_final": 0,
+      "requested_peak": 24632,
+      "cross_frees": 64,
+      "central_reused_blocks": 20161,
+      "thread_cache_flushes": 64,
+      "first_sample_private": 1081344,
+      "last_sample_private": 1478656,
+      "sample_live_min": 0,
+      "sample_live_max": 0,
+      "raw_curve": [
+        {
+          "batch": 0,
+          "slab_mib": 0.0,
+          "private_mib": 0.0,
+          "requested_live": 0
+        },
+        {
+          "batch": 4,
+          "slab_mib": 0.3746,
+          "private_mib": 0.3789,
+          "requested_live": 0
+        },
+        {
+          "batch": 8,
+          "slab_mib": 0.3746,
+          "private_mib": 0.3789,
+          "requested_live": 0
+        },
+        {
+          "batch": 12,
+          "slab_mib": 0.3746,
+          "private_mib": 0.3789,
+          "requested_live": 0
+        },
+        {
+          "batch": 16,
+          "slab_mib": 0.3746,
+          "private_mib": 0.3789,
+          "requested_live": 0
+        },
+        {
+          "batch": 20,
+          "slab_mib": 0.3746,
+          "private_mib": 0.3789,
+          "requested_live": 0
+        },
+        {
+          "batch": 24,
+          "slab_mib": 0.3746,
+          "private_mib": 0.3789,
+          "requested_live": 0
+        },
+        {
+          "batch": 28,
+          "slab_mib": 0.3746,
+          "private_mib": 0.3789,
+          "requested_live": 0
+        },
+        {
+          "batch": 32,
+          "slab_mib": 0.3746,
+          "private_mib": 0.3789,
+          "requested_live": 0
+        },
+        {
+          "batch": 36,
+          "slab_mib": 0.3746,
+          "private_mib": 0.3789,
+          "requested_live": 0
+        },
+        {
+          "batch": 40,
+          "slab_mib": 0.3746,
+          "private_mib": 0.3789,
+          "requested_live": 0
+        },
+        {
+          "batch": 44,
+          "slab_mib": 0.3746,
+          "private_mib": 0.3789,
+          "requested_live": 0
+        },
+        {
+          "batch": 48,
+          "slab_mib": 0.3746,
+          "private_mib": 0.3789,
+          "requested_live": 0
+        },
+        {
+          "batch": 52,
+          "slab_mib": 0.3746,
+          "private_mib": 0.3789,
+          "requested_live": 0
+        },
+        {
+          "batch": 56,
+          "slab_mib": 0.3746,
+          "private_mib": 0.3789,
+          "requested_live": 0
+        },
+        {
+          "batch": 60,
+          "slab_mib": 0.3746,
+          "private_mib": 0.3789,
+          "requested_live": 0
+        },
+        {
+          "batch": 64,
+          "slab_mib": 0.3746,
+          "private_mib": 0.3789,
+          "requested_live": 0
+        }
+      ]
+    }
+  ],
+  "extended_new_only_cases": [
+    {
+      "artifact": "test_results\\pvp742\\allocator-new-cross-long.json",
+      "passed": true,
+      "workload": "cross",
+      "iterations": 100000,
+      "batch": 256,
+      "slab_bytes_added": 392848,
+      "private_mib_delta": 0.6484375,
+      "requested_final_live_bytes": 0,
+      "requested_peak_bytes": 49824,
+      "total_cross_thread_frees": 25600001,
+      "elapsed_seconds": 2.0250065
+    },
+    {
+      "artifact": "test_results\\pvp742\\allocator-new-retire-long.json",
+      "passed": true,
+      "workload": "retire",
+      "iterations": 2000,
+      "batch": 128,
+      "slab_bytes_added": 392848,
+      "private_mib_delta": 0.6484375,
+      "requested_final_live_bytes": 0,
+      "requested_peak_bytes": 24632,
+      "total_cross_thread_frees": 2000,
+      "elapsed_seconds": 0.127357
+    },
+    {
+      "artifact": "test_results\\pvp742\\allocator-new-parallel.json",
+      "passed": true,
+      "workload": "parallel",
+      "iterations": 6000,
+      "batch": 128,
+      "slab_bytes_added": 523552,
+      "private_mib_delta": 0.8359375,
+      "requested_final_live_bytes": 0,
+      "requested_peak_bytes": 98816,
+      "total_cross_thread_frees": 3072008,
+      "elapsed_seconds": 1.0571832
+    }
+  ]
+}

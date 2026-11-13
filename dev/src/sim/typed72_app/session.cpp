@@ -47,8 +47,16 @@ public:
         return error;
     }
     void clear_input(const std::string& side)override{match_->scheduler.clear_input(parse_seat(side));}
-    void step()override{auto& m=*match_;m.scheduler.step();m.flush_journal();++m.current_room;}
-    nlohmann::json snapshot()override{PVP_PROFILE_SCOPE("MatchProbe::snapshot_json");return match_->snapshot_json();}
+    void step()override{
+        auto& m=*match_;
+        // A result may settle before the caller's requested batch ends. Keep
+        // every room step's final native frame; draw hooks carry state and
+        // cannot safely be replayed later merely to recover that ending frame.
+        m.scheduler.step();m.flush_journal();++m.current_room;
+    }
+    nlohmann::json snapshot(bool include_frame=true)override{PVP_PROFILE_SCOPE("MatchProbe::snapshot_json");return match_->snapshot_json(include_frame);}
+    const typed72::NativeFrame& native_frame()const override{return match_->canvas.frames.frame();}
+    nlohmann::json reference_native_frame()const override{return match_->canvas.frame_json(native_frame());}
     size_t log_size()const override{return match_->log.size();}
     nlohmann::json log_entry(size_t index)const override{return nlohmann::json(match_->log.at(index));}
     int64_t tick()const override{return match_->room.tick;}
@@ -281,6 +289,7 @@ public:
     void fixture_set_avatar(const std::string& side,const nlohmann::json& state)override{match_->fixture_set_avatar(parse_seat(side),J(state));}
     void sync_public()override{match_->fixture_sync();}
     void native_set(bool avatar,const std::string& id,const nlohmann::json& fields)override{match_->native_set(avatar,id,J(fields));}
+    void fixture_entity(size_t index,const nlohmann::json& fields,bool keep_only)override{match_->fixture_entity(index,J(fields),keep_only);}
     std::optional<std::string> spawn(const std::string& key,const std::string& side,double x,double y,double facing,bool temporary)override{
         return match_->spawn_unit(key,side,x,y,facing,temporary);
     }
@@ -307,6 +316,9 @@ public:
         return {{"function_profile",std::move(functions)},{"nearest_queries",t[0]+chart.nearest_queries},{"nearest_candidates",t[1]+chart.nearest_candidates},{"nearest_full_scan",t[2]+chart.nearest_full_scan},{"zombie_collision_queries",p.spatial_queries},{"zombie_collision_candidates",p.spatial_candidates},{"zombie_collision_full_scan",p.full_scan_pairs},{"zombie_exact_tests",p.exact_tests},{"spatial_bytes",c.spatial_bytes()+p.spatial_bytes()},
             {"primal_knock_targets",match_->content_damage.primal_knock_targets},{"primal_knock_velocity",match_->content_damage.primal_knock_velocity},
             {"content_queries",match_->queries.local_queries},{"content_candidates",match_->queries.local_candidates},{"point_grid_builds",match_->queries.moving_index().rebuilds},{"point_grid_moves",match_->queries.moving_index().moves},{"point_grid_cell_changes",match_->queries.moving_index().cell_changes},
+            {"range_queries",match_->queries.range_queries},{"range_candidates",match_->queries.range_candidates},{"range_full_scan",match_->queries.range_full_scan},{"range_exact_tests",match_->queries.range_exact_tests},
+            {"seeking_plant_ticks",match_->queries.seeking_plant_ticks},{"max_seeking_plants",match_->queries.max_seeking_plants},
+            {"range_cache_hits",match_->queries.coverage_index().cache_hits},{"range_grid_resets",match_->queries.coverage_index().resets},{"range_cell_changes",match_->queries.coverage_index().cell_changes},{"range_index_bytes",match_->queries.range_storage_bytes()},
             {"aim_queries",aim[0]},{"aim_candidates",aim[1]},{"aim_full_scan",aim[2]},{"head_queries",heads.head_queries},{"head_candidates",heads.head_candidates},{"head_full_scan",heads.head_full_scan},{"head_exact_tests",heads.head_exact_tests},{"head_spatial_bytes",heads.spatial_bytes()},
             {"flood_calls",f[0].calls+f[1].calls},{"flood_expansions",f[0].expansions+f[1].expansions},{"flood_cycles",f[0].cycles+f[1].cycles},{"flood_neighbors",f[0].neighbours+f[1].neighbours},
             {"destination_queries",legal.queries},{"destination_rebuilds",legal.rebuilds},{"destination_reuses",legal.reused},{"plant_target_scans",path[0]+match_->paths.target_scans},{"plant_target_candidates",path[1]+match_->paths.target_candidates},{"plant_target_reuses",path[2]+match_->paths.target_cache_hits},

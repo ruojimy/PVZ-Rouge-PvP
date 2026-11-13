@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "name": "natural_wall_build_梯子僵尸",
+      "24row_evidence_exact": true,
+      "rng_exact": true,
+      "trajectory_exact": true
+    },
+    {
+      "name": "natural_wall_build_传送带僵尸",
+      "24row_evidence_exact": true,
+      "rng_exact": true,
+      "trajectory_exact": true
+    }
+  ]
+}

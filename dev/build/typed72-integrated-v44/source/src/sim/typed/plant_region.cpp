@@ -451,9 +451,27 @@ void PlantRegion::magnet(const Frame& frame) {
         if(!contains(rules_.metal,fields.hand) && !contains(rules_.metal,fields.armor))continue;
         if(!selected || distance<nearest){selected=target;nearest=distance;}
     }
+    // A giant's carried imp has a separate head slot. Preserve the original
+    // body/hand selection above, then consider this slot only as its fallback.
+    bool carried_imp=false;
+    if(!selected)for(size_t target=0;target<count;++target){
+        const auto& zombie=world_.targets->at(target).unit;
+        if(!zombie||zombie->body.hp<=0.||zombie->body.ash.present()||zombie->body.kind!="巨人僵尸"||zombie->native.throw_imp.present())continue;
+        const auto& armor=zombie->poison.imp_armor;
+        if(!armor.present()||armor.is_null()||zombie->poison.imp_armor_hp.or_missing(0.)<=0.)continue;
+        const auto& name=armor.get();const auto logical=name=="黑铁桶"?"铁桶":name=="黑路障"?"路障":name;
+        if(!contains(rules_.metal,logical))continue;
+        const auto& pos=position(target);const auto distance=std::abs(pos.x-globals.xx.get())+std::abs(pos.y-globals.yy.get());
+        if(distance>tile*9.&&!(secret("磁力")&&frame.name=="磁力菇"))continue;
+        if(!selected||distance<nearest){selected=target;nearest=distance;carried_imp=true;}
+    }
     if(!selected)return;
     const auto target=*selected;auto& fields=body(target);std::string kind;
-    if(contains(rules_.metal,fields.hand)) {
+    if(carried_imp){
+        auto& zombie=*world_.targets->at(target).unit;kind=zombie.poison.imp_armor.get();
+        zombie.poison.imp_armor.set("");zombie.poison.imp_armor_hp.set(0.);
+        if(zombie.registration.secondhand.present()&&!zombie.registration.secondhand.is_null())zombie.registration.secondhand.get().carried_imp.erase();
+    }else if(contains(rules_.metal,fields.hand)) {
         kind=fields.hand;
         if(kind=="矿镐" && !world_.targets->at(target).is_hero())zombie_native(target).emerged.set(true);
         globals.yy.get()-=kind=="弹跳杆"?tile:tile/2.;

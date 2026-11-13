@@ -10,6 +10,9 @@
 #include "core/fsutil.h"
 #include "core/save_upgrade72.h"
 #include "app/diagnostic72.h"
+#include "core/trace.h"
+#include "core/alloc.h"
+#include <chrono>
 #include "app/developer_tools.h"
 #include <SDL.h>
 #include <cstdio>
@@ -65,8 +68,26 @@ static std::string utf8_message(const std::string& s) {
 }
 
 static void report_fatal(const std::string& raw,bool interactive=true) {
+    release_crash_reserve();
     std::string msg = utf8_message(raw);
-    std::ofstream("crash-native.txt", std::ios::binary) << msg << "\n";   // UTF-8
+    const auto write=[&](const std::filesystem::path& path){
+#ifdef _WIN32
+        FILE* file=_wfopen(path.c_str(),L"wb");
+#else
+        FILE* file=std::fopen(path.c_str(),"wb");
+#endif
+        if(!file)return;
+        std::fprintf(file,"%s\n",msg.c_str());
+        const auto memory=native_small_allocator_stats();
+        std::fprintf(file,"small_allocator legacy=%d slab_bytes=%llu failures=%llu last_failed_request_bytes=%llu\n",int(memory.legacy),static_cast<unsigned long long>(memory.slab_bytes),static_cast<unsigned long long>(memory.allocation_failures),static_cast<unsigned long long>(memory.last_failure_bytes));
+        print_last_cpp_throw(file);std::fclose(file);
+    };
+    // Keep the familiar file and a dated history at the stable data location.
+    try{write("crash-native.txt");std::string userdata;if(env_u8("PVP_USERDATA",userdata)&&!userdata.empty()){
+        const auto folder=u8p(userdata)/"crashes";std::filesystem::create_directories(folder);
+        const auto stamp=std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+        write(folder/("fatal-"+std::to_string(stamp)+".txt"));
+    }}catch(...){} // Secondary logging must not replace the original failure.
     fprintf(stderr,"PvZ native fatal: %s\n",msg.c_str());
     if(interactive)SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "PvZ PvP Native", msg.c_str(), nullptr);
 }
@@ -313,9 +334,15 @@ int main(int argc, char** argv) {
             pm_app::f_run(Args{});
         }
     } catch (PyError& e) {
+        release_crash_reserve();
         report_fatal(std::string("PyError ") + e.what(),!diagnostic_mode);
         return 2;
+    } catch (std::bad_alloc& e) {
+        release_crash_reserve();
+        report_fatal(std::string("error ") + e.what(),!diagnostic_mode);
+        return 3;
     } catch (std::exception& e) {
+        release_crash_reserve();
         report_fatal(std::string("error ") + e.what(),!diagnostic_mode);
         return 3;
     }

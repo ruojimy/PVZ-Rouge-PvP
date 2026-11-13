@@ -1,5 +1,6 @@
 #pragma once
 #include "sim/typed/targets.h"
+#include "sim/typed/coverage_grid.h"
 namespace pvz::typed72 {
 struct CollisionCatalog;
 // NativeContent can address stationary plants as well as entries in the
@@ -18,6 +19,7 @@ public:
     ContentTargets(TypedBattleState& world,ContentUnitDamage& dispatch,const CollisionCatalog& catalog,double width)
         :world_(world),dispatch_(&dispatch),catalog_(catalog),width_(width){}
     Point point(const ContentTarget&)const;
+    CoverageBox bounds(const ContentTarget&)const;
     bool contact(const ContentTarget&,Point start,Point delta)const;
     void damage(const std::shared_ptr<AttackSource>& source,const ContentTarget&,double amount,
                 double facing=1.,bool surface=false,HeroHit kind=HeroHit::content);

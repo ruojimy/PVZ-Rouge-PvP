@@ -13,6 +13,7 @@
 #include "sim/pvp/hand/original_patch_fingerprint.h"
 #include "sim/pvp/hand/graphics.h"
 #include "sim/pvp/hand/runtime_probe.h"
+#include "core/function_profile.h"
 #include "data/datastore.h"
 #include <unordered_set>
 #include <set>
@@ -225,6 +226,7 @@ V new_MatchCopy(const Args& A) {
 V cls_MatchCopy() { static V c = V::func([](const Args& A) { return new_MatchCopy(A); }); return c; }
 
 V C_NativeRuntime::m___init__(const Args& A) {
+    PVP_PROFILE_SCOPE("NativeRuntime::init");
     V root = A.get(0, Sym("root"), nullptr);
     V terrain = A.get(1, Sym("terrain"), nullptr);
     static const V one(1.0), empty_tuple = V::tuple({});

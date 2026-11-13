@@ -142,8 +142,8 @@ if(UI_SRC)
     get_filename_component(n ${f} NAME_WE)
     add_executable(${n} ${f})
     target_link_libraries(${n} PRIVATE pvzui)
-    if(n STREQUAL "pvp741_hero_texture_audit")
-      # This verifier constructs production HeroState (including typed poison).
+    if(n STREQUAL "pvp741_hero_texture_audit" OR n STREQUAL "pvp742_terrain_units_audit" OR n STREQUAL "pvp742_reverse_subscription_bench" OR n STREQUAL "pvp742_plant_occupancy_audit" OR n STREQUAL "pvp742_secondhand_audit")
+      # These verifiers construct production state (HeroState / FloodState).
       target_include_directories(${n} BEFORE PRIVATE ${PVZ_TYPED72_STAGE}/src)
     endif()
     target_compile_definitions(${n} PRIVATE SDL_MAIN_HANDLED)

@@ -1,5 +1,6 @@
 #include "sim/typed/content_target.h"
 #include "sim/typed/projectile_rules.h"
+#include "sim/typed/native_barrels.h"
 #include <algorithm>
 namespace pvz::typed72 {
 Point ContentTargets::point(const ContentTarget& target)const {
@@ -18,6 +19,24 @@ std::optional<Seat> ContentTargets::owner(const ContentTarget& target)const {
     if(const auto* p=std::get_if<PlantRef>(&target))return world_.heroes.owner(source_ref(*p));
     const auto& t=std::get<CombatTarget>(target);
     return t.is_hero()?std::optional<Seat>(team_of(t.hero)):world_.heroes.owner(source_ref(t.unit));
+}
+CoverageBox ContentTargets::bounds(const ContentTarget& target)const {
+    const auto p=point(target);const double tile=world_.runtime.tile;
+    CoverageBox out{p.x,p.y,p.x,p.y};
+    const auto include=[&](Point center,double rx,double ry){out.left=std::min(out.left,center.x-rx);out.top=std::min(out.top,center.y-ry);out.right=std::max(out.right,center.x+rx);out.bottom=std::max(out.bottom,center.y+ry);};
+    if(std::holds_alternative<PlantRef>(target)){include(p,tile*.45,tile*.45);return out;}
+    const auto& t=std::get<CombatTarget>(target);
+    if(t.is_hero()){const double scale=unit_scale_factor(*world_.heroes.proxy_source(t.hero),catalog_);include(p,tile*.5*scale,tile*.8*scale);return out;}
+    const auto& u=*t.unit;const auto& m=u.body.motion.get();const double size=u.body.size.or_missing(2.);
+    include({m.x,m.y-tile*.425*size},tile*.15*size,tile*.425*size);
+    // Some legacy darts deliberately use the unscaled ellipse. Broad-phase
+    // coverage must contain that shape as well as the scaled flying collider.
+    const double scale=std::max(1.,unit_scale_factor(u.source,catalog_));include(p,tile*.5*scale,tile*.8*scale);
+    if(const auto head=plant_zombie_head(u,tile,catalog_))include(head->center,head->rx,head->ry);
+    if(NativeBarrels::active(u)&&u.barrel_position.present()&&!u.barrel_position.is_null()){
+        const auto barrel=u.barrel_position.get();include({barrel->x,barrel->y-tile*.6},tile*.65,tile*.65);
+    }
+    return out;
 }
 bool ContentTargets::contact(const ContentTarget& target,Point start,Point delta)const {
     if(const auto* t=std::get_if<CombatTarget>(&target);t&&!t->is_hero())

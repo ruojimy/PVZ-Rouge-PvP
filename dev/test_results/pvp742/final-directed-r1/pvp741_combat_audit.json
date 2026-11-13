@@ -1,0 +1,276 @@
+{
+  "checks": [
+    {
+      "evidence": {
+        "heroes": 2,
+        "routing_scope": "typed routing counters not published"
+      },
+      "name": "dense_profiler_supports_duel_without_present_attribute",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "commands_per_frame": 520,
+        "evictions": 24.0,
+        "frames": 3,
+        "hits": 1024.0,
+        "pixels_identical": true
+      },
+      "name": "render_lru_order_values_and_full_frame_pixels_match",
+      "passed": true
+    },
+    {
+      "evidence": [
+        {
+          "environment_unchanged": true,
+          "night": false,
+          "weather": "clear"
+        },
+        {
+          "environment_unchanged": true,
+          "night": false,
+          "weather": "rain"
+        },
+        {
+          "environment_unchanged": true,
+          "night": true,
+          "weather": "clear"
+        },
+        {
+          "environment_unchanged": true,
+          "night": true,
+          "weather": "rain"
+        }
+      ],
+      "name": "pvp_day_night_and_rain_remain_static",
+      "passed": true
+    },
+    {
+      "evidence": [
+        {
+          "director_night": false,
+          "map_night": false,
+          "time": 0.03333333333333333
+        },
+        {
+          "director_night": true,
+          "map_night": true,
+          "time": 120.06666666666666
+        },
+        {
+          "director_night": false,
+          "map_night": false,
+          "time": 240.1
+        }
+      ],
+      "name": "coop_day_night_day_public_environment",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "damage": 310.0,
+        "state_hash": "72294509574b7a7e70fcfa0dfb0d49c9aec50fea67c9e5a0c81178d15c3dae01"
+      },
+      "name": "cattail_普通僵尸",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "damage": 310.0,
+        "state_hash": "073e75133b38d75f99be2e251da0d5944c0f72420eb3d5ccff1a99e4ae02d563"
+      },
+      "name": "cattail_海盗鹦鹉",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "damage": 310.0,
+        "state_hash": "4efd9a357db2d9c74572d14e4faccf510cf9fb4ef59d228cf9bb805c2dbd442c"
+      },
+      "name": "cattail_小鬼僵尸",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "damage": 310.0,
+        "state_hash": "ec71d32066daf1f38c7d56abe8bb5cba6c564b376eeed9a5dfce64a3c0319f66"
+      },
+      "name": "cattail_小型史莱姆",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "damage": 310.0,
+        "state_hash": "087e833a9dc46731d5d3ec9fab3a4047ec6b7e16cba6c024e95c08dc9079a43d"
+      },
+      "name": "cattail_中型史莱姆",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "damage": 310.0,
+        "state_hash": "2e31cc52764e0c9dd0b37c63bc2223062d5c6027cecfca0f32af02856e7aa4f3"
+      },
+      "name": "cattail_乌鸦",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "batch_bytes": 11533,
+        "old_bytes": 22755,
+        "pixels_identical": true,
+        "strokes": 147
+      },
+      "name": "flat_stroke_batch_has_identical_pixels",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "first_hero_hit": 4.0
+      },
+      "name": "grabber_hero_damage_matches_almanac",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "first_hit_damage": 2.0,
+        "first_hit_time": 122.23333333333333,
+        "mark_not_refreshed": true
+      },
+      "name": "hero_cattail_waits_120_seconds_and_hits_for_two_without_mark_refresh",
+      "passed": true
+    },
+    {
+      "evidence": [
+        {
+          "armor_removed": false,
+          "distance_tiles": 14,
+          "secret": false
+        },
+        {
+          "armor_removed": true,
+          "distance_tiles": 14,
+          "secret": true
+        }
+      ],
+      "name": "magnet_secret_removes_nine_tile_limit",
+      "passed": true
+    },
+    {
+      "evidence": [
+        {
+          "damage": 10.0,
+          "drops": [
+            {
+              "damage": 10.0,
+              "tick": 17
+            }
+          ],
+          "kind": "普通僵尸"
+        },
+        {
+          "damage": 270.0,
+          "drops": [
+            {
+              "damage": 20.0,
+              "tick": 3
+            },
+            {
+              "damage": 20.0,
+              "tick": 5
+            },
+            {
+              "damage": 20.0,
+              "tick": 7
+            },
+            {
+              "damage": 20.0,
+              "tick": 9
+            },
+            {
+              "damage": 20.0,
+              "tick": 11
+            },
+            {
+              "damage": 20.0,
+              "tick": 12
+            },
+            {
+              "damage": 20.0,
+              "tick": 14
+            },
+            {
+              "damage": 20.0,
+              "tick": 16
+            },
+            {
+              "damage": 10.0,
+              "tick": 17
+            },
+            {
+              "damage": 20.0,
+              "tick": 18
+            },
+            {
+              "damage": 20.0,
+              "tick": 19
+            },
+            {
+              "damage": 20.0,
+              "tick": 21
+            },
+            {
+              "damage": 20.0,
+              "tick": 23
+            },
+            {
+              "damage": 20.0,
+              "tick": 25
+            }
+          ],
+          "kind": "豌豆僵尸"
+        }
+      ],
+      "name": "potted_fumeshroom_plant_zombie_multiple_hit",
+      "passed": true
+    },
+    {
+      "evidence": [
+        {
+          "final_scale": 0.826915592268565,
+          "game_seconds": 21.73333333333343,
+          "minimum": 0.826915592268565,
+          "scene": 0,
+          "target": 0.8271000217312742
+        },
+        {
+          "final_scale": 0.65,
+          "game_seconds": 13.233333333333308,
+          "minimum": 0.65,
+          "scene": 1,
+          "target": 0.65
+        },
+        {
+          "final_scale": 0.16,
+          "game_seconds": 4.766666666666669,
+          "minimum": 0.16,
+          "scene": 2,
+          "target": 0.16
+        }
+      ],
+      "name": "pressure_absolute_cost_model_does_not_compound_render_pressure",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "opening_scale": 1.0,
+        "overload_scale": 0.4,
+        "recovered_scale": 1.0
+      },
+      "name": "pressure_gate_opening_sustained_load_and_recovery",
+      "passed": true
+    }
+  ],
+  "failures": 0,
+  "passed": true
+}

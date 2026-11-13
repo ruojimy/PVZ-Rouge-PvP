@@ -1,4 +1,5 @@
 #include "core/function_profile.h"
+#include "sim/typed72_app/frame_projection.h"
 #include <set>
 #include <map>
 #include "sim/typed72_app/typed_battle.h"
@@ -90,6 +91,7 @@ struct TypedBattle:PyObj {
     V ai_seats=V::tuple({});
     V log_cache=V::list({});size_t logged=0;
     V last_snapshot;J last_json;bool fresh=false;
+    FrameProjection frame_projection;
     // battle.g / battle.avatars / battle._native_objects: typed record-format projection, cached per state.
     V native_g,native_avatars,native_objects;bool native_fresh=false;
     void refresh_native(){
@@ -273,7 +275,8 @@ struct TypedBattle:PyObj {
     void refresh(){
     PVP_PROFILE_SCOPE("TypedBattle::refresh");
         if(fresh)return;
-        last_json=session->snapshot();++snapshot_projections;fresh=true;
+        static const bool direct=[]{const char* p=std::getenv("PVP742_FRAME");return !p||*p!='0';}();
+        last_json=session->snapshot(!direct);++snapshot_projections;fresh=true;
         // Units carry their resolved card: convert each distinct card once.
         V units=V::list({});
         for(auto& u:last_json["units"]){
@@ -284,6 +287,12 @@ struct TypedBattle:PyObj {
         }
         last_json.erase("units");
         last_snapshot=jv(last_json);last_snapshot.at(V("units"))=units;
+        if(direct){
+            PVP_PROFILE_SCOPE("TypedBattle::frame_projection");
+            V frame=frame_projection.project(session->native_frame());
+            if(std::getenv("PVP742_VERIFY_FRAME")&&vj(frame)!=session->reference_native_frame())throw PyError("AssertionError","native frame projection drift");
+            last_snapshot.at(V("native_frame"))=frame;
+        }
     }
     // Simulation.snapshot copy contract: players/result/events/rally/surrender are always deeply
     // detached (room privacy masking edits them); actors are deep copies, or per-actor shallow
@@ -648,6 +657,8 @@ struct TypedBattle:PyObj {
             d.at(V("typed_steps"))=V(double(typed_steps));d.at(V("typed_commands"))=V(double(typed_commands));
             d.at(V("typed_tick"))=V(session?double(session->tick()):-1.);
             d.at(V("snapshot_projections"))=V(double(snapshot_projections));
+            d.at(V("frame_descriptions"))=V(double(frame_projection.descriptions));
+            d.at(V("frame_description_hits"))=V(double(frame_projection.hits));
             d.at(V("native_projections"))=V(double(native_projections));
             d.at(V("ai_observations"))=V(double(ai_observations));d.at(V("ai_resets"))=V(double(ai_resets));
             d.at(V("ai_plans"))=V(double(ai_plans));d.at(V("ai_controls"))=V(double(ai_controls));d.at(V("ai_planner_resets"))=V(double(ai_planner_resets));

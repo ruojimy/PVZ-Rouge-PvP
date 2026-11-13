@@ -9,6 +9,9 @@
 #include <vector>
 
 namespace pvz::gfx {
+struct AtlasPixelCacheStats { uint64_t entries=0,bytes=0; };
+AtlasPixelCacheStats sampled_atlas_pixel_cache_stats();
+AtlasPixelCacheStats native_bridge_surface_cache_stats();
 
 struct Recipe {
     std::string key;            // base asset ("world:<name>", "ui:<name>", "canvas")

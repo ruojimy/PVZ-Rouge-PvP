@@ -41,6 +41,9 @@ public:
     void anchor_head(const PlantRef&);
     WaterCells head_only_cells()const;
     bool plant_in(Cell,const PlantRef& exclude={})const;
+    void invalidate_occupancy()const{occupancy_tick_=-1;}
+    struct OccupancyWork {uint64_t rebuilds=0,indexed_plants=0,queries=0,candidates=0,full_scan_candidates=0;};
+    const OccupancyWork& occupancy_work()const{return occupancy_work_;}
     void restore_marks();
     void before_tick();
     void remove_basin(const PlantRef&);
@@ -55,5 +58,19 @@ private:
     bool seat_has(const PlantRef&,std::string_view)const;
     static double factor(const PlantRef&);
     std::optional<ContentTarget> registered(const Field<std::string>&)const;
+    mutable int64_t occupancy_tick_=-1;
+    mutable uint64_t occupancy_revision_=0;
+    mutable const PlantRoster* occupancy_roster_=nullptr;
+    mutable const PlantRef* occupancy_data_=nullptr;
+    mutable size_t occupancy_count_=0;
+    mutable int occupancy_rows_=0,occupancy_cols_=0;
+    mutable std::vector<std::vector<PlantRef>> occupancy_buckets_;
+    mutable std::vector<PlantRef> occupancy_outside_;
+    mutable std::unordered_map<const CombatPlant*,Cell> occupancy_cells_;
+    mutable OccupancyWork occupancy_work_;
+    void prepare_occupancy(bool force=false)const;
+    std::vector<PlantRef>& occupancy_bucket(Cell)const;
+    bool plant_in_cached(Cell,const PlantRef& exclude={},bool non_head=false)const;
+    void anchor_head_cached(const PlantRef&);
 };
 } // namespace pvz::typed72

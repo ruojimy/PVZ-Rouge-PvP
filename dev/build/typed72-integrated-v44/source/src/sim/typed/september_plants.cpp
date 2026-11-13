@@ -21,7 +21,9 @@ bool SeptemberPlants::inside(const PlantRef& plant,const ContentTarget& target,d
 void SeptemberPlants::attack(const PlantRef& plant,double amount,double horizontal,double vertical,
                              double hero_amount,HeroHit kind) {
     const auto source=source_ref(plant);
-    for(const auto& target:queries_.enemies(source)) {
+    const auto origin=targets_.point(plant);const double tile=world_.runtime.tile;
+    for(const auto& target:queries_.enemies_in_box(source,{origin.x-horizontal*tile,origin.y-vertical*tile,origin.x+horizontal*tile,origin.y+vertical*tile})) {
+        ++queries_.range_exact_tests;
         if(!inside(plant,target,horizontal,vertical))continue;
         const auto* body=std::get_if<CombatTarget>(&target);
         targets_.damage(source,target,body && body->is_hero()?hero_amount:amount,plant->facing,false,kind);
@@ -53,7 +55,9 @@ void SeptemberPlants::advance(const PlantRef& plant) {
     }
     if(!plant->ghost_started.present()) {
         bool trigger=false;
-        for(const auto& target:queries_.enemies(source_ref(plant))) {
+        const auto origin=targets_.point(plant);const double tile=world_.runtime.tile;
+        for(const auto& target:queries_.enemies_in_box(source_ref(plant),{origin.x-5.*tile,origin.y-.85*tile,origin.x+5.*tile,origin.y+.85*tile})) {
+            ++queries_.range_exact_tests;
             const auto* body=std::get_if<CombatTarget>(&target);
             if(!body)continue;
             const auto hp=body->is_hero()?world_.heroes.cached_proxy(body->hero).hp:body->unit->body.hp;

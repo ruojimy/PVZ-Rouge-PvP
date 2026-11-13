@@ -1,0 +1,83 @@
+{
+  "passed": true,
+  "snapshot_hashes_equal_across_all_children": true,
+  "iterations": 64,
+  "units": 200,
+  "comparisons": [
+    {
+      "mode": "same_wire",
+      "production_thread_placement": false,
+      "0": {
+        "completed": 64,
+        "slab_bytes_added": 0,
+        "requested_final_live_bytes": 17159,
+        "requested_held_view_bytes": 16107276,
+        "private_bytes_added_during_messages": -61440,
+        "late_requested_live_growth": 0,
+        "stopped_at_memory_cap": false
+      },
+      "1": {
+        "completed": 64,
+        "slab_bytes_added": 0,
+        "requested_final_live_bytes": 17159,
+        "requested_held_view_bytes": 16107276,
+        "private_bytes_added_during_messages": -61440,
+        "late_requested_live_growth": 0,
+        "stopped_at_memory_cap": false
+      }
+    },
+    {
+      "mode": "cross_wire",
+      "production_thread_placement": true,
+      "0": {
+        "completed": 64,
+        "slab_bytes_added": 195840,
+        "requested_final_live_bytes": 17159,
+        "requested_held_view_bytes": 16107276,
+        "private_bytes_added_during_messages": 692224,
+        "late_requested_live_growth": 0,
+        "stopped_at_memory_cap": false
+      },
+      "1": {
+        "completed": 64,
+        "slab_bytes_added": 0,
+        "requested_final_live_bytes": 17159,
+        "requested_held_view_bytes": 16107276,
+        "private_bytes_added_during_messages": -61440,
+        "late_requested_live_growth": 0,
+        "stopped_at_memory_cap": false
+      }
+    }
+  ],
+  "runs": [
+    {
+      "allocator": 0,
+      "mode": "same_wire",
+      "passed": true,
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp742\\guest-snapshot-memory-r2\\allocator-0\\same_wire.json",
+      "error": null
+    },
+    {
+      "allocator": 0,
+      "mode": "cross_wire",
+      "passed": true,
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp742\\guest-snapshot-memory-r2\\allocator-0\\cross_wire.json",
+      "error": null
+    },
+    {
+      "allocator": 1,
+      "mode": "same_wire",
+      "passed": true,
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp742\\guest-snapshot-memory-r2\\allocator-1\\same_wire.json",
+      "error": null
+    },
+    {
+      "allocator": 1,
+      "mode": "cross_wire",
+      "passed": true,
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp742\\guest-snapshot-memory-r2\\allocator-1\\cross_wire.json",
+      "error": null
+    }
+  ],
+  "scope": "Each child is isolated. cross_wire preserves production decoding threads; same_wire is its same-thread control. Large inner snapshot trees stay on the UI thread. Requested bytes exclude slabs/foreign malloc; Windows PrivateBytes is commit. Each message is consumed before the next, and growth is stopped at 256 MiB above warm baseline."
+}

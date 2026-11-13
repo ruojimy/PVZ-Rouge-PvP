@@ -1,0 +1,419 @@
+{
+  "checks": [
+    {
+      "evidence": {
+        "before": {
+          "_pvp_armor_max": 450.0,
+          "_pvp_card": "zombie:角斗士巨人",
+          "_pvp_id": "u1",
+          "_pvp_imp_armor": "黑铁桶",
+          "_pvp_imp_armor_hp": 375.0,
+          "防具": "黑橄榄球头盔",
+          "防具血量": 450.0
+        },
+        "carrier_after": {
+          "_pvp_armor_max": 450.0,
+          "_pvp_card": "zombie:角斗士巨人",
+          "_pvp_id": "u1",
+          "_pvp_imp_armor": "",
+          "_pvp_imp_armor_hp": 0.0,
+          "丢小鬼": 0.0,
+          "防具": "黑橄榄球头盔",
+          "防具血量": 450.0
+        },
+        "child": {
+          "_pvp_armor_max": 375.0,
+          "_pvp_black_armor": "黑铁桶僵尸",
+          "_pvp_card": "zombie:小鬼僵尸",
+          "_pvp_id": "u2",
+          "防具": "铁桶",
+          "防具血量": 375.0
+        }
+      },
+      "name": "natural_gladiator_thrown_imp_inherits_375hp_black_bucket",
+      "passed": true
+    },
+    {
+      "evidence": [
+        {
+          "carried_hp": 173.25,
+          "carried_kind": "铁桶",
+          "carrier": {
+            "_pvp_armor_max": 250.0,
+            "_pvp_card": "zombie:巨人僵尸",
+            "_pvp_id": "u1",
+            "_pvp_imp_armor": "",
+            "_pvp_imp_armor_hp": 0.0,
+            "丢小鬼": 0.0,
+            "防具": "铁桶",
+            "防具血量": 211.0
+          },
+          "child": {
+            "_pvp_armor_max": 173.25,
+            "_pvp_card": "zombie:小鬼僵尸",
+            "_pvp_id": "u2",
+            "防具": "铁桶",
+            "防具血量": 173.25
+          }
+        },
+        {
+          "carried_hp": 112.25,
+          "carried_kind": "黑铁桶",
+          "carrier": {
+            "_pvp_armor_max": 250.0,
+            "_pvp_card": "zombie:巨人僵尸",
+            "_pvp_id": "u1",
+            "_pvp_imp_armor": "",
+            "_pvp_imp_armor_hp": 0.0,
+            "丢小鬼": 0.0,
+            "防具": "铁桶",
+            "防具血量": 211.0
+          },
+          "child": {
+            "_pvp_armor_max": 112.25,
+            "_pvp_black_armor": "黑铁桶僵尸",
+            "_pvp_card": "zombie:小鬼僵尸",
+            "_pvp_id": "u2",
+            "防具": "铁桶",
+            "防具血量": 112.25
+          }
+        },
+        {
+          "carried_hp": 63.5,
+          "carried_kind": "黑路障",
+          "carrier": {
+            "_pvp_armor_max": 250.0,
+            "_pvp_card": "zombie:巨人僵尸",
+            "_pvp_id": "u1",
+            "_pvp_imp_armor": "",
+            "_pvp_imp_armor_hp": 0.0,
+            "丢小鬼": 0.0,
+            "防具": "铁桶",
+            "防具血量": 211.0
+          },
+          "child": {
+            "_pvp_armor_max": 63.5,
+            "_pvp_black_armor": "黑路障僵尸",
+            "_pvp_card": "zombie:小鬼僵尸",
+            "_pvp_id": "u2",
+            "防具": "路障",
+            "防具血量": 63.5
+          }
+        },
+        {
+          "carried_hp": 87.75,
+          "carried_kind": "黑橄榄球头盔",
+          "carrier": {
+            "_pvp_armor_max": 250.0,
+            "_pvp_card": "zombie:巨人僵尸",
+            "_pvp_id": "u1",
+            "_pvp_imp_armor": "",
+            "_pvp_imp_armor_hp": 0.0,
+            "丢小鬼": 0.0,
+            "防具": "铁桶",
+            "防具血量": 211.0
+          },
+          "child": {
+            "_pvp_armor_max": 87.75,
+            "_pvp_card": "zombie:小鬼僵尸",
+            "_pvp_id": "u2",
+            "防具": "黑橄榄球头盔",
+            "防具血量": 87.75
+          }
+        }
+      ],
+      "name": "ordinary_giant_preserves_partial_durability_and_exact_armor_identity",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "first": {
+          "_pvp_armor_max": 250.0,
+          "_pvp_black_armor": null,
+          "_pvp_card": "zombie:巨人僵尸",
+          "_pvp_id": "u1",
+          "防具": "铁桶",
+          "防具血量": 250.0
+        },
+        "second": {
+          "_pvp_armor_max": 250.0,
+          "_pvp_black_armor": null,
+          "_pvp_card": "zombie:巨人僵尸",
+          "_pvp_id": "u1",
+          "_pvp_imp_armor": "铁桶",
+          "_pvp_imp_armor_hp": 250.0,
+          "防具": "铁桶",
+          "防具血量": 250.0
+        },
+        "third": {
+          "_pvp_armor_max": 250.0,
+          "_pvp_black_armor": null,
+          "_pvp_card": "zombie:巨人僵尸",
+          "_pvp_id": "u1",
+          "_pvp_imp_armor": "铁桶",
+          "_pvp_imp_armor_hp": 250.0,
+          "防具": "铁桶",
+          "防具血量": 250.0
+        },
+        "thrown": {
+          "_pvp_armor_max": 250.0,
+          "_pvp_card": "zombie:小鬼僵尸",
+          "_pvp_id": "u3",
+          "防具": "铁桶",
+          "防具血量": 250.0
+        }
+      },
+      "name": "gold_magnet_gifts_two_independent_slots_without_overwriting",
+      "passed": true
+    },
+    {
+      "evidence": [
+        {
+          "after": {
+            "_pvp_armor_max": 200.0,
+            "_pvp_card": "zombie:普通僵尸",
+            "_pvp_id": "u1",
+            "防具": "黑路障",
+            "防具血量": 73.5
+          },
+          "armor": "黑路障",
+          "kind": "普通僵尸"
+        },
+        {
+          "after": {
+            "_pvp_armor_max": 200.0,
+            "_pvp_card": "zombie:巨人僵尸",
+            "_pvp_id": "u1",
+            "_pvp_imp_armor": "铁桶",
+            "_pvp_imp_armor_hp": 250.0,
+            "防具": "黑路障",
+            "防具血量": 73.5
+          },
+          "armor": "黑路障",
+          "kind": "巨人僵尸"
+        },
+        {
+          "after": {
+            "_pvp_armor_max": 200.0,
+            "_pvp_card": "zombie:普通僵尸",
+            "_pvp_id": "u1",
+            "防具": "黑铁桶",
+            "防具血量": 73.5
+          },
+          "armor": "黑铁桶",
+          "kind": "普通僵尸"
+        },
+        {
+          "after": {
+            "_pvp_armor_max": 200.0,
+            "_pvp_card": "zombie:巨人僵尸",
+            "_pvp_id": "u1",
+            "_pvp_imp_armor": "铁桶",
+            "_pvp_imp_armor_hp": 250.0,
+            "防具": "黑铁桶",
+            "防具血量": 73.5
+          },
+          "armor": "黑铁桶",
+          "kind": "巨人僵尸"
+        },
+        {
+          "after": {
+            "_pvp_armor_max": 200.0,
+            "_pvp_card": "zombie:普通僵尸",
+            "_pvp_id": "u1",
+            "防具": "南瓜头防具",
+            "防具血量": 73.5
+          },
+          "armor": "南瓜头防具",
+          "kind": "普通僵尸"
+        },
+        {
+          "after": {
+            "_pvp_armor_max": 200.0,
+            "_pvp_card": "zombie:巨人僵尸",
+            "_pvp_id": "u1",
+            "_pvp_imp_armor": "铁桶",
+            "_pvp_imp_armor_hp": 250.0,
+            "防具": "南瓜头防具",
+            "防具血量": 73.5
+          },
+          "armor": "南瓜头防具",
+          "kind": "巨人僵尸"
+        }
+      ],
+      "name": "gold_magnet_preserves_all_existing_head_armor_kinds",
+      "passed": true
+    },
+    {
+      "evidence": [
+        {
+          "magnet_cd": 13.0,
+          "state": "already_thrown"
+        },
+        {
+          "magnet_cd": 13.0,
+          "state": "redeye"
+        },
+        {
+          "magnet_cd": 13.0,
+          "state": "dead"
+        },
+        {
+          "magnet_cd": 13.0,
+          "state": "charmed"
+        }
+      ],
+      "name": "absent_dead_and_charmed_carriers_never_receive_a_phantom_back_slot",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "first": {
+          "_pvp_armor_max": 450.0,
+          "_pvp_card": "zombie:角斗士巨人",
+          "_pvp_id": "u1",
+          "_pvp_imp_armor": "黑铁桶",
+          "_pvp_imp_armor_hp": 375.0,
+          "防具": "",
+          "防具血量": 0.0
+        },
+        "second": {
+          "_pvp_armor_max": 450.0,
+          "_pvp_card": "zombie:角斗士巨人",
+          "_pvp_id": "u1",
+          "_pvp_imp_armor": "",
+          "_pvp_imp_armor_hp": 0.0,
+          "防具": "",
+          "防具血量": 0.0
+        }
+      },
+      "name": "charmed_gold_magnet_absorbs_body_then_carried_metal_without_blast",
+      "passed": true
+    },
+    {
+      "evidence": [
+        {
+          "first": {
+            "_pvp_armor_max": 450.0,
+            "_pvp_card": "zombie:角斗士巨人",
+            "_pvp_id": "u1",
+            "_pvp_imp_armor": "黑铁桶",
+            "_pvp_imp_armor_hp": 375.0,
+            "防具": "",
+            "防具血量": 0.0
+          },
+          "magnet": {
+            "_pvp_armor_max": 0.0,
+            "_pvp_aura_factor": 1.0,
+            "_pvp_born": 0.0,
+            "_pvp_card": "plant:磁力菇",
+            "_pvp_clock_delta": {
+              "吸": -1.0
+            },
+            "_pvp_id": "u2",
+            "_pvp_max_hp": 6.0,
+            "_pvp_owner": "plant",
+            "_pvp_temporary": false,
+            "受伤": 0.0,
+            "吸": 8993.0,
+            "坐标": [
+              19,
+              32
+            ],
+            "头动画": 0.0,
+            "方向": 1.0,
+            "根动画": 16.0,
+            "植物": "磁力菇",
+            "植物血": 6.0,
+            "植物血上限": 6.0
+          },
+          "plant": "磁力菇",
+          "second": {
+            "_pvp_armor_max": 450.0,
+            "_pvp_card": "zombie:角斗士巨人",
+            "_pvp_id": "u1",
+            "_pvp_imp_armor": "",
+            "_pvp_imp_armor_hp": 0.0,
+            "防具": "",
+            "防具血量": 0.0
+          }
+        },
+        {
+          "first": {
+            "_pvp_armor_max": 450.0,
+            "_pvp_card": "zombie:角斗士巨人",
+            "_pvp_id": "u1",
+            "_pvp_imp_armor": "黑铁桶",
+            "_pvp_imp_armor_hp": 375.0,
+            "防具": "",
+            "防具血量": 0.0
+          },
+          "magnet": {
+            "_pvp_armor_max": 0.0,
+            "_pvp_aura_factor": 1.0,
+            "_pvp_born": 0.0,
+            "_pvp_card": "plant:吸金磁",
+            "_pvp_clock_delta": {
+              "吸": -1.0
+            },
+            "_pvp_id": "u2",
+            "_pvp_max_hp": 6.0,
+            "_pvp_owner": "plant",
+            "_pvp_temporary": false,
+            "受伤": 0.0,
+            "吸": 5993.0,
+            "坐标": [
+              19,
+              32
+            ],
+            "头动画": 0.0,
+            "方向": 1.0,
+            "根动画": 16.0,
+            "植物": "吸金磁",
+            "植物血": 6.0,
+            "植物血上限": 6.0
+          },
+          "plant": "吸金磁",
+          "second": {
+            "_pvp_armor_max": 450.0,
+            "_pvp_card": "zombie:角斗士巨人",
+            "_pvp_id": "u1",
+            "_pvp_imp_armor": "",
+            "_pvp_imp_armor_hp": 0.0,
+            "防具": "",
+            "防具血量": 0.0
+          }
+        }
+      ],
+      "name": "plant_magnets_absorb_both_slots_one_at_a_time",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "held": {
+          "_pvp_armor_max": 375.0,
+          "_pvp_black_armor": "黑铁桶僵尸",
+          "_pvp_card": "zombie:小鬼僵尸",
+          "_pvp_grabbed_by": "u1",
+          "_pvp_id": "u2",
+          "防具": "铁桶",
+          "防具血量": 173.25
+        },
+        "thrown": {
+          "_pvp_armor_max": 375.0,
+          "_pvp_black_armor": "黑铁桶僵尸",
+          "_pvp_card": "zombie:小鬼僵尸",
+          "_pvp_id": "u2",
+          "_pvp_thrown_by": "u1",
+          "防具": "铁桶",
+          "防具血量": 173.25
+        }
+      },
+      "name": "redeye_throws_existing_armored_imp_without_changing_its_equipment",
+      "passed": true
+    }
+  ],
+  "failures": 0,
+  "passed": true,
+  "scope": "Actual production Session native giant summons, gold-magnet service activations, PlantRegion magnets and redeye grab/throw. Isolated seeded flat night fixture. Broken-armor secondhand drops are audited separately; absorption must not break armor or blast."
+}

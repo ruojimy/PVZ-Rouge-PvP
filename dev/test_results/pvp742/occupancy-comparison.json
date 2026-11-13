@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "case_state_equivalence": {
+    "same_cell_layers_live_death_and_type_changes": true,
+    "moving_heads_preserve_or_clear_old_cell_marks": true,
+    "same_tick_remove_birth_restores_size_and_data_pointer": true,
+    "same_tick_direct_cell_edits_and_roster_replacement": true,
+    "ring_seam_clamped_vertical_edges_and_outside_records": true
+  },
+  "old_dense": {
+    "elapsed_ms": 341.793,
+    "head_only_cells": 350,
+    "heads": 350,
+    "plants": 700,
+    "queries": 128,
+    "work": {
+      "candidates": 31360000,
+      "full_scan_candidate_upper_bound": 31360000,
+      "indexed_plants": 0,
+      "queries": 44800,
+      "rebuilds": 0
+    }
+  },
+  "new_dense": {
+    "elapsed_ms": 5.3835,
+    "head_only_cells": 350,
+    "heads": 350,
+    "plants": 700,
+    "queries": 128,
+    "work": {
+      "candidates": 44800,
+      "full_scan_candidate_upper_bound": 31360000,
+      "indexed_plants": 89600,
+      "queries": 44800,
+      "rebuilds": 128
+    }
+  },
+  "candidate_reduction_percent": 99.85714285714286,
+  "dense_speedup": 63.48899414878797,
+  "measurement_note": "One short independent-process microbenchmark; 700 plants, 350 heads, 128 head-only projections, 32x96 cells. Original full-scan and cached production paths in same final executable. End-to-end Session state/RNG/nativeframe matrix is separate."
+}

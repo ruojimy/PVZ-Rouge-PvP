@@ -24,9 +24,11 @@ bool FlyingPlants::configure(const PlantRef& plant,std::string_view name) {
     return true;
 }
 std::vector<ContentTarget> FlyingPlants::nearby(const PlantRef& plant,double radius) {
-    auto result=queries_.enemies(source_ref(plant));
     const auto origin=targets_.point(plant);
+    const double r=radius*world_.runtime.tile;
+    auto result=queries_.enemies_in_box(source_ref(plant),{origin.x-r,origin.y-r,origin.x+r,origin.y+r});
     std::erase_if(result,[&](const auto& target){
+        ++queries_.range_exact_tests;
         const auto point=targets_.point(target);
         return std::hypot(wrap_delta(origin.x,point.x,world_.world_width.get()),point.y-origin.y)>radius*world_.runtime.tile;
     });
@@ -179,9 +181,7 @@ double FlyingPlants::contact_reach(const ContentTarget& target,Point point)const
     return reach+2.;
 }
 void FlyingPlants::projectiles() {
-    struct Entry {ContentTarget target;Point point;double reach;};
     struct Candidate {ContentTarget target;double along;};
-    std::map<std::optional<Seat>,std::vector<Entry>> rosters;
     EntityRoster survivors;
     const double width=world_.world_width.get();
     auto& shots=world_.content_projectiles.flying;
@@ -195,17 +195,14 @@ void FlyingPlants::projectiles() {
         if(entity->flying.distance.get()>world_.runtime.tile*limit)continue;
         const double wall=wall_contact(origin,delta);
         const auto source=source_ref(entity);
-        const auto owner=world_.heroes.owner(source);
-        auto [found,inserted]=rosters.try_emplace(owner);
-        if(inserted)for(const auto& target:queries_.enemies(source)) {
-            const auto point=targets_.point(target);
-            found->second.push_back({target,point,contact_reach(target,point)});
-        }
         std::vector<Candidate> candidates;
-        for(const auto& entry:found->second) {
-            const double dx=wrap_delta(origin.x,entry.point.x,width),dy=entry.point.y-origin.y;
-            if(std::abs(dx)<=entry.reach+step && std::abs(dy)<=entry.reach+step)
-                candidates.push_back({entry.target,dx*delta.x+dy*delta.y});
+        const CoverageBox sweep{std::min(origin.x,origin.x+delta.x),std::min(origin.y,origin.y+delta.y),std::max(origin.x,origin.x+delta.x),std::max(origin.y,origin.y+delta.y)};
+        for(const auto& target:queries_.enemies_in_box(source,sweep)) {
+            ++queries_.range_exact_tests;
+            const auto point=targets_.point(target);const double reach=contact_reach(target,point);
+            const double dx=wrap_delta(origin.x,point.x,width),dy=point.y-origin.y;
+            if(std::abs(dx)<=reach+step && std::abs(dy)<=reach+step)
+                candidates.push_back({target,dx*delta.x+dy*delta.y});
         }
         std::stable_sort(candidates.begin(),candidates.end(),[](const auto& a,const auto& b){return a.along<b.along;});
         bool destroyed=false;
@@ -221,7 +218,7 @@ void FlyingPlants::projectiles() {
             const auto* body=std::get_if<CombatTarget>(&candidate.target);
             const double amount=body && body->is_hero()?(yes(entity->flying.piercing)?1.:2.5):entity->flying.damage.get();
             targets_.damage(source,candidate.target,amount,entity->facing,true);
-            rosters.clear();
+            queries_.invalidate();
             if(!yes(entity->flying.piercing)){destroyed=true;break;}
         }
         if(destroyed || wall<=1.)continue;

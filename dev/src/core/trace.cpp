@@ -1,6 +1,8 @@
 // PVZ_TRACE=1: print a symbolised native stack whenever a PyError is constructed.
 #include <cstring>
 #include "core/value.h"
+#include "core/trace.h"
+#include <atomic>
 #include <cstdio>
 #include <cstdlib>
 #ifdef _WIN32
@@ -10,6 +12,46 @@
 #endif
 
 namespace pvz {
+namespace {
+std::atomic<void*> crash_reserve{nullptr};
+void reserve_crash_memory(){void* expected=nullptr;void* memory=std::malloc(256*1024);if(memory&&!crash_reserve.compare_exchange_strong(expected,memory))std::free(memory);}
+#ifdef _WIN32
+struct ThrowStack {void* frames[48]{};USHORT count=0;};
+thread_local ThrowStack last_cpp_throw;
+LONG WINAPI capture_cpp_throw(EXCEPTION_POINTERS* ep){
+    if(ep&&ep->ExceptionRecord&&ep->ExceptionRecord->ExceptionCode==0xE06D7363)
+        last_cpp_throw.count=CaptureStackBackTrace(1,48,last_cpp_throw.frames,nullptr);
+    return EXCEPTION_CONTINUE_SEARCH;
+}
+#endif
+}
+void release_crash_reserve() noexcept{std::free(crash_reserve.exchange(nullptr));}
+void print_last_cpp_throw(FILE* output) noexcept{
+    if(!output)return;
+#ifdef _WIN32
+    const auto saved=last_cpp_throw;
+    if(!saved.count){std::fprintf(output,"C++ throw-site capture unavailable; enable PVP_CAPTURE_CPP_TRACE before startup.\n");return;}
+    std::fprintf(output,"C++ original throw stack (before unwinding):\n");
+    const auto process=GetCurrentProcess();SymSetOptions(SYMOPT_UNDNAME|SYMOPT_DEFERRED_LOADS|SYMOPT_LOAD_LINES);
+    SymInitialize(process,nullptr,TRUE);
+    char storage[sizeof(SYMBOL_INFO)+1024];
+    const auto base=reinterpret_cast<uintptr_t>(GetModuleHandleW(nullptr));
+    for(USHORT i=0;i<saved.count;++i){
+        const auto address=reinterpret_cast<DWORD64>(saved.frames[i]);
+        std::fprintf(output,"  %p exe-relative=%llx",saved.frames[i],static_cast<unsigned long long>(address-base));
+        auto* symbol=reinterpret_cast<SYMBOL_INFO*>(storage);symbol->SizeOfStruct=sizeof(SYMBOL_INFO);symbol->MaxNameLen=1000;DWORD64 offset=0;
+        if(SymFromAddr(process,address,&offset,symbol)){
+            std::fprintf(output," %s+%llx",symbol->Name,static_cast<unsigned long long>(offset));
+            IMAGEHLP_LINE64 line{};line.SizeOfStruct=sizeof(line);DWORD displacement=0;
+            if(SymGetLineFromAddr64(process,address,&displacement,&line))std::fprintf(output," %s:%lu",line.FileName,line.LineNumber);
+        }
+        std::fputc('\n',output);
+    }
+#else
+    std::fprintf(output,"C++ throw-site stack unavailable on this platform.\n");
+#endif
+    std::fflush(output);
+}
 static thread_local size_t test_unsupported_hits_ = 0;
 static thread_local std::string test_last_unsupported_;
 size_t test_unsupported_count() { return test_unsupported_hits_; }
@@ -76,12 +118,12 @@ static LONG WINAPI crash_filter(EXCEPTION_POINTERS* ep) {
     }
     return EXCEPTION_EXECUTE_HANDLER;
 }
-void install_crash_handler() { ULONG guarantee = 256 * 1024; SetThreadStackGuarantee(&guarantee); SetUnhandledExceptionFilter(crash_filter); AddVectoredExceptionHandler(0, [](EXCEPTION_POINTERS* ep) -> LONG {
+void install_crash_handler() { reserve_crash_memory();const char* trace=std::getenv("PVP_CAPTURE_CPP_TRACE");if(trace&&*trace=='1')AddVectoredExceptionHandler(0,capture_cpp_throw);ULONG guarantee = 256 * 1024; SetThreadStackGuarantee(&guarantee); SetUnhandledExceptionFilter(crash_filter); AddVectoredExceptionHandler(0, [](EXCEPTION_POINTERS* ep) -> LONG {
     DWORD c = ep->ExceptionRecord->ExceptionCode;
     if (c == EXCEPTION_ACCESS_VIOLATION || c == EXCEPTION_STACK_OVERFLOW) crash_filter(ep);
     return EXCEPTION_CONTINUE_SEARCH; }); }
 #else
-void install_crash_handler() {}
+void install_crash_handler() {reserve_crash_memory();}
 #endif
 }  // namespace pvz
 

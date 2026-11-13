@@ -14,6 +14,9 @@ bool charmed(const CombatTarget& t){return !t.is_hero()&&t.unit->source.charmed.
 // native_expansion.BLACK_ARMOR_LOGIC / carried_imp_armored.
 std::string armor_logic(const std::string& a){if(a=="黑路障")return "路障";if(a=="黑铁桶")return "铁桶";return a;}
 bool carried_imp_armored(const CombatZombie& z){return z.poison.imp_armor.present()&&!z.poison.imp_armor.is_null()&&!z.poison.imp_armor.get().empty()&&z.poison.imp_armor_hp.or_missing(0.)>0.;}
+// Native giant() draws/throws its carried imp only while this key is absent.
+// Redeye's key is present from birth: its grabbed friend is a separate entity.
+bool has_carried_imp(const CombatZombie& z){return z.body.kind=="巨人僵尸"&&!z.native.throw_imp.present();}
 bool metal(std::string_view name){return name=="梯子"||name=="钢门"||name=="矿镐"||name=="弹跳杆"||name=="铁桶"||name=="橄榄球头盔"||name=="黑橄榄球头盔"||name=="南瓜头防具";}
 }
 ZombieRecordFields& ServicePlants::body(const CombatTarget& t)const {
@@ -21,7 +24,7 @@ ZombieRecordFields& ServicePlants::body(const CombatTarget& t)const {
 }
 bool ServicePlants::live(const CombatTarget& t)const {const auto& b=body(t);return !b.dead.present()&&!b.ash.present()&&b.hp>0.;}
 bool ServicePlants::head_armor(const CombatTarget& t)const {
-    const auto& b=body(t);return b.armor_hp>0.&&(b.armor=="路障"||b.armor=="铁桶"||b.armor=="橄榄球头盔"||b.armor=="黑橄榄球头盔");
+    const auto& b=body(t);return b.armor_hp>0.&&(b.armor=="路障"||b.armor=="铁桶"||b.armor=="黑路障"||b.armor=="黑铁桶"||b.armor=="橄榄球头盔"||b.armor=="黑橄榄球头盔"||b.armor=="南瓜头防具");
 }
 bool ServicePlants::in_range(Point a,Point b,double tiles)const {
     const double r=std::max(1.,world_.runtime.tile)*tiles;return std::abs(a.x-b.x)<=r&&std::abs(a.y-b.y)<=r;
@@ -127,7 +130,7 @@ std::optional<MagnetTarget> ServicePlants::absorb_target(const ZombieRef& source
 std::optional<MagnetTarget> ServicePlants::riding_imp(Point center,double tiles,bool armed){
     std::optional<MagnetTarget> best;double distance=0.;const auto targets=*world_.targets;
     for(const auto& t:targets)try{
-        if(t.is_hero()||t.unit->body.kind.find("巨人")==std::string::npos||!live(t)||carried_imp_armored(*t.unit)!=armed)continue;
+        if(t.is_hero()||!has_carried_imp(*t.unit)||!live(t)||charmed(t)||carried_imp_armored(*t.unit)!=armed)continue;
         const auto point=aim_.zombie_point(t);if(!in_range(center,point,tiles))continue;
         const double dx=point.x-center.x,dy=point.y-center.y,d=dx*dx+dy*dy;if(!best||d<distance){best=MagnetTarget{t,point,false,true};distance=d;}
     }catch(const std::exception&){}
@@ -152,7 +155,7 @@ bool ServicePlants::gift(const CombatTarget& t,Point center) {
         if(!imp_armor_hooks){}
         else if(!before_armor.empty()&&before_hp>0.){t.unit->poison.imp_armor.set(b.armor);t.unit->poison.imp_armor_hp.set(b.armor_hp);b.armor=before_armor;b.armor_hp=before_hp;}
         // Otherwise a replacement ordinary bucket is a new piece: no black identity, no spent trigger.
-        else{t.unit->expansion.black_armor.set_null();t.unit->poison.armor_triggered.erase();}}b.hurt=1.;world_.runtime.sound("磁力",{center.x,center.y,0.,0.});return true;
+        else{t.unit->armor_max.set(b.armor_hp);t.unit->expansion.black_armor.set_null();t.unit->poison.armor_triggered.erase();}}b.hurt=1.;world_.runtime.sound("磁力",{center.x,center.y,0.,0.});return true;
 }
 EntityRef ServicePlants::attract(std::string name,Point start,Point end) {
     const auto entities=world_.runtime.entities.list();const auto before=entities->size();

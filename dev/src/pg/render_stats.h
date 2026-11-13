@@ -5,4 +5,8 @@ struct RenderStats72 {uint64_t surface_allocations=0,allocated_bytes=0,blits=0,b
 RenderStats72 render_stats72();
 void reset_render_stats72();
 int set_render_reference72(int value);
+// Optional ownership diagnostics only: PVP742_SURFACE_MEMORY=1 before startup.
+// Counts real SDL-owned backing stores; subsurface views do not own pixels.
+struct SurfaceMemoryStats {uint64_t live_surfaces=0,owned_bytes=0,peak_owned_bytes=0;};
+SurfaceMemoryStats surface_memory_stats();
 }

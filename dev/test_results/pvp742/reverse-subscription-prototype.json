@@ -1,0 +1,5450 @@
+{
+  "active_faster_cases": 14,
+  "cases": [
+    {
+      "active_median_ms": 0.40200000000000014,
+      "moving_percent": 1,
+      "plants": 100,
+      "query_interval_ticks": 30,
+      "radius_tiles": 4,
+      "repeats": 3,
+      "reverse_median_ms": 0.22180000000000002,
+      "reverse_over_active": 0.5517412935323381,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 1273,
+              "dirty_transitions": 0,
+              "exact_tests": 1265,
+              "notifications": 0,
+              "queries": 400,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 3,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 3822,
+            "maintenance_ms": 0.011499999999999991,
+            "peak_grid_buffer_bytes": 17992,
+            "query_ms": 0.4421000000000001,
+            "total_ms": 0.4536000000000001
+          },
+          "passed": true,
+          "result_digest": "12421075711032444194",
+          "reverse": {
+            "counts": {
+              "cached_results": 63,
+              "candidates": 1202,
+              "dirty_transitions": 284,
+              "exact_tests": 1196,
+              "notifications": 765,
+              "queries": 337,
+              "raw_subscriber_visits": 2306,
+              "same_cell_moves": 99,
+              "same_cell_notifications": 308,
+              "swept_cells": 845
+            },
+            "grid_cache_hits": 3,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 3604,
+            "maintenance_ms": 0.031699999999999985,
+            "peak_grid_buffer_bytes": 17992,
+            "peak_owned_buffer_bytes": 162228,
+            "query_ms": 0.19010000000000005,
+            "result_cache_buffer_bytes": 4704,
+            "subscription_buffer_bytes": 139532,
+            "subscription_build_ms": 0.1286,
+            "subscription_registrations": 7821,
+            "total_ms": 0.22180000000000002
+          },
+          "strictly_compared_queries": 400
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 1273,
+              "dirty_transitions": 0,
+              "exact_tests": 1265,
+              "notifications": 0,
+              "queries": 400,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 3,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 3822,
+            "maintenance_ms": 0.008100000000000003,
+            "peak_grid_buffer_bytes": 17992,
+            "query_ms": 0.24650000000000008,
+            "total_ms": 0.2546000000000001
+          },
+          "passed": true,
+          "result_digest": "12421075711032444194",
+          "reverse": {
+            "counts": {
+              "cached_results": 63,
+              "candidates": 1202,
+              "dirty_transitions": 284,
+              "exact_tests": 1196,
+              "notifications": 765,
+              "queries": 337,
+              "raw_subscriber_visits": 2306,
+              "same_cell_moves": 99,
+              "same_cell_notifications": 308,
+              "swept_cells": 845
+            },
+            "grid_cache_hits": 3,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 3604,
+            "maintenance_ms": 0.028899999999999978,
+            "peak_grid_buffer_bytes": 17992,
+            "peak_owned_buffer_bytes": 162228,
+            "query_ms": 0.3583,
+            "result_cache_buffer_bytes": 4704,
+            "subscription_buffer_bytes": 139532,
+            "subscription_build_ms": 0.0912,
+            "subscription_registrations": 7821,
+            "total_ms": 0.3872
+          },
+          "strictly_compared_queries": 400
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 1273,
+              "dirty_transitions": 0,
+              "exact_tests": 1265,
+              "notifications": 0,
+              "queries": 400,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 3,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 3822,
+            "maintenance_ms": 0.010099999999999996,
+            "peak_grid_buffer_bytes": 17992,
+            "query_ms": 0.39190000000000014,
+            "total_ms": 0.40200000000000014
+          },
+          "passed": true,
+          "result_digest": "12421075711032444194",
+          "reverse": {
+            "counts": {
+              "cached_results": 63,
+              "candidates": 1202,
+              "dirty_transitions": 284,
+              "exact_tests": 1196,
+              "notifications": 765,
+              "queries": 337,
+              "raw_subscriber_visits": 2306,
+              "same_cell_moves": 99,
+              "same_cell_notifications": 308,
+              "swept_cells": 845
+            },
+            "grid_cache_hits": 3,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 3604,
+            "maintenance_ms": 0.026499999999999985,
+            "peak_grid_buffer_bytes": 17992,
+            "peak_owned_buffer_bytes": 162228,
+            "query_ms": 0.17880000000000001,
+            "result_cache_buffer_bytes": 4704,
+            "subscription_buffer_bytes": 139532,
+            "subscription_build_ms": 0.0923,
+            "subscription_registrations": 7821,
+            "total_ms": 0.2053
+          },
+          "strictly_compared_queries": 400
+        }
+      ],
+      "ticks": 120,
+      "zombies": 100
+    },
+    {
+      "active_median_ms": 2.8667999999999996,
+      "moving_percent": 1,
+      "plants": 100,
+      "query_interval_ticks": 1,
+      "radius_tiles": 4,
+      "repeats": 3,
+      "reverse_median_ms": 0.6547999999999997,
+      "reverse_over_active": 0.22840798102413834,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 38169,
+              "dirty_transitions": 0,
+              "exact_tests": 37919,
+              "notifications": 0,
+              "queries": 12000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 9822,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 20842,
+            "maintenance_ms": 0.013299999999999985,
+            "peak_grid_buffer_bytes": 18000,
+            "query_ms": 3.0598999999999994,
+            "total_ms": 3.0731999999999995
+          },
+          "passed": true,
+          "result_digest": "13823838028709307178",
+          "reverse": {
+            "counts": {
+              "cached_results": 11165,
+              "candidates": 3498,
+              "dirty_transitions": 735,
+              "exact_tests": 3489,
+              "notifications": 765,
+              "queries": 835,
+              "raw_subscriber_visits": 2306,
+              "same_cell_moves": 99,
+              "same_cell_notifications": 308,
+              "swept_cells": 845
+            },
+            "grid_cache_hits": 201,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 7486,
+            "maintenance_ms": 0.0317,
+            "peak_grid_buffer_bytes": 18000,
+            "peak_owned_buffer_bytes": 162236,
+            "query_ms": 0.6230999999999998,
+            "result_cache_buffer_bytes": 4704,
+            "subscription_buffer_bytes": 139532,
+            "subscription_build_ms": 0.0905,
+            "subscription_registrations": 7821,
+            "total_ms": 0.6547999999999997
+          },
+          "strictly_compared_queries": 12000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 38169,
+              "dirty_transitions": 0,
+              "exact_tests": 37919,
+              "notifications": 0,
+              "queries": 12000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 9822,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 20842,
+            "maintenance_ms": 0.0089,
+            "peak_grid_buffer_bytes": 18000,
+            "query_ms": 2.8225999999999996,
+            "total_ms": 2.8314999999999997
+          },
+          "passed": true,
+          "result_digest": "13823838028709307178",
+          "reverse": {
+            "counts": {
+              "cached_results": 11165,
+              "candidates": 3498,
+              "dirty_transitions": 735,
+              "exact_tests": 3489,
+              "notifications": 765,
+              "queries": 835,
+              "raw_subscriber_visits": 2306,
+              "same_cell_moves": 99,
+              "same_cell_notifications": 308,
+              "swept_cells": 845
+            },
+            "grid_cache_hits": 201,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 7486,
+            "maintenance_ms": 0.02769999999999998,
+            "peak_grid_buffer_bytes": 18000,
+            "peak_owned_buffer_bytes": 162236,
+            "query_ms": 0.5879000000000002,
+            "result_cache_buffer_bytes": 4704,
+            "subscription_buffer_bytes": 139532,
+            "subscription_build_ms": 0.0895,
+            "subscription_registrations": 7821,
+            "total_ms": 0.6156000000000001
+          },
+          "strictly_compared_queries": 12000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 38169,
+              "dirty_transitions": 0,
+              "exact_tests": 37919,
+              "notifications": 0,
+              "queries": 12000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 9822,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 20842,
+            "maintenance_ms": 0.01309999999999999,
+            "peak_grid_buffer_bytes": 18000,
+            "query_ms": 2.8536999999999995,
+            "total_ms": 2.8667999999999996
+          },
+          "passed": true,
+          "result_digest": "13823838028709307178",
+          "reverse": {
+            "counts": {
+              "cached_results": 11165,
+              "candidates": 3498,
+              "dirty_transitions": 735,
+              "exact_tests": 3489,
+              "notifications": 765,
+              "queries": 835,
+              "raw_subscriber_visits": 2306,
+              "same_cell_moves": 99,
+              "same_cell_notifications": 308,
+              "swept_cells": 845
+            },
+            "grid_cache_hits": 201,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 7486,
+            "maintenance_ms": 0.027200000000000002,
+            "peak_grid_buffer_bytes": 18000,
+            "peak_owned_buffer_bytes": 162236,
+            "query_ms": 0.6776000000000002,
+            "result_cache_buffer_bytes": 4704,
+            "subscription_buffer_bytes": 139532,
+            "subscription_build_ms": 0.092,
+            "subscription_registrations": 7821,
+            "total_ms": 0.7048000000000002
+          },
+          "strictly_compared_queries": 12000
+        }
+      ],
+      "ticks": 120,
+      "zombies": 100
+    },
+    {
+      "active_median_ms": 1.4602,
+      "moving_percent": 100,
+      "plants": 100,
+      "query_interval_ticks": 30,
+      "radius_tiles": 4,
+      "repeats": 3,
+      "reverse_median_ms": 1.5791,
+      "reverse_over_active": 1.0814272017531845,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 1268,
+              "dirty_transitions": 0,
+              "exact_tests": 1260,
+              "notifications": 0,
+              "queries": 400,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 2678,
+            "grid_raw_candidates": 3910,
+            "maintenance_ms": 0.9109,
+            "peak_grid_buffer_bytes": 22560,
+            "query_ms": 0.5492999999999999,
+            "total_ms": 1.4602
+          },
+          "passed": true,
+          "result_digest": "17253941688491047957",
+          "reverse": {
+            "counts": {
+              "cached_results": 18,
+              "candidates": 1268,
+              "dirty_transitions": 373,
+              "exact_tests": 1260,
+              "notifications": 38677,
+              "queries": 382,
+              "raw_subscriber_visits": 125872,
+              "same_cell_moves": 9422,
+              "same_cell_notifications": 29691,
+              "swept_cells": 46218
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 2678,
+            "grid_raw_candidates": 3910,
+            "maintenance_ms": 1.3272000000000004,
+            "peak_grid_buffer_bytes": 22560,
+            "peak_owned_buffer_bytes": 167004,
+            "query_ms": 0.2483000000000001,
+            "result_cache_buffer_bytes": 4912,
+            "subscription_buffer_bytes": 139532,
+            "subscription_build_ms": 0.1275,
+            "subscription_registrations": 7821,
+            "total_ms": 1.5755000000000006
+          },
+          "strictly_compared_queries": 400
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 1268,
+              "dirty_transitions": 0,
+              "exact_tests": 1260,
+              "notifications": 0,
+              "queries": 400,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 2678,
+            "grid_raw_candidates": 3910,
+            "maintenance_ms": 0.8732000000000001,
+            "peak_grid_buffer_bytes": 22560,
+            "query_ms": 0.26940000000000014,
+            "total_ms": 1.1426000000000003
+          },
+          "passed": true,
+          "result_digest": "17253941688491047957",
+          "reverse": {
+            "counts": {
+              "cached_results": 18,
+              "candidates": 1268,
+              "dirty_transitions": 373,
+              "exact_tests": 1260,
+              "notifications": 38677,
+              "queries": 382,
+              "raw_subscriber_visits": 125872,
+              "same_cell_moves": 9422,
+              "same_cell_notifications": 29691,
+              "swept_cells": 46218
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 2678,
+            "grid_raw_candidates": 3910,
+            "maintenance_ms": 1.3780000000000012,
+            "peak_grid_buffer_bytes": 22560,
+            "peak_owned_buffer_bytes": 167004,
+            "query_ms": 0.5396000000000002,
+            "result_cache_buffer_bytes": 4912,
+            "subscription_buffer_bytes": 139532,
+            "subscription_build_ms": 0.091,
+            "subscription_registrations": 7821,
+            "total_ms": 1.9176000000000015
+          },
+          "strictly_compared_queries": 400
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 1268,
+              "dirty_transitions": 0,
+              "exact_tests": 1260,
+              "notifications": 0,
+              "queries": 400,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 2678,
+            "grid_raw_candidates": 3910,
+            "maintenance_ms": 0.9173999999999995,
+            "peak_grid_buffer_bytes": 22560,
+            "query_ms": 0.5548000000000002,
+            "total_ms": 1.4721999999999997
+          },
+          "passed": true,
+          "result_digest": "17253941688491047957",
+          "reverse": {
+            "counts": {
+              "cached_results": 18,
+              "candidates": 1268,
+              "dirty_transitions": 373,
+              "exact_tests": 1260,
+              "notifications": 38677,
+              "queries": 382,
+              "raw_subscriber_visits": 125872,
+              "same_cell_moves": 9422,
+              "same_cell_notifications": 29691,
+              "swept_cells": 46218
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 2678,
+            "grid_raw_candidates": 3910,
+            "maintenance_ms": 1.3316999999999999,
+            "peak_grid_buffer_bytes": 22560,
+            "peak_owned_buffer_bytes": 167004,
+            "query_ms": 0.2474000000000001,
+            "result_cache_buffer_bytes": 4912,
+            "subscription_buffer_bytes": 139532,
+            "subscription_build_ms": 0.0998,
+            "subscription_registrations": 7821,
+            "total_ms": 1.5791
+          },
+          "strictly_compared_queries": 400
+        }
+      ],
+      "ticks": 120,
+      "zombies": 100
+    },
+    {
+      "active_median_ms": 14.4713,
+      "moving_percent": 100,
+      "plants": 100,
+      "query_interval_ticks": 1,
+      "radius_tiles": 4,
+      "repeats": 3,
+      "reverse_median_ms": 13.966999999999997,
+      "reverse_over_active": 0.9651517140823559,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 37865,
+              "dirty_transitions": 0,
+              "exact_tests": 37607,
+              "notifications": 0,
+              "queries": 12000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 120,
+            "grid_cell_changes": 2678,
+            "grid_raw_candidates": 114933,
+            "maintenance_ms": 0.9618999999999998,
+            "peak_grid_buffer_bytes": 22776,
+            "query_ms": 13.5094,
+            "total_ms": 14.4713
+          },
+          "passed": true,
+          "result_digest": "675794030056801854",
+          "reverse": {
+            "counts": {
+              "cached_results": 881,
+              "candidates": 37865,
+              "dirty_transitions": 11019,
+              "exact_tests": 37607,
+              "notifications": 38677,
+              "queries": 11119,
+              "raw_subscriber_visits": 125872,
+              "same_cell_moves": 9422,
+              "same_cell_notifications": 29691,
+              "swept_cells": 46218
+            },
+            "grid_cache_hits": 120,
+            "grid_cell_changes": 2678,
+            "grid_raw_candidates": 114933,
+            "maintenance_ms": 1.6722000000000006,
+            "peak_grid_buffer_bytes": 22776,
+            "peak_owned_buffer_bytes": 167420,
+            "query_ms": 12.070200000000005,
+            "result_cache_buffer_bytes": 5112,
+            "subscription_buffer_bytes": 139532,
+            "subscription_build_ms": 0.2419,
+            "subscription_registrations": 7821,
+            "total_ms": 13.742400000000005
+          },
+          "strictly_compared_queries": 12000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 37865,
+              "dirty_transitions": 0,
+              "exact_tests": 37607,
+              "notifications": 0,
+              "queries": 12000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 120,
+            "grid_cell_changes": 2678,
+            "grid_raw_candidates": 114933,
+            "maintenance_ms": 0.9220000000000003,
+            "peak_grid_buffer_bytes": 22776,
+            "query_ms": 13.337400000000002,
+            "total_ms": 14.259400000000003
+          },
+          "passed": true,
+          "result_digest": "675794030056801854",
+          "reverse": {
+            "counts": {
+              "cached_results": 881,
+              "candidates": 37865,
+              "dirty_transitions": 11019,
+              "exact_tests": 37607,
+              "notifications": 38677,
+              "queries": 11119,
+              "raw_subscriber_visits": 125872,
+              "same_cell_moves": 9422,
+              "same_cell_notifications": 29691,
+              "swept_cells": 46218
+            },
+            "grid_cache_hits": 120,
+            "grid_cell_changes": 2678,
+            "grid_raw_candidates": 114933,
+            "maintenance_ms": 1.7959000000000005,
+            "peak_grid_buffer_bytes": 22776,
+            "peak_owned_buffer_bytes": 167420,
+            "query_ms": 12.9205,
+            "result_cache_buffer_bytes": 5112,
+            "subscription_buffer_bytes": 139532,
+            "subscription_build_ms": 0.0946,
+            "subscription_registrations": 7821,
+            "total_ms": 14.7164
+          },
+          "strictly_compared_queries": 12000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 37865,
+              "dirty_transitions": 0,
+              "exact_tests": 37607,
+              "notifications": 0,
+              "queries": 12000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 120,
+            "grid_cell_changes": 2678,
+            "grid_raw_candidates": 114933,
+            "maintenance_ms": 0.9596999999999999,
+            "peak_grid_buffer_bytes": 22776,
+            "query_ms": 13.651200000000001,
+            "total_ms": 14.6109
+          },
+          "passed": true,
+          "result_digest": "675794030056801854",
+          "reverse": {
+            "counts": {
+              "cached_results": 881,
+              "candidates": 37865,
+              "dirty_transitions": 11019,
+              "exact_tests": 37607,
+              "notifications": 38677,
+              "queries": 11119,
+              "raw_subscriber_visits": 125872,
+              "same_cell_moves": 9422,
+              "same_cell_notifications": 29691,
+              "swept_cells": 46218
+            },
+            "grid_cache_hits": 120,
+            "grid_cell_changes": 2678,
+            "grid_raw_candidates": 114933,
+            "maintenance_ms": 1.6844,
+            "peak_grid_buffer_bytes": 22776,
+            "peak_owned_buffer_bytes": 167420,
+            "query_ms": 12.282599999999997,
+            "result_cache_buffer_bytes": 5112,
+            "subscription_buffer_bytes": 139532,
+            "subscription_build_ms": 0.0923,
+            "subscription_registrations": 7821,
+            "total_ms": 13.966999999999997
+          },
+          "strictly_compared_queries": 12000
+        }
+      ],
+      "ticks": 120,
+      "zombies": 100
+    },
+    {
+      "active_median_ms": 4.177099999999999,
+      "moving_percent": 1,
+      "plants": 100,
+      "query_interval_ticks": 30,
+      "radius_tiles": 16,
+      "repeats": 3,
+      "reverse_median_ms": 3.3408000000000007,
+      "reverse_over_active": 0.7997893275238804,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 11562,
+              "dirty_transitions": 0,
+              "exact_tests": 11494,
+              "notifications": 0,
+              "queries": 400,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 3,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 39098,
+            "maintenance_ms": 0.016499999999999987,
+            "peak_grid_buffer_bytes": 39288,
+            "query_ms": 4.3754,
+            "total_ms": 4.3919
+          },
+          "passed": true,
+          "result_digest": "15769107766283356325",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 11562,
+              "dirty_transitions": 394,
+              "exact_tests": 11494,
+              "notifications": 6956,
+              "queries": 400,
+              "raw_subscriber_visits": 23870,
+              "same_cell_moves": 99,
+              "same_cell_notifications": 2845,
+              "swept_cells": 845
+            },
+            "grid_cache_hits": 3,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 39098,
+            "maintenance_ms": 0.05290000000000004,
+            "peak_grid_buffer_bytes": 39288,
+            "peak_owned_buffer_bytes": 947268,
+            "query_ms": 3.2879000000000005,
+            "result_cache_buffer_bytes": 20816,
+            "subscription_buffer_bytes": 887164,
+            "subscription_build_ms": 1.0547,
+            "subscription_registrations": 82962,
+            "total_ms": 3.3408000000000007
+          },
+          "strictly_compared_queries": 400
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 11562,
+              "dirty_transitions": 0,
+              "exact_tests": 11494,
+              "notifications": 0,
+              "queries": 400,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 3,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 39098,
+            "maintenance_ms": 0.012099999999999993,
+            "peak_grid_buffer_bytes": 39288,
+            "query_ms": 3.3325999999999993,
+            "total_ms": 3.344699999999999
+          },
+          "passed": true,
+          "result_digest": "15769107766283356325",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 11562,
+              "dirty_transitions": 394,
+              "exact_tests": 11494,
+              "notifications": 6956,
+              "queries": 400,
+              "raw_subscriber_visits": 23870,
+              "same_cell_moves": 99,
+              "same_cell_notifications": 2845,
+              "swept_cells": 845
+            },
+            "grid_cache_hits": 3,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 39098,
+            "maintenance_ms": 0.060700000000000025,
+            "peak_grid_buffer_bytes": 39288,
+            "peak_owned_buffer_bytes": 947268,
+            "query_ms": 4.239,
+            "result_cache_buffer_bytes": 20816,
+            "subscription_buffer_bytes": 887164,
+            "subscription_build_ms": 0.6077,
+            "subscription_registrations": 82962,
+            "total_ms": 4.2997
+          },
+          "strictly_compared_queries": 400
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 11562,
+              "dirty_transitions": 0,
+              "exact_tests": 11494,
+              "notifications": 0,
+              "queries": 400,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 3,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 39098,
+            "maintenance_ms": 0.012199999999999987,
+            "peak_grid_buffer_bytes": 39288,
+            "query_ms": 4.164899999999999,
+            "total_ms": 4.177099999999999
+          },
+          "passed": true,
+          "result_digest": "15769107766283356325",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 11562,
+              "dirty_transitions": 394,
+              "exact_tests": 11494,
+              "notifications": 6956,
+              "queries": 400,
+              "raw_subscriber_visits": 23870,
+              "same_cell_moves": 99,
+              "same_cell_notifications": 2845,
+              "swept_cells": 845
+            },
+            "grid_cache_hits": 3,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 39098,
+            "maintenance_ms": 0.04850000000000003,
+            "peak_grid_buffer_bytes": 39288,
+            "peak_owned_buffer_bytes": 947268,
+            "query_ms": 3.2396000000000003,
+            "result_cache_buffer_bytes": 20816,
+            "subscription_buffer_bytes": 887164,
+            "subscription_build_ms": 0.5706,
+            "subscription_registrations": 82962,
+            "total_ms": 3.2881000000000005
+          },
+          "strictly_compared_queries": 400
+        }
+      ],
+      "ticks": 120,
+      "zombies": 100
+    },
+    {
+      "active_median_ms": 30.612499999999986,
+      "moving_percent": 1,
+      "plants": 100,
+      "query_interval_ticks": 1,
+      "radius_tiles": 16,
+      "repeats": 3,
+      "reverse_median_ms": 21.2583,
+      "reverse_over_active": 0.694432013066558,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 346914,
+              "dirty_transitions": 0,
+              "exact_tests": 344882,
+              "notifications": 0,
+              "queries": 12000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 9822,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 214198,
+            "maintenance_ms": 0.019299999999999987,
+            "peak_grid_buffer_bytes": 39520,
+            "query_ms": 30.593199999999985,
+            "total_ms": 30.612499999999986
+          },
+          "passed": true,
+          "result_digest": "13575085291268088190",
+          "reverse": {
+            "counts": {
+              "cached_results": 6013,
+              "candidates": 179544,
+              "dirty_transitions": 5887,
+              "exact_tests": 178454,
+              "notifications": 6956,
+              "queries": 5987,
+              "raw_subscriber_visits": 23870,
+              "same_cell_moves": 99,
+              "same_cell_notifications": 2845,
+              "swept_cells": 845
+            },
+            "grid_cache_hits": 4192,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 178510,
+            "maintenance_ms": 0.08490000000000002,
+            "peak_grid_buffer_bytes": 39520,
+            "peak_owned_buffer_bytes": 947500,
+            "query_ms": 20.882400000000008,
+            "result_cache_buffer_bytes": 20816,
+            "subscription_buffer_bytes": 887164,
+            "subscription_build_ms": 0.5463,
+            "subscription_registrations": 82962,
+            "total_ms": 20.96730000000001
+          },
+          "strictly_compared_queries": 12000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 346914,
+              "dirty_transitions": 0,
+              "exact_tests": 344882,
+              "notifications": 0,
+              "queries": 12000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 9822,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 214198,
+            "maintenance_ms": 0.017799999999999983,
+            "peak_grid_buffer_bytes": 39520,
+            "query_ms": 29.946299999999994,
+            "total_ms": 29.964099999999995
+          },
+          "passed": true,
+          "result_digest": "13575085291268088190",
+          "reverse": {
+            "counts": {
+              "cached_results": 6013,
+              "candidates": 179544,
+              "dirty_transitions": 5887,
+              "exact_tests": 178454,
+              "notifications": 6956,
+              "queries": 5987,
+              "raw_subscriber_visits": 23870,
+              "same_cell_moves": 99,
+              "same_cell_notifications": 2845,
+              "swept_cells": 845
+            },
+            "grid_cache_hits": 4192,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 178510,
+            "maintenance_ms": 0.13389999999999996,
+            "peak_grid_buffer_bytes": 39520,
+            "peak_owned_buffer_bytes": 947500,
+            "query_ms": 22.20229999999999,
+            "result_cache_buffer_bytes": 20816,
+            "subscription_buffer_bytes": 887164,
+            "subscription_build_ms": 0.8178,
+            "subscription_registrations": 82962,
+            "total_ms": 22.33619999999999
+          },
+          "strictly_compared_queries": 12000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 346914,
+              "dirty_transitions": 0,
+              "exact_tests": 344882,
+              "notifications": 0,
+              "queries": 12000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 9822,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 214198,
+            "maintenance_ms": 0.0547,
+            "peak_grid_buffer_bytes": 39520,
+            "query_ms": 30.71990000000001,
+            "total_ms": 30.77460000000001
+          },
+          "passed": true,
+          "result_digest": "13575085291268088190",
+          "reverse": {
+            "counts": {
+              "cached_results": 6013,
+              "candidates": 179544,
+              "dirty_transitions": 5887,
+              "exact_tests": 178454,
+              "notifications": 6956,
+              "queries": 5987,
+              "raw_subscriber_visits": 23870,
+              "same_cell_moves": 99,
+              "same_cell_notifications": 2845,
+              "swept_cells": 845
+            },
+            "grid_cache_hits": 4192,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 178510,
+            "maintenance_ms": 0.13300000000000006,
+            "peak_grid_buffer_bytes": 39520,
+            "peak_owned_buffer_bytes": 947500,
+            "query_ms": 21.1253,
+            "result_cache_buffer_bytes": 20816,
+            "subscription_buffer_bytes": 887164,
+            "subscription_build_ms": 0.7796,
+            "subscription_registrations": 82962,
+            "total_ms": 21.2583
+          },
+          "strictly_compared_queries": 12000
+        }
+      ],
+      "ticks": 120,
+      "zombies": 100
+    },
+    {
+      "active_median_ms": 6.520300000000002,
+      "moving_percent": 100,
+      "plants": 100,
+      "query_interval_ticks": 30,
+      "radius_tiles": 16,
+      "repeats": 3,
+      "reverse_median_ms": 7.777399999999998,
+      "reverse_over_active": 1.1927978773982786,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 11612,
+              "dirty_transitions": 0,
+              "exact_tests": 11543,
+              "notifications": 0,
+              "queries": 400,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 2678,
+            "grid_raw_candidates": 41020,
+            "maintenance_ms": 0.9683000000000004,
+            "peak_grid_buffer_bytes": 47496,
+            "query_ms": 5.552000000000002,
+            "total_ms": 6.520300000000002
+          },
+          "passed": true,
+          "result_digest": "13382274243019532663",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 11612,
+              "dirty_transitions": 397,
+              "exact_tests": 11543,
+              "notifications": 352810,
+              "queries": 400,
+              "raw_subscriber_visits": 1315402,
+              "same_cell_moves": 9422,
+              "same_cell_notifications": 273789,
+              "swept_cells": 46218
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 2678,
+            "grid_raw_candidates": 41020,
+            "maintenance_ms": 2.6018999999999997,
+            "peak_grid_buffer_bytes": 47496,
+            "peak_owned_buffer_bytes": 956036,
+            "query_ms": 4.401399999999999,
+            "result_cache_buffer_bytes": 21376,
+            "subscription_buffer_bytes": 887164,
+            "subscription_build_ms": 0.884,
+            "subscription_registrations": 82962,
+            "total_ms": 7.0032999999999985
+          },
+          "strictly_compared_queries": 400
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 11612,
+              "dirty_transitions": 0,
+              "exact_tests": 11543,
+              "notifications": 0,
+              "queries": 400,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 2678,
+            "grid_raw_candidates": 41020,
+            "maintenance_ms": 1.0185000000000002,
+            "peak_grid_buffer_bytes": 47496,
+            "query_ms": 4.533700000000001,
+            "total_ms": 5.552200000000002
+          },
+          "passed": true,
+          "result_digest": "13382274243019532663",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 11612,
+              "dirty_transitions": 397,
+              "exact_tests": 11543,
+              "notifications": 352810,
+              "queries": 400,
+              "raw_subscriber_visits": 1315402,
+              "same_cell_moves": 9422,
+              "same_cell_notifications": 273789,
+              "swept_cells": 46218
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 2678,
+            "grid_raw_candidates": 41020,
+            "maintenance_ms": 2.7781999999999987,
+            "peak_grid_buffer_bytes": 47496,
+            "peak_owned_buffer_bytes": 956036,
+            "query_ms": 5.772,
+            "result_cache_buffer_bytes": 21376,
+            "subscription_buffer_bytes": 887164,
+            "subscription_build_ms": 0.7594,
+            "subscription_registrations": 82962,
+            "total_ms": 8.550199999999998
+          },
+          "strictly_compared_queries": 400
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 11612,
+              "dirty_transitions": 0,
+              "exact_tests": 11543,
+              "notifications": 0,
+              "queries": 400,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 2678,
+            "grid_raw_candidates": 41020,
+            "maintenance_ms": 1.1024,
+            "peak_grid_buffer_bytes": 47496,
+            "query_ms": 6.347999999999995,
+            "total_ms": 7.450399999999996
+          },
+          "passed": true,
+          "result_digest": "13382274243019532663",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 11612,
+              "dirty_transitions": 397,
+              "exact_tests": 11543,
+              "notifications": 352810,
+              "queries": 400,
+              "raw_subscriber_visits": 1315402,
+              "same_cell_moves": 9422,
+              "same_cell_notifications": 273789,
+              "swept_cells": 46218
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 2678,
+            "grid_raw_candidates": 41020,
+            "maintenance_ms": 2.944299999999999,
+            "peak_grid_buffer_bytes": 47496,
+            "peak_owned_buffer_bytes": 956036,
+            "query_ms": 4.8331,
+            "result_cache_buffer_bytes": 21376,
+            "subscription_buffer_bytes": 887164,
+            "subscription_build_ms": 0.8106,
+            "subscription_registrations": 82962,
+            "total_ms": 7.777399999999998
+          },
+          "strictly_compared_queries": 400
+        }
+      ],
+      "ticks": 120,
+      "zombies": 100
+    },
+    {
+      "active_median_ms": 135.60569999999996,
+      "moving_percent": 100,
+      "plants": 100,
+      "query_interval_ticks": 1,
+      "radius_tiles": 16,
+      "repeats": 3,
+      "reverse_median_ms": 130.1676,
+      "reverse_over_active": 0.9598977034151221,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 348290,
+              "dirty_transitions": 0,
+              "exact_tests": 346190,
+              "notifications": 0,
+              "queries": 12000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 120,
+            "grid_cell_changes": 2678,
+            "grid_raw_candidates": 1217723,
+            "maintenance_ms": 1.4235999999999995,
+            "peak_grid_buffer_bytes": 50696,
+            "query_ms": 139.2618,
+            "total_ms": 140.6854
+          },
+          "passed": true,
+          "result_digest": "7187997042490930885",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 348290,
+              "dirty_transitions": 11900,
+              "exact_tests": 346190,
+              "notifications": 352810,
+              "queries": 12000,
+              "raw_subscriber_visits": 1315402,
+              "same_cell_moves": 9422,
+              "same_cell_notifications": 273789,
+              "swept_cells": 46218
+            },
+            "grid_cache_hits": 120,
+            "grid_cell_changes": 2678,
+            "grid_raw_candidates": 1217723,
+            "maintenance_ms": 4.091199999999999,
+            "peak_grid_buffer_bytes": 50696,
+            "peak_owned_buffer_bytes": 959564,
+            "query_ms": 126.0764,
+            "result_cache_buffer_bytes": 21704,
+            "subscription_buffer_bytes": 887164,
+            "subscription_build_ms": 0.9465,
+            "subscription_registrations": 82962,
+            "total_ms": 130.1676
+          },
+          "strictly_compared_queries": 12000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 348290,
+              "dirty_transitions": 0,
+              "exact_tests": 346190,
+              "notifications": 0,
+              "queries": 12000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 120,
+            "grid_cell_changes": 2678,
+            "grid_raw_candidates": 1217723,
+            "maintenance_ms": 1.1283999999999998,
+            "peak_grid_buffer_bytes": 50696,
+            "query_ms": 126.3074,
+            "total_ms": 127.4358
+          },
+          "passed": true,
+          "result_digest": "7187997042490930885",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 348290,
+              "dirty_transitions": 11900,
+              "exact_tests": 346190,
+              "notifications": 352810,
+              "queries": 12000,
+              "raw_subscriber_visits": 1315402,
+              "same_cell_moves": 9422,
+              "same_cell_notifications": 273789,
+              "swept_cells": 46218
+            },
+            "grid_cache_hits": 120,
+            "grid_cell_changes": 2678,
+            "grid_raw_candidates": 1217723,
+            "maintenance_ms": 4.287199999999999,
+            "peak_grid_buffer_bytes": 50696,
+            "peak_owned_buffer_bytes": 959564,
+            "query_ms": 137.93159999999997,
+            "result_cache_buffer_bytes": 21704,
+            "subscription_buffer_bytes": 887164,
+            "subscription_build_ms": 0.8003,
+            "subscription_registrations": 82962,
+            "total_ms": 142.2188
+          },
+          "strictly_compared_queries": 12000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 348290,
+              "dirty_transitions": 0,
+              "exact_tests": 346190,
+              "notifications": 0,
+              "queries": 12000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 120,
+            "grid_cell_changes": 2678,
+            "grid_raw_candidates": 1217723,
+            "maintenance_ms": 1.1502,
+            "peak_grid_buffer_bytes": 50696,
+            "query_ms": 134.45549999999994,
+            "total_ms": 135.60569999999996
+          },
+          "passed": true,
+          "result_digest": "7187997042490930885",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 348290,
+              "dirty_transitions": 11900,
+              "exact_tests": 346190,
+              "notifications": 352810,
+              "queries": 12000,
+              "raw_subscriber_visits": 1315402,
+              "same_cell_moves": 9422,
+              "same_cell_notifications": 273789,
+              "swept_cells": 46218
+            },
+            "grid_cache_hits": 120,
+            "grid_cell_changes": 2678,
+            "grid_raw_candidates": 1217723,
+            "maintenance_ms": 3.5727,
+            "peak_grid_buffer_bytes": 50696,
+            "peak_owned_buffer_bytes": 959564,
+            "query_ms": 121.3057,
+            "result_cache_buffer_bytes": 21704,
+            "subscription_buffer_bytes": 887164,
+            "subscription_build_ms": 0.8267,
+            "subscription_registrations": 82962,
+            "total_ms": 124.8784
+          },
+          "strictly_compared_queries": 12000
+        }
+      ],
+      "ticks": 120,
+      "zombies": 100
+    },
+    {
+      "active_median_ms": 1.4507000000000008,
+      "moving_percent": 1,
+      "plants": 100,
+      "query_interval_ticks": 30,
+      "radius_tiles": 4,
+      "repeats": 3,
+      "reverse_median_ms": 0.9649000000000002,
+      "reverse_over_active": 0.6651271799820774,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 13035,
+              "dirty_transitions": 0,
+              "exact_tests": 13021,
+              "notifications": 0,
+              "queries": 400,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 1250,
+            "grid_raw_candidates": 39554,
+            "maintenance_ms": 0.10500000000000004,
+            "peak_grid_buffer_bytes": 179544,
+            "query_ms": 1.3788000000000011,
+            "total_ms": 1.4838000000000011
+          },
+          "passed": true,
+          "result_digest": "1781658049904984000",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 13035,
+              "dirty_transitions": 388,
+              "exact_tests": 13021,
+              "notifications": 4346,
+              "queries": 400,
+              "raw_subscriber_visits": 13836,
+              "same_cell_moves": 950,
+              "same_cell_notifications": 3077,
+              "swept_cells": 4981
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 1250,
+            "grid_raw_candidates": 39554,
+            "maintenance_ms": 0.1677000000000001,
+            "peak_grid_buffer_bytes": 179544,
+            "peak_owned_buffer_bytes": 339372,
+            "query_ms": 0.7972000000000001,
+            "result_cache_buffer_bytes": 20296,
+            "subscription_buffer_bytes": 139532,
+            "subscription_build_ms": 0.174,
+            "subscription_registrations": 7821,
+            "total_ms": 0.9649000000000002
+          },
+          "strictly_compared_queries": 400
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 13035,
+              "dirty_transitions": 0,
+              "exact_tests": 13021,
+              "notifications": 0,
+              "queries": 400,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 1250,
+            "grid_raw_candidates": 39554,
+            "maintenance_ms": 0.08040000000000003,
+            "peak_grid_buffer_bytes": 179544,
+            "query_ms": 0.7881000000000001,
+            "total_ms": 0.8685000000000002
+          },
+          "passed": true,
+          "result_digest": "1781658049904984000",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 13035,
+              "dirty_transitions": 388,
+              "exact_tests": 13021,
+              "notifications": 4346,
+              "queries": 400,
+              "raw_subscriber_visits": 13836,
+              "same_cell_moves": 950,
+              "same_cell_notifications": 3077,
+              "swept_cells": 4981
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 1250,
+            "grid_raw_candidates": 39554,
+            "maintenance_ms": 0.19450000000000003,
+            "peak_grid_buffer_bytes": 179544,
+            "peak_owned_buffer_bytes": 339372,
+            "query_ms": 1.3491000000000002,
+            "result_cache_buffer_bytes": 20296,
+            "subscription_buffer_bytes": 139532,
+            "subscription_build_ms": 0.0954,
+            "subscription_registrations": 7821,
+            "total_ms": 1.5436000000000003
+          },
+          "strictly_compared_queries": 400
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 13035,
+              "dirty_transitions": 0,
+              "exact_tests": 13021,
+              "notifications": 0,
+              "queries": 400,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 1250,
+            "grid_raw_candidates": 39554,
+            "maintenance_ms": 0.10350000000000005,
+            "peak_grid_buffer_bytes": 179544,
+            "query_ms": 1.3472000000000006,
+            "total_ms": 1.4507000000000008
+          },
+          "passed": true,
+          "result_digest": "1781658049904984000",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 13035,
+              "dirty_transitions": 388,
+              "exact_tests": 13021,
+              "notifications": 4346,
+              "queries": 400,
+              "raw_subscriber_visits": 13836,
+              "same_cell_moves": 950,
+              "same_cell_notifications": 3077,
+              "swept_cells": 4981
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 1250,
+            "grid_raw_candidates": 39554,
+            "maintenance_ms": 0.1645000000000001,
+            "peak_grid_buffer_bytes": 179544,
+            "peak_owned_buffer_bytes": 339372,
+            "query_ms": 0.7859000000000003,
+            "result_cache_buffer_bytes": 20296,
+            "subscription_buffer_bytes": 139532,
+            "subscription_build_ms": 0.0978,
+            "subscription_registrations": 7821,
+            "total_ms": 0.9504000000000004
+          },
+          "strictly_compared_queries": 400
+        }
+      ],
+      "ticks": 120,
+      "zombies": 1000
+    },
+    {
+      "active_median_ms": 32.61660000000001,
+      "moving_percent": 1,
+      "plants": 100,
+      "query_interval_ticks": 1,
+      "radius_tiles": 4,
+      "repeats": 3,
+      "reverse_median_ms": 11.229100000000003,
+      "reverse_over_active": 0.34427561425777053,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 391094,
+              "dirty_transitions": 0,
+              "exact_tests": 390703,
+              "notifications": 0,
+              "queries": 12000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 1209,
+            "grid_cell_changes": 1250,
+            "grid_raw_candidates": 1062219,
+            "maintenance_ms": 0.12550000000000006,
+            "peak_grid_buffer_bytes": 180168,
+            "query_ms": 32.6637,
+            "total_ms": 32.7892
+          },
+          "passed": true,
+          "result_digest": "12582369233267160657",
+          "reverse": {
+            "counts": {
+              "cached_results": 8225,
+              "candidates": 129761,
+              "dirty_transitions": 3675,
+              "exact_tests": 129619,
+              "notifications": 4346,
+              "queries": 3775,
+              "raw_subscriber_visits": 13836,
+              "same_cell_moves": 950,
+              "same_cell_notifications": 3077,
+              "swept_cells": 4981
+            },
+            "grid_cache_hits": 160,
+            "grid_cell_changes": 1250,
+            "grid_raw_candidates": 377800,
+            "maintenance_ms": 0.2307,
+            "peak_grid_buffer_bytes": 180168,
+            "peak_owned_buffer_bytes": 340044,
+            "query_ms": 10.998400000000002,
+            "result_cache_buffer_bytes": 20344,
+            "subscription_buffer_bytes": 139532,
+            "subscription_build_ms": 0.1127,
+            "subscription_registrations": 7821,
+            "total_ms": 11.229100000000003
+          },
+          "strictly_compared_queries": 12000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 391094,
+              "dirty_transitions": 0,
+              "exact_tests": 390703,
+              "notifications": 0,
+              "queries": 12000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 1209,
+            "grid_cell_changes": 1250,
+            "grid_raw_candidates": 1062219,
+            "maintenance_ms": 0.11790000000000006,
+            "peak_grid_buffer_bytes": 180168,
+            "query_ms": 32.498700000000014,
+            "total_ms": 32.61660000000001
+          },
+          "passed": true,
+          "result_digest": "12582369233267160657",
+          "reverse": {
+            "counts": {
+              "cached_results": 8225,
+              "candidates": 129761,
+              "dirty_transitions": 3675,
+              "exact_tests": 129619,
+              "notifications": 4346,
+              "queries": 3775,
+              "raw_subscriber_visits": 13836,
+              "same_cell_moves": 950,
+              "same_cell_notifications": 3077,
+              "swept_cells": 4981
+            },
+            "grid_cache_hits": 160,
+            "grid_cell_changes": 1250,
+            "grid_raw_candidates": 377800,
+            "maintenance_ms": 0.28450000000000014,
+            "peak_grid_buffer_bytes": 180168,
+            "peak_owned_buffer_bytes": 340044,
+            "query_ms": 11.091899999999994,
+            "result_cache_buffer_bytes": 20344,
+            "subscription_buffer_bytes": 139532,
+            "subscription_build_ms": 0.0977,
+            "subscription_registrations": 7821,
+            "total_ms": 11.376399999999993
+          },
+          "strictly_compared_queries": 12000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 391094,
+              "dirty_transitions": 0,
+              "exact_tests": 390703,
+              "notifications": 0,
+              "queries": 12000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 1209,
+            "grid_cell_changes": 1250,
+            "grid_raw_candidates": 1062219,
+            "maintenance_ms": 0.11989999999999999,
+            "peak_grid_buffer_bytes": 180168,
+            "query_ms": 32.3378,
+            "total_ms": 32.4577
+          },
+          "passed": true,
+          "result_digest": "12582369233267160657",
+          "reverse": {
+            "counts": {
+              "cached_results": 8225,
+              "candidates": 129761,
+              "dirty_transitions": 3675,
+              "exact_tests": 129619,
+              "notifications": 4346,
+              "queries": 3775,
+              "raw_subscriber_visits": 13836,
+              "same_cell_moves": 950,
+              "same_cell_notifications": 3077,
+              "swept_cells": 4981
+            },
+            "grid_cache_hits": 160,
+            "grid_cell_changes": 1250,
+            "grid_raw_candidates": 377800,
+            "maintenance_ms": 0.2102000000000001,
+            "peak_grid_buffer_bytes": 180168,
+            "peak_owned_buffer_bytes": 340044,
+            "query_ms": 10.959399999999993,
+            "result_cache_buffer_bytes": 20344,
+            "subscription_buffer_bytes": 139532,
+            "subscription_build_ms": 0.0932,
+            "subscription_registrations": 7821,
+            "total_ms": 11.169599999999994
+          },
+          "strictly_compared_queries": 12000
+        }
+      ],
+      "ticks": 120,
+      "zombies": 1000
+    },
+    {
+      "active_median_ms": 10.464800000000004,
+      "moving_percent": 100,
+      "plants": 100,
+      "query_interval_ticks": 30,
+      "radius_tiles": 4,
+      "repeats": 3,
+      "reverse_median_ms": 16.298699999999997,
+      "reverse_over_active": 1.5574784037917582,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 13032,
+              "dirty_transitions": 0,
+              "exact_tests": 13018,
+              "notifications": 0,
+              "queries": 400,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 26342,
+            "grid_raw_candidates": 40078,
+            "maintenance_ms": 9.2425,
+            "peak_grid_buffer_bytes": 225536,
+            "query_ms": 1.5828000000000004,
+            "total_ms": 10.8253
+          },
+          "passed": true,
+          "result_digest": "5190724413588921459",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 13032,
+              "dirty_transitions": 397,
+              "exact_tests": 13018,
+              "notifications": 396707,
+              "queries": 400,
+              "raw_subscriber_visits": 1279188,
+              "same_cell_moves": 94658,
+              "same_cell_notifications": 307766,
+              "swept_cells": 458235
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 26342,
+            "grid_raw_candidates": 40078,
+            "maintenance_ms": 15.242499999999998,
+            "peak_grid_buffer_bytes": 225536,
+            "peak_owned_buffer_bytes": 386764,
+            "query_ms": 1.0562,
+            "result_cache_buffer_bytes": 21696,
+            "subscription_buffer_bytes": 139532,
+            "subscription_build_ms": 0.1808,
+            "subscription_registrations": 7821,
+            "total_ms": 16.298699999999997
+          },
+          "strictly_compared_queries": 400
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 13032,
+              "dirty_transitions": 0,
+              "exact_tests": 13018,
+              "notifications": 0,
+              "queries": 400,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 26342,
+            "grid_raw_candidates": 40078,
+            "maintenance_ms": 8.915299999999998,
+            "peak_grid_buffer_bytes": 225536,
+            "query_ms": 1.0219999999999998,
+            "total_ms": 9.937299999999999
+          },
+          "passed": true,
+          "result_digest": "5190724413588921459",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 13032,
+              "dirty_transitions": 397,
+              "exact_tests": 13018,
+              "notifications": 396707,
+              "queries": 400,
+              "raw_subscriber_visits": 1279188,
+              "same_cell_moves": 94658,
+              "same_cell_notifications": 307766,
+              "swept_cells": 458235
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 26342,
+            "grid_raw_candidates": 40078,
+            "maintenance_ms": 15.573100000000004,
+            "peak_grid_buffer_bytes": 225536,
+            "peak_owned_buffer_bytes": 386764,
+            "query_ms": 1.5439000000000005,
+            "result_cache_buffer_bytes": 21696,
+            "subscription_buffer_bytes": 139532,
+            "subscription_build_ms": 0.1051,
+            "subscription_registrations": 7821,
+            "total_ms": 17.117000000000004
+          },
+          "strictly_compared_queries": 400
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 13032,
+              "dirty_transitions": 0,
+              "exact_tests": 13018,
+              "notifications": 0,
+              "queries": 400,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 26342,
+            "grid_raw_candidates": 40078,
+            "maintenance_ms": 8.950200000000004,
+            "peak_grid_buffer_bytes": 225536,
+            "query_ms": 1.5146000000000002,
+            "total_ms": 10.464800000000004
+          },
+          "passed": true,
+          "result_digest": "5190724413588921459",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 13032,
+              "dirty_transitions": 397,
+              "exact_tests": 13018,
+              "notifications": 396707,
+              "queries": 400,
+              "raw_subscriber_visits": 1279188,
+              "same_cell_moves": 94658,
+              "same_cell_notifications": 307766,
+              "swept_cells": 458235
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 26342,
+            "grid_raw_candidates": 40078,
+            "maintenance_ms": 14.772,
+            "peak_grid_buffer_bytes": 225536,
+            "peak_owned_buffer_bytes": 386764,
+            "query_ms": 0.9880999999999999,
+            "result_cache_buffer_bytes": 21696,
+            "subscription_buffer_bytes": 139532,
+            "subscription_build_ms": 0.0926,
+            "subscription_registrations": 7821,
+            "total_ms": 15.7601
+          },
+          "strictly_compared_queries": 400
+        }
+      ],
+      "ticks": 120,
+      "zombies": 1000
+    },
+    {
+      "active_median_ms": 49.5131,
+      "moving_percent": 100,
+      "plants": 100,
+      "query_interval_ticks": 1,
+      "radius_tiles": 4,
+      "repeats": 3,
+      "reverse_median_ms": 56.55220000000004,
+      "reverse_over_active": 1.142166416564506,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 391927,
+              "dirty_transitions": 0,
+              "exact_tests": 391536,
+              "notifications": 0,
+              "queries": 12000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 120,
+            "grid_cell_changes": 26342,
+            "grid_raw_candidates": 1190077,
+            "maintenance_ms": 9.329500000000003,
+            "peak_grid_buffer_bytes": 229600,
+            "query_ms": 40.1836,
+            "total_ms": 49.5131
+          },
+          "passed": true,
+          "result_digest": "14915035294049379747",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 391927,
+              "dirty_transitions": 11900,
+              "exact_tests": 391536,
+              "notifications": 396707,
+              "queries": 12000,
+              "raw_subscriber_visits": 1279188,
+              "same_cell_moves": 94658,
+              "same_cell_notifications": 307766,
+              "swept_cells": 458235
+            },
+            "grid_cache_hits": 120,
+            "grid_cell_changes": 26342,
+            "grid_raw_candidates": 1190077,
+            "maintenance_ms": 15.8627,
+            "peak_grid_buffer_bytes": 229600,
+            "peak_owned_buffer_bytes": 391940,
+            "query_ms": 38.8843,
+            "result_cache_buffer_bytes": 22808,
+            "subscription_buffer_bytes": 139532,
+            "subscription_build_ms": 0.1387,
+            "subscription_registrations": 7821,
+            "total_ms": 54.747
+          },
+          "strictly_compared_queries": 12000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 391927,
+              "dirty_transitions": 0,
+              "exact_tests": 391536,
+              "notifications": 0,
+              "queries": 12000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 120,
+            "grid_cell_changes": 26342,
+            "grid_raw_candidates": 1190077,
+            "maintenance_ms": 9.1732,
+            "peak_grid_buffer_bytes": 229600,
+            "query_ms": 39.42950000000001,
+            "total_ms": 48.60270000000001
+          },
+          "passed": true,
+          "result_digest": "14915035294049379747",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 391927,
+              "dirty_transitions": 11900,
+              "exact_tests": 391536,
+              "notifications": 396707,
+              "queries": 12000,
+              "raw_subscriber_visits": 1279188,
+              "same_cell_moves": 94658,
+              "same_cell_notifications": 307766,
+              "swept_cells": 458235
+            },
+            "grid_cache_hits": 120,
+            "grid_cell_changes": 26342,
+            "grid_raw_candidates": 1190077,
+            "maintenance_ms": 16.372300000000006,
+            "peak_grid_buffer_bytes": 229600,
+            "peak_owned_buffer_bytes": 391940,
+            "query_ms": 40.17990000000003,
+            "result_cache_buffer_bytes": 22808,
+            "subscription_buffer_bytes": 139532,
+            "subscription_build_ms": 0.0975,
+            "subscription_registrations": 7821,
+            "total_ms": 56.55220000000004
+          },
+          "strictly_compared_queries": 12000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 391927,
+              "dirty_transitions": 0,
+              "exact_tests": 391536,
+              "notifications": 0,
+              "queries": 12000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 120,
+            "grid_cell_changes": 26342,
+            "grid_raw_candidates": 1190077,
+            "maintenance_ms": 10.411299999999997,
+            "peak_grid_buffer_bytes": 229600,
+            "query_ms": 41.8145,
+            "total_ms": 52.2258
+          },
+          "passed": true,
+          "result_digest": "14915035294049379747",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 391927,
+              "dirty_transitions": 11900,
+              "exact_tests": 391536,
+              "notifications": 396707,
+              "queries": 12000,
+              "raw_subscriber_visits": 1279188,
+              "same_cell_moves": 94658,
+              "same_cell_notifications": 307766,
+              "swept_cells": 458235
+            },
+            "grid_cache_hits": 120,
+            "grid_cell_changes": 26342,
+            "grid_raw_candidates": 1190077,
+            "maintenance_ms": 17.088899999999995,
+            "peak_grid_buffer_bytes": 229600,
+            "peak_owned_buffer_bytes": 391940,
+            "query_ms": 41.45569999999999,
+            "result_cache_buffer_bytes": 22808,
+            "subscription_buffer_bytes": 139532,
+            "subscription_build_ms": 0.0976,
+            "subscription_registrations": 7821,
+            "total_ms": 58.54459999999999
+          },
+          "strictly_compared_queries": 12000
+        }
+      ],
+      "ticks": 120,
+      "zombies": 1000
+    },
+    {
+      "active_median_ms": 14.341400000000005,
+      "moving_percent": 1,
+      "plants": 100,
+      "query_interval_ticks": 30,
+      "radius_tiles": 16,
+      "repeats": 3,
+      "reverse_median_ms": 14.5581,
+      "reverse_over_active": 1.015110100826976,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 115434,
+              "dirty_transitions": 0,
+              "exact_tests": 115329,
+              "notifications": 0,
+              "queries": 400,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 1250,
+            "grid_raw_candidates": 401339,
+            "maintenance_ms": 0.1635,
+            "peak_grid_buffer_bytes": 418504,
+            "query_ms": 14.177900000000005,
+            "total_ms": 14.341400000000005
+          },
+          "passed": true,
+          "result_digest": "18445763649602699150",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 115434,
+              "dirty_transitions": 397,
+              "exact_tests": 115329,
+              "notifications": 38213,
+              "queries": 400,
+              "raw_subscriber_visits": 139018,
+              "same_cell_moves": 950,
+              "same_cell_notifications": 27365,
+              "swept_cells": 4981
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 1250,
+            "grid_raw_candidates": 401339,
+            "maintenance_ms": 0.5151000000000001,
+            "peak_grid_buffer_bytes": 418504,
+            "peak_owned_buffer_bytes": 1482508,
+            "query_ms": 13.0991,
+            "result_cache_buffer_bytes": 176840,
+            "subscription_buffer_bytes": 887164,
+            "subscription_build_ms": 1.0057,
+            "subscription_registrations": 82962,
+            "total_ms": 13.6142
+          },
+          "strictly_compared_queries": 400
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 115434,
+              "dirty_transitions": 0,
+              "exact_tests": 115329,
+              "notifications": 0,
+              "queries": 400,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 1250,
+            "grid_raw_candidates": 401339,
+            "maintenance_ms": 0.1569000000000001,
+            "peak_grid_buffer_bytes": 418504,
+            "query_ms": 13.285999999999998,
+            "total_ms": 13.442899999999998
+          },
+          "passed": true,
+          "result_digest": "18445763649602699150",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 115434,
+              "dirty_transitions": 397,
+              "exact_tests": 115329,
+              "notifications": 38213,
+              "queries": 400,
+              "raw_subscriber_visits": 139018,
+              "same_cell_moves": 950,
+              "same_cell_notifications": 27365,
+              "swept_cells": 4981
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 1250,
+            "grid_raw_candidates": 401339,
+            "maintenance_ms": 0.6647999999999998,
+            "peak_grid_buffer_bytes": 418504,
+            "peak_owned_buffer_bytes": 1482508,
+            "query_ms": 13.8933,
+            "result_cache_buffer_bytes": 176840,
+            "subscription_buffer_bytes": 887164,
+            "subscription_build_ms": 0.8363,
+            "subscription_registrations": 82962,
+            "total_ms": 14.5581
+          },
+          "strictly_compared_queries": 400
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 115434,
+              "dirty_transitions": 0,
+              "exact_tests": 115329,
+              "notifications": 0,
+              "queries": 400,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 1250,
+            "grid_raw_candidates": 401339,
+            "maintenance_ms": 0.24020000000000002,
+            "peak_grid_buffer_bytes": 418504,
+            "query_ms": 15.175700000000003,
+            "total_ms": 15.415900000000002
+          },
+          "passed": true,
+          "result_digest": "18445763649602699150",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 115434,
+              "dirty_transitions": 397,
+              "exact_tests": 115329,
+              "notifications": 38213,
+              "queries": 400,
+              "raw_subscriber_visits": 139018,
+              "same_cell_moves": 950,
+              "same_cell_notifications": 27365,
+              "swept_cells": 4981
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 1250,
+            "grid_raw_candidates": 401339,
+            "maintenance_ms": 0.8162,
+            "peak_grid_buffer_bytes": 418504,
+            "peak_owned_buffer_bytes": 1482508,
+            "query_ms": 14.312100000000001,
+            "result_cache_buffer_bytes": 176840,
+            "subscription_buffer_bytes": 887164,
+            "subscription_build_ms": 1.1779,
+            "subscription_registrations": 82962,
+            "total_ms": 15.128300000000001
+          },
+          "strictly_compared_queries": 400
+        }
+      ],
+      "ticks": 120,
+      "zombies": 1000
+    },
+    {
+      "active_median_ms": 359.01469999999995,
+      "moving_percent": 1,
+      "plants": 100,
+      "query_interval_ticks": 1,
+      "radius_tiles": 16,
+      "repeats": 3,
+      "reverse_median_ms": 353.86189999999993,
+      "reverse_over_active": 0.9856473843550139,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 3463128,
+              "dirty_transitions": 0,
+              "exact_tests": 3459835,
+              "notifications": 0,
+              "queries": 12000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 1209,
+            "grid_cell_changes": 1250,
+            "grid_raw_candidates": 10813875,
+            "maintenance_ms": 0.2898,
+            "peak_grid_buffer_bytes": 420032,
+            "query_ms": 370.2244000000001,
+            "total_ms": 370.51420000000013
+          },
+          "passed": true,
+          "result_digest": "11986905068993143405",
+          "reverse": {
+            "counts": {
+              "cached_results": 323,
+              "candidates": 3382387,
+              "dirty_transitions": 11577,
+              "exact_tests": 3379209,
+              "notifications": 38213,
+              "queries": 11677,
+              "raw_subscriber_visits": 139018,
+              "same_cell_moves": 950,
+              "same_cell_notifications": 27365,
+              "swept_cells": 4981
+            },
+            "grid_cache_hits": 1158,
+            "grid_cell_changes": 1250,
+            "grid_raw_candidates": 10576489,
+            "maintenance_ms": 1.2107999999999999,
+            "peak_grid_buffer_bytes": 420032,
+            "peak_owned_buffer_bytes": 1484036,
+            "query_ms": 359.2938,
+            "result_cache_buffer_bytes": 176840,
+            "subscription_buffer_bytes": 887164,
+            "subscription_build_ms": 0.8447,
+            "subscription_registrations": 82962,
+            "total_ms": 360.5046
+          },
+          "strictly_compared_queries": 12000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 3463128,
+              "dirty_transitions": 0,
+              "exact_tests": 3459835,
+              "notifications": 0,
+              "queries": 12000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 1209,
+            "grid_cell_changes": 1250,
+            "grid_raw_candidates": 10813875,
+            "maintenance_ms": 0.22020000000000012,
+            "peak_grid_buffer_bytes": 420032,
+            "query_ms": 358.79449999999997,
+            "total_ms": 359.01469999999995
+          },
+          "passed": true,
+          "result_digest": "11986905068993143405",
+          "reverse": {
+            "counts": {
+              "cached_results": 323,
+              "candidates": 3382387,
+              "dirty_transitions": 11577,
+              "exact_tests": 3379209,
+              "notifications": 38213,
+              "queries": 11677,
+              "raw_subscriber_visits": 139018,
+              "same_cell_moves": 950,
+              "same_cell_notifications": 27365,
+              "swept_cells": 4981
+            },
+            "grid_cache_hits": 1158,
+            "grid_cell_changes": 1250,
+            "grid_raw_candidates": 10576489,
+            "maintenance_ms": 1.2516000000000007,
+            "peak_grid_buffer_bytes": 420032,
+            "peak_owned_buffer_bytes": 1484036,
+            "query_ms": 352.61029999999994,
+            "result_cache_buffer_bytes": 176840,
+            "subscription_buffer_bytes": 887164,
+            "subscription_build_ms": 0.9809,
+            "subscription_registrations": 82962,
+            "total_ms": 353.86189999999993
+          },
+          "strictly_compared_queries": 12000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 3463128,
+              "dirty_transitions": 0,
+              "exact_tests": 3459835,
+              "notifications": 0,
+              "queries": 12000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 1209,
+            "grid_cell_changes": 1250,
+            "grid_raw_candidates": 10813875,
+            "maintenance_ms": 0.27579999999999993,
+            "peak_grid_buffer_bytes": 420032,
+            "query_ms": 357.51189999999986,
+            "total_ms": 357.78769999999986
+          },
+          "passed": true,
+          "result_digest": "11986905068993143405",
+          "reverse": {
+            "counts": {
+              "cached_results": 323,
+              "candidates": 3382387,
+              "dirty_transitions": 11577,
+              "exact_tests": 3379209,
+              "notifications": 38213,
+              "queries": 11677,
+              "raw_subscriber_visits": 139018,
+              "same_cell_moves": 950,
+              "same_cell_notifications": 27365,
+              "swept_cells": 4981
+            },
+            "grid_cache_hits": 1158,
+            "grid_cell_changes": 1250,
+            "grid_raw_candidates": 10576489,
+            "maintenance_ms": 1.1597000000000004,
+            "peak_grid_buffer_bytes": 420032,
+            "peak_owned_buffer_bytes": 1484036,
+            "query_ms": 347.4625,
+            "result_cache_buffer_bytes": 176840,
+            "subscription_buffer_bytes": 887164,
+            "subscription_build_ms": 0.8996,
+            "subscription_registrations": 82962,
+            "total_ms": 348.62219999999996
+          },
+          "strictly_compared_queries": 12000
+        }
+      ],
+      "ticks": 120,
+      "zombies": 1000
+    },
+    {
+      "active_median_ms": 23.8938,
+      "moving_percent": 100,
+      "plants": 100,
+      "query_interval_ticks": 30,
+      "radius_tiles": 16,
+      "repeats": 3,
+      "reverse_median_ms": 39.1426,
+      "reverse_over_active": 1.6381906603386653,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 115648,
+              "dirty_transitions": 0,
+              "exact_tests": 115544,
+              "notifications": 0,
+              "queries": 400,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 26342,
+            "grid_raw_candidates": 403730,
+            "maintenance_ms": 9.2043,
+            "peak_grid_buffer_bytes": 499160,
+            "query_ms": 15.157799999999996,
+            "total_ms": 24.362099999999998
+          },
+          "passed": true,
+          "result_digest": "13808442993016074580",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 115648,
+              "dirty_transitions": 397,
+              "exact_tests": 115544,
+              "notifications": 3482381,
+              "queries": 400,
+              "raw_subscriber_visits": 12828026,
+              "same_cell_moves": 94658,
+              "same_cell_notifications": 2733220,
+              "swept_cells": 458235
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 26342,
+            "grid_raw_candidates": 403730,
+            "maintenance_ms": 24.912900000000004,
+            "peak_grid_buffer_bytes": 499160,
+            "peak_owned_buffer_bytes": 1566716,
+            "query_ms": 14.2297,
+            "result_cache_buffer_bytes": 180392,
+            "subscription_buffer_bytes": 887164,
+            "subscription_build_ms": 1.0394,
+            "subscription_registrations": 82962,
+            "total_ms": 39.1426
+          },
+          "strictly_compared_queries": 400
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 115648,
+              "dirty_transitions": 0,
+              "exact_tests": 115544,
+              "notifications": 0,
+              "queries": 400,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 26342,
+            "grid_raw_candidates": 403730,
+            "maintenance_ms": 9.167599999999998,
+            "peak_grid_buffer_bytes": 499160,
+            "query_ms": 14.425699999999999,
+            "total_ms": 23.5933
+          },
+          "passed": true,
+          "result_digest": "13808442993016074580",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 115648,
+              "dirty_transitions": 397,
+              "exact_tests": 115544,
+              "notifications": 3482381,
+              "queries": 400,
+              "raw_subscriber_visits": 12828026,
+              "same_cell_moves": 94658,
+              "same_cell_notifications": 2733220,
+              "swept_cells": 458235
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 26342,
+            "grid_raw_candidates": 403730,
+            "maintenance_ms": 25.359799999999996,
+            "peak_grid_buffer_bytes": 499160,
+            "peak_owned_buffer_bytes": 1566716,
+            "query_ms": 15.470000000000006,
+            "result_cache_buffer_bytes": 180392,
+            "subscription_buffer_bytes": 887164,
+            "subscription_build_ms": 0.8521,
+            "subscription_registrations": 82962,
+            "total_ms": 40.829800000000006
+          },
+          "strictly_compared_queries": 400
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 115648,
+              "dirty_transitions": 0,
+              "exact_tests": 115544,
+              "notifications": 0,
+              "queries": 400,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 26342,
+            "grid_raw_candidates": 403730,
+            "maintenance_ms": 8.955100000000002,
+            "peak_grid_buffer_bytes": 499160,
+            "query_ms": 14.938699999999999,
+            "total_ms": 23.8938
+          },
+          "passed": true,
+          "result_digest": "13808442993016074580",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 115648,
+              "dirty_transitions": 397,
+              "exact_tests": 115544,
+              "notifications": 3482381,
+              "queries": 400,
+              "raw_subscriber_visits": 12828026,
+              "same_cell_moves": 94658,
+              "same_cell_notifications": 2733220,
+              "swept_cells": 458235
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 26342,
+            "grid_raw_candidates": 403730,
+            "maintenance_ms": 23.713299999999993,
+            "peak_grid_buffer_bytes": 499160,
+            "peak_owned_buffer_bytes": 1566716,
+            "query_ms": 14.085300000000007,
+            "result_cache_buffer_bytes": 180392,
+            "subscription_buffer_bytes": 887164,
+            "subscription_build_ms": 0.8269,
+            "subscription_registrations": 82962,
+            "total_ms": 37.7986
+          },
+          "strictly_compared_queries": 400
+        }
+      ],
+      "ticks": 120,
+      "zombies": 1000
+    },
+    {
+      "active_median_ms": 408.81719999999996,
+      "moving_percent": 100,
+      "plants": 100,
+      "query_interval_ticks": 1,
+      "radius_tiles": 16,
+      "repeats": 3,
+      "reverse_median_ms": 406.1690000000001,
+      "reverse_over_active": 0.9935222882011817,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 3468403,
+              "dirty_transitions": 0,
+              "exact_tests": 3465157,
+              "notifications": 0,
+              "queries": 12000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 120,
+            "grid_cell_changes": 26342,
+            "grid_raw_candidates": 11980769,
+            "maintenance_ms": 10.868100000000007,
+            "peak_grid_buffer_bytes": 526912,
+            "query_ms": 399.11080000000027,
+            "total_ms": 409.9789000000003
+          },
+          "passed": true,
+          "result_digest": "14219355233843277317",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 3468403,
+              "dirty_transitions": 11900,
+              "exact_tests": 3465157,
+              "notifications": 3482381,
+              "queries": 12000,
+              "raw_subscriber_visits": 12828026,
+              "same_cell_moves": 94658,
+              "same_cell_notifications": 2733220,
+              "swept_cells": 458235
+            },
+            "grid_cache_hits": 120,
+            "grid_cell_changes": 26342,
+            "grid_raw_candidates": 11980769,
+            "maintenance_ms": 28.8648,
+            "peak_grid_buffer_bytes": 526912,
+            "peak_owned_buffer_bytes": 1595404,
+            "query_ms": 377.3042000000001,
+            "result_cache_buffer_bytes": 181328,
+            "subscription_buffer_bytes": 887164,
+            "subscription_build_ms": 0.9786,
+            "subscription_registrations": 82962,
+            "total_ms": 406.1690000000001
+          },
+          "strictly_compared_queries": 12000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 3468403,
+              "dirty_transitions": 0,
+              "exact_tests": 3465157,
+              "notifications": 0,
+              "queries": 12000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 120,
+            "grid_cell_changes": 26342,
+            "grid_raw_candidates": 11980769,
+            "maintenance_ms": 9.877399999999998,
+            "peak_grid_buffer_bytes": 526912,
+            "query_ms": 384.3279000000002,
+            "total_ms": 394.20530000000025
+          },
+          "passed": true,
+          "result_digest": "14219355233843277317",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 3468403,
+              "dirty_transitions": 11900,
+              "exact_tests": 3465157,
+              "notifications": 3482381,
+              "queries": 12000,
+              "raw_subscriber_visits": 12828026,
+              "same_cell_moves": 94658,
+              "same_cell_notifications": 2733220,
+              "swept_cells": 458235
+            },
+            "grid_cache_hits": 120,
+            "grid_cell_changes": 26342,
+            "grid_raw_candidates": 11980769,
+            "maintenance_ms": 30.42229999999999,
+            "peak_grid_buffer_bytes": 526912,
+            "peak_owned_buffer_bytes": 1595404,
+            "query_ms": 407.1155000000002,
+            "result_cache_buffer_bytes": 181328,
+            "subscription_buffer_bytes": 887164,
+            "subscription_build_ms": 0.8879,
+            "subscription_registrations": 82962,
+            "total_ms": 437.53780000000023
+          },
+          "strictly_compared_queries": 12000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 3468403,
+              "dirty_transitions": 0,
+              "exact_tests": 3465157,
+              "notifications": 0,
+              "queries": 12000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 120,
+            "grid_cell_changes": 26342,
+            "grid_raw_candidates": 11980769,
+            "maintenance_ms": 10.902099999999995,
+            "peak_grid_buffer_bytes": 526912,
+            "query_ms": 397.91509999999994,
+            "total_ms": 408.81719999999996
+          },
+          "passed": true,
+          "result_digest": "14219355233843277317",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 3468403,
+              "dirty_transitions": 11900,
+              "exact_tests": 3465157,
+              "notifications": 3482381,
+              "queries": 12000,
+              "raw_subscriber_visits": 12828026,
+              "same_cell_moves": 94658,
+              "same_cell_notifications": 2733220,
+              "swept_cells": 458235
+            },
+            "grid_cache_hits": 120,
+            "grid_cell_changes": 26342,
+            "grid_raw_candidates": 11980769,
+            "maintenance_ms": 28.912600000000005,
+            "peak_grid_buffer_bytes": 526912,
+            "peak_owned_buffer_bytes": 1595404,
+            "query_ms": 376.1003999999999,
+            "result_cache_buffer_bytes": 181328,
+            "subscription_buffer_bytes": 887164,
+            "subscription_build_ms": 0.7562,
+            "subscription_registrations": 82962,
+            "total_ms": 405.0129999999999
+          },
+          "strictly_compared_queries": 12000
+        }
+      ],
+      "ticks": 120,
+      "zombies": 1000
+    },
+    {
+      "active_median_ms": 2.357800000000001,
+      "moving_percent": 1,
+      "plants": 500,
+      "query_interval_ticks": 30,
+      "radius_tiles": 4,
+      "repeats": 3,
+      "reverse_median_ms": 1.6345999999999996,
+      "reverse_over_active": 0.6932733904487229,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 6212,
+              "dirty_transitions": 0,
+              "exact_tests": 6156,
+              "notifications": 0,
+              "queries": 2000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 55,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 18242,
+            "maintenance_ms": 0.015099999999999988,
+            "peak_grid_buffer_bytes": 22200,
+            "query_ms": 2.4256000000000006,
+            "total_ms": 2.4407000000000005
+          },
+          "passed": true,
+          "result_digest": "8612101222267902049",
+          "reverse": {
+            "counts": {
+              "cached_results": 299,
+              "candidates": 5821,
+              "dirty_transitions": 1461,
+              "exact_tests": 5768,
+              "notifications": 3761,
+              "queries": 1701,
+              "raw_subscriber_visits": 11565,
+              "same_cell_moves": 99,
+              "same_cell_notifications": 1527,
+              "swept_cells": 876
+            },
+            "grid_cache_hits": 44,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 17068,
+            "maintenance_ms": 0.05680000000000002,
+            "peak_grid_buffer_bytes": 23392,
+            "peak_owned_buffer_bytes": 486116,
+            "query_ms": 1.5777999999999996,
+            "result_cache_buffer_bytes": 22816,
+            "subscription_buffer_bytes": 439908,
+            "subscription_build_ms": 0.5805,
+            "subscription_registrations": 38745,
+            "total_ms": 1.6345999999999996
+          },
+          "strictly_compared_queries": 2000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 6212,
+              "dirty_transitions": 0,
+              "exact_tests": 6156,
+              "notifications": 0,
+              "queries": 2000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 55,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 18242,
+            "maintenance_ms": 0.011099999999999995,
+            "peak_grid_buffer_bytes": 22200,
+            "query_ms": 1.8498000000000008,
+            "total_ms": 1.8609000000000007
+          },
+          "passed": true,
+          "result_digest": "8612101222267902049",
+          "reverse": {
+            "counts": {
+              "cached_results": 299,
+              "candidates": 5821,
+              "dirty_transitions": 1461,
+              "exact_tests": 5768,
+              "notifications": 3761,
+              "queries": 1701,
+              "raw_subscriber_visits": 11565,
+              "same_cell_moves": 99,
+              "same_cell_notifications": 1527,
+              "swept_cells": 876
+            },
+            "grid_cache_hits": 44,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 17068,
+            "maintenance_ms": 0.06280000000000001,
+            "peak_grid_buffer_bytes": 23392,
+            "peak_owned_buffer_bytes": 486116,
+            "query_ms": 2.0625000000000004,
+            "result_cache_buffer_bytes": 22816,
+            "subscription_buffer_bytes": 439908,
+            "subscription_build_ms": 0.4356,
+            "subscription_registrations": 38745,
+            "total_ms": 2.1253000000000006
+          },
+          "strictly_compared_queries": 2000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 6212,
+              "dirty_transitions": 0,
+              "exact_tests": 6156,
+              "notifications": 0,
+              "queries": 2000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 55,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 18242,
+            "maintenance_ms": 0.013999999999999992,
+            "peak_grid_buffer_bytes": 22200,
+            "query_ms": 2.343800000000001,
+            "total_ms": 2.357800000000001
+          },
+          "passed": true,
+          "result_digest": "8612101222267902049",
+          "reverse": {
+            "counts": {
+              "cached_results": 299,
+              "candidates": 5821,
+              "dirty_transitions": 1461,
+              "exact_tests": 5768,
+              "notifications": 3761,
+              "queries": 1701,
+              "raw_subscriber_visits": 11565,
+              "same_cell_moves": 99,
+              "same_cell_notifications": 1527,
+              "swept_cells": 876
+            },
+            "grid_cache_hits": 44,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 17068,
+            "maintenance_ms": 0.05600000000000004,
+            "peak_grid_buffer_bytes": 23392,
+            "peak_owned_buffer_bytes": 486116,
+            "query_ms": 1.4932000000000007,
+            "result_cache_buffer_bytes": 22816,
+            "subscription_buffer_bytes": 439908,
+            "subscription_build_ms": 0.4283,
+            "subscription_registrations": 38745,
+            "total_ms": 1.5492000000000008
+          },
+          "strictly_compared_queries": 2000
+        }
+      ],
+      "ticks": 120,
+      "zombies": 100
+    },
+    {
+      "active_median_ms": 65.18769999999998,
+      "moving_percent": 1,
+      "plants": 500,
+      "query_interval_ticks": 1,
+      "radius_tiles": 4,
+      "repeats": 3,
+      "reverse_median_ms": 3.9535999999999993,
+      "reverse_over_active": 0.0606494783525113,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 186525,
+              "dirty_transitions": 0,
+              "exact_tests": 184758,
+              "notifications": 0,
+              "queries": 60000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 2844,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 538883,
+            "maintenance_ms": 0.029899999999999972,
+            "peak_grid_buffer_bytes": 21624,
+            "query_ms": 70.03049999999999,
+            "total_ms": 70.06039999999999
+          },
+          "passed": true,
+          "result_digest": "12579863693660200791",
+          "reverse": {
+            "counts": {
+              "cached_results": 55934,
+              "candidates": 16216,
+              "dirty_transitions": 3566,
+              "exact_tests": 16101,
+              "notifications": 3761,
+              "queries": 4066,
+              "raw_subscriber_visits": 11565,
+              "same_cell_moves": 99,
+              "same_cell_notifications": 1527,
+              "swept_cells": 876
+            },
+            "grid_cache_hits": 872,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 37349,
+            "maintenance_ms": 0.13960000000000006,
+            "peak_grid_buffer_bytes": 23952,
+            "peak_owned_buffer_bytes": 486740,
+            "query_ms": 4.0714,
+            "result_cache_buffer_bytes": 22880,
+            "subscription_buffer_bytes": 439908,
+            "subscription_build_ms": 0.4604,
+            "subscription_registrations": 38745,
+            "total_ms": 4.210999999999999
+          },
+          "strictly_compared_queries": 60000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 186525,
+              "dirty_transitions": 0,
+              "exact_tests": 184758,
+              "notifications": 0,
+              "queries": 60000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 2844,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 538883,
+            "maintenance_ms": 0.01869999999999998,
+            "peak_grid_buffer_bytes": 21624,
+            "query_ms": 65.16899999999998,
+            "total_ms": 65.18769999999998
+          },
+          "passed": true,
+          "result_digest": "12579863693660200791",
+          "reverse": {
+            "counts": {
+              "cached_results": 55934,
+              "candidates": 16216,
+              "dirty_transitions": 3566,
+              "exact_tests": 16101,
+              "notifications": 3761,
+              "queries": 4066,
+              "raw_subscriber_visits": 11565,
+              "same_cell_moves": 99,
+              "same_cell_notifications": 1527,
+              "swept_cells": 876
+            },
+            "grid_cache_hits": 872,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 37349,
+            "maintenance_ms": 0.09919999999999998,
+            "peak_grid_buffer_bytes": 23952,
+            "peak_owned_buffer_bytes": 486740,
+            "query_ms": 3.854399999999999,
+            "result_cache_buffer_bytes": 22880,
+            "subscription_buffer_bytes": 439908,
+            "subscription_build_ms": 0.4884,
+            "subscription_registrations": 38745,
+            "total_ms": 3.9535999999999993
+          },
+          "strictly_compared_queries": 60000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 186525,
+              "dirty_transitions": 0,
+              "exact_tests": 184758,
+              "notifications": 0,
+              "queries": 60000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 2844,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 538883,
+            "maintenance_ms": 0.027,
+            "peak_grid_buffer_bytes": 21624,
+            "query_ms": 64.87679999999999,
+            "total_ms": 64.90379999999999
+          },
+          "passed": true,
+          "result_digest": "12579863693660200791",
+          "reverse": {
+            "counts": {
+              "cached_results": 55934,
+              "candidates": 16216,
+              "dirty_transitions": 3566,
+              "exact_tests": 16101,
+              "notifications": 3761,
+              "queries": 4066,
+              "raw_subscriber_visits": 11565,
+              "same_cell_moves": 99,
+              "same_cell_notifications": 1527,
+              "swept_cells": 876
+            },
+            "grid_cache_hits": 872,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 37349,
+            "maintenance_ms": 0.09040000000000005,
+            "peak_grid_buffer_bytes": 23952,
+            "peak_owned_buffer_bytes": 486740,
+            "query_ms": 3.8356000000000003,
+            "result_cache_buffer_bytes": 22880,
+            "subscription_buffer_bytes": 439908,
+            "subscription_build_ms": 0.5251,
+            "subscription_registrations": 38745,
+            "total_ms": 3.9260000000000006
+          },
+          "strictly_compared_queries": 60000
+        }
+      ],
+      "ticks": 120,
+      "zombies": 100
+    },
+    {
+      "active_median_ms": 3.6663000000000014,
+      "moving_percent": 100,
+      "plants": 500,
+      "query_interval_ticks": 30,
+      "radius_tiles": 4,
+      "repeats": 3,
+      "reverse_median_ms": 4.1617999999999995,
+      "reverse_over_active": 1.1351498786242256,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 6136,
+              "dirty_transitions": 0,
+              "exact_tests": 6082,
+              "notifications": 0,
+              "queries": 2000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 2674,
+            "grid_raw_candidates": 18438,
+            "maintenance_ms": 0.9515000000000002,
+            "peak_grid_buffer_bytes": 25728,
+            "query_ms": 2.738300000000001,
+            "total_ms": 3.6898000000000013
+          },
+          "passed": true,
+          "result_digest": "7844762959603583381",
+          "reverse": {
+            "counts": {
+              "cached_results": 62,
+              "candidates": 6136,
+              "dirty_transitions": 1896,
+              "exact_tests": 6082,
+              "notifications": 187895,
+              "queries": 1938,
+              "raw_subscriber_visits": 593499,
+              "same_cell_moves": 9426,
+              "same_cell_notifications": 144009,
+              "swept_cells": 45970
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 2674,
+            "grid_raw_candidates": 18438,
+            "maintenance_ms": 2.1054,
+            "peak_grid_buffer_bytes": 26320,
+            "peak_owned_buffer_bytes": 490068,
+            "query_ms": 2.0563999999999996,
+            "result_cache_buffer_bytes": 23840,
+            "subscription_buffer_bytes": 439908,
+            "subscription_build_ms": 0.5789,
+            "subscription_registrations": 38745,
+            "total_ms": 4.1617999999999995
+          },
+          "strictly_compared_queries": 2000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 6136,
+              "dirty_transitions": 0,
+              "exact_tests": 6082,
+              "notifications": 0,
+              "queries": 2000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 2674,
+            "grid_raw_candidates": 18438,
+            "maintenance_ms": 0.9208999999999998,
+            "peak_grid_buffer_bytes": 25728,
+            "query_ms": 2.0776000000000003,
+            "total_ms": 2.9985
+          },
+          "passed": true,
+          "result_digest": "7844762959603583381",
+          "reverse": {
+            "counts": {
+              "cached_results": 62,
+              "candidates": 6136,
+              "dirty_transitions": 1896,
+              "exact_tests": 6082,
+              "notifications": 187895,
+              "queries": 1938,
+              "raw_subscriber_visits": 593499,
+              "same_cell_moves": 9426,
+              "same_cell_notifications": 144009,
+              "swept_cells": 45970
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 2674,
+            "grid_raw_candidates": 18438,
+            "maintenance_ms": 2.136299999999999,
+            "peak_grid_buffer_bytes": 26320,
+            "peak_owned_buffer_bytes": 490068,
+            "query_ms": 2.6515000000000013,
+            "result_cache_buffer_bytes": 23840,
+            "subscription_buffer_bytes": 439908,
+            "subscription_build_ms": 0.5041,
+            "subscription_registrations": 38745,
+            "total_ms": 4.787800000000001
+          },
+          "strictly_compared_queries": 2000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 6136,
+              "dirty_transitions": 0,
+              "exact_tests": 6082,
+              "notifications": 0,
+              "queries": 2000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 2674,
+            "grid_raw_candidates": 18438,
+            "maintenance_ms": 0.9482000000000004,
+            "peak_grid_buffer_bytes": 25728,
+            "query_ms": 2.718100000000001,
+            "total_ms": 3.6663000000000014
+          },
+          "passed": true,
+          "result_digest": "7844762959603583381",
+          "reverse": {
+            "counts": {
+              "cached_results": 62,
+              "candidates": 6136,
+              "dirty_transitions": 1896,
+              "exact_tests": 6082,
+              "notifications": 187895,
+              "queries": 1938,
+              "raw_subscriber_visits": 593499,
+              "same_cell_moves": 9426,
+              "same_cell_notifications": 144009,
+              "swept_cells": 45970
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 2674,
+            "grid_raw_candidates": 18438,
+            "maintenance_ms": 2.1455,
+            "peak_grid_buffer_bytes": 26320,
+            "peak_owned_buffer_bytes": 490068,
+            "query_ms": 2.009,
+            "result_cache_buffer_bytes": 23840,
+            "subscription_buffer_bytes": 439908,
+            "subscription_build_ms": 0.4482,
+            "subscription_registrations": 38745,
+            "total_ms": 4.1545000000000005
+          },
+          "strictly_compared_queries": 2000
+        }
+      ],
+      "ticks": 120,
+      "zombies": 100
+    },
+    {
+      "active_median_ms": 72.36190000000002,
+      "moving_percent": 100,
+      "plants": 500,
+      "query_interval_ticks": 1,
+      "radius_tiles": 4,
+      "repeats": 3,
+      "reverse_median_ms": 69.64029999999998,
+      "reverse_over_active": 0.9623890472748776,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 183968,
+              "dirty_transitions": 0,
+              "exact_tests": 182230,
+              "notifications": 0,
+              "queries": 60000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 2370,
+            "grid_cell_changes": 2674,
+            "grid_raw_candidates": 532470,
+            "maintenance_ms": 1.0714000000000004,
+            "peak_grid_buffer_bytes": 25184,
+            "query_ms": 72.06150000000001,
+            "total_ms": 73.1329
+          },
+          "passed": true,
+          "result_digest": "5976221760117186512",
+          "reverse": {
+            "counts": {
+              "cached_results": 3341,
+              "candidates": 183968,
+              "dirty_transitions": 56159,
+              "exact_tests": 182230,
+              "notifications": 187895,
+              "queries": 56659,
+              "raw_subscriber_visits": 593499,
+              "same_cell_moves": 9426,
+              "same_cell_notifications": 144009,
+              "swept_cells": 45970
+            },
+            "grid_cache_hits": 2554,
+            "grid_cell_changes": 2674,
+            "grid_raw_candidates": 529946,
+            "maintenance_ms": 2.9957999999999996,
+            "peak_grid_buffer_bytes": 25944,
+            "peak_owned_buffer_bytes": 490460,
+            "query_ms": 66.64449999999998,
+            "result_cache_buffer_bytes": 24608,
+            "subscription_buffer_bytes": 439908,
+            "subscription_build_ms": 0.4794,
+            "subscription_registrations": 38745,
+            "total_ms": 69.64029999999998
+          },
+          "strictly_compared_queries": 60000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 183968,
+              "dirty_transitions": 0,
+              "exact_tests": 182230,
+              "notifications": 0,
+              "queries": 60000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 2370,
+            "grid_cell_changes": 2674,
+            "grid_raw_candidates": 532470,
+            "maintenance_ms": 1.0792,
+            "peak_grid_buffer_bytes": 25184,
+            "query_ms": 69.5612,
+            "total_ms": 70.6404
+          },
+          "passed": true,
+          "result_digest": "5976221760117186512",
+          "reverse": {
+            "counts": {
+              "cached_results": 3341,
+              "candidates": 183968,
+              "dirty_transitions": 56159,
+              "exact_tests": 182230,
+              "notifications": 187895,
+              "queries": 56659,
+              "raw_subscriber_visits": 593499,
+              "same_cell_moves": 9426,
+              "same_cell_notifications": 144009,
+              "swept_cells": 45970
+            },
+            "grid_cache_hits": 2554,
+            "grid_cell_changes": 2674,
+            "grid_raw_candidates": 529946,
+            "maintenance_ms": 3.1235999999999997,
+            "peak_grid_buffer_bytes": 25944,
+            "peak_owned_buffer_bytes": 490460,
+            "query_ms": 68.87460000000002,
+            "result_cache_buffer_bytes": 24608,
+            "subscription_buffer_bytes": 439908,
+            "subscription_build_ms": 0.5206,
+            "subscription_registrations": 38745,
+            "total_ms": 71.99820000000001
+          },
+          "strictly_compared_queries": 60000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 183968,
+              "dirty_transitions": 0,
+              "exact_tests": 182230,
+              "notifications": 0,
+              "queries": 60000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 2370,
+            "grid_cell_changes": 2674,
+            "grid_raw_candidates": 532470,
+            "maintenance_ms": 1.0401999999999998,
+            "peak_grid_buffer_bytes": 25184,
+            "query_ms": 71.32170000000002,
+            "total_ms": 72.36190000000002
+          },
+          "passed": true,
+          "result_digest": "5976221760117186512",
+          "reverse": {
+            "counts": {
+              "cached_results": 3341,
+              "candidates": 183968,
+              "dirty_transitions": 56159,
+              "exact_tests": 182230,
+              "notifications": 187895,
+              "queries": 56659,
+              "raw_subscriber_visits": 593499,
+              "same_cell_moves": 9426,
+              "same_cell_notifications": 144009,
+              "swept_cells": 45970
+            },
+            "grid_cache_hits": 2554,
+            "grid_cell_changes": 2674,
+            "grid_raw_candidates": 529946,
+            "maintenance_ms": 2.8861000000000003,
+            "peak_grid_buffer_bytes": 25944,
+            "peak_owned_buffer_bytes": 490460,
+            "query_ms": 64.88450000000002,
+            "result_cache_buffer_bytes": 24608,
+            "subscription_buffer_bytes": 439908,
+            "subscription_build_ms": 0.4994,
+            "subscription_registrations": 38745,
+            "total_ms": 67.77060000000002
+          },
+          "strictly_compared_queries": 60000
+        }
+      ],
+      "ticks": 120,
+      "zombies": 100
+    },
+    {
+      "active_median_ms": 20.4931,
+      "moving_percent": 1,
+      "plants": 500,
+      "query_interval_ticks": 30,
+      "radius_tiles": 16,
+      "repeats": 3,
+      "reverse_median_ms": 20.355499999999996,
+      "reverse_over_active": 0.9932855448907192,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 57573,
+              "dirty_transitions": 0,
+              "exact_tests": 57034,
+              "notifications": 0,
+              "queries": 2000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 55,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 195946,
+            "maintenance_ms": 0.03189999999999996,
+            "peak_grid_buffer_bytes": 73760,
+            "query_ms": 20.461199999999998,
+            "total_ms": 20.4931
+          },
+          "passed": true,
+          "result_digest": "1161309928139506573",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 57573,
+              "dirty_transitions": 1974,
+              "exact_tests": 57034,
+              "notifications": 34578,
+              "queries": 2000,
+              "raw_subscriber_visits": 122490,
+              "same_cell_moves": 99,
+              "same_cell_notifications": 14110,
+              "swept_cells": 876
+            },
+            "grid_cache_hits": 55,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 195946,
+            "maintenance_ms": 0.2788000000000001,
+            "peak_grid_buffer_bytes": 73760,
+            "peak_owned_buffer_bytes": 4337860,
+            "query_ms": 19.31889999999999,
+            "result_cache_buffer_bytes": 102024,
+            "subscription_buffer_bytes": 4162076,
+            "subscription_build_ms": 3.6368,
+            "subscription_registrations": 411081,
+            "total_ms": 19.59769999999999
+          },
+          "strictly_compared_queries": 2000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 57573,
+              "dirty_transitions": 0,
+              "exact_tests": 57034,
+              "notifications": 0,
+              "queries": 2000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 55,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 195946,
+            "maintenance_ms": 0.02559999999999997,
+            "peak_grid_buffer_bytes": 73760,
+            "query_ms": 19.738800000000005,
+            "total_ms": 19.764400000000006
+          },
+          "passed": true,
+          "result_digest": "1161309928139506573",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 57573,
+              "dirty_transitions": 1974,
+              "exact_tests": 57034,
+              "notifications": 34578,
+              "queries": 2000,
+              "raw_subscriber_visits": 122490,
+              "same_cell_moves": 99,
+              "same_cell_notifications": 14110,
+              "swept_cells": 876
+            },
+            "grid_cache_hits": 55,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 195946,
+            "maintenance_ms": 0.3002,
+            "peak_grid_buffer_bytes": 73760,
+            "peak_owned_buffer_bytes": 4337860,
+            "query_ms": 20.721500000000002,
+            "result_cache_buffer_bytes": 102024,
+            "subscription_buffer_bytes": 4162076,
+            "subscription_build_ms": 3.4803,
+            "subscription_registrations": 411081,
+            "total_ms": 21.021700000000003
+          },
+          "strictly_compared_queries": 2000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 57573,
+              "dirty_transitions": 0,
+              "exact_tests": 57034,
+              "notifications": 0,
+              "queries": 2000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 55,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 195946,
+            "maintenance_ms": 0.03249999999999999,
+            "peak_grid_buffer_bytes": 73760,
+            "query_ms": 20.971300000000003,
+            "total_ms": 21.003800000000002
+          },
+          "passed": true,
+          "result_digest": "1161309928139506573",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 57573,
+              "dirty_transitions": 1974,
+              "exact_tests": 57034,
+              "notifications": 34578,
+              "queries": 2000,
+              "raw_subscriber_visits": 122490,
+              "same_cell_moves": 99,
+              "same_cell_notifications": 14110,
+              "swept_cells": 876
+            },
+            "grid_cache_hits": 55,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 195946,
+            "maintenance_ms": 0.2741,
+            "peak_grid_buffer_bytes": 73760,
+            "peak_owned_buffer_bytes": 4337860,
+            "query_ms": 20.081399999999995,
+            "result_cache_buffer_bytes": 102024,
+            "subscription_buffer_bytes": 4162076,
+            "subscription_build_ms": 3.5056,
+            "subscription_registrations": 411081,
+            "total_ms": 20.355499999999996
+          },
+          "strictly_compared_queries": 2000
+        }
+      ],
+      "ticks": 120,
+      "zombies": 100
+    },
+    {
+      "active_median_ms": 600.7076000000002,
+      "moving_percent": 1,
+      "plants": 500,
+      "query_interval_ticks": 1,
+      "radius_tiles": 16,
+      "repeats": 3,
+      "reverse_median_ms": 222.134,
+      "reverse_over_active": 0.3697872309256615,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 1727357,
+              "dirty_transitions": 0,
+              "exact_tests": 1711257,
+              "notifications": 0,
+              "queries": 60000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 2844,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 5765333,
+            "maintenance_ms": 0.046200000000000005,
+            "peak_grid_buffer_bytes": 71888,
+            "query_ms": 600.6614000000002,
+            "total_ms": 600.7076000000002
+          },
+          "passed": true,
+          "result_digest": "3519039284652016296",
+          "reverse": {
+            "counts": {
+              "cached_results": 32332,
+              "candidates": 823765,
+              "dirty_transitions": 27168,
+              "exact_tests": 815862,
+              "notifications": 34578,
+              "queries": 27668,
+              "raw_subscriber_visits": 122490,
+              "same_cell_moves": 99,
+              "same_cell_notifications": 14110,
+              "swept_cells": 876
+            },
+            "grid_cache_hits": 5203,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 2330849,
+            "maintenance_ms": 0.4463,
+            "peak_grid_buffer_bytes": 75176,
+            "peak_owned_buffer_bytes": 4339540,
+            "query_ms": 221.68769999999998,
+            "result_cache_buffer_bytes": 102288,
+            "subscription_buffer_bytes": 4162076,
+            "subscription_build_ms": 3.4905,
+            "subscription_registrations": 411081,
+            "total_ms": 222.134
+          },
+          "strictly_compared_queries": 60000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 1727357,
+              "dirty_transitions": 0,
+              "exact_tests": 1711257,
+              "notifications": 0,
+              "queries": 60000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 2844,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 5765333,
+            "maintenance_ms": 0.03810000000000001,
+            "peak_grid_buffer_bytes": 71888,
+            "query_ms": 615.0503,
+            "total_ms": 615.0884
+          },
+          "passed": true,
+          "result_digest": "3519039284652016296",
+          "reverse": {
+            "counts": {
+              "cached_results": 32332,
+              "candidates": 823765,
+              "dirty_transitions": 27168,
+              "exact_tests": 815862,
+              "notifications": 34578,
+              "queries": 27668,
+              "raw_subscriber_visits": 122490,
+              "same_cell_moves": 99,
+              "same_cell_notifications": 14110,
+              "swept_cells": 876
+            },
+            "grid_cache_hits": 5203,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 2330849,
+            "maintenance_ms": 0.5236000000000002,
+            "peak_grid_buffer_bytes": 75176,
+            "peak_owned_buffer_bytes": 4339540,
+            "query_ms": 228.21879999999996,
+            "result_cache_buffer_bytes": 102288,
+            "subscription_buffer_bytes": 4162076,
+            "subscription_build_ms": 4.0206,
+            "subscription_registrations": 411081,
+            "total_ms": 228.74239999999995
+          },
+          "strictly_compared_queries": 60000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 1727357,
+              "dirty_transitions": 0,
+              "exact_tests": 1711257,
+              "notifications": 0,
+              "queries": 60000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 2844,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 5765333,
+            "maintenance_ms": 0.04920000000000001,
+            "peak_grid_buffer_bytes": 71888,
+            "query_ms": 599.6852,
+            "total_ms": 599.7344
+          },
+          "passed": true,
+          "result_digest": "3519039284652016296",
+          "reverse": {
+            "counts": {
+              "cached_results": 32332,
+              "candidates": 823765,
+              "dirty_transitions": 27168,
+              "exact_tests": 815862,
+              "notifications": 34578,
+              "queries": 27668,
+              "raw_subscriber_visits": 122490,
+              "same_cell_moves": 99,
+              "same_cell_notifications": 14110,
+              "swept_cells": 876
+            },
+            "grid_cache_hits": 5203,
+            "grid_cell_changes": 121,
+            "grid_raw_candidates": 2330849,
+            "maintenance_ms": 0.4661000000000002,
+            "peak_grid_buffer_bytes": 75176,
+            "peak_owned_buffer_bytes": 4339540,
+            "query_ms": 218.57250000000002,
+            "result_cache_buffer_bytes": 102288,
+            "subscription_buffer_bytes": 4162076,
+            "subscription_build_ms": 4.0963,
+            "subscription_registrations": 411081,
+            "total_ms": 219.03860000000003
+          },
+          "strictly_compared_queries": 60000
+        }
+      ],
+      "ticks": 120,
+      "zombies": 100
+    },
+    {
+      "active_median_ms": 26.5363,
+      "moving_percent": 100,
+      "plants": 500,
+      "query_interval_ticks": 30,
+      "radius_tiles": 16,
+      "repeats": 3,
+      "reverse_median_ms": 30.286200000000008,
+      "reverse_over_active": 1.1413120894774331,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 57479,
+              "dirty_transitions": 0,
+              "exact_tests": 56942,
+              "notifications": 0,
+              "queries": 2000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 2674,
+            "grid_raw_candidates": 200061,
+            "maintenance_ms": 1.0898999999999999,
+            "peak_grid_buffer_bytes": 76808,
+            "query_ms": 25.95529999999999,
+            "total_ms": 27.04519999999999
+          },
+          "passed": true,
+          "result_digest": "16404480076289036408",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 57479,
+              "dirty_transitions": 1984,
+              "exact_tests": 56942,
+              "notifications": 1746040,
+              "queries": 2000,
+              "raw_subscriber_visits": 6407170,
+              "same_cell_moves": 9426,
+              "same_cell_notifications": 1353454,
+              "swept_cells": 45970
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 2674,
+            "grid_raw_candidates": 200061,
+            "maintenance_ms": 6.843899999999999,
+            "peak_grid_buffer_bytes": 76808,
+            "peak_owned_buffer_bytes": 4342868,
+            "query_ms": 23.44230000000001,
+            "result_cache_buffer_bytes": 103984,
+            "subscription_buffer_bytes": 4162076,
+            "subscription_build_ms": 3.7138,
+            "subscription_registrations": 411081,
+            "total_ms": 30.286200000000008
+          },
+          "strictly_compared_queries": 2000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 57479,
+              "dirty_transitions": 0,
+              "exact_tests": 56942,
+              "notifications": 0,
+              "queries": 2000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 2674,
+            "grid_raw_candidates": 200061,
+            "maintenance_ms": 1.0209,
+            "peak_grid_buffer_bytes": 76808,
+            "query_ms": 23.1737,
+            "total_ms": 24.1946
+          },
+          "passed": true,
+          "result_digest": "16404480076289036408",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 57479,
+              "dirty_transitions": 1984,
+              "exact_tests": 56942,
+              "notifications": 1746040,
+              "queries": 2000,
+              "raw_subscriber_visits": 6407170,
+              "same_cell_moves": 9426,
+              "same_cell_notifications": 1353454,
+              "swept_cells": 45970
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 2674,
+            "grid_raw_candidates": 200061,
+            "maintenance_ms": 6.6416,
+            "peak_grid_buffer_bytes": 76808,
+            "peak_owned_buffer_bytes": 4342868,
+            "query_ms": 25.803300000000004,
+            "result_cache_buffer_bytes": 103984,
+            "subscription_buffer_bytes": 4162076,
+            "subscription_build_ms": 2.8341,
+            "subscription_registrations": 411081,
+            "total_ms": 32.444900000000004
+          },
+          "strictly_compared_queries": 2000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 57479,
+              "dirty_transitions": 0,
+              "exact_tests": 56942,
+              "notifications": 0,
+              "queries": 2000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 2674,
+            "grid_raw_candidates": 200061,
+            "maintenance_ms": 1.0424999999999998,
+            "peak_grid_buffer_bytes": 76808,
+            "query_ms": 25.4938,
+            "total_ms": 26.5363
+          },
+          "passed": true,
+          "result_digest": "16404480076289036408",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 57479,
+              "dirty_transitions": 1984,
+              "exact_tests": 56942,
+              "notifications": 1746040,
+              "queries": 2000,
+              "raw_subscriber_visits": 6407170,
+              "same_cell_moves": 9426,
+              "same_cell_notifications": 1353454,
+              "swept_cells": 45970
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 2674,
+            "grid_raw_candidates": 200061,
+            "maintenance_ms": 6.4895,
+            "peak_grid_buffer_bytes": 76808,
+            "peak_owned_buffer_bytes": 4342868,
+            "query_ms": 22.763199999999998,
+            "result_cache_buffer_bytes": 103984,
+            "subscription_buffer_bytes": 4162076,
+            "subscription_build_ms": 2.7915,
+            "subscription_registrations": 411081,
+            "total_ms": 29.252699999999997
+          },
+          "strictly_compared_queries": 2000
+        }
+      ],
+      "ticks": 120,
+      "zombies": 100
+    },
+    {
+      "active_median_ms": 616.1962000000002,
+      "moving_percent": 100,
+      "plants": 500,
+      "query_interval_ticks": 1,
+      "radius_tiles": 16,
+      "repeats": 3,
+      "reverse_median_ms": 613.5355999999997,
+      "reverse_over_active": 0.995682219397003,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 1723497,
+              "dirty_transitions": 0,
+              "exact_tests": 1707454,
+              "notifications": 0,
+              "queries": 60000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 2370,
+            "grid_cell_changes": 2674,
+            "grid_raw_candidates": 5755616,
+            "maintenance_ms": 1.667599999999999,
+            "peak_grid_buffer_bytes": 73528,
+            "query_ms": 614.5286000000002,
+            "total_ms": 616.1962000000002
+          },
+          "passed": true,
+          "result_digest": "18207350152950201297",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 1723497,
+              "dirty_transitions": 59500,
+              "exact_tests": 1707454,
+              "notifications": 1746040,
+              "queries": 60000,
+              "raw_subscriber_visits": 6407170,
+              "same_cell_moves": 9426,
+              "same_cell_notifications": 1353454,
+              "swept_cells": 45970
+            },
+            "grid_cache_hits": 2370,
+            "grid_cell_changes": 2674,
+            "grid_raw_candidates": 5755616,
+            "maintenance_ms": 9.928,
+            "peak_grid_buffer_bytes": 73528,
+            "peak_owned_buffer_bytes": 4342036,
+            "query_ms": 588.2893000000003,
+            "result_cache_buffer_bytes": 106432,
+            "subscription_buffer_bytes": 4162076,
+            "subscription_build_ms": 3.6154,
+            "subscription_registrations": 411081,
+            "total_ms": 598.2173000000003
+          },
+          "strictly_compared_queries": 60000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 1723497,
+              "dirty_transitions": 0,
+              "exact_tests": 1707454,
+              "notifications": 0,
+              "queries": 60000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 2370,
+            "grid_cell_changes": 2674,
+            "grid_raw_candidates": 5755616,
+            "maintenance_ms": 1.3385000000000007,
+            "peak_grid_buffer_bytes": 73528,
+            "query_ms": 573.0872999999999,
+            "total_ms": 574.4257999999999
+          },
+          "passed": true,
+          "result_digest": "18207350152950201297",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 1723497,
+              "dirty_transitions": 59500,
+              "exact_tests": 1707454,
+              "notifications": 1746040,
+              "queries": 60000,
+              "raw_subscriber_visits": 6407170,
+              "same_cell_moves": 9426,
+              "same_cell_notifications": 1353454,
+              "swept_cells": 45970
+            },
+            "grid_cache_hits": 2370,
+            "grid_cell_changes": 2674,
+            "grid_raw_candidates": 5755616,
+            "maintenance_ms": 9.768300000000005,
+            "peak_grid_buffer_bytes": 73528,
+            "peak_owned_buffer_bytes": 4342036,
+            "query_ms": 603.7672999999998,
+            "result_cache_buffer_bytes": 106432,
+            "subscription_buffer_bytes": 4162076,
+            "subscription_build_ms": 3.5952,
+            "subscription_registrations": 411081,
+            "total_ms": 613.5355999999997
+          },
+          "strictly_compared_queries": 60000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 1723497,
+              "dirty_transitions": 0,
+              "exact_tests": 1707454,
+              "notifications": 0,
+              "queries": 60000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 2370,
+            "grid_cell_changes": 2674,
+            "grid_raw_candidates": 5755616,
+            "maintenance_ms": 1.8579999999999999,
+            "peak_grid_buffer_bytes": 73528,
+            "query_ms": 625.7109999999997,
+            "total_ms": 627.5689999999996
+          },
+          "passed": true,
+          "result_digest": "18207350152950201297",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 1723497,
+              "dirty_transitions": 59500,
+              "exact_tests": 1707454,
+              "notifications": 1746040,
+              "queries": 60000,
+              "raw_subscriber_visits": 6407170,
+              "same_cell_moves": 9426,
+              "same_cell_notifications": 1353454,
+              "swept_cells": 45970
+            },
+            "grid_cache_hits": 2370,
+            "grid_cell_changes": 2674,
+            "grid_raw_candidates": 5755616,
+            "maintenance_ms": 11.147600000000002,
+            "peak_grid_buffer_bytes": 73528,
+            "peak_owned_buffer_bytes": 4342036,
+            "query_ms": 605.4310000000002,
+            "result_cache_buffer_bytes": 106432,
+            "subscription_buffer_bytes": 4162076,
+            "subscription_build_ms": 3.5574,
+            "subscription_registrations": 411081,
+            "total_ms": 616.5786000000002
+          },
+          "strictly_compared_queries": 60000
+        }
+      ],
+      "ticks": 120,
+      "zombies": 100
+    },
+    {
+      "active_median_ms": 6.801999999999998,
+      "moving_percent": 1,
+      "plants": 500,
+      "query_interval_ticks": 30,
+      "radius_tiles": 4,
+      "repeats": 3,
+      "reverse_median_ms": 6.843500000000003,
+      "reverse_over_active": 1.0061011467215533,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 62763,
+              "dirty_transitions": 0,
+              "exact_tests": 62719,
+              "notifications": 0,
+              "queries": 2000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 1,
+            "grid_cell_changes": 1270,
+            "grid_raw_candidates": 193640,
+            "maintenance_ms": 0.1276,
+            "peak_grid_buffer_bytes": 213392,
+            "query_ms": 6.674399999999998,
+            "total_ms": 6.801999999999998
+          },
+          "passed": true,
+          "result_digest": "10545537260276832346",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 62763,
+              "dirty_transitions": 1932,
+              "exact_tests": 62719,
+              "notifications": 20981,
+              "queries": 2000,
+              "raw_subscriber_visits": 67957,
+              "same_cell_moves": 930,
+              "same_cell_notifications": 14627,
+              "swept_cells": 5076
+            },
+            "grid_cache_hits": 1,
+            "grid_cell_changes": 1270,
+            "grid_raw_candidates": 193640,
+            "maintenance_ms": 0.30640000000000023,
+            "peak_grid_buffer_bytes": 213392,
+            "peak_owned_buffer_bytes": 750764,
+            "query_ms": 5.976800000000007,
+            "result_cache_buffer_bytes": 97464,
+            "subscription_buffer_bytes": 439908,
+            "subscription_build_ms": 0.5862,
+            "subscription_registrations": 38745,
+            "total_ms": 6.283200000000007
+          },
+          "strictly_compared_queries": 2000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 62763,
+              "dirty_transitions": 0,
+              "exact_tests": 62719,
+              "notifications": 0,
+              "queries": 2000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 1,
+            "grid_cell_changes": 1270,
+            "grid_raw_candidates": 193640,
+            "maintenance_ms": 0.08950000000000007,
+            "peak_grid_buffer_bytes": 213392,
+            "query_ms": 6.0714000000000015,
+            "total_ms": 6.160900000000002
+          },
+          "passed": true,
+          "result_digest": "10545537260276832346",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 62763,
+              "dirty_transitions": 1932,
+              "exact_tests": 62719,
+              "notifications": 20981,
+              "queries": 2000,
+              "raw_subscriber_visits": 67957,
+              "same_cell_moves": 930,
+              "same_cell_notifications": 14627,
+              "swept_cells": 5076
+            },
+            "grid_cache_hits": 1,
+            "grid_cell_changes": 1270,
+            "grid_raw_candidates": 193640,
+            "maintenance_ms": 0.3095000000000001,
+            "peak_grid_buffer_bytes": 213392,
+            "peak_owned_buffer_bytes": 750764,
+            "query_ms": 6.7843000000000035,
+            "result_cache_buffer_bytes": 97464,
+            "subscription_buffer_bytes": 439908,
+            "subscription_build_ms": 0.4532,
+            "subscription_registrations": 38745,
+            "total_ms": 7.093800000000003
+          },
+          "strictly_compared_queries": 2000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 62763,
+              "dirty_transitions": 0,
+              "exact_tests": 62719,
+              "notifications": 0,
+              "queries": 2000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 1,
+            "grid_cell_changes": 1270,
+            "grid_raw_candidates": 193640,
+            "maintenance_ms": 0.15220000000000006,
+            "peak_grid_buffer_bytes": 213392,
+            "query_ms": 7.2074,
+            "total_ms": 7.3595999999999995
+          },
+          "passed": true,
+          "result_digest": "10545537260276832346",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 62763,
+              "dirty_transitions": 1932,
+              "exact_tests": 62719,
+              "notifications": 20981,
+              "queries": 2000,
+              "raw_subscriber_visits": 67957,
+              "same_cell_moves": 930,
+              "same_cell_notifications": 14627,
+              "swept_cells": 5076
+            },
+            "grid_cache_hits": 1,
+            "grid_cell_changes": 1270,
+            "grid_raw_candidates": 193640,
+            "maintenance_ms": 0.4004000000000001,
+            "peak_grid_buffer_bytes": 213392,
+            "peak_owned_buffer_bytes": 750764,
+            "query_ms": 6.443100000000003,
+            "result_cache_buffer_bytes": 97464,
+            "subscription_buffer_bytes": 439908,
+            "subscription_build_ms": 0.4413,
+            "subscription_registrations": 38745,
+            "total_ms": 6.843500000000003
+          },
+          "strictly_compared_queries": 2000
+        }
+      ],
+      "ticks": 120,
+      "zombies": 1000
+    },
+    {
+      "active_median_ms": 188.76719999999997,
+      "moving_percent": 1,
+      "plants": 500,
+      "query_interval_ticks": 1,
+      "radius_tiles": 4,
+      "repeats": 3,
+      "reverse_median_ms": 57.51890000000001,
+      "reverse_over_active": 0.30470812725939683,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 1882972,
+              "dirty_transitions": 0,
+              "exact_tests": 1881638,
+              "notifications": 0,
+              "queries": 60000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 2400,
+            "grid_cell_changes": 1270,
+            "grid_raw_candidates": 5554294,
+            "maintenance_ms": 0.20600000000000004,
+            "peak_grid_buffer_bytes": 209152,
+            "query_ms": 188.56119999999999,
+            "total_ms": 188.76719999999997
+          },
+          "passed": true,
+          "result_digest": "7129911044910497004",
+          "reverse": {
+            "counts": {
+              "cached_results": 41868,
+              "candidates": 606748,
+              "dirty_transitions": 17632,
+              "exact_tests": 606394,
+              "notifications": 20981,
+              "queries": 18132,
+              "raw_subscriber_visits": 67957,
+              "same_cell_moves": 930,
+              "same_cell_notifications": 14627,
+              "swept_cells": 5076
+            },
+            "grid_cache_hits": 1694,
+            "grid_cell_changes": 1270,
+            "grid_raw_candidates": 1683952,
+            "maintenance_ms": 0.6729999999999998,
+            "peak_grid_buffer_bytes": 217656,
+            "peak_owned_buffer_bytes": 755508,
+            "query_ms": 57.21540000000003,
+            "result_cache_buffer_bytes": 97944,
+            "subscription_buffer_bytes": 439908,
+            "subscription_build_ms": 0.4696,
+            "subscription_registrations": 38745,
+            "total_ms": 57.88840000000003
+          },
+          "strictly_compared_queries": 60000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 1882972,
+              "dirty_transitions": 0,
+              "exact_tests": 1881638,
+              "notifications": 0,
+              "queries": 60000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 2400,
+            "grid_cell_changes": 1270,
+            "grid_raw_candidates": 5554294,
+            "maintenance_ms": 0.15760000000000007,
+            "peak_grid_buffer_bytes": 209152,
+            "query_ms": 186.81560000000002,
+            "total_ms": 186.97320000000002
+          },
+          "passed": true,
+          "result_digest": "7129911044910497004",
+          "reverse": {
+            "counts": {
+              "cached_results": 41868,
+              "candidates": 606748,
+              "dirty_transitions": 17632,
+              "exact_tests": 606394,
+              "notifications": 20981,
+              "queries": 18132,
+              "raw_subscriber_visits": 67957,
+              "same_cell_moves": 930,
+              "same_cell_notifications": 14627,
+              "swept_cells": 5076
+            },
+            "grid_cache_hits": 1694,
+            "grid_cell_changes": 1270,
+            "grid_raw_candidates": 1683952,
+            "maintenance_ms": 0.6532000000000001,
+            "peak_grid_buffer_bytes": 217656,
+            "peak_owned_buffer_bytes": 755508,
+            "query_ms": 56.25829999999999,
+            "result_cache_buffer_bytes": 97944,
+            "subscription_buffer_bytes": 439908,
+            "subscription_build_ms": 0.4755,
+            "subscription_registrations": 38745,
+            "total_ms": 56.91149999999999
+          },
+          "strictly_compared_queries": 60000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 1882972,
+              "dirty_transitions": 0,
+              "exact_tests": 1881638,
+              "notifications": 0,
+              "queries": 60000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 2400,
+            "grid_cell_changes": 1270,
+            "grid_raw_candidates": 5554294,
+            "maintenance_ms": 0.2063000000000001,
+            "peak_grid_buffer_bytes": 209152,
+            "query_ms": 192.87420000000003,
+            "total_ms": 193.08050000000003
+          },
+          "passed": true,
+          "result_digest": "7129911044910497004",
+          "reverse": {
+            "counts": {
+              "cached_results": 41868,
+              "candidates": 606748,
+              "dirty_transitions": 17632,
+              "exact_tests": 606394,
+              "notifications": 20981,
+              "queries": 18132,
+              "raw_subscriber_visits": 67957,
+              "same_cell_moves": 930,
+              "same_cell_notifications": 14627,
+              "swept_cells": 5076
+            },
+            "grid_cache_hits": 1694,
+            "grid_cell_changes": 1270,
+            "grid_raw_candidates": 1683952,
+            "maintenance_ms": 0.6923000000000001,
+            "peak_grid_buffer_bytes": 217656,
+            "peak_owned_buffer_bytes": 755508,
+            "query_ms": 56.826600000000006,
+            "result_cache_buffer_bytes": 97944,
+            "subscription_buffer_bytes": 439908,
+            "subscription_build_ms": 0.4851,
+            "subscription_registrations": 38745,
+            "total_ms": 57.51890000000001
+          },
+          "strictly_compared_queries": 60000
+        }
+      ],
+      "ticks": 120,
+      "zombies": 1000
+    },
+    {
+      "active_median_ms": 16.320499999999996,
+      "moving_percent": 100,
+      "plants": 500,
+      "query_interval_ticks": 30,
+      "radius_tiles": 4,
+      "repeats": 3,
+      "reverse_median_ms": 28.973899999999997,
+      "reverse_over_active": 1.775307129070801,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 62721,
+              "dirty_transitions": 0,
+              "exact_tests": 62678,
+              "notifications": 0,
+              "queries": 2000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 26283,
+            "grid_raw_candidates": 193808,
+            "maintenance_ms": 9.3185,
+            "peak_grid_buffer_bytes": 254952,
+            "query_ms": 7.302900000000001,
+            "total_ms": 16.6214
+          },
+          "passed": true,
+          "result_digest": "18311861793555416518",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 62721,
+              "dirty_transitions": 1984,
+              "exact_tests": 62678,
+              "notifications": 1903864,
+              "queries": 2000,
+              "raw_subscriber_visits": 6156731,
+              "same_cell_moves": 94717,
+              "same_cell_notifications": 1479896,
+              "swept_cells": 460708
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 26283,
+            "grid_raw_candidates": 193808,
+            "maintenance_ms": 22.4229,
+            "peak_grid_buffer_bytes": 254952,
+            "peak_owned_buffer_bytes": 797436,
+            "query_ms": 6.550999999999998,
+            "result_cache_buffer_bytes": 102576,
+            "subscription_buffer_bytes": 439908,
+            "subscription_build_ms": 0.6515,
+            "subscription_registrations": 38745,
+            "total_ms": 28.973899999999997
+          },
+          "strictly_compared_queries": 2000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 62721,
+              "dirty_transitions": 0,
+              "exact_tests": 62678,
+              "notifications": 0,
+              "queries": 2000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 26283,
+            "grid_raw_candidates": 193808,
+            "maintenance_ms": 9.535400000000003,
+            "peak_grid_buffer_bytes": 254952,
+            "query_ms": 6.735399999999998,
+            "total_ms": 16.2708
+          },
+          "passed": true,
+          "result_digest": "18311861793555416518",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 62721,
+              "dirty_transitions": 1984,
+              "exact_tests": 62678,
+              "notifications": 1903864,
+              "queries": 2000,
+              "raw_subscriber_visits": 6156731,
+              "same_cell_moves": 94717,
+              "same_cell_notifications": 1479896,
+              "swept_cells": 460708
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 26283,
+            "grid_raw_candidates": 193808,
+            "maintenance_ms": 23.201100000000004,
+            "peak_grid_buffer_bytes": 254952,
+            "peak_owned_buffer_bytes": 797436,
+            "query_ms": 7.515899999999997,
+            "result_cache_buffer_bytes": 102576,
+            "subscription_buffer_bytes": 439908,
+            "subscription_build_ms": 0.4717,
+            "subscription_registrations": 38745,
+            "total_ms": 30.717
+          },
+          "strictly_compared_queries": 2000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 62721,
+              "dirty_transitions": 0,
+              "exact_tests": 62678,
+              "notifications": 0,
+              "queries": 2000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 26283,
+            "grid_raw_candidates": 193808,
+            "maintenance_ms": 9.181099999999995,
+            "peak_grid_buffer_bytes": 254952,
+            "query_ms": 7.139400000000001,
+            "total_ms": 16.320499999999996
+          },
+          "passed": true,
+          "result_digest": "18311861793555416518",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 62721,
+              "dirty_transitions": 1984,
+              "exact_tests": 62678,
+              "notifications": 1903864,
+              "queries": 2000,
+              "raw_subscriber_visits": 6156731,
+              "same_cell_moves": 94717,
+              "same_cell_notifications": 1479896,
+              "swept_cells": 460708
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 26283,
+            "grid_raw_candidates": 193808,
+            "maintenance_ms": 21.875800000000005,
+            "peak_grid_buffer_bytes": 254952,
+            "peak_owned_buffer_bytes": 797436,
+            "query_ms": 6.4639000000000015,
+            "result_cache_buffer_bytes": 102576,
+            "subscription_buffer_bytes": 439908,
+            "subscription_build_ms": 0.4568,
+            "subscription_registrations": 38745,
+            "total_ms": 28.339700000000008
+          },
+          "strictly_compared_queries": 2000
+        }
+      ],
+      "ticks": 120,
+      "zombies": 1000
+    },
+    {
+      "active_median_ms": 207.22690000000014,
+      "moving_percent": 100,
+      "plants": 500,
+      "query_interval_ticks": 1,
+      "radius_tiles": 4,
+      "repeats": 3,
+      "reverse_median_ms": 224.8575,
+      "reverse_over_active": 1.0850787228878096,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 1881462,
+              "dirty_transitions": 0,
+              "exact_tests": 1880121,
+              "notifications": 0,
+              "queries": 60000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 2370,
+            "grid_cell_changes": 26283,
+            "grid_raw_candidates": 5559420,
+            "maintenance_ms": 10.15129999999999,
+            "peak_grid_buffer_bytes": 250408,
+            "query_ms": 197.07560000000015,
+            "total_ms": 207.22690000000014
+          },
+          "passed": true,
+          "result_digest": "1700837979070916887",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 1881462,
+              "dirty_transitions": 59500,
+              "exact_tests": 1880121,
+              "notifications": 1903864,
+              "queries": 60000,
+              "raw_subscriber_visits": 6156731,
+              "same_cell_moves": 94717,
+              "same_cell_notifications": 1479896,
+              "swept_cells": 460708
+            },
+            "grid_cache_hits": 2370,
+            "grid_cell_changes": 26283,
+            "grid_raw_candidates": 5559420,
+            "maintenance_ms": 24.2395,
+            "peak_grid_buffer_bytes": 250408,
+            "peak_owned_buffer_bytes": 798084,
+            "query_ms": 191.96000000000012,
+            "result_cache_buffer_bytes": 107768,
+            "subscription_buffer_bytes": 439908,
+            "subscription_build_ms": 0.7447,
+            "subscription_registrations": 38745,
+            "total_ms": 216.1995000000001
+          },
+          "strictly_compared_queries": 60000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 1881462,
+              "dirty_transitions": 0,
+              "exact_tests": 1880121,
+              "notifications": 0,
+              "queries": 60000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 2370,
+            "grid_cell_changes": 26283,
+            "grid_raw_candidates": 5559420,
+            "maintenance_ms": 9.761500000000002,
+            "peak_grid_buffer_bytes": 250408,
+            "query_ms": 190.38330000000005,
+            "total_ms": 200.14480000000006
+          },
+          "passed": true,
+          "result_digest": "1700837979070916887",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 1881462,
+              "dirty_transitions": 59500,
+              "exact_tests": 1880121,
+              "notifications": 1903864,
+              "queries": 60000,
+              "raw_subscriber_visits": 6156731,
+              "same_cell_moves": 94717,
+              "same_cell_notifications": 1479896,
+              "swept_cells": 460708
+            },
+            "grid_cache_hits": 2370,
+            "grid_cell_changes": 26283,
+            "grid_raw_candidates": 5559420,
+            "maintenance_ms": 25.74510000000001,
+            "peak_grid_buffer_bytes": 250408,
+            "peak_owned_buffer_bytes": 798084,
+            "query_ms": 199.11239999999998,
+            "result_cache_buffer_bytes": 107768,
+            "subscription_buffer_bytes": 439908,
+            "subscription_build_ms": 0.4999,
+            "subscription_registrations": 38745,
+            "total_ms": 224.8575
+          },
+          "strictly_compared_queries": 60000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 1881462,
+              "dirty_transitions": 0,
+              "exact_tests": 1880121,
+              "notifications": 0,
+              "queries": 60000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 2370,
+            "grid_cell_changes": 26283,
+            "grid_raw_candidates": 5559420,
+            "maintenance_ms": 12.649999999999997,
+            "peak_grid_buffer_bytes": 250408,
+            "query_ms": 209.55030000000008,
+            "total_ms": 222.20030000000008
+          },
+          "passed": true,
+          "result_digest": "1700837979070916887",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 1881462,
+              "dirty_transitions": 59500,
+              "exact_tests": 1880121,
+              "notifications": 1903864,
+              "queries": 60000,
+              "raw_subscriber_visits": 6156731,
+              "same_cell_moves": 94717,
+              "same_cell_notifications": 1479896,
+              "swept_cells": 460708
+            },
+            "grid_cache_hits": 2370,
+            "grid_cell_changes": 26283,
+            "grid_raw_candidates": 5559420,
+            "maintenance_ms": 30.55420000000002,
+            "peak_grid_buffer_bytes": 250408,
+            "peak_owned_buffer_bytes": 798084,
+            "query_ms": 207.3785,
+            "result_cache_buffer_bytes": 107768,
+            "subscription_buffer_bytes": 439908,
+            "subscription_build_ms": 0.4754,
+            "subscription_registrations": 38745,
+            "total_ms": 237.9327
+          },
+          "strictly_compared_queries": 60000
+        }
+      ],
+      "ticks": 120,
+      "zombies": 1000
+    },
+    {
+      "active_median_ms": 66.12359999999998,
+      "moving_percent": 1,
+      "plants": 500,
+      "query_interval_ticks": 30,
+      "radius_tiles": 16,
+      "repeats": 3,
+      "reverse_median_ms": 67.6436,
+      "reverse_over_active": 1.0229872541724894,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 573414,
+              "dirty_transitions": 0,
+              "exact_tests": 573005,
+              "notifications": 0,
+              "queries": 2000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 1,
+            "grid_cell_changes": 1270,
+            "grid_raw_candidates": 2007909,
+            "maintenance_ms": 0.26000000000000006,
+            "peak_grid_buffer_bytes": 727320,
+            "query_ms": 69.87780000000001,
+            "total_ms": 70.13780000000001
+          },
+          "passed": true,
+          "result_digest": "6619361117041279536",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 573414,
+              "dirty_transitions": 1984,
+              "exact_tests": 573005,
+              "notifications": 190076,
+              "queries": 2000,
+              "raw_subscriber_visits": 705305,
+              "same_cell_moves": 930,
+              "same_cell_notifications": 133426,
+              "swept_cells": 5076
+            },
+            "grid_cache_hits": 1,
+            "grid_cell_changes": 1270,
+            "grid_raw_candidates": 2007909,
+            "maintenance_ms": 1.9558999999999989,
+            "peak_grid_buffer_bytes": 727320,
+            "peak_owned_buffer_bytes": 5773204,
+            "query_ms": 69.89340000000001,
+            "result_cache_buffer_bytes": 883808,
+            "subscription_buffer_bytes": 4162076,
+            "subscription_build_ms": 3.5397,
+            "subscription_registrations": 411081,
+            "total_ms": 71.84930000000001
+          },
+          "strictly_compared_queries": 2000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 573414,
+              "dirty_transitions": 0,
+              "exact_tests": 573005,
+              "notifications": 0,
+              "queries": 2000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 1,
+            "grid_cell_changes": 1270,
+            "grid_raw_candidates": 2007909,
+            "maintenance_ms": 0.19860000000000003,
+            "peak_grid_buffer_bytes": 727320,
+            "query_ms": 65.01129999999996,
+            "total_ms": 65.20989999999996
+          },
+          "passed": true,
+          "result_digest": "6619361117041279536",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 573414,
+              "dirty_transitions": 1984,
+              "exact_tests": 573005,
+              "notifications": 190076,
+              "queries": 2000,
+              "raw_subscriber_visits": 705305,
+              "same_cell_moves": 930,
+              "same_cell_notifications": 133426,
+              "swept_cells": 5076
+            },
+            "grid_cache_hits": 1,
+            "grid_cell_changes": 1270,
+            "grid_raw_candidates": 2007909,
+            "maintenance_ms": 1.7983000000000007,
+            "peak_grid_buffer_bytes": 727320,
+            "peak_owned_buffer_bytes": 5773204,
+            "query_ms": 65.84530000000001,
+            "result_cache_buffer_bytes": 883808,
+            "subscription_buffer_bytes": 4162076,
+            "subscription_build_ms": 3.6561,
+            "subscription_registrations": 411081,
+            "total_ms": 67.6436
+          },
+          "strictly_compared_queries": 2000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 573414,
+              "dirty_transitions": 0,
+              "exact_tests": 573005,
+              "notifications": 0,
+              "queries": 2000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 1,
+            "grid_cell_changes": 1270,
+            "grid_raw_candidates": 2007909,
+            "maintenance_ms": 0.23150000000000007,
+            "peak_grid_buffer_bytes": 727320,
+            "query_ms": 65.89209999999999,
+            "total_ms": 66.12359999999998
+          },
+          "passed": true,
+          "result_digest": "6619361117041279536",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 573414,
+              "dirty_transitions": 1984,
+              "exact_tests": 573005,
+              "notifications": 190076,
+              "queries": 2000,
+              "raw_subscriber_visits": 705305,
+              "same_cell_moves": 930,
+              "same_cell_notifications": 133426,
+              "swept_cells": 5076
+            },
+            "grid_cache_hits": 1,
+            "grid_cell_changes": 1270,
+            "grid_raw_candidates": 2007909,
+            "maintenance_ms": 1.8769999999999998,
+            "peak_grid_buffer_bytes": 727320,
+            "peak_owned_buffer_bytes": 5773204,
+            "query_ms": 64.87150000000001,
+            "result_cache_buffer_bytes": 883808,
+            "subscription_buffer_bytes": 4162076,
+            "subscription_build_ms": 3.5801,
+            "subscription_registrations": 411081,
+            "total_ms": 66.7485
+          },
+          "strictly_compared_queries": 2000
+        }
+      ],
+      "ticks": 120,
+      "zombies": 1000
+    },
+    {
+      "active_median_ms": 1930.0358999999999,
+      "moving_percent": 1,
+      "plants": 500,
+      "query_interval_ticks": 1,
+      "radius_tiles": 16,
+      "repeats": 3,
+      "reverse_median_ms": 1864.5513,
+      "reverse_over_active": 0.9660707865589444,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 17201935,
+              "dirty_transitions": 0,
+              "exact_tests": 17189594,
+              "notifications": 0,
+              "queries": 60000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 2400,
+            "grid_cell_changes": 1270,
+            "grid_raw_candidates": 57767173,
+            "maintenance_ms": 0.384,
+            "peak_grid_buffer_bytes": 711600,
+            "query_ms": 1929.6518999999998,
+            "total_ms": 1930.0358999999999
+          },
+          "passed": true,
+          "result_digest": "11299504602525604649",
+          "reverse": {
+            "counts": {
+              "cached_results": 1731,
+              "candidates": 16771710,
+              "dirty_transitions": 57769,
+              "exact_tests": 16759697,
+              "notifications": 190076,
+              "queries": 58269,
+              "raw_subscriber_visits": 705305,
+              "same_cell_moves": 930,
+              "same_cell_notifications": 133426,
+              "swept_cells": 5076
+            },
+            "grid_cache_hits": 2484,
+            "grid_cell_changes": 1270,
+            "grid_raw_candidates": 56187390,
+            "maintenance_ms": 2.484000000000001,
+            "peak_grid_buffer_bytes": 728208,
+            "peak_owned_buffer_bytes": 5775028,
+            "query_ms": 1862.0673000000002,
+            "result_cache_buffer_bytes": 884744,
+            "subscription_buffer_bytes": 4162076,
+            "subscription_build_ms": 4.342,
+            "subscription_registrations": 411081,
+            "total_ms": 1864.5513
+          },
+          "strictly_compared_queries": 60000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 17201935,
+              "dirty_transitions": 0,
+              "exact_tests": 17189594,
+              "notifications": 0,
+              "queries": 60000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 2400,
+            "grid_cell_changes": 1270,
+            "grid_raw_candidates": 57767173,
+            "maintenance_ms": 0.26360000000000006,
+            "peak_grid_buffer_bytes": 711600,
+            "query_ms": 1945.799799999999,
+            "total_ms": 1946.063399999999
+          },
+          "passed": true,
+          "result_digest": "11299504602525604649",
+          "reverse": {
+            "counts": {
+              "cached_results": 1731,
+              "candidates": 16771710,
+              "dirty_transitions": 57769,
+              "exact_tests": 16759697,
+              "notifications": 190076,
+              "queries": 58269,
+              "raw_subscriber_visits": 705305,
+              "same_cell_moves": 930,
+              "same_cell_notifications": 133426,
+              "swept_cells": 5076
+            },
+            "grid_cache_hits": 2484,
+            "grid_cell_changes": 1270,
+            "grid_raw_candidates": 56187390,
+            "maintenance_ms": 2.6621,
+            "peak_grid_buffer_bytes": 728208,
+            "peak_owned_buffer_bytes": 5775028,
+            "query_ms": 1887.708600000001,
+            "result_cache_buffer_bytes": 884744,
+            "subscription_buffer_bytes": 4162076,
+            "subscription_build_ms": 4.0038,
+            "subscription_registrations": 411081,
+            "total_ms": 1890.370700000001
+          },
+          "strictly_compared_queries": 60000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 17201935,
+              "dirty_transitions": 0,
+              "exact_tests": 17189594,
+              "notifications": 0,
+              "queries": 60000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 2400,
+            "grid_cell_changes": 1270,
+            "grid_raw_candidates": 57767173,
+            "maintenance_ms": 0.3787000000000001,
+            "peak_grid_buffer_bytes": 711600,
+            "query_ms": 1877.2947999999997,
+            "total_ms": 1877.6734999999996
+          },
+          "passed": true,
+          "result_digest": "11299504602525604649",
+          "reverse": {
+            "counts": {
+              "cached_results": 1731,
+              "candidates": 16771710,
+              "dirty_transitions": 57769,
+              "exact_tests": 16759697,
+              "notifications": 190076,
+              "queries": 58269,
+              "raw_subscriber_visits": 705305,
+              "same_cell_moves": 930,
+              "same_cell_notifications": 133426,
+              "swept_cells": 5076
+            },
+            "grid_cache_hits": 2484,
+            "grid_cell_changes": 1270,
+            "grid_raw_candidates": 56187390,
+            "maintenance_ms": 2.5956000000000006,
+            "peak_grid_buffer_bytes": 728208,
+            "peak_owned_buffer_bytes": 5775028,
+            "query_ms": 1829.6177000000005,
+            "result_cache_buffer_bytes": 884744,
+            "subscription_buffer_bytes": 4162076,
+            "subscription_build_ms": 3.7574,
+            "subscription_registrations": 411081,
+            "total_ms": 1832.2133000000006
+          },
+          "strictly_compared_queries": 60000
+        }
+      ],
+      "ticks": 120,
+      "zombies": 1000
+    },
+    {
+      "active_median_ms": 83.03649999999999,
+      "moving_percent": 100,
+      "plants": 500,
+      "query_interval_ticks": 30,
+      "radius_tiles": 16,
+      "repeats": 3,
+      "reverse_median_ms": 133.51119999999997,
+      "reverse_over_active": 1.6078616030299928,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 573502,
+              "dirty_transitions": 0,
+              "exact_tests": 573097,
+              "notifications": 0,
+              "queries": 2000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 26283,
+            "grid_raw_candidates": 2004746,
+            "maintenance_ms": 9.8706,
+            "peak_grid_buffer_bytes": 768512,
+            "query_ms": 73.1659,
+            "total_ms": 83.03649999999999
+          },
+          "passed": true,
+          "result_digest": "5781941369680620895",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 573502,
+              "dirty_transitions": 1984,
+              "exact_tests": 573097,
+              "notifications": 17273848,
+              "queries": 2000,
+              "raw_subscriber_visits": 63695243,
+              "same_cell_moves": 94717,
+              "same_cell_notifications": 13563426,
+              "swept_cells": 460708
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 26283,
+            "grid_raw_candidates": 2004746,
+            "maintenance_ms": 65.11889999999997,
+            "peak_grid_buffer_bytes": 768512,
+            "peak_owned_buffer_bytes": 5821172,
+            "query_ms": 67.9928,
+            "result_cache_buffer_bytes": 890584,
+            "subscription_buffer_bytes": 4162076,
+            "subscription_build_ms": 4.1303,
+            "subscription_registrations": 411081,
+            "total_ms": 133.11169999999998
+          },
+          "strictly_compared_queries": 2000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 573502,
+              "dirty_transitions": 0,
+              "exact_tests": 573097,
+              "notifications": 0,
+              "queries": 2000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 26283,
+            "grid_raw_candidates": 2004746,
+            "maintenance_ms": 10.554600000000004,
+            "peak_grid_buffer_bytes": 768512,
+            "query_ms": 70.312,
+            "total_ms": 80.8666
+          },
+          "passed": true,
+          "result_digest": "5781941369680620895",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 573502,
+              "dirty_transitions": 1984,
+              "exact_tests": 573097,
+              "notifications": 17273848,
+              "queries": 2000,
+              "raw_subscriber_visits": 63695243,
+              "same_cell_moves": 94717,
+              "same_cell_notifications": 13563426,
+              "swept_cells": 460708
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 26283,
+            "grid_raw_candidates": 2004746,
+            "maintenance_ms": 67.20009999999999,
+            "peak_grid_buffer_bytes": 768512,
+            "peak_owned_buffer_bytes": 5821172,
+            "query_ms": 74.68639999999996,
+            "result_cache_buffer_bytes": 890584,
+            "subscription_buffer_bytes": 4162076,
+            "subscription_build_ms": 3.6632,
+            "subscription_registrations": 411081,
+            "total_ms": 141.88649999999996
+          },
+          "strictly_compared_queries": 2000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 573502,
+              "dirty_transitions": 0,
+              "exact_tests": 573097,
+              "notifications": 0,
+              "queries": 2000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 26283,
+            "grid_raw_candidates": 2004746,
+            "maintenance_ms": 9.893500000000001,
+            "peak_grid_buffer_bytes": 768512,
+            "query_ms": 75.02160000000002,
+            "total_ms": 84.91510000000002
+          },
+          "passed": true,
+          "result_digest": "5781941369680620895",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 573502,
+              "dirty_transitions": 1984,
+              "exact_tests": 573097,
+              "notifications": 17273848,
+              "queries": 2000,
+              "raw_subscriber_visits": 63695243,
+              "same_cell_moves": 94717,
+              "same_cell_notifications": 13563426,
+              "swept_cells": 460708
+            },
+            "grid_cache_hits": 0,
+            "grid_cell_changes": 26283,
+            "grid_raw_candidates": 2004746,
+            "maintenance_ms": 64.5078,
+            "peak_grid_buffer_bytes": 768512,
+            "peak_owned_buffer_bytes": 5821172,
+            "query_ms": 69.00339999999998,
+            "result_cache_buffer_bytes": 890584,
+            "subscription_buffer_bytes": 4162076,
+            "subscription_build_ms": 3.3959,
+            "subscription_registrations": 411081,
+            "total_ms": 133.51119999999997
+          },
+          "strictly_compared_queries": 2000
+        }
+      ],
+      "ticks": 120,
+      "zombies": 1000
+    },
+    {
+      "active_median_ms": 1910.1928999999998,
+      "moving_percent": 100,
+      "plants": 500,
+      "query_interval_ticks": 1,
+      "radius_tiles": 16,
+      "repeats": 3,
+      "reverse_median_ms": 1980.0194999999997,
+      "reverse_over_active": 1.0365547374822721,
+      "samples": [
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 17205628,
+              "dirty_transitions": 0,
+              "exact_tests": 17193354,
+              "notifications": 0,
+              "queries": 60000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 2370,
+            "grid_cell_changes": 26283,
+            "grid_raw_candidates": 57672113,
+            "maintenance_ms": 19.179500000000015,
+            "peak_grid_buffer_bytes": 731560,
+            "query_ms": 1898.5203000000001,
+            "total_ms": 1917.6998
+          },
+          "passed": true,
+          "result_digest": "16118047249706897563",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 17205628,
+              "dirty_transitions": 59500,
+              "exact_tests": 17193354,
+              "notifications": 17273848,
+              "queries": 60000,
+              "raw_subscriber_visits": 63695243,
+              "same_cell_moves": 94717,
+              "same_cell_notifications": 13563426,
+              "swept_cells": 460708
+            },
+            "grid_cache_hits": 2370,
+            "grid_cell_changes": 26283,
+            "grid_raw_candidates": 57672113,
+            "maintenance_ms": 115.372,
+            "peak_grid_buffer_bytes": 731560,
+            "peak_owned_buffer_bytes": 5795804,
+            "query_ms": 1846.6811000000002,
+            "result_cache_buffer_bytes": 902168,
+            "subscription_buffer_bytes": 4162076,
+            "subscription_build_ms": 3.785,
+            "subscription_registrations": 411081,
+            "total_ms": 1962.0531000000003
+          },
+          "strictly_compared_queries": 60000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 17205628,
+              "dirty_transitions": 0,
+              "exact_tests": 17193354,
+              "notifications": 0,
+              "queries": 60000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 2370,
+            "grid_cell_changes": 26283,
+            "grid_raw_candidates": 57672113,
+            "maintenance_ms": 15.115800000000005,
+            "peak_grid_buffer_bytes": 731560,
+            "query_ms": 1865.7788999999993,
+            "total_ms": 1880.8946999999994
+          },
+          "passed": true,
+          "result_digest": "16118047249706897563",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 17205628,
+              "dirty_transitions": 59500,
+              "exact_tests": 17193354,
+              "notifications": 17273848,
+              "queries": 60000,
+              "raw_subscriber_visits": 63695243,
+              "same_cell_moves": 94717,
+              "same_cell_notifications": 13563426,
+              "swept_cells": 460708
+            },
+            "grid_cache_hits": 2370,
+            "grid_cell_changes": 26283,
+            "grid_raw_candidates": 57672113,
+            "maintenance_ms": 121.61650000000002,
+            "peak_grid_buffer_bytes": 731560,
+            "peak_owned_buffer_bytes": 5795804,
+            "query_ms": 1902.7818999999995,
+            "result_cache_buffer_bytes": 902168,
+            "subscription_buffer_bytes": 4162076,
+            "subscription_build_ms": 3.4401,
+            "subscription_registrations": 411081,
+            "total_ms": 2024.3983999999996
+          },
+          "strictly_compared_queries": 60000
+        },
+        {
+          "active": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 17205628,
+              "dirty_transitions": 0,
+              "exact_tests": 17193354,
+              "notifications": 0,
+              "queries": 60000,
+              "raw_subscriber_visits": 0,
+              "same_cell_moves": 0,
+              "same_cell_notifications": 0,
+              "swept_cells": 0
+            },
+            "grid_cache_hits": 2370,
+            "grid_cell_changes": 26283,
+            "grid_raw_candidates": 57672113,
+            "maintenance_ms": 19.603999999999992,
+            "peak_grid_buffer_bytes": 731560,
+            "query_ms": 1890.5888999999997,
+            "total_ms": 1910.1928999999998
+          },
+          "passed": true,
+          "result_digest": "16118047249706897563",
+          "reverse": {
+            "counts": {
+              "cached_results": 0,
+              "candidates": 17205628,
+              "dirty_transitions": 59500,
+              "exact_tests": 17193354,
+              "notifications": 17273848,
+              "queries": 60000,
+              "raw_subscriber_visits": 63695243,
+              "same_cell_moves": 94717,
+              "same_cell_notifications": 13563426,
+              "swept_cells": 460708
+            },
+            "grid_cache_hits": 2370,
+            "grid_cell_changes": 26283,
+            "grid_raw_candidates": 57672113,
+            "maintenance_ms": 115.48660000000001,
+            "peak_grid_buffer_bytes": 731560,
+            "peak_owned_buffer_bytes": 5795804,
+            "query_ms": 1864.5328999999997,
+            "result_cache_buffer_bytes": 902168,
+            "subscription_buffer_bytes": 4162076,
+            "subscription_build_ms": 3.5903,
+            "subscription_registrations": 411081,
+            "total_ms": 1980.0194999999997
+          },
+          "strictly_compared_queries": 60000
+        }
+      ],
+      "ticks": 120,
+      "zombies": 1000
+    }
+  ],
+  "measurement": "Wall-clock work durations, not OS CPU accounting. Setup/input generation/strict comparison/telemetry excluded from maintenance/query timers. Repeats alternate algorithm order. Memory reports owned buffer capacity; allocator and map-node overhead, shared immutable inputs and validation output buffers are excluded; not process RSS or GC. Reverse includes persistent result cache and static subscriptions; active reuses the production region-candidate cache. No multithreading or GPU.",
+  "passed": true,
+  "reverse_faster_cases": 18,
+  "scope": "Evaluation prototype only, not connected to game. Production MovingCoverageGrid, 48px grid cells, periodic 96x32 tile world. Exact synthetic circle/annulus/rectangle/semicircle predicates, mixed AABB sizes, deterministic ordering and highest-HP/nearest/ordinal priorities. Identical precomputed movement, HP/liveness events and staggered query schedules. Every moved target notifies its swept volume even inside unchanged cells. Each scheduled result is compared by full ordered ID vector and chosen target, not only a hash.",
+  "seed": 742
+}

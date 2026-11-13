@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "unchanged_expected_ast_sha256": "a469da2df7b3310552f1675cef0e757b3bca959d73434300d5d01d9851db44e3",
+  "unchanged_expected_source_sha256": "1106b75ef86866c527e72e877bab36a14d77c341dc90e86cc221f50d2fd9fdbc",
+  "runs": [
+    {
+      "version": "3.8.10 (tags/v3.8.10:3d8993a, May  3 2021, 11:48:03) [MSC v.1928 64 bit (AMD64)]",
+      "source_sha256": "1106b75ef86866c527e72e877bab36a14d77c341dc90e86cc221f50d2fd9fdbc",
+      "ast_sha256": "a469da2df7b3310552f1675cef0e757b3bca959d73434300d5d01d9851db44e3",
+      "interpreter": "C:/Users/xiech/Downloads/PVZ-Rouge-v1.4.8/next-pvp71/modkit/tools/python38-embed/python.exe"
+    },
+    {
+      "version": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+      "source_sha256": "1106b75ef86866c527e72e877bab36a14d77c341dc90e86cc221f50d2fd9fdbc",
+      "ast_sha256": "171fc5501122a5072c18447c3e6625a0194b22ee80f97a3066d9e5cd8eb977e6",
+      "interpreter": "C:\\Users\\xiech\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe"
+    }
+  ],
+  "conclusion": "Original embedded Python3.8 matches unchanged generated oracle; system3.13 changes AST fields. No fixture/assertion changes."
+}

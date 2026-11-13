@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "generator_modules": 3,
+  "generator_todo": 0,
+  "generated_hook_proof": [
+    {
+      "file": "pm_catalog.cpp",
+      "old_mark_text_absent": true,
+      "new_standard_map_range_present": true,
+      "sha256": "e89f201291adb2116f6ebebb82b6ef9e6aebab536eac167758ae50a5b6ea29b8"
+    },
+    {
+      "file": "pm_pvp71_catalog.cpp",
+      "old_mark_text_absent": true,
+      "new_standard_map_range_present": true,
+      "sha256": "772f788810e184369fb98ea52cb51c85753b7a4ba9ac4859abde684e9f3d93a0"
+    },
+    {
+      "file": "pm_almanac_text.cpp",
+      "old_mark_text_absent": true,
+      "new_standard_map_range_present": true,
+      "sha256": "d2fc626d630bcd53435a7a3782d601b8caeae7390d415ef65ff8e198bfb05f0d"
+    }
+  ],
+  "cold_text_only_proof": [
+    {
+      "file": "build/typed72-integrated-v44/source/src/sim/typed/cold_catalog_data.cpp",
+      "changed_description_fields": 6,
+      "all_bytes_outside_description_native_description_lines_identical": true,
+      "before_sha256": "71c4171f02d3d6dcfdab885d60dd5d35b7c88353871686867949fcb7ad7a549d",
+      "after_sha256": "79c468156619c3a98a5fef468a3bed509d3a334bc072dda0bf1064700a043ee9"
+    },
+    {
+      "file": "tools/typed72/drafts/cold_catalog_data.cpp",
+      "changed_description_fields": 6,
+      "all_bytes_outside_description_native_description_lines_identical": true,
+      "before_sha256": "ebb2c795ba0df5923a7c6ba36595fae6272193344c7869a25f094bb3ad89d920",
+      "after_sha256": "8127fb1bc8c762c10b9e708f2babafe250c1a763a3d165aad24bf8202361bd3a"
+    }
+  ]
+}

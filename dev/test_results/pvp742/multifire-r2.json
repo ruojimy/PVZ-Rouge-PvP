@@ -1,0 +1,5016 @@
+{
+  "cases": [
+    {
+      "blue_torch_secret": false,
+      "frame_assets": {
+        "world:三向射手头": 3,
+        "world:三向射手根": 1,
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:疯狂戴夫": 1,
+        "world:豌豆": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_flight_distance": 3.0000000000005276,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2142.7989708158216,
+            821.3915706083703
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2142.7989708158216,
+            821.3915706083703,
+            0.9856566199130636,
+            -0.16876322947121603
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_flight_distance": 2.9999999999997677,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2151.8059665391497,
+            834.3639384801685
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:2",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2151.8059665391497,
+            834.3639384801685,
+            0.9999582292735665,
+            0.009140005912116793
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_flight_distance": 2.9999999999996283,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2160.5376762777128,
+            847.209497889948
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:3",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2160.5376762777128,
+            847.209497889948,
+            0.9840862262473176,
+            0.1776915848044396
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        }
+      ],
+      "hero_damage": 0.0,
+      "mode": "units",
+      "multi_red": false,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:三向射手",
+      "target_damage": 10.0,
+      "volley_frame_assets": {
+        "world:三向射手头": 3,
+        "world:三向射手根": 1,
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:疯狂戴夫": 1,
+        "world:豌豆": 3,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": false,
+      "frame_assets": {
+        "world:三向射手头": 3,
+        "world:三向射手根": 1,
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:疯狂戴夫": 1,
+        "world:豌豆": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_flight_distance": 3.0000000000005276,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2142.7989708158216,
+            821.3915706083703
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2142.7989708158216,
+            821.3915706083703,
+            0.9856566199130636,
+            -0.16876322947121603
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_flight_distance": 2.9999999999997677,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2151.8059665391497,
+            834.3639384801685
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:2",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2151.8059665391497,
+            834.3639384801685,
+            0.9999582292735665,
+            0.009140005912116793
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_flight_distance": 2.9999999999996283,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2160.5376762777128,
+            847.209497889948
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:3",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2160.5376762777128,
+            847.209497889948,
+            0.9840862262473176,
+            0.1776915848044396
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        }
+      ],
+      "hero_damage": 4.0,
+      "mode": "hero_direct",
+      "multi_red": false,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:三向射手",
+      "target_damage": 0.0,
+      "volley_frame_assets": {
+        "world:三向射手头": 3,
+        "world:三向射手根": 1,
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:疯狂戴夫": 1,
+        "world:豌豆": 3,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": false,
+      "frame_assets": {
+        "world:三向射手头": 3,
+        "world:三向射手根": 1,
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:疯狂戴夫": 1,
+        "world:豌豆": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_flight_distance": 3.0000000000005276,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2142.7989708158216,
+            821.3915706083703
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2142.7989708158216,
+            821.3915706083703,
+            0.9856566199130636,
+            -0.16876322947121603
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_flight_distance": 2.9999999999997677,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2151.8059665391497,
+            834.3639384801685
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:2",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2151.8059665391497,
+            834.3639384801685,
+            0.9999582292735665,
+            0.009140005912116793
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_flight_distance": 2.9999999999996283,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2160.5376762777128,
+            847.209497889948
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:3",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2160.5376762777128,
+            847.209497889948,
+            0.9840862262473176,
+            0.1776915848044396
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        }
+      ],
+      "hero_damage": 0.0,
+      "mode": "hero_splash",
+      "multi_red": false,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:三向射手",
+      "target_damage": 10.0,
+      "volley_frame_assets": {
+        "world:三向射手头": 3,
+        "world:三向射手根": 1,
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:疯狂戴夫": 1,
+        "world:豌豆": 3,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": true,
+      "frame_assets": {
+        "world:三向射手头": 3,
+        "world:三向射手根": 1,
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:疯狂戴夫": 1,
+        "world:豌豆": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_flight_distance": 3.0000000000005276,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2142.7989708158216,
+            821.3915706083703
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2142.7989708158216,
+            821.3915706083703,
+            0.9856566199130636,
+            -0.16876322947121603
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_flight_distance": 2.9999999999997677,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2151.8059665391497,
+            834.3639384801685
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:2",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2151.8059665391497,
+            834.3639384801685,
+            0.9999582292735665,
+            0.009140005912116793
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_flight_distance": 2.9999999999996283,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2160.5376762777128,
+            847.209497889948
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:3",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2160.5376762777128,
+            847.209497889948,
+            0.9840862262473176,
+            0.1776915848044396
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        }
+      ],
+      "hero_damage": 0.0,
+      "mode": "units",
+      "multi_red": false,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:三向射手",
+      "target_damage": 10.0,
+      "volley_frame_assets": {
+        "world:三向射手头": 3,
+        "world:三向射手根": 1,
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:疯狂戴夫": 1,
+        "world:豌豆": 3,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": true,
+      "frame_assets": {
+        "world:三向射手头": 3,
+        "world:三向射手根": 1,
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:疯狂戴夫": 1,
+        "world:豌豆": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_flight_distance": 3.0000000000005276,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2142.7989708158216,
+            821.3915706083703
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2142.7989708158216,
+            821.3915706083703,
+            0.9856566199130636,
+            -0.16876322947121603
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_flight_distance": 2.9999999999997677,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2151.8059665391497,
+            834.3639384801685
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:2",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2151.8059665391497,
+            834.3639384801685,
+            0.9999582292735665,
+            0.009140005912116793
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_flight_distance": 2.9999999999996283,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2160.5376762777128,
+            847.209497889948
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:3",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2160.5376762777128,
+            847.209497889948,
+            0.9840862262473176,
+            0.1776915848044396
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        }
+      ],
+      "hero_damage": 4.0,
+      "mode": "hero_direct",
+      "multi_red": false,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:三向射手",
+      "target_damage": 0.0,
+      "volley_frame_assets": {
+        "world:三向射手头": 3,
+        "world:三向射手根": 1,
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:疯狂戴夫": 1,
+        "world:豌豆": 3,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": true,
+      "frame_assets": {
+        "world:三向射手头": 3,
+        "world:三向射手根": 1,
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:疯狂戴夫": 1,
+        "world:豌豆": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_flight_distance": 3.0000000000005276,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2142.7989708158216,
+            821.3915706083703
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2142.7989708158216,
+            821.3915706083703,
+            0.9856566199130636,
+            -0.16876322947121603
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_flight_distance": 2.9999999999997677,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2151.8059665391497,
+            834.3639384801685
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:2",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2151.8059665391497,
+            834.3639384801685,
+            0.9999582292735665,
+            0.009140005912116793
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_flight_distance": 2.9999999999996283,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2160.5376762777128,
+            847.209497889948
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:3",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2160.5376762777128,
+            847.209497889948,
+            0.9840862262473176,
+            0.1776915848044396
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        }
+      ],
+      "hero_damage": 0.0,
+      "mode": "hero_splash",
+      "multi_red": false,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:三向射手",
+      "target_damage": 10.0,
+      "volley_frame_assets": {
+        "world:三向射手头": 3,
+        "world:三向射手根": 1,
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:疯狂戴夫": 1,
+        "world:豌豆": 3,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": false,
+      "frame_assets": {
+        "world:三向射手头": 3,
+        "world:三向射手根": 1,
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:火尾3": 1,
+        "world:火豆": 1,
+        "world:疯狂戴夫": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 2.0000000000003517,
+          "_pvp_flight_form": [
+            "火豆",
+            true,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2142.7989708158216,
+            821.3915706083703
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2142.7989708158216,
+            821.3915706083703,
+            0.9856566199130636,
+            -0.16876322947121603
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 3.0
+        },
+        {
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 1.9999999999998452,
+          "_pvp_flight_form": [
+            "火豆",
+            true,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2151.8059665391497,
+            834.3639384801685
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:2",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2151.8059665391497,
+            834.3639384801685,
+            0.9999582292735665,
+            0.009140005912116793
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 3.0
+        },
+        {
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 1.9999999999997522,
+          "_pvp_flight_form": [
+            "火豆",
+            true,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2160.5376762777128,
+            847.209497889948
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:3",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2160.5376762777128,
+            847.209497889948,
+            0.9840862262473176,
+            0.1776915848044396
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 3.0
+        }
+      ],
+      "hero_damage": 0.0,
+      "mode": "units",
+      "multi_red": true,
+      "neighbor_damage": 6.666666666627862,
+      "passed": true,
+      "source": "plant:三向射手",
+      "target_damage": 20.0,
+      "volley_counts": {
+        "blue_assets": 0,
+        "bodies": 3,
+        "shots": 3,
+        "trails": 3
+      },
+      "volley_frame_assets": {
+        "world:三向射手头": 3,
+        "world:三向射手根": 1,
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:火尾2": 3,
+        "world:火豆": 3,
+        "world:疯狂戴夫": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": false,
+      "frame_assets": {
+        "world:三向射手头": 3,
+        "world:三向射手根": 1,
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:火尾3": 1,
+        "world:火豆": 1,
+        "world:疯狂戴夫": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 2.0000000000003517,
+          "_pvp_flight_form": [
+            "火豆",
+            true,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2142.7989708158216,
+            821.3915706083703
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2142.7989708158216,
+            821.3915706083703,
+            0.9856566199130636,
+            -0.16876322947121603
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 3.0
+        },
+        {
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 1.9999999999998452,
+          "_pvp_flight_form": [
+            "火豆",
+            true,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2151.8059665391497,
+            834.3639384801685
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:2",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2151.8059665391497,
+            834.3639384801685,
+            0.9999582292735665,
+            0.009140005912116793
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 3.0
+        },
+        {
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 1.9999999999997522,
+          "_pvp_flight_form": [
+            "火豆",
+            true,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2160.5376762777128,
+            847.209497889948
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:3",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2160.5376762777128,
+            847.209497889948,
+            0.9840862262473176,
+            0.1776915848044396
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 3.0
+        }
+      ],
+      "hero_damage": 6.0,
+      "mode": "hero_direct",
+      "multi_red": true,
+      "neighbor_damage": 6.666666666627862,
+      "passed": true,
+      "source": "plant:三向射手",
+      "target_damage": 6.666666666627862,
+      "volley_counts": {
+        "blue_assets": 0,
+        "bodies": 3,
+        "shots": 3,
+        "trails": 3
+      },
+      "volley_frame_assets": {
+        "world:三向射手头": 3,
+        "world:三向射手根": 1,
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:火尾2": 3,
+        "world:火豆": 3,
+        "world:疯狂戴夫": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": false,
+      "frame_assets": {
+        "world:三向射手头": 3,
+        "world:三向射手根": 1,
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:火尾3": 1,
+        "world:火豆": 1,
+        "world:疯狂戴夫": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 2.0000000000003517,
+          "_pvp_flight_form": [
+            "火豆",
+            true,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2142.7989708158216,
+            821.3915706083703
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2142.7989708158216,
+            821.3915706083703,
+            0.9856566199130636,
+            -0.16876322947121603
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 3.0
+        },
+        {
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 1.9999999999998452,
+          "_pvp_flight_form": [
+            "火豆",
+            true,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2151.8059665391497,
+            834.3639384801685
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:2",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2151.8059665391497,
+            834.3639384801685,
+            0.9999582292735665,
+            0.009140005912116793
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 3.0
+        },
+        {
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 1.9999999999997522,
+          "_pvp_flight_form": [
+            "火豆",
+            true,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2160.5376762777128,
+            847.209497889948
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:3",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2160.5376762777128,
+            847.209497889948,
+            0.9840862262473176,
+            0.1776915848044396
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 3.0
+        }
+      ],
+      "hero_damage": 1.5,
+      "mode": "hero_splash",
+      "multi_red": true,
+      "neighbor_damage": 6.666666666627862,
+      "passed": true,
+      "source": "plant:三向射手",
+      "target_damage": 20.0,
+      "volley_counts": {
+        "blue_assets": 0,
+        "bodies": 3,
+        "shots": 3,
+        "trails": 3
+      },
+      "volley_frame_assets": {
+        "world:三向射手头": 3,
+        "world:三向射手根": 1,
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:火尾2": 3,
+        "world:火豆": 3,
+        "world:疯狂戴夫": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": true,
+      "frame_assets": {
+        "world:三向射手头": 3,
+        "world:三向射手根": 1,
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:火尾3": 1,
+        "world:火豆": 1,
+        "world:疯狂戴夫": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 2.0000000000003517,
+          "_pvp_flight_form": [
+            "火豆",
+            true,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2142.7989708158216,
+            821.3915706083703
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2142.7989708158216,
+            821.3915706083703,
+            0.9856566199130636,
+            -0.16876322947121603
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 3.0
+        },
+        {
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 1.9999999999998452,
+          "_pvp_flight_form": [
+            "火豆",
+            true,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2151.8059665391497,
+            834.3639384801685
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:2",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2151.8059665391497,
+            834.3639384801685,
+            0.9999582292735665,
+            0.009140005912116793
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 3.0
+        },
+        {
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 1.9999999999997522,
+          "_pvp_flight_form": [
+            "火豆",
+            true,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2160.5376762777128,
+            847.209497889948
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:3",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2160.5376762777128,
+            847.209497889948,
+            0.9840862262473176,
+            0.1776915848044396
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 3.0
+        }
+      ],
+      "hero_damage": 0.0,
+      "mode": "units",
+      "multi_red": true,
+      "neighbor_damage": 6.666666666627862,
+      "passed": true,
+      "source": "plant:三向射手",
+      "target_damage": 20.0,
+      "volley_counts": {
+        "blue_assets": 0,
+        "bodies": 3,
+        "shots": 3,
+        "trails": 3
+      },
+      "volley_frame_assets": {
+        "world:三向射手头": 3,
+        "world:三向射手根": 1,
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:火尾2": 3,
+        "world:火豆": 3,
+        "world:疯狂戴夫": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": true,
+      "frame_assets": {
+        "world:三向射手头": 3,
+        "world:三向射手根": 1,
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:火尾3": 1,
+        "world:火豆": 1,
+        "world:疯狂戴夫": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 2.0000000000003517,
+          "_pvp_flight_form": [
+            "火豆",
+            true,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2142.7989708158216,
+            821.3915706083703
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2142.7989708158216,
+            821.3915706083703,
+            0.9856566199130636,
+            -0.16876322947121603
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 3.0
+        },
+        {
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 1.9999999999998452,
+          "_pvp_flight_form": [
+            "火豆",
+            true,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2151.8059665391497,
+            834.3639384801685
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:2",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2151.8059665391497,
+            834.3639384801685,
+            0.9999582292735665,
+            0.009140005912116793
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 3.0
+        },
+        {
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 1.9999999999997522,
+          "_pvp_flight_form": [
+            "火豆",
+            true,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2160.5376762777128,
+            847.209497889948
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:3",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2160.5376762777128,
+            847.209497889948,
+            0.9840862262473176,
+            0.1776915848044396
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 3.0
+        }
+      ],
+      "hero_damage": 6.0,
+      "mode": "hero_direct",
+      "multi_red": true,
+      "neighbor_damage": 6.666666666627862,
+      "passed": true,
+      "source": "plant:三向射手",
+      "target_damage": 6.666666666627862,
+      "volley_counts": {
+        "blue_assets": 0,
+        "bodies": 3,
+        "shots": 3,
+        "trails": 3
+      },
+      "volley_frame_assets": {
+        "world:三向射手头": 3,
+        "world:三向射手根": 1,
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:火尾2": 3,
+        "world:火豆": 3,
+        "world:疯狂戴夫": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": true,
+      "frame_assets": {
+        "world:三向射手头": 3,
+        "world:三向射手根": 1,
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:火尾3": 1,
+        "world:火豆": 1,
+        "world:疯狂戴夫": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 2.0000000000003517,
+          "_pvp_flight_form": [
+            "火豆",
+            true,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2142.7989708158216,
+            821.3915706083703
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2142.7989708158216,
+            821.3915706083703,
+            0.9856566199130636,
+            -0.16876322947121603
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 3.0
+        },
+        {
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 1.9999999999998452,
+          "_pvp_flight_form": [
+            "火豆",
+            true,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2151.8059665391497,
+            834.3639384801685
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:2",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2151.8059665391497,
+            834.3639384801685,
+            0.9999582292735665,
+            0.009140005912116793
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 3.0
+        },
+        {
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 1.9999999999997522,
+          "_pvp_flight_form": [
+            "火豆",
+            true,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2160.5376762777128,
+            847.209497889948
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:3",
+          "_pvp_instant_attack": [
+            "hero:plant",
+            5
+          ],
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_root_source": "hero:plant",
+          "_pvp_source_entity": "hero:plant",
+          "位置": [
+            2160.5376762777128,
+            847.209497889948,
+            0.9840862262473176,
+            0.1776915848044396
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 3.0
+        }
+      ],
+      "hero_damage": 1.5,
+      "mode": "hero_splash",
+      "multi_red": true,
+      "neighbor_damage": 6.666666666627862,
+      "passed": true,
+      "source": "plant:三向射手",
+      "target_damage": 20.0,
+      "volley_counts": {
+        "blue_assets": 0,
+        "bodies": 3,
+        "shots": 3,
+        "trails": 3
+      },
+      "volley_frame_assets": {
+        "world:三向射手头": 3,
+        "world:三向射手根": 1,
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:火尾2": 3,
+        "world:火豆": 3,
+        "world:疯狂戴夫": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": false,
+      "frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:疯狂戴夫": 1,
+        "world:裂荚射手": 1,
+        "world:豌豆": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2150.4,
+            840.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            100
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "裂荚射手",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2150.4,
+            840.0,
+            0.96,
+            0.0
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        }
+      ],
+      "hero_damage": 0.0,
+      "mode": "units",
+      "multi_red": false,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:裂荚射手",
+      "target_damage": 10.0,
+      "volley_frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:疯狂戴夫": 1,
+        "world:裂荚射手": 1,
+        "world:豌豆": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": false,
+      "frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:疯狂戴夫": 1,
+        "world:裂荚射手": 1,
+        "world:豌豆": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2150.4,
+            840.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            100
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "裂荚射手",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2150.4,
+            840.0,
+            0.96,
+            0.0
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        }
+      ],
+      "hero_damage": 4.0,
+      "mode": "hero_direct",
+      "multi_red": false,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:裂荚射手",
+      "target_damage": 0.0,
+      "volley_frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:疯狂戴夫": 1,
+        "world:裂荚射手": 1,
+        "world:豌豆": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": false,
+      "frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:疯狂戴夫": 1,
+        "world:裂荚射手": 1,
+        "world:豌豆": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2150.4,
+            840.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            100
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "裂荚射手",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2150.4,
+            840.0,
+            0.96,
+            0.0
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        }
+      ],
+      "hero_damage": 0.0,
+      "mode": "hero_splash",
+      "multi_red": false,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:裂荚射手",
+      "target_damage": 10.0,
+      "volley_frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:疯狂戴夫": 1,
+        "world:裂荚射手": 1,
+        "world:豌豆": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": true,
+      "frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:疯狂戴夫": 1,
+        "world:裂荚射手": 1,
+        "world:豌豆": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2150.4,
+            840.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            100
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "裂荚射手",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2150.4,
+            840.0,
+            0.96,
+            0.0
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        }
+      ],
+      "hero_damage": 0.0,
+      "mode": "units",
+      "multi_red": false,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:裂荚射手",
+      "target_damage": 10.0,
+      "volley_frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:疯狂戴夫": 1,
+        "world:裂荚射手": 1,
+        "world:豌豆": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": true,
+      "frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:疯狂戴夫": 1,
+        "world:裂荚射手": 1,
+        "world:豌豆": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2150.4,
+            840.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            100
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "裂荚射手",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2150.4,
+            840.0,
+            0.96,
+            0.0
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        }
+      ],
+      "hero_damage": 4.0,
+      "mode": "hero_direct",
+      "multi_red": false,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:裂荚射手",
+      "target_damage": 0.0,
+      "volley_frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:疯狂戴夫": 1,
+        "world:裂荚射手": 1,
+        "world:豌豆": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": true,
+      "frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:疯狂戴夫": 1,
+        "world:裂荚射手": 1,
+        "world:豌豆": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2150.4,
+            840.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            100
+          ],
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "裂荚射手",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2150.4,
+            840.0,
+            0.96,
+            0.0
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        }
+      ],
+      "hero_damage": 0.0,
+      "mode": "hero_splash",
+      "multi_red": false,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:裂荚射手",
+      "target_damage": 10.0,
+      "volley_frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:疯狂戴夫": 1,
+        "world:裂荚射手": 1,
+        "world:豌豆": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": false,
+      "frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:火尾3": 1,
+        "world:火豆": 1,
+        "world:疯狂戴夫": 1,
+        "world:裂荚射手": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2150.4,
+            840.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            100
+          ],
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "裂荚射手",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2150.4,
+            840.0,
+            0.96,
+            0.0
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        }
+      ],
+      "hero_damage": 0.0,
+      "mode": "units",
+      "multi_red": true,
+      "neighbor_damage": 6.666666666627862,
+      "passed": true,
+      "source": "plant:裂荚射手",
+      "target_damage": 20.0,
+      "volley_counts": {
+        "blue_assets": 0,
+        "bodies": 1,
+        "shots": 1,
+        "trails": 1
+      },
+      "volley_frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:火尾2": 1,
+        "world:火豆": 1,
+        "world:疯狂戴夫": 1,
+        "world:裂荚射手": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": false,
+      "frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:火尾3": 1,
+        "world:火豆": 1,
+        "world:疯狂戴夫": 1,
+        "world:裂荚射手": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2150.4,
+            840.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            100
+          ],
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "裂荚射手",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2150.4,
+            840.0,
+            0.96,
+            0.0
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        }
+      ],
+      "hero_damage": 6.0,
+      "mode": "hero_direct",
+      "multi_red": true,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:裂荚射手",
+      "target_damage": 0.0,
+      "volley_counts": {
+        "blue_assets": 0,
+        "bodies": 1,
+        "shots": 1,
+        "trails": 1
+      },
+      "volley_frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:火尾2": 1,
+        "world:火豆": 1,
+        "world:疯狂戴夫": 1,
+        "world:裂荚射手": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": false,
+      "frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:火尾3": 1,
+        "world:火豆": 1,
+        "world:疯狂戴夫": 1,
+        "world:裂荚射手": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2150.4,
+            840.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            100
+          ],
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "裂荚射手",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2150.4,
+            840.0,
+            0.96,
+            0.0
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        }
+      ],
+      "hero_damage": 1.5,
+      "mode": "hero_splash",
+      "multi_red": true,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:裂荚射手",
+      "target_damage": 20.0,
+      "volley_counts": {
+        "blue_assets": 0,
+        "bodies": 1,
+        "shots": 1,
+        "trails": 1
+      },
+      "volley_frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:火尾2": 1,
+        "world:火豆": 1,
+        "world:疯狂戴夫": 1,
+        "world:裂荚射手": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": true,
+      "frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:火尾3": 1,
+        "world:火豆": 1,
+        "world:疯狂戴夫": 1,
+        "world:裂荚射手": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2150.4,
+            840.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            100
+          ],
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "裂荚射手",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2150.4,
+            840.0,
+            0.96,
+            0.0
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        }
+      ],
+      "hero_damage": 0.0,
+      "mode": "units",
+      "multi_red": true,
+      "neighbor_damage": 6.666666666627862,
+      "passed": true,
+      "source": "plant:裂荚射手",
+      "target_damage": 20.0,
+      "volley_counts": {
+        "blue_assets": 0,
+        "bodies": 1,
+        "shots": 1,
+        "trails": 1
+      },
+      "volley_frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:火尾2": 1,
+        "world:火豆": 1,
+        "world:疯狂戴夫": 1,
+        "world:裂荚射手": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": true,
+      "frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:火尾3": 1,
+        "world:火豆": 1,
+        "world:疯狂戴夫": 1,
+        "world:裂荚射手": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2150.4,
+            840.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            100
+          ],
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "裂荚射手",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2150.4,
+            840.0,
+            0.96,
+            0.0
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        }
+      ],
+      "hero_damage": 6.0,
+      "mode": "hero_direct",
+      "multi_red": true,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:裂荚射手",
+      "target_damage": 0.0,
+      "volley_counts": {
+        "blue_assets": 0,
+        "bodies": 1,
+        "shots": 1,
+        "trails": 1
+      },
+      "volley_frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:火尾2": 1,
+        "world:火豆": 1,
+        "world:疯狂戴夫": 1,
+        "world:裂荚射手": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": true,
+      "frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:火尾3": 1,
+        "world:火豆": 1,
+        "world:疯狂戴夫": 1,
+        "world:裂荚射手": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2150.4,
+            840.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            100
+          ],
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "裂荚射手",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2150.4,
+            840.0,
+            0.96,
+            0.0
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        }
+      ],
+      "hero_damage": 1.5,
+      "mode": "hero_splash",
+      "multi_red": true,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:裂荚射手",
+      "target_damage": 20.0,
+      "volley_counts": {
+        "blue_assets": 0,
+        "bodies": 1,
+        "shots": 1,
+        "trails": 1
+      },
+      "volley_frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:根茎叶": 1,
+        "world:火尾2": 1,
+        "world:火豆": 1,
+        "world:疯狂戴夫": 1,
+        "world:裂荚射手": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": false,
+      "frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:疯狂戴夫": 1,
+        "world:豌豆": 1,
+        "world:豌豆迫击炮-攻击0": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:2",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u3",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.2698293828214195,
+            -3.097333461685995
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:3",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:4",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u3",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.2698293828214195,
+            -3.097333461685995
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:5",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        }
+      ],
+      "hero_damage": 0.0,
+      "mode": "units",
+      "multi_red": false,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:豌豆迫击炮",
+      "target_damage": 10.0,
+      "volley_frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:疯狂戴夫": 1,
+        "world:豌豆": 5,
+        "world:豌豆迫击炮-攻击0": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": false,
+      "frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:疯狂戴夫": 1,
+        "world:豌豆": 1,
+        "world:豌豆迫击炮-攻击0": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:2",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u3",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.2698293828214195,
+            -3.097333461685995
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:3",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:4",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u3",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.2698293828214195,
+            -3.097333461685995
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:5",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        }
+      ],
+      "hero_damage": 4.0,
+      "mode": "hero_direct",
+      "multi_red": false,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:豌豆迫击炮",
+      "target_damage": 0.0,
+      "volley_frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:疯狂戴夫": 1,
+        "world:豌豆": 5,
+        "world:豌豆迫击炮-攻击0": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": false,
+      "frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:疯狂戴夫": 1,
+        "world:豌豆": 1,
+        "world:豌豆迫击炮-攻击0": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:2",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u3",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.2698293828214195,
+            -3.097333461685995
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:3",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:4",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u3",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.2698293828214195,
+            -3.097333461685995
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:5",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        }
+      ],
+      "hero_damage": 0.0,
+      "mode": "hero_splash",
+      "multi_red": false,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:豌豆迫击炮",
+      "target_damage": 10.0,
+      "volley_frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:疯狂戴夫": 1,
+        "world:豌豆": 5,
+        "world:豌豆迫击炮-攻击0": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": true,
+      "frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:疯狂戴夫": 1,
+        "world:豌豆": 1,
+        "world:豌豆迫击炮-攻击0": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:2",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u3",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.2698293828214195,
+            -3.097333461685995
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:3",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:4",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u3",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.2698293828214195,
+            -3.097333461685995
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:5",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        }
+      ],
+      "hero_damage": 0.0,
+      "mode": "units",
+      "multi_red": false,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:豌豆迫击炮",
+      "target_damage": 10.0,
+      "volley_frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:疯狂戴夫": 1,
+        "world:豌豆": 5,
+        "world:豌豆迫击炮-攻击0": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": true,
+      "frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:疯狂戴夫": 1,
+        "world:豌豆": 1,
+        "world:豌豆迫击炮-攻击0": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:2",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u3",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.2698293828214195,
+            -3.097333461685995
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:3",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:4",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u3",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.2698293828214195,
+            -3.097333461685995
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:5",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        }
+      ],
+      "hero_damage": 4.0,
+      "mode": "hero_direct",
+      "multi_red": false,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:豌豆迫击炮",
+      "target_damage": 0.0,
+      "volley_frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:疯狂戴夫": 1,
+        "world:豌豆": 5,
+        "world:豌豆迫击炮-攻击0": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": true,
+      "frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:疯狂戴夫": 1,
+        "world:豌豆": 1,
+        "world:豌豆迫击炮-攻击0": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:2",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u3",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.2698293828214195,
+            -3.097333461685995
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:3",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:4",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u3",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.2698293828214195,
+            -3.097333461685995
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "豌豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:5",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "豌豆",
+          "方向": 1.0
+        }
+      ],
+      "hero_damage": 0.0,
+      "mode": "hero_splash",
+      "multi_red": false,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:豌豆迫击炮",
+      "target_damage": 10.0,
+      "volley_frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:疯狂戴夫": 1,
+        "world:豌豆": 5,
+        "world:豌豆迫击炮-攻击0": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": false,
+      "frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:火尾1": 1,
+        "world:火豆": 1,
+        "world:疯狂戴夫": 1,
+        "world:豌豆迫击炮-攻击0": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:2",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u3",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.2698293828214195,
+            -3.097333461685995
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:3",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:4",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u3",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.2698293828214195,
+            -3.097333461685995
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:5",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        }
+      ],
+      "hero_damage": 0.0,
+      "mode": "units",
+      "multi_red": true,
+      "neighbor_damage": 6.666666666627862,
+      "passed": true,
+      "source": "plant:豌豆迫击炮",
+      "target_damage": 20.0,
+      "volley_counts": {
+        "blue_assets": 0,
+        "bodies": 5,
+        "shots": 5,
+        "trails": 5
+      },
+      "volley_frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:火尾3": 5,
+        "world:火豆": 5,
+        "world:疯狂戴夫": 1,
+        "world:豌豆迫击炮-攻击0": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": false,
+      "frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:火尾1": 1,
+        "world:火豆": 1,
+        "world:疯狂戴夫": 1,
+        "world:豌豆迫击炮-攻击0": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:2",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u3",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.2698293828214195,
+            -3.097333461685995
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:3",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:4",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u3",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.2698293828214195,
+            -3.097333461685995
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:5",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        }
+      ],
+      "hero_damage": 6.0,
+      "mode": "hero_direct",
+      "multi_red": true,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:豌豆迫击炮",
+      "target_damage": 0.0,
+      "volley_counts": {
+        "blue_assets": 0,
+        "bodies": 5,
+        "shots": 5,
+        "trails": 5
+      },
+      "volley_frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:火尾3": 5,
+        "world:火豆": 5,
+        "world:疯狂戴夫": 1,
+        "world:豌豆迫击炮-攻击0": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": false,
+      "frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:火尾1": 1,
+        "world:火豆": 1,
+        "world:疯狂戴夫": 1,
+        "world:豌豆迫击炮-攻击0": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:2",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u3",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.2698293828214195,
+            -3.097333461685995
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:3",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:4",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u3",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.2698293828214195,
+            -3.097333461685995
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:5",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        }
+      ],
+      "hero_damage": 1.5,
+      "mode": "hero_splash",
+      "multi_red": true,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:豌豆迫击炮",
+      "target_damage": 20.0,
+      "volley_counts": {
+        "blue_assets": 0,
+        "bodies": 5,
+        "shots": 5,
+        "trails": 5
+      },
+      "volley_frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:火尾3": 5,
+        "world:火豆": 5,
+        "world:疯狂戴夫": 1,
+        "world:豌豆迫击炮-攻击0": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": true,
+      "frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:火尾1": 1,
+        "world:火豆": 1,
+        "world:疯狂戴夫": 1,
+        "world:豌豆迫击炮-攻击0": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:2",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u3",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.2698293828214195,
+            -3.097333461685995
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:3",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:4",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u3",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.2698293828214195,
+            -3.097333461685995
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:5",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        }
+      ],
+      "hero_damage": 0.0,
+      "mode": "units",
+      "multi_red": true,
+      "neighbor_damage": 6.666666666627862,
+      "passed": true,
+      "source": "plant:豌豆迫击炮",
+      "target_damage": 20.0,
+      "volley_counts": {
+        "blue_assets": 0,
+        "bodies": 5,
+        "shots": 5,
+        "trails": 5
+      },
+      "volley_frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:火尾3": 5,
+        "world:火豆": 5,
+        "world:疯狂戴夫": 1,
+        "world:豌豆迫击炮-攻击0": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": true,
+      "frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:火尾1": 1,
+        "world:火豆": 1,
+        "world:疯狂戴夫": 1,
+        "world:豌豆迫击炮-攻击0": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:2",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u3",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.2698293828214195,
+            -3.097333461685995
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:3",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:4",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u3",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.2698293828214195,
+            -3.097333461685995
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:5",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        }
+      ],
+      "hero_damage": 6.0,
+      "mode": "hero_direct",
+      "multi_red": true,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:豌豆迫击炮",
+      "target_damage": 0.0,
+      "volley_counts": {
+        "blue_assets": 0,
+        "bodies": 5,
+        "shots": 5,
+        "trails": 5
+      },
+      "volley_frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:火尾3": 5,
+        "world:火豆": 5,
+        "world:疯狂戴夫": 1,
+        "world:豌豆迫击炮-攻击0": 1,
+        "world:黄油砸": 2
+      }
+    },
+    {
+      "blue_torch_secret": true,
+      "frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:火尾1": 1,
+        "world:火豆": 1,
+        "world:疯狂戴夫": 1,
+        "world:豌豆迫击炮-攻击0": 1,
+        "world:黄油砸": 2
+      },
+      "generated_projectiles": [
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:1",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:2",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u3",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.2698293828214195,
+            -3.097333461685995
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:3",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:4",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u3",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.2698293828214195,
+            -3.097333461685995
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        },
+        {
+          "_pvp_content": "豌豆迫击炮",
+          "_pvp_fire_color": "fire",
+          "_pvp_flight_distance": 0.0,
+          "_pvp_flight_form": [
+            "火豆",
+            false,
+            ""
+          ],
+          "_pvp_flight_last": [
+            2149.44,
+            828.0
+          ],
+          "_pvp_flight_limit_tiles": 32.0,
+          "_pvp_id": "native:5",
+          "_pvp_instant_attack": [
+            "u1",
+            500
+          ],
+          "_pvp_mortar": true,
+          "_pvp_mortar_speed": 3.84,
+          "_pvp_mortar_target": "u2",
+          "_pvp_multi_red": true,
+          "_pvp_original_owner": "plant",
+          "_pvp_owner": "plant",
+          "_pvp_plant_kind": "豌豆迫击炮",
+          "_pvp_root_source": "u1",
+          "_pvp_source_entity": "u1",
+          "位置": [
+            2149.44,
+            828.0,
+            2.1259880897156327,
+            -3.1977765153910664
+          ],
+          "名": "火豆",
+          "方向": 1.0,
+          "火了": 0.0
+        }
+      ],
+      "hero_damage": 1.5,
+      "mode": "hero_splash",
+      "multi_red": true,
+      "neighbor_damage": 0.0,
+      "passed": true,
+      "source": "plant:豌豆迫击炮",
+      "target_damage": 20.0,
+      "volley_counts": {
+        "blue_assets": 0,
+        "bodies": 5,
+        "shots": 5,
+        "trails": 5
+      },
+      "volley_frame_assets": {
+        "world:僵尸戴夫": 1,
+        "world:普通僵尸-身": 2,
+        "world:普通僵尸-首": 2,
+        "world:火尾3": 5,
+        "world:火豆": 5,
+        "world:疯狂戴夫": 1,
+        "world:豌豆迫击炮-攻击0": 1,
+        "world:黄油砸": 2
+      }
+    }
+  ],
+  "failures": 0,
+  "passed": true
+}

@@ -519,7 +519,16 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
     bool imitate(const PlantRef& imitater,Cell cell,double facing)override{return cold_admission.imitate(imitater,cell,facing);}
     // Native region summons pass the installed admission gate (_install_admission).
     void summon_zombie(std::string name,Motion p,double facing)override{
-        ColdNativeCallSite site{ColdNativeCall::zombie_region,{}};cold_admission.native_zombie(name,p,facing,site);
+        ColdNativeCallSite site{ColdNativeCall::zombie_region,{}};
+        // The carried imp belongs to the currently executing giant, even after
+        // temporary roster installation. Forward its live index so admission
+        // can transfer that independent armor slot to the actual thrown child.
+        if(world.active&&world.active->phase==CombatPhase::zombies&&world.source_index&&*world.source_index>=0){
+            const auto index=size_t(*world.source_index);
+            if(index<battle.targets->size()){const auto& unit=battle.targets->at(index).unit;
+                if(unit&&world.source().get()==&unit->source)site.index=index;}
+        }
+        cold_admission.native_zombie(name,p,facing,site);
     }
     // Cold spawn boundary.
     void spawn(const ColdSpawnEvent& e)override{log_event({{"event","spawn"},{"entity",e.entity},{"card",e.card},{"side",seat_name(e.side)},{"source_entity",e.entity},{"parent_entity",e.parent_entity?J(*e.parent_entity):J(nullptr)},{"parent_attack",e.parent_attack?J::parse(encode_attack_identity(*e.parent_attack).dump()):J(nullptr)},{"native",true}});}
@@ -558,7 +567,7 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
     // NativeBattle._sync_public ignores that mark when comparing terrain.
     mutable std::vector<Cell> head_only_storage;
     std::span<const Cell> head_only_cells()const override{head_only_storage.clear();for(const auto& [row,col]:plants70.head_only_cells())head_only_storage.push_back(Cell{row,col});return head_only_storage;}
-    void set_belts(const std::set<int64_t>&)override{}
+    void set_belts(const std::set<int64_t>& belts)override{content64.belt_keys.clear();content64.belt_keys.insert(belts.begin(),belts.end());}
     std::array<int64_t,4> sequence{-1,-1,-1,-1};
     J log=J::array();size_t journal_read=0;
     void log_event(J fields){
@@ -973,6 +982,19 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
     // White-box writes through battle._native_objects / avatars (V record view of typed objects):
     // apply the V-format key to the typed field, then republish. Unknown keys fail loudly.
     static void assign(Field<double>& f,const J& v){if(v.is_null())f.set_null();else f.set(v.get<double>());}
+    static void assign(Field<bool>& f,const J& v){if(v.is_null())f.set_null();else f.set(v.get<bool>());}
+    static void assign(Field<std::string>& f,const J& v){if(v.is_null())f.set_null();else f.set(v.get<std::string>());}
+    void fixture_entity(size_t index,const J& fields,bool keep_only){
+        const auto entities=battle.runtime.entities.list();
+        if(index>=entities->size())throw std::out_of_range("fixture projectile index");
+        const auto selected=entities->at(index);
+        for(const auto& [key,value]:fields.items()){
+            if(key=="位置")selected->motion.replace(motion(value));
+            else throw std::invalid_argument("fixture projectile field: "+key);
+        }
+        if(keep_only)battle.runtime.entities.replace(std::make_shared<EntityRoster>(EntityRoster{selected}));
+        publish(true);
+    }
     void native_set(bool avatar,const std::string& id,const J& fields){
         if(avatar){read_hero(fields,world.hero(parse_seat(id)));publish(true);return;}
         const auto object=battle.native_objects.get(id);if(!object)throw std::out_of_range("typed record missing: "+id);
@@ -996,6 +1018,26 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
                 PVZ72_ZOMBIE_NATIVE_NUMBERS(Z)
 #undef Z
                 if(k=="血量"){b.hp=v.get<double>();continue;}
+                if(k=="防具"){b.armor=v.get<std::string>();continue;}
+                if(k=="防具血量"){b.armor_hp=v.get<double>();continue;}
+                if(k=="手持"){b.hand=v.get<std::string>();continue;}
+                if(k=="手持血量"){b.hand_hp=v.get<double>();continue;}
+                if(k=="_pvp_armor_max"){assign(z.armor_max,v);continue;}
+                if(k=="_pvp_zs_hand_max"){assign(z.hand_max,v);continue;}
+                if(k=="_pvp_imp_armor"){assign(z.poison.imp_armor,v);continue;}
+                if(k=="_pvp_imp_armor_hp"){assign(z.poison.imp_armor_hp,v);continue;}
+                if(k=="_pvp_black_armor"){assign(z.expansion.black_armor,v);continue;}
+                if(k=="__pvz_sb_gold_magnet_zombie_cd"){assign(z.patch.magnet_cooldown,v);continue;}
+                if(k=="_pvp_throw_clock"){assign(z.content64.throw_clock,v);continue;}
+                if(k=="_pvp_zs_secondhand"){
+                    if(v.is_null())z.registration.secondhand.set_null();
+                    else{ColdSecondhandEquipment second;
+                        if(v.contains("防具"))assign(second.head,v.at("防具"));
+                        if(v.contains("手持"))assign(second.hand,v.at("手持"));
+                        if(v.contains("_pvp_imp_armor"))assign(second.carried_imp,v.at("_pvp_imp_armor"));
+                        z.registration.secondhand.set(std::move(second));}
+                    continue;
+                }
                 if(k=="_pvp_max_hp"){z.max_hp.set(v.get<double>());continue;}
                 if(k=="位置"){b.motion.replace(motion(v));continue;}
                 if(k=="魅惑"){assign(z.source.charmed,v);continue;}
@@ -1114,6 +1156,7 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
         full_content=true;content_damage_enabled=true;full_bonus=true;installed=true;
         chain.chili.bind_impacts(content_damage);chain.chili.require_installed_impacts();
         bonus_projectiles.bind_content_ballistics(content_ballistics);squash.ballistics.bind_compute_policy(content_ballistics);squash.ballistics.require_compute_policy();
+        content_particles.observe=[this](const std::string& name,Point point){content64.tag_belt(name,point);};
         battle.runtime.bind_particles(content_particles);battle.runtime.require_particles();
         owner_phase.bind_content_gate(observed_gate);owner_phase.require_content_gate();
         for(const auto seat:seated_seats){

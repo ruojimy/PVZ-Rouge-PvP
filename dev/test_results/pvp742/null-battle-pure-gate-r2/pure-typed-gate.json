@@ -1,0 +1,350 @@
+{
+  "gate": "pvp73-pure-typed-dynamic-path",
+  "passed": true,
+  "scenarios": [
+    {
+      "scenario": "duel_ai",
+      "rc": 0,
+      "seconds": 133.1,
+      "passed": true,
+      "problems": [],
+      "audit": {
+        "backend": "typed72",
+        "session": true,
+        "performance": {
+          "aim_candidates": 585,
+          "aim_full_scan": 585,
+          "aim_queries": 234,
+          "collision_candidates": 0,
+          "collision_queries": 0,
+          "content_candidates": 0,
+          "content_queries": 0,
+          "destination_queries": 1,
+          "destination_rebuilds": 1,
+          "destination_reuses": 0,
+          "empty_cell_skips": 0,
+          "find_contact_calls": 0,
+          "flood_calls": 36366,
+          "flood_cycles": 130,
+          "flood_expansions": 6971,
+          "flood_neighbors": 634852,
+          "full_scan_equivalent": 0,
+          "function_profile": {},
+          "head_candidates": 0,
+          "head_exact_tests": 0,
+          "head_full_scan": 0,
+          "head_queries": 0,
+          "head_spatial_bytes": 0,
+          "index_builds": 0,
+          "max_seeking_plants": 0,
+          "native_entities": 2,
+          "nearest_candidates": 0,
+          "nearest_full_scan": 0,
+          "nearest_queries": 0,
+          "occupied_cells": 0,
+          "plant_target_candidates": 0,
+          "plant_target_reuses": 0,
+          "plant_target_scans": 10167,
+          "point_grid_builds": 0,
+          "point_grid_cell_changes": 0,
+          "point_grid_moves": 0,
+          "primal_knock_targets": 0,
+          "primal_knock_velocity": 0,
+          "range_cache_hits": 0,
+          "range_candidates": 0,
+          "range_cell_changes": 0,
+          "range_exact_tests": 0,
+          "range_full_scan": 0,
+          "range_grid_resets": 0,
+          "range_index_bytes": 0,
+          "range_queries": 0,
+          "seeking_plant_ticks": 0,
+          "spatial_bytes": 29704,
+          "torch_batch_reuses": 11,
+          "torch_candidates": 32792,
+          "torch_scans": 10290,
+          "zombie_collision_candidates": 45,
+          "zombie_collision_full_scan": 630,
+          "zombie_collision_queries": 252,
+          "zombie_exact_tests": 0
+        },
+        "dynamic_v_work": {
+          "ai_tick": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 566
+          },
+          "command_input": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 1573
+          },
+          "step": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 1221
+          }
+        },
+        "v_activity_total": {
+          "boxes": 62957536,
+          "calls": 33658702
+        },
+        "typed_steps": 1221,
+        "typed_commands": 1573,
+        "typed_tick": 1221,
+        "snapshot_projections": 2024,
+        "frame_descriptions": 4594,
+        "frame_description_hits": 2775,
+        "native_projections": 0,
+        "ai_observations": 566,
+        "ai_resets": 1,
+        "ai_plans": 27,
+        "ai_controls": 566,
+        "ai_planner_resets": 1,
+        "ai_planner_notes": {
+          "zombie": {
+            "grave_target": 3,
+            "mode": "defend"
+          }
+        },
+        "v_tick_at_start": 0,
+        "v_tick_now": 0,
+        "v_native_tick_at_start": 0,
+        "v_native_tick_now": 0
+      }
+    },
+    {
+      "scenario": "coop_ai",
+      "rc": 0,
+      "seconds": 37.5,
+      "passed": true,
+      "problems": [],
+      "audit": {
+        "backend": "typed72",
+        "session": true,
+        "performance": {
+          "aim_candidates": 0,
+          "aim_full_scan": 0,
+          "aim_queries": 0,
+          "collision_candidates": 0,
+          "collision_queries": 0,
+          "content_candidates": 0,
+          "content_queries": 0,
+          "destination_queries": 0,
+          "destination_rebuilds": 0,
+          "destination_reuses": 0,
+          "empty_cell_skips": 0,
+          "find_contact_calls": 0,
+          "flood_calls": 30198,
+          "flood_cycles": 88,
+          "flood_expansions": 5788,
+          "flood_neighbors": 854296,
+          "full_scan_equivalent": 0,
+          "function_profile": {},
+          "head_candidates": 0,
+          "head_exact_tests": 0,
+          "head_full_scan": 0,
+          "head_queries": 0,
+          "head_spatial_bytes": 0,
+          "index_builds": 0,
+          "max_seeking_plants": 0,
+          "native_entities": 0,
+          "nearest_candidates": 0,
+          "nearest_full_scan": 0,
+          "nearest_queries": 0,
+          "occupied_cells": 0,
+          "plant_target_candidates": 0,
+          "plant_target_reuses": 0,
+          "plant_target_scans": 0,
+          "point_grid_builds": 0,
+          "point_grid_cell_changes": 0,
+          "point_grid_moves": 0,
+          "primal_knock_targets": 0,
+          "primal_knock_velocity": 0,
+          "range_cache_hits": 0,
+          "range_candidates": 0,
+          "range_cell_changes": 0,
+          "range_exact_tests": 0,
+          "range_full_scan": 0,
+          "range_grid_resets": 0,
+          "range_index_bytes": 0,
+          "range_queries": 0,
+          "seeking_plant_ticks": 0,
+          "spatial_bytes": 0,
+          "torch_batch_reuses": 0,
+          "torch_candidates": 32210,
+          "torch_scans": 7550,
+          "zombie_collision_candidates": 0,
+          "zombie_collision_full_scan": 0,
+          "zombie_collision_queries": 0,
+          "zombie_exact_tests": 0
+        },
+        "dynamic_v_work": {
+          "ai_tick": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 443
+          },
+          "command_input": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 1197
+          },
+          "step": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 896
+          }
+        },
+        "v_activity_total": {
+          "boxes": 19533486,
+          "calls": 8354894
+        },
+        "typed_steps": 906,
+        "typed_commands": 1197,
+        "typed_tick": 906,
+        "snapshot_projections": 1541,
+        "frame_descriptions": 10688,
+        "frame_description_hits": 7616,
+        "native_projections": 0,
+        "ai_observations": 443,
+        "ai_resets": 1,
+        "ai_plans": 20,
+        "ai_controls": 443,
+        "ai_planner_resets": 1,
+        "ai_planner_notes": {
+          "plant2": {
+            "mode": "defend"
+          }
+        },
+        "v_tick_at_start": 0,
+        "v_tick_now": 0,
+        "v_native_tick_at_start": 0,
+        "v_native_tick_now": 0
+      }
+    },
+    {
+      "scenario": "duo_ai",
+      "rc": 0,
+      "seconds": 309.0,
+      "passed": true,
+      "problems": [],
+      "audit": {
+        "backend": "typed72",
+        "session": true,
+        "performance": {
+          "aim_candidates": 27738,
+          "aim_full_scan": 27738,
+          "aim_queries": 2958,
+          "collision_candidates": 0,
+          "collision_queries": 0,
+          "content_candidates": 19378,
+          "content_queries": 1691,
+          "destination_queries": 2,
+          "destination_rebuilds": 1,
+          "destination_reuses": 1,
+          "empty_cell_skips": 0,
+          "find_contact_calls": 0,
+          "flood_calls": 118504,
+          "flood_cycles": 411,
+          "flood_expansions": 28505,
+          "flood_neighbors": 4025080,
+          "full_scan_equivalent": 0,
+          "function_profile": {},
+          "head_candidates": 0,
+          "head_exact_tests": 0,
+          "head_full_scan": 0,
+          "head_queries": 0,
+          "head_spatial_bytes": 0,
+          "index_builds": 0,
+          "max_seeking_plants": 2,
+          "native_entities": 5,
+          "nearest_candidates": 0,
+          "nearest_full_scan": 0,
+          "nearest_queries": 0,
+          "occupied_cells": 0,
+          "plant_target_candidates": 88920,
+          "plant_target_reuses": 10241,
+          "plant_target_scans": 10241,
+          "point_grid_builds": 9500,
+          "point_grid_cell_changes": 148105,
+          "point_grid_moves": 151383,
+          "primal_knock_targets": 0,
+          "primal_knock_velocity": 0,
+          "range_cache_hits": 6343,
+          "range_candidates": 19902,
+          "range_cell_changes": 9897,
+          "range_exact_tests": 19902,
+          "range_full_scan": 64234,
+          "range_grid_resets": 3398,
+          "range_index_bytes": 4288,
+          "range_queries": 9951,
+          "seeking_plant_ticks": 9951,
+          "spatial_bytes": 58424,
+          "torch_batch_reuses": 1879,
+          "torch_candidates": 169364,
+          "torch_scans": 11487,
+          "zombie_collision_candidates": 220,
+          "zombie_collision_full_scan": 58575,
+          "zombie_collision_queries": 6248,
+          "zombie_exact_tests": 81
+        },
+        "dynamic_v_work": {
+          "ai_tick": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 2272
+          },
+          "command_input": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 2325
+          },
+          "step": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 1229
+          }
+        },
+        "v_activity_total": {
+          "boxes": 176003672,
+          "calls": 91253940
+        },
+        "typed_steps": 1229,
+        "typed_commands": 2325,
+        "typed_tick": 1229,
+        "snapshot_projections": 1757,
+        "frame_descriptions": 25225,
+        "frame_description_hits": 23902,
+        "native_projections": 0,
+        "ai_observations": 2272,
+        "ai_resets": 4,
+        "ai_plans": 108,
+        "ai_controls": 2272,
+        "ai_planner_resets": 4,
+        "ai_planner_notes": {
+          "plant": {
+            "econ_expand": 3,
+            "mode": "defend"
+          },
+          "plant2": {
+            "econ_expand": 3,
+            "mode": "defend"
+          },
+          "zombie": {
+            "grave_target": 3,
+            "mode": "defend"
+          },
+          "zombie2": {
+            "grave_target": 3,
+            "mode": "defend"
+          }
+        },
+        "v_tick_at_start": 0,
+        "v_tick_now": 0,
+        "v_native_tick_at_start": 0,
+        "v_native_tick_now": 0
+      }
+    }
+  ]
+}

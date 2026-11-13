@@ -969,7 +969,18 @@ class PveUI:
         battle = view.get("battle") or {}
         y = 5.0
         for seat in view.get("seats") or ("plant",):
-            p = battle.get("players", {}).get(seat, {})
+            # local_perspective exchanges secondary / primary player keys for
+            # the HUD, but members and profile names still use authority seats.
+            key = seat
+            local = battle.get("local_seat")
+            players = battle.get("players", {})
+            team = team_of(local) if local else None
+            if local and local != team and local in players and team in players:
+                if seat == team:
+                    key = local
+                elif seat == local:
+                    key = team
+            p = players.get(key, {})
             stats = p.get("stats", {})
             member = next((peer for peer, s in view.get("members", {}).items() if s == seat), None)
             name = view.get("player_profiles", {}).get(member, {}).get("name", "戴夫")

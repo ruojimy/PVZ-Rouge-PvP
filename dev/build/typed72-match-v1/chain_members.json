@@ -1,0 +1,979 @@
+[
+ {
+  "layer": "hero",
+  "struct": "Probe",
+  "members": [
+   {
+    "type": "TypedBattleState",
+    "name": "battle",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "CombatRuntime&",
+    "name": "visual",
+    "kind": "system",
+    "init": "=battle.runtime;"
+   },
+   {
+    "type": "HeroCombat&",
+    "name": "world",
+    "kind": "system",
+    "init": "=battle.heroes;"
+   },
+   {
+    "type": "std::vector<std::shared_ptr<AttackSource>>",
+    "name": "sources",
+    "kind": "scalar",
+    "init": ""
+   },
+   {
+    "type": "std::vector<std::optional<Motion>>",
+    "name": "positions",
+    "kind": "scalar",
+    "init": ""
+   },
+   {
+    "type": "std::vector<ProjectileFlight>",
+    "name": "flights",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "std::vector<ChiliAttackKey>",
+    "name": "chili_keys",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "std::vector<std::shared_ptr<AttackSource>>",
+    "name": "held_proxy_sources",
+    "kind": "scalar",
+    "init": ""
+   },
+   {
+    "type": "bool",
+    "name": "tagging",
+    "kind": "scalar",
+    "init": "= false;"
+   }
+  ]
+ },
+ {
+  "layer": "targets",
+  "struct": "TargetProbe",
+  "members": [
+   {
+    "type": "TargetDamage",
+    "name": "damage",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "std::vector<ZombieRef>",
+    "name": "units",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "std::vector<TypedBattleState::UnitId>",
+    "name": "ids",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "std::vector<std::string>",
+    "name": "bosses",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "std::shared_ptr<TargetRoster>",
+    "name": "original_roster",
+    "kind": "system",
+    "init": "=battle.targets;"
+   },
+   {
+    "type": "bool",
+    "name": "throw_raw",
+    "kind": "scalar",
+    "init": "=false,throw_watch=false;"
+   }
+  ]
+ },
+ {
+  "layer": "plants",
+  "struct": "PlantProbe",
+  "members": [
+   {
+    "type": "GravebusterEffects",
+    "name": "graves",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "CollisionCatalog",
+    "name": "collision",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "ContentTargets",
+    "name": "content",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "std::vector<TileRef>",
+    "name": "held",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "std::vector<PlantRef>",
+    "name": "all_plants",
+    "kind": "system",
+    "init": ""
+   }
+  ]
+ },
+ {
+  "layer": "doom",
+  "struct": "DoomProbe",
+  "members": [
+   {
+    "type": "DoomEffects",
+    "name": "doom",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "std::optional<TargetRoster>",
+    "name": "extras",
+    "kind": "scalar",
+    "init": "=TargetRoster{};"
+   },
+   {
+    "type": "std::vector<EntityRef>",
+    "name": "births",
+    "kind": "system",
+    "init": ""
+   }
+  ]
+ },
+ {
+  "layer": "chili",
+  "struct": "ChiliProbe",
+  "members": [
+   {
+    "type": "ChiliEffects",
+    "name": "chili",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "std::vector<ChiliHits>",
+    "name": "held_hits",
+    "kind": "system",
+    "init": ""
+   }
+  ]
+ },
+ {
+  "layer": "sourced",
+  "struct": "SourcedProbe",
+  "members": []
+ },
+ {
+  "layer": "death",
+  "struct": "DeathProbe",
+  "members": [
+   {
+    "type": "NativeDeathChain",
+    "name": "chain",
+    "kind": "system",
+    "init": ""
+   }
+  ]
+ },
+ {
+  "layer": "service",
+  "struct": "ServiceProbe",
+  "members": [
+   {
+    "type": "ServicePlants",
+    "name": "services",
+    "kind": "system",
+    "init": ""
+   }
+  ]
+ },
+ {
+  "layer": "squash",
+  "struct": "SquashProbe",
+  "members": [
+   {
+    "type": "SquashEffects",
+    "name": "squash",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "std::vector<std::optional<NativeAimTarget>>",
+    "name": "held",
+    "kind": "scalar",
+    "init": ""
+   }
+  ]
+ },
+ {
+  "layer": "pea",
+  "struct": "PeaProbe",
+  "members": [
+   {
+    "type": "TorchRules",
+    "name": "torches",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "ZombiePeas",
+    "name": "peas",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "bool",
+    "name": "surface_available",
+    "kind": "scalar",
+    "init": "=true;"
+   },
+   {
+    "type": "std::optional<size_t>",
+    "name": "surface_index",
+    "kind": "scalar",
+    "init": ""
+   }
+  ]
+ },
+ {
+  "layer": "shooting",
+  "struct": "ShootingProbe",
+  "members": [
+   {
+    "type": "WindEffects",
+    "name": "wind",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "LanternEffects",
+    "name": "lantern",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "FumeEffects",
+    "name": "fume",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "PlantZombieShooting",
+    "name": "shooting",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "std::vector<PlantZombieConfig>",
+    "name": "shoot_catalog",
+    "kind": "system",
+    "init": ""
+   }
+  ]
+ },
+ {
+  "layer": "world_rules",
+  "struct": "WorldRulesProbe",
+  "members": [
+   {
+    "type": "EntityRegionRules",
+    "name": "rules",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "EntityContacts",
+    "name": "contacts",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "EntityRegionEnvironment",
+    "name": "region_env",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "ProjectileRules",
+    "name": "flight",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "EntityRegion",
+    "name": "region",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "TargetIndexes",
+    "name": "indexes",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "TargetSight",
+    "name": "sight",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "NativeTracking",
+    "name": "chart",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "EntityPhase",
+    "name": "owner_phase",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "std::vector<std::string>",
+    "name": "assets",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "bool",
+    "name": "observe_index",
+    "kind": "scalar",
+    "init": "=false;"
+   },
+   {
+    "type": "std::optional<size_t>",
+    "name": "nearest",
+    "kind": "scalar",
+    "init": ""
+   },
+   {
+    "type": "RallyPoints",
+    "name": "hero_flags",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "HeroPhase",
+    "name": "hero_phase",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "bool",
+    "name": "observe_hero_inputs",
+    "kind": "scalar",
+    "init": "=false;"
+   }
+  ]
+ },
+ {
+  "layer": "resources",
+  "struct": "ResourcesProbe",
+  "members": [
+   {
+    "type": "WorldRegionState",
+    "name": "world_region",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "WorldRegions",
+    "name": "regions",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "uint64_t",
+    "name": "resource_ids",
+    "kind": "scalar",
+    "init": "=0;"
+   },
+   {
+    "type": "Resources",
+    "name": "resources",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "NativePathRules",
+    "name": "path_rules",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "PathTracking",
+    "name": "paths",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "bool",
+    "name": "observe_paths",
+    "kind": "scalar",
+    "init": "=false;"
+   },
+   {
+    "type": "HeroRecovery",
+    "name": "recovery",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "HeroRecoveryRules",
+    "name": "recovery_rules",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "std::vector<Seat>",
+    "name": "present",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "bool",
+    "name": "observe_recovery",
+    "kind": "scalar",
+    "init": "=false;"
+   },
+   {
+    "type": "EconomyState",
+    "name": "economy_state",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "EconomyRules",
+    "name": "economy_rules",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "Economy",
+    "name": "economy",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "std::vector<std::shared_ptr<NativeSun>>",
+    "name": "sun_records",
+    "kind": "scalar",
+    "init": ""
+   },
+   {
+    "type": "bool",
+    "name": "observe_economy",
+    "kind": "scalar",
+    "init": "=false;"
+   }
+  ]
+ },
+ {
+  "layer": "plant_region",
+  "struct": "PlantRegionProbe",
+  "members": [
+   {
+    "type": "PlantRegionRules",
+    "name": "plant_rules",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "PlantRegionState",
+    "name": "plant_environment",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "PlantRegion",
+    "name": "plants",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "bool",
+    "name": "observe_plants",
+    "kind": "scalar",
+    "init": "=false;"
+   }
+  ]
+ },
+ {
+  "layer": "flying_plants",
+  "struct": "FlyingPlantsProbe",
+  "members": [
+   {
+    "type": "SeatCommands",
+    "name": "commands",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "SeatPathTracking",
+    "name": "path_banks",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "SweetTaunts",
+    "name": "taunts",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "ContentTargets",
+    "name": "target_dispatch",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "ContentQueries",
+    "name": "queries",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "FlyingPlants",
+    "name": "flying",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "EntityRoster",
+    "name": "flight_records",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "bool",
+    "name": "observe_flying",
+    "kind": "scalar",
+    "init": "=false,gate_flying=false;"
+   }
+  ]
+ },
+ {
+  "layer": "grenadiers",
+  "struct": "GrenadierProbe",
+  "members": [
+   {
+    "type": "Grenadiers",
+    "name": "grenadiers",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "bool",
+    "name": "observe_grenadiers",
+    "kind": "scalar",
+    "init": "=false;"
+   }
+  ]
+ },
+ {
+  "layer": "content_zombies64",
+  "struct": "ContentZombie64Probe",
+  "members": [
+   {
+    "type": "ScriptedSpawnBudget",
+    "name": "budget",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "ContentZombies64",
+    "name": "content64",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "std::string",
+    "name": "spawn_mode64",
+    "kind": "scalar",
+    "init": "=\"ok\";"
+   },
+   {
+    "type": "size_t",
+    "name": "spawned64",
+    "kind": "scalar",
+    "init": "=0,sync64=0;"
+   },
+   {
+    "type": "bool",
+    "name": "observe64",
+    "kind": "scalar",
+    "init": "=false;"
+   }
+  ]
+ },
+ {
+  "layer": "native_tick",
+  "struct": "NativeTickProbe",
+  "members": [
+   {
+    "type": "GraveIdleRules",
+    "name": "grave_rules",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "GraveClock",
+    "name": "grave_clock",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "PlantDeathRules",
+    "name": "death_rules",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "PlantDeathState",
+    "name": "death_state",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "PlantDeathPolicy",
+    "name": "death_policy",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "PlantMaintenance",
+    "name": "maintenance",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "GraveBinding",
+    "name": "binding",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "SeaShroom",
+    "name": "sea",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "ZombiePhase",
+    "name": "zombie_phase",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "NativeTickState",
+    "name": "tick_state",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "NativeTick",
+    "name": "driver",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "FrameEntity",
+    "name": "frame_entity",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "bool",
+    "name": "observe_tick",
+    "kind": "scalar",
+    "init": "=false;"
+   }
+  ]
+ },
+ {
+  "layer": "native_status",
+  "struct": "NativeStatusProbe",
+  "members": [
+   {
+    "type": "NativeStatus",
+    "name": "poison",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "bool",
+    "name": "observe_poison",
+    "kind": "scalar",
+    "init": "=false;"
+   }
+  ]
+ },
+ {
+  "layer": "content_zombies",
+  "struct": "ContentZombiesProbe",
+  "members": [
+   {
+    "type": "NativeContentZombieRules",
+    "name": "content_rules",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "uint64_t",
+    "name": "content_revision",
+    "kind": "scalar",
+    "init": "=0;"
+   },
+   {
+    "type": "CartLifecycle",
+    "name": "carts",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "NativeSummons",
+    "name": "summons",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "Scarecrows",
+    "name": "scarecrows",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "ContentZombies",
+    "name": "controller",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "std::map<std::string,double>",
+    "name": "content_heights",
+    "kind": "scalar",
+    "init": ""
+   },
+   {
+    "type": "bool",
+    "name": "content_seen",
+    "kind": "scalar",
+    "init": "=false,installed=false;"
+   },
+   {
+    "type": "double",
+    "name": "movement",
+    "kind": "scalar",
+    "init": "=1.,bite=1.,scale=1.;"
+   }
+  ]
+ },
+ {
+  "layer": "content_controllers",
+  "struct": "ContentControllersProbe",
+  "members": [
+   {
+    "type": "bool",
+    "name": "wild_dance",
+    "kind": "scalar",
+    "init": "=false;"
+   },
+   {
+    "type": "SeptemberZombies",
+    "name": "september",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "ContentZombies56",
+    "name": "zombies56",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "ContentZombies70",
+    "name": "zombies70",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "NativeBarrels",
+    "name": "barrels",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "ContentZombieCombatRules",
+    "name": "combat_rules",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "ContentZombieBindings",
+    "name": "concrete",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "bool",
+    "name": "controllers_seen",
+    "kind": "scalar",
+    "init": "=false;"
+   },
+   {
+    "type": "size_t",
+    "name": "orphan_sequence",
+    "kind": "scalar",
+    "init": "=0;"
+   }
+  ]
+ },
+ {
+  "layer": "content_phase",
+  "struct": "ContentPhaseProbe",
+  "members": [
+   {
+    "type": "ContentCombatState",
+    "name": "combat_state",
+    "kind": "system",
+    "init": ""
+   },
+   {
+    "type": "ContentParticles",
+    "name": "content_particles",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "bool",
+    "name": "full_content",
+    "kind": "scalar",
+    "init": "=false,content_damage_enabled=false,full_bonus=false,gas_secret=false,hardening=false,phototherapy=false;"
+   },
+   {
+    "type": "ContentFrost",
+    "name": "frost",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "NativeContentDamage",
+    "name": "content_damage",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "ContentPlants70",
+    "name": "plants70",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "ContentVines",
+    "name": "vines",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "ContentLantern",
+    "name": "content_lantern",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "ContentDarts",
+    "name": "darts",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "MortarPlants",
+    "name": "mortars",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "ReedPlants",
+    "name": "reeds",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "SeptemberPlants",
+    "name": "september_plants",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "BarrelProjectiles",
+    "name": "barrel_shots",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "NativeBarrelCrush",
+    "name": "barrel_crush",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "NativeContentPhases",
+    "name": "phases",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "BonusProjectiles",
+    "name": "bonus_projectiles",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "BonusPlants",
+    "name": "bonus_plants",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "BonusScan",
+    "name": "bonus_scan",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "ContentAdmission",
+    "name": "admission",
+    "kind": "system",
+    "init": "{}"
+   },
+   {
+    "type": "bool",
+    "name": "phase_seen",
+    "kind": "scalar",
+    "init": "=false;"
+   }
+  ]
+ }
+]

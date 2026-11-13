@@ -1,0 +1,58 @@
+{
+  "scope": "Production Session, no user process manipulation, SDL dummy video/audio",
+  "fix": "flood.cpp narrow passage boundary 23 -> map.rows()-1; original 24-row predicate unchanged",
+  "actual_oasis_map": "ea66000000000000000000000000000a",
+  "baseline_failure": "32-row narrow gap accepted at row 23 and Oasis crowd stopped under row-24 tower slot",
+  "post_fix_cases_passed": 5,
+  "post_fix_cases": 5,
+  "narrow_gap_edge_cases": 18,
+  "24row_exact_equivalence": {
+    "passed": true,
+    "cases": [
+      {
+        "name": "natural_wall_build_梯子僵尸",
+        "24row_evidence_exact": true,
+        "rng_exact": true,
+        "trajectory_exact": true
+      },
+      {
+        "name": "natural_wall_build_传送带僵尸",
+        "24row_evidence_exact": true,
+        "rng_exact": true,
+        "trajectory_exact": true
+      }
+    ]
+  },
+  "oasis": [
+    {
+      "units": 4,
+      "before_highest_feet_y": 1200.5184000000008,
+      "after_highest_feet_y": 923.1744000000027,
+      "test_room_ticks": 1400,
+      "platform_top_y": 576,
+      "after_cleared_platform": false
+    },
+    {
+      "units": 40,
+      "before_highest_feet_y": 1200.5568000000005,
+      "after_highest_feet_y": 530.0832000000034,
+      "test_room_ticks": 1400,
+      "platform_top_y": 576,
+      "after_cleared_platform": true
+    }
+  ],
+  "conveyor": {
+    "natural_placement_room_tick": 2,
+    "row": 19,
+    "col": 41,
+    "belt_tag": true,
+    "ordinary_ladder_tag": false,
+    "ice_and_butter_immunity": true,
+    "upward_velocity": true,
+    "tag_survives_terrain_republish": true
+  },
+  "remaining": "Special flying/underground/vehicle/charm behavior matrix is outside this focused fixture. Stun immunity shares the production loop but native_set does not admit stun, so not separately injected.",
+  "latest_audit_has_explicit_platform_assertions": true,
+  "final_cases_passed": 5,
+  "final_artifact": "test_results/pvp742-terrain-final.json"
+}

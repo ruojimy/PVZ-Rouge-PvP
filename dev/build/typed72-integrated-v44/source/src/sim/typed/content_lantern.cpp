@@ -27,7 +27,8 @@ void ContentLantern::burn(const PlantRef& plant) {
         }
     }
     if(!woken.empty())events_.lantern_wake(plant->source.id,woken);size_t hit=0;
-    for(const auto& target:queries_.enemies(source_ref(plant)))if(const auto* body=std::get_if<CombatTarget>(&target);body&&body->unit) {
+    for(const auto& target:queries_.enemies_in_box(source_ref(plant),{center.x-3.*tile,center.y-3.*tile,center.x+3.*tile,center.y+3.*tile}))if(const auto* body=std::get_if<CombatTarget>(&target);body&&body->unit) {
+        ++queries_.range_exact_tests;
         if(world_.heroes.owner(source_ref(body->unit))==owner)continue;const auto p=body->unit->body.motion.get();
         if(std::abs(wrap_delta(center.x,p.x,world_.world_width.get()))<=3.*tile&&std::abs(p.y-tile*.5-center.y)<=3.*tile) {
             targets_.damage(source_ref(plant),target,12.,plant->facing);++hit;
