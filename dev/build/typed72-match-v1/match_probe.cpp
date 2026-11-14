@@ -1091,11 +1091,16 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
     void write_record(){if(!no_trace)(*out)<<record().dump(-1,' ',false,J::error_handler_t::replace)<<'\n';pending_inputs=J::array();calls.clear();}
     bool release_fixtures=std::getenv("MATCH_RELEASE_FIXTURES")!=nullptr;
     void native_tick_done()override{++typed_ticks;flush_journal();drain_sounds();write_record();
-        if(release_fixtures){units.clear();births.clear();render_log=J::array();calls=J::array();dispatch_calls=J::array();phase_draws=J::array();phase_events=J::array();}}
+        if(release_fixtures){
+            // Fixture evidence only; business journals have separate read cursors.
+            units.clear();births.clear();render_log.clear();calls.clear();dispatch_calls.clear();phase_draws.clear();phase_events.clear();
+            aliases64.clear();draws64.clear();events64.clear();spawns64.clear();
+            cost_calls.clear();grenade_events.clear();poison_events.clear();}}
     void setup(const J& cold,const J& scenario) {
         const auto& g=cold.at("globals");
         // NativeBattle.__init__: g["地刺阳光"] = CARDS["plant:地刺"]["cost"], the 地刺 secret charge state.
         if(g.contains("地刺阳光")&&g.at("地刺阳光").is_number())deployment.spike_cost.set(g.at("地刺阳光").get<double>());if(cold.at("battle").contains("seats")&&cold.at("battle").at("seats").is_array())battle_seats=cold.at("battle").at("seats");team_mode=cold.at("battle").value("team_mode",false);const auto& b=cold.at("battle");const auto& rules_json=b.at("rules");seed_public_map(b);
+        deployment.bans=b.value("bans",std::vector<std::string>{});
         // pvp61_ranked.ranked(self.rules): the placement ring and the 黄金蓓蕾 collect lock.
         {const J r=rules_json.value("ranked",J(nullptr));deployment.ranked=r.is_boolean()?r.get<bool>():r.is_number()?r.get<double>()!=0.:r.is_string()?!r.get<std::string>().empty():(r.is_array()||r.is_object())?!r.empty():false;}
         auto& runtime=battle.runtime;runtime.tile=b.at("tile");runtime.plk=g.at("plk");

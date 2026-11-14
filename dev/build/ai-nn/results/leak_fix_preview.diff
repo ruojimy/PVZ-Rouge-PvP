@@ -1,0 +1,80 @@
+diff --git a/dev/src/sim/typed72_app/composition/probes/content_zombies64_probe.cpp b/dev/src/sim/typed72_app/composition/probes/content_zombies64_probe.cpp
+index 5079ece..4ab6c8b 100644
+--- a/dev/src/sim/typed72_app/composition/probes/content_zombies64_probe.cpp
++++ b/dev/src/sim/typed72_app/composition/probes/content_zombies64_probe.cpp
+@@ -15,7 +15,7 @@ struct ContentZombie64Probe : GrenadierProbe,ContentZombie64Services,ScriptedSpa
+         return value.present() && !value.is_null()?J(value.get()):J(nullptr);
+     }
+     void emit64(std::string name,J fields) {
+-        events64.push_back({name,fields});;;
++        ;;
+     }
+     void summon_deferred(const ScriptedSpawnKey& key,const Field<int64_t>& wave)override {
+         J fields={{"source",key.source},{"summon",key.kind},{"slot",key.slot}};
+@@ -25,10 +25,10 @@ struct ContentZombie64Probe : GrenadierProbe,ContentZombie64Services,ScriptedSpa
+         throw std::logic_error("dancer outside zombie64 fixture");
+     }
+     void alias_art(const std::string& source,const std::string& target)override {
+-        aliases64.push_back({source,target});;;
++        ;;
+     }
+     void draw_zombie(const ZombieRef& unit)override {
+-        draws64.push_back(index(unit));;;
++        ;;
+     }
+     void publish_terrain()override {
+         ++sync64;content64.belt_keys.clear();
+@@ -51,8 +51,7 @@ struct ContentZombie64Probe : GrenadierProbe,ContentZombie64Services,ScriptedSpa
+         write(fields,"方向",origin.facing);write(fields,"_pvp_slime_sticky",parent.sticky);
+         if(origin.position.present())fields["位置"]=as_json(origin.position.get());
+         if(origin.barrel_position.present())fields["_pvp_barrel_position"]=as_json(origin.barrel_position.get());
+-        spawns64.push_back({"zombie:"+name,"zombie",point.x,point.y,facing,true,fields,battle.spawn_ban_exempt,
+-            world.active?J(seat_name(world.active->owner)):J(nullptr),world.active?J(phase_name(world.active->phase)):J(nullptr)});
++        
+         ;
+         if(spawn_mode64=="none")return {};
+         if(spawn_mode64=="throw_before")throw std::runtime_error("slime constructor before");
+diff --git a/dev/src/sim/typed72_app/composition/probes/grenadiers_probe.cpp b/dev/src/sim/typed72_app/composition/probes/grenadiers_probe.cpp
+index 7b00491..effed95 100644
+--- a/dev/src/sim/typed72_app/composition/probes/grenadiers_probe.cpp
++++ b/dev/src/sim/typed72_app/composition/probes/grenadiers_probe.cpp
+@@ -9,7 +9,7 @@ struct GrenadierProbe : FlyingPlantsProbe,GrenadierServices {
+     bool observe_grenadiers=false;
+     explicit GrenadierProbe(int64_t seed,double width,double splash):FlyingPlantsProbe(seed,width,splash){}
+     double card_cost(std::optional<Seat> owner,const std::string& key)override {
+-        cost_calls.push_back({owner?J(seat_name(*owner)):J(nullptr),key});;
++        ;
+         const auto value=costs.at(key);;return value.get<double>();
+     }
+     void grenade_event(const GrenadeEvent& event)override {
+@@ -23,7 +23,7 @@ struct GrenadierProbe : FlyingPlantsProbe,GrenadierServices {
+             case GrenadeEvent::Kind::explode:name="grenade_explode";fields["row"]=event.cell.y;fields["col"]=event.cell.x;
+                 fields["targets"]=event.targets;fields["instant"]=event.instant;break;
+         }
+-        grenade_events.push_back({name,fields});;;
++        ;;
+     }
+     static GrenadierPhase grenade_phase(std::string_view phase) {
+         if(phase=="ready")return GrenadierPhase::ready;
+diff --git a/dev/src/sim/typed72_app/composition/probes/native_status_probe.cpp b/dev/src/sim/typed72_app/composition/probes/native_status_probe.cpp
+index b9215c8..18d3b90 100644
+--- a/dev/src/sim/typed72_app/composition/probes/native_status_probe.cpp
++++ b/dev/src/sim/typed72_app/composition/probes/native_status_probe.cpp
+@@ -17,14 +17,14 @@ struct NativeStatusProbe : NativeTickProbe,NativeStatusServices {
+         NativeTickProbe::status_tick();poison.tick(avatar_order());
+     }
+     void poison_damage(const Field<std::string>& entity,double amount,int level)override {
+-        poison_events.push_back({"damage",nullable(entity),amount,level});
++        
+         ;;
+     }
+     void break_poisoned_barrel(const ZombieRef& unit)override {
+-        poison_events.push_back({"break",index(unit)});;;
++        ;;
+     }
+     void detach_poisoned_barrel(const ZombieRef& unit)override {
+-        poison_events.push_back({"detach",index(unit)});;;
++        ;;
+     }
+     static void read_poison(const J& object,PoisonSlot& slot) {
+         if(object.is_null()){slot.set_null();return;}

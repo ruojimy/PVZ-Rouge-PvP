@@ -10,7 +10,8 @@ OUT=(HERE.parent/sys.argv[1]).resolve()
 if OUT.exists():raise SystemExit('stage exists, use a new directory: '+str(OUT))
 RECORD_CALLS=('record','before','after')
 LOGS=('calls','render_log','dispatch_calls','phase_draws','phase_events','raw_calls','armor_events','flying_draws','flying_events',
-      'cart_events','summon_events','wind_callbacks','expansion_events','spawn_events','tick_events','states','held_hits')
+      'cart_events','summon_events','wind_callbacks','expansion_events','spawn_events','tick_events','states','held_hits',
+      'aliases64','draws64','events64','spawns64','cost_calls','grenade_events','poison_events')
 def balanced_end(text,i):
     """index just past the ')' matching the '(' at text[i]."""
     depth=0;quote=None;k=i

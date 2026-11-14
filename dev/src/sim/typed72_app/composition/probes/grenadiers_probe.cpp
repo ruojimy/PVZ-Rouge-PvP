@@ -9,7 +9,7 @@ struct GrenadierProbe : FlyingPlantsProbe,GrenadierServices {
     bool observe_grenadiers=false;
     explicit GrenadierProbe(int64_t seed,double width,double splash):FlyingPlantsProbe(seed,width,splash){}
     double card_cost(std::optional<Seat> owner,const std::string& key)override {
-        cost_calls.push_back({owner?J(seat_name(*owner)):J(nullptr),key});;
+        ;;
         const auto value=costs.at(key);;return value.get<double>();
     }
     void grenade_event(const GrenadeEvent& event)override {
@@ -23,7 +23,7 @@ struct GrenadierProbe : FlyingPlantsProbe,GrenadierServices {
             case GrenadeEvent::Kind::explode:name="grenade_explode";fields["row"]=event.cell.y;fields["col"]=event.cell.x;
                 fields["targets"]=event.targets;fields["instant"]=event.instant;break;
         }
-        grenade_events.push_back({name,fields});;;
+        ;;;
     }
     static GrenadierPhase grenade_phase(std::string_view phase) {
         if(phase=="ready")return GrenadierPhase::ready;

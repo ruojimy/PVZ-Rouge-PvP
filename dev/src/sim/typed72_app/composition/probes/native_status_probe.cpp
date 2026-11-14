@@ -17,14 +17,14 @@ struct NativeStatusProbe : NativeTickProbe,NativeStatusServices {
         NativeTickProbe::status_tick();poison.tick(avatar_order());
     }
     void poison_damage(const Field<std::string>& entity,double amount,int level)override {
-        poison_events.push_back({"damage",nullable(entity),amount,level});
+        ;
         ;;
     }
     void break_poisoned_barrel(const ZombieRef& unit)override {
-        poison_events.push_back({"break",index(unit)});;;
+        ;;;
     }
     void detach_poisoned_barrel(const ZombieRef& unit)override {
-        poison_events.push_back({"detach",index(unit)});;;
+        ;;;
     }
     static void read_poison(const J& object,PoisonSlot& slot) {
         if(object.is_null()){slot.set_null();return;}

@@ -1,0 +1,35 @@
+[
+  {
+    "case": "005-plant",
+    "equal": true,
+    "different_keys": [],
+    "log_sha256": "3aad64b01ca234c332914936204c3b1a402804849106dc9ea2517ec0748426bf",
+    "result": {
+      "reason": "hero_death",
+      "tick": 9103,
+      "winner": "plant"
+    }
+  },
+  {
+    "case": "054-plant",
+    "equal": true,
+    "different_keys": [],
+    "log_sha256": "104a54f4a9a010c3d4936f0cdd53bbc37b92e440fa1ec916ef2f3227bdf6b076",
+    "result": {
+      "reason": "hero_death",
+      "tick": 7144,
+      "winner": "zombie"
+    }
+  },
+  {
+    "case": "090-zombie",
+    "equal": true,
+    "different_keys": [],
+    "log_sha256": "3e8da938e005411b4c07c384eb73ddaa59eb099797c111775679473a05f0ff0c",
+    "result": {
+      "reason": "hero_death",
+      "tick": 15873,
+      "winner": "plant"
+    }
+  }
+]

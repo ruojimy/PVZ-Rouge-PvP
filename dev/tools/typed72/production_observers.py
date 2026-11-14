@@ -194,9 +194,15 @@ RULES = {
 
 def validate_observers(path, text, *, after_legacy=False):
     """Guard the known residuals; never use these patterns to delete code."""
+    mask = code_mask(text)
+    # These seven fixture arrays are never gameplay journals. Guard every source,
+    # including files outside the body-rule allowlist, after the reviewed strip.
+    if after_legacy and re.search(
+            r'\b(?:aliases64|draws64|events64|spawns64|cost_calls|grenade_events|poison_events)'
+            r'\s*\.\s*(?:push_back|emplace_back)\s*\(', mask):
+        raise ObserverContractError(f'{path}: unexpected retained probe log append')
     if path not in RULES:
         return
-    mask = code_mask(text)
     # The sole retained bare event token is the empty helper definition. Any
     # new inherited/qualified caller in these reviewed files requires review.
     expected = 1 if path == ZOMBIES else 0

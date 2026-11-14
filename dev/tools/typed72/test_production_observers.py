@@ -83,6 +83,20 @@ class ObserverTests(unittest.TestCase):
         self.assertIn('ContentPhaseProbe::alias_art(old,next);canvas.alias(old,next);',
                       method(result, signature))
 
+    def test_seven_probe_logs_are_stripped_and_guarded(self):
+        for name in ('content_zombies64_probe.cpp', 'grenadiers_probe.cpp', 'native_status_probe.cpp'):
+            path = 'probes/' + name
+            source = (app.DRIVER / path).read_text(encoding='utf8')
+            transformed, _ = obs.transform(path, source)
+            final, _ = self.strip(transformed)
+            obs.validate_observers(path, final, after_legacy=True)
+        for name in ('aliases64','draws64','events64','spawns64','cost_calls','grenade_events','poison_events'):
+            for method_name in ('push_back', 'emplace_back'):
+                with self.assertRaisesRegex(obs.ObserverContractError, 'retained probe'):
+                    obs.validate_observers('probes/new_probe.cpp', name + '.' + method_name + '(1);', after_legacy=True)
+            self.assertIn(name + '.clear();', self.driver)
+            self.assertIn('"' + name + '",' + name + '.size()', self.driver)
+
     def test_known_phase_residuals_are_zero(self):
         text, _, _ = self.production(obs.PHASE)
         for token in ('p.calls.push_back', 'p.before(', 'p.after(',

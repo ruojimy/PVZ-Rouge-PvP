@@ -10,8 +10,14 @@
 | --- | --- |
 | [Windows玩家包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.74.3-pvp743/PvZ-PvP-Native-20261114-pvp743-r2.zip) | 解压运行，覆盖升级保留userdata |
 | [Android ARM64](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.74.3-pvp743/PvZ-PvP-Native-1.6.0.74.3-typed.20261114-1114082-20261114-pvp743-r2.apk) | 同包名/同签名覆盖升级，versionCode1114082 |
-| [完整开发者包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.74.3-pvp743/PvZ-PvP-Native-20261114-pvp743-r2-Developer-Package.zip) | 生产源码/拥有源/生成器、素材数据、精选证据及21项待办 |
+| [完整开发者包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.74.3-pvp743/PvZ-PvP-Native-20261114-pvp743-r2-Developer-Package.zip) | 正式r2冻结源码；最新含AI研究的完整源码见下方AI板块 |
 | [SHA-256清单](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.74.3-pvp743/zh-SHA256SUMS.txt) | 校验包和公开附件 |
+
+## 神经网络 AI 研究
+
+新增独立的[神经网络AI板块](ai-nn/README.md)：提供Windows即用研究包、模型/checkpoint、当前216组语料、训练工具、完整源码及验证报告。[研究下载](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/tag/ai-nn-20261114-r1)。
+
+模型实际接管经济、植物进攻模式和墓碑目标数。648局基线无崩溃/AI异常；54组留出对照每阵营各多胜3局，统计尚不显著，继续作为研究候选。正式游戏默认AI仍为r22，正式玩家包保持r2。
 
 ## r2修复与验收
 
@@ -25,13 +31,13 @@
 
 ## 后续工作
 
-[统一待办T01–T21](待办清单.md)区分待优化、待复现和待验收，覆盖手机高压性能、长期内存、偶发崩溃、云端前台卡顿、全量回归和机制覆盖等。旧迁移计划已归档，A1死墓位记忆、A2解除封印出兵口已实现，不重复列未完成。
+[统一待办T01–T23](待办清单.md)区分待优化、待复现和待验收，覆盖手机高压性能、长期内存、偶发崩溃、云端前台卡顿、全量回归和机制覆盖等。旧迁移计划已归档，A1死墓位记忆、A2解除封印出兵口已实现，不重复列未完成。
 
 [39项历史需求及r2状态](dev/PvP74.3_任务总清单.md) · [修复说明](dev/更新说明-PvP74.3-r2.md) · [600字内纯文本公告](dev/更新公告-PvP74.3-r2.txt)。
 
 ## 源码与升级
 
-`dev/`与本次开发者包逐文件对应（7005文件），完整继承巨人/背部小鬼防具、二手掉落/拾取搭建、空间碰撞/植物索敌/共享寻路、特殊僵尸、工坊皮肤/英雄/墓碑/滤镜、PC/Android共用推进绘制和联机修复。
+`dev/`已覆盖为最新AI研究源码（7533文件），与[最新完整开发者包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/ai-nn-20261114-r1/PvZ-PvP-Native-20261114-ai-nn-r1-Developer-Package.zip)逐文件对应；正式r2源码由原标签/开发者包固定。当前源码完整继承巨人/背部小鬼防具、二手掉落/拾取搭建、空间碰撞/植物索敌/共享寻路、特殊僵尸、工坊皮肤/英雄/墓碑/滤镜、PC/Android共用推进绘制和联机修复。
 
 实际生产内核为`dev/build/typed72-integrated-v44/source/src/sim/typed/`，组合拥有源为`dev/build/typed72-match-v1/`；须保留拥有源、生成器和hooks。[开发者说明](dev/开发者包说明-PvP74.3.md)。PC/Android共用大部分代码，必须平台层单独适配。
 

@@ -1,0 +1,33 @@
+{
+  "samples": 300,
+  "classes_checked": 1200,
+  "class_mismatches": 0,
+  "max_absolute_logit_error": 1.4210854715202004e-14,
+  "negative": [
+    {
+      "field": "sim_fingerprint",
+      "rejected": true,
+      "returncode": 2,
+      "message": "neural model simulation source mismatch; use r22 or retrain"
+    },
+    {
+      "field": "catalog_hash",
+      "rejected": true,
+      "returncode": 2,
+      "message": "neural model catalog/rules mismatch; use r22 or retrain"
+    },
+    {
+      "field": "enabled_heads",
+      "rejected": true,
+      "returncode": 2,
+      "message": "neural model head mask dimension"
+    },
+    {
+      "field": "format",
+      "rejected": true,
+      "returncode": 2,
+      "message": "unknown neural model format"
+    }
+  ],
+  "passed": true
+}

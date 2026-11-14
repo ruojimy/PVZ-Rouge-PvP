@@ -1,0 +1,7575 @@
+{
+ "exporter": "build/pvp73-tools/cold73_export.cpp",
+ "exporter_sha256": "f1b24664ed94d3a81237c1d026ab58b3830619a6a7e218e833c224c96e58195b",
+ "data_init": {
+  "BUILD": "1.6.0.74.3-typed.20261114",
+  "PROTOCOL": 1
+ },
+ "atlas": "atlas.bin.gz",
+ "atlas_sha256": "dfed71db07a68609a077d47948af88a732b007d9c885102246bb7b173e1d346f",
+ "recipes": "atlas.bin.recipes.json.gz",
+ "recipes_sha256": "5763bfe870f5538cfd943717d88cd743a123d77d7e4ff92ba938831709ad5db4",
+ "note": "atlas/recipes identical for every entry (checked); draw JSON deduplicated by hash; hashes are of uncompressed bytes",
+ "entries": [
+  {
+   "id": "000",
+   "map": "山地",
+   "night": false,
+   "seed": 1000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "secret:电疗",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "plant:卷心菜投手"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/000.json.gz",
+   "cold_sha256": "4ffe241df9feb5c0d7b8189109eee6c5e3d96cec5956b17fbdec167274015cde",
+   "draw": "draw/911c3d4e538e8f8f.json.gz",
+   "draw_sha256": "911c3d4e538e8f8f1808a787406b27702e5a21af851f520cd23ec58dfd54e15d"
+  },
+  {
+   "id": "001",
+   "map": "山地",
+   "night": false,
+   "seed": 1017,
+   "bans": [
+    "plant:大嘴花",
+    "plant:超载芦苇",
+    "zombie:旗帜僵尸",
+    "zombie:双生脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "plant:向日葵",
+     "plant:闪电芦苇",
+     "plant:杨桃",
+     "plant:幽灵辣椒",
+     "secret:电疗",
+     "plant:甜薯",
+     "plant:卷心菜投手"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zombie:豌豆僵尸",
+     "zombie:红眼巨人"
+    ]
+   },
+   "cold": "cold/001.json.gz",
+   "cold_sha256": "1fb385b1880168fd87d781e46d15b377c0870df208938634dc888388fe38eed5",
+   "draw": "draw/a0c2cb055cee6fea.json.gz",
+   "draw_sha256": "a0c2cb055cee6fea48f5760219989768e3c0750b72256aa3d1a7e9b41dccbe7f"
+  },
+  {
+   "id": "002",
+   "map": "山地",
+   "night": false,
+   "seed": 1034,
+   "bans": [
+    "plant:超载芦苇",
+    "plant:闪电芦苇",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "plant:杨桃",
+    "zombie:稻草人"
+   ],
+   "decks": {
+    "plant": [
+     "plant:仙人掌",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "plant:卷心菜投手",
+     "plant:大嘴花",
+     "plant:甜薯",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海盗鹦鹉",
+     "zombie:乌鸦",
+     "zombie:脑光墓碑",
+     "zombie:传送带僵尸",
+     "zombie:萝卜伞僵尸",
+     "zombie:掷弹兵僵尸"
+    ]
+   },
+   "cold": "cold/002.json.gz",
+   "cold_sha256": "47217871be319d560c4e5764afa4f813d23b1750236a721ef9e96e57e8cc038e",
+   "draw": "draw/9429a616947396e5.json.gz",
+   "draw_sha256": "9429a616947396e50fc392c62b63c31f8872d6184845003da466c47bec4dbd90"
+  },
+  {
+   "id": "003",
+   "map": "山地",
+   "night": false,
+   "seed": 2000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "secret:电疗",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "plant:卷心菜投手"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/003.json.gz",
+   "cold_sha256": "ef4ee671bd4d4afa0865427c71458fb5861ed02816e96f0384c5e1686613a933",
+   "draw": "draw/5892bc638a5f19cd.json.gz",
+   "draw_sha256": "5892bc638a5f19cdc9511d787c517c93e98863f65d0091f2c197c0cc43f7d258"
+  },
+  {
+   "id": "004",
+   "map": "山地",
+   "night": false,
+   "seed": 2017,
+   "bans": [
+    "plant:甜薯",
+    "plant:卷心菜投手",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "plant:幽灵辣椒",
+     "secret:电疗",
+     "plant:黄金蓓蕾",
+     "plant:萝卜伞"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:红眼巨人",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/004.json.gz",
+   "cold_sha256": "bba0f461790886f6f9d80763a9c0c5687d35c309ea2815bbfc9013ab9617752f",
+   "draw": "draw/f897efc51f355a91.json.gz",
+   "draw_sha256": "f897efc51f355a91140293d3bd2b6f47d896b410544af9cf2ae12832105b0cb0"
+  },
+  {
+   "id": "005",
+   "map": "山地",
+   "night": false,
+   "seed": 2034,
+   "bans": [
+    "plant:甜薯",
+    "plant:向日葵",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑",
+    "plant:地刺",
+    "zombie:旗帜僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:双子向日葵",
+     "plant:超载芦苇",
+     "plant:幽灵辣椒",
+     "secret:电疗",
+     "plant:卷心菜投手",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:红眼巨人",
+     "zombie:脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zombie:铁桶僵尸",
+     "zombie:豌豆僵尸"
+    ]
+   },
+   "cold": "cold/005.json.gz",
+   "cold_sha256": "8e633055a9ee0b9e101300f8f9e12704a65d3d7fe800c07d1bb9db546c4381b5",
+   "draw": "draw/ecc02c85c28de629.json.gz",
+   "draw_sha256": "ecc02c85c28de629e71f1d31fcd1b2bf2b2ed873269e977fed0ce7706620db3a"
+  },
+  {
+   "id": "006",
+   "map": "山地",
+   "night": false,
+   "seed": 3000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "secret:电疗",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "plant:卷心菜投手"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/006.json.gz",
+   "cold_sha256": "908ecd8b09f54aa720541da6540db7df90f3669a154491386a7760241eafc484",
+   "draw": "draw/6f2e4130e4cfb917.json.gz",
+   "draw_sha256": "6f2e4130e4cfb9170ec5fb17fc5bd966772c64dac679ffec8ad34caddfbe6209"
+  },
+  {
+   "id": "007",
+   "map": "山地",
+   "night": false,
+   "seed": 3017,
+   "bans": [
+    "plant:甜薯",
+    "plant:卷心菜投手",
+    "zombie:旗帜僵尸",
+    "zombie:双生脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "plant:向日葵",
+     "plant:闪电芦苇",
+     "plant:超载芦苇",
+     "plant:幽灵辣椒",
+     "secret:电疗",
+     "plant:寒冰射手",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:脑光墓碑",
+     "zombie:传送带僵尸",
+     "zombie:豌豆僵尸",
+     "zombie:红眼巨人"
+    ]
+   },
+   "cold": "cold/007.json.gz",
+   "cold_sha256": "ab83d4c7a886cf8891f005c438b531915c4581a19841fb6ecc0f8498b508c7d7",
+   "draw": "draw/fb7804238c3e5861.json.gz",
+   "draw_sha256": "fb7804238c3e58612a30de61767fa9c6b5ac180a7e93c2b7cb2ad325390d4fa3"
+  },
+  {
+   "id": "008",
+   "map": "山地",
+   "night": false,
+   "seed": 3034,
+   "bans": [
+    "plant:卷心菜投手",
+    "plant:甜薯",
+    "zombie:旗帜僵尸",
+    "zombie:双生脑光墓碑",
+    "plant:香蒲",
+    "zombie:脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "plant:向日葵",
+     "plant:闪电芦苇",
+     "plant:超载芦苇",
+     "plant:幽灵辣椒",
+     "secret:电疗",
+     "plant:寒冰射手",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:坚固脑光墓碑",
+     "zombie:传送带僵尸",
+     "zombie:豌豆僵尸",
+     "zombie:红眼巨人"
+    ]
+   },
+   "cold": "cold/008.json.gz",
+   "cold_sha256": "1673c3aae457d3027035419f6bfc9ac45fa298a5669d03f03d61dbf7b718426e",
+   "draw": "draw/fa7ee30b01efeaa9.json.gz",
+   "draw_sha256": "fa7ee30b01efeaa94ac77854f7e1e64cbc384aed5680a108353a76585c22f0bb"
+  },
+  {
+   "id": "009",
+   "map": "山地",
+   "night": true,
+   "seed": 1500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:黄金蓓蕾",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/009.json.gz",
+   "cold_sha256": "ec90469a17f206ca0fd60e4744dbd78106ff3171f3e1cc5e2467ee7052b3c421",
+   "draw": "draw/a1abadff43f66452.json.gz",
+   "draw_sha256": "a1abadff43f66452bf5eac441ac9d7812cdbc4e89d93b4371c2fec54cb81d897"
+  },
+  {
+   "id": "010",
+   "map": "山地",
+   "night": true,
+   "seed": 1517,
+   "bans": [
+    "plant:闪电芦苇",
+    "plant:甜薯",
+    "zombie:橄榄球僵尸",
+    "zombie:掷弹兵僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:大喷菇",
+     "plant:阳光菇",
+     "plant:玉米投手",
+     "plant:幽灵辣椒",
+     "plant:黄金蓓蕾",
+     "plant:豌豆迫击炮",
+     "secret:三向蓝火"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:小鬼僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:红眼巨人",
+     "zsecret:一大波僵尸",
+     "zombie:传送带僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/010.json.gz",
+   "cold_sha256": "00f059e8d2bf42398450f02a1413a82f6dce1a2e406e6434b6cc6c5edb64b02b",
+   "draw": "draw/3c63984327e3f16c.json.gz",
+   "draw_sha256": "3c63984327e3f16cd349f806294ecba2ccae1704c2c5c55224162ea5c16fd9e2"
+  },
+  {
+   "id": "011",
+   "map": "山地",
+   "night": true,
+   "seed": 1534,
+   "bans": [
+    "plant:大嘴花",
+    "plant:黄金蓓蕾",
+    "zombie:橄榄球僵尸",
+    "zombie:双生脑光墓碑",
+    "plant:路灯花",
+    "zombie:潜水僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:大喷菇",
+     "plant:阳光菇",
+     "plant:闪电芦苇",
+     "plant:毁灭菇",
+     "secret:电疗",
+     "plant:萝卜伞",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:成长脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:红眼巨人",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/011.json.gz",
+   "cold_sha256": "16010800ea7f1ec8079c167aaeb42c2b43a84cf74d2e55cdfe4d9bfff8762353",
+   "draw": "draw/83bd87ae8b9d29b4.json.gz",
+   "draw_sha256": "83bd87ae8b9d29b4249a9b269dc7c6364452e7e091eb697269bd4377a767634b"
+  },
+  {
+   "id": "012",
+   "map": "山地",
+   "night": true,
+   "seed": 2500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:黄金蓓蕾",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/012.json.gz",
+   "cold_sha256": "c9c0c185584e49bcc0795f143d6a92442c8f1122938f509ddaefa613803d7069",
+   "draw": "draw/2b93fb27c367d440.json.gz",
+   "draw_sha256": "2b93fb27c367d4403d2fda097a6c0d1f6ec63a03d87412e779bf64e6022e8608"
+  },
+  {
+   "id": "013",
+   "map": "山地",
+   "night": true,
+   "seed": 2517,
+   "bans": [
+    "plant:大嘴花",
+    "plant:甜薯",
+    "zombie:橄榄球僵尸",
+    "zombie:成长脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "plant:大喷菇",
+     "plant:阳光菇",
+     "plant:闪电芦苇",
+     "plant:幽灵辣椒",
+     "secret:电疗",
+     "plant:黄金蓓蕾",
+     "plant:萝卜伞"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:红眼巨人",
+     "zombie:脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:传送带僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/013.json.gz",
+   "cold_sha256": "5ea8ced4bfcc12a97ef1046ed11257ba7e7317fe95611c46d50efd41e02c5789",
+   "draw": "draw/6779502597eed132.json.gz",
+   "draw_sha256": "6779502597eed13208281b4435eda9bde8b77ffb9b909cc6ce7192f127593239"
+  },
+  {
+   "id": "014",
+   "map": "山地",
+   "night": true,
+   "seed": 2534,
+   "bans": [
+    "plant:阳光菇",
+    "plant:闪电芦苇",
+    "zombie:橄榄球僵尸",
+    "zombie:双生脑光墓碑",
+    "plant:石块",
+    "zombie:水上成长脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "plant:大喷菇",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "plant:幽灵辣椒",
+     "plant:甜薯",
+     "plant:黄金蓓蕾",
+     "plant:萝卜伞"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:成长脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:红眼巨人",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/014.json.gz",
+   "cold_sha256": "27611f83b955782bcc06993b99742824e593fce53838f723571362a8d69f3b3c",
+   "draw": "draw/d2703cdfea3c3eab.json.gz",
+   "draw_sha256": "d2703cdfea3c3eabbb7a88ffcdf9852ae4b6cdf88b616abdc9a4431dc614a494"
+  },
+  {
+   "id": "015",
+   "map": "山地",
+   "night": true,
+   "seed": 3500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:黄金蓓蕾",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/015.json.gz",
+   "cold_sha256": "c8628e07caf5ce503983b401264ccfb8e1eecb5289702c1a694780e51990bcb3",
+   "draw": "draw/39b6f9ee78080ef1.json.gz",
+   "draw_sha256": "39b6f9ee78080ef1114450b19b22f3c7948fd4e16f916c20a44b120a8df0f6a1"
+  },
+  {
+   "id": "016",
+   "map": "山地",
+   "night": true,
+   "seed": 3517,
+   "bans": [
+    "plant:黄金蓓蕾",
+    "plant:阳光菇",
+    "zombie:旗帜僵尸",
+    "zombie:成长脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "plant:大喷菇",
+     "plant:向日葵",
+     "plant:闪电芦苇",
+     "plant:毁灭菇",
+     "secret:电疗",
+     "plant:甜薯",
+     "plant:萝卜伞"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:红眼巨人",
+     "zombie:橄榄球僵尸",
+     "zombie:豌豆僵尸"
+    ]
+   },
+   "cold": "cold/016.json.gz",
+   "cold_sha256": "d499b0da8ba835f6faf8eaec94fbb7fd1339283aa6cfa4ad81a0cfc7a332bade",
+   "draw": "draw/8ed226a504b988f5.json.gz",
+   "draw_sha256": "8ed226a504b988f5a39961b8109dd28519a6b6528b23bb4ce4522aa328414ef1"
+  },
+  {
+   "id": "017",
+   "map": "山地",
+   "night": true,
+   "seed": 3534,
+   "bans": [
+    "plant:甜薯",
+    "plant:阳光菇",
+    "zombie:橄榄球僵尸",
+    "zombie:成长脑光墓碑",
+    "plant:冰冻生菜",
+    "zombie:普通僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:大喷菇",
+     "plant:毁灭菇",
+     "secret:电疗",
+     "plant:黄金蓓蕾",
+     "plant:萝卜伞"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:红眼巨人",
+     "zombie:脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:传送带僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/017.json.gz",
+   "cold_sha256": "2814468f1e9ba16322e880a773fe2c22037b2fac16acb8d1a815b6862383faa8",
+   "draw": "draw/24321e1f091d3131.json.gz",
+   "draw_sha256": "24321e1f091d313111a5049af7cdf2e877bb02f997c066a846fb92108a5ee40f"
+  },
+  {
+   "id": "018",
+   "map": "沙城",
+   "night": false,
+   "seed": 1000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/018.json.gz",
+   "cold_sha256": "2c0bef1215f139d5853bb663c2a67cafb08f4c8d95ae853a14a2bb019804161a",
+   "draw": "draw/e2e92512caa68830.json.gz",
+   "draw_sha256": "e2e92512caa68830302b53289ca111e1d7d4a6fd3421c957297633882fce5750"
+  },
+  {
+   "id": "019",
+   "map": "沙城",
+   "night": false,
+   "seed": 1017,
+   "bans": [
+    "plant:超载芦苇",
+    "plant:向日葵",
+    "zombie:双生脑光墓碑",
+    "zombie:成长脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:双子向日葵",
+     "plant:杨桃",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:坚固脑光墓碑",
+     "zombie:传送带僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/019.json.gz",
+   "cold_sha256": "287537bbcf53a130d69dbf05470453ff4a6a82a69529559a0c1a7803d9dac37f",
+   "draw": "draw/19810f4454cf57a8.json.gz",
+   "draw_sha256": "19810f4454cf57a85417db9fba55fc9bdd2f517bb8da06bdebf7f38338011845"
+  },
+  {
+   "id": "020",
+   "map": "沙城",
+   "night": false,
+   "seed": 1034,
+   "bans": [
+    "plant:超载芦苇",
+    "plant:闪电芦苇",
+    "zombie:双生脑光墓碑",
+    "zombie:传送带僵尸",
+    "plant:甜薯",
+    "zombie:潜水僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:杨桃",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "plant:大嘴花",
+     "plant:卷心菜投手",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:萝卜伞僵尸",
+     "zombie:脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/020.json.gz",
+   "cold_sha256": "6959b99f5e49bdcb38afc31a57f73033f43307d26605182907c572165eb857e5",
+   "draw": "draw/1c9beee4f5960103.json.gz",
+   "draw_sha256": "1c9beee4f596010315594777cb4c72004ae5fc2c85f53f6a266afcda78517bfd"
+  },
+  {
+   "id": "021",
+   "map": "沙城",
+   "night": false,
+   "seed": 2000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/021.json.gz",
+   "cold_sha256": "00a6687cdcc2c40dd2ace32f7ba2f26a3214a4b17b31ff50800f721a99bd1bd5",
+   "draw": "draw/4d7f28cb1be3971b.json.gz",
+   "draw_sha256": "4d7f28cb1be3971bf719be20482fb1059620a1dd3252c2a4653dc312e7c1e439"
+  },
+  {
+   "id": "022",
+   "map": "沙城",
+   "night": false,
+   "seed": 2017,
+   "bans": [
+    "plant:大嘴花",
+    "plant:超载芦苇",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "plant:寒冰辣椒",
+     "secret:电疗",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:成长脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:红眼巨人",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/022.json.gz",
+   "cold_sha256": "f768b1188bc3cfb817aef4cb85fc1276ad7480d8d76941112c03d19edd4428a2",
+   "draw": "draw/fc02eff0d8079f56.json.gz",
+   "draw_sha256": "fc02eff0d8079f562efb07abcbee4143e5fad60801c2217680c6c05d2070ab31"
+  },
+  {
+   "id": "023",
+   "map": "沙城",
+   "night": false,
+   "seed": 2034,
+   "bans": [
+    "plant:向日葵",
+    "plant:大嘴花",
+    "zombie:旗帜僵尸",
+    "zombie:传送带僵尸",
+    "plant:睡莲",
+    "zombie:坚果僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:双子向日葵",
+     "plant:玉米投手",
+     "plant:闪电芦苇",
+     "plant:寒冰辣椒",
+     "secret:电疗",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:红眼巨人",
+     "zombie:豌豆僵尸",
+     "zombie:撑杆跳僵尸"
+    ]
+   },
+   "cold": "cold/023.json.gz",
+   "cold_sha256": "7af66cc2873048c3ab19932b6083d70c689803035271eb44554ff72ddf9caae1",
+   "draw": "draw/dec2d2cea93483e0.json.gz",
+   "draw_sha256": "dec2d2cea93483e0f4e5a863863bdd54d4c2b8fdce924df62077a56a8764e19b"
+  },
+  {
+   "id": "024",
+   "map": "沙城",
+   "night": false,
+   "seed": 3000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/024.json.gz",
+   "cold_sha256": "522fba02a3d174217299f186c276776ebde88be9314437def7c2f2b6b497ecc1",
+   "draw": "draw/a988abff486e9d2c.json.gz",
+   "draw_sha256": "a988abff486e9d2cc624c7fbd2261644ac127dc5b5bfba22d4b3ca4a5a86c6f3"
+  },
+  {
+   "id": "025",
+   "map": "沙城",
+   "night": false,
+   "seed": 3017,
+   "bans": [
+    "plant:闪电芦苇",
+    "plant:甜薯",
+    "zombie:成长脑光墓碑",
+    "zombie:双生脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:超载芦苇",
+     "plant:向日葵",
+     "plant:卷心菜投手",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:寒冰射手"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:坚固脑光墓碑",
+     "zombie:萝卜伞僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:铁桶僵尸"
+    ]
+   },
+   "cold": "cold/025.json.gz",
+   "cold_sha256": "e8b77e2e2736b54790f6418d82270dee544dea4288741d86f524aa13e4db69ce",
+   "draw": "draw/e6512214600f0113.json.gz",
+   "draw_sha256": "e6512214600f0113c33f4a067991573d626f1c26d1d35a7009d4eaf0eb21ea99"
+  },
+  {
+   "id": "026",
+   "map": "沙城",
+   "night": false,
+   "seed": 3034,
+   "bans": [
+    "plant:向日葵",
+    "plant:甜薯",
+    "zombie:掷弹兵僵尸",
+    "zombie:旗帜僵尸",
+    "plant:地刺王",
+    "zombie:残骸墓碑（非生产）"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:卷心菜投手",
+     "plant:双子向日葵",
+     "plant:超载芦苇",
+     "plant:闪电芦苇",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:小鬼僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zombie:传送带僵尸",
+     "zombie:铁桶僵尸",
+     "zombie:豌豆僵尸"
+    ]
+   },
+   "cold": "cold/026.json.gz",
+   "cold_sha256": "f2c135b0bbbcd5b2233e4acd31e658b445f25a7188ccbdf5a14a7ddcc1a700dd",
+   "draw": "draw/9fbae8d764231adc.json.gz",
+   "draw_sha256": "9fbae8d764231adce6a670a4432f7623a175ea70c6c74905b393c6791bfc428d"
+  },
+  {
+   "id": "027",
+   "map": "沙城",
+   "night": true,
+   "seed": 1500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/027.json.gz",
+   "cold_sha256": "0bb60b057bd9266e54e45656b07b21e67f9a062999b0894d9a3c0711a354ae3e",
+   "draw": "draw/6ac5837ca67ca8eb.json.gz",
+   "draw_sha256": "6ac5837ca67ca8eb06e8a7d853c4ad4b14d360ae384f49436270fd1a230156c6"
+  },
+  {
+   "id": "028",
+   "map": "沙城",
+   "night": true,
+   "seed": 1517,
+   "bans": [
+    "plant:大嘴花",
+    "plant:闪电芦苇",
+    "zombie:双生脑光墓碑",
+    "zombie:传送带僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:超载芦苇",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:卷心菜投手",
+     "plant:甜薯",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海盗鹦鹉",
+     "zombie:乌鸦",
+     "zombie:脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/028.json.gz",
+   "cold_sha256": "048a3ead6c47545a314e851b58ef705460fd7e4cc3842d34699d1007c6150520",
+   "draw": "draw/9d91495a37cbfa07.json.gz",
+   "draw_sha256": "9d91495a37cbfa077b7047e91e44be79562f702da51701ad9734e4dfcdfab9d1"
+  },
+  {
+   "id": "029",
+   "map": "沙城",
+   "night": true,
+   "seed": 1534,
+   "bans": [
+    "plant:甜薯",
+    "plant:大嘴花",
+    "zombie:传送带僵尸",
+    "zombie:旗帜僵尸",
+    "plant:火爆辣椒",
+    "zombie:小丑僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:闪电芦苇",
+     "plant:毁灭菇",
+     "secret:电疗",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:红眼巨人",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zombie:撑杆跳僵尸",
+     "zsecret:体育生"
+    ]
+   },
+   "cold": "cold/029.json.gz",
+   "cold_sha256": "1804b1be8c81ea51f371c78ff3073251996c51b056e88c64eddaa04645603374",
+   "draw": "draw/662e7a169f365aab.json.gz",
+   "draw_sha256": "662e7a169f365aabba34baa84626a10b784f8257b7588487721e6ef161af929a"
+  },
+  {
+   "id": "030",
+   "map": "沙城",
+   "night": true,
+   "seed": 2500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/030.json.gz",
+   "cold_sha256": "e488492c9f59ecc558d07fac80350945012faa8b3d41795010e8b348bb0d734f",
+   "draw": "draw/fda58d0c69404b85.json.gz",
+   "draw_sha256": "fda58d0c69404b85f3d0e7193c7cc4e377681d021a5c1b1114eca9687e86b015"
+  },
+  {
+   "id": "031",
+   "map": "沙城",
+   "night": true,
+   "seed": 2517,
+   "bans": [
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "zombie:成长脑光墓碑",
+    "zombie:橄榄球僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:超载芦苇",
+     "secret:无土栽培",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "plant:大喷菇",
+     "secret:电疗",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:海盗鹦鹉",
+     "zombie:乌鸦",
+     "zombie:脑光墓碑",
+     "zombie:传送带僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/031.json.gz",
+   "cold_sha256": "367a5086eb87eb9d00e928ba1c09f2736a3787bcfff99669357d18ce8c52d69f",
+   "draw": "draw/6cfa97ed106cd116.json.gz",
+   "draw_sha256": "6cfa97ed106cd116b290d13913d172c7b5c4d7e01a53bab9f855f44da6da370d"
+  },
+  {
+   "id": "032",
+   "map": "沙城",
+   "night": true,
+   "seed": 2534,
+   "bans": [
+    "plant:阳光菇",
+    "plant:闪电芦苇",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "plant:雷蘑菇",
+    "zombie:铁桶钢门僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:超载芦苇",
+     "secret:无土栽培",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "plant:大喷菇",
+     "secret:电疗",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海盗鹦鹉",
+     "zombie:乌鸦",
+     "zombie:双生脑光墓碑",
+     "zombie:传送带僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/032.json.gz",
+   "cold_sha256": "fee179e3bab1050744fc03c8c9cd42c8f43d9734e54a7be6ac22250f9515ae30",
+   "draw": "draw/6f576261b11559ea.json.gz",
+   "draw_sha256": "6f576261b11559ead806c2e344f9584d5e6b4a58f91aeb7ed6a183e543745756"
+  },
+  {
+   "id": "033",
+   "map": "沙城",
+   "night": true,
+   "seed": 3500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/033.json.gz",
+   "cold_sha256": "36e763fe37e67ecea18332e5ac58d8c50279bed54d93a8c4cc26292117f04921",
+   "draw": "draw/4d5626cb1bf3bacf.json.gz",
+   "draw_sha256": "4d5626cb1bf3bacf110fb0b700864fccc15adda0d3fa88fd5d360b65d019af4c"
+  },
+  {
+   "id": "034",
+   "map": "沙城",
+   "night": true,
+   "seed": 3517,
+   "bans": [
+    "plant:大喷菇",
+    "plant:甜薯",
+    "zombie:传送带僵尸",
+    "zombie:旗帜僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:阳光菇",
+     "plant:卷心菜投手",
+     "plant:超载芦苇",
+     "plant:毁灭菇",
+     "plant:胆小菇",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:红眼巨人",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zombie:铁桶僵尸",
+     "zombie:豌豆僵尸"
+    ]
+   },
+   "cold": "cold/034.json.gz",
+   "cold_sha256": "0ee1773d17fcee332d0938bbeb84d0568edce8933d79fced5a289e909b39b29b",
+   "draw": "draw/65829b3673cef042.json.gz",
+   "draw_sha256": "65829b3673cef042ab8d9534103a544ec488264287ee0c9be159b3d66ebfa337"
+  },
+  {
+   "id": "035",
+   "map": "沙城",
+   "night": true,
+   "seed": 3534,
+   "bans": [
+    "plant:闪电芦苇",
+    "plant:大嘴花",
+    "zombie:双生脑光墓碑",
+    "zombie:传送带僵尸",
+    "plant:卷心菜投手",
+    "zombie:钩索僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:超载芦苇",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:玉米投手",
+     "plant:甜薯",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海盗鹦鹉",
+     "zombie:乌鸦",
+     "zombie:脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/035.json.gz",
+   "cold_sha256": "8b89121cff50b3091e1bbdf3468c2c85b485aaa295483098e5acc36fa9b4d1d7",
+   "draw": "draw/641da849d13bd8fb.json.gz",
+   "draw_sha256": "641da849d13bd8fba92462aa8b8737ed167470cbff1ff33d54344ea077703dfc"
+  },
+  {
+   "id": "036",
+   "map": "家院",
+   "night": false,
+   "seed": 1000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:水上脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/036.json.gz",
+   "cold_sha256": "30c1fc82c7b2636157f25c0f7675b73e364a39db5e91d21831c5441f3e2103a5",
+   "draw": "draw/38a0fe8c37e878e5.json.gz",
+   "draw_sha256": "38a0fe8c37e878e5d9f088a74435b7f0e3da77dbedb7385755d74139be04cc91"
+  },
+  {
+   "id": "037",
+   "map": "家院",
+   "night": false,
+   "seed": 1017,
+   "bans": [
+    "plant:闪电芦苇",
+    "plant:超载芦苇",
+    "zombie:水上脑光墓碑",
+    "zombie:旗帜僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:原始豌豆射手",
+     "plant:向日葵",
+     "plant:杨桃",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "plant:卷心菜投手"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:萝卜伞僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸"
+    ]
+   },
+   "cold": "cold/037.json.gz",
+   "cold_sha256": "6932bdef8178e703fff6771a0eb22e24e70179d15d245d18ce86001ce6e53eeb",
+   "draw": "draw/2fac44b9a606685a.json.gz",
+   "draw_sha256": "2fac44b9a606685a8491427b47d0a0021797f72d9fbbac0210b35cb5b4a5408d"
+  },
+  {
+   "id": "038",
+   "map": "家院",
+   "night": false,
+   "seed": 1034,
+   "bans": [
+    "plant:向日葵",
+    "plant:甜薯",
+    "zombie:传送带僵尸",
+    "zombie:旗帜僵尸",
+    "plant:毒镖射手",
+    "zombie:石化藤蔓"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:卷心菜投手",
+     "plant:双子向日葵",
+     "plant:超载芦苇",
+     "plant:寒冰辣椒",
+     "secret:电疗",
+     "plant:闪电芦苇"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:水上脑光墓碑",
+     "zombie:红眼巨人",
+     "zombie:铁桶僵尸",
+     "zombie:豌豆僵尸"
+    ]
+   },
+   "cold": "cold/038.json.gz",
+   "cold_sha256": "fbd95cc0b37145d281cc1705c27015c686c1034fd66306dd0b2a94f46ceb6204",
+   "draw": "draw/bed4025adba7df95.json.gz",
+   "draw_sha256": "bed4025adba7df9583f1d918910acfc4c8336d3ae629f53865c1567bd94b9fec"
+  },
+  {
+   "id": "039",
+   "map": "家院",
+   "night": false,
+   "seed": 2000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:水上脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/039.json.gz",
+   "cold_sha256": "a266c15fef9ae45205be73bbfe05f6f88de0f77ff59fb4e6e4bcbd3fb2707112",
+   "draw": "draw/1c3feb13ac484771.json.gz",
+   "draw_sha256": "1c3feb13ac484771bc4909b04ee10b780283347687b69041a45b3eb99e913be4"
+  },
+  {
+   "id": "040",
+   "map": "家院",
+   "night": false,
+   "seed": 2017,
+   "bans": [
+    "plant:闪电芦苇",
+    "plant:大嘴花",
+    "zombie:成长脑光墓碑",
+    "zombie:橄榄球僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:超载芦苇",
+     "secret:无土栽培",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "secret:电疗",
+     "plant:甜薯",
+     "plant:卷心菜投手"
+    ],
+    "zombie": [
+     "zombie:水上脑光墓碑",
+     "zombie:海盗鹦鹉",
+     "zombie:乌鸦",
+     "zombie:双生脑光墓碑",
+     "zombie:传送带僵尸",
+     "zombie:萝卜伞僵尸",
+     "zombie:掷弹兵僵尸"
+    ]
+   },
+   "cold": "cold/040.json.gz",
+   "cold_sha256": "cc41cc924c2bee5c27bd5c225eda73a6f61cb35cd9e5da421453aa8b44cc92fc",
+   "draw": "draw/02c729646bc2fa40.json.gz",
+   "draw_sha256": "02c729646bc2fa40f3c200a509a75ebb08c3371705eb3d8eaa294b0b04012d39"
+  },
+  {
+   "id": "041",
+   "map": "家院",
+   "night": false,
+   "seed": 2034,
+   "bans": [
+    "plant:甜薯",
+    "plant:向日葵",
+    "zombie:掷弹兵僵尸",
+    "zombie:橄榄球僵尸",
+    "plant:大喷菇",
+    "zombie:黑路障僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:双子向日葵",
+     "plant:玉米投手",
+     "plant:寒冰辣椒",
+     "secret:电疗",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:水上脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:红眼巨人",
+     "zsecret:一大波僵尸",
+     "zombie:传送带僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/041.json.gz",
+   "cold_sha256": "cb2e37927b937c06f555969a01c96703d95251679acff4966d69cad93177a701",
+   "draw": "draw/ea981e11f3d1a64b.json.gz",
+   "draw_sha256": "ea981e11f3d1a64b5c4f7af1dabc7da12159d777c4a9e58c50d71c516c170c5f"
+  },
+  {
+   "id": "042",
+   "map": "家院",
+   "night": false,
+   "seed": 3000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:水上脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/042.json.gz",
+   "cold_sha256": "aecf3e243d036c1ad27f1bf53f56a2cd5515332f5f49fb45d1651011a3ee4921",
+   "draw": "draw/dd550052b4d6ca28.json.gz",
+   "draw_sha256": "dd550052b4d6ca28cb3aedfbfd1e2a1310dd391db0dba50102bb80f540807560"
+  },
+  {
+   "id": "043",
+   "map": "家院",
+   "night": false,
+   "seed": 3017,
+   "bans": [
+    "plant:向日葵",
+    "plant:大嘴花",
+    "zombie:成长脑光墓碑",
+    "zombie:水上脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:双子向日葵",
+     "plant:卷心菜投手",
+     "plant:甜薯",
+     "plant:寒冰辣椒",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/043.json.gz",
+   "cold_sha256": "f0995ce796ea726e9757fa46356222b339d40afae6df76e015fef3b66e95bcd0",
+   "draw": "draw/52578d9d57cf83d1.json.gz",
+   "draw_sha256": "52578d9d57cf83d1a0fa7ef8290824bf65ecfd4bb9432130a9353c5a20895832"
+  },
+  {
+   "id": "044",
+   "map": "家院",
+   "night": false,
+   "seed": 3034,
+   "bans": [
+    "plant:甜薯",
+    "plant:闪电芦苇",
+    "zombie:橄榄球僵尸",
+    "zombie:旗帜僵尸",
+    "plant:墓碑吞噬者",
+    "zombie:豌豆僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:原始豌豆射手",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "plant:寒冰辣椒",
+     "plant:卷心菜投手",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:水上脑光墓碑",
+     "zombie:萝卜伞僵尸",
+     "zombie:红眼巨人",
+     "zombie:铁桶僵尸"
+    ]
+   },
+   "cold": "cold/044.json.gz",
+   "cold_sha256": "bfaa398280d944d29dcf9c1b389df4360aaa5425848894a2bdb296b5199c7805",
+   "draw": "draw/cd7a24842fb55f5f.json.gz",
+   "draw_sha256": "cd7a24842fb55f5f5ce19210ddf5afeb0049521d1e81d4cd764f4b876a3441a7"
+  },
+  {
+   "id": "045",
+   "map": "家院",
+   "night": true,
+   "seed": 1500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/045.json.gz",
+   "cold_sha256": "4a30d9cc6a96850e9fce5e9696e5afdad2a3e080d58da27ca848c68f98e43ba5",
+   "draw": "draw/dfe81842bbbc701e.json.gz",
+   "draw_sha256": "dfe81842bbbc701e023589765bc2a5c50485301f63f5672ba0ed60f22d9352d8"
+  },
+  {
+   "id": "046",
+   "map": "家院",
+   "night": true,
+   "seed": 1517,
+   "bans": [
+    "plant:阳光菇",
+    "plant:闪电芦苇",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:超载芦苇",
+     "secret:无土栽培",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "plant:大喷菇",
+     "secret:电疗",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:海盗鹦鹉",
+     "zombie:乌鸦",
+     "zombie:脑光墓碑",
+     "zombie:传送带僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/046.json.gz",
+   "cold_sha256": "4eb8cb6b573b94014c40b284e068924dde9530ef6fd27f9223ebd6f0d291a3f6",
+   "draw": "draw/07f3620556480272.json.gz",
+   "draw_sha256": "07f36205564802724dcee67f25b3c286664e3a789be1ec32e60608296e49559a"
+  },
+  {
+   "id": "047",
+   "map": "家院",
+   "night": true,
+   "seed": 1534,
+   "bans": [
+    "plant:大喷菇",
+    "plant:阳光菇",
+    "zombie:旗帜僵尸",
+    "zombie:橄榄球僵尸",
+    "plant:原始土豆地雷",
+    "zombie:鸭子铁桶僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "plant:毁灭菇",
+     "secret:电疗",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:毁灭菇僵尸",
+     "zombie:红眼巨人",
+     "zombie:豌豆僵尸"
+    ]
+   },
+   "cold": "cold/047.json.gz",
+   "cold_sha256": "4dd48009021d1a197f422e3053c265c6957719e5fc6cc58975ef376a6cf37b15",
+   "draw": "draw/dbda8f1dc46e6978.json.gz",
+   "draw_sha256": "dbda8f1dc46e6978db61991654cac398c5e67943e2059f05b15da15edd9cd07a"
+  },
+  {
+   "id": "048",
+   "map": "家院",
+   "night": true,
+   "seed": 2500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/048.json.gz",
+   "cold_sha256": "04c7998dfa6dcb5cfa15e79d5bc8ffaa3d379fd4c37c2edcd7916dca893d77b9",
+   "draw": "draw/d10fd7cc9f44ed7b.json.gz",
+   "draw_sha256": "d10fd7cc9f44ed7bd248ae4419163f3cf042f1b973ea2aab5de59b606022589d"
+  },
+  {
+   "id": "049",
+   "map": "家院",
+   "night": true,
+   "seed": 2517,
+   "bans": [
+    "plant:阳光菇",
+    "plant:闪电芦苇",
+    "zombie:成长脑光墓碑",
+    "zombie:传送带僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:弹簧草",
+     "secret:无土栽培",
+     "plant:向日葵",
+     "plant:大喷菇",
+     "plant:卷心菜投手",
+     "plant:大嘴花",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:海盗鹦鹉",
+     "zombie:乌鸦",
+     "zombie:脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/049.json.gz",
+   "cold_sha256": "cdc6a0e58cbc2a485ea4abc2cb9436580cb3dd4ca4c45b372a7de34860202e11",
+   "draw": "draw/5e6e21b47b6ba2ef.json.gz",
+   "draw_sha256": "5e6e21b47b6ba2efd99667b620012d9d68b1f331e876318c540bcbcd640915d3"
+  },
+  {
+   "id": "050",
+   "map": "家院",
+   "night": true,
+   "seed": 2534,
+   "bans": [
+    "plant:大嘴花",
+    "plant:闪电芦苇",
+    "zombie:旗帜僵尸",
+    "zombie:掷弹兵僵尸",
+    "plant:机枪射手",
+    "zombie:大喷菇僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:旋转芜菁",
+     "secret:无土栽培",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:毁灭菇",
+     "plant:甜薯",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海盗鹦鹉",
+     "zombie:乌鸦",
+     "zombie:双生脑光墓碑",
+     "zombie:传送带僵尸",
+     "zombie:稻草人",
+     "zombie:豌豆僵尸"
+    ]
+   },
+   "cold": "cold/050.json.gz",
+   "cold_sha256": "e07d26deb5dea1293b629e19eb32c408ea06fcf25c4c19fbf78a629828935feb",
+   "draw": "draw/d70f4fc92525cba9.json.gz",
+   "draw_sha256": "d70f4fc92525cba933a7fc9ed897b508b47d8141a95b9622f2a7fa2e758b95a0"
+  },
+  {
+   "id": "051",
+   "map": "家院",
+   "night": true,
+   "seed": 3500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/051.json.gz",
+   "cold_sha256": "5a4d05c3bdbee34895e1113a174cc1206d005a279ee73efe919ac5f2ef2979d7",
+   "draw": "draw/04dacb1955552639.json.gz",
+   "draw_sha256": "04dacb195555263947f22ef8393285f528d1d675870a6675e663af49d4c84a44"
+  },
+  {
+   "id": "052",
+   "map": "家院",
+   "night": true,
+   "seed": 3517,
+   "bans": [
+    "plant:甜薯",
+    "plant:大嘴花",
+    "zombie:橄榄球僵尸",
+    "zombie:双生脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:大喷菇",
+     "plant:阳光菇",
+     "plant:闪电芦苇",
+     "plant:毁灭菇",
+     "secret:电疗",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:红眼巨人",
+     "zombie:水上脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:传送带僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/052.json.gz",
+   "cold_sha256": "aca1cd5743456ea5ea06d476bef7cca3686ea89fbe9fd7633aafcd6309bc3936",
+   "draw": "draw/7b5854250ec9ca28.json.gz",
+   "draw_sha256": "7b5854250ec9ca281850181883a243bf723e267e25aefd530efdad5bb730459a"
+  },
+  {
+   "id": "053",
+   "map": "家院",
+   "night": true,
+   "seed": 3534,
+   "bans": [
+    "plant:大嘴花",
+    "plant:甜薯",
+    "zombie:成长脑光墓碑",
+    "zombie:旗帜僵尸",
+    "plant:机枪射手",
+    "zombie:鸭子普通僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:毁灭菇",
+     "secret:电疗",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:红眼巨人",
+     "zombie:水上脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zombie:传送带僵尸",
+     "zombie:豌豆僵尸"
+    ]
+   },
+   "cold": "cold/053.json.gz",
+   "cold_sha256": "b53fb86b2b3eb2c369268b2e2d4b14f25250604b5caf871c5d4fef849ef50fce",
+   "draw": "draw/ac5fa9cc59c70157.json.gz",
+   "draw_sha256": "ac5fa9cc59c70157bb513c9817c543b19062b52287ec033d75662b26025127c7"
+  },
+  {
+   "id": "054",
+   "map": "要塞",
+   "night": false,
+   "seed": 1000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:玉米投手",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/054.json.gz",
+   "cold_sha256": "c47362c0967573e16a470ae3b892052cc05c19fe473c43649cbf946b4fef4fad",
+   "draw": "draw/717105e59eaacd99.json.gz",
+   "draw_sha256": "717105e59eaacd9941fb2801e67dd7f176e11d7d153b0f4f2990db7ed089eca7"
+  },
+  {
+   "id": "055",
+   "map": "要塞",
+   "night": false,
+   "seed": 1017,
+   "bans": [
+    "plant:玉米投手",
+    "plant:闪电芦苇",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮"
+   ],
+   "decks": {
+    "plant": [
+     "plant:芦笋战机",
+     "plant:向日葵",
+     "plant:旋转芜菁",
+     "secret:无土栽培",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "plant:卷心菜投手"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/055.json.gz",
+   "cold_sha256": "7c887114422d8b9aa68924247a257f91c65f1a95e33f2c00cbf009defa1e360c",
+   "draw": "draw/254af46ff70a8850.json.gz",
+   "draw_sha256": "254af46ff70a8850745291b0431906af61fd2d22279b7105d0ae270daa7a9a37"
+  },
+  {
+   "id": "056",
+   "map": "要塞",
+   "night": false,
+   "seed": 1034,
+   "bans": [
+    "plant:大嘴花",
+    "plant:闪电芦苇",
+    "zombie:成长脑光墓碑",
+    "zombie:双生脑光墓碑",
+    "plant:寒冰菇",
+    "zombie:黑旗帜僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:向日葵",
+     "plant:旋转芜菁",
+     "secret:无土栽培",
+     "plant:超载芦苇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:卷心菜投手"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:传送带僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:坚固脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:小鬼炮"
+    ]
+   },
+   "cold": "cold/056.json.gz",
+   "cold_sha256": "5c362e680fa34a3fb88c428ba137a860fb0b2912c01f785f089bef84ca0a6b40",
+   "draw": "draw/38e808f5793332f7.json.gz",
+   "draw_sha256": "38e808f5793332f7e09c1b35e988ae2d06813473d97757be7e7f2c841186cda5"
+  },
+  {
+   "id": "057",
+   "map": "要塞",
+   "night": false,
+   "seed": 2000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:玉米投手",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/057.json.gz",
+   "cold_sha256": "d1dfcb94fcc31e12b56ded49d0e9f191637b193f88a1df25a7bd8e17abd1495f",
+   "draw": "draw/a3f5a77cb478f11e.json.gz",
+   "draw_sha256": "a3f5a77cb478f11e55e3d87c48c63d494c403d27d48967f1beafecab519573d8"
+  },
+  {
+   "id": "058",
+   "map": "要塞",
+   "night": false,
+   "seed": 2017,
+   "bans": [
+    "plant:闪电芦苇",
+    "plant:玉米投手",
+    "zombie:旗帜僵尸",
+    "zombie:豌豆僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:原始豌豆射手",
+     "secret:无土栽培",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zombie:传送带僵尸",
+     "zombie:萝卜伞僵尸",
+     "zombie:橄榄球僵尸"
+    ]
+   },
+   "cold": "cold/058.json.gz",
+   "cold_sha256": "cb616c2f8a254282bfa16a7e9db2c1c6fa7c2a9e919ed77f37c8074d9114f499",
+   "draw": "draw/e5dde4a8cb92e9c8.json.gz",
+   "draw_sha256": "e5dde4a8cb92e9c84635c8bd3a199811bee1c363ddc8046d9eff85673c28d513"
+  },
+  {
+   "id": "059",
+   "map": "要塞",
+   "night": false,
+   "seed": 2034,
+   "bans": [
+    "plant:玉米投手",
+    "plant:甜薯",
+    "zombie:成长脑光墓碑",
+    "zombie:豌豆僵尸",
+    "plant:高坚果",
+    "zombie:滚桶僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:卷心菜投手",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/059.json.gz",
+   "cold_sha256": "ba8d0e6fcc26b9755bdcc5bb05bfe4b9aeb8516492ba09f6ad7c6c1c941c3408",
+   "draw": "draw/8d3e86bdce9e775c.json.gz",
+   "draw_sha256": "8d3e86bdce9e775c347b5619f40000696e304fe452e091265d674ede4f2ff674"
+  },
+  {
+   "id": "060",
+   "map": "要塞",
+   "night": false,
+   "seed": 3000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:玉米投手",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/060.json.gz",
+   "cold_sha256": "b9b58c591ed0d7d3ba858b034bb329d6b13f60bdd7252b3696f75804e13501dc",
+   "draw": "draw/801a1afb09c6927e.json.gz",
+   "draw_sha256": "801a1afb09c6927ef415b6ba5530dceadcfad14f429caee28a96351242ee8cf4"
+  },
+  {
+   "id": "061",
+   "map": "要塞",
+   "night": false,
+   "seed": 3017,
+   "bans": [
+    "plant:向日葵",
+    "plant:闪电芦苇",
+    "zombie:旗帜僵尸",
+    "zombie:掷弹兵僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:旋转芜菁",
+     "plant:双子向日葵",
+     "secret:无土栽培",
+     "plant:超载芦苇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:卷心菜投手"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:传送带僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zombie:小鬼炮",
+     "zombie:铁桶僵尸"
+    ]
+   },
+   "cold": "cold/061.json.gz",
+   "cold_sha256": "778bd7845e045db7de55ae9daa267ea934ead09661633334a00f0d2bfe87462c",
+   "draw": "draw/538c22fff0e2760f.json.gz",
+   "draw_sha256": "538c22fff0e2760fa074f10d1fbc967158a2273ab29fcea252a7a77231feaa82"
+  },
+  {
+   "id": "062",
+   "map": "要塞",
+   "night": false,
+   "seed": 3034,
+   "bans": [
+    "plant:大嘴花",
+    "plant:玉米投手",
+    "zombie:双生脑光墓碑",
+    "zombie:成长脑光墓碑",
+    "plant:抓人草触手",
+    "zombie:三叶草僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "secret:无土栽培",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:卷心菜投手"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:传送带僵尸",
+     "zombie:坚固脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/062.json.gz",
+   "cold_sha256": "dc9f090d7799a682435bb6dd5cf8e1fcd41f550befab49f28f43b8ea487df3d3",
+   "draw": "draw/08e2b861d55ac8d9.json.gz",
+   "draw_sha256": "08e2b861d55ac8d939cdef3568db7eba99aa208a773a38b7a6b2fdb2880cd34a"
+  },
+  {
+   "id": "063",
+   "map": "要塞",
+   "night": true,
+   "seed": 1500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "secret:无土栽培",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/063.json.gz",
+   "cold_sha256": "d6ec8890d419c73a169355a28155529475f35fe1b72b80d3863aa4c389086244",
+   "draw": "draw/993699c685d0360c.json.gz",
+   "draw_sha256": "993699c685d0360c6bc3d081376b909b1d6dd9c477e14a0ef11b7425b45f7e9e"
+  },
+  {
+   "id": "064",
+   "map": "要塞",
+   "night": true,
+   "seed": 1517,
+   "bans": [
+    "plant:大嘴花",
+    "plant:大喷菇",
+    "zombie:掷弹兵僵尸",
+    "zombie:成长脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "secret:无土栽培",
+     "plant:阳光菇",
+     "plant:卷心菜投手",
+     "plant:甜薯",
+     "plant:毁灭菇",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zombie:传送带僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/064.json.gz",
+   "cold_sha256": "237225c37e5a82d86acf55b008dcd710547a52a676e960e0fac80897461576fe",
+   "draw": "draw/3b88f6dfee6fad68.json.gz",
+   "draw_sha256": "3b88f6dfee6fad681f06571e083e15a075c35690fc743e7f51333fbb0ca4672e"
+  },
+  {
+   "id": "065",
+   "map": "要塞",
+   "night": true,
+   "seed": 1534,
+   "bans": [
+    "plant:大嘴花",
+    "plant:阳光菇",
+    "zombie:掷弹兵僵尸",
+    "zombie:双生脑光墓碑",
+    "plant:原始豌豆射手",
+    "zombie:水上脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "secret:无土栽培",
+     "plant:向日葵",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:毁灭菇"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:脑光墓碑",
+     "zombie:传送带僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/065.json.gz",
+   "cold_sha256": "86caa3bdd49c5cb1273f99f8cadc4c65f58a6751004fe741b9f6952458c430cb",
+   "draw": "draw/171f2ce37757f0db.json.gz",
+   "draw_sha256": "171f2ce37757f0dbcf1a9653fb0130aa67dfb1e7c937905ca043ca1e269e5e9c"
+  },
+  {
+   "id": "066",
+   "map": "要塞",
+   "night": true,
+   "seed": 2500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "secret:无土栽培",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/066.json.gz",
+   "cold_sha256": "ec4eb130677792a033a8e47b93eb9d174e2a4ed0d56a4e5e1985a560717a5ead",
+   "draw": "draw/30152a2658848a97.json.gz",
+   "draw_sha256": "30152a2658848a97a90bd435949d481b9facfe6b51ebb5af6a0af13a3eb7bf09"
+  },
+  {
+   "id": "067",
+   "map": "要塞",
+   "night": true,
+   "seed": 2517,
+   "bans": [
+    "plant:阳光菇",
+    "plant:甜薯",
+    "zombie:掷弹兵僵尸",
+    "zombie:成长脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "secret:无土栽培",
+     "plant:向日葵",
+     "plant:大喷菇",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/067.json.gz",
+   "cold_sha256": "ae5e7a8a334f6af6aedd822a7c5c8ee14e67c05a3aac2b7db9a67d71adc1b1c0",
+   "draw": "draw/45f4b018a4a829a6.json.gz",
+   "draw_sha256": "45f4b018a4a829a6f7a7ba0256d76d93f6a6f7021ac4dbebf523409200375733"
+  },
+  {
+   "id": "068",
+   "map": "要塞",
+   "night": true,
+   "seed": 2534,
+   "bans": [
+    "plant:闪电芦苇",
+    "plant:甜薯",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "plant:土豆地雷",
+    "zombie:成长脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "plant:大喷菇",
+     "plant:阳光菇",
+     "secret:无土栽培",
+     "plant:玉米投手",
+     "plant:毁灭菇",
+     "plant:黄金蓓蕾",
+     "plant:萝卜伞"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:坚固脑光墓碑",
+     "zombie:传送带僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:红眼巨人"
+    ]
+   },
+   "cold": "cold/068.json.gz",
+   "cold_sha256": "ef1ac79dd63fd066e001284b9e7b3bbe66c040f443f3b9d6884353cf2dfb0390",
+   "draw": "draw/4f43a7a7a1a728f3.json.gz",
+   "draw_sha256": "4f43a7a7a1a728f334ba90888a1f0b5ce81dab6341e9b98500440f878d550a96"
+  },
+  {
+   "id": "069",
+   "map": "要塞",
+   "night": true,
+   "seed": 3500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "secret:无土栽培",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/069.json.gz",
+   "cold_sha256": "a3009d13a7c5da2cf52691416fc21440b36143cc59548cb49ef92addb0ff7a52",
+   "draw": "draw/72e6b87c7fe7fe99.json.gz",
+   "draw_sha256": "72e6b87c7fe7fe99e699c58d56956b31a97d7a3e14d019d62f2741d424379eef"
+  },
+  {
+   "id": "070",
+   "map": "要塞",
+   "night": true,
+   "seed": 3517,
+   "bans": [
+    "plant:闪电芦苇",
+    "plant:大嘴花",
+    "zombie:小鬼炮",
+    "zombie:成长脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "plant:大喷菇",
+     "plant:阳光菇",
+     "secret:无土栽培",
+     "plant:卷心菜投手",
+     "plant:毁灭菇",
+     "plant:甜薯",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:红眼巨人"
+    ]
+   },
+   "cold": "cold/070.json.gz",
+   "cold_sha256": "e8a0b0d3f19248c5bcae086ffd1c5b299e88110e2625712d2e23bb636116bfc1",
+   "draw": "draw/9626e8529250754e.json.gz",
+   "draw_sha256": "9626e8529250754e72031346931a57b0ed9aa46517356aa26017c901c360c788"
+  },
+  {
+   "id": "071",
+   "map": "要塞",
+   "night": true,
+   "seed": 3534,
+   "bans": [
+    "plant:甜薯",
+    "plant:闪电芦苇",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮",
+    "plant:大蒜",
+    "zombie:舞王僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:大喷菇",
+     "secret:无土栽培",
+     "plant:阳光菇",
+     "plant:玉米投手",
+     "plant:大嘴花",
+     "plant:黄金蓓蕾",
+     "plant:萝卜伞"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/071.json.gz",
+   "cold_sha256": "5f3c8a54279b52fd8cebe0a1ae53364a649651a97d870d181d7579cb95aa49ef",
+   "draw": "draw/6949e03533f19fa9.json.gz",
+   "draw_sha256": "6949e03533f19fa994d371089a0b84bbd797ddc44baa9abc4362dd96b82228ca"
+  },
+  {
+   "id": "072",
+   "map": "大桥",
+   "night": false,
+   "seed": 1000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/072.json.gz",
+   "cold_sha256": "74bfdff1be79dbe4cddf8dbee692a4f5a075a880f9c0e1fa1e549460a90620a2",
+   "draw": "draw/3b043da77efa63bd.json.gz",
+   "draw_sha256": "3b043da77efa63bd28b8ca94c957986b201eabc138cbff3feba3c708220e599e"
+  },
+  {
+   "id": "073",
+   "map": "大桥",
+   "night": false,
+   "seed": 1017,
+   "bans": [
+    "plant:甜薯",
+    "plant:闪电芦苇",
+    "zombie:传送带僵尸",
+    "zombie:双生脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:原始豌豆射手",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:寒冰射手"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:萝卜伞僵尸",
+     "zombie:脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/073.json.gz",
+   "cold_sha256": "0a35ec9edfdc91b35f65fad49938718a3e2973f4d6332319581a851d24e1a5a8",
+   "draw": "draw/498c4f1eeb75d481.json.gz",
+   "draw_sha256": "498c4f1eeb75d4811e0095a9f08312f4bf80df8cac4e49c0fa20255398cbe041"
+  },
+  {
+   "id": "074",
+   "map": "大桥",
+   "night": false,
+   "seed": 1034,
+   "bans": [
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "zombie:旗帜僵尸",
+    "zombie:传送带僵尸",
+    "plant:甜薯",
+    "zombie:黑橄榄僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:寒冰射手",
+     "plant:双子向日葵",
+     "plant:超载芦苇",
+     "plant:卷心菜投手",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:萝卜伞僵尸",
+     "zombie:水上脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:铁桶僵尸",
+     "zombie:橄榄球僵尸"
+    ]
+   },
+   "cold": "cold/074.json.gz",
+   "cold_sha256": "c3bbd4532de61511e271c8e86aaef6b478fc3483cad0200b1352250192e2ac37",
+   "draw": "draw/b7d9eb1a7dfdada5.json.gz",
+   "draw_sha256": "b7d9eb1a7dfdada5f7dca742a483b4aa16f3ca2afa7283cd7e23705ffce7e15a"
+  },
+  {
+   "id": "075",
+   "map": "大桥",
+   "night": false,
+   "seed": 2000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/075.json.gz",
+   "cold_sha256": "94ed7322170ae589e52c36ba96ee50ccb2e26bb52168cd8e7e5bdbaf8ce0c8ef",
+   "draw": "draw/7ac8f0eeb5ab9611.json.gz",
+   "draw_sha256": "7ac8f0eeb5ab9611ceb440b3dfe80d8b08d3d9e09f3049205189efdecc540488"
+  },
+  {
+   "id": "076",
+   "map": "大桥",
+   "night": false,
+   "seed": 2017,
+   "bans": [
+    "plant:闪电芦苇",
+    "plant:玉米投手",
+    "zombie:成长脑光墓碑",
+    "zombie:海豚僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:超载芦苇",
+     "plant:向日葵",
+     "plant:卷心菜投手",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:水上脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:萝卜伞僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/076.json.gz",
+   "cold_sha256": "873846c4381d02b4e9ddb63d58bf401388b9044ab0e8c6a542c784f5a778f301",
+   "draw": "draw/f6270f90bbcaae48.json.gz",
+   "draw_sha256": "f6270f90bbcaae48ada7813cd3412b6f8a37ef6461ed60ae336f66756547949f"
+  },
+  {
+   "id": "077",
+   "map": "大桥",
+   "night": false,
+   "seed": 2034,
+   "bans": [
+    "plant:向日葵",
+    "plant:玉米投手",
+    "zombie:旗帜僵尸",
+    "zombie:掷弹兵僵尸",
+    "plant:西瓜投手",
+    "zombie:气球僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:超载芦苇",
+     "plant:闪电芦苇",
+     "plant:双子向日葵",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:卷心菜投手"
+    ],
+    "zombie": [
+     "zombie:水上脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:萝卜伞僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:传送带僵尸",
+     "zombie:铁桶僵尸"
+    ]
+   },
+   "cold": "cold/077.json.gz",
+   "cold_sha256": "4938035d79ca29e5c8be543a1647a2bba698ea7c5521fe71154bc6280e818397",
+   "draw": "draw/1f8cf4832bbd5dc7.json.gz",
+   "draw_sha256": "1f8cf4832bbd5dc72c081ee91e5d598c160d88b0a14fc1868d3dd34faa9b9315"
+  },
+  {
+   "id": "078",
+   "map": "大桥",
+   "night": false,
+   "seed": 3000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/078.json.gz",
+   "cold_sha256": "8218c2ca25b85d5be84b117bd667011962579f762152effd7954555afa443fc3",
+   "draw": "draw/d95b1a1f51430f42.json.gz",
+   "draw_sha256": "d95b1a1f51430f42f2c8438b6e2fcf4c1b72e959941130e8d324e4cd80b63474"
+  },
+  {
+   "id": "079",
+   "map": "大桥",
+   "night": false,
+   "seed": 3017,
+   "bans": [
+    "plant:甜薯",
+    "plant:向日葵",
+    "zombie:成长脑光墓碑",
+    "zombie:旗帜僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:双子向日葵",
+     "plant:闪电芦苇",
+     "plant:超载芦苇",
+     "secret:电疗",
+     "plant:寒冰射手",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:水上脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:传送带僵尸",
+     "zombie:豌豆僵尸"
+    ]
+   },
+   "cold": "cold/079.json.gz",
+   "cold_sha256": "a242ec1e992f700665776f542a9dc48cb7b8d4b5c0b7a55cb8a3fd5e5da1e352",
+   "draw": "draw/2ed491f4e96435e4.json.gz",
+   "draw_sha256": "2ed491f4e96435e429bca7e4413ea816b2a893982233d22cf00b9ec602e14930"
+  },
+  {
+   "id": "080",
+   "map": "大桥",
+   "night": false,
+   "seed": 3034,
+   "bans": [
+    "plant:玉米投手",
+    "plant:闪电芦苇",
+    "zombie:传送带僵尸",
+    "zombie:成长脑光墓碑",
+    "plant:窝瓜",
+    "zombie:海盗船长"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:弹簧草",
+     "plant:向日葵",
+     "plant:卷心菜投手",
+     "plant:超载芦苇",
+     "secret:电疗",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:水上脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/080.json.gz",
+   "cold_sha256": "f8483c3994d4e9d6dad5a98a599092e9e54f84c865ed45209b484847b951a9e3",
+   "draw": "draw/4a5c63ca61e5e35e.json.gz",
+   "draw_sha256": "4a5c63ca61e5e35ee41c0514d5556363535fb1c174e16667da44fa0c14349950"
+  },
+  {
+   "id": "081",
+   "map": "大桥",
+   "night": true,
+   "seed": 1500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:大喷菇",
+     "plant:阳光菇",
+     "plant:闪电芦苇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/081.json.gz",
+   "cold_sha256": "532984693ea01d933d02b5b8c093a1a1d4a0b6fe1d04d54b5758da56b39d3f53",
+   "draw": "draw/e3dfc1369d996530.json.gz",
+   "draw_sha256": "e3dfc1369d996530eab3077944ad96e79824e434cf03780808ca00caafd8bb15"
+  },
+  {
+   "id": "082",
+   "map": "大桥",
+   "night": true,
+   "seed": 1517,
+   "bans": [
+    "plant:甜薯",
+    "plant:阳光菇",
+    "zombie:成长脑光墓碑",
+    "zombie:旗帜僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:大喷菇",
+     "plant:向日葵",
+     "plant:闪电芦苇",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:水上脑光墓碑",
+     "zombie:传送带僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:豌豆僵尸"
+    ]
+   },
+   "cold": "cold/082.json.gz",
+   "cold_sha256": "f26aa14354a63a5de29db430c3098b2b23f31cb4212754a48408a9f5d5f82039",
+   "draw": "draw/fdb06fd74fd8ab31.json.gz",
+   "draw_sha256": "fdb06fd74fd8ab311f20c0c67ad4fa85e355937e2d21e7cbe900e475e076d1e3"
+  },
+  {
+   "id": "083",
+   "map": "大桥",
+   "night": true,
+   "seed": 1534,
+   "bans": [
+    "plant:大嘴花",
+    "plant:大喷菇",
+    "zombie:成长脑光墓碑",
+    "zombie:双生脑光墓碑",
+    "plant:蓝火树桩",
+    "zombie:黑路障僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:阳光菇",
+     "plant:闪电芦苇",
+     "plant:超载芦苇",
+     "plant:胆小菇",
+     "secret:电疗",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:传送带僵尸",
+     "zombie:水上脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:豌豆僵尸"
+    ]
+   },
+   "cold": "cold/083.json.gz",
+   "cold_sha256": "d40f59c6877298e25d6b3dad31f70071beeb7be1f7dde61e1cc373a7f7737ecf",
+   "draw": "draw/1db33184b2913588.json.gz",
+   "draw_sha256": "1db33184b29135888d33b8eac3ea8ef6426b38924665f27f6f495271fd142342"
+  },
+  {
+   "id": "084",
+   "map": "大桥",
+   "night": true,
+   "seed": 2500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:大喷菇",
+     "plant:阳光菇",
+     "plant:闪电芦苇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/084.json.gz",
+   "cold_sha256": "8b4a28585dc9272e8d0c18bbfa4e555aa24a2ed00fae9a419b58da23a64d6e38",
+   "draw": "draw/9bd721923119c41a.json.gz",
+   "draw_sha256": "9bd721923119c41a3de78c14f57041113ebc21cb2c6b05381ee95fa5b1e9ccd4"
+  },
+  {
+   "id": "085",
+   "map": "大桥",
+   "night": true,
+   "seed": 2517,
+   "bans": [
+    "plant:阳光菇",
+    "plant:大嘴花",
+    "zombie:旗帜僵尸",
+    "zombie:海豚僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:大喷菇",
+     "plant:向日葵",
+     "plant:闪电芦苇",
+     "plant:毁灭菇",
+     "plant:甜薯",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zombie:红眼巨人",
+     "zombie:豌豆僵尸"
+    ]
+   },
+   "cold": "cold/085.json.gz",
+   "cold_sha256": "d265a35f9582197da50d02198887643e19e7fc8af5ae88f33bdfd953fa7d4f72",
+   "draw": "draw/6f6250f597b6ffba.json.gz",
+   "draw_sha256": "6f6250f597b6ffba5b259647031c4f7f32ca0ae92889fd1eb3cb41d4680f020f"
+  },
+  {
+   "id": "086",
+   "map": "大桥",
+   "night": true,
+   "seed": 2534,
+   "bans": [
+    "plant:大喷菇",
+    "plant:闪电芦苇",
+    "zombie:传送带僵尸",
+    "zombie:海豚僵尸",
+    "plant:小喷菇",
+    "zombie:伴舞僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:超载芦苇",
+     "plant:阳光菇",
+     "plant:卷心菜投手",
+     "plant:胆小菇",
+     "plant:甜薯",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海盗鹦鹉",
+     "zombie:乌鸦",
+     "zombie:双生脑光墓碑",
+     "zombie:萝卜伞僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:稻草人"
+    ]
+   },
+   "cold": "cold/086.json.gz",
+   "cold_sha256": "4376c96c2fc3cb3552936357eecb9a77cdec37b03d65c5a5e99afcc24c693e71",
+   "draw": "draw/be882bcc6b819b5f.json.gz",
+   "draw_sha256": "be882bcc6b819b5f7a5a2231cb7e532d793862e4a65a4e79532c84e2a5b19033"
+  },
+  {
+   "id": "087",
+   "map": "大桥",
+   "night": true,
+   "seed": 3500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:大喷菇",
+     "plant:阳光菇",
+     "plant:闪电芦苇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/087.json.gz",
+   "cold_sha256": "2a3f60d69c597f14d2bc7c865638cf3ca2a717297ec590537b68702e271b6dad",
+   "draw": "draw/99f323c0cc0c8bb8.json.gz",
+   "draw_sha256": "99f323c0cc0c8bb8bb9aefb9535923e47e5e23f23c7a573c2e652be4ca4b2e25"
+  },
+  {
+   "id": "088",
+   "map": "大桥",
+   "night": true,
+   "seed": 3517,
+   "bans": [
+    "plant:阳光菇",
+    "plant:大嘴花",
+    "zombie:海豚僵尸",
+    "zombie:掷弹兵僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:大喷菇",
+     "plant:向日葵",
+     "plant:闪电芦苇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:毁灭菇"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:小鬼僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/088.json.gz",
+   "cold_sha256": "370a3ef6b4d8dda4e1fb2d2f371ba30ec0b97e605cca9edccd8eedc47d1cd526",
+   "draw": "draw/e8ba023aa98acff0.json.gz",
+   "draw_sha256": "e8ba023aa98acff0ddbad45e56a4870f102bf059937546ab713b4d9f5acd3e68"
+  },
+  {
+   "id": "089",
+   "map": "大桥",
+   "night": true,
+   "seed": 3534,
+   "bans": [
+    "plant:闪电芦苇",
+    "plant:甜薯",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "plant:石果子",
+    "zombie:鸭子普通僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:大喷菇",
+     "plant:阳光菇",
+     "plant:玉米投手",
+     "plant:大嘴花",
+     "plant:黄金蓓蕾",
+     "plant:超载芦苇"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:豌豆僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/089.json.gz",
+   "cold_sha256": "cb23a750dcf01642e043d08a32f6294b89ffbab5f067caae3c6a841ce5fbd6ef",
+   "draw": "draw/e6eeb7bf82570a34.json.gz",
+   "draw_sha256": "e6eeb7bf82570a34614185a7a5fccdc0fd43a409be484d9cfe8f1d1db9d89a24"
+  },
+  {
+   "id": "090",
+   "map": "铁道",
+   "night": false,
+   "seed": 1000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/090.json.gz",
+   "cold_sha256": "bd932496900dd35d25f2d0dc3276a25fe98f7ffb8200ad91d20252bc313f0285",
+   "draw": "draw/6d723d065c8e255e.json.gz",
+   "draw_sha256": "6d723d065c8e255eef2a35739538867ac16defcc80b0ff343b8a88de5f333ce2"
+  },
+  {
+   "id": "091",
+   "map": "铁道",
+   "night": false,
+   "seed": 1017,
+   "bans": [
+    "plant:超载芦苇",
+    "plant:向日葵",
+    "zombie:旗帜僵尸",
+    "zombie:橄榄球僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:卷心菜投手",
+     "plant:双子向日葵",
+     "plant:闪电芦苇",
+     "plant:寒冰辣椒",
+     "plant:甜薯",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:红眼巨人",
+     "zombie:铁桶僵尸",
+     "zombie:豌豆僵尸"
+    ]
+   },
+   "cold": "cold/091.json.gz",
+   "cold_sha256": "e483fea610cae4e805fca9245a699c54b802cde7fd72f6bea93162eeeb23719f",
+   "draw": "draw/b8e33bf977c6c06f.json.gz",
+   "draw_sha256": "b8e33bf977c6c06fe4917e0d41dd3380202c884e6e851442a3888211ca59a7c3"
+  },
+  {
+   "id": "092",
+   "map": "铁道",
+   "night": false,
+   "seed": 1034,
+   "bans": [
+    "plant:甜薯",
+    "plant:闪电芦苇",
+    "zombie:双生脑光墓碑",
+    "zombie:成长脑光墓碑",
+    "plant:石果子",
+    "zombie:倭瓜僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:超载芦苇",
+     "plant:向日葵",
+     "plant:卷心菜投手",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:寒冰射手"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:坚固脑光墓碑",
+     "zombie:萝卜伞僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:铁桶僵尸"
+    ]
+   },
+   "cold": "cold/092.json.gz",
+   "cold_sha256": "174ee1b816f1ba137baac22949b746dbd686339e15ed59d373748622f30d19c3",
+   "draw": "draw/715c2a1290fe3e77.json.gz",
+   "draw_sha256": "715c2a1290fe3e77df697d1cddc96c903f309cffab9bc36a51ed1c03fcd880ea"
+  },
+  {
+   "id": "093",
+   "map": "铁道",
+   "night": false,
+   "seed": 2000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/093.json.gz",
+   "cold_sha256": "110c9ed6c0b575cafa558470e1b9099f9eeca461b4a4c5bf36dc2ef6761e649d",
+   "draw": "draw/d7463d0dbfc8b751.json.gz",
+   "draw_sha256": "d7463d0dbfc8b7510dd4b9b6e282872d8b629a5ec564b00702ee7ff05efcd662"
+  },
+  {
+   "id": "094",
+   "map": "铁道",
+   "night": false,
+   "seed": 2017,
+   "bans": [
+    "plant:向日葵",
+    "plant:甜薯",
+    "zombie:橄榄球僵尸",
+    "zombie:传送带僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:双子向日葵",
+     "plant:玉米投手",
+     "plant:寒冰辣椒",
+     "secret:电疗",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:红眼巨人",
+     "zsecret:一大波僵尸",
+     "zombie:豌豆僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/094.json.gz",
+   "cold_sha256": "e72d195b0403e0b5c2d2070941a641f0bb574bde01e60161e21d6def19323a8f",
+   "draw": "draw/009f964e20ee814a.json.gz",
+   "draw_sha256": "009f964e20ee814a0f791d8cc7ddb0c1f75394830f899d285c490dd8df9f417d"
+  },
+  {
+   "id": "095",
+   "map": "铁道",
+   "night": false,
+   "seed": 2034,
+   "bans": [
+    "plant:甜薯",
+    "plant:闪电芦苇",
+    "zombie:掷弹兵僵尸",
+    "zombie:成长脑光墓碑",
+    "plant:毒镖射手",
+    "zombie:撑杆跳僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:超载芦苇",
+     "plant:向日葵",
+     "plant:卷心菜投手",
+     "plant:寒冰辣椒",
+     "secret:电疗",
+     "plant:寒冰射手"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:铁桶僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:萝卜伞僵尸",
+     "zombie:红眼巨人",
+     "zombie:橄榄球僵尸"
+    ]
+   },
+   "cold": "cold/095.json.gz",
+   "cold_sha256": "92c46f81b81241c483cea930138bf9949b101aa1b3075c80d2ed147c79c067a3",
+   "draw": "draw/3eb097fb5be114b5.json.gz",
+   "draw_sha256": "3eb097fb5be114b512b3a08404e16f8adc04851bf494c97ad660c960805fd7b7"
+  },
+  {
+   "id": "096",
+   "map": "铁道",
+   "night": false,
+   "seed": 3000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/096.json.gz",
+   "cold_sha256": "1bd1ec9f3e6d3b4fc32c66978f73d616de1507f5652d82f41351d4238c3b0120",
+   "draw": "draw/d0a600a6ae0ef4c7.json.gz",
+   "draw_sha256": "d0a600a6ae0ef4c718d97cf8f3f03d1e7b1459f37c65f999a3e436428884c9e8"
+  },
+  {
+   "id": "097",
+   "map": "铁道",
+   "night": false,
+   "seed": 3017,
+   "bans": [
+    "plant:大嘴花",
+    "plant:超载芦苇",
+    "zombie:成长脑光墓碑",
+    "zombie:橄榄球僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "plant:寒冰辣椒",
+     "secret:电疗",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:红眼巨人",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/097.json.gz",
+   "cold_sha256": "2f1caa4d6bdb77f20cbf147bf4ebb10a2b52022d92583aedde536cc4236774e9",
+   "draw": "draw/dadfbce764f42e1d.json.gz",
+   "draw_sha256": "dadfbce764f42e1d8413238c496cab8e6090824de3fb6e0845b2fb4f6968af8c"
+  },
+  {
+   "id": "098",
+   "map": "铁道",
+   "night": false,
+   "seed": 3034,
+   "bans": [
+    "plant:超载芦苇",
+    "plant:甜薯",
+    "zombie:掷弹兵僵尸",
+    "zombie:成长脑光墓碑",
+    "plant:海蘑菇",
+    "zombie:鸭子铁桶僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:杨桃",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:寒冰射手"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:小鬼僵尸",
+     "zombie:脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:传送带僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/098.json.gz",
+   "cold_sha256": "2e477d3b0f91225c279a7b2135b9901869330fd7c0c3af0124612894eccd8938",
+   "draw": "draw/9aeb1716f9229170.json.gz",
+   "draw_sha256": "9aeb1716f9229170d316ccbcd85aeb5deeda2b637de4d4d1c5622c8ce37e2a41"
+  },
+  {
+   "id": "099",
+   "map": "铁道",
+   "night": true,
+   "seed": 1500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/099.json.gz",
+   "cold_sha256": "250c6cefd1f48deefe74743fb1abd71628e14c297af6324dfadfbc371451a495",
+   "draw": "draw/90ab574461f6cecd.json.gz",
+   "draw_sha256": "90ab574461f6cecd7880661692dccc4ef98260dd22e5b34b7b84dd39cf27069f"
+  },
+  {
+   "id": "100",
+   "map": "铁道",
+   "night": true,
+   "seed": 1517,
+   "bans": [
+    "plant:大嘴花",
+    "plant:闪电芦苇",
+    "zombie:旗帜僵尸",
+    "zombie:双生脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "plant:旋转芜菁",
+     "secret:无土栽培",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:毁灭菇",
+     "plant:甜薯",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海盗鹦鹉",
+     "zombie:乌鸦",
+     "zombie:脑光墓碑",
+     "zombie:传送带僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:稻草人"
+    ]
+   },
+   "cold": "cold/100.json.gz",
+   "cold_sha256": "bb45bd072fad51253ac595e84307fb97c7dbda91939d6d64ec30a3a3cd93bf7a",
+   "draw": "draw/b75bf0086e69b25c.json.gz",
+   "draw_sha256": "b75bf0086e69b25c88911d8360b54ccdea078335752f0cddb363a648f431d891"
+  },
+  {
+   "id": "101",
+   "map": "铁道",
+   "night": true,
+   "seed": 1534,
+   "bans": [
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "plant:吸金磁",
+    "zombie:黑铁桶僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "plant:胆小菇",
+     "plant:甜薯",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:小鬼僵尸",
+     "zombie:传送带僵尸",
+     "zombie:脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/101.json.gz",
+   "cold_sha256": "c46761bd92026ad56a641a37b1c0657d77e06da4c9eabd1fae916471301d4000",
+   "draw": "draw/ec63857778e1dbf3.json.gz",
+   "draw_sha256": "ec63857778e1dbf33211a620dfdad8a14a926391effdb9428de115468ddaf624"
+  },
+  {
+   "id": "102",
+   "map": "铁道",
+   "night": true,
+   "seed": 2500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/102.json.gz",
+   "cold_sha256": "d9ca6607e87599ea91f3b9832db659c0fe027ae2469fa86827c559d65bfb0367",
+   "draw": "draw/c8ad17ba9050b26e.json.gz",
+   "draw_sha256": "c8ad17ba9050b26e24b2dc661e1562c9bf9b137ab6bf681abc2bfc4ea09603de"
+  },
+  {
+   "id": "103",
+   "map": "铁道",
+   "night": true,
+   "seed": 2517,
+   "bans": [
+    "plant:大嘴花",
+    "plant:甜薯",
+    "zombie:成长脑光墓碑",
+    "zombie:双生脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "secret:电疗",
+     "plant:黄金蓓蕾",
+     "plant:毁灭菇"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:坚固脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:传送带僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/103.json.gz",
+   "cold_sha256": "fe1ebcdf6e2e1f35df831750397b9f21aea339f744cc22b51aa7772c604557b7",
+   "draw": "draw/1588087e264fae93.json.gz",
+   "draw_sha256": "1588087e264fae93667d97649e4c7121ecafa8ab919872b8af19a989f8ea211a"
+  },
+  {
+   "id": "104",
+   "map": "铁道",
+   "night": true,
+   "seed": 2534,
+   "bans": [
+    "plant:闪电芦苇",
+    "plant:大喷菇",
+    "zombie:双生脑光墓碑",
+    "zombie:传送带僵尸",
+    "plant:裂荚射手",
+    "zombie:鸭子路障僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:超载芦苇",
+     "secret:无土栽培",
+     "plant:阳光菇",
+     "plant:卷心菜投手",
+     "plant:胆小菇",
+     "plant:甜薯",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海盗鹦鹉",
+     "zombie:乌鸦",
+     "zombie:脑光墓碑",
+     "zombie:萝卜伞僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/104.json.gz",
+   "cold_sha256": "89bdeadccac5d883a5e868df485f7ca58c5df89eb11e81ad05d414fc6ca79c8e",
+   "draw": "draw/136b3149b7eebd6a.json.gz",
+   "draw_sha256": "136b3149b7eebd6a5f4f7a6c6c62d1453f38f290f8e6a43bc6f4861d4541e436"
+  },
+  {
+   "id": "105",
+   "map": "铁道",
+   "night": true,
+   "seed": 3500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/105.json.gz",
+   "cold_sha256": "fe998ade5a7a959603c7f681b41132d5003710b428970745839426bbda00698d",
+   "draw": "draw/e6ccefee29f37a71.json.gz",
+   "draw_sha256": "e6ccefee29f37a7138dd514db125278ce55e1232ba48d96b9a7b6386a69bd9a1"
+  },
+  {
+   "id": "106",
+   "map": "铁道",
+   "night": true,
+   "seed": 3517,
+   "bans": [
+    "plant:甜薯",
+    "plant:阳光菇",
+    "zombie:双生脑光墓碑",
+    "zombie:传送带僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:大喷菇",
+     "plant:毁灭菇",
+     "secret:电疗",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:红眼巨人",
+     "zombie:脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/106.json.gz",
+   "cold_sha256": "7389f7541e5f659a20053f545db8f2ec7feb063c630d13dd4ece96c986b2e0f1",
+   "draw": "draw/08d8b0af2ef9fc13.json.gz",
+   "draw_sha256": "08d8b0af2ef9fc133a29fa3565f8baf85f7e2deb519ad2904efa082543e57f4e"
+  },
+  {
+   "id": "107",
+   "map": "铁道",
+   "night": true,
+   "seed": 3534,
+   "bans": [
+    "plant:闪电芦苇",
+    "plant:大喷菇",
+    "zombie:橄榄球僵尸",
+    "zombie:掷弹兵僵尸",
+    "plant:回旋镖射手",
+    "zombie:毁灭菇僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:超载芦苇",
+     "secret:无土栽培",
+     "plant:阳光菇",
+     "plant:卷心菜投手",
+     "plant:胆小菇",
+     "plant:甜薯",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海盗鹦鹉",
+     "zombie:乌鸦",
+     "zombie:双生脑光墓碑",
+     "zombie:萝卜伞僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/107.json.gz",
+   "cold_sha256": "948973ca411043533864032e42685ee1dc8d59c9f88e702e4c64d52a9a343655",
+   "draw": "draw/9dee61891b26bf9d.json.gz",
+   "draw_sha256": "9dee61891b26bf9dc0b7634673e31653759aa6c4450f7ad82b13091e5c11318e"
+  },
+  {
+   "id": "108",
+   "map": "遗迹",
+   "night": false,
+   "seed": 1000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:玉米投手",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/108.json.gz",
+   "cold_sha256": "d470055be1d7643c1687638dbf9678f3bfd4323f01455f1ecf3877db91a2680b",
+   "draw": "draw/bd2b3865783051b2.json.gz",
+   "draw_sha256": "bd2b3865783051b2de6872589842bbf74958035d3fdd499fa703ca37e1b9cdcd"
+  },
+  {
+   "id": "109",
+   "map": "遗迹",
+   "night": false,
+   "seed": 1017,
+   "bans": [
+    "plant:玉米投手",
+    "plant:甜薯",
+    "zombie:旗帜僵尸",
+    "zombie:豌豆僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:旋转芜菁",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:超载芦苇",
+     "plant:闪电芦苇",
+     "secret:电疗",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zombie:铁桶僵尸",
+     "zombie:机枪僵尸"
+    ]
+   },
+   "cold": "cold/109.json.gz",
+   "cold_sha256": "9eddaafb78e6e9f8f504bbe20ba690e67ac7a0ed7bb64d0fb163b9b8720c21b7",
+   "draw": "draw/f8315de7d1928781.json.gz",
+   "draw_sha256": "f8315de7d19287810bf46a8bc7c6fa4de22588adc95a66577e23550d20f1c5c6"
+  },
+  {
+   "id": "110",
+   "map": "遗迹",
+   "night": false,
+   "seed": 1034,
+   "bans": [
+    "plant:大嘴花",
+    "plant:玉米投手",
+    "zombie:小鬼炮",
+    "zombie:旗帜僵尸",
+    "plant:石块",
+    "zombie:铁桶僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:旋转芜菁",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:超载芦苇",
+     "plant:寒冰辣椒",
+     "plant:甜薯",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:红眼巨人"
+    ]
+   },
+   "cold": "cold/110.json.gz",
+   "cold_sha256": "451c967e161502e33008d7b2129b83b486fb7b2dbc44ab11684ea09b4fdd2339",
+   "draw": "draw/70cd990ce56bc708.json.gz",
+   "draw_sha256": "70cd990ce56bc708707a9e16638f998b20b43b0ba3139bcbe2246bf5ab7c6f0d"
+  },
+  {
+   "id": "111",
+   "map": "遗迹",
+   "night": false,
+   "seed": 2000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:玉米投手",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/111.json.gz",
+   "cold_sha256": "73d5a0b1742e1209a8ce35ca8a5a0a6f70a764f4f86be901bf88eb7de188a13b",
+   "draw": "draw/5000b13efd207a0f.json.gz",
+   "draw_sha256": "5000b13efd207a0f77e08c5c3e8707f274f171efaf772688713e67319d67a5a3"
+  },
+  {
+   "id": "112",
+   "map": "遗迹",
+   "night": false,
+   "seed": 2017,
+   "bans": [
+    "plant:玉米投手",
+    "plant:向日葵",
+    "zombie:成长脑光墓碑",
+    "zombie:旗帜僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:旋转芜菁",
+     "plant:双子向日葵",
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:超载芦苇",
+     "secret:电疗",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:传送带僵尸"
+    ]
+   },
+   "cold": "cold/112.json.gz",
+   "cold_sha256": "c0497952962ba1cc2c6df7986a16eaf9b1859f04a64a002c3e59167acd3f2c57",
+   "draw": "draw/e8166786106852a1.json.gz",
+   "draw_sha256": "e8166786106852a1db29a56bab8b3863a08776c48673a0dbe19627457d39b0c8"
+  },
+  {
+   "id": "113",
+   "map": "遗迹",
+   "night": false,
+   "seed": 2034,
+   "bans": [
+    "plant:大嘴花",
+    "plant:甜薯",
+    "zombie:旗帜僵尸",
+    "zombie:豌豆僵尸",
+    "plant:海蘑菇",
+    "zombie:黑旗帜僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:旋转芜菁",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "secret:电疗",
+     "plant:寒冰辣椒",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zombie:机枪僵尸",
+     "zombie:撑杆跳僵尸"
+    ]
+   },
+   "cold": "cold/113.json.gz",
+   "cold_sha256": "bfef6f93a9c62b9285d30ffdfffe678b79367112a4da12e082e5b131ee92149c",
+   "draw": "draw/305f4ad83e0c8ba9.json.gz",
+   "draw_sha256": "305f4ad83e0c8ba9009c330dc4d0f155410fa3a16726f198a30801c074eb14b8"
+  },
+  {
+   "id": "114",
+   "map": "遗迹",
+   "night": false,
+   "seed": 3000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:玉米投手",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/114.json.gz",
+   "cold_sha256": "615c159fddc0b9b84d645fd96ed368e941f69574f1af35d71622e67d7e006107",
+   "draw": "draw/772e36d8dba672c2.json.gz",
+   "draw_sha256": "772e36d8dba672c2dbc41f2962a2d495fa85775475a6f544cb9fadc8751bdfe5"
+  },
+  {
+   "id": "115",
+   "map": "遗迹",
+   "night": false,
+   "seed": 3017,
+   "bans": [
+    "plant:大嘴花",
+    "plant:闪电芦苇",
+    "zombie:掷弹兵僵尸",
+    "zombie:双生脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "plant:芦笋战机",
+     "plant:向日葵",
+     "plant:旋转芜菁",
+     "secret:无土栽培",
+     "plant:甜薯",
+     "plant:卷心菜投手",
+     "plant:寒冰辣椒"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:传送带僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/115.json.gz",
+   "cold_sha256": "d21f5ffd9a5d8e96d7fa47b2835038ff4f443a13a01960bedbc1ca9a2d811352",
+   "draw": "draw/9ae47e3681ab80fd.json.gz",
+   "draw_sha256": "9ae47e3681ab80fddca1c688470f6f64fdd88bdece6161b5a3f06d41f22b9390"
+  },
+  {
+   "id": "116",
+   "map": "遗迹",
+   "night": false,
+   "seed": 3034,
+   "bans": [
+    "plant:玉米投手",
+    "plant:闪电芦苇",
+    "zombie:小鬼炮",
+    "zombie:豌豆僵尸",
+    "plant:草坪",
+    "zombie:黑旗帜僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:芦笋战机",
+     "plant:向日葵",
+     "plant:旋转芜菁",
+     "secret:无土栽培",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "plant:卷心菜投手"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/116.json.gz",
+   "cold_sha256": "0b25bc2022eb46b550415bf2b512498c59252eece3250b44b2b3d2ca0ad4e35a",
+   "draw": "draw/672e68f8fc9650b0.json.gz",
+   "draw_sha256": "672e68f8fc9650b0375dbfd89c392ea1b14031e63c920e3131f2ceb1a5ab4e59"
+  },
+  {
+   "id": "117",
+   "map": "遗迹",
+   "night": true,
+   "seed": 1500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "secret:无土栽培",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/117.json.gz",
+   "cold_sha256": "c6fe16ef9000e8a9e68d19fe1d17a5f80e1b0cc595dde498e552881550820530",
+   "draw": "draw/3b09b92c060d1446.json.gz",
+   "draw_sha256": "3b09b92c060d1446fdfd7fa8a062cb6f98636516411634db87badfd5e50bde1e"
+  },
+  {
+   "id": "118",
+   "map": "遗迹",
+   "night": true,
+   "seed": 1517,
+   "bans": [
+    "plant:大嘴花",
+    "plant:甜薯",
+    "zombie:旗帜僵尸",
+    "zombie:双生脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "plant:旋转芜菁",
+     "plant:阳光菇",
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "secret:电疗",
+     "plant:毁灭菇",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:大喷菇僵尸"
+    ]
+   },
+   "cold": "cold/118.json.gz",
+   "cold_sha256": "e02603e505dd4131852a862f27adf225769a47c329f876af9230a94419981404",
+   "draw": "draw/863dff581850412c.json.gz",
+   "draw_sha256": "863dff581850412c6d453ff15d7b3b4b1f0f54946b3402370edfbed65408ad9d"
+  },
+  {
+   "id": "119",
+   "map": "遗迹",
+   "night": true,
+   "seed": 1534,
+   "bans": [
+    "plant:阳光菇",
+    "plant:甜薯",
+    "zombie:豌豆僵尸",
+    "zombie:成长脑光墓碑",
+    "plant:海蘑菇",
+    "zombie:雪橇车小队"
+   ],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "secret:无土栽培",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:大喷菇僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/119.json.gz",
+   "cold_sha256": "2e134f771e0a7b25524bc3ef70eee87b1dd1cdfcdee93a11fae2630667caa13a",
+   "draw": "draw/f008eff044e9d68e.json.gz",
+   "draw_sha256": "f008eff044e9d68e7e3837dd905d94d88a46590cd3afc2ad92e6bd2b76e75f62"
+  },
+  {
+   "id": "120",
+   "map": "遗迹",
+   "night": true,
+   "seed": 2500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "secret:无土栽培",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/120.json.gz",
+   "cold_sha256": "ef36892330d4f924d1b79d8665498b070971a64f1d20363728e9e79f944a643f",
+   "draw": "draw/4153bda56ce2d761.json.gz",
+   "draw_sha256": "4153bda56ce2d761609f6f11b21ad05c4869e773237764dde33e1fed80a46c0b"
+  },
+  {
+   "id": "121",
+   "map": "遗迹",
+   "night": true,
+   "seed": 2517,
+   "bans": [
+    "plant:大喷菇",
+    "plant:阳光菇",
+    "zombie:旗帜僵尸",
+    "zombie:豌豆僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "secret:无土栽培",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "plant:大嘴花",
+     "plant:胆小菇",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:小鬼炮",
+     "zombie:成长脑光墓碑",
+     "zombie:史莱姆僵尸",
+     "zombie:传送带僵尸",
+     "zombie:橄榄球僵尸"
+    ]
+   },
+   "cold": "cold/121.json.gz",
+   "cold_sha256": "2e4a87cb8dd60d10c87e03e03a4d1500f843b6fadc92e708c5a814a8614a3378",
+   "draw": "draw/6b0a7ecfb7b9a910.json.gz",
+   "draw_sha256": "6b0a7ecfb7b9a9100708d0a46ebc7dd1602ac6200fffcf3dcd4ab8cbb17be493"
+  },
+  {
+   "id": "122",
+   "map": "遗迹",
+   "night": true,
+   "seed": 2534,
+   "bans": [
+    "plant:闪电芦苇",
+    "plant:大嘴花",
+    "zombie:掷弹兵僵尸",
+    "zombie:小鬼炮",
+    "plant:双发射手",
+    "zombie:传送带僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:大喷菇",
+     "plant:阳光菇",
+     "secret:无土栽培",
+     "plant:卷心菜投手",
+     "plant:甜薯",
+     "plant:毁灭菇",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:大喷菇僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/122.json.gz",
+   "cold_sha256": "24ffa564f47b5dafda182732baac602901e513596522bb18b6d1f31fe1a8771e",
+   "draw": "draw/588b87eceedd531b.json.gz",
+   "draw_sha256": "588b87eceedd531b0334f62f439328ccf544b0e3b8a171eb469d5684884b0b82"
+  },
+  {
+   "id": "123",
+   "map": "遗迹",
+   "night": true,
+   "seed": 3500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "secret:无土栽培",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/123.json.gz",
+   "cold_sha256": "9af6a588228b5ef0758b3b1b51eb2125593e83a87999a7064e537a87bd201529",
+   "draw": "draw/6817cb76b1e07acb.json.gz",
+   "draw_sha256": "6817cb76b1e07acb821bfc6534568c1179b7efc1d26819c263a5176882d328a4"
+  },
+  {
+   "id": "124",
+   "map": "遗迹",
+   "night": true,
+   "seed": 3517,
+   "bans": [
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "zombie:旗帜僵尸",
+    "zombie:成长脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "secret:无土栽培",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "plant:大嘴花",
+     "secret:电疗",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:史莱姆僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:小鬼炮",
+     "zombie:传送带僵尸",
+     "zombie:掷弹兵僵尸"
+    ]
+   },
+   "cold": "cold/124.json.gz",
+   "cold_sha256": "70508c0caf3e804de903e07d961f5e88ed241c2cc1b0ee8232c9aeb336f286be",
+   "draw": "draw/c77cebda8aacca01.json.gz",
+   "draw_sha256": "c77cebda8aacca01c80d0ba5ad7ec8c853e8d51b9fa1918cddbfe56885fd2b47"
+  },
+  {
+   "id": "125",
+   "map": "遗迹",
+   "night": true,
+   "seed": 3534,
+   "bans": [
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "zombie:小鬼炮",
+    "zombie:掷弹兵僵尸",
+    "plant:草坪",
+    "zombie:飞贼僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "secret:无土栽培",
+     "plant:向日葵",
+     "plant:毁灭菇",
+     "plant:超载芦苇",
+     "plant:胆小菇",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:史莱姆僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:传送带僵尸",
+     "zombie:红眼巨人",
+     "zombie:橄榄球僵尸"
+    ]
+   },
+   "cold": "cold/125.json.gz",
+   "cold_sha256": "19f400eca5e9cb1d2f3f6eb34912a35308ad4e2884f00e49f3abf3679947d8f1",
+   "draw": "draw/e57cf73964b1ca38.json.gz",
+   "draw_sha256": "e57cf73964b1ca3886b5bf0f6992ebfaec0cab9ab99b9dcaa1c62268aac6bbf8"
+  },
+  {
+   "id": "126",
+   "map": "绿洲",
+   "night": false,
+   "seed": 1000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:旋转芜菁",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:超载芦苇",
+     "plant:闪电芦苇",
+     "secret:电疗",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:水上脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:橄榄球僵尸"
+    ]
+   },
+   "cold": "cold/126.json.gz",
+   "cold_sha256": "5c057d988f89c2684e3c6f7a3bf435e07ad83b3b573b4630838072fb192d1992",
+   "draw": "draw/798f93e792fad5d0.json.gz",
+   "draw_sha256": "798f93e792fad5d01537fdf42a5c3c3ddb02701d6b4c29948e4c1aff9860d689"
+  },
+  {
+   "id": "127",
+   "map": "绿洲",
+   "night": false,
+   "seed": 1017,
+   "bans": [
+    "plant:甜薯",
+    "plant:向日葵",
+    "zombie:水上脑光墓碑",
+    "zombie:成长脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "secret:无土栽培",
+     "plant:双子向日葵",
+     "plant:玉米投手",
+     "plant:大嘴花",
+     "secret:电疗",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/127.json.gz",
+   "cold_sha256": "280e185eec81d88a6cfcc61d423a0880f064b1bc13ce887331472ca80097f9a9",
+   "draw": "draw/03d00fcfdb6c50bf.json.gz",
+   "draw_sha256": "03d00fcfdb6c50bf143a484956bd5f3a56cc3a20f63766e09feb97c43f4bde83"
+  },
+  {
+   "id": "128",
+   "map": "绿洲",
+   "night": false,
+   "seed": 1034,
+   "bans": [
+    "plant:超载芦苇",
+    "plant:旋转芜菁",
+    "zombie:成长脑光墓碑",
+    "zombie:橄榄球僵尸",
+    "plant:双发射手",
+    "zombie:高坚果僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:玉米投手",
+     "plant:寒冰辣椒",
+     "secret:电疗",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:水上脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:红眼巨人",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/128.json.gz",
+   "cold_sha256": "03f13b8cb2a8d805bc8c34a5b485b8e20ceb06a783da9335fc6bac1582c67d32",
+   "draw": "draw/0f7af49d34195a61.json.gz",
+   "draw_sha256": "0f7af49d34195a615853529b716d3e9daf57622caae36502f69c9d7161486145"
+  },
+  {
+   "id": "129",
+   "map": "绿洲",
+   "night": false,
+   "seed": 2000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:旋转芜菁",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:超载芦苇",
+     "plant:闪电芦苇",
+     "secret:电疗",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:水上脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:橄榄球僵尸"
+    ]
+   },
+   "cold": "cold/129.json.gz",
+   "cold_sha256": "9796bc5247d470fa58ab3ef85fb645588a3368dd1ebeb26d0f6002eeaf991307",
+   "draw": "draw/9b42ab3e45c23437.json.gz",
+   "draw_sha256": "9b42ab3e45c23437de047ba22ddc08118677673d735d1b64300f92674c1ec9c6"
+  },
+  {
+   "id": "130",
+   "map": "绿洲",
+   "night": false,
+   "seed": 2017,
+   "bans": [
+    "plant:超载芦苇",
+    "plant:甜薯",
+    "zombie:豌豆僵尸",
+    "zombie:小鬼炮"
+   ],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:玉米投手",
+     "secret:电疗",
+     "plant:萝卜伞",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:投篮车僵尸",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/130.json.gz",
+   "cold_sha256": "d8b772e735b366a5a613cd1ec33e5919e2777e92626e07e1a66327c018a545ac",
+   "draw": "draw/287867dd1d91c342.json.gz",
+   "draw_sha256": "287867dd1d91c3420b4d19b6b93a2b87f815982364be92e48d8246dfa586a0a3"
+  },
+  {
+   "id": "131",
+   "map": "绿洲",
+   "night": false,
+   "seed": 2034,
+   "bans": [
+    "plant:旋转芜菁",
+    "plant:甜薯",
+    "zombie:橄榄球僵尸",
+    "zombie:传送带僵尸",
+    "plant:原始土豆地雷",
+    "zombie:雪橇车小队"
+   ],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:玉米投手",
+     "plant:寒冰辣椒",
+     "secret:电疗",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:红眼巨人",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:豌豆僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/131.json.gz",
+   "cold_sha256": "4084c0d79b75d07b8e9d49e6bb32c8a48e05c15d525b295a9d8031a2e6f53ada",
+   "draw": "draw/a0b94394ff47b9a9.json.gz",
+   "draw_sha256": "a0b94394ff47b9a9c5c12448bdaf16d4ff721c7b3f5a09903dcca6cddf95dc80"
+  },
+  {
+   "id": "132",
+   "map": "绿洲",
+   "night": false,
+   "seed": 3000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:旋转芜菁",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:超载芦苇",
+     "plant:闪电芦苇",
+     "secret:电疗",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:水上脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:橄榄球僵尸"
+    ]
+   },
+   "cold": "cold/132.json.gz",
+   "cold_sha256": "c7a4c1cce0506cb009ada590a49b35651f6df9706785907fa5e5e17a498fd3d1",
+   "draw": "draw/a1386b8f4edbd3ce.json.gz",
+   "draw_sha256": "a1386b8f4edbd3ce2e37620e5413a96bf5fe86f1cd96a7d4a1cbbdc75dc2ac93"
+  },
+  {
+   "id": "133",
+   "map": "绿洲",
+   "night": false,
+   "seed": 3017,
+   "bans": [
+    "plant:闪电芦苇",
+    "plant:向日葵",
+    "zombie:豌豆僵尸",
+    "zombie:传送带僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:旋转芜菁",
+     "plant:双子向日葵",
+     "plant:芦笋战机",
+     "secret:无土栽培",
+     "plant:甜薯",
+     "plant:卷心菜投手",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/133.json.gz",
+   "cold_sha256": "e0b6135565d9748d81e43b694730149ac908bc32241fa5b9a0b937956e8b4dfd",
+   "draw": "draw/65814bb49155800b.json.gz",
+   "draw_sha256": "65814bb49155800bf705bc24d7fa92ba8b5a1c4504dfe105cd6b10da8cc97f7e"
+  },
+  {
+   "id": "134",
+   "map": "绿洲",
+   "night": false,
+   "seed": 3034,
+   "bans": [
+    "plant:超载芦苇",
+    "plant:闪电芦苇",
+    "zombie:成长脑光墓碑",
+    "zombie:小鬼炮",
+    "plant:墓碑吞噬者",
+    "zombie:钩索僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:向日葵",
+     "plant:旋转芜菁",
+     "secret:无土栽培",
+     "plant:杨桃",
+     "plant:寒冰辣椒",
+     "plant:甜薯",
+     "plant:卷心菜投手"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:传送带僵尸",
+     "zombie:水上脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:红眼巨人"
+    ]
+   },
+   "cold": "cold/134.json.gz",
+   "cold_sha256": "92b4d269062bc94365b193e744ad222b599ed53dac51a5ee39bb0b791c7d9b6b",
+   "draw": "draw/2c18ecf74523233c.json.gz",
+   "draw_sha256": "2c18ecf74523233cc2579971ebfc3efa25696e88aed574cb398613aedb2b8f1e"
+  },
+  {
+   "id": "135",
+   "map": "绿洲",
+   "night": true,
+   "seed": 1500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "secret:无土栽培",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/135.json.gz",
+   "cold_sha256": "7774bb3266ab13fd3d5e665d85b7e0505b4e8cb27a4807fe7340002f2ac21654",
+   "draw": "draw/f0fd6cf7d544649f.json.gz",
+   "draw_sha256": "f0fd6cf7d544649ff69921529dc2a80c443a7a2ce144081263c077c23bd81d3c"
+  },
+  {
+   "id": "136",
+   "map": "绿洲",
+   "night": true,
+   "seed": 1517,
+   "bans": [
+    "plant:大嘴花",
+    "plant:阳光菇",
+    "zombie:小鬼炮",
+    "zombie:豌豆僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:大喷菇",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:毁灭菇"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/136.json.gz",
+   "cold_sha256": "c6eb3db5c8f3f21df0621df66bd368ee7f2d50ad0a2dd292743ca4e959174858",
+   "draw": "draw/68aed2f99ccd17ab.json.gz",
+   "draw_sha256": "68aed2f99ccd17ab7770749cd94410228e0344e9bdf329f6c3936cfb656c788d"
+  },
+  {
+   "id": "137",
+   "map": "绿洲",
+   "night": true,
+   "seed": 1534,
+   "bans": [
+    "plant:阳光菇",
+    "plant:闪电芦苇",
+    "zombie:旗帜僵尸",
+    "zombie:小鬼炮",
+    "plant:杨桃",
+    "zombie:墓碑吞噬者僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:大喷菇",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:玉米投手",
+     "plant:毁灭菇",
+     "plant:甜薯",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:红眼巨人",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸"
+    ]
+   },
+   "cold": "cold/137.json.gz",
+   "cold_sha256": "49dde5d5cb168c58fff1fcdfe668e7358947a0aa2675e3d511098c0b1a241631",
+   "draw": "draw/803323c4ffce0853.json.gz",
+   "draw_sha256": "803323c4ffce0853fb104714f40831004c9cd4e5c14d7976cc0ba876e27ab689"
+  },
+  {
+   "id": "138",
+   "map": "绿洲",
+   "night": true,
+   "seed": 2500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "secret:无土栽培",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/138.json.gz",
+   "cold_sha256": "c6ae273ab6a836907b2fa3378af17446475dc55a597348e60ff0f971de9b754e",
+   "draw": "draw/eb6bcfd523a485d5.json.gz",
+   "draw_sha256": "eb6bcfd523a485d56f59bdf331f192c0f5c979e3bc21bf2528eed6fedf52a993"
+  },
+  {
+   "id": "139",
+   "map": "绿洲",
+   "night": true,
+   "seed": 2517,
+   "bans": [
+    "plant:阳光菇",
+    "plant:甜薯",
+    "zombie:双生脑光墓碑",
+    "zombie:旗帜僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:旋转芜菁",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:大喷菇",
+     "plant:大嘴花",
+     "plant:黄金蓓蕾",
+     "plant:闪电芦苇"
+    ],
+    "zombie": [
+     "zombie:水上脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:大喷菇僵尸"
+    ]
+   },
+   "cold": "cold/139.json.gz",
+   "cold_sha256": "00f38ae1b1397110b635dd6b47f162fa545310ba2b4395bc07124659a6b02f1b",
+   "draw": "draw/e49f734c70a6a781.json.gz",
+   "draw_sha256": "e49f734c70a6a78112c2ee7f468e318c13bd8f7f6f9c89d85c5cb68476e6c49c"
+  },
+  {
+   "id": "140",
+   "map": "绿洲",
+   "night": true,
+   "seed": 2534,
+   "bans": [
+    "plant:大嘴花",
+    "plant:闪电芦苇",
+    "zombie:成长脑光墓碑",
+    "zombie:小鬼炮",
+    "plant:火爆辣椒",
+    "zombie:鸭子铁桶僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:大喷菇",
+     "plant:阳光菇",
+     "secret:无土栽培",
+     "plant:卷心菜投手",
+     "plant:毁灭菇",
+     "plant:甜薯",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:水上脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:红眼巨人",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸"
+    ]
+   },
+   "cold": "cold/140.json.gz",
+   "cold_sha256": "72ed47d69b53de95b111071be31dbaa0a14053b5809bbf1ddcb4d15dba5fe2cf",
+   "draw": "draw/b9d3d523b3585faa.json.gz",
+   "draw_sha256": "b9d3d523b3585faa8a2900704596d1a69613e52697301aeeda6fdf323c86029b"
+  },
+  {
+   "id": "141",
+   "map": "绿洲",
+   "night": true,
+   "seed": 3500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "secret:无土栽培",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/141.json.gz",
+   "cold_sha256": "7ca5bff6a1500be852230fa2d33d50e8e2643abf05c439344ccd21d7ebd21953",
+   "draw": "draw/d9b010baac2255a3.json.gz",
+   "draw_sha256": "d9b010baac2255a34b95a734df020dd235e7f39ab0740c32226c9efab551cf65"
+  },
+  {
+   "id": "142",
+   "map": "绿洲",
+   "night": true,
+   "seed": 3517,
+   "bans": [
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "zombie:豌豆僵尸",
+    "zombie:双生脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:玉米投手",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:小鬼炮",
+     "zombie:脑光墓碑",
+     "zombie:传送带僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/142.json.gz",
+   "cold_sha256": "fe0ec5019b26e3d16451679d2646ffc8d77e9cc2ecddaa977259d587c2d36044",
+   "draw": "draw/87fdf58c48a3c3b5.json.gz",
+   "draw_sha256": "87fdf58c48a3c3b5fcd3152ce84812dbc57c83a5d929d5640c0ea8c517029f2d"
+  },
+  {
+   "id": "143",
+   "map": "绿洲",
+   "night": true,
+   "seed": 3534,
+   "bans": [
+    "plant:大喷菇",
+    "plant:阳光菇",
+    "zombie:小鬼炮",
+    "zombie:双生脑光墓碑",
+    "plant:黄金蓓蕾",
+    "zombie:海豚僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:旋转芜菁",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:超载芦苇",
+     "plant:毁灭菇",
+     "plant:胆小菇",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:传送带僵尸",
+     "zombie:水上脑光墓碑",
+     "zombie:红眼巨人",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸"
+    ]
+   },
+   "cold": "cold/143.json.gz",
+   "cold_sha256": "ef532ff65620fe5823f8d1d987c33c3b0efc5ea5a985c449f6ba8a959f71f3d4",
+   "draw": "draw/d3aa683c78a8380c.json.gz",
+   "draw_sha256": "d3aa683c78a8380c8729b44eed0c3ac7833d23ef9ca22edf7d4b35dd1d59b647"
+  },
+  {
+   "id": "144",
+   "map": "小镇",
+   "night": false,
+   "seed": 1000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/144.json.gz",
+   "cold_sha256": "44c15cb322c5e45eaed029f968f946e8699d3e530eb93e5c7a3a4f6de9b1b20d",
+   "draw": "draw/973ff580ac8be564.json.gz",
+   "draw_sha256": "973ff580ac8be5642091ba1c960242cc941a6799364fb404a739c05ce7c4caee"
+  },
+  {
+   "id": "145",
+   "map": "小镇",
+   "night": false,
+   "seed": 1017,
+   "bans": [
+    "plant:闪电芦苇",
+    "plant:超载芦苇",
+    "zombie:双生脑光墓碑",
+    "zombie:传送带僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:杨桃",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "plant:大嘴花",
+     "plant:甜薯",
+     "plant:卷心菜投手"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:萝卜伞僵尸",
+     "zombie:脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/145.json.gz",
+   "cold_sha256": "1c102eda7f2c669ee72dabc045b8b4a07e005a7ee298383ed504ea06d2b5742b",
+   "draw": "draw/e3847a872c8b36e0.json.gz",
+   "draw_sha256": "e3847a872c8b36e002b6e575106d7e0d66ed41ba07da1aae7b4da844cdf23c28"
+  },
+  {
+   "id": "146",
+   "map": "小镇",
+   "night": false,
+   "seed": 1034,
+   "bans": [
+    "plant:甜薯",
+    "plant:闪电芦苇",
+    "zombie:成长脑光墓碑",
+    "zombie:旗帜僵尸",
+    "plant:小喷菇",
+    "zombie:钢门普通僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:超载芦苇",
+     "plant:向日葵",
+     "plant:卷心菜投手",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:寒冰射手"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:萝卜伞僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:铁桶僵尸"
+    ]
+   },
+   "cold": "cold/146.json.gz",
+   "cold_sha256": "7a48802f3b3c7965951d8de78232d027da8116712f3d8c9437e1b9c1bddc5c32",
+   "draw": "draw/2c107ed2f6705a0e.json.gz",
+   "draw_sha256": "2c107ed2f6705a0ef36fe1ecb5abf26d105c84f4e528ab901a61f97f56893fca"
+  },
+  {
+   "id": "147",
+   "map": "小镇",
+   "night": false,
+   "seed": 2000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/147.json.gz",
+   "cold_sha256": "6b25617de5c855208d9efafc34a748acc0fad127ef5f4e1c8e5a5c42d851c8c7",
+   "draw": "draw/de9d495e3d4b724d.json.gz",
+   "draw_sha256": "de9d495e3d4b724dcbdaf61aefe75bb4ab8d104ab6ec89c918ddd6c260feb7b2"
+  },
+  {
+   "id": "148",
+   "map": "小镇",
+   "night": false,
+   "seed": 2017,
+   "bans": [
+    "plant:闪电芦苇",
+    "plant:大嘴花",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:超载芦苇",
+     "secret:无土栽培",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "secret:电疗",
+     "plant:甜薯",
+     "plant:卷心菜投手"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海盗鹦鹉",
+     "zombie:乌鸦",
+     "zombie:脑光墓碑",
+     "zombie:传送带僵尸",
+     "zombie:萝卜伞僵尸",
+     "zombie:掷弹兵僵尸"
+    ]
+   },
+   "cold": "cold/148.json.gz",
+   "cold_sha256": "88916ee78a42b8d5925ba436e57ad7ea061b2e1ad9670fd947b126638e8f8ef2",
+   "draw": "draw/9b319ea19070cc9a.json.gz",
+   "draw_sha256": "9b319ea19070cc9afc4a8d8e90de673023b2818d5e7f1551eaa61a685fed5fe6"
+  },
+  {
+   "id": "149",
+   "map": "小镇",
+   "night": false,
+   "seed": 2034,
+   "bans": [
+    "plant:甜薯",
+    "plant:大嘴花",
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "plant:南瓜头",
+    "zombie:坚果僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "secret:电疗",
+     "plant:寒冰射手",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:小鬼僵尸",
+     "zombie:脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:传送带僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/149.json.gz",
+   "cold_sha256": "32c7a82f39c43f67e7d1cd409fad90807da4c574eae0c0fbfc267d3004d98352",
+   "draw": "draw/6c50857723247f75.json.gz",
+   "draw_sha256": "6c50857723247f7597c763e8cbd1b2dc024def625791cd44616dc2e51545bffc"
+  },
+  {
+   "id": "150",
+   "map": "小镇",
+   "night": false,
+   "seed": 3000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/150.json.gz",
+   "cold_sha256": "0bec5262ae1b73cedacce12d2d3de1689ed42626ac2a3f24f8340c57520b864a",
+   "draw": "draw/4bbe8a655ce301c3.json.gz",
+   "draw_sha256": "4bbe8a655ce301c37bbebc331fc08f2626a5fb86b61e6e63ec3db599b7c2ea0d"
+  },
+  {
+   "id": "151",
+   "map": "小镇",
+   "night": false,
+   "seed": 3017,
+   "bans": [
+    "plant:大嘴花",
+    "plant:超载芦苇",
+    "zombie:传送带僵尸",
+    "zombie:橄榄球僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "plant:寒冰辣椒",
+     "secret:电疗",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:红眼巨人",
+     "zsecret:一大波僵尸",
+     "zombie:豌豆僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/151.json.gz",
+   "cold_sha256": "306b5a550c8b97638d8776a977f5d3f19183195364ba4925a4f464eca4bc3516",
+   "draw": "draw/f166eefd41051939.json.gz",
+   "draw_sha256": "f166eefd4105193922f4d7d9e6987b6194cec22a37e7842fa58a5a1a956660e3"
+  },
+  {
+   "id": "152",
+   "map": "小镇",
+   "night": false,
+   "seed": 3034,
+   "bans": [
+    "plant:向日葵",
+    "plant:超载芦苇",
+    "zombie:橄榄球僵尸",
+    "zombie:双生脑光墓碑",
+    "plant:黄金蓓蕾",
+    "zombie:豌豆僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:双子向日葵",
+     "plant:玉米投手",
+     "plant:寒冰辣椒",
+     "secret:电疗",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:成长脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:红眼巨人",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/152.json.gz",
+   "cold_sha256": "f1e990bb79e4c995f0a5dcf77c375159fcf383e5cf0f0bf5472abd540b3b50a6",
+   "draw": "draw/6d8da836fdd0a74f.json.gz",
+   "draw_sha256": "6d8da836fdd0a74ffc157723e6d4628360bb57edd3323ff67cc544d746fbab55"
+  },
+  {
+   "id": "153",
+   "map": "小镇",
+   "night": true,
+   "seed": 1500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/153.json.gz",
+   "cold_sha256": "5f49d959f4b0ed8e42a958a48ec432c231d838adbaf3c45169189411d551054c",
+   "draw": "draw/82267d5941f9177f.json.gz",
+   "draw_sha256": "82267d5941f9177f3141dfa383740a485d3de80360f1a3cf38dd52a14ee605c8"
+  },
+  {
+   "id": "154",
+   "map": "小镇",
+   "night": true,
+   "seed": 1517,
+   "bans": [
+    "plant:大喷菇",
+    "plant:大嘴花",
+    "zombie:双生脑光墓碑",
+    "zombie:橄榄球僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "plant:卷心菜投手",
+     "plant:毁灭菇",
+     "plant:甜薯",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:成长脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:红眼巨人",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/154.json.gz",
+   "cold_sha256": "58134d7e36c9cf068857b130af1b17589d22358fa5e7e8ab7a4087b4b53648c3",
+   "draw": "draw/cc57b02ea575890e.json.gz",
+   "draw_sha256": "cc57b02ea575890ebcd98dc7e8de8c94b39b45574a47455a7f9eb0e750d3c59f"
+  },
+  {
+   "id": "155",
+   "map": "小镇",
+   "night": true,
+   "seed": 1534,
+   "bans": [
+    "plant:闪电芦苇",
+    "plant:大嘴花",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸",
+    "plant:土豆地雷",
+    "zombie:黑路障僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:超载芦苇",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:卷心菜投手",
+     "plant:甜薯",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海盗鹦鹉",
+     "zombie:乌鸦",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:稻草人",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/155.json.gz",
+   "cold_sha256": "1c583daeb9a36844b9c01984cde0a5d31a59e9fd28eca31ce94eb78358aff614",
+   "draw": "draw/9e9a4b9bf1d1acbe.json.gz",
+   "draw_sha256": "9e9a4b9bf1d1acbefe4345a3d9ba0f1fe6752f57bb67fb33d648dca1fcc2512b"
+  },
+  {
+   "id": "156",
+   "map": "小镇",
+   "night": true,
+   "seed": 2500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/156.json.gz",
+   "cold_sha256": "7c9081c2432de8dd734eb2d51fec24ad1bfdb85e5a2ffbffb9c5506de3b17607",
+   "draw": "draw/ecb6de0dfbfdd4b3.json.gz",
+   "draw_sha256": "ecb6de0dfbfdd4b3b5e56f62012fd448b58d5f6d8db18187bd890c876e5fec37"
+  },
+  {
+   "id": "157",
+   "map": "小镇",
+   "night": true,
+   "seed": 2517,
+   "bans": [
+    "plant:大嘴花",
+    "plant:甜薯",
+    "zombie:掷弹兵僵尸",
+    "zombie:传送带僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:大喷菇",
+     "plant:阳光菇",
+     "plant:闪电芦苇",
+     "secret:电疗",
+     "plant:黄金蓓蕾",
+     "plant:毁灭菇"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:小鬼僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:豌豆僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/157.json.gz",
+   "cold_sha256": "f614ddbd77b41afc42f8cc307ada3736ffc86863fc3b1466a63e27bfe35f06b8",
+   "draw": "draw/7a69c5479a012778.json.gz",
+   "draw_sha256": "7a69c5479a0127789f448579c4484eb78286505a3afd7ba20058d3431eaecf9a"
+  },
+  {
+   "id": "158",
+   "map": "小镇",
+   "night": true,
+   "seed": 2534,
+   "bans": [
+    "plant:大嘴花",
+    "plant:闪电芦苇",
+    "zombie:掷弹兵僵尸",
+    "zombie:旗帜僵尸",
+    "plant:花盆",
+    "zombie:雪橇车小队僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:旋转芜菁",
+     "secret:无土栽培",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:毁灭菇",
+     "plant:甜薯",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海盗鹦鹉",
+     "zombie:乌鸦",
+     "zombie:双生脑光墓碑",
+     "zombie:传送带僵尸",
+     "zombie:稻草人",
+     "zombie:豌豆僵尸"
+    ]
+   },
+   "cold": "cold/158.json.gz",
+   "cold_sha256": "6263ffebc4fe9c88b4f074d297cb83f1992a08314cbb5be172a95cddbcdc81a3",
+   "draw": "draw/ea51c86bcb2377b8.json.gz",
+   "draw_sha256": "ea51c86bcb2377b8843c469b59547a8d1803b1ae9214450df8f683b0e98150b0"
+  },
+  {
+   "id": "159",
+   "map": "小镇",
+   "night": true,
+   "seed": 3500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/159.json.gz",
+   "cold_sha256": "ca922479c1e1f5d41ae49198ea4e2a48212c4fe422b82c45e050d02fcd573f16",
+   "draw": "draw/eec51b709d990c13.json.gz",
+   "draw_sha256": "eec51b709d990c13d35aacca188603f8202bab4d2b1956fa9b56c23c0baadfd8"
+  },
+  {
+   "id": "160",
+   "map": "小镇",
+   "night": true,
+   "seed": 3517,
+   "bans": [
+    "plant:大喷菇",
+    "plant:大嘴花",
+    "zombie:橄榄球僵尸",
+    "zombie:掷弹兵僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "plant:卷心菜投手",
+     "plant:毁灭菇",
+     "plant:甜薯",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:小鬼僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:红眼巨人",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/160.json.gz",
+   "cold_sha256": "5d2984a137b9217a17ec4258e3ce55435e2b937243c530f88637d995a39271e2",
+   "draw": "draw/02f10ba4db02f72b.json.gz",
+   "draw_sha256": "02f10ba4db02f72b569c20eefc6b1b8f841811baf88e97d7fd74b04bdb742408"
+  },
+  {
+   "id": "161",
+   "map": "小镇",
+   "night": true,
+   "seed": 3534,
+   "bans": [
+    "plant:大喷菇",
+    "plant:闪电芦苇",
+    "zombie:双生脑光墓碑",
+    "zombie:旗帜僵尸",
+    "plant:南瓜头",
+    "zombie:小鬼炮"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:超载芦苇",
+     "plant:阳光菇",
+     "plant:卷心菜投手",
+     "plant:胆小菇",
+     "plant:甜薯",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海盗鹦鹉",
+     "zombie:乌鸦",
+     "zombie:脑光墓碑",
+     "zombie:萝卜伞僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:稻草人"
+    ]
+   },
+   "cold": "cold/161.json.gz",
+   "cold_sha256": "434b306d9b0bb18604eac4c06db1cc834025602cc07ab79f286694e9195d041b",
+   "draw": "draw/40d9005c9a124807.json.gz",
+   "draw_sha256": "40d9005c9a1248073fbeb89a03f1ae45a473d97fa97005465995c7e1720d978a"
+  },
+  {
+   "id": "162",
+   "map": "古堡",
+   "night": false,
+   "seed": 1000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:玉米投手",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/162.json.gz",
+   "cold_sha256": "28626087362751deac4597a134977c9630169028e4765de8b658c3b296c8f4cc",
+   "draw": "draw/7c862d6f69689ce7.json.gz",
+   "draw_sha256": "7c862d6f69689ce797f6364e6f7b91fe6f1f95a5b6cf96abca64d353f8440d8a"
+  },
+  {
+   "id": "163",
+   "map": "古堡",
+   "night": false,
+   "seed": 1017,
+   "bans": [
+    "plant:大嘴花",
+    "plant:闪电芦苇",
+    "zombie:豌豆僵尸",
+    "zombie:双生脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "plant:旋转芜菁",
+     "plant:向日葵",
+     "plant:芦笋战机",
+     "secret:无土栽培",
+     "plant:甜薯",
+     "plant:卷心菜投手",
+     "plant:寒冰辣椒"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:脑光墓碑",
+     "zombie:小鬼炮",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/163.json.gz",
+   "cold_sha256": "248b3ce106ac9a4cbb262e8a134844ba456ee42d87767652c350427e9a2f056a",
+   "draw": "draw/2b1bbda5b4aaf89e.json.gz",
+   "draw_sha256": "2b1bbda5b4aaf89e37e9acc353405c3a856b3dc6d85cb01fbd8ee9a426b2e358"
+  },
+  {
+   "id": "164",
+   "map": "古堡",
+   "night": false,
+   "seed": 1034,
+   "bans": [
+    "plant:大嘴花",
+    "plant:闪电芦苇",
+    "zombie:掷弹兵僵尸",
+    "zombie:双生脑光墓碑",
+    "plant:路灯花",
+    "zombie:海豚僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:芦笋战机",
+     "plant:向日葵",
+     "plant:旋转芜菁",
+     "secret:无土栽培",
+     "plant:甜薯",
+     "plant:卷心菜投手",
+     "plant:寒冰辣椒"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:传送带僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/164.json.gz",
+   "cold_sha256": "9f1dfbe3e0644ba0b7153f1b42fb84026fcf3ac2b229d6763fe365c4a7208ffa",
+   "draw": "draw/8e9dfc31c580a121.json.gz",
+   "draw_sha256": "8e9dfc31c580a121e184c4219fc987d45ccdb5ea03888e3763a223269474e719"
+  },
+  {
+   "id": "165",
+   "map": "古堡",
+   "night": false,
+   "seed": 2000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:玉米投手",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/165.json.gz",
+   "cold_sha256": "c95684128aeb4dd3351d39a1c9f92e74b059a35b31a24f703f657066252e0772",
+   "draw": "draw/490fed6dc6f6df1d.json.gz",
+   "draw_sha256": "490fed6dc6f6df1d7c5066b808b8cbe8adf6bae33329fda440a358748593ffa6"
+  },
+  {
+   "id": "166",
+   "map": "古堡",
+   "night": false,
+   "seed": 2017,
+   "bans": [
+    "plant:向日葵",
+    "plant:玉米投手",
+    "zombie:成长脑光墓碑",
+    "zombie:旗帜僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:旋转芜菁",
+     "plant:双子向日葵",
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:超载芦苇",
+     "secret:电疗",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:传送带僵尸"
+    ]
+   },
+   "cold": "cold/166.json.gz",
+   "cold_sha256": "c9c889eaadebc0bd20dd083af719dd004b052a2b297caaeb994a22bc6a973162",
+   "draw": "draw/9c9b5a6efaaf7d50.json.gz",
+   "draw_sha256": "9c9b5a6efaaf7d50dcd533f4bf31d1a2694e5147e0b4ffabc06acd4f329432ce"
+  },
+  {
+   "id": "167",
+   "map": "古堡",
+   "night": false,
+   "seed": 2034,
+   "bans": [
+    "plant:大嘴花",
+    "plant:甜薯",
+    "zombie:旗帜僵尸",
+    "zombie:小鬼炮",
+    "plant:窝瓜",
+    "zombie:海豚僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:旋转芜菁",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "secret:电疗",
+     "plant:萝卜伞",
+     "plant:寒冰辣椒"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:投篮车僵尸",
+     "zombie:撑杆跳僵尸"
+    ]
+   },
+   "cold": "cold/167.json.gz",
+   "cold_sha256": "84620e875a55e90f5b594b16a842212bf0db9b73c2913921194ca4b347d087eb",
+   "draw": "draw/c0f7042cdebced88.json.gz",
+   "draw_sha256": "c0f7042cdebced884e1e4049984538d2e05799d345a528ea09dcff45c14bd098"
+  },
+  {
+   "id": "168",
+   "map": "古堡",
+   "night": false,
+   "seed": 3000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:玉米投手",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/168.json.gz",
+   "cold_sha256": "c8bd1a5106fec5b0cc2ccae5ffd59772b60ecad02b688f9f15e742f2b363d9ae",
+   "draw": "draw/6c70b1432ff289b6.json.gz",
+   "draw_sha256": "6c70b1432ff289b6ef625b6a44f7290395b52bbaecaede9c255ccc690a013c75"
+  },
+  {
+   "id": "169",
+   "map": "古堡",
+   "night": false,
+   "seed": 3017,
+   "bans": [
+    "plant:玉米投手",
+    "plant:大嘴花",
+    "zombie:掷弹兵僵尸",
+    "zombie:小鬼炮"
+   ],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "secret:无土栽培",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:卷心菜投手"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/169.json.gz",
+   "cold_sha256": "12bcd78b3e34000241c1bb13db6113261f3d7792509c0384d431d51e2aab1603",
+   "draw": "draw/915d0cb1ec9ee9e0.json.gz",
+   "draw_sha256": "915d0cb1ec9ee9e011ddd245eab0e3b9cefda83eb94071aea549b44e5db142ff"
+  },
+  {
+   "id": "170",
+   "map": "古堡",
+   "night": false,
+   "seed": 3034,
+   "bans": [
+    "plant:甜薯",
+    "plant:向日葵",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸",
+    "plant:水盆",
+    "zombie:铁桶钢门僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:双子向日葵",
+     "secret:无土栽培",
+     "plant:玉米投手",
+     "plant:大嘴花",
+     "secret:电疗",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/170.json.gz",
+   "cold_sha256": "1914f2883d8f1f3cce7f267ddc8b40c7e8612322c95fa2663f0fe52ddc5f44b8",
+   "draw": "draw/3fc05e20b8406f2b.json.gz",
+   "draw_sha256": "3fc05e20b8406f2b82c46f9c29e154720f9210cb8767fe8c5268bd7626f2c745"
+  },
+  {
+   "id": "171",
+   "map": "古堡",
+   "night": true,
+   "seed": 1500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "secret:无土栽培",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/171.json.gz",
+   "cold_sha256": "b0dd5de5b23882f467bd12d943a400ec9df6928f9bb60103ee1cd133d86dc5af",
+   "draw": "draw/a0bfaed3a48b6865.json.gz",
+   "draw_sha256": "a0bfaed3a48b68652af9ec6ddef2c60d8ebd8e89e535d2cceb73e53700cd1e2e"
+  },
+  {
+   "id": "172",
+   "map": "古堡",
+   "night": true,
+   "seed": 1517,
+   "bans": [
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "zombie:旗帜僵尸",
+    "zombie:成长脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "plant:大喷菇",
+     "secret:无土栽培",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "plant:大嘴花",
+     "plant:甜薯",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:传送带僵尸"
+    ]
+   },
+   "cold": "cold/172.json.gz",
+   "cold_sha256": "b027e30746a4c59de7b7105a7c6460499717a9dc227f708efce4cfc3398374f8",
+   "draw": "draw/cae9457bc9e4aafe.json.gz",
+   "draw_sha256": "cae9457bc9e4aafe91f33dac89e4cd654bf2c0c5e0cc33b0bbb06f93ecfaef90"
+  },
+  {
+   "id": "173",
+   "map": "古堡",
+   "night": true,
+   "seed": 1534,
+   "bans": [
+    "plant:甜薯",
+    "plant:闪电芦苇",
+    "zombie:旗帜僵尸",
+    "zombie:成长脑光墓碑",
+    "plant:幽灵辣椒",
+    "zombie:水上成长脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "plant:大喷菇",
+     "plant:阳光菇",
+     "secret:无土栽培",
+     "plant:玉米投手",
+     "plant:大嘴花",
+     "plant:黄金蓓蕾",
+     "plant:萝卜伞"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:传送带僵尸"
+    ]
+   },
+   "cold": "cold/173.json.gz",
+   "cold_sha256": "bd3b8366370de084d113df260404fc92d2730abe74048c28c3c49ff054767aab",
+   "draw": "draw/c8c3ee7145057a11.json.gz",
+   "draw_sha256": "c8c3ee7145057a110abfdcf5e22bf81d248c8387c1349ced10d8c491dded081b"
+  },
+  {
+   "id": "174",
+   "map": "古堡",
+   "night": true,
+   "seed": 2500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "secret:无土栽培",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/174.json.gz",
+   "cold_sha256": "237bda5e3ed0b538ff7f1bcea68d5c2db35f6dab4098fa48efc36e068e6a5f1a",
+   "draw": "draw/1b52b1f2c88a9d0e.json.gz",
+   "draw_sha256": "1b52b1f2c88a9d0ec413007f1b31f7e8bbd6f32e44746235297daedd307234b1"
+  },
+  {
+   "id": "175",
+   "map": "古堡",
+   "night": true,
+   "seed": 2517,
+   "bans": [
+    "plant:甜薯",
+    "plant:闪电芦苇",
+    "zombie:小鬼炮",
+    "zombie:成长脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "plant:大喷菇",
+     "plant:阳光菇",
+     "secret:无土栽培",
+     "plant:玉米投手",
+     "plant:毁灭菇",
+     "plant:黄金蓓蕾",
+     "plant:萝卜伞"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:脑光墓碑",
+     "zombie:传送带僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:红眼巨人"
+    ]
+   },
+   "cold": "cold/175.json.gz",
+   "cold_sha256": "80a7e6317414d435c2a6f85ed9d71eb363510576ffb7e1046576683f4ea97abd",
+   "draw": "draw/63e2bbcce5f82718.json.gz",
+   "draw_sha256": "63e2bbcce5f82718e3dd6c940a45725b265bd721de009a2166a6e12439654b89"
+  },
+  {
+   "id": "176",
+   "map": "古堡",
+   "night": true,
+   "seed": 2534,
+   "bans": [
+    "plant:阳光菇",
+    "plant:大喷菇",
+    "zombie:旗帜僵尸",
+    "zombie:成长脑光墓碑",
+    "plant:杨桃",
+    "zombie:传送带僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:旋转芜菁",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:大喷菇僵尸"
+    ]
+   },
+   "cold": "cold/176.json.gz",
+   "cold_sha256": "568e49bad4c6a54424dc39cb16d6cfbbf70259991c33b5f3f59fff4f998c290d",
+   "draw": "draw/4cc48e3def2ef1c8.json.gz",
+   "draw_sha256": "4cc48e3def2ef1c8a74c912141695ed7765fb144fbb4850dfb89f94c8ab2c1f2"
+  },
+  {
+   "id": "177",
+   "map": "古堡",
+   "night": true,
+   "seed": 3500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "secret:无土栽培",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/177.json.gz",
+   "cold_sha256": "913b2811726e0319bb51c5828955744b38dea855edd35aefd19d8d40338f4463",
+   "draw": "draw/af72284de655ead4.json.gz",
+   "draw_sha256": "af72284de655ead45925d63cb88f083c60b9bc87ee34d75d1321564dccd154c4"
+  },
+  {
+   "id": "178",
+   "map": "古堡",
+   "night": true,
+   "seed": 3517,
+   "bans": [
+    "plant:大嘴花",
+    "plant:闪电芦苇",
+    "zombie:掷弹兵僵尸",
+    "zombie:豌豆僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:大喷菇",
+     "secret:无土栽培",
+     "plant:阳光菇",
+     "plant:卷心菜投手",
+     "plant:甜薯",
+     "plant:毁灭菇",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:传送带僵尸",
+     "zombie:小鬼僵尸",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:小鬼炮",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/178.json.gz",
+   "cold_sha256": "41d2d8c9a5736759f12020cdc892b3fe9f7c18e8bb8d28621509004ccc00c536",
+   "draw": "draw/b3c9a2b77cd6696a.json.gz",
+   "draw_sha256": "b3c9a2b77cd6696adec60e3e9373ef5bf25126470bc0fc5664143737281628c2"
+  },
+  {
+   "id": "179",
+   "map": "古堡",
+   "night": true,
+   "seed": 3534,
+   "bans": [
+    "plant:大嘴花",
+    "plant:大喷菇",
+    "zombie:小鬼炮",
+    "zombie:成长脑光墓碑",
+    "plant:卷心菜投手",
+    "zombie:小鬼僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:旋转芜菁",
+     "plant:阳光菇",
+     "secret:无土栽培",
+     "plant:超载芦苇",
+     "plant:毁灭菇",
+     "plant:甜薯",
+     "plant:胆小菇"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:脑光墓碑",
+     "zombie:传送带僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:红眼巨人"
+    ]
+   },
+   "cold": "cold/179.json.gz",
+   "cold_sha256": "46f8c39ce01a16dafc2b23f078e1b07babe78255bb9d95ea2f7e1ea574fa18c7",
+   "draw": "draw/c5c3853bc884064c.json.gz",
+   "draw_sha256": "c5c3853bc884064c0e5ca5e337c0f38900c2eb0937fe695987085bd91b4a5cfb"
+  },
+  {
+   "id": "180",
+   "map": "木船",
+   "night": false,
+   "seed": 1000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/180.json.gz",
+   "cold_sha256": "cf6a9a11adf20433efd499fd2ba78c39763f45ed57d85820874d222e6db3f23f",
+   "draw": "draw/4af74e52911915fb.json.gz",
+   "draw_sha256": "4af74e52911915fb7a3d1d0b2675a8842646bb9e929ca965ef7030b41841f47c"
+  },
+  {
+   "id": "181",
+   "map": "木船",
+   "night": false,
+   "seed": 1017,
+   "bans": [
+    "plant:大嘴花",
+    "plant:向日葵",
+    "zombie:双生脑光墓碑",
+    "zombie:传送带僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:双子向日葵",
+     "plant:卷心菜投手",
+     "plant:甜薯",
+     "plant:寒冰辣椒",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/181.json.gz",
+   "cold_sha256": "d64391dc7a2fa33487a0a957c3789c1a091cc1c7342fae9963510181afb56b29",
+   "draw": "draw/ea0c7f3bb2fb7341.json.gz",
+   "draw_sha256": "ea0c7f3bb2fb73411584bb4d6532a1a1ea467ca73914864126688b9c451ba3ee"
+  },
+  {
+   "id": "182",
+   "map": "木船",
+   "night": false,
+   "seed": 1034,
+   "bans": [
+    "plant:向日葵",
+    "plant:大嘴花",
+    "zombie:海豚僵尸",
+    "zombie:掷弹兵僵尸",
+    "plant:雷蘑菇",
+    "zombie:小鬼炮"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:双子向日葵",
+     "plant:超载芦苇",
+     "plant:甜薯",
+     "plant:卷心菜投手",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:小鬼僵尸",
+     "zombie:传送带僵尸",
+     "zombie:水上脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/182.json.gz",
+   "cold_sha256": "e3b648a3f8c5939bd517af7719e30911225a441c2dcbbdf6484ec4ad49fe0fbc",
+   "draw": "draw/e1fb0fd445a7d15a.json.gz",
+   "draw_sha256": "e1fb0fd445a7d15a1d0ca553e587e750c6bcc391bb319fd3cfe308b1844a5b4d"
+  },
+  {
+   "id": "183",
+   "map": "木船",
+   "night": false,
+   "seed": 2000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/183.json.gz",
+   "cold_sha256": "156f92db939fa33758b5bc0ed14140206368d0a7015323de7da0f3ab5820798a",
+   "draw": "draw/ed3c9f2f766f0c70.json.gz",
+   "draw_sha256": "ed3c9f2f766f0c70d747fc509e049458d95530c5966c6f62f1af9729f4e83f8f"
+  },
+  {
+   "id": "184",
+   "map": "木船",
+   "night": false,
+   "seed": 2017,
+   "bans": [
+    "plant:大嘴花",
+    "plant:甜薯",
+    "zombie:传送带僵尸",
+    "zombie:旗帜僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:向日葵",
+     "plant:闪电芦苇",
+     "plant:玉米投手",
+     "secret:电疗",
+     "plant:寒冰辣椒",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:水上脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zombie:撑杆跳僵尸",
+     "zsecret:体育生"
+    ]
+   },
+   "cold": "cold/184.json.gz",
+   "cold_sha256": "d811131d7883fc304a4097b4f4a1b2bef97cc34f380afb5d5f981ac3adff9176",
+   "draw": "draw/563c50443ea75f81.json.gz",
+   "draw_sha256": "563c50443ea75f81764a08a2a771d6c76d25ef7dfc1e5acda632324b799825a2"
+  },
+  {
+   "id": "185",
+   "map": "木船",
+   "night": false,
+   "seed": 2034,
+   "bans": [
+    "plant:玉米投手",
+    "plant:大嘴花",
+    "zombie:旗帜僵尸",
+    "zombie:成长脑光墓碑",
+    "plant:香蒲",
+    "zombie:小鬼僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:卷心菜投手"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:水上脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:传送带僵尸",
+     "zombie:萝卜伞僵尸"
+    ]
+   },
+   "cold": "cold/185.json.gz",
+   "cold_sha256": "27b517769418f059f1d741edf61ebbf8e5a031796890c938cef6d3c754290fb8",
+   "draw": "draw/084ed9c59fa85119.json.gz",
+   "draw_sha256": "084ed9c59fa8511925c090fa06d551cb2c0720062e121dec8b5bf419e647fc32"
+  },
+  {
+   "id": "186",
+   "map": "木船",
+   "night": false,
+   "seed": 3000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/186.json.gz",
+   "cold_sha256": "e871605a2f8cce6f13eb9c5bd72d9781eaf23c7c08b5d8cbcdb28038f7531a94",
+   "draw": "draw/39af95c6e56809c4.json.gz",
+   "draw_sha256": "39af95c6e56809c48547e5053184412168090baf0b8cb2e94a457c3cac2b279a"
+  },
+  {
+   "id": "187",
+   "map": "木船",
+   "night": false,
+   "seed": 3017,
+   "bans": [
+    "plant:玉米投手",
+    "plant:甜薯",
+    "zombie:旗帜僵尸",
+    "zombie:海豚僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "plant:寒冰辣椒",
+     "plant:卷心菜投手",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:水上脑光墓碑",
+     "zombie:萝卜伞僵尸",
+     "zombie:红眼巨人",
+     "zombie:铁桶僵尸"
+    ]
+   },
+   "cold": "cold/187.json.gz",
+   "cold_sha256": "84ebca4b61dec656ae6f7a7d1e0886755d9d5fcae41edb2b900279a4e9a9b0ab",
+   "draw": "draw/940af22eb2fe0464.json.gz",
+   "draw_sha256": "940af22eb2fe046400a491ba4b9ac65445d8d0cde0b32306115378b6917670fc"
+  },
+  {
+   "id": "188",
+   "map": "木船",
+   "night": false,
+   "seed": 3034,
+   "bans": [
+    "plant:大嘴花",
+    "plant:甜薯",
+    "zombie:双生脑光墓碑",
+    "zombie:成长脑光墓碑",
+    "plant:水盆",
+    "zombie:滚桶僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "secret:电疗",
+     "plant:寒冰辣椒",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:水上脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/188.json.gz",
+   "cold_sha256": "04cdf5b3dd97126cc91acb56a3e7fc3f4028e5da9438eccb36da57e928abb084",
+   "draw": "draw/500c6c6f98337fe6.json.gz",
+   "draw_sha256": "500c6c6f98337fe6f58b40564c666c7135edfea690ffc4f956cff2ac0a22cef4"
+  },
+  {
+   "id": "189",
+   "map": "木船",
+   "night": true,
+   "seed": 1500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:大喷菇",
+     "plant:阳光菇",
+     "plant:闪电芦苇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:传送带僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/189.json.gz",
+   "cold_sha256": "699193bc4ce930deb5066e5f051bd00b6c1c5b5808a19a47612aae361bd42a8b",
+   "draw": "draw/4b73a9639951904f.json.gz",
+   "draw_sha256": "4b73a9639951904f291f9718d7c53400154e89ac639e85f4e8364c9063ed06e5"
+  },
+  {
+   "id": "190",
+   "map": "木船",
+   "night": true,
+   "seed": 1517,
+   "bans": [
+    "plant:大喷菇",
+    "plant:阳光菇",
+    "zombie:旗帜僵尸",
+    "zombie:传送带僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "plant:胆小菇",
+     "plant:甜薯",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:铁桶僵尸",
+     "zombie:豌豆僵尸"
+    ]
+   },
+   "cold": "cold/190.json.gz",
+   "cold_sha256": "e5cba936c3d8aa521a8afc281d0e42b32ad5642490b08914566666fc45a2c730",
+   "draw": "draw/9a961eaba85663b2.json.gz",
+   "draw_sha256": "9a961eaba85663b2d171b718bb7c8b4e454d5144f12828a4eeb79914f508acdb"
+  },
+  {
+   "id": "191",
+   "map": "木船",
+   "night": true,
+   "seed": 1534,
+   "bans": [
+    "plant:大嘴花",
+    "plant:大喷菇",
+    "zombie:传送带僵尸",
+    "zombie:旗帜僵尸",
+    "plant:超载芦苇",
+    "zombie:水上成长脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:阳光菇",
+     "plant:闪电芦苇",
+     "plant:卷心菜投手",
+     "plant:甜薯",
+     "plant:毁灭菇",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:豌豆僵尸",
+     "zombie:撑杆跳僵尸"
+    ]
+   },
+   "cold": "cold/191.json.gz",
+   "cold_sha256": "01519d4ec3f91c9aee0a93661f6f706442b7fa831ee112abf2e03cb5c8ac9ab3",
+   "draw": "draw/83ee118fe7e9e02a.json.gz",
+   "draw_sha256": "83ee118fe7e9e02a3046e147bb487a229fc1f0c4a8569c09e9329ef94c693d3c"
+  },
+  {
+   "id": "192",
+   "map": "木船",
+   "night": true,
+   "seed": 2500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:大喷菇",
+     "plant:阳光菇",
+     "plant:闪电芦苇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:传送带僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/192.json.gz",
+   "cold_sha256": "e8c157e450b37894a083c243e4dfd627a44a59c5334bec32b4a4b5d16a02768d",
+   "draw": "draw/991e75a28042552f.json.gz",
+   "draw_sha256": "991e75a28042552fbad4dd7d76ef5109feb0465520701f15f7832a1cf64ad9ba"
+  },
+  {
+   "id": "193",
+   "map": "木船",
+   "night": true,
+   "seed": 2517,
+   "bans": [
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:超载芦苇",
+     "secret:无土栽培",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "plant:大喷菇",
+     "secret:电疗",
+     "plant:大嘴花"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:海盗鹦鹉",
+     "zombie:乌鸦",
+     "zombie:脑光墓碑",
+     "zombie:传送带僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/193.json.gz",
+   "cold_sha256": "ca96ce9d6dcc3856afbfb2ec24dcbdaa97fc7557b0c9fb372c69ee3d1195ccb7",
+   "draw": "draw/f60aa696b26b1efd.json.gz",
+   "draw_sha256": "f60aa696b26b1efdd1d99f293f0abbb9a651d1e356ba8261f1f0563c3708b740"
+  },
+  {
+   "id": "194",
+   "map": "木船",
+   "night": true,
+   "seed": 2534,
+   "bans": [
+    "plant:大喷菇",
+    "plant:大嘴花",
+    "zombie:成长脑光墓碑",
+    "zombie:双生脑光墓碑",
+    "plant:南瓜头",
+    "zombie:辣椒僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:阳光菇",
+     "plant:闪电芦苇",
+     "plant:超载芦苇",
+     "plant:胆小菇",
+     "secret:电疗",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:传送带僵尸",
+     "zombie:水上脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:豌豆僵尸"
+    ]
+   },
+   "cold": "cold/194.json.gz",
+   "cold_sha256": "db6ac1a89f6b090ca4635febae45f4f2cca8def9038cdd771b915997bd615a3d",
+   "draw": "draw/3fe1bc0a036bbf12.json.gz",
+   "draw_sha256": "3fe1bc0a036bbf126ac6ebdfa2d47bfe565c0fd946be27162c971165c97f1029"
+  },
+  {
+   "id": "195",
+   "map": "木船",
+   "night": true,
+   "seed": 3500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:大喷菇",
+     "plant:阳光菇",
+     "plant:闪电芦苇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:海豚僵尸",
+     "zombie:传送带僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/195.json.gz",
+   "cold_sha256": "3d518ec2482acaa5ed1862d3b415c364b02b6d3368e164510ea2b48fcce322a0",
+   "draw": "draw/041cfe9bd9ea8a5e.json.gz",
+   "draw_sha256": "041cfe9bd9ea8a5e5c56075b09859df5d55adec8146a0eef1f8c586bb3a340a2"
+  },
+  {
+   "id": "196",
+   "map": "木船",
+   "night": true,
+   "seed": 3517,
+   "bans": [
+    "plant:甜薯",
+    "plant:闪电芦苇",
+    "zombie:海豚僵尸",
+    "zombie:旗帜僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "secret:无土栽培",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:玉米投手",
+     "plant:毁灭菇",
+     "plant:黄金蓓蕾",
+     "plant:萝卜伞"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:红眼巨人",
+     "zombie:传送带僵尸",
+     "zombie:豌豆僵尸"
+    ]
+   },
+   "cold": "cold/196.json.gz",
+   "cold_sha256": "08ccac8aa35aa00be197c7b6db337cc866fec6eca5fa67c3012c0aebbefd68a9",
+   "draw": "draw/bff5b73937bfb14b.json.gz",
+   "draw_sha256": "bff5b73937bfb14bb3a485397178bcea4cdb3e28e9e448d55adc940c2a8c7119"
+  },
+  {
+   "id": "197",
+   "map": "木船",
+   "night": true,
+   "seed": 3534,
+   "bans": [
+    "plant:大嘴花",
+    "plant:闪电芦苇",
+    "zombie:旗帜僵尸",
+    "zombie:海豚僵尸",
+    "plant:南瓜头",
+    "zombie:垃圾桶僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:旋转芜菁",
+     "secret:无土栽培",
+     "plant:阳光菇",
+     "plant:大喷菇",
+     "plant:毁灭菇",
+     "plant:甜薯",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:海盗鹦鹉",
+     "zombie:乌鸦",
+     "zombie:双生脑光墓碑",
+     "zombie:传送带僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:稻草人"
+    ]
+   },
+   "cold": "cold/197.json.gz",
+   "cold_sha256": "e5f7b0b9b6672667b60747f7540f6edd745192cec2074a1b7e78a3693fbb49b5",
+   "draw": "draw/d0d2c1943848f8e8.json.gz",
+   "draw_sha256": "d0d2c1943848f8e81ef385588c8876ba9355655c8cee89d0c14866e09448e100"
+  },
+  {
+   "id": "198",
+   "map": "大楼",
+   "night": false,
+   "seed": 1000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:玉米投手",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/198.json.gz",
+   "cold_sha256": "f4407285d9a5747816d9f365e958a734aa1609a94ee4e610ca92cd1c432ed7d0",
+   "draw": "draw/8c4bdb14707fd96d.json.gz",
+   "draw_sha256": "8c4bdb14707fd96d9bf9b8aef2fa6b3e7774a47acfb3e18209d45b02ef972334"
+  },
+  {
+   "id": "199",
+   "map": "大楼",
+   "night": false,
+   "seed": 1017,
+   "bans": [
+    "plant:向日葵",
+    "plant:玉米投手",
+    "zombie:成长脑光墓碑",
+    "zombie:双生脑光墓碑"
+   ],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "secret:无土栽培",
+     "plant:超载芦苇",
+     "plant:双子向日葵",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:传送带僵尸",
+     "zombie:坚固脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/199.json.gz",
+   "cold_sha256": "57517bf36ef4d8953b1be0425d26c37fd682fea57a03f0ea000d7c071cdc3e30",
+   "draw": "draw/ff8a576437c13418.json.gz",
+   "draw_sha256": "ff8a576437c134183e9ad4476896359529c00b7d51942fc11ab79054a6e700a5"
+  },
+  {
+   "id": "200",
+   "map": "大楼",
+   "night": false,
+   "seed": 1034,
+   "bans": [
+    "plant:玉米投手",
+    "plant:大嘴花",
+    "zombie:成长脑光墓碑",
+    "zombie:双生脑光墓碑",
+    "plant:蓝火树桩",
+    "zombie:大喷菇僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "secret:无土栽培",
+     "plant:向日葵",
+     "plant:超载芦苇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:卷心菜投手"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:传送带僵尸",
+     "zombie:坚固脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/200.json.gz",
+   "cold_sha256": "267df9f3f0f2a94e8d65682d228339a05f113b943e28f0aab56bebedb3fddb22",
+   "draw": "draw/a2cceec884a02a95.json.gz",
+   "draw_sha256": "a2cceec884a02a9573b9229da87205f16f2afa5664b934260465db371c432b8a"
+  },
+  {
+   "id": "201",
+   "map": "大楼",
+   "night": false,
+   "seed": 2000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:玉米投手",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/201.json.gz",
+   "cold_sha256": "09b2909cdee390ea90e3c652ddd6074cc51b1d923c53b1f553c2162fc0662a24",
+   "draw": "draw/cbcd36106ed66829.json.gz",
+   "draw_sha256": "cbcd36106ed66829b7d855295a1555fe173a2f9d30ce69e72702aff48b9528d3"
+  },
+  {
+   "id": "202",
+   "map": "大楼",
+   "night": false,
+   "seed": 2017,
+   "bans": [
+    "plant:向日葵",
+    "plant:大嘴花",
+    "zombie:成长脑光墓碑",
+    "zombie:掷弹兵僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:双子向日葵",
+     "secret:无土栽培",
+     "plant:卷心菜投手",
+     "plant:甜薯",
+     "plant:寒冰辣椒",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zombie:传送带僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/202.json.gz",
+   "cold_sha256": "2fa01c84586e146cd5cef09c91169cb3a1ba650c750f82bc281ed975aad4770e",
+   "draw": "draw/10dc665f40bb5978.json.gz",
+   "draw_sha256": "10dc665f40bb5978c48c2acd592ef9058abb1d7ac2e80b830eba2d80c123f539"
+  },
+  {
+   "id": "203",
+   "map": "大楼",
+   "night": false,
+   "seed": 2034,
+   "bans": [
+    "plant:大嘴花",
+    "plant:闪电芦苇",
+    "zombie:豌豆僵尸",
+    "zombie:旗帜僵尸",
+    "plant:冰瓜投手",
+    "zombie:掷弹兵僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:旋转芜菁",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:超载芦苇",
+     "plant:甜薯",
+     "secret:电疗",
+     "plant:卷心菜投手"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:传送带僵尸",
+     "zombie:小鬼僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:小鬼炮",
+     "zombie:撑杆跳僵尸",
+     "zombie:铁桶钢门僵尸"
+    ]
+   },
+   "cold": "cold/203.json.gz",
+   "cold_sha256": "2aec608c2dd3d32b686020c56095716249a6c2bdb94f17160957aa7a844a8829",
+   "draw": "draw/0a804f44bd694717.json.gz",
+   "draw_sha256": "0a804f44bd694717ad71b4307cfcda2567ece87839d3459ba19b7687c6ab6124"
+  },
+  {
+   "id": "204",
+   "map": "大楼",
+   "night": false,
+   "seed": 3000,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:玉米投手",
+     "secret:电疗",
+     "plant:大嘴花",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zsecret:一大波僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/204.json.gz",
+   "cold_sha256": "706c6bcd2763ca639f1d740448e6f606a756dfda280eee1c70b1c718aad516a3",
+   "draw": "draw/142f92632fa81469.json.gz",
+   "draw_sha256": "142f92632fa814697dcdfda2cf0ded9c1a5e9d637c6757ad689fc3ddab0bb2b8"
+  },
+  {
+   "id": "205",
+   "map": "大楼",
+   "night": false,
+   "seed": 3017,
+   "bans": [
+    "plant:玉米投手",
+    "plant:闪电芦苇",
+    "zombie:小鬼炮",
+    "zombie:豌豆僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:芦笋战机",
+     "plant:向日葵",
+     "plant:旋转芜菁",
+     "secret:无土栽培",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "plant:卷心菜投手"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/205.json.gz",
+   "cold_sha256": "b7aa2ef16568ec3b61dd073c2f8e217bbb10a69cfb11db71e43fa7d4198a7810",
+   "draw": "draw/01a7e302ac7863f5.json.gz",
+   "draw_sha256": "01a7e302ac7863f58587484288d1b67685030f48771b977d964089298c00a6e5"
+  },
+  {
+   "id": "206",
+   "map": "大楼",
+   "night": false,
+   "seed": 3034,
+   "bans": [
+    "plant:大嘴花",
+    "plant:玉米投手",
+    "zombie:旗帜僵尸",
+    "zombie:成长脑光墓碑",
+    "plant:墓碑吞噬者",
+    "zombie:海豚僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:旋转芜菁",
+     "plant:向日葵",
+     "secret:无土栽培",
+     "plant:超载芦苇",
+     "plant:闪电芦苇",
+     "secret:电疗",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:传送带僵尸"
+    ]
+   },
+   "cold": "cold/206.json.gz",
+   "cold_sha256": "655b64107410e7515a366b5f6d42386e8cf1bc879f88da15e154402a703da1da",
+   "draw": "draw/2bb9603bcff786c4.json.gz",
+   "draw_sha256": "2bb9603bcff786c4799e791a7e456faa3cc184a4781350cd81f652687f573c80"
+  },
+  {
+   "id": "207",
+   "map": "大楼",
+   "night": true,
+   "seed": 1500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "secret:无土栽培",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/207.json.gz",
+   "cold_sha256": "bb66775a7424a0682cc47815f8df683e9e106267d446e2d306a47f7da40b5e8b",
+   "draw": "draw/66fc0ccc80b178bc.json.gz",
+   "draw_sha256": "66fc0ccc80b178bca5e626637588b783a80c5e648cc744ff8a2b83f1d714d03b"
+  },
+  {
+   "id": "208",
+   "map": "大楼",
+   "night": true,
+   "seed": 1517,
+   "bans": [
+    "plant:闪电芦苇",
+    "plant:阳光菇",
+    "zombie:双生脑光墓碑",
+    "zombie:掷弹兵僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:大喷菇",
+     "secret:无土栽培",
+     "plant:向日葵",
+     "plant:玉米投手",
+     "plant:大嘴花",
+     "plant:甜薯",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:脑光墓碑",
+     "zombie:传送带僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/208.json.gz",
+   "cold_sha256": "af4d4583b0b8d87ef18111468c9baaf21a8502399effdbffb23ad2d00b9abe4c",
+   "draw": "draw/55ed21c936c749cd.json.gz",
+   "draw_sha256": "55ed21c936c749cdac058c8acfc6a0c1ff501b85b307d2210b98439285ffeab4"
+  },
+  {
+   "id": "209",
+   "map": "大楼",
+   "night": true,
+   "seed": 1534,
+   "bans": [
+    "plant:大嘴花",
+    "plant:甜薯",
+    "zombie:豌豆僵尸",
+    "zombie:旗帜僵尸",
+    "plant:地刺",
+    "zombie:巨人僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:旋转芜菁",
+     "plant:阳光菇",
+     "secret:无土栽培",
+     "plant:闪电芦苇",
+     "secret:电疗",
+     "plant:毁灭菇",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:小鬼炮",
+     "zombie:成长脑光墓碑",
+     "zombie:橄榄球僵尸",
+     "zombie:大喷菇僵尸",
+     "zombie:撑杆跳僵尸"
+    ]
+   },
+   "cold": "cold/209.json.gz",
+   "cold_sha256": "ba37e3db8d646298d7d3efc713d6272d4293f1defeda5fbd717414fca9480c77",
+   "draw": "draw/168d3c04e069baa5.json.gz",
+   "draw_sha256": "168d3c04e069baa5587082369c686ed6f2368b3bee6d8b7c92354d0e11565558"
+  },
+  {
+   "id": "210",
+   "map": "大楼",
+   "night": true,
+   "seed": 2500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "secret:无土栽培",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/210.json.gz",
+   "cold_sha256": "399780047e11748795f3fa7d5a72106194ca283caef309dba7571e35f95c2ecb",
+   "draw": "draw/8eacd74c670ca1a0.json.gz",
+   "draw_sha256": "8eacd74c670ca1a05aa33b6946b24303685e5e06f967617a6a5259bc1273673a"
+  },
+  {
+   "id": "211",
+   "map": "大楼",
+   "night": true,
+   "seed": 2517,
+   "bans": [
+    "plant:阳光菇",
+    "plant:大嘴花",
+    "zombie:旗帜僵尸",
+    "zombie:掷弹兵僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:大喷菇",
+     "secret:无土栽培",
+     "plant:向日葵",
+     "plant:闪电芦苇",
+     "plant:毁灭菇",
+     "plant:甜薯",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:史莱姆僵尸",
+     "zombie:成长脑光墓碑",
+     "zombie:小鬼炮",
+     "zombie:传送带僵尸",
+     "zombie:橄榄球僵尸"
+    ]
+   },
+   "cold": "cold/211.json.gz",
+   "cold_sha256": "42ca8dbf45bca276a65b5d1de084de4c343e6ad4d963391f909862655c7fbd31",
+   "draw": "draw/b8247aad87f1d48e.json.gz",
+   "draw_sha256": "b8247aad87f1d48e34bfb48ebbac2b339be9d93a2e66c9a870f875feaff7eb81"
+  },
+  {
+   "id": "212",
+   "map": "大楼",
+   "night": true,
+   "seed": 2534,
+   "bans": [
+    "plant:闪电芦苇",
+    "plant:大喷菇",
+    "zombie:豌豆僵尸",
+    "zombie:成长脑光墓碑",
+    "plant:抓人草",
+    "zombie:辣椒僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:旋转芜菁",
+     "plant:阳光菇",
+     "secret:无土栽培",
+     "plant:超载芦苇",
+     "plant:胆小菇",
+     "secret:电疗",
+     "plant:甜薯"
+    ],
+    "zombie": [
+     "zombie:脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:小鬼炮",
+     "zombie:双生脑光墓碑",
+     "zombie:传送带僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/212.json.gz",
+   "cold_sha256": "a815fd48febe9c0267ecf4bbd97c0d3de4f329e7c6a99a208928c2aa78ad1067",
+   "draw": "draw/1cedb420dbf52d90.json.gz",
+   "draw_sha256": "1cedb420dbf52d9092aa630bf92922864f5c1cce6fb707fd8948b45a939b133a"
+  },
+  {
+   "id": "213",
+   "map": "大楼",
+   "night": true,
+   "seed": 3500,
+   "bans": [],
+   "decks": {
+    "plant": [
+     "plant:闪电芦苇",
+     "plant:阳光菇",
+     "secret:无土栽培",
+     "plant:大喷菇",
+     "plant:甜薯",
+     "plant:大嘴花",
+     "secret:电疗"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:小鬼炮",
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zsecret:一大波僵尸",
+     "zombie:旗帜僵尸"
+    ]
+   },
+   "cold": "cold/213.json.gz",
+   "cold_sha256": "1d5bb9a874daaed39a9657207abaa65d1859565b815f64a77d5af7417cefe748",
+   "draw": "draw/ec086199dcc79c24.json.gz",
+   "draw_sha256": "ec086199dcc79c2487b99e044888d0cb0d62a74c21f407e132a12158828de0dd"
+  },
+  {
+   "id": "214",
+   "map": "大楼",
+   "night": true,
+   "seed": 3517,
+   "bans": [
+    "plant:闪电芦苇",
+    "plant:大喷菇",
+    "zombie:成长脑光墓碑",
+    "zombie:小鬼炮"
+   ],
+   "decks": {
+    "plant": [
+     "plant:阳光菇",
+     "plant:旋转芜菁",
+     "secret:无土栽培",
+     "plant:超载芦苇",
+     "plant:毁灭菇",
+     "plant:甜薯",
+     "plant:胆小菇"
+    ],
+    "zombie": [
+     "zombie:双生脑光墓碑",
+     "zombie:豌豆僵尸",
+     "zombie:橄榄球僵尸",
+     "zombie:脑光墓碑",
+     "zombie:传送带僵尸",
+     "zombie:掷弹兵僵尸",
+     "zombie:红眼巨人"
+    ]
+   },
+   "cold": "cold/214.json.gz",
+   "cold_sha256": "063331cfaf680fa3c5e75bf4baa5e8632800ea17b0e61a1cec73f59bd5358da8",
+   "draw": "draw/c60d2a68d1749a0d.json.gz",
+   "draw_sha256": "c60d2a68d1749a0da11b829b498c1fe05df21e3bff8c6de668c715aeea0c6359"
+  },
+  {
+   "id": "215",
+   "map": "大楼",
+   "night": true,
+   "seed": 3534,
+   "bans": [
+    "plant:闪电芦苇",
+    "plant:大嘴花",
+    "zombie:旗帜僵尸",
+    "zombie:豌豆僵尸",
+    "plant:小喷菇",
+    "zombie:潜水僵尸"
+   ],
+   "decks": {
+    "plant": [
+     "plant:大喷菇",
+     "secret:无土栽培",
+     "plant:阳光菇",
+     "plant:卷心菜投手",
+     "plant:甜薯",
+     "plant:毁灭菇",
+     "plant:黄金蓓蕾"
+    ],
+    "zombie": [
+     "zombie:成长脑光墓碑",
+     "zombie:掷弹兵僵尸",
+     "zombie:传送带僵尸",
+     "zombie:双生脑光墓碑",
+     "zombie:小鬼炮",
+     "zombie:橄榄球僵尸",
+     "zombie:大喷菇僵尸"
+    ]
+   },
+   "cold": "cold/215.json.gz",
+   "cold_sha256": "55bca8affc1ea5807e0d766fc181e6d8092b5ca9dff034b087a0c25e2f9a2a47",
+   "draw": "draw/76e1a93cb3911f59.json.gz",
+   "draw_sha256": "76e1a93cb3911f598c9b43ae9cd806ac4a6f6dcad416602372c5ec331cbd661a"
+  }
+ ]
+}

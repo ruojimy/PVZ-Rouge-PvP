@@ -1,0 +1,33 @@
+test_alias_history_is_elided_only_in_generated_production (__main__.ObserverTests.test_alias_history_is_elided_only_in_generated_production) ... ok
+test_all_pinned_bodies_and_manifest_records (__main__.ObserverTests.test_all_pinned_bodies_and_manifest_records) ... ok
+test_body_matching_handles_comments_and_strings (__main__.ObserverTests.test_body_matching_handles_comments_and_strings) ... ok
+test_crlf_has_documented_hash_normalization (__main__.ObserverTests.test_crlf_has_documented_hash_normalization) ... ok
+test_empty_statement_preserves_if_else_and_loop_slots (__main__.ObserverTests.test_empty_statement_preserves_if_else_and_loop_slots) ... ok
+test_historical_strip_preserves_newline_if_else_structure (__main__.ObserverTests.test_historical_strip_preserves_newline_if_else_structure) ... ok
+test_historical_stripper_source_change_is_rejected (__main__.ObserverTests.test_historical_stripper_source_change_is_rejected) ... ok
+test_known_controller_fixture_calls_and_json_are_zero (__main__.ObserverTests.test_known_controller_fixture_calls_and_json_are_zero) ... ok
+test_known_phase_residuals_are_zero (__main__.ObserverTests.test_known_phase_residuals_are_zero) ... ok
+test_match_business_events_and_real_registration_are_byte_identical (__main__.ObserverTests.test_match_business_events_and_real_registration_are_byte_identical) ... ok
+test_missing_duplicate_or_changed_signature_fails_closed (__main__.ObserverTests.test_missing_duplicate_or_changed_signature_fails_closed) ... ok
+test_new_unreviewed_call_outside_pinned_bodies_is_rejected (__main__.ObserverTests.test_new_unreviewed_call_outside_pinned_bodies_is_rejected) ... ok
+test_paths_are_an_exact_allowlist_not_basename_or_event_pattern (__main__.ObserverTests.test_paths_are_an_exact_allowlist_not_basename_or_event_pattern) ... ok
+test_real_damage_and_surface_exception_order_are_exact (__main__.ObserverTests.test_real_damage_and_surface_exception_order_are_exact) ... ok
+test_real_gate_cart_bite_and_barrel_calls_survive (__main__.ObserverTests.test_real_gate_cart_bite_and_barrel_calls_survive) ... ok
+test_real_side_effect_added_to_any_observer_body_fails_closed (__main__.ObserverTests.test_real_side_effect_added_to_any_observer_body_fails_closed) ... ok
+test_registration_and_factory_returns_are_not_empty_observers (__main__.ObserverTests.test_registration_and_factory_returns_are_not_empty_observers) ... ok
+test_report_patch_is_one_exact_position_only (__main__.ObserverTests.test_report_patch_is_one_exact_position_only) ... ok
+test_seven_probe_logs_are_stripped_and_guarded (__main__.ObserverTests.test_seven_probe_logs_are_stripped_and_guarded) ... ok
+test_side_effect_in_fixture_argument_is_not_silently_erased (__main__.ObserverTests.test_side_effect_in_fixture_argument_is_not_silently_erased) ... ok
+test_unrelated_business_method_in_allowlisted_file_is_not_deleted (__main__.ObserverTests.test_unrelated_business_method_in_allowlisted_file_is_not_deleted) ... ok
+test_check_is_read_only_for_missing_changed_and_matching_outputs (__main__.OutputSafetyTests.test_check_is_read_only_for_missing_changed_and_matching_outputs) ... ok
+test_cli_check_out_and_exit_codes_use_mocked_build_only (__main__.OutputSafetyTests.test_cli_check_out_and_exit_codes_use_mocked_build_only) ... ok
+test_cli_source_failure_cannot_reach_output_mutation (__main__.OutputSafetyTests.test_cli_source_failure_cannot_reach_output_mutation) ... ok
+test_invalid_names_and_case_collisions_fail_closed (__main__.OutputSafetyTests.test_invalid_names_and_case_collisions_fail_closed) ... ok
+test_links_junctions_and_linked_ancestors_refuse (__main__.OutputSafetyTests.test_links_junctions_and_linked_ancestors_refuse) ... ok
+test_only_changed_known_files_are_written (__main__.OutputSafetyTests.test_only_changed_known_files_are_written) ... ok
+test_unknown_old_file_or_directory_refuses_before_any_write (__main__.OutputSafetyTests.test_unknown_old_file_or_directory_refuses_before_any_write) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 1.941s
+
+OK

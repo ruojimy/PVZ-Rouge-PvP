@@ -1,0 +1,5 @@
+INFO: pvz: audio ready (driver=dummy)
+INFO: pvz: audio ready (driver=dummy)
+CONTRACT FAILED: mock frame-local pixels execute once and retain a stable actual SDL Surface
+JOYSTICK CONTRACT: 25 checks, 0 failures
+FRAMEWORK CONTRACT: 229 checks, 1 failures

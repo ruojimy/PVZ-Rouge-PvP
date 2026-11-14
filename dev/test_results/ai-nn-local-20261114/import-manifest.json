@@ -1,0 +1,142 @@
+{
+  "source": "user attached three-commit patch; bundle prerequisite unavailable",
+  "files": [
+    {
+      "path": "build/ai-nn/CMakeLists.txt",
+      "previous_sha256": null,
+      "imported_sha256": "ac3d5fa62b135b2c2868aeb788a3c75fd393a63574f4fdbd8fe555a74a60f6a6"
+    },
+    {
+      "path": "build/ai-nn/README.md",
+      "previous_sha256": "5e60ebcab797f18e2e11c271306fb700764216ebcfae22f05448d07cc4e3b200",
+      "imported_sha256": "72783b8c1328f87f5b53c5c5714a646742d8a9a0f46092a79f4823d4199a6a44"
+    },
+    {
+      "path": "build/ai-nn/card-features/cards.day.jsonl",
+      "previous_sha256": null,
+      "imported_sha256": "b874691a2abc7133f608833426ae616c93aa975f2eeb357d8f3e74298d42b1e9"
+    },
+    {
+      "path": "build/ai-nn/card-features/cards.night.jsonl",
+      "previous_sha256": null,
+      "imported_sha256": "703c9d7242499b31c9561226666ce371f5dc528589ab66e35b9aa97b44ea0b24"
+    },
+    {
+      "path": "build/ai-nn/eval.py",
+      "previous_sha256": null,
+      "imported_sha256": "ed562c5ca6af2fd98c005310ab46eb0e45f0579ba65f7460eb465b381004254d"
+    },
+    {
+      "path": "build/ai-nn/results/005_ai_inputs.json.gz",
+      "previous_sha256": null,
+      "imported_sha256": "6eaef3d31f49b03025bbd17846715507b481402a057ee96c3d9dd03e616023c6"
+    },
+    {
+      "path": "build/ai-nn/results/leak_fix_preview.diff",
+      "previous_sha256": null,
+      "imported_sha256": "2153e8f64135987f5425f00b501c44eb99e1809712877f8b7d8687805287eee4"
+    },
+    {
+      "path": "build/ai-nn/results/r22_selfplay_216.csv",
+      "previous_sha256": null,
+      "imported_sha256": "7540ff8dcb8e402bc913ce29a5df60d04a3bf44e48bac4e07d8bf421d7d3d5b0"
+    },
+    {
+      "path": "build/ai-nn/results/第一阶段证据.md",
+      "previous_sha256": null,
+      "imported_sha256": "a586083a6681ef92da3ff15570b3ae9126e2c1ce4d492b02af8485c4a3192966"
+    },
+    {
+      "path": "build/ai-nn/sdl_shim/README.md",
+      "previous_sha256": null,
+      "imported_sha256": "bca5c916ce6817ec81a854872e4b7ecc2e1af07bf662a011ac75e725c6800d69"
+    },
+    {
+      "path": "build/ai-nn/sdl_shim/SDL.h",
+      "previous_sha256": null,
+      "imported_sha256": "d7b3ffc5989023548c07107fec8e8dec0942793e1fbe395ced6f8cc0543b8c89"
+    },
+    {
+      "path": "build/ai-nn/sdl_shim/sdl_shim.cpp",
+      "previous_sha256": null,
+      "imported_sha256": "e2db60754e6c48a735768337bdcb9528a8f9443996fe1487f294dd31da281029"
+    },
+    {
+      "path": "build/ai-nn/src/card_features.cpp",
+      "previous_sha256": null,
+      "imported_sha256": "58c7e9df576968fe8a071ed8feaa86c80417bf4b7926ac610a58f6bcb75faa24"
+    },
+    {
+      "path": "build/ai-nn/src/common.h",
+      "previous_sha256": null,
+      "imported_sha256": "e6c9ce4926c426523193984eb207ebc55278dc1bfb7a6d388ebbce1da7fc65f1"
+    },
+    {
+      "path": "build/ai-nn/src/headless_match.cpp",
+      "previous_sha256": null,
+      "imported_sha256": "bbf53fa7f9105d263cec754f7e4dd414f36a4c7920c59c56243d8bac7da7a9f2"
+    },
+    {
+      "path": "build/ai-nn/src/plan_codec.h",
+      "previous_sha256": null,
+      "imported_sha256": "5aafd02c2fe8108e30fb8e374c426785cb309112748661d791afd7222474d2cd"
+    },
+    {
+      "path": "build/ai-nn/src/replay_planner.cpp",
+      "previous_sha256": null,
+      "imported_sha256": "9484ce8ddec21cc961c8e65f142f495574ed37999e21a3830df7d07825ecc7c5"
+    },
+    {
+      "path": "build/ai-nn/src/session_trace.cpp",
+      "previous_sha256": null,
+      "imported_sha256": "6cd8d07ddbfe79bfca1864670a4ccbcf1da1d5e71cef6f08f4aa5e29f0216626"
+    },
+    {
+      "path": "docs/ai-nn/交接.md",
+      "previous_sha256": null,
+      "imported_sha256": "f99433116dc6bb8f65f10c57db035ec878d9046a1fad9cabcf10717adbe8c2d0"
+    },
+    {
+      "path": "docs/ai-nn/内存增长定位.md",
+      "previous_sha256": null,
+      "imported_sha256": "6abc392064fd083f2cfbba02bdcaa3dc1e21ccaaeb5699a7ef3e066ecb064aed"
+    },
+    {
+      "path": "docs/ai-nn/摸底.md",
+      "previous_sha256": null,
+      "imported_sha256": "8ee8cf1407513361519b0015c69953224e7afc988008fec8f7566769b899c5ec"
+    },
+    {
+      "path": "docs/ai-nn/进度.md",
+      "previous_sha256": null,
+      "imported_sha256": "b4bbad9f7f4a89c8538e226c2b27344c48cd07107b3a447267ca05655fe3d9a4"
+    },
+    {
+      "path": "src/sim/typed72_app/ai_planner_r22.h",
+      "previous_sha256": "ca1f94f55aeb15094a21d64b849accf2330f7b8e6efa87d8ec7cadd7abfdde29",
+      "imported_sha256": "384c44db5e3a10f335d78c9fee09c2d3249f7930ad2fa150247750769cfd04d5"
+    },
+    {
+      "path": "src/sim/typed72_app/cold_file.cpp",
+      "previous_sha256": null,
+      "imported_sha256": "b1b4ec26a724723ffc15c982e4dda92c1e74670cf07ba12b7ef4c51cc6edc800"
+    },
+    {
+      "path": "src/sim/typed72_app/cold_file.h",
+      "previous_sha256": null,
+      "imported_sha256": "bf7deadd7cf2349fd185548908942ba81b3d496a425b1ff512768e663ca66b5d"
+    },
+    {
+      "path": "src/sim/typed72_app/session.cpp",
+      "previous_sha256": "dd56f5a4c02844526a3376454cf23a93e602670d59bf1a5ac35bf7519052d677",
+      "imported_sha256": "1a827ae758b634b0b43159194c981e296ec9c92292964343cd38dda85de54505"
+    },
+    {
+      "path": "src/sim/typed72_app/session.h",
+      "previous_sha256": "b77b9acd68e682822e907d78ecc52044697b5ad384aedb7b3d9a7bc33a2866ed",
+      "imported_sha256": "9b185c9b980b73516de031f442b653fca7cebf065e146e3202f982cb5733f018"
+    }
+  ],
+  "r22_plan_cpp_unchanged": true,
+  "r2_retention_api_preserved": true
+}

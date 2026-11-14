@@ -114,7 +114,7 @@ BattleHandle battle_from_scenario(const nlohmann::json& sc) {
         h.battle = V::inst(p);
         pm_native_battle::initcv_NativeBattle(p.get());
         p->m___init__(Args({terrain, decks}, {{Sym("rules"), rules}, {Sym("bridge"), h.bridge}, {Sym("pygame"), pg}, {Sym("seed"), V(seed)},
-                                              {Sym("mode"), V(mode)}, {Sym("director"), director}}));
+                                              {Sym("mode"), V(mode)}, {Sym("bans"), jv(sc.value("bans",nlohmann::json::array()))}, {Sym("director"), director}}));
     }
     V b = h.battle;
     if (sc.value("clear_cooldowns", false))

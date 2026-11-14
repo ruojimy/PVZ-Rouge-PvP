@@ -1,0 +1,656 @@
+{
+  "format": "pvz-neural-dataset-provenance-1",
+  "stride_per_seat": 4,
+  "matches": [
+    {
+      "id": "000",
+      "sha256": "f5fca5fb99bf1b00ca3949c027bb90af6f90fa91af29d87d11d1b0da4bf03299",
+      "map": "山地",
+      "seed": 1000.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 239.0
+    },
+    {
+      "id": "003",
+      "sha256": "5f5883c23e2032de5662eb1d1e3d98fe075a42ab180fbaf5c7a1d63cf5121f39",
+      "map": "山地",
+      "seed": 2000.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 232.63333333333333
+    },
+    {
+      "id": "006",
+      "sha256": "8ecf40fbba0ca57f04ca838508aacf698193bc9bfe0d1b93c3b069e16512e0ef",
+      "map": "山地",
+      "seed": 3000.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 253.79999999999998
+    },
+    {
+      "id": "009",
+      "sha256": "b9bef9c9532942659b45c3dbf633703b2ea2753c64b774f342fe3c8701c9e66c",
+      "map": "山地",
+      "seed": 1500.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 271.46666666666664
+    },
+    {
+      "id": "012",
+      "sha256": "d2979a550b3868cedd303e4e320f6ac3c3b234dbb4fc9856a21b389a1a576f4d",
+      "map": "山地",
+      "seed": 2500.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 345.6
+    },
+    {
+      "id": "015",
+      "sha256": "eec796fb3142b907604fa62e37f08fe78700b02ae01772c0b14ec4e64de8b729",
+      "map": "山地",
+      "seed": 3500.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 380.93333333333334
+    },
+    {
+      "id": "018",
+      "sha256": "ef078e5504cee33015f8be659a301b0f270885df53e044339a7dc35e500b080c",
+      "map": "沙城",
+      "seed": 1000.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "021",
+      "sha256": "5e776b173361cc14d98f9ed74542c323260900c6ee6c32dd01feaa391d81fff6",
+      "map": "沙城",
+      "seed": 2000.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 283.93333333333334
+    },
+    {
+      "id": "024",
+      "sha256": "51f5a75f6f2b02021c54ebc298433dd60ce4d9f8fad171a15dc0ba1de07ee056",
+      "map": "沙城",
+      "seed": 3000.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 452.93333333333334
+    },
+    {
+      "id": "027",
+      "sha256": "f05f471b5a6a3c4afd33cc8261ee2568964471864263ae7b9c3909b3cfeaf1a1",
+      "map": "沙城",
+      "seed": 1500.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 472.5333333333333
+    },
+    {
+      "id": "030",
+      "sha256": "cd7d706f8fef257b74f5a5d79224526e448dc86b23c95fbe4162f26d074fce69",
+      "map": "沙城",
+      "seed": 2500.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "033",
+      "sha256": "3e51ba9843c8dbd1deb636b6f8b4c7b7c54b4b6409b26eba94dccd2a097dcc88",
+      "map": "沙城",
+      "seed": 3500.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "036",
+      "sha256": "7148f6df07d0e4ce1ebc92391f22f0dcb930808a8f35fb121b91e5e2b743d142",
+      "map": "家院",
+      "seed": 1000.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "039",
+      "sha256": "b8759162ea76a2401cf130a78e8133d790996c0ed350bcd48f3627b8eff0c58c",
+      "map": "家院",
+      "seed": 2000.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "042",
+      "sha256": "d6584402a2c96472f9fd850add34b077b3b7b5439030b8d1ffadd67cdcb5830b",
+      "map": "家院",
+      "seed": 3000.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "045",
+      "sha256": "82da87dee03bc35eadea50b4496f4079abdcc5fb2132cc846d0b4f2e2d0bb809",
+      "map": "家院",
+      "seed": 1500.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 430.26666666666665
+    },
+    {
+      "id": "048",
+      "sha256": "8b9fa0914584cb856517eaf1e45ff82c32752f52f9c18c0bfcd3f4c5690ea88b",
+      "map": "家院",
+      "seed": 2500.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "051",
+      "sha256": "22e62a0fa5013f24848fd7d2b4476609374da60e80b58124a428c1d74dead55b",
+      "map": "家院",
+      "seed": 3500.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "054",
+      "sha256": "a7616a33a85a31b338b6980e1eb96826b875e2e3a8669a1f814e7e1d86aab074",
+      "map": "要塞",
+      "seed": 1000.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 266.56666666666666
+    },
+    {
+      "id": "057",
+      "sha256": "7b6f860a75906d75ff296e15264af0812b96e1a24f055e534141687264cdcd43",
+      "map": "要塞",
+      "seed": 2000.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 238.0
+    },
+    {
+      "id": "060",
+      "sha256": "75ed9e516146472921a0e2502af15dbb80c9c3abcede92d0da960210e3c325ab",
+      "map": "要塞",
+      "seed": 3000.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 230.96666666666667
+    },
+    {
+      "id": "063",
+      "sha256": "75eac96f1edc4f044b92c53021fab4c9189ba80b1f2a5021e120a443c806f55f",
+      "map": "要塞",
+      "seed": 1500.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "066",
+      "sha256": "eb7f67dfd053d67abe1ef4eba61e926acf54cbcbe388a065a419ec32da65599f",
+      "map": "要塞",
+      "seed": 2500.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "069",
+      "sha256": "3206f361f51770164bc0de70a93f395f330308145da894097c37321195945039",
+      "map": "要塞",
+      "seed": 3500.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "072",
+      "sha256": "609270d4d4ecdd6af852087d1e44b9cb4d0cd9598db1de3202966714ddf1df24",
+      "map": "大桥",
+      "seed": 1000.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 257.7
+    },
+    {
+      "id": "075",
+      "sha256": "31c9edc3546e80cb87c1aeeee9c902a93f5e0c263fef873ea7b6379f513d72de",
+      "map": "大桥",
+      "seed": 2000.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 418.73333333333335
+    },
+    {
+      "id": "078",
+      "sha256": "9e945902fb96bf4a289849dbf2e8a3086b01c9540100bf9e9a9138df93d55e8b",
+      "map": "大桥",
+      "seed": 3000.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 433.93333333333334
+    },
+    {
+      "id": "081",
+      "sha256": "b955eab50cb9a550ef0df36ee0ca2efd90c2dbd11b50304ed2ffc25f2c75f070",
+      "map": "大桥",
+      "seed": 1500.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 258.46666666666664
+    },
+    {
+      "id": "084",
+      "sha256": "d7edb6fbb84bb16e4702863d9e923147299def7f2e488a6f69300758c1b91494",
+      "map": "大桥",
+      "seed": 2500.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 300.2
+    },
+    {
+      "id": "087",
+      "sha256": "1c23afe52812ae05c2c051054df4b5002b814f3332b1b9126af35c09edd744a4",
+      "map": "大桥",
+      "seed": 3500.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 271.3666666666667
+    },
+    {
+      "id": "090",
+      "sha256": "df980e945425e4e1eaf1f95b237cb85a384722fac151315b6ba4219ed3e0590b",
+      "map": "铁道",
+      "seed": 1000.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 418.93333333333334
+    },
+    {
+      "id": "093",
+      "sha256": "ccd0d3a6d26faebc13539195203110e0c5e30474434e024b63c83cf4cf468cce",
+      "map": "铁道",
+      "seed": 2000.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 299.26666666666665
+    },
+    {
+      "id": "096",
+      "sha256": "4d58a7b75e8f146297978d243c56fe31a79902c2678b277ab3d6f73ca8b6790d",
+      "map": "铁道",
+      "seed": 3000.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 238.6
+    },
+    {
+      "id": "099",
+      "sha256": "dfe089c156aa89c6c7cd61fe9c541dcada852adaa15436b2117d7c66c26a06bf",
+      "map": "铁道",
+      "seed": 1500.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 541.8
+    },
+    {
+      "id": "102",
+      "sha256": "c6f32dfb7a6b27f0291df8f0b39159c8c5b726e167541b886d6ec268edc3e6cf",
+      "map": "铁道",
+      "seed": 2500.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 164.6
+    },
+    {
+      "id": "105",
+      "sha256": "30a85d482ed2d40e9c4a539f21fee1e12169d67f72a6611f7de4b2b6b0ef6b9b",
+      "map": "铁道",
+      "seed": 3500.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 399.56666666666666
+    },
+    {
+      "id": "108",
+      "sha256": "cdfad7ea3c0a314d8db074610700238b1ab728e86efe61e45a98c8049c5f6934",
+      "map": "遗迹",
+      "seed": 1000.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "111",
+      "sha256": "0092be4fe8aa9f749f6287d4ce9a0af9f3ecb1953710d92170856755c3202787",
+      "map": "遗迹",
+      "seed": 2000.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "114",
+      "sha256": "274a12f1c1ea657d2d9ca0ed33363319a73bfffe165aae7bec6cf9f3b18c7c2d",
+      "map": "遗迹",
+      "seed": 3000.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "117",
+      "sha256": "54fa4882aa19cac275d2c0ba5e83035948009ee7d926cfc67d64cc60f7a25b12",
+      "map": "遗迹",
+      "seed": 1500.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "120",
+      "sha256": "2abe02dda7c64a83b31b27059c602ec73e68bfd48e02e4ad9b0de156fd27630f",
+      "map": "遗迹",
+      "seed": 2500.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "123",
+      "sha256": "2e45fee1cf5b80754e8591f3c56a4c685bccf27932f364cf909f1b5c1794c28c",
+      "map": "遗迹",
+      "seed": 3500.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 559.7333333333333
+    },
+    {
+      "id": "126",
+      "sha256": "6bcedaccf646ef44affb9b1076dae0c0363bd7314bb012233fae18e47d4baccf",
+      "map": "绿洲",
+      "seed": 1000.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 267.1
+    },
+    {
+      "id": "129",
+      "sha256": "1aa65412b8768c3acbb15212f8a316c44d5d3aedcac9c074fc325b17f2f22b67",
+      "map": "绿洲",
+      "seed": 2000.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 403.1
+    },
+    {
+      "id": "132",
+      "sha256": "034928546ffd1c8a437a7d21356dcfab9ecd499b0c0a0534039f3a340a07782f",
+      "map": "绿洲",
+      "seed": 3000.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 245.26666666666665
+    },
+    {
+      "id": "135",
+      "sha256": "56dd60f12a367fa6902d5d722dc4cb56737196a8dbafe2239ce6476c5c35c427",
+      "map": "绿洲",
+      "seed": 1500.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 356.9
+    },
+    {
+      "id": "138",
+      "sha256": "5b65a53f965d0b4d7dba5426441b14da78e436384c2c866f20f5dfbab402febc",
+      "map": "绿洲",
+      "seed": 2500.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 366.8
+    },
+    {
+      "id": "141",
+      "sha256": "889ef22960bd126a294e7637ff7ccafcfee3ae2f8c87ae17d9d23c3f488e40fa",
+      "map": "绿洲",
+      "seed": 3500.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 316.56666666666666
+    },
+    {
+      "id": "144",
+      "sha256": "bde9811893aeeb66bf9b49e3cda9818b6ef9ef15fc8ce4b972366813bc90aa85",
+      "map": "小镇",
+      "seed": 1000.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 553.1333333333333
+    },
+    {
+      "id": "147",
+      "sha256": "7abe8736de2a4ee61125578b6502958115ecaca94fb04bd5c00ca0e115d5b8d3",
+      "map": "小镇",
+      "seed": 2000.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 315.1
+    },
+    {
+      "id": "150",
+      "sha256": "a1a2fdbf436a5bed933ff926a26a2367f31bb5ade438fa5ded2f23ec817c2484",
+      "map": "小镇",
+      "seed": 3000.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 469.6333333333333
+    },
+    {
+      "id": "153",
+      "sha256": "383bf6e5b833f8e7083125acd26737b65c42022a27037c3af607196c516209fc",
+      "map": "小镇",
+      "seed": 1500.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "156",
+      "sha256": "dc6915a5e93e45188ca6537d09e1de830f2199628a0826202d8772c81e0f8852",
+      "map": "小镇",
+      "seed": 2500.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "159",
+      "sha256": "bc1a9a009f0c1eed2ff6ea71c854725ee4f25548389d0068b113ca44d86829d9",
+      "map": "小镇",
+      "seed": 3500.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "162",
+      "sha256": "f3b485a09b50dbadbe04645b3147da806568926ef0f9759bc3880c76adae10ec",
+      "map": "古堡",
+      "seed": 1000.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "165",
+      "sha256": "ced83bb89b8498666d921bda722cd3630cf9f885a0f9c9c6c273d527763deb15",
+      "map": "古堡",
+      "seed": 2000.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "168",
+      "sha256": "4f0da58d4e9f63a3e468e83fc1b91fef38d75c0281a8684bd8829b51092a22b7",
+      "map": "古堡",
+      "seed": 3000.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "171",
+      "sha256": "3f7620007453afa4ba7c68344eeb427b5c3b5cb8547c25481bc122706d0e1a50",
+      "map": "古堡",
+      "seed": 1500.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 488.56666666666666
+    },
+    {
+      "id": "174",
+      "sha256": "80a17d860f4290bd545b579bc318b8e0a279b36dad693288f5f4659fc168b45c",
+      "map": "古堡",
+      "seed": 2500.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 300.26666666666665
+    },
+    {
+      "id": "177",
+      "sha256": "3db2614f7bad894f827593501f554c3b8776eea015cf91761eb8fcfcdaf1046e",
+      "map": "古堡",
+      "seed": 3500.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 343.93333333333334
+    },
+    {
+      "id": "180",
+      "sha256": "cc736d5ba2121dcdbfe5b341946ed6888873fce37495b6cdefb3bb324b54122c",
+      "map": "木船",
+      "seed": 1000.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "183",
+      "sha256": "2aea6184e26c6b652e850467ef82e3ab4306008d8f9915972758306096c97b2c",
+      "map": "木船",
+      "seed": 2000.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "186",
+      "sha256": "c8494bf64f83f49498be096cb0caa8fc85dd3f10bdb89ea99d4d4a528e2b13ec",
+      "map": "木船",
+      "seed": 3000.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "189",
+      "sha256": "166a6e9745bcc554743bfce7754dea4d159a14e5b528e3137f6e284bf1d71993",
+      "map": "木船",
+      "seed": 1500.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "192",
+      "sha256": "ef28649bffba0da2379215f0d50e47f3578d7f185ee9559faca30dd5134e300a",
+      "map": "木船",
+      "seed": 2500.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "195",
+      "sha256": "8d90fb6aee06b6302178a7a6241501dbaac22a9845f1b9fd0f987179311c39df",
+      "map": "木船",
+      "seed": 3500.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "198",
+      "sha256": "3a9f6e8aaa3f32ac72c068d31ad296bf978ba1f8f9864bd5ba7239205ec00a9b",
+      "map": "大楼",
+      "seed": 1000.0,
+      "limit_seconds": 600.0,
+      "timeout": false,
+      "time": 499.26666666666665
+    },
+    {
+      "id": "201",
+      "sha256": "7e6d7bcd27fdaea02073f25858a821008ef9dceaa38595016b8d33f07b1c35ae",
+      "map": "大楼",
+      "seed": 2000.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "204",
+      "sha256": "4d61f1f57304465f2558e7beb5a829d0e8b355c6542c0f3aa90c89ab847eb852",
+      "map": "大楼",
+      "seed": 3000.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "207",
+      "sha256": "4bd6a0a056600cf1900e422407c661d373c8b88000cf7a954c4994fe2c00daa3",
+      "map": "大楼",
+      "seed": 1500.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "210",
+      "sha256": "798cba4da2e41d4527a0385751d94314421d258e25c7910357aa4bc17e406a3a",
+      "map": "大楼",
+      "seed": 2500.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    },
+    {
+      "id": "213",
+      "sha256": "c34eec656758a45751288a632002689291cebc5ef15aa8282d1359a9a90b3562",
+      "map": "大楼",
+      "seed": 3500.0,
+      "limit_seconds": 600.0,
+      "timeout": true,
+      "time": 600.0
+    }
+  ],
+  "encoder_sha256": "ea1af2153e63f2fb8faf909b5d1ef4e3cc4e3fd5bb6509cfca8a7d80e495fbdf",
+  "dataset_sha256": "103ad1725d1c7a2e2712ef05421922deb3b582d233e3ee987fed21ec15abfc46"
+}

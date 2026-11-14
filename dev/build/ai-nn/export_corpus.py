@@ -19,7 +19,7 @@ sha = lambda b: hashlib.sha256(b).hexdigest()
 work = Path(tempfile.mkdtemp(prefix='coldcorpus-'))
 
 def one(i):
-    sc = {k: v for k, v in scen[i].items() if k in ('map', 'seed', 'night', 'decks')}
+    sc = {k: v for k, v in scen[i].items() if k in ('map', 'seed', 'night', 'decks', 'bans')}
     d = work / ('%03d' % i); d.mkdir()
     (d / 'sc.json').write_text(json.dumps(sc, ensure_ascii=False), encoding='utf-8')
     r = subprocess.run([str(EXPORT), str(d / 'sc.json'), str(d / 'cold.json'), str(d / 'atlas.bin')], cwd=str(ROOT),

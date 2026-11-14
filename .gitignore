@@ -1,0 +1,4 @@
+dev/build/ai-nn/windows-local/
+dev/build/ai-nn/corpus-pvp743-r2-plain/
+dev/test_results/ai-nn-local-20261114/dataset.jsonl
+**/__pycache__/

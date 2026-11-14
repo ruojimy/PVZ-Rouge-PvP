@@ -1,0 +1,13 @@
+{
+  "python": "3.13.14",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "headless_windows_sha256": "01a30d0c9af9fb0022db28062758c62c74f3c3d723b5267e8f92bfc9e6792e61",
+  "corpus_index_sha256": "ef842c87be0fcc29accc63c758f6537c47ba546e0798a06da50444649bdc8d2f",
+  "r22_source_sha256": "822ed156846d8042639d9447ffeab0339f634e22a53529aee99efd73c7574519",
+  "old_r22_source_sha256": "822ed156846d8042639d9447ffeab0339f634e22a53529aee99efd73c7574519",
+  "headless_linux_baseline_sha256": "4b9b82f9549d8b162a068ac7d444ac1be1820ff50a44c3008ffc5feb884a9c63",
+  "torch": "2.12.1+cpu",
+  "gpu_training": false,
+  "training_threads": 4,
+  "frozen_windows_sha256": "01a30d0c9af9fb0022db28062758c62c74f3c3d723b5267e8f92bfc9e6792e61"
+}

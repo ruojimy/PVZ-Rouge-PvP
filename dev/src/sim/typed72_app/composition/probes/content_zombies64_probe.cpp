@@ -15,7 +15,7 @@ struct ContentZombie64Probe : GrenadierProbe,ContentZombie64Services,ScriptedSpa
         return value.present() && !value.is_null()?J(value.get()):J(nullptr);
     }
     void emit64(std::string name,J fields) {
-        events64.push_back({name,fields});;;
+        ;;;
     }
     void summon_deferred(const ScriptedSpawnKey& key,const Field<int64_t>& wave)override {
         J fields={{"source",key.source},{"summon",key.kind},{"slot",key.slot}};
@@ -28,7 +28,7 @@ struct ContentZombie64Probe : GrenadierProbe,ContentZombie64Services,ScriptedSpa
         ;;;
     }
     void draw_zombie(const ZombieRef& unit)override {
-        draws64.push_back(index(unit));;;
+        ;;;
     }
     void publish_terrain()override {
         ++sync64;content64.belt_keys.clear();
@@ -51,8 +51,7 @@ struct ContentZombie64Probe : GrenadierProbe,ContentZombie64Services,ScriptedSpa
         write(fields,"方向",origin.facing);write(fields,"_pvp_slime_sticky",parent.sticky);
         if(origin.position.present())fields["位置"]=as_json(origin.position.get());
         if(origin.barrel_position.present())fields["_pvp_barrel_position"]=as_json(origin.barrel_position.get());
-        spawns64.push_back({"zombie:"+name,"zombie",point.x,point.y,facing,true,fields,battle.spawn_ban_exempt,
-            world.active?J(seat_name(world.active->owner)):J(nullptr),world.active?J(phase_name(world.active->phase)):J(nullptr)});
+        ;
         ;
         if(spawn_mode64=="none")return {};
         if(spawn_mode64=="throw_before")throw std::runtime_error("slime constructor before");

@@ -1,0 +1,16 @@
+{
+  "files": {
+    "build/ai-nn/windows-local/Release/headless_match.exe": "7629a977b619705f769ed18a9345f4b36e0ecaa91c0a6af237c05db2c915e18d",
+    "build/ai-nn/windows-local/Release/headless_neural.exe": "29d9d2c641a84a2287b00a21878b06dc021bd3cabfab7c3bf314c4174a465f76",
+    "build/ai-nn/windows-local/Release/neural_dataset.exe": "7270533746b750ca5827ed73d5f0163fdbf479a52c1bb8c2634181929a31484d",
+    "build/ai-nn/run-research.ps1": "12e80e6242169c3fb479d8007f66d6da08a83d1c177f212d3e72f226dd51b07a",
+    "test_results/ai-nn-local-20261114/training-v1/model.json": "a90db6926b6fd7056fb5f65278a0a6cbb43e25cb4a7f87a33c95014fb4659ae6",
+    "test_results/ai-nn-local-20261114/training-v1/selected.pt": "953c2aa1c66a84bdc9957f2d050616f96068a55064e7abe12977b1d5179be7fc",
+    "PVZ_rougePvP_native/PvZPvPNative.exe": "4d0fe7c5762d4e2a1a949b21d5e7bca202d9cdbaf7500a18b3114fd60de80f5e"
+  },
+  "baseline": true,
+  "model_forward": true,
+  "strength_supported": false,
+  "formal_game": "unchanged delivered pvp743-r2",
+  "scope": "local research deployment; source/test-build memory hardening"
+}

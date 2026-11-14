@@ -1,0 +1,25 @@
+{
+  "revision": "ai-nn-20261114-r1",
+  "source_base_commit": "cb0727c5d68cf9a9310caaf36b6b8d0273ec6541",
+  "source_files": 7533,
+  "packages": [
+    {
+      "name": "PvZ-PvP-Native-20261114-ai-nn-r1-Developer-Package.zip",
+      "sha256": "6e0cbb1e44eeb44d9b8515fa6dad28f217e15d78e1011f46bc649f03a44e4223",
+      "size": 78086832,
+      "files": 7533,
+      "verified": true
+    },
+    {
+      "name": "PvZ-PvP-AI-NN-20261114-r1-Windows.zip",
+      "sha256": "37a38251853509147ddee78de5fa48961945a4f53df1915a6c53e64c486aacec",
+      "size": 31057023,
+      "files": 481,
+      "verified": true
+    }
+  ],
+  "formal_game": "pvp743-r2",
+  "formal_tag_frozen": true,
+  "model_strength_supported": false,
+  "windows_unicode_path_smoke": true
+}

@@ -16,3 +16,6 @@ foreach(n ref73_record cold73_export v_cold_catalog_probe deck73_corpus)
   target_include_directories(${n} PRIVATE "${ROOT}/src" "${ROOT}/third_party" "${ROOT}/third_party/SDL2-2.30.9/include")
   target_link_libraries(${n} PRIVATE ${LIBS})
 endforeach()
+
+# Compile the current scenario cold-boundary owner rather than a stale library copy.
+target_sources(cold73_export PRIVATE "${ROOT}/src/sim/pvp/battle_api.cpp")

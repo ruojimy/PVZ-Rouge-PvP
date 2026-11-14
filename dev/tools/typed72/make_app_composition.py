@@ -32,7 +32,7 @@ else:
 ROOT = Path(__file__).resolve().parents[2]
 DRIVER = ROOT / 'build/typed72-match-v1'
 OUT = ROOT / 'src/sim/typed72_app/composition'
-STRIP_SHA256 = 'fd60a2545a20231311e16597dea7ed907353410111e2210f1285b74aa7507f25'
+STRIP_SHA256 = '19597600f3623a13ef5d645caa21bd50bd5ce0a0dd1771421526046bf25f157b'
 
 
 def digest(raw):

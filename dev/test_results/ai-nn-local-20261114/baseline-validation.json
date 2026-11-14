@@ -1,0 +1,52 @@
+{
+  "scope": "headless-ai-216-current-corpus",
+  "planned_per_run": 216,
+  "completed_runs": 3,
+  "linux_summary_byte_equal": true,
+  "linux_file_differences": [],
+  "windows_footer_differences": [],
+  "max_probe_retention": {
+    "aliases64": 0,
+    "draws64": 0,
+    "events64": 0,
+    "spawns64": 0,
+    "cost_calls": 0,
+    "grenade_events": 0,
+    "poison_events": 0
+  },
+  "outcomes": {
+    "ai_errors": 0,
+    "decided": 181,
+    "draws": 0,
+    "matches": 216,
+    "max_seconds": 1452.9333333333334,
+    "mean_seconds": 443.423,
+    "median_seconds": 352.0333333333333,
+    "min_seconds": 107.96666666666667,
+    "plant_ci95": [
+      0.433906,
+      0.566094
+    ],
+    "plant_win_rate": 0.5,
+    "plant_wins": 108,
+    "timeout_rate": 0.162037,
+    "timeouts": 35,
+    "zombie_ci95": [
+      0.278203,
+      0.403386
+    ],
+    "zombie_win_rate": 0.337963,
+    "zombie_wins": 73
+  },
+  "linux_peak_rss_mib": {
+    "min": 197.76171875,
+    "median": 198.73828125,
+    "max": 244.1171875
+  },
+  "summaries_sha256": {
+    "r22-run1": "e9a3ff41232d0488fa2f8edcf0d236688c823d8583519e853faf6d6f7654bd45",
+    "r22-run2": "e9a3ff41232d0488fa2f8edcf0d236688c823d8583519e853faf6d6f7654bd45",
+    "windows-r22": "79aa41e671f6db11ba20a2b02df3d1513a5b0a9facd6afd403642eed441d0a53"
+  },
+  "passed": true
+}

@@ -62,7 +62,7 @@ ColdExport export_cold(const V& b,double seed){
     ColdExport e;const V g=pvz::getattr(b,Sym("g"));Match& G=match_of(g);
     J out;out["seed"]=seed;
     const auto attr=[&](const char* name){return parsed(pvz::getattr(b,Sym(name),V::none()));};
-    for(const char* k:{"tile","width","height","dt","mode","seats","present","command","commands","sky_interval","sky_progress","native_secrets","team_secrets","rules","_multi_plant","_multi_target","team_mode","scripted","ids","terrain_revision"})out["battle"][k]=attr(k);
+    for(const char* k:{"tile","width","height","dt","mode","seats","present","command","commands","sky_interval","sky_progress","native_secrets","team_secrets","bans","rules","_multi_plant","_multi_target","team_mode","scripted","ids","terrain_revision"})out["battle"][k]=attr(k);
     // The original cold budget resolves director precedence, Python int conversion
     // and the 1..200 clamp. Admit that effective value once; population changes
     // are only accepted by Room in config, before this session is constructed.

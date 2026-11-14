@@ -1,19 +1,14 @@
 {
-  "revision": "pvp743-r2",
-  "production_fixes": [
-    "complete-frame profiling lifecycle",
-    "unbind profiler callback ownership",
-    "elide production alias observer only"
-  ],
-  "targeted_native_checks": 25,
-  "real_coop_profile_flows": 4,
-  "real_coop_memory_seconds": 300,
-  "android_version_code": 1114082,
-  "android_device_acceptance": "not_run_this_revision",
-  "foreground_fps_acceptance": "not_run_locked_desktop",
-  "long_term_cross_match_memory": "not_verified",
-  "memory_growth_completely_zero": false,
-  "todo_file": "待办清单.md",
-  "open_todo_items": 21,
-  "source_docs_refresh": "2026-11-14; documentation only, production bytes unchanged"
+  "revision": "ai-nn-20261114-r1",
+  "base_commit": "cb0727c5d68cf9a9310caaf36b6b8d0273ec6541",
+  "formal_player_revision": "pvp743-r2",
+  "research_model_default_game": false,
+  "headless_baseline_runs": 648,
+  "model_test_cases_per_side": 54,
+  "strength_significant": false,
+  "framework_failure_count": 1,
+  "v_controller_reference_failed_checks": 5,
+  "gui_long_term_memory_acceptance": false,
+  "android_model_acceptance": false,
+  "windows_unicode_path_smoke": true
 }

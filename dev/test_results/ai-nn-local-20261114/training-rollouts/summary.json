@@ -1,0 +1,2825 @@
+{
+ "by_daylight": {
+  "day": {
+   "ai_errors": 0,
+   "decided": 21,
+   "draws": 0,
+   "matches": 36,
+   "max_seconds": 553.1333333333333,
+   "mean_seconds": 334.171,
+   "median_seconds": 283.93333333333334,
+   "min_seconds": 230.96666666666667,
+   "plant_ci95": [
+    0.271406,
+    0.577997
+   ],
+   "plant_win_rate": 0.416667,
+   "plant_wins": 15,
+   "timeout_rate": 0.416667,
+   "timeouts": 15,
+   "zombie_ci95": [
+    0.078704,
+    0.318908
+   ],
+   "zombie_win_rate": 0.166667,
+   "zombie_wins": 6
+  },
+  "night": {
+   "ai_errors": 0,
+   "decided": 18,
+   "draws": 0,
+   "matches": 36,
+   "max_seconds": 559.7333333333333,
+   "mean_seconds": 364.976,
+   "median_seconds": 356.9,
+   "min_seconds": 164.6,
+   "plant_ci95": [
+    0.202146,
+    0.49666
+   ],
+   "plant_win_rate": 0.333333,
+   "plant_wins": 12,
+   "timeout_rate": 0.5,
+   "timeouts": 18,
+   "zombie_ci95": [
+    0.078704,
+    0.318908
+   ],
+   "zombie_win_rate": 0.166667,
+   "zombie_wins": 6
+  }
+ },
+ "by_map": {
+  "古堡": {
+   "ai_errors": 0,
+   "decided": 3,
+   "draws": 0,
+   "matches": 6,
+   "max_seconds": 488.56666666666666,
+   "mean_seconds": 377.589,
+   "median_seconds": 343.93333333333334,
+   "min_seconds": 300.26666666666665,
+   "plant_ci95": [
+    0.187616,
+    0.812384
+   ],
+   "plant_win_rate": 0.5,
+   "plant_wins": 3,
+   "timeout_rate": 0.5,
+   "timeouts": 3,
+   "zombie_ci95": [
+    0.0,
+    0.390334
+   ],
+   "zombie_win_rate": 0.0,
+   "zombie_wins": 0
+  },
+  "大桥": {
+   "ai_errors": 0,
+   "decided": 6,
+   "draws": 0,
+   "matches": 6,
+   "max_seconds": 433.93333333333334,
+   "mean_seconds": 323.4,
+   "median_seconds": 300.2,
+   "min_seconds": 257.7,
+   "plant_ci95": [
+    0.609666,
+    1.0
+   ],
+   "plant_win_rate": 1.0,
+   "plant_wins": 6,
+   "timeout_rate": 0.0,
+   "timeouts": 0,
+   "zombie_ci95": [
+    0.0,
+    0.390334
+   ],
+   "zombie_win_rate": 0.0,
+   "zombie_wins": 0
+  },
+  "大楼": {
+   "ai_errors": 0,
+   "decided": 1,
+   "draws": 0,
+   "matches": 6,
+   "max_seconds": 499.26666666666665,
+   "mean_seconds": 499.267,
+   "median_seconds": 499.26666666666665,
+   "min_seconds": 499.26666666666665,
+   "plant_ci95": [
+    0.030053,
+    0.563503
+   ],
+   "plant_win_rate": 0.166667,
+   "plant_wins": 1,
+   "timeout_rate": 0.833333,
+   "timeouts": 5,
+   "zombie_ci95": [
+    0.0,
+    0.390334
+   ],
+   "zombie_win_rate": 0.0,
+   "zombie_wins": 0
+  },
+  "家院": {
+   "ai_errors": 0,
+   "decided": 1,
+   "draws": 0,
+   "matches": 6,
+   "max_seconds": 430.26666666666665,
+   "mean_seconds": 430.267,
+   "median_seconds": 430.26666666666665,
+   "min_seconds": 430.26666666666665,
+   "plant_ci95": [
+    0.0,
+    0.390334
+   ],
+   "plant_win_rate": 0.0,
+   "plant_wins": 0,
+   "timeout_rate": 0.833333,
+   "timeouts": 5,
+   "zombie_ci95": [
+    0.030053,
+    0.563503
+   ],
+   "zombie_win_rate": 0.166667,
+   "zombie_wins": 1
+  },
+  "小镇": {
+   "ai_errors": 0,
+   "decided": 3,
+   "draws": 0,
+   "matches": 6,
+   "max_seconds": 553.1333333333333,
+   "mean_seconds": 445.956,
+   "median_seconds": 469.6333333333333,
+   "min_seconds": 315.1,
+   "plant_ci95": [
+    0.187616,
+    0.812384
+   ],
+   "plant_win_rate": 0.5,
+   "plant_wins": 3,
+   "timeout_rate": 0.5,
+   "timeouts": 3,
+   "zombie_ci95": [
+    0.0,
+    0.390334
+   ],
+   "zombie_win_rate": 0.0,
+   "zombie_wins": 0
+  },
+  "山地": {
+   "ai_errors": 0,
+   "decided": 6,
+   "draws": 0,
+   "matches": 6,
+   "max_seconds": 380.93333333333334,
+   "mean_seconds": 287.239,
+   "median_seconds": 271.46666666666664,
+   "min_seconds": 232.63333333333333,
+   "plant_ci95": [
+    0.096771,
+    0.700007
+   ],
+   "plant_win_rate": 0.333333,
+   "plant_wins": 2,
+   "timeout_rate": 0.0,
+   "timeouts": 0,
+   "zombie_ci95": [
+    0.299993,
+    0.903229
+   ],
+   "zombie_win_rate": 0.666667,
+   "zombie_wins": 4
+  },
+  "木船": {
+   "ai_errors": 0,
+   "decided": 0,
+   "draws": 0,
+   "matches": 6,
+   "max_seconds": null,
+   "mean_seconds": null,
+   "median_seconds": null,
+   "min_seconds": null,
+   "plant_ci95": [
+    0.0,
+    0.390334
+   ],
+   "plant_win_rate": 0.0,
+   "plant_wins": 0,
+   "timeout_rate": 1.0,
+   "timeouts": 6,
+   "zombie_ci95": [
+    0.0,
+    0.390334
+   ],
+   "zombie_win_rate": 0.0,
+   "zombie_wins": 0
+  },
+  "沙城": {
+   "ai_errors": 0,
+   "decided": 3,
+   "draws": 0,
+   "matches": 6,
+   "max_seconds": 472.5333333333333,
+   "mean_seconds": 403.133,
+   "median_seconds": 452.93333333333334,
+   "min_seconds": 283.93333333333334,
+   "plant_ci95": [
+    0.187616,
+    0.812384
+   ],
+   "plant_win_rate": 0.5,
+   "plant_wins": 3,
+   "timeout_rate": 0.5,
+   "timeouts": 3,
+   "zombie_ci95": [
+    0.0,
+    0.390334
+   ],
+   "zombie_win_rate": 0.0,
+   "zombie_wins": 0
+  },
+  "绿洲": {
+   "ai_errors": 0,
+   "decided": 6,
+   "draws": 0,
+   "matches": 6,
+   "max_seconds": 403.1,
+   "mean_seconds": 325.956,
+   "median_seconds": 356.9,
+   "min_seconds": 245.26666666666665,
+   "plant_ci95": [
+    0.187616,
+    0.812384
+   ],
+   "plant_win_rate": 0.5,
+   "plant_wins": 3,
+   "timeout_rate": 0.0,
+   "timeouts": 0,
+   "zombie_ci95": [
+    0.187616,
+    0.812384
+   ],
+   "zombie_win_rate": 0.5,
+   "zombie_wins": 3
+  },
+  "要塞": {
+   "ai_errors": 0,
+   "decided": 3,
+   "draws": 0,
+   "matches": 6,
+   "max_seconds": 266.56666666666666,
+   "mean_seconds": 245.178,
+   "median_seconds": 238.0,
+   "min_seconds": 230.96666666666667,
+   "plant_ci95": [
+    0.0,
+    0.390334
+   ],
+   "plant_win_rate": 0.0,
+   "plant_wins": 0,
+   "timeout_rate": 0.5,
+   "timeouts": 3,
+   "zombie_ci95": [
+    0.187616,
+    0.812384
+   ],
+   "zombie_win_rate": 0.5,
+   "zombie_wins": 3
+  },
+  "遗迹": {
+   "ai_errors": 0,
+   "decided": 1,
+   "draws": 0,
+   "matches": 6,
+   "max_seconds": 559.7333333333333,
+   "mean_seconds": 559.733,
+   "median_seconds": 559.7333333333333,
+   "min_seconds": 559.7333333333333,
+   "plant_ci95": [
+    0.0,
+    0.390334
+   ],
+   "plant_win_rate": 0.0,
+   "plant_wins": 0,
+   "timeout_rate": 0.833333,
+   "timeouts": 5,
+   "zombie_ci95": [
+    0.030053,
+    0.563503
+   ],
+   "zombie_win_rate": 0.166667,
+   "zombie_wins": 1
+  },
+  "铁道": {
+   "ai_errors": 0,
+   "decided": 6,
+   "draws": 0,
+   "matches": 6,
+   "max_seconds": 541.8,
+   "mean_seconds": 343.794,
+   "median_seconds": 399.56666666666666,
+   "min_seconds": 164.6,
+   "plant_ci95": [
+    0.609666,
+    1.0
+   ],
+   "plant_win_rate": 1.0,
+   "plant_wins": 6,
+   "timeout_rate": 0.0,
+   "timeouts": 0,
+   "zombie_ci95": [
+    0.0,
+    0.390334
+   ],
+   "zombie_win_rate": 0.0,
+   "zombie_wins": 0
+  }
+ },
+ "control_hz": 15.0,
+ "crash_messages": {},
+ "crashed": [],
+ "extra": [],
+ "format": "pvz-ai-nn-eval-1",
+ "ids": [
+  "000",
+  "003",
+  "006",
+  "009",
+  "012",
+  "015",
+  "018",
+  "021",
+  "024",
+  "027",
+  "030",
+  "033",
+  "036",
+  "039",
+  "042",
+  "045",
+  "048",
+  "051",
+  "054",
+  "057",
+  "060",
+  "063",
+  "066",
+  "069",
+  "072",
+  "075",
+  "078",
+  "081",
+  "084",
+  "087",
+  "090",
+  "093",
+  "096",
+  "099",
+  "102",
+  "105",
+  "108",
+  "111",
+  "114",
+  "117",
+  "120",
+  "123",
+  "126",
+  "129",
+  "132",
+  "135",
+  "138",
+  "141",
+  "144",
+  "147",
+  "150",
+  "153",
+  "156",
+  "159",
+  "162",
+  "165",
+  "168",
+  "171",
+  "174",
+  "177",
+  "180",
+  "183",
+  "186",
+  "189",
+  "192",
+  "195",
+  "198",
+  "201",
+  "204",
+  "207",
+  "210",
+  "213"
+ ],
+ "limit_seconds": 600.0,
+ "matches": {
+  "000": {
+   "ai": {
+    "plant": {
+     "control_ticks": 3481,
+     "plan_rejections": 0,
+     "plans": 157,
+     "send_errors": 0,
+     "sends": 3601
+    },
+    "zombie": {
+     "control_ticks": 3481,
+     "plan_rejections": 0,
+     "plans": 157,
+     "send_errors": 0,
+     "sends": 3612
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "f5fca5fb99bf1b00ca3949c027bb90af6f90fa91af29d87d11d1b0da4bf03299",
+   "hp": {
+    "plant": 0.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "96fd76a14871ec951a55eae1a9b76d5fc802437051f4ffdcefc4e04376190c3d",
+   "map": "山地",
+   "night": false,
+   "reason": "hero_death",
+   "seed": 1000,
+   "tick": 7170,
+   "time": 239.0,
+   "timeout": false,
+   "winner": "zombie"
+  },
+  "003": {
+   "ai": {
+    "plant": {
+     "control_ticks": 3386,
+     "plan_rejections": 0,
+     "plans": 153,
+     "send_errors": 0,
+     "sends": 3547
+    },
+    "zombie": {
+     "control_ticks": 3386,
+     "plan_rejections": 0,
+     "plans": 153,
+     "send_errors": 0,
+     "sends": 3515
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "5f5883c23e2032de5662eb1d1e3d98fe075a42ab180fbaf5c7a1d63cf5121f39",
+   "hp": {
+    "plant": 0.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "0aa9b372f69065e52a6ac9af556696be99d487ec791e95d5ee88dbc79fe3d204",
+   "map": "山地",
+   "night": false,
+   "reason": "hero_death",
+   "seed": 2000,
+   "tick": 6979,
+   "time": 232.63333333333333,
+   "timeout": false,
+   "winner": "zombie"
+  },
+  "006": {
+   "ai": {
+    "plant": {
+     "control_ticks": 3703,
+     "plan_rejections": 0,
+     "plans": 166,
+     "send_errors": 0,
+     "sends": 3878
+    },
+    "zombie": {
+     "control_ticks": 3703,
+     "plan_rejections": 0,
+     "plans": 166,
+     "send_errors": 0,
+     "sends": 3855
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "8ecf40fbba0ca57f04ca838508aacf698193bc9bfe0d1b93c3b069e16512e0ef",
+   "hp": {
+    "plant": 0.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "d95dda32ee2eea6920496f3a786b10aa75bfde58ae5c69a312258dcb2a9f296d",
+   "map": "山地",
+   "night": false,
+   "reason": "hero_death",
+   "seed": 3000,
+   "tick": 7614,
+   "time": 253.79999999999998,
+   "timeout": false,
+   "winner": "zombie"
+  },
+  "009": {
+   "ai": {
+    "plant": {
+     "control_ticks": 3968,
+     "plan_rejections": 0,
+     "plans": 178,
+     "send_errors": 4,
+     "sends": 4333
+    },
+    "zombie": {
+     "control_ticks": 3968,
+     "plan_rejections": 0,
+     "plans": 178,
+     "send_errors": 0,
+     "sends": 4079
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "b9bef9c9532942659b45c3dbf633703b2ea2753c64b774f342fe3c8701c9e66c",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "7a7dab704ff960f6bdd463e5698e3258615a9af795b8ca452cdff330dd44c7fe",
+   "map": "山地",
+   "night": true,
+   "reason": "hero_death",
+   "seed": 1500,
+   "tick": 8144,
+   "time": 271.46666666666664,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "012": {
+   "ai": {
+    "plant": {
+     "control_ticks": 5080,
+     "plan_rejections": 0,
+     "plans": 226,
+     "send_errors": 0,
+     "sends": 5385
+    },
+    "zombie": {
+     "control_ticks": 5080,
+     "plan_rejections": 0,
+     "plans": 226,
+     "send_errors": 0,
+     "sends": 5303
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "d2979a550b3868cedd303e4e320f6ac3c3b234dbb4fc9856a21b389a1a576f4d",
+   "hp": {
+    "plant": 0.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "60c145aad0929f4db9764d83918543107e9d6486c214f74c96e04ac2903dcd69",
+   "map": "山地",
+   "night": true,
+   "reason": "hero_death",
+   "seed": 2500,
+   "tick": 10368,
+   "time": 345.6,
+   "timeout": false,
+   "winner": "zombie"
+  },
+  "015": {
+   "ai": {
+    "plant": {
+     "control_ticks": 5610,
+     "plan_rejections": 0,
+     "plans": 249,
+     "send_errors": 0,
+     "sends": 6115
+    },
+    "zombie": {
+     "control_ticks": 5610,
+     "plan_rejections": 0,
+     "plans": 249,
+     "send_errors": 0,
+     "sends": 5780
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "eec796fb3142b907604fa62e37f08fe78700b02ae01772c0b14ec4e64de8b729",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "fecdfe13b36a98a04576353f8dde25904fedc5682f96946e9bf9323c585896c6",
+   "map": "山地",
+   "night": true,
+   "reason": "hero_death",
+   "seed": 3500,
+   "tick": 11428,
+   "time": 380.93333333333334,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "018": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9300
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9043
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "ef078e5504cee33015f8be659a301b0f270885df53e044339a7dc35e500b080c",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "fd6dedec87ea19a2c964b3fc06f3dfaea43c65c1d6f0f34730675c4610deafad",
+   "map": "沙城",
+   "night": false,
+   "reason": null,
+   "seed": 1000,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "021": {
+   "ai": {
+    "plant": {
+     "control_ticks": 4155,
+     "plan_rejections": 0,
+     "plans": 186,
+     "send_errors": 0,
+     "sends": 4416
+    },
+    "zombie": {
+     "control_ticks": 4155,
+     "plan_rejections": 0,
+     "plans": 186,
+     "send_errors": 0,
+     "sends": 4312
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "5e776b173361cc14d98f9ed74542c323260900c6ee6c32dd01feaa391d81fff6",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "91fabc44dad417274d14817847958d5f7746ba6f776cfa53e6a43cdfd641a909",
+   "map": "沙城",
+   "night": false,
+   "reason": "hero_death",
+   "seed": 2000,
+   "tick": 8518,
+   "time": 283.93333333333334,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "024": {
+   "ai": {
+    "plant": {
+     "control_ticks": 6690,
+     "plan_rejections": 0,
+     "plans": 296,
+     "send_errors": 0,
+     "sends": 7157
+    },
+    "zombie": {
+     "control_ticks": 6690,
+     "plan_rejections": 0,
+     "plans": 296,
+     "send_errors": 0,
+     "sends": 6975
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "51f5a75f6f2b02021c54ebc298433dd60ce4d9f8fad171a15dc0ba1de07ee056",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "f0c0e6f97f21a3707760b09ef24ac23d2925693a0d566846960402c147aac5e2",
+   "map": "沙城",
+   "night": false,
+   "reason": "hero_death",
+   "seed": 3000,
+   "tick": 13588,
+   "time": 452.93333333333334,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "027": {
+   "ai": {
+    "plant": {
+     "control_ticks": 6984,
+     "plan_rejections": 0,
+     "plans": 309,
+     "send_errors": 3,
+     "sends": 7581
+    },
+    "zombie": {
+     "control_ticks": 6984,
+     "plan_rejections": 0,
+     "plans": 309,
+     "send_errors": 0,
+     "sends": 7257
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "f05f471b5a6a3c4afd33cc8261ee2568964471864263ae7b9c3909b3cfeaf1a1",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "2358c883ba3d08ea11d3d89d082d9aaa1d5b16af08dbf843f43b5d571a2d223b",
+   "map": "沙城",
+   "night": true,
+   "reason": "hero_death",
+   "seed": 1500,
+   "tick": 14176,
+   "time": 472.5333333333333,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "030": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9360
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9010
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "cd7d706f8fef257b74f5a5d79224526e448dc86b23c95fbe4162f26d074fce69",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 33.0
+   },
+   "log_sha256": "50e0c025ddc6258242775dd2f037e04c2ee45e717581213f7e8768e94ec5488b",
+   "map": "沙城",
+   "night": true,
+   "reason": null,
+   "seed": 2500,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "033": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9406
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9048
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "3e51ba9843c8dbd1deb636b6f8b4c7b7c54b4b6409b26eba94dccd2a097dcc88",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "1124cc5aa4a08eae554dc70ee85596308ae0238ce527e4c0829d6c3be49c6192",
+   "map": "沙城",
+   "night": true,
+   "reason": null,
+   "seed": 3500,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "036": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9302
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9029
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "7148f6df07d0e4ce1ebc92391f22f0dcb930808a8f35fb121b91e5e2b743d142",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "a3a3ed6fefc21b6ceef0b756ec4319d821f66999e18304b4094d1475e371cc7e",
+   "map": "家院",
+   "night": false,
+   "reason": null,
+   "seed": 1000,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "039": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9262
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9094
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "b8759162ea76a2401cf130a78e8133d790996c0ed350bcd48f3627b8eff0c58c",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "61022473f82121c1eb521982e0e34fccc240578d86783946869b6cfdbaf165a6",
+   "map": "家院",
+   "night": false,
+   "reason": null,
+   "seed": 2000,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "042": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9283
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9086
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "d6584402a2c96472f9fd850add34b077b3b7b5439030b8d1ffadd67cdcb5830b",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "9e08d69533121bb5af8f64cb7fe4800dc3103ebdc2e3cbcf822a152dcdea247e",
+   "map": "家院",
+   "night": false,
+   "reason": null,
+   "seed": 3000,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "045": {
+   "ai": {
+    "plant": {
+     "control_ticks": 6350,
+     "plan_rejections": 0,
+     "plans": 282,
+     "send_errors": 0,
+     "sends": 6743
+    },
+    "zombie": {
+     "control_ticks": 6350,
+     "plan_rejections": 0,
+     "plans": 282,
+     "send_errors": 0,
+     "sends": 6597
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "82da87dee03bc35eadea50b4496f4079abdcc5fb2132cc846d0b4f2e2d0bb809",
+   "hp": {
+    "plant": 0.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "e85a051fe6e22f778444e2607f39e21800dc77bbc275bdc86b0e1cfea04ced5e",
+   "map": "家院",
+   "night": true,
+   "reason": "hero_death",
+   "seed": 1500,
+   "tick": 12908,
+   "time": 430.26666666666665,
+   "timeout": false,
+   "winner": "zombie"
+  },
+  "048": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9375
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9011
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "8b9fa0914584cb856517eaf1e45ff82c32752f52f9c18c0bfcd3f4c5690ea88b",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "29df9b95de75c66573a92f5a79a50e8c0f2d110f1cae85e4a7fdc740ee846664",
+   "map": "家院",
+   "night": true,
+   "reason": null,
+   "seed": 2500,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "051": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9389
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9010
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "22e62a0fa5013f24848fd7d2b4476609374da60e80b58124a428c1d74dead55b",
+   "hp": {
+    "plant": 36.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "e767d201bfd6882cb43f44ce6de7043312822b94764dec8f999dfb87f2f336c0",
+   "map": "家院",
+   "night": true,
+   "reason": null,
+   "seed": 3500,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "054": {
+   "ai": {
+    "plant": {
+     "control_ticks": 3895,
+     "plan_rejections": 0,
+     "plans": 175,
+     "send_errors": 0,
+     "sends": 4051
+    },
+    "zombie": {
+     "control_ticks": 3895,
+     "plan_rejections": 0,
+     "plans": 175,
+     "send_errors": 0,
+     "sends": 4063
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "a7616a33a85a31b338b6980e1eb96826b875e2e3a8669a1f814e7e1d86aab074",
+   "hp": {
+    "plant": 0.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "7c998371e0f5d867b2273db2bea5a3aca4731a6df9a4c6590295e4b9b7fec887",
+   "map": "要塞",
+   "night": false,
+   "reason": "hero_death",
+   "seed": 1000,
+   "tick": 7997,
+   "time": 266.56666666666666,
+   "timeout": false,
+   "winner": "zombie"
+  },
+  "057": {
+   "ai": {
+    "plant": {
+     "control_ticks": 3466,
+     "plan_rejections": 0,
+     "plans": 156,
+     "send_errors": 0,
+     "sends": 3593
+    },
+    "zombie": {
+     "control_ticks": 3466,
+     "plan_rejections": 0,
+     "plans": 156,
+     "send_errors": 0,
+     "sends": 3603
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "7b6f860a75906d75ff296e15264af0812b96e1a24f055e534141687264cdcd43",
+   "hp": {
+    "plant": 0.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "c074bbf8ba0ea50a3440849ad3e7b09a43985130af0b554cb771b91bc8ddc18d",
+   "map": "要塞",
+   "night": false,
+   "reason": "hero_death",
+   "seed": 2000,
+   "tick": 7140,
+   "time": 238.0,
+   "timeout": false,
+   "winner": "zombie"
+  },
+  "060": {
+   "ai": {
+    "plant": {
+     "control_ticks": 3361,
+     "plan_rejections": 0,
+     "plans": 152,
+     "send_errors": 0,
+     "sends": 3471
+    },
+    "zombie": {
+     "control_ticks": 3361,
+     "plan_rejections": 0,
+     "plans": 152,
+     "send_errors": 0,
+     "sends": 3500
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "75ed9e516146472921a0e2502af15dbb80c9c3abcede92d0da960210e3c325ab",
+   "hp": {
+    "plant": 0.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "d5d48f9931e1e0beeb46c727020daa0158e4ac88525caf07c637f38aba1cc9e1",
+   "map": "要塞",
+   "night": false,
+   "reason": "hero_death",
+   "seed": 3000,
+   "tick": 6929,
+   "time": 230.96666666666667,
+   "timeout": false,
+   "winner": "zombie"
+  },
+  "063": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9165
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9091
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "75eac96f1edc4f044b92c53021fab4c9189ba80b1f2a5021e120a443c806f55f",
+   "hp": {
+    "plant": 39.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "91a8a606cf8a7c4ca4b19e903869a968a8611dfd389cf9620cd8dfb103f02957",
+   "map": "要塞",
+   "night": true,
+   "reason": null,
+   "seed": 1500,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "066": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9182
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9135
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "eb7f67dfd053d67abe1ef4eba61e926acf54cbcbe388a065a419ec32da65599f",
+   "hp": {
+    "plant": 38.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "70292244ddc5c584b431293711a69671b125ba6040c48a10833e4a85ed7d8366",
+   "map": "要塞",
+   "night": true,
+   "reason": null,
+   "seed": 2500,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "069": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9150
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9150
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "3206f361f51770164bc0de70a93f395f330308145da894097c37321195945039",
+   "hp": {
+    "plant": 29.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "b531065608fba4683cd47558496837fdf4d7af8101be37cfb67f79e7d63db116",
+   "map": "要塞",
+   "night": true,
+   "reason": null,
+   "seed": 3500,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "072": {
+   "ai": {
+    "plant": {
+     "control_ticks": 3762,
+     "plan_rejections": 0,
+     "plans": 169,
+     "send_errors": 0,
+     "sends": 4003
+    },
+    "zombie": {
+     "control_ticks": 3762,
+     "plan_rejections": 0,
+     "plans": 169,
+     "send_errors": 0,
+     "sends": 3881
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "609270d4d4ecdd6af852087d1e44b9cb4d0cd9598db1de3202966714ddf1df24",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "4ccd495704fbea40f87f5f58f64e3fddfdde6e81cf812a63abaf074caa9ba1b2",
+   "map": "大桥",
+   "night": false,
+   "reason": "hero_death",
+   "seed": 1000,
+   "tick": 7731,
+   "time": 257.7,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "075": {
+   "ai": {
+    "plant": {
+     "control_ticks": 6177,
+     "plan_rejections": 0,
+     "plans": 274,
+     "send_errors": 0,
+     "sends": 6623
+    },
+    "zombie": {
+     "control_ticks": 6177,
+     "plan_rejections": 0,
+     "plans": 274,
+     "send_errors": 0,
+     "sends": 6438
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "31c9edc3546e80cb87c1aeeee9c902a93f5e0c263fef873ea7b6379f513d72de",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "fec1e34487c9eb7042229653f4bf54f2660b16715bda676c055769b5d7ae59a4",
+   "map": "大桥",
+   "night": false,
+   "reason": "hero_death",
+   "seed": 2000,
+   "tick": 12562,
+   "time": 418.73333333333335,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "078": {
+   "ai": {
+    "plant": {
+     "control_ticks": 6405,
+     "plan_rejections": 0,
+     "plans": 284,
+     "send_errors": 1,
+     "sends": 6876
+    },
+    "zombie": {
+     "control_ticks": 6405,
+     "plan_rejections": 0,
+     "plans": 284,
+     "send_errors": 0,
+     "sends": 6689
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "9e945902fb96bf4a289849dbf2e8a3086b01c9540100bf9e9a9138df93d55e8b",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "23ab7b11cf2dfa69a493bb5f33b367c73da97f8bdff59e1596bc391ab72601ec",
+   "map": "大桥",
+   "night": false,
+   "reason": "hero_death",
+   "seed": 3000,
+   "tick": 13018,
+   "time": 433.93333333333334,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "081": {
+   "ai": {
+    "plant": {
+     "control_ticks": 3773,
+     "plan_rejections": 0,
+     "plans": 169,
+     "send_errors": 1,
+     "sends": 4054
+    },
+    "zombie": {
+     "control_ticks": 3773,
+     "plan_rejections": 0,
+     "plans": 169,
+     "send_errors": 0,
+     "sends": 3883
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "b955eab50cb9a550ef0df36ee0ca2efd90c2dbd11b50304ed2ffc25f2c75f070",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "b3ac8c1f9ed9a0ccee2cfb480e88c975df2a92aa12d1a59df0bce7122e24bae3",
+   "map": "大桥",
+   "night": true,
+   "reason": "hero_death",
+   "seed": 1500,
+   "tick": 7754,
+   "time": 258.46666666666664,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "084": {
+   "ai": {
+    "plant": {
+     "control_ticks": 4399,
+     "plan_rejections": 0,
+     "plans": 197,
+     "send_errors": 5,
+     "sends": 4750
+    },
+    "zombie": {
+     "control_ticks": 4399,
+     "plan_rejections": 0,
+     "plans": 197,
+     "send_errors": 0,
+     "sends": 4565
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "d7edb6fbb84bb16e4702863d9e923147299def7f2e488a6f69300758c1b91494",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "97008590be24e25fbd36c65f04f2d1be0afea2909c5a61cf800669a9266e701b",
+   "map": "大桥",
+   "night": true,
+   "reason": "hero_death",
+   "seed": 2500,
+   "tick": 9006,
+   "time": 300.2,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "087": {
+   "ai": {
+    "plant": {
+     "control_ticks": 3967,
+     "plan_rejections": 0,
+     "plans": 178,
+     "send_errors": 1,
+     "sends": 4271
+    },
+    "zombie": {
+     "control_ticks": 3967,
+     "plan_rejections": 0,
+     "plans": 178,
+     "send_errors": 0,
+     "sends": 4090
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "1c23afe52812ae05c2c051054df4b5002b814f3332b1b9126af35c09edd744a4",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "a9a9daaff1da6832257700efe364fbfa32b371c8075491ef07f1ae993de39b60",
+   "map": "大桥",
+   "night": true,
+   "reason": "hero_death",
+   "seed": 3500,
+   "tick": 8141,
+   "time": 271.3666666666667,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "090": {
+   "ai": {
+    "plant": {
+     "control_ticks": 6180,
+     "plan_rejections": 0,
+     "plans": 274,
+     "send_errors": 3,
+     "sends": 6586
+    },
+    "zombie": {
+     "control_ticks": 6180,
+     "plan_rejections": 0,
+     "plans": 274,
+     "send_errors": 0,
+     "sends": 6430
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "df980e945425e4e1eaf1f95b237cb85a384722fac151315b6ba4219ed3e0590b",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "fc93777a08386a744da71c42ce0aa9a2d96d9a6a94fed24f3630c51bcef3a0ae",
+   "map": "铁道",
+   "night": false,
+   "reason": "hero_death",
+   "seed": 1000,
+   "tick": 12568,
+   "time": 418.93333333333334,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "093": {
+   "ai": {
+    "plant": {
+     "control_ticks": 4385,
+     "plan_rejections": 0,
+     "plans": 196,
+     "send_errors": 0,
+     "sends": 4686
+    },
+    "zombie": {
+     "control_ticks": 4385,
+     "plan_rejections": 0,
+     "plans": 196,
+     "send_errors": 0,
+     "sends": 4523
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "ccd0d3a6d26faebc13539195203110e0c5e30474434e024b63c83cf4cf468cce",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "12e0dc53c6aac4ee5eb937663e5c0f4bd5a112fb1be0dfe9a660f3bf0ef615d9",
+   "map": "铁道",
+   "night": false,
+   "reason": "hero_death",
+   "seed": 2000,
+   "tick": 8978,
+   "time": 299.26666666666665,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "096": {
+   "ai": {
+    "plant": {
+     "control_ticks": 3475,
+     "plan_rejections": 0,
+     "plans": 157,
+     "send_errors": 0,
+     "sends": 3701
+    },
+    "zombie": {
+     "control_ticks": 3475,
+     "plan_rejections": 0,
+     "plans": 157,
+     "send_errors": 0,
+     "sends": 3596
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "4d58a7b75e8f146297978d243c56fe31a79902c2678b277ab3d6f73ca8b6790d",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "b6bbcd1ce3abbfe428cb8ebc8ed596288ac5833c2c2a979deb87734d65e5e016",
+   "map": "铁道",
+   "night": false,
+   "reason": "hero_death",
+   "seed": 3000,
+   "tick": 7158,
+   "time": 238.6,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "099": {
+   "ai": {
+    "plant": {
+     "control_ticks": 7933,
+     "plan_rejections": 0,
+     "plans": 355,
+     "send_errors": 0,
+     "sends": 8531
+    },
+    "zombie": {
+     "control_ticks": 7933,
+     "plan_rejections": 0,
+     "plans": 355,
+     "send_errors": 0,
+     "sends": 8278
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "dfe089c156aa89c6c7cd61fe9c541dcada852adaa15436b2117d7c66c26a06bf",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "a81af2299273293ea693bef88171340d370e9dbd16683ee502baf6d760328cd5",
+   "map": "铁道",
+   "night": true,
+   "reason": "hero_death",
+   "seed": 1500,
+   "tick": 16254,
+   "time": 541.8,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "102": {
+   "ai": {
+    "plant": {
+     "control_ticks": 2365,
+     "plan_rejections": 0,
+     "plans": 108,
+     "send_errors": 0,
+     "sends": 2511
+    },
+    "zombie": {
+     "control_ticks": 2365,
+     "plan_rejections": 0,
+     "plans": 108,
+     "send_errors": 0,
+     "sends": 2439
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "c6f32dfb7a6b27f0291df8f0b39159c8c5b726e167541b886d6ec268edc3e6cf",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "5189b7cd73e02d8db07579e7cc770bedc298f7fa86551a79e7f36306d35bcdc2",
+   "map": "铁道",
+   "night": true,
+   "reason": "hero_death",
+   "seed": 2500,
+   "tick": 4938,
+   "time": 164.6,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "105": {
+   "ai": {
+    "plant": {
+     "control_ticks": 5890,
+     "plan_rejections": 0,
+     "plans": 262,
+     "send_errors": 0,
+     "sends": 6315
+    },
+    "zombie": {
+     "control_ticks": 5890,
+     "plan_rejections": 0,
+     "plans": 262,
+     "send_errors": 0,
+     "sends": 6127
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "30a85d482ed2d40e9c4a539f21fee1e12169d67f72a6611f7de4b2b6b0ef6b9b",
+   "hp": {
+    "plant": 38.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "1f48e37c8514c685bdfd6b37f4d0668f46737a92d21e90a01b2c6e70fee39d47",
+   "map": "铁道",
+   "night": true,
+   "reason": "hero_death",
+   "seed": 3500,
+   "tick": 11987,
+   "time": 399.56666666666666,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "108": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9182
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9044
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "cdfad7ea3c0a314d8db074610700238b1ab728e86efe61e45a98c8049c5f6934",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "eb92e675f1782bb4adb62745d98b726fcc57c4d250f31f7d8d661a20c4437d68",
+   "map": "遗迹",
+   "night": false,
+   "reason": null,
+   "seed": 1000,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "111": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9348
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9094
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "0092be4fe8aa9f749f6287d4ce9a0af9f3ecb1953710d92170856755c3202787",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "b451f195c728b7456b0e75a90bbcb55edeba05e78e500743288182bceb946ef5",
+   "map": "遗迹",
+   "night": false,
+   "reason": null,
+   "seed": 2000,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "114": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9165
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9101
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "274a12f1c1ea657d2d9ca0ed33363319a73bfffe165aae7bec6cf9f3b18c7c2d",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "8d023e9b69b7c4d1c8886d156b4ab469ee10895e4f708757f95541831544225b",
+   "map": "遗迹",
+   "night": false,
+   "reason": null,
+   "seed": 3000,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "117": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9346
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9109
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "54fa4882aa19cac275d2c0ba5e83035948009ee7d926cfc67d64cc60f7a25b12",
+   "hp": {
+    "plant": 27.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "7d3bfae88a5d55f1654e20e7699ca1d4e23d8cdbdbd258477b8a9b37debc5df0",
+   "map": "遗迹",
+   "night": true,
+   "reason": null,
+   "seed": 1500,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "120": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9420
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9045
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "2abe02dda7c64a83b31b27059c602ec73e68bfd48e02e4ad9b0de156fd27630f",
+   "hp": {
+    "plant": 27.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "82f94e24a02d1a738e3fadc893a62953ad08ef948d909d669ead44a57b95c7cf",
+   "map": "遗迹",
+   "night": true,
+   "reason": null,
+   "seed": 2500,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "123": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8149,
+     "plan_rejections": 0,
+     "plans": 367,
+     "send_errors": 0,
+     "sends": 8700
+    },
+    "zombie": {
+     "control_ticks": 8149,
+     "plan_rejections": 0,
+     "plans": 367,
+     "send_errors": 0,
+     "sends": 8579
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "2e45fee1cf5b80754e8591f3c56a4c685bccf27932f364cf909f1b5c1794c28c",
+   "hp": {
+    "plant": 0.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "d9f6654cae8c3442a779450c8cae0715fffc2c5e934250b3f3bf8855ce16a65b",
+   "map": "遗迹",
+   "night": true,
+   "reason": "hero_death",
+   "seed": 3500,
+   "tick": 16792,
+   "time": 559.7333333333333,
+   "timeout": false,
+   "winner": "zombie"
+  },
+  "126": {
+   "ai": {
+    "plant": {
+     "control_ticks": 3903,
+     "plan_rejections": 0,
+     "plans": 175,
+     "send_errors": 0,
+     "sends": 4102
+    },
+    "zombie": {
+     "control_ticks": 3903,
+     "plan_rejections": 0,
+     "plans": 175,
+     "send_errors": 0,
+     "sends": 4067
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "6bcedaccf646ef44affb9b1076dae0c0363bd7314bb012233fae18e47d4baccf",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "47c3c2aadcfa5bf2a7027eda7464146c9fb2592a0d81b52756c64d9ecabc5430",
+   "map": "绿洲",
+   "night": false,
+   "reason": "hero_death",
+   "seed": 1000,
+   "tick": 8013,
+   "time": 267.1,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "129": {
+   "ai": {
+    "plant": {
+     "control_ticks": 5943,
+     "plan_rejections": 0,
+     "plans": 264,
+     "send_errors": 0,
+     "sends": 6273
+    },
+    "zombie": {
+     "control_ticks": 5943,
+     "plan_rejections": 0,
+     "plans": 264,
+     "send_errors": 0,
+     "sends": 6200
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "1aa65412b8768c3acbb15212f8a316c44d5d3aedcac9c074fc325b17f2f22b67",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "7b3dc19f7f68ab64bcaecfc6aee2597fddf6cfa513a08d1746ccf556d397e834",
+   "map": "绿洲",
+   "night": false,
+   "reason": "hero_death",
+   "seed": 2000,
+   "tick": 12093,
+   "time": 403.1,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "132": {
+   "ai": {
+    "plant": {
+     "control_ticks": 3575,
+     "plan_rejections": 0,
+     "plans": 161,
+     "send_errors": 0,
+     "sends": 3738
+    },
+    "zombie": {
+     "control_ticks": 3575,
+     "plan_rejections": 0,
+     "plans": 161,
+     "send_errors": 0,
+     "sends": 3722
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "034928546ffd1c8a437a7d21356dcfab9ecd499b0c0a0534039f3a340a07782f",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "a2763910ac8164f62c69f072bd1f8f1126d1536b1195e286c6766547d007ff87",
+   "map": "绿洲",
+   "night": false,
+   "reason": "hero_death",
+   "seed": 3000,
+   "tick": 7358,
+   "time": 245.26666666666665,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "135": {
+   "ai": {
+    "plant": {
+     "control_ticks": 5250,
+     "plan_rejections": 0,
+     "plans": 234,
+     "send_errors": 0,
+     "sends": 5418
+    },
+    "zombie": {
+     "control_ticks": 5250,
+     "plan_rejections": 0,
+     "plans": 234,
+     "send_errors": 0,
+     "sends": 5541
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "56dd60f12a367fa6902d5d722dc4cb56737196a8dbafe2239ce6476c5c35c427",
+   "hp": {
+    "plant": 0.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "191d062edf9672da579f65b52c41155a33b5af37477d531d48cdc44afce0a7a1",
+   "map": "绿洲",
+   "night": true,
+   "reason": "hero_death",
+   "seed": 1500,
+   "tick": 10707,
+   "time": 356.9,
+   "timeout": false,
+   "winner": "zombie"
+  },
+  "138": {
+   "ai": {
+    "plant": {
+     "control_ticks": 5398,
+     "plan_rejections": 0,
+     "plans": 240,
+     "send_errors": 0,
+     "sends": 5552
+    },
+    "zombie": {
+     "control_ticks": 5398,
+     "plan_rejections": 0,
+     "plans": 240,
+     "send_errors": 0,
+     "sends": 5693
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "5b65a53f965d0b4d7dba5426441b14da78e436384c2c866f20f5dfbab402febc",
+   "hp": {
+    "plant": 0.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "95f152fe9e2d468cb2100007f083c7d77f801841a1f946db473fb3553a4936a3",
+   "map": "绿洲",
+   "night": true,
+   "reason": "hero_death",
+   "seed": 2500,
+   "tick": 11004,
+   "time": 366.8,
+   "timeout": false,
+   "winner": "zombie"
+  },
+  "141": {
+   "ai": {
+    "plant": {
+     "control_ticks": 4645,
+     "plan_rejections": 0,
+     "plans": 207,
+     "send_errors": 0,
+     "sends": 4788
+    },
+    "zombie": {
+     "control_ticks": 4645,
+     "plan_rejections": 0,
+     "plans": 207,
+     "send_errors": 0,
+     "sends": 4902
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "889ef22960bd126a294e7637ff7ccafcfee3ae2f8c87ae17d9d23c3f488e40fa",
+   "hp": {
+    "plant": 0.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "ea8d868fef24bfcbd084c351ef94c962aa8c146aefef63c947d95746f0630118",
+   "map": "绿洲",
+   "night": true,
+   "reason": "hero_death",
+   "seed": 3500,
+   "tick": 9497,
+   "time": 316.56666666666666,
+   "timeout": false,
+   "winner": "zombie"
+  },
+  "144": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8069,
+     "plan_rejections": 0,
+     "plans": 362,
+     "send_errors": 0,
+     "sends": 8744
+    },
+    "zombie": {
+     "control_ticks": 8069,
+     "plan_rejections": 0,
+     "plans": 362,
+     "send_errors": 0,
+     "sends": 8418
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "bde9811893aeeb66bf9b49e3cda9818b6ef9ef15fc8ce4b972366813bc90aa85",
+   "hp": {
+    "plant": 39.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "f51b350f8cc1ea9e2c0eaa870a30ddc5066d823bffada2f25104ad8d2816d92e",
+   "map": "小镇",
+   "night": false,
+   "reason": "hero_death",
+   "seed": 1000,
+   "tick": 16594,
+   "time": 553.1333333333333,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "147": {
+   "ai": {
+    "plant": {
+     "control_ticks": 4623,
+     "plan_rejections": 0,
+     "plans": 206,
+     "send_errors": 0,
+     "sends": 4927
+    },
+    "zombie": {
+     "control_ticks": 4623,
+     "plan_rejections": 0,
+     "plans": 206,
+     "send_errors": 0,
+     "sends": 4788
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "7abe8736de2a4ee61125578b6502958115ecaca94fb04bd5c00ca0e115d5b8d3",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "52cce2694c69ce01ed6904314d62b5070232d423a1826d3d52381f11c2bd2841",
+   "map": "小镇",
+   "night": false,
+   "reason": "hero_death",
+   "seed": 2000,
+   "tick": 9453,
+   "time": 315.1,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "150": {
+   "ai": {
+    "plant": {
+     "control_ticks": 6941,
+     "plan_rejections": 0,
+     "plans": 307,
+     "send_errors": 1,
+     "sends": 7469
+    },
+    "zombie": {
+     "control_ticks": 6941,
+     "plan_rejections": 0,
+     "plans": 307,
+     "send_errors": 0,
+     "sends": 7220
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "a1a2fdbf436a5bed933ff926a26a2367f31bb5ade438fa5ded2f23ec817c2484",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "728915196918c8bcd81c110fa2adc8719e8e15ac282ba9266cc7e32f8e861904",
+   "map": "小镇",
+   "night": false,
+   "reason": "hero_death",
+   "seed": 3000,
+   "tick": 14089,
+   "time": 469.6333333333333,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "153": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9495
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9044
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "383bf6e5b833f8e7083125acd26737b65c42022a27037c3af607196c516209fc",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "cc9cec562904dc3ec37674fef625e627448ee94594e894f83e92e205cfa226bf",
+   "map": "小镇",
+   "night": true,
+   "reason": null,
+   "seed": 1500,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "156": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9451
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9021
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "dc6915a5e93e45188ca6537d09e1de830f2199628a0826202d8772c81e0f8852",
+   "hp": {
+    "plant": 39.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "c285262396dd674f8a45c8f218ea9b4546370d5657f21f54aa0d9f431a0c5bf8",
+   "map": "小镇",
+   "night": true,
+   "reason": null,
+   "seed": 2500,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "159": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9429
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9082
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "bc1a9a009f0c1eed2ff6ea71c854725ee4f25548389d0068b113ca44d86829d9",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "d576ada01120ebef78069e27f7228428d8ad67bffa2cb9ca31dbed3b759fa190",
+   "map": "小镇",
+   "night": true,
+   "reason": null,
+   "seed": 3500,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "162": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9209
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9105
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "f3b485a09b50dbadbe04645b3147da806568926ef0f9759bc3880c76adae10ec",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "300d480609e05dc9057db8474d5e643c22e495fb6c5086ad4dfcc4f9c876172e",
+   "map": "古堡",
+   "night": false,
+   "reason": null,
+   "seed": 1000,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "165": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9366
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9108
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "ced83bb89b8498666d921bda722cd3630cf9f885a0f9c9c6c273d527763deb15",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "fc700897ea84f16a32cfa9679018f1678f30c269c66f6011777330943cb3bea4",
+   "map": "古堡",
+   "night": false,
+   "reason": null,
+   "seed": 2000,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "168": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9329
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9073
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "4f0da58d4e9f63a3e468e83fc1b91fef38d75c0281a8684bd8829b51092a22b7",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "2deba4d100ccd8262b6c9598b17c95902f818211c42edcb83f3d555a170a3a76",
+   "map": "古堡",
+   "night": false,
+   "reason": null,
+   "seed": 3000,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "171": {
+   "ai": {
+    "plant": {
+     "control_ticks": 7225,
+     "plan_rejections": 0,
+     "plans": 320,
+     "send_errors": 0,
+     "sends": 7798
+    },
+    "zombie": {
+     "control_ticks": 7225,
+     "plan_rejections": 0,
+     "plans": 320,
+     "send_errors": 0,
+     "sends": 7543
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "3f7620007453afa4ba7c68344eeb427b5c3b5cb8547c25481bc122706d0e1a50",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "3ffd3e1ee13cb4b08f765d3fa4e89e0c2caff94a311b0cc250abd7c6c1b99876",
+   "map": "古堡",
+   "night": true,
+   "reason": "hero_death",
+   "seed": 1500,
+   "tick": 14657,
+   "time": 488.56666666666666,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "174": {
+   "ai": {
+    "plant": {
+     "control_ticks": 4400,
+     "plan_rejections": 0,
+     "plans": 197,
+     "send_errors": 1,
+     "sends": 4656
+    },
+    "zombie": {
+     "control_ticks": 4400,
+     "plan_rejections": 0,
+     "plans": 197,
+     "send_errors": 0,
+     "sends": 4565
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "80a17d860f4290bd545b579bc318b8e0a279b36dad693288f5f4659fc168b45c",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "0d3bb7ce631c3dd41e18c5c1ae00bfd8f9f1f00210242c8f948588590b87e913",
+   "map": "古堡",
+   "night": true,
+   "reason": "hero_death",
+   "seed": 2500,
+   "tick": 9008,
+   "time": 300.26666666666665,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "177": {
+   "ai": {
+    "plant": {
+     "control_ticks": 5055,
+     "plan_rejections": 0,
+     "plans": 225,
+     "send_errors": 0,
+     "sends": 5351
+    },
+    "zombie": {
+     "control_ticks": 5055,
+     "plan_rejections": 0,
+     "plans": 225,
+     "send_errors": 0,
+     "sends": 5241
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "3db2614f7bad894f827593501f554c3b8776eea015cf91761eb8fcfcdaf1046e",
+   "hp": {
+    "plant": 38.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "64a86e3879b9b43c910c8d5141602cd9387732708d26315e3292cf22e6ef5357",
+   "map": "古堡",
+   "night": true,
+   "reason": "hero_death",
+   "seed": 3500,
+   "tick": 10318,
+   "time": 343.93333333333334,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "180": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9325
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 8788
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "cc736d5ba2121dcdbfe5b341946ed6888873fce37495b6cdefb3bb324b54122c",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "9db84db369ea9bc75acce57e007c46de359f15bf4e228b7156bc91d62402d5a0",
+   "map": "木船",
+   "night": false,
+   "reason": null,
+   "seed": 1000,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "183": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9323
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 8798
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "2aea6184e26c6b652e850467ef82e3ab4306008d8f9915972758306096c97b2c",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "fb964ba1c8a0df2cd5503ad17fc2695ac12a368c83757b057205a70428a93eac",
+   "map": "木船",
+   "night": false,
+   "reason": null,
+   "seed": 2000,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "186": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9325
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 8792
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "c8494bf64f83f49498be096cb0caa8fc85dd3f10bdb89ea99d4d4a528e2b13ec",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "a8f1d1915f6e6e90d1ef173f1701b6c8058ec8b0a4376bebce4b2355c520b8f7",
+   "map": "木船",
+   "night": false,
+   "reason": null,
+   "seed": 3000,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "189": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9337
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 8794
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "166a6e9745bcc554743bfce7754dea4d159a14e5b528e3137f6e284bf1d71993",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "90b84f9a08120883d0191d0973f264000c6ee96fd9081a6d75b9896cc8805df0",
+   "map": "木船",
+   "night": true,
+   "reason": null,
+   "seed": 1500,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "192": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9334
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 8800
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "ef28649bffba0da2379215f0d50e47f3578d7f185ee9559faca30dd5134e300a",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "0f897aae9f4a1370f5370e0746f2504102cc5efd4a88130cace04da8f776dc44",
+   "map": "木船",
+   "night": true,
+   "reason": null,
+   "seed": 2500,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "195": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9329
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 8796
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "8d90fb6aee06b6302178a7a6241501dbaac22a9845f1b9fd0f987179311c39df",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "f235026f5306179ac0c69c02fa31c4d6e2ca652f1b693cf5f4be1870d2b2dc08",
+   "map": "木船",
+   "night": true,
+   "reason": null,
+   "seed": 3500,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "198": {
+   "ai": {
+    "plant": {
+     "control_ticks": 7385,
+     "plan_rejections": 0,
+     "plans": 327,
+     "send_errors": 0,
+     "sends": 7918
+    },
+    "zombie": {
+     "control_ticks": 7385,
+     "plan_rejections": 0,
+     "plans": 327,
+     "send_errors": 1,
+     "sends": 7699
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "3a9f6e8aaa3f32ac72c068d31ad296bf978ba1f8f9864bd5ba7239205ec00a9b",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 0.0
+   },
+   "log_sha256": "0880cbc4b93903e997ba08eba7d1a0b817414444065ff39a475304a77fea46c3",
+   "map": "大楼",
+   "night": false,
+   "reason": "hero_death",
+   "seed": 1000,
+   "tick": 14978,
+   "time": 499.26666666666665,
+   "timeout": false,
+   "winner": "plant"
+  },
+  "201": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9344
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9006
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "7e6d7bcd27fdaea02073f25858a821008ef9dceaa38595016b8d33f07b1c35ae",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "ee9787e238b043b86c38a60fc553bbb99be1cd93e70dd07834fafaec1ca91b7f",
+   "map": "大楼",
+   "night": false,
+   "reason": null,
+   "seed": 2000,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "204": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9176
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9118
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "4d61f1f57304465f2558e7beb5a829d0e8b355c6542c0f3aa90c89ab847eb852",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "fb48d9c9dd0cdf3abdca87807f6c34d1998ea615504fe46dbf7a1423f385e36f",
+   "map": "大楼",
+   "night": false,
+   "reason": null,
+   "seed": 3000,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "207": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9389
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9128
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "4bd6a0a056600cf1900e422407c661d373c8b88000cf7a954c4994fe2c00daa3",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "f143d873701494c81f39a7dcfe8a61f135192bd2c5da067221a116308c3c501d",
+   "map": "大楼",
+   "night": true,
+   "reason": null,
+   "seed": 1500,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "210": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9302
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9111
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "798cba4da2e41d4527a0385751d94314421d258e25c7910357aa4bc17e406a3a",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "88e9b195efa50224028b69bdd49fba3312681339cc9eec24120ba3ad0a484fb3",
+   "map": "大楼",
+   "night": true,
+   "reason": null,
+   "seed": 2500,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  },
+  "213": {
+   "ai": {
+    "plant": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9360
+    },
+    "zombie": {
+     "control_ticks": 8632,
+     "plan_rejections": 0,
+     "plans": 394,
+     "send_errors": 0,
+     "sends": 9088
+    }
+   },
+   "ai_error": null,
+   "file_sha256": "c34eec656758a45751288a632002689291cebc5ef15aa8282d1359a9a90b3562",
+   "hp": {
+    "plant": 40.0,
+    "zombie": 40.0
+   },
+   "log_sha256": "bd4547d13a48df7a1d313c7499b3640dcb6750bcf34b20b348bc751111aa186f",
+   "map": "大楼",
+   "night": true,
+   "reason": null,
+   "seed": 3500,
+   "tick": 18000,
+   "time": 600.0,
+   "timeout": true,
+   "winner": null
+  }
+ },
+ "overall": {
+  "ai_errors": 0,
+  "decided": 39,
+  "draws": 0,
+  "matches": 72,
+  "max_seconds": 559.7333333333333,
+  "mean_seconds": 348.389,
+  "median_seconds": 316.56666666666666,
+  "min_seconds": 164.6,
+  "plant_ci95": [
+   0.272192,
+   0.490471
+  ],
+  "plant_win_rate": 0.375,
+  "plant_wins": 27,
+  "timeout_rate": 0.458333,
+  "timeouts": 33,
+  "zombie_ci95": [
+   0.097994,
+   0.269107
+  ],
+  "zombie_win_rate": 0.166667,
+  "zombie_wins": 12
+ },
+ "planner": "r22"
+}

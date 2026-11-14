@@ -49,11 +49,39 @@ struct AiPlanR22 {
     std::optional<bool> save;
 };
 
-class AiPlannerR22 {
+// The strategy memory a planner carries from one plan to the next (r22: Agent.mode,
+// last_pressure_at, last_enemy_hp, last_attack_at, push_until, peak_econ, peak_graves).
+// A plain value so a recorded plan can be recomputed offline from (input, memory).
+struct AiPlannerMemory {
+    std::string mode="defend";
+    double last_pressure_at=0.,last_enemy_hp=40.,last_attack_at=0.,push_until=0.;
+    int64_t peak_econ=0,peak_graves=0;
+};
+
+// A seat's strategy planner as the Session drives it: published facts in, plan dict out.
+// AiPlannerR22 is the shipped implementation and the Session's default; another planner
+// (a network) is injected with Session::set_ai_planner_factory.
+class IPlanner {
+public:
+    virtual ~IPlanner()=default;
+    virtual AiPlanR22 plan(const AiPlannerInput&)=0;
+    virtual typed72::Seat side()const=0;
+    virtual const char* name()const=0;
+    virtual AiPlannerMemory memory()const=0;
+    virtual void set_memory(const AiPlannerMemory&)=0;
+};
+
+class AiPlannerR22 final:public IPlanner {
 public:
     explicit AiPlannerR22(typed72::Seat side);
-    AiPlanR22 plan(const AiPlannerInput&);
-    typed72::Seat side()const{return side_;}
+    AiPlanR22 plan(const AiPlannerInput&)override;
+    typed72::Seat side()const override{return side_;}
+    const char* name()const override{return "r22";}
+    AiPlannerMemory memory()const override{return {mode_,last_pressure_at_,last_enemy_hp_,last_attack_at_,push_until_,peak_econ_,peak_graves_};}
+    void set_memory(const AiPlannerMemory& m)override{
+        mode_=m.mode;last_pressure_at_=m.last_pressure_at;last_enemy_hp_=m.last_enemy_hp;last_attack_at_=m.last_attack_at;
+        push_until_=m.push_until;peak_econ_=m.peak_econ;peak_graves_=m.peak_graves;
+    }
     const std::string& mode()const{return mode_;}
     // Agent.notes counters and branch hits; audit evidence only, never projected.
     const std::map<std::string,int64_t>& notes()const{return notes_;}

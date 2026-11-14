@@ -1,0 +1,4824 @@
+{
+  "checks": [
+    {
+      "evidence": {
+        "plant": {
+          "first_mismatches": [],
+          "inputs": 2246,
+          "kinds": {
+            "collect": 61,
+            "deploy": 38,
+            "move": 2146,
+            "teleport": 1
+          },
+          "layer": "r22",
+          "mismatched_ticks": 0,
+          "ticks": 2146,
+          "ticks_with_inputs": 2146,
+          "typed_log": {
+            "_kiting": 1,
+            "_reserving": 1,
+            "_salvo_wait": 104,
+            "_sun": 61,
+            "critical_recovery": 1,
+            "deploy:plant:卷心菜投手": 4,
+            "deploy:plant:双发射手": 1,
+            "deploy:plant:向日葵": 4,
+            "deploy:plant:坚果": 2,
+            "deploy:plant:花盆": 19,
+            "deploy:plant:豌豆射手": 8,
+            "econ_gate": 144,
+            "econ_rebuild": 8,
+            "escape:damage": 1,
+            "front_blocked": 1,
+            "front_fire": 13,
+            "income_floor": 2,
+            "invasion": 6,
+            "opening_fire": 2,
+            "place_fallback:shoot": 7,
+            "place_fallback:wall": 2,
+            "platform_len": 13,
+            "repel:wall": 1,
+            "route_replan:position": 23,
+            "route_replan:switch_card": 2,
+            "route_replan:turn": 26,
+            "route_replan:wait_for_change": 50,
+            "siege_hold_release": 1,
+            "siege_step": 8,
+            "siege_step_wide": 1,
+            "siege_unreachable": 2,
+            "skip:blocked_firing_lane": 420,
+            "skip:need pot": 570
+          },
+          "v_log": {
+            "_kiting": 1.0,
+            "_reserving": 1.0,
+            "_salvo_wait": 104.0,
+            "_sun": 61.0,
+            "critical_recovery": 1.0,
+            "deploy:plant:卷心菜投手": 4.0,
+            "deploy:plant:双发射手": 1.0,
+            "deploy:plant:向日葵": 4.0,
+            "deploy:plant:坚果": 2.0,
+            "deploy:plant:花盆": 19.0,
+            "deploy:plant:豌豆射手": 8.0,
+            "econ_gate": 144.0,
+            "econ_rebuild": 8.0,
+            "escape:damage": 1.0,
+            "front_blocked": 1.0,
+            "front_fire": 13.0,
+            "income_floor": 2.0,
+            "invasion": 6.0,
+            "opening_fire": 2.0,
+            "place_fallback:shoot": 7.0,
+            "place_fallback:wall": 2.0,
+            "platform_len": 13.0,
+            "repel:wall": 1.0,
+            "route_replan:position": 23.0,
+            "route_replan:switch_card": 2.0,
+            "route_replan:turn": 26.0,
+            "route_replan:wait_for_change": 50.0,
+            "siege_hold_release": 1.0,
+            "siege_step": 8.0,
+            "siege_step_wide": 1.0,
+            "siege_unreachable": 2.0,
+            "skip:blocked_firing_lane": 420.0,
+            "skip:need pot": 570.0
+          }
+        },
+        "zombie": {
+          "first_mismatches": [],
+          "inputs": 2223,
+          "kinds": {
+            "command": 1,
+            "deploy": 29,
+            "move": 2146,
+            "rally": 2,
+            "wake": 45
+          },
+          "layer": "r22",
+          "mismatched_ticks": 0,
+          "ticks": 2146,
+          "ticks_with_inputs": 2146,
+          "typed_log": {
+            "_wake_at": 145.2,
+            "dead_grave_spot": 4,
+            "deploy:zombie:撑杆跳僵尸": 7,
+            "deploy:zombie:普通僵尸": 10,
+            "deploy:zombie:脑光墓碑": 6,
+            "deploy:zombie:路障僵尸": 6,
+            "fail:脑光墓碑:地面墓碑不能放在水面，请": 4,
+            "rally": 1,
+            "release_timeout": 1,
+            "wake": 45
+          },
+          "v_log": {
+            "_wake_at": 145.2,
+            "deploy:zombie:撑杆跳僵尸": 7.0,
+            "deploy:zombie:普通僵尸": 10.0,
+            "deploy:zombie:脑光墓碑": 6.0,
+            "deploy:zombie:路障僵尸": 6.0,
+            "fail:脑光墓碑:地面墓碑不能放在水面，请": 9.0,
+            "rally": 1.0,
+            "release_timeout": 1.0,
+            "wake": 45.0
+          }
+        }
+      },
+      "id": "duel_inputs_equal",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "note": "Python Counter vs typed log, every key"
+      },
+      "id": "duel_logs_equal",
+      "passed": false
+    },
+    {
+      "evidence": {
+        "plant": {
+          "first_mismatches": [],
+          "inputs": 4606,
+          "kinds": {
+            "collect": 134,
+            "deploy": 76,
+            "move": 4396
+          },
+          "layer": "r22",
+          "mismatched_ticks": 0,
+          "ticks": 4396,
+          "ticks_with_inputs": 4396,
+          "typed_log": {
+            "_kiting": 1,
+            "_reserving": 1,
+            "_salvo_wait": 152,
+            "_sun": 134,
+            "deploy:plant:卷心菜投手": 8,
+            "deploy:plant:双发射手": 3,
+            "deploy:plant:向日葵": 5,
+            "deploy:plant:坚果": 6,
+            "deploy:plant:樱桃炸弹": 2,
+            "deploy:plant:花盆": 38,
+            "deploy:plant:豌豆射手": 14,
+            "econ_gate": 144,
+            "econ_rebuild": 8,
+            "front_blocked": 42,
+            "front_fire": 20,
+            "front_flip": 1,
+            "income_floor": 2,
+            "invasion": 100,
+            "opening_fire": 2,
+            "place_fallback:shoot": 24,
+            "place_fallback:wall": 8,
+            "platform_len": 13,
+            "repel:shoot": 1,
+            "repel:wall": 2,
+            "route_replan:position": 38,
+            "route_replan:switch_card": 3,
+            "route_replan:turn": 208,
+            "route_replan:wait_for_change": 267,
+            "salvo:ash": 4,
+            "salvo_targets": 42,
+            "salvo_value": 1423,
+            "siege_flip": 1,
+            "siege_hold_release": 4,
+            "siege_route_flip": 1,
+            "siege_step": 16,
+            "siege_unreachable": 1,
+            "skip:blocked_firing_lane": 2959,
+            "skip:need pot": 1419,
+            "walk_spend": 2
+          },
+          "v_log": {
+            "_kiting": 1.0,
+            "_reserving": 1.0,
+            "_salvo_wait": 152.0,
+            "_sun": 134.0,
+            "deploy:plant:卷心菜投手": 8.0,
+            "deploy:plant:双发射手": 3.0,
+            "deploy:plant:向日葵": 5.0,
+            "deploy:plant:坚果": 6.0,
+            "deploy:plant:樱桃炸弹": 2.0,
+            "deploy:plant:花盆": 38.0,
+            "deploy:plant:豌豆射手": 14.0,
+            "econ_gate": 144.0,
+            "econ_rebuild": 8.0,
+            "front_blocked": 42.0,
+            "front_fire": 20.0,
+            "front_flip": 1.0,
+            "income_floor": 2.0,
+            "invasion": 100.0,
+            "opening_fire": 2.0,
+            "place_fallback:shoot": 24.0,
+            "place_fallback:wall": 8.0,
+            "platform_len": 13.0,
+            "repel:shoot": 1.0,
+            "repel:wall": 2.0,
+            "route_replan:position": 38.0,
+            "route_replan:switch_card": 3.0,
+            "route_replan:turn": 208.0,
+            "route_replan:wait_for_change": 267.0,
+            "salvo:ash": 4.0,
+            "salvo_targets": 42.0,
+            "salvo_value": 1423.0,
+            "siege_flip": 1.0,
+            "siege_hold_release": 4.0,
+            "siege_route_flip": 1.0,
+            "siege_step": 16.0,
+            "siege_unreachable": 1.0,
+            "skip:blocked_firing_lane": 2959.0,
+            "skip:need pot": 1419.0,
+            "walk_spend": 2.0
+          }
+        },
+        "zombie": {
+          "first_mismatches": [
+            {
+              "time": 182.6,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 182.93333333333334,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 183.26666666666665,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 183.6,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 183.93333333333334,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 184.26666666666665,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 184.6,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 184.93333333333334,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            }
+          ],
+          "inputs": 4574,
+          "kinds": {
+            "command": 1,
+            "deploy": 59,
+            "move": 4396,
+            "rally": 2,
+            "wake": 116
+          },
+          "layer": "r22",
+          "mismatched_ticks": 106,
+          "ticks": 4396,
+          "ticks_with_inputs": 4396,
+          "typed_log": {
+            "_wake_at": 299.8,
+            "dead_grave_spot": 11,
+            "deploy:zombie:撑杆跳僵尸": 15,
+            "deploy:zombie:普通僵尸": 19,
+            "deploy:zombie:橄榄球僵尸": 2,
+            "deploy:zombie:脑光墓碑": 7,
+            "deploy:zombie:路障僵尸": 12,
+            "deploy:zombie:铁桶僵尸": 4,
+            "fail:脑光墓碑:地面墓碑不能放在水面，请": 11,
+            "rally": 1,
+            "release_timeout": 1,
+            "wake": 116
+          },
+          "v_log": {
+            "_wake_at": 299.8,
+            "deploy:zombie:坚固脑光墓碑": 106.0,
+            "deploy:zombie:撑杆跳僵尸": 14.0,
+            "deploy:zombie:普通僵尸": 18.0,
+            "deploy:zombie:脑光墓碑": 7.0,
+            "deploy:zombie:路障僵尸": 12.0,
+            "deploy:zombie:铁桶僵尸": 2.0,
+            "fail:脑光墓碑:地面墓碑不能放在水面，请": 267.0,
+            "rally": 1.0,
+            "release_timeout": 1.0,
+            "wake": 116.0
+          }
+        }
+      },
+      "id": "duel_long_inputs_equal",
+      "passed": false
+    },
+    {
+      "evidence": {
+        "note": "Python Counter vs typed log, every key"
+      },
+      "id": "duel_long_logs_equal",
+      "passed": false
+    },
+    {
+      "evidence": {
+        "plant": {
+          "first_mismatches": [],
+          "inputs": 2198,
+          "kinds": {
+            "collect": 28,
+            "deploy": 24,
+            "move": 2146
+          },
+          "layer": "r22",
+          "mismatched_ticks": 0,
+          "ticks": 2146,
+          "ticks_with_inputs": 2146,
+          "typed_log": {
+            "_kiting": 1,
+            "_reserving": 1,
+            "_salvo_wait": 4,
+            "_sun": 28,
+            "deploy:plant:卷心菜投手": 1,
+            "deploy:plant:双发射手": 1,
+            "deploy:plant:向日葵": 4,
+            "deploy:plant:坚果": 3,
+            "deploy:plant:花盆": 12,
+            "deploy:plant:豌豆射手": 3,
+            "econ_gate": 65,
+            "econ_rebuild": 4,
+            "front_fire": 4,
+            "front_flip": 1,
+            "income_floor": 2,
+            "invasion": 128,
+            "opening_fire": 4,
+            "place_fallback:shoot": 4,
+            "platform_len": 13,
+            "repel:shoot": 2,
+            "repel:wall": 3,
+            "route:ladder_down": 2,
+            "route_replan:position": 12,
+            "route_replan:turn": 2,
+            "route_replan:wait_for_change": 16,
+            "siege_step": 2,
+            "skip:blocked_firing_lane": 135,
+            "skip:need pot": 92,
+            "team_support:home:cleared": 1,
+            "team_support:home:home_danger": 5,
+            "team_support:home:local_danger": 5,
+            "team_support:home:no_ready_response": 9,
+            "team_support:home:reserve": 9
+          },
+          "v_log": {
+            "_kiting": 1.0,
+            "_reserving": 1.0,
+            "_salvo_wait": 4.0,
+            "_sun": 28.0,
+            "deploy:plant:卷心菜投手": 1.0,
+            "deploy:plant:双发射手": 1.0,
+            "deploy:plant:向日葵": 4.0,
+            "deploy:plant:坚果": 3.0,
+            "deploy:plant:花盆": 12.0,
+            "deploy:plant:豌豆射手": 3.0,
+            "econ_gate": 65.0,
+            "econ_rebuild": 4.0,
+            "front_fire": 4.0,
+            "front_flip": 1.0,
+            "income_floor": 2.0,
+            "invasion": 128.0,
+            "opening_fire": 4.0,
+            "place_fallback:shoot": 4.0,
+            "platform_len": 13.0,
+            "repel:shoot": 2.0,
+            "repel:wall": 3.0,
+            "route:ladder_down": 2.0,
+            "route_replan:position": 12.0,
+            "route_replan:turn": 2.0,
+            "route_replan:wait_for_change": 16.0,
+            "siege_step": 2.0,
+            "skip:blocked_firing_lane": 135.0,
+            "skip:need pot": 92.0,
+            "team_support:home:cleared": 1.0,
+            "team_support:home:home_danger": 5.0,
+            "team_support:home:local_danger": 5.0,
+            "team_support:home:no_ready_response": 9.0,
+            "team_support:home:reserve": 9.0
+          }
+        },
+        "plant2": {
+          "first_mismatches": [],
+          "inputs": 2146,
+          "kinds": {
+            "move": 2146
+          },
+          "layer": "r22",
+          "mismatched_ticks": 0,
+          "ticks": 2146,
+          "ticks_with_inputs": 2146,
+          "typed_log": {
+            "_kiting": 1,
+            "econ_gate": 64,
+            "front_flip": 1,
+            "income_floor": 1,
+            "invasion": 101,
+            "platform_len": 13,
+            "route:ladder_down": 4,
+            "siege_step": 3,
+            "team_support:home:home_danger": 5,
+            "team_support:home:local_danger": 5,
+            "team_support:home:no_ready_response": 1
+          },
+          "v_log": {
+            "_kiting": 1.0,
+            "econ_gate": 64.0,
+            "front_flip": 1.0,
+            "income_floor": 1.0,
+            "invasion": 101.0,
+            "platform_len": 13.0,
+            "route:ladder_down": 4.0,
+            "siege_step": 3.0,
+            "team_support:home:home_danger": 5.0,
+            "team_support:home:local_danger": 5.0,
+            "team_support:home:no_ready_response": 1.0
+          }
+        },
+        "zombie": {
+          "first_mismatches": [
+            {
+              "time": 82.26666666666667,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 82.6,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 82.93333333333334,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 83.26666666666667,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 83.6,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 83.93333333333334,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 84.26666666666667,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:铁桶僵尸"
+                    ],
+                    [
+                      "x",
+                      3240
+                    ],
+                    [
+                      "y",
+                      840
+                    ],
+                    [
+                      "grave",
+                      "u38"
+                    ],
+                    [
+                      "facing",
+                      -1
+                    ]
+                  ],
+                  "kind": "deploy",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 98.26666666666667,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      3048
+                    ],
+                    [
+                      "y",
+                      838
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            }
+          ],
+          "inputs": 2219,
+          "kinds": {
+            "command": 1,
+            "deploy": 15,
+            "move": 2146,
+            "rally": 2,
+            "wake": 55
+          },
+          "layer": "r22",
+          "mismatched_ticks": 51,
+          "ticks": 2146,
+          "ticks_with_inputs": 2146,
+          "typed_log": {
+            "_wake_at": 146.73333333333332,
+            "dead_grave_spot": 10,
+            "deploy:zombie:坚固脑光墓碑": 1,
+            "deploy:zombie:撑杆跳僵尸": 4,
+            "deploy:zombie:普通僵尸": 2,
+            "deploy:zombie:橄榄球僵尸": 1,
+            "deploy:zombie:脑光墓碑": 4,
+            "deploy:zombie:铁桶僵尸": 3,
+            "fail:脑光墓碑:地面墓碑不能放在水面，请": 10,
+            "rally": 1,
+            "release_timeout": 1,
+            "team_support:home:cleared": 3,
+            "team_support:home:no_ready_response": 8,
+            "team_support:home:reserve": 12,
+            "team_support:home:unguarded_home": 6,
+            "wake": 55
+          },
+          "v_log": {
+            "_wake_at": 146.73333333333332,
+            "deploy:zombie:坚固脑光墓碑": 51.0,
+            "deploy:zombie:撑杆跳僵尸": 3.0,
+            "deploy:zombie:普通僵尸": 2.0,
+            "deploy:zombie:脑光墓碑": 4.0,
+            "deploy:zombie:铁桶僵尸": 2.0,
+            "fail:脑光墓碑:地面墓碑不能放在水面，请": 191.0,
+            "rally": 1.0,
+            "release_timeout": 1.0,
+            "team_support:home:cleared": 3.0,
+            "team_support:home:no_ready_response": 8.0,
+            "team_support:home:reserve": 12.0,
+            "team_support:home:unguarded_home": 6.0,
+            "wake": 55.0
+          }
+        },
+        "zombie2": {
+          "first_mismatches": [
+            {
+              "time": 140.26666666666665,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 140.6,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      1
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      1
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 140.93333333333334,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      -1
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      -1
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 141.26666666666665,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 141.6,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      1
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      1
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 141.93333333333334,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      -1
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      -1
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 142.26666666666665,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 142.6,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            }
+          ],
+          "inputs": 2210,
+          "kinds": {
+            "command": 1,
+            "deploy": 6,
+            "move": 2146,
+            "rally": 2,
+            "wake": 55
+          },
+          "layer": "r22",
+          "mismatched_ticks": 30,
+          "ticks": 2146,
+          "ticks_with_inputs": 2146,
+          "typed_log": {
+            "_wake_at": 146.73333333333332,
+            "dead_grave_spot": 10,
+            "deploy:zombie:成长脑光墓碑": 2,
+            "deploy:zombie:铁桶僵尸": 4,
+            "fail:成长脑光墓碑:地面墓碑不能放在水面，请": 10,
+            "rally": 1,
+            "release_timeout": 1,
+            "team_support:home:no_ready_response": 5,
+            "team_support:home:reserve": 5,
+            "wake": 55
+          },
+          "v_log": {
+            "_wake_at": 146.73333333333332,
+            "deploy:zombie:坚固脑光墓碑": 30.0,
+            "deploy:zombie:成长脑光墓碑": 2.0,
+            "deploy:zombie:铁桶僵尸": 4.0,
+            "fail:成长脑光墓碑:地面墓碑不能放在水面，请": 138.0,
+            "rally": 1.0,
+            "release_timeout": 1.0,
+            "team_support:home:no_ready_response": 5.0,
+            "team_support:home:reserve": 5.0,
+            "wake": 55.0
+          }
+        }
+      },
+      "id": "duo_inputs_equal",
+      "passed": false
+    },
+    {
+      "evidence": {
+        "note": "Python Counter vs typed log, every key"
+      },
+      "id": "duo_logs_equal",
+      "passed": false
+    }
+  ],
+  "complete": true,
+  "completed_checks": 6,
+  "fail_count": 5,
+  "outcome": "FAIL",
+  "pass_count": 1,
+  "passed": false,
+  "planned_checks": [
+    "duel_inputs_equal",
+    "duel_logs_equal",
+    "duel_long_inputs_equal",
+    "duel_long_logs_equal",
+    "duo_inputs_equal",
+    "duo_logs_equal"
+  ],
+  "planned_count": 6,
+  "scenarios": {
+    "duel": {
+      "backend": {
+        "ai_controls": 4292,
+        "ai_observations": 4292,
+        "ai_planner_notes": {
+          "plant": {
+            "balloon_defend": 1,
+            "mode": "defend",
+            "pushes": 1,
+            "r8_siege": 9,
+            "recovering_or_low": 1,
+            "retreats": 1
+          },
+          "zombie": {
+            "grave_target": 6,
+            "mode": "defend"
+          }
+        },
+        "ai_planner_resets": 0,
+        "ai_plans": 198,
+        "ai_resets": 0,
+        "backend": "typed72",
+        "dynamic_v_work": {
+          "command_input": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 4469
+          },
+          "step": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 4500
+          }
+        },
+        "frame_description_hits": 162508,
+        "frame_descriptions": 179617,
+        "native_projections": 0,
+        "performance": {
+          "aim_candidates": 0,
+          "aim_full_scan": 0,
+          "aim_queries": 0,
+          "collision_candidates": 826,
+          "collision_queries": 34235,
+          "content_candidates": 0,
+          "content_queries": 0,
+          "destination_queries": 1,
+          "destination_rebuilds": 1,
+          "destination_reuses": 0,
+          "empty_cell_skips": 33670,
+          "find_contact_calls": 565,
+          "fixture_retention": {
+            "aliases64": 0,
+            "all_plants": 0,
+            "armor_events": 0,
+            "atlas": 3015,
+            "births": 0,
+            "calls": 0,
+            "cart_events": 0,
+            "chili_keys": 0,
+            "content_events": 0,
+            "controller_events": 0,
+            "cost_calls": 0,
+            "dispatch_calls": 0,
+            "draws64": 0,
+            "events64": 0,
+            "factory_events": 0,
+            "flight_records": 0,
+            "flights": 0,
+            "flying_draws": 0,
+            "flying_events": 0,
+            "frame_commands": 104,
+            "grenade_events": 0,
+            "held": 0,
+            "held_hits": 0,
+            "held_proxy_sources": 0,
+            "ids": 0,
+            "match_log": 4776,
+            "native_objects": 55,
+            "no_trace": true,
+            "observations": 0,
+            "phase_draws": 0,
+            "phase_events": 0,
+            "poison_events": 0,
+            "positions": 0,
+            "raw_calls": 0,
+            "release_fixtures": true,
+            "render_log": 0,
+            "room_events": 4,
+            "runtime_entities": 4,
+            "runtime_events": 156,
+            "sources": 0,
+            "spawn_events": 0,
+            "spawns64": 0,
+            "states": 0,
+            "summon_events": 0,
+            "tick_events": 0,
+            "ui_atlas": 175,
+            "units": 0
+          },
+          "flood_calls": 91050,
+          "flood_cycles": 531,
+          "flood_expansions": 28072,
+          "flood_neighbors": 2644008,
+          "full_scan_equivalent": 869311,
+          "function_profile": {},
+          "head_candidates": 0,
+          "head_exact_tests": 0,
+          "head_full_scan": 0,
+          "head_queries": 0,
+          "head_spatial_bytes": 0,
+          "index_builds": 11545,
+          "max_seeking_plants": 0,
+          "native_entities": 4,
+          "nearest_candidates": 0,
+          "nearest_full_scan": 0,
+          "nearest_queries": 0,
+          "occupied_cells": 71,
+          "plant_target_candidates": 674883,
+          "plant_target_reuses": 0,
+          "plant_target_scans": 37492,
+          "point_grid_builds": 0,
+          "point_grid_cell_changes": 0,
+          "point_grid_moves": 0,
+          "primal_knock_targets": 0,
+          "primal_knock_velocity": 0,
+          "range_cache_hits": 0,
+          "range_candidates": 0,
+          "range_cell_changes": 0,
+          "range_exact_tests": 0,
+          "range_full_scan": 0,
+          "range_grid_resets": 0,
+          "range_index_bytes": 0,
+          "range_queries": 0,
+          "seeking_plant_ticks": 0,
+          "spatial_bytes": 19712,
+          "torch_batch_reuses": 0,
+          "torch_candidates": 1193924,
+          "torch_scans": 37500,
+          "zombie_collision_candidates": 0,
+          "zombie_collision_full_scan": 0,
+          "zombie_collision_queries": 0,
+          "zombie_exact_tests": 0
+        },
+        "session": true,
+        "snapshot_projections": 4292,
+        "typed_commands": 4469,
+        "typed_steps": 4500,
+        "typed_tick": 4500,
+        "v_activity_total": {
+          "boxes": 18412905,
+          "calls": 677096
+        },
+        "v_native_tick_at_start": 0,
+        "v_native_tick_now": 0,
+        "v_tick_at_start": 0,
+        "v_tick_now": 0
+      },
+      "finished": false,
+      "mode": "duel",
+      "result": null,
+      "seats": {
+        "plant": {
+          "first_mismatches": [],
+          "inputs": 2246,
+          "kinds": {
+            "collect": 61,
+            "deploy": 38,
+            "move": 2146,
+            "teleport": 1
+          },
+          "layer": "r22",
+          "mismatched_ticks": 0,
+          "ticks": 2146,
+          "ticks_with_inputs": 2146,
+          "typed_log": {
+            "_kiting": 1,
+            "_reserving": 1,
+            "_salvo_wait": 104,
+            "_sun": 61,
+            "critical_recovery": 1,
+            "deploy:plant:卷心菜投手": 4,
+            "deploy:plant:双发射手": 1,
+            "deploy:plant:向日葵": 4,
+            "deploy:plant:坚果": 2,
+            "deploy:plant:花盆": 19,
+            "deploy:plant:豌豆射手": 8,
+            "econ_gate": 144,
+            "econ_rebuild": 8,
+            "escape:damage": 1,
+            "front_blocked": 1,
+            "front_fire": 13,
+            "income_floor": 2,
+            "invasion": 6,
+            "opening_fire": 2,
+            "place_fallback:shoot": 7,
+            "place_fallback:wall": 2,
+            "platform_len": 13,
+            "repel:wall": 1,
+            "route_replan:position": 23,
+            "route_replan:switch_card": 2,
+            "route_replan:turn": 26,
+            "route_replan:wait_for_change": 50,
+            "siege_hold_release": 1,
+            "siege_step": 8,
+            "siege_step_wide": 1,
+            "siege_unreachable": 2,
+            "skip:blocked_firing_lane": 420,
+            "skip:need pot": 570
+          },
+          "v_log": {
+            "_kiting": 1.0,
+            "_reserving": 1.0,
+            "_salvo_wait": 104.0,
+            "_sun": 61.0,
+            "critical_recovery": 1.0,
+            "deploy:plant:卷心菜投手": 4.0,
+            "deploy:plant:双发射手": 1.0,
+            "deploy:plant:向日葵": 4.0,
+            "deploy:plant:坚果": 2.0,
+            "deploy:plant:花盆": 19.0,
+            "deploy:plant:豌豆射手": 8.0,
+            "econ_gate": 144.0,
+            "econ_rebuild": 8.0,
+            "escape:damage": 1.0,
+            "front_blocked": 1.0,
+            "front_fire": 13.0,
+            "income_floor": 2.0,
+            "invasion": 6.0,
+            "opening_fire": 2.0,
+            "place_fallback:shoot": 7.0,
+            "place_fallback:wall": 2.0,
+            "platform_len": 13.0,
+            "repel:wall": 1.0,
+            "route_replan:position": 23.0,
+            "route_replan:switch_card": 2.0,
+            "route_replan:turn": 26.0,
+            "route_replan:wait_for_change": 50.0,
+            "siege_hold_release": 1.0,
+            "siege_step": 8.0,
+            "siege_step_wide": 1.0,
+            "siege_unreachable": 2.0,
+            "skip:blocked_firing_lane": 420.0,
+            "skip:need pot": 570.0
+          }
+        },
+        "zombie": {
+          "first_mismatches": [],
+          "inputs": 2223,
+          "kinds": {
+            "command": 1,
+            "deploy": 29,
+            "move": 2146,
+            "rally": 2,
+            "wake": 45
+          },
+          "layer": "r22",
+          "mismatched_ticks": 0,
+          "ticks": 2146,
+          "ticks_with_inputs": 2146,
+          "typed_log": {
+            "_wake_at": 145.2,
+            "dead_grave_spot": 4,
+            "deploy:zombie:撑杆跳僵尸": 7,
+            "deploy:zombie:普通僵尸": 10,
+            "deploy:zombie:脑光墓碑": 6,
+            "deploy:zombie:路障僵尸": 6,
+            "fail:脑光墓碑:地面墓碑不能放在水面，请": 4,
+            "rally": 1,
+            "release_timeout": 1,
+            "wake": 45
+          },
+          "v_log": {
+            "_wake_at": 145.2,
+            "deploy:zombie:撑杆跳僵尸": 7.0,
+            "deploy:zombie:普通僵尸": 10.0,
+            "deploy:zombie:脑光墓碑": 6.0,
+            "deploy:zombie:路障僵尸": 6.0,
+            "fail:脑光墓碑:地面墓碑不能放在水面，请": 9.0,
+            "rally": 1.0,
+            "release_timeout": 1.0,
+            "wake": 45.0
+          }
+        }
+      },
+      "time": 150.0
+    },
+    "duel_long": {
+      "backend": {
+        "ai_controls": 8792,
+        "ai_observations": 8792,
+        "ai_planner_notes": {
+          "plant": {
+            "econ_expand": 2,
+            "mode": "siege",
+            "pushes": 3,
+            "r8_siege": 36,
+            "retreats": 3
+          },
+          "zombie": {
+            "grave_expand": 5,
+            "grave_target": 7,
+            "mode": "defend"
+          }
+        },
+        "ai_planner_resets": 0,
+        "ai_plans": 394,
+        "ai_resets": 0,
+        "backend": "typed72",
+        "dynamic_v_work": {
+          "command_input": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 9180
+          },
+          "step": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 9000
+          }
+        },
+        "frame_description_hits": 446363,
+        "frame_descriptions": 471578,
+        "native_projections": 0,
+        "performance": {
+          "aim_candidates": 0,
+          "aim_full_scan": 0,
+          "aim_queries": 0,
+          "collision_candidates": 8517,
+          "collision_queries": 108024,
+          "content_candidates": 0,
+          "content_queries": 0,
+          "destination_queries": 1,
+          "destination_rebuilds": 1,
+          "destination_reuses": 0,
+          "empty_cell_skips": 103951,
+          "find_contact_calls": 4073,
+          "fixture_retention": {
+            "aliases64": 0,
+            "all_plants": 0,
+            "armor_events": 0,
+            "atlas": 3015,
+            "births": 0,
+            "calls": 0,
+            "cart_events": 0,
+            "chili_keys": 0,
+            "content_events": 0,
+            "controller_events": 0,
+            "cost_calls": 0,
+            "dispatch_calls": 0,
+            "draws64": 0,
+            "events64": 0,
+            "factory_events": 0,
+            "flight_records": 0,
+            "flights": 0,
+            "flying_draws": 0,
+            "flying_events": 0,
+            "frame_commands": 73,
+            "grenade_events": 0,
+            "held": 0,
+            "held_hits": 0,
+            "held_proxy_sources": 0,
+            "ids": 0,
+            "match_log": 10517,
+            "native_objects": 46,
+            "no_trace": true,
+            "observations": 0,
+            "phase_draws": 0,
+            "phase_events": 0,
+            "poison_events": 0,
+            "positions": 0,
+            "raw_calls": 0,
+            "release_fixtures": true,
+            "render_log": 0,
+            "room_events": 3,
+            "runtime_entities": 5,
+            "runtime_events": 974,
+            "sources": 0,
+            "spawn_events": 0,
+            "spawns64": 0,
+            "states": 0,
+            "summon_events": 0,
+            "tick_events": 0,
+            "ui_atlas": 175,
+            "units": 0
+          },
+          "flood_calls": 166050,
+          "flood_cycles": 1004,
+          "flood_expansions": 53072,
+          "flood_neighbors": 5015288,
+          "full_scan_equivalent": 2504564,
+          "function_profile": {},
+          "head_candidates": 0,
+          "head_exact_tests": 0,
+          "head_full_scan": 0,
+          "head_queries": 0,
+          "head_spatial_bytes": 0,
+          "index_builds": 43369,
+          "max_seeking_plants": 0,
+          "native_entities": 5,
+          "nearest_candidates": 0,
+          "nearest_full_scan": 0,
+          "nearest_queries": 0,
+          "occupied_cells": 58,
+          "plant_target_candidates": 1804671,
+          "plant_target_reuses": 0,
+          "plant_target_scans": 74992,
+          "point_grid_builds": 0,
+          "point_grid_cell_changes": 0,
+          "point_grid_moves": 0,
+          "primal_knock_targets": 0,
+          "primal_knock_velocity": 0,
+          "range_cache_hits": 0,
+          "range_candidates": 0,
+          "range_cell_changes": 0,
+          "range_exact_tests": 0,
+          "range_full_scan": 0,
+          "range_grid_resets": 0,
+          "range_index_bytes": 0,
+          "range_queries": 0,
+          "seeking_plant_ticks": 0,
+          "spatial_bytes": 21224,
+          "torch_batch_reuses": 0,
+          "torch_candidates": 3190692,
+          "torch_scans": 75000,
+          "zombie_collision_candidates": 0,
+          "zombie_collision_full_scan": 0,
+          "zombie_collision_queries": 0,
+          "zombie_exact_tests": 0
+        },
+        "session": true,
+        "snapshot_projections": 8792,
+        "typed_commands": 9180,
+        "typed_steps": 9000,
+        "typed_tick": 9000,
+        "v_activity_total": {
+          "boxes": 65234209,
+          "calls": 2310751
+        },
+        "v_native_tick_at_start": 0,
+        "v_native_tick_now": 0,
+        "v_tick_at_start": 0,
+        "v_tick_now": 0
+      },
+      "finished": false,
+      "mode": "duel",
+      "result": null,
+      "seats": {
+        "plant": {
+          "first_mismatches": [],
+          "inputs": 4606,
+          "kinds": {
+            "collect": 134,
+            "deploy": 76,
+            "move": 4396
+          },
+          "layer": "r22",
+          "mismatched_ticks": 0,
+          "ticks": 4396,
+          "ticks_with_inputs": 4396,
+          "typed_log": {
+            "_kiting": 1,
+            "_reserving": 1,
+            "_salvo_wait": 152,
+            "_sun": 134,
+            "deploy:plant:卷心菜投手": 8,
+            "deploy:plant:双发射手": 3,
+            "deploy:plant:向日葵": 5,
+            "deploy:plant:坚果": 6,
+            "deploy:plant:樱桃炸弹": 2,
+            "deploy:plant:花盆": 38,
+            "deploy:plant:豌豆射手": 14,
+            "econ_gate": 144,
+            "econ_rebuild": 8,
+            "front_blocked": 42,
+            "front_fire": 20,
+            "front_flip": 1,
+            "income_floor": 2,
+            "invasion": 100,
+            "opening_fire": 2,
+            "place_fallback:shoot": 24,
+            "place_fallback:wall": 8,
+            "platform_len": 13,
+            "repel:shoot": 1,
+            "repel:wall": 2,
+            "route_replan:position": 38,
+            "route_replan:switch_card": 3,
+            "route_replan:turn": 208,
+            "route_replan:wait_for_change": 267,
+            "salvo:ash": 4,
+            "salvo_targets": 42,
+            "salvo_value": 1423,
+            "siege_flip": 1,
+            "siege_hold_release": 4,
+            "siege_route_flip": 1,
+            "siege_step": 16,
+            "siege_unreachable": 1,
+            "skip:blocked_firing_lane": 2959,
+            "skip:need pot": 1419,
+            "walk_spend": 2
+          },
+          "v_log": {
+            "_kiting": 1.0,
+            "_reserving": 1.0,
+            "_salvo_wait": 152.0,
+            "_sun": 134.0,
+            "deploy:plant:卷心菜投手": 8.0,
+            "deploy:plant:双发射手": 3.0,
+            "deploy:plant:向日葵": 5.0,
+            "deploy:plant:坚果": 6.0,
+            "deploy:plant:樱桃炸弹": 2.0,
+            "deploy:plant:花盆": 38.0,
+            "deploy:plant:豌豆射手": 14.0,
+            "econ_gate": 144.0,
+            "econ_rebuild": 8.0,
+            "front_blocked": 42.0,
+            "front_fire": 20.0,
+            "front_flip": 1.0,
+            "income_floor": 2.0,
+            "invasion": 100.0,
+            "opening_fire": 2.0,
+            "place_fallback:shoot": 24.0,
+            "place_fallback:wall": 8.0,
+            "platform_len": 13.0,
+            "repel:shoot": 1.0,
+            "repel:wall": 2.0,
+            "route_replan:position": 38.0,
+            "route_replan:switch_card": 3.0,
+            "route_replan:turn": 208.0,
+            "route_replan:wait_for_change": 267.0,
+            "salvo:ash": 4.0,
+            "salvo_targets": 42.0,
+            "salvo_value": 1423.0,
+            "siege_flip": 1.0,
+            "siege_hold_release": 4.0,
+            "siege_route_flip": 1.0,
+            "siege_step": 16.0,
+            "siege_unreachable": 1.0,
+            "skip:blocked_firing_lane": 2959.0,
+            "skip:need pot": 1419.0,
+            "walk_spend": 2.0
+          }
+        },
+        "zombie": {
+          "first_mismatches": [
+            {
+              "time": 182.6,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 182.93333333333334,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 183.26666666666665,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 183.6,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 183.93333333333334,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 184.26666666666665,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 184.6,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 184.93333333333334,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            }
+          ],
+          "inputs": 4574,
+          "kinds": {
+            "command": 1,
+            "deploy": 59,
+            "move": 4396,
+            "rally": 2,
+            "wake": 116
+          },
+          "layer": "r22",
+          "mismatched_ticks": 106,
+          "ticks": 4396,
+          "ticks_with_inputs": 4396,
+          "typed_log": {
+            "_wake_at": 299.8,
+            "dead_grave_spot": 11,
+            "deploy:zombie:撑杆跳僵尸": 15,
+            "deploy:zombie:普通僵尸": 19,
+            "deploy:zombie:橄榄球僵尸": 2,
+            "deploy:zombie:脑光墓碑": 7,
+            "deploy:zombie:路障僵尸": 12,
+            "deploy:zombie:铁桶僵尸": 4,
+            "fail:脑光墓碑:地面墓碑不能放在水面，请": 11,
+            "rally": 1,
+            "release_timeout": 1,
+            "wake": 116
+          },
+          "v_log": {
+            "_wake_at": 299.8,
+            "deploy:zombie:坚固脑光墓碑": 106.0,
+            "deploy:zombie:撑杆跳僵尸": 14.0,
+            "deploy:zombie:普通僵尸": 18.0,
+            "deploy:zombie:脑光墓碑": 7.0,
+            "deploy:zombie:路障僵尸": 12.0,
+            "deploy:zombie:铁桶僵尸": 2.0,
+            "fail:脑光墓碑:地面墓碑不能放在水面，请": 267.0,
+            "rally": 1.0,
+            "release_timeout": 1.0,
+            "wake": 116.0
+          }
+        }
+      },
+      "time": 300.0
+    },
+    "duo": {
+      "backend": {
+        "ai_controls": 8584,
+        "ai_observations": 8584,
+        "ai_planner_notes": {
+          "plant": {
+            "mode": "defend",
+            "pushes": 2,
+            "siege_wait_econ": 2
+          },
+          "plant2": {
+            "mode": "defend",
+            "pushes": 19,
+            "siege_wait_econ": 19
+          },
+          "zombie": {
+            "grave_expand": 68,
+            "grave_target": 8,
+            "mode": "defend"
+          },
+          "zombie2": {
+            "grave_expand": 68,
+            "grave_target": 8,
+            "mode": "defend"
+          }
+        },
+        "ai_planner_resets": 0,
+        "ai_plans": 396,
+        "ai_resets": 0,
+        "backend": "typed72",
+        "dynamic_v_work": {
+          "command_input": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 8773
+          },
+          "step": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 4500
+          }
+        },
+        "frame_description_hits": 243941,
+        "frame_descriptions": 141428,
+        "native_projections": 0,
+        "performance": {
+          "aim_candidates": 0,
+          "aim_full_scan": 0,
+          "aim_queries": 0,
+          "collision_candidates": 455,
+          "collision_queries": 4231,
+          "content_candidates": 0,
+          "content_queries": 0,
+          "destination_queries": 1,
+          "destination_rebuilds": 1,
+          "destination_reuses": 0,
+          "empty_cell_skips": 3933,
+          "find_contact_calls": 298,
+          "fixture_retention": {
+            "aliases64": 0,
+            "all_plants": 0,
+            "armor_events": 0,
+            "atlas": 3015,
+            "births": 0,
+            "calls": 0,
+            "cart_events": 0,
+            "chili_keys": 0,
+            "content_events": 0,
+            "controller_events": 0,
+            "cost_calls": 0,
+            "dispatch_calls": 0,
+            "draws64": 0,
+            "events64": 0,
+            "factory_events": 0,
+            "flight_records": 0,
+            "flights": 0,
+            "flying_draws": 0,
+            "flying_events": 0,
+            "frame_commands": 44,
+            "grenade_events": 0,
+            "held": 0,
+            "held_hits": 0,
+            "held_proxy_sources": 0,
+            "ids": 0,
+            "match_log": 8986,
+            "native_objects": 27,
+            "no_trace": true,
+            "observations": 0,
+            "phase_draws": 0,
+            "phase_events": 0,
+            "poison_events": 0,
+            "positions": 0,
+            "raw_calls": 0,
+            "release_fixtures": true,
+            "render_log": 0,
+            "room_events": 6,
+            "runtime_entities": 0,
+            "runtime_events": 98,
+            "sources": 0,
+            "spawn_events": 0,
+            "spawns64": 0,
+            "states": 0,
+            "summon_events": 0,
+            "tick_events": 0,
+            "ui_atlas": 175,
+            "units": 0
+          },
+          "flood_calls": 332094,
+          "flood_cycles": 1569,
+          "flood_expansions": 84886,
+          "flood_neighbors": 7782464,
+          "full_scan_equivalent": 70589,
+          "function_profile": {},
+          "head_candidates": 0,
+          "head_exact_tests": 0,
+          "head_full_scan": 0,
+          "head_queries": 0,
+          "head_spatial_bytes": 0,
+          "index_builds": 3327,
+          "max_seeking_plants": 0,
+          "native_entities": 0,
+          "nearest_candidates": 0,
+          "nearest_full_scan": 0,
+          "nearest_queries": 0,
+          "occupied_cells": 59,
+          "plant_target_candidates": 413930,
+          "plant_target_reuses": 37500,
+          "plant_target_scans": 37500,
+          "point_grid_builds": 0,
+          "point_grid_cell_changes": 0,
+          "point_grid_moves": 0,
+          "primal_knock_targets": 0,
+          "primal_knock_velocity": 0,
+          "range_cache_hits": 0,
+          "range_candidates": 0,
+          "range_cell_changes": 0,
+          "range_exact_tests": 0,
+          "range_full_scan": 0,
+          "range_grid_resets": 0,
+          "range_index_bytes": 0,
+          "range_queries": 0,
+          "seeking_plant_ticks": 0,
+          "spatial_bytes": 18504,
+          "torch_batch_reuses": 0,
+          "torch_candidates": 895553,
+          "torch_scans": 37500,
+          "zombie_collision_candidates": 0,
+          "zombie_collision_full_scan": 0,
+          "zombie_collision_queries": 0,
+          "zombie_exact_tests": 0
+        },
+        "session": true,
+        "snapshot_projections": 8584,
+        "typed_commands": 8773,
+        "typed_steps": 4500,
+        "typed_tick": 4500,
+        "v_activity_total": {
+          "boxes": 96646722,
+          "calls": 3415515
+        },
+        "v_native_tick_at_start": 0,
+        "v_native_tick_now": 0,
+        "v_tick_at_start": 0,
+        "v_tick_now": 0
+      },
+      "finished": false,
+      "mode": "duo",
+      "result": null,
+      "seats": {
+        "plant": {
+          "first_mismatches": [],
+          "inputs": 2198,
+          "kinds": {
+            "collect": 28,
+            "deploy": 24,
+            "move": 2146
+          },
+          "layer": "r22",
+          "mismatched_ticks": 0,
+          "ticks": 2146,
+          "ticks_with_inputs": 2146,
+          "typed_log": {
+            "_kiting": 1,
+            "_reserving": 1,
+            "_salvo_wait": 4,
+            "_sun": 28,
+            "deploy:plant:卷心菜投手": 1,
+            "deploy:plant:双发射手": 1,
+            "deploy:plant:向日葵": 4,
+            "deploy:plant:坚果": 3,
+            "deploy:plant:花盆": 12,
+            "deploy:plant:豌豆射手": 3,
+            "econ_gate": 65,
+            "econ_rebuild": 4,
+            "front_fire": 4,
+            "front_flip": 1,
+            "income_floor": 2,
+            "invasion": 128,
+            "opening_fire": 4,
+            "place_fallback:shoot": 4,
+            "platform_len": 13,
+            "repel:shoot": 2,
+            "repel:wall": 3,
+            "route:ladder_down": 2,
+            "route_replan:position": 12,
+            "route_replan:turn": 2,
+            "route_replan:wait_for_change": 16,
+            "siege_step": 2,
+            "skip:blocked_firing_lane": 135,
+            "skip:need pot": 92,
+            "team_support:home:cleared": 1,
+            "team_support:home:home_danger": 5,
+            "team_support:home:local_danger": 5,
+            "team_support:home:no_ready_response": 9,
+            "team_support:home:reserve": 9
+          },
+          "v_log": {
+            "_kiting": 1.0,
+            "_reserving": 1.0,
+            "_salvo_wait": 4.0,
+            "_sun": 28.0,
+            "deploy:plant:卷心菜投手": 1.0,
+            "deploy:plant:双发射手": 1.0,
+            "deploy:plant:向日葵": 4.0,
+            "deploy:plant:坚果": 3.0,
+            "deploy:plant:花盆": 12.0,
+            "deploy:plant:豌豆射手": 3.0,
+            "econ_gate": 65.0,
+            "econ_rebuild": 4.0,
+            "front_fire": 4.0,
+            "front_flip": 1.0,
+            "income_floor": 2.0,
+            "invasion": 128.0,
+            "opening_fire": 4.0,
+            "place_fallback:shoot": 4.0,
+            "platform_len": 13.0,
+            "repel:shoot": 2.0,
+            "repel:wall": 3.0,
+            "route:ladder_down": 2.0,
+            "route_replan:position": 12.0,
+            "route_replan:turn": 2.0,
+            "route_replan:wait_for_change": 16.0,
+            "siege_step": 2.0,
+            "skip:blocked_firing_lane": 135.0,
+            "skip:need pot": 92.0,
+            "team_support:home:cleared": 1.0,
+            "team_support:home:home_danger": 5.0,
+            "team_support:home:local_danger": 5.0,
+            "team_support:home:no_ready_response": 9.0,
+            "team_support:home:reserve": 9.0
+          }
+        },
+        "plant2": {
+          "first_mismatches": [],
+          "inputs": 2146,
+          "kinds": {
+            "move": 2146
+          },
+          "layer": "r22",
+          "mismatched_ticks": 0,
+          "ticks": 2146,
+          "ticks_with_inputs": 2146,
+          "typed_log": {
+            "_kiting": 1,
+            "econ_gate": 64,
+            "front_flip": 1,
+            "income_floor": 1,
+            "invasion": 101,
+            "platform_len": 13,
+            "route:ladder_down": 4,
+            "siege_step": 3,
+            "team_support:home:home_danger": 5,
+            "team_support:home:local_danger": 5,
+            "team_support:home:no_ready_response": 1
+          },
+          "v_log": {
+            "_kiting": 1.0,
+            "econ_gate": 64.0,
+            "front_flip": 1.0,
+            "income_floor": 1.0,
+            "invasion": 101.0,
+            "platform_len": 13.0,
+            "route:ladder_down": 4.0,
+            "siege_step": 3.0,
+            "team_support:home:home_danger": 5.0,
+            "team_support:home:local_danger": 5.0,
+            "team_support:home:no_ready_response": 1.0
+          }
+        },
+        "zombie": {
+          "first_mismatches": [
+            {
+              "time": 82.26666666666667,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 82.6,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 82.93333333333334,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 83.26666666666667,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 83.6,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 83.93333333333334,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 84.26666666666667,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:铁桶僵尸"
+                    ],
+                    [
+                      "x",
+                      3240
+                    ],
+                    [
+                      "y",
+                      840
+                    ],
+                    [
+                      "grave",
+                      "u38"
+                    ],
+                    [
+                      "facing",
+                      -1
+                    ]
+                  ],
+                  "kind": "deploy",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 98.26666666666667,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      3048
+                    ],
+                    [
+                      "y",
+                      838
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            }
+          ],
+          "inputs": 2219,
+          "kinds": {
+            "command": 1,
+            "deploy": 15,
+            "move": 2146,
+            "rally": 2,
+            "wake": 55
+          },
+          "layer": "r22",
+          "mismatched_ticks": 51,
+          "ticks": 2146,
+          "ticks_with_inputs": 2146,
+          "typed_log": {
+            "_wake_at": 146.73333333333332,
+            "dead_grave_spot": 10,
+            "deploy:zombie:坚固脑光墓碑": 1,
+            "deploy:zombie:撑杆跳僵尸": 4,
+            "deploy:zombie:普通僵尸": 2,
+            "deploy:zombie:橄榄球僵尸": 1,
+            "deploy:zombie:脑光墓碑": 4,
+            "deploy:zombie:铁桶僵尸": 3,
+            "fail:脑光墓碑:地面墓碑不能放在水面，请": 10,
+            "rally": 1,
+            "release_timeout": 1,
+            "team_support:home:cleared": 3,
+            "team_support:home:no_ready_response": 8,
+            "team_support:home:reserve": 12,
+            "team_support:home:unguarded_home": 6,
+            "wake": 55
+          },
+          "v_log": {
+            "_wake_at": 146.73333333333332,
+            "deploy:zombie:坚固脑光墓碑": 51.0,
+            "deploy:zombie:撑杆跳僵尸": 3.0,
+            "deploy:zombie:普通僵尸": 2.0,
+            "deploy:zombie:脑光墓碑": 4.0,
+            "deploy:zombie:铁桶僵尸": 2.0,
+            "fail:脑光墓碑:地面墓碑不能放在水面，请": 191.0,
+            "rally": 1.0,
+            "release_timeout": 1.0,
+            "team_support:home:cleared": 3.0,
+            "team_support:home:no_ready_response": 8.0,
+            "team_support:home:reserve": 12.0,
+            "team_support:home:unguarded_home": 6.0,
+            "wake": 55.0
+          }
+        },
+        "zombie2": {
+          "first_mismatches": [
+            {
+              "time": 140.26666666666665,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 140.6,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      1
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      1
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 140.93333333333334,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      -1
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      -1
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 141.26666666666665,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 141.6,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      1
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      1
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 141.93333333333334,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      -1
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      -1
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 142.26666666666665,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            },
+            {
+              "time": 142.6,
+              "typed": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move",
+                  "result": ""
+                }
+              ],
+              "v": [
+                {
+                  "data": [
+                    [
+                      "move",
+                      0
+                    ],
+                    [
+                      "jump",
+                      false
+                    ],
+                    [
+                      "edge",
+                      false
+                    ]
+                  ],
+                  "kind": "move"
+                },
+                {
+                  "data": [
+                    [
+                      "card",
+                      "zombie:坚固脑光墓碑"
+                    ],
+                    [
+                      "x",
+                      120
+                    ],
+                    [
+                      "y",
+                      1078
+                    ],
+                    [
+                      "grave",
+                      null
+                    ],
+                    [
+                      "facing",
+                      1
+                    ]
+                  ],
+                  "kind": "deploy"
+                }
+              ]
+            }
+          ],
+          "inputs": 2210,
+          "kinds": {
+            "command": 1,
+            "deploy": 6,
+            "move": 2146,
+            "rally": 2,
+            "wake": 55
+          },
+          "layer": "r22",
+          "mismatched_ticks": 30,
+          "ticks": 2146,
+          "ticks_with_inputs": 2146,
+          "typed_log": {
+            "_wake_at": 146.73333333333332,
+            "dead_grave_spot": 10,
+            "deploy:zombie:成长脑光墓碑": 2,
+            "deploy:zombie:铁桶僵尸": 4,
+            "fail:成长脑光墓碑:地面墓碑不能放在水面，请": 10,
+            "rally": 1,
+            "release_timeout": 1,
+            "team_support:home:no_ready_response": 5,
+            "team_support:home:reserve": 5,
+            "wake": 55
+          },
+          "v_log": {
+            "_wake_at": 146.73333333333332,
+            "deploy:zombie:坚固脑光墓碑": 30.0,
+            "deploy:zombie:成长脑光墓碑": 2.0,
+            "deploy:zombie:铁桶僵尸": 4.0,
+            "fail:成长脑光墓碑:地面墓碑不能放在水面，请": 138.0,
+            "rally": 1.0,
+            "release_timeout": 1.0,
+            "team_support:home:no_ready_response": 5.0,
+            "team_support:home:reserve": 5.0,
+            "wake": 55.0
+          }
+        }
+      },
+      "time": 150.0
+    }
+  },
+  "scope": "Controller layer r22/r22: typed vs the generated V class of the same Python layer; typed drives, V shadows on the pre-tick snapshot with replayed results.",
+  "strict_check_accounting": true,
+  "unrun_checks": [],
+  "unrun_count": 0
+}

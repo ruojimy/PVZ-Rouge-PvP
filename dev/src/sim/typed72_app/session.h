@@ -53,7 +53,16 @@ public:
     // recovering is the still-V controller's Recovery flag (boundary input).
     virtual AiPlanR22 ai_plan(typed72::Seat owner,bool recovering)=0;
     virtual void reset_ai_planner(typed72::Seat owner)=0;
-    virtual const AiPlannerR22* ai_planner(typed72::Seat owner)const=0;   // audit evidence
+    virtual const AiPlannerR22* ai_planner(typed72::Seat owner)const=0;   // audit evidence; null for a non-r22 planner
+    // Planner injection (AI research tools; the game never calls these). The factory builds the
+    // planner of an owner seat the next time one is needed (first ai_plan, or the first after
+    // reset_ai_planner); with no factory, or when it returns null, the seat gets AiPlannerR22.
+    // The observer is called after every ai_plan with the input, the planner's memory before
+    // the call and the plan. Neither is set by default, which leaves ai_plan exactly as before.
+    using AiPlannerFactory=std::function<std::unique_ptr<IPlanner>(typed72::Seat owner,typed72::Seat side)>;
+    using AiPlanObserver=std::function<void(typed72::Seat owner,const AiPlannerInput&,const AiPlannerMemory& before,const AiPlanR22&)>;
+    virtual void set_ai_planner_factory(AiPlannerFactory)=0;
+    virtual void set_ai_plan_observer(AiPlanObserver)=0;
     // The r22 controller port, one layer at a time ("v7"/"z7"; later layers follow).
     // Runs on a view frozen at call time, with the owner's last observation (ai_observe)
     // and last plan (ai_plan); every input goes out through send (AISeat.send ->

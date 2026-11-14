@@ -1,0 +1,105 @@
+[
+  {
+    "id": "005",
+    "same": true,
+    "before_mib": 198.01171875,
+    "after_mib": 198.01953125,
+    "changed_counts": {
+      "cost_calls": [
+        3,
+        0
+      ],
+      "draws64": [
+        40007,
+        0
+      ],
+      "grenade_events": [
+        7,
+        0
+      ]
+    }
+  },
+  {
+    "id": "050",
+    "same": true,
+    "before_mib": 197.6953125,
+    "after_mib": 197.69921875,
+    "changed_counts": {
+      "events64": [
+        16,
+        0
+      ]
+    }
+  },
+  {
+    "id": "100",
+    "same": true,
+    "before_mib": 198.09375,
+    "after_mib": 198.08984375,
+    "changed_counts": {
+      "cost_calls": [
+        23,
+        0
+      ],
+      "draws64": [
+        61091,
+        0
+      ],
+      "grenade_events": [
+        18,
+        0
+      ]
+    }
+  },
+  {
+    "id": "130",
+    "same": true,
+    "before_mib": 198.04296875,
+    "after_mib": 197.8515625,
+    "changed_counts": {
+      "cost_calls": [
+        4,
+        0
+      ],
+      "draws64": [
+        195339,
+        0
+      ],
+      "grenade_events": [
+        10,
+        0
+      ]
+    }
+  },
+  {
+    "id": "150",
+    "same": true,
+    "before_mib": 198.3125,
+    "after_mib": 198.1171875,
+    "changed_counts": {
+      "cost_calls": [
+        6,
+        0
+      ],
+      "draws64": [
+        122764,
+        0
+      ],
+      "events64": [
+        4,
+        0
+      ],
+      "grenade_events": [
+        15,
+        0
+      ]
+    }
+  },
+  {
+    "id": "200",
+    "same": true,
+    "before_mib": 197.7421875,
+    "after_mib": 197.73828125,
+    "changed_counts": {}
+  }
+]

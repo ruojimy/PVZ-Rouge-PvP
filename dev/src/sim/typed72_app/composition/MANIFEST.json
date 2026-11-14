@@ -3,7 +3,7 @@
  "production_observers_version": 1,
  "body_sha256_encoding": "UTF-8, CRLF normalized to LF, including body braces",
  "legacy_strip": {
-  "source_sha256": "fd60a2545a20231311e16597dea7ed907353410111e2210f1285b74aa7507f25",
+  "source_sha256": "19597600f3623a13ef5d645caa21bd50bd5ce0a0dd1771421526046bf25f157b",
   "replacement": "null C++ statement"
  },
  "files": {
@@ -427,16 +427,19 @@
   },
   "probes/content_zombies64_probe.cpp": {
    "source_sha256": "bce256ae4f4fd84b0507fc0c62f0a414a89f1338c19dd9ff1c9abd58eb1326c8",
-   "generated_sha256": "73583c1689f2fb9724ff944af0302b15c91a3dcd6231362eb616ec6d366d295a",
+   "generated_sha256": "e5c86a11b5f89357f14d82c87009d7d42b127e32d5c759b2652b63b14188530e",
    "removed": [
+    "events64.push_back({name,fields});",
     "before(\"zombie64_event\");",
     "after(\"zombie64_event\");",
     "before(\"zombie64_alias\");",
     "after(\"zombie64_alias\");",
+    "draws64.push_back(index(unit));",
     "before(\"zombie64_draw\");",
     "after(\"zombie64_draw\");",
     "before(\"zombie64_sync\");",
     "after(\"zombie64_sync\");",
+    "spawns64.push_back({\"zombie:\"+name,\"zombie\",point.x,point.y,facing,true,fields,battle.spawn_ban_exempt, world.active?J(seat_name(world.active->owner)):J(nullptr",
     "before(\"zombie64_spawn\");",
     "after(\"zombie64_spawn\");"
    ],
@@ -747,10 +750,12 @@
   },
   "probes/grenadiers_probe.cpp": {
    "source_sha256": "02b0ebfe94217c788f6f41bc6ff092e05213ddcb39005023d26b0e72fcb75bc1",
-   "generated_sha256": "c2eb48a4df8a880650b0d0a1a8203f7ad5943180108176742c993a6cdd6601bf",
+   "generated_sha256": "4bc10916bc0fb735f8c8ca5ec265df27f444d12e0bec5f2f8b26732f05afd3e1",
    "removed": [
+    "cost_calls.push_back({owner?J(seat_name(*owner)):J(nullptr),key});",
     "before(\"grenade_cost\");",
     "after(\"grenade_cost\");",
+    "grenade_events.push_back({name,fields});",
     "before(\"grenade_event\");",
     "after(\"grenade_event\");"
    ],
@@ -819,12 +824,15 @@
   },
   "probes/native_status_probe.cpp": {
    "source_sha256": "c7bfc89e019ab86e7e3b8fe388a05e7d0af30286c0d6f8a31a5399efe7425cbc",
-   "generated_sha256": "29e70ab6a6a816ff988215dbefd8febc9e7ffa39cf1ba6379312e79725fc4bf3",
+   "generated_sha256": "e829a557378536f7311044d7a4b1ab72ba906a791fe25c6183cf11cc79070cf6",
    "removed": [
+    "poison_events.push_back({\"damage\",nullable(entity),amount,level});",
     "before(\"poison_damage\");",
     "after(\"poison_damage\");",
+    "poison_events.push_back({\"break\",index(unit)});",
     "before(\"poison_break\");",
     "after(\"poison_break\");",
+    "poison_events.push_back({\"detach\",index(unit)});",
     "before(\"poison_detach\");",
     "after(\"poison_detach\");"
    ],
@@ -1206,8 +1214,8 @@
    "production_changes": []
   },
   "match_probe.cpp": {
-   "source_sha256": "a919e0cf6db76469e6a141f96c67aca892a3fa0182471a36b543eb3bd2efa2ec",
-   "generated_sha256": "90062810d37ecb57d717ed978e8415c6dbde77a9d6f41c774046ae1b40758ded",
+   "source_sha256": "8ddfee07aecbab00f8e02dc96a594b61d96f6559db4d8ccf567c7346fe60ca18",
+   "generated_sha256": "4a780e04dc3af4f5368f8be22d4e3d1ed1f249aa68cde01e4e4d246cd23a009b",
    "removed": [
     "spawn_events.push_back({\"black_armor\",name});",
     "spawn_events.push_back({\"spawn_blocked\",card});"

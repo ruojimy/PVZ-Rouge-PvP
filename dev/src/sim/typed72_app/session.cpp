@@ -132,12 +132,18 @@ public:
         AiPlannerInput in;in.side=side;in.time=m.world.time;in.width=m.battle.world_width.get();
         in.me=facts(owner);in.foe=facts(enemy);in.deck=m.deployment.players[i].deck;in.units=units;in.recovering=recovering;
         auto& slot=ai_planners_[i];
-        if(!slot)slot.emplace(side);
+        if(!slot&&planner_factory_)slot=planner_factory_(owner,side);
+        if(!slot)slot=std::make_unique<AiPlannerR22>(side);
+        std::optional<AiPlannerMemory> before;
+        if(plan_observer_)before=slot->memory();
         auto plan=slot->plan(in);
+        if(plan_observer_)plan_observer_(owner,in,*before,plan);
         last_plan_[i]=plan_dict(plan);
         return plan;
     }
     void reset_ai_planner(typed72::Seat owner)override{ai_planners_[ai_owner_index(owner)].reset();}
+    void set_ai_planner_factory(AiPlannerFactory factory)override{planner_factory_=std::move(factory);}
+    void set_ai_plan_observer(AiPlanObserver observer)override{plan_observer_=std::move(observer);}
     // ------------------------------------------------------------ r22 controller
     const std::map<std::string,double>& ai_control(typed72::Seat owner,const std::string& layer,AiSend send)override{
         const auto i=ai_owner_index(owner);const Seat side=team_of(owner);
@@ -235,7 +241,7 @@ public:
     }
 
     const AiPlannerR22* ai_planner(typed72::Seat owner)const override{
-        const auto& slot=ai_planners_[ai_owner_index(owner)];return slot?&*slot:nullptr;
+        return dynamic_cast<const AiPlannerR22*>(ai_planners_[ai_owner_index(owner)].get());
     }
     bool finished()const override{return match_->room.result.has_value();}
     nlohmann::json result_json()const override{
@@ -360,7 +366,9 @@ private:
     std::optional<NativeBirthScope> births_;
     bool initial_map_night_=false;
     std::array<std::optional<AiObserver>,4> ai_observers_;
-    std::array<std::optional<AiPlannerR22>,4> ai_planners_;
+    std::array<std::unique_ptr<IPlanner>,4> ai_planners_;
+    AiPlannerFactory planner_factory_;
+    AiPlanObserver plan_observer_;
     std::array<std::optional<AiObservation>,4> last_observation_;
     std::array<std::optional<ai::PlanDict>,4> last_plan_;
     struct ControllerSlot{std::string layer;std::unique_ptr<ai::Controller> controller;AiSend send;bool bound=false;};

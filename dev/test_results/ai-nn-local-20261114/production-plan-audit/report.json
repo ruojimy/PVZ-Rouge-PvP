@@ -1,0 +1,3679 @@
+{
+  "branch_hits": {
+    "balloon_defend": 72.0,
+    "econ_emergency": 146.0,
+    "econ_expand": 136.0,
+    "grave_expand": 240.0,
+    "grave_late": 36.0,
+    "pushes": 43.0,
+    "r8_siege": 154.0,
+    "recovering_or_low": 76.0,
+    "retreats": 2.0,
+    "siege_wait_econ": 39.0,
+    "zombie_balloon_defend": 8.0,
+    "zombie_rich_quotas": 11.0
+  },
+  "branches_not_exercised": [
+    "zombie_pressure"
+  ],
+  "checks": [
+    {
+      "evidence": {
+        "plant": {
+          "compared": 108,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "defend": 48,
+            "siege": 60
+          },
+          "plan_rejections": 0
+        },
+        "zombie": {
+          "compared": 108,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "-": 108
+          },
+          "plan_rejections": 0
+        }
+      },
+      "id": "duel_plans_equal",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "ai_controls": 0,
+        "ai_observations": 4734,
+        "ai_planner_notes": {
+          "plant": {
+            "balloon_defend": 10,
+            "mode": "defend",
+            "pushes": 1,
+            "r8_siege": 9,
+            "recovering_or_low": 10,
+            "retreats": 1
+          },
+          "zombie": {
+            "grave_expand": 2,
+            "grave_target": 6,
+            "mode": "defend"
+          }
+        },
+        "ai_planner_resets": 2,
+        "ai_plans": 216,
+        "ai_resets": 2,
+        "backend": "typed72",
+        "dynamic_v_work": {
+          "command_input": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 4935
+          },
+          "step": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 4942
+          }
+        },
+        "frame_description_hits": 197803,
+        "frame_descriptions": 209111,
+        "native_projections": 0,
+        "performance": {
+          "aim_candidates": 0,
+          "aim_full_scan": 0,
+          "aim_queries": 0,
+          "collision_candidates": 1643,
+          "collision_queries": 46010,
+          "content_candidates": 0,
+          "content_queries": 0,
+          "destination_queries": 1,
+          "destination_rebuilds": 1,
+          "destination_reuses": 0,
+          "empty_cell_skips": 45040,
+          "find_contact_calls": 970,
+          "fixture_retention": {
+            "aliases64": 0,
+            "all_plants": 0,
+            "armor_events": 0,
+            "atlas": 3015,
+            "births": 0,
+            "calls": 0,
+            "cart_events": 0,
+            "chili_keys": 0,
+            "content_events": 0,
+            "controller_events": 0,
+            "cost_calls": 0,
+            "dispatch_calls": 0,
+            "draws64": 0,
+            "events64": 0,
+            "factory_events": 0,
+            "flight_records": 0,
+            "flights": 0,
+            "flying_draws": 0,
+            "flying_events": 0,
+            "frame_commands": 96,
+            "grenade_events": 0,
+            "held": 0,
+            "held_hits": 0,
+            "held_proxy_sources": 0,
+            "ids": 0,
+            "match_log": 5293,
+            "native_objects": 52,
+            "no_trace": true,
+            "observations": 0,
+            "phase_draws": 0,
+            "phase_events": 0,
+            "poison_events": 0,
+            "positions": 0,
+            "raw_calls": 0,
+            "release_fixtures": true,
+            "render_log": 0,
+            "room_events": 6,
+            "runtime_entities": 2,
+            "runtime_events": 177,
+            "sources": 0,
+            "spawn_events": 0,
+            "spawns64": 0,
+            "states": 0,
+            "summon_events": 0,
+            "tick_events": 0,
+            "ui_atlas": 175,
+            "units": 0
+          },
+          "flood_calls": 98416,
+          "flood_cycles": 577,
+          "flood_expansions": 30527,
+          "flood_neighbors": 2872268,
+          "full_scan_equivalent": 1234394,
+          "function_profile": {},
+          "head_candidates": 0,
+          "head_exact_tests": 0,
+          "head_full_scan": 0,
+          "head_queries": 0,
+          "head_spatial_bytes": 0,
+          "index_builds": 15235,
+          "max_seeking_plants": 0,
+          "native_entities": 2,
+          "nearest_candidates": 0,
+          "nearest_full_scan": 0,
+          "nearest_queries": 0,
+          "occupied_cells": 66,
+          "plant_target_candidates": 765448,
+          "plant_target_reuses": 0,
+          "plant_target_scans": 41175,
+          "point_grid_builds": 0,
+          "point_grid_cell_changes": 0,
+          "point_grid_moves": 0,
+          "primal_knock_targets": 0,
+          "primal_knock_velocity": 0,
+          "range_cache_hits": 0,
+          "range_candidates": 0,
+          "range_cell_changes": 0,
+          "range_exact_tests": 0,
+          "range_full_scan": 0,
+          "range_grid_resets": 0,
+          "range_index_bytes": 0,
+          "range_queries": 0,
+          "seeking_plant_ticks": 0,
+          "spatial_bytes": 19784,
+          "torch_batch_reuses": 0,
+          "torch_candidates": 1398432,
+          "torch_scans": 41183,
+          "zombie_collision_candidates": 0,
+          "zombie_collision_full_scan": 0,
+          "zombie_collision_queries": 0,
+          "zombie_exact_tests": 0
+        },
+        "session": true,
+        "snapshot_projections": 4734,
+        "typed_commands": 4935,
+        "typed_steps": 4942,
+        "typed_tick": 4942,
+        "v_activity_total": {
+          "boxes": 24630423,
+          "calls": 982941
+        },
+        "v_native_tick_at_start": 0,
+        "v_native_tick_now": 0,
+        "v_tick_at_start": 0,
+        "v_tick_now": 0
+      },
+      "id": "duel_typed_path",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "plant": {
+          "compared": 301,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "defend": 86,
+            "siege": 215
+          },
+          "plan_rejections": 0
+        },
+        "zombie": {
+          "compared": 301,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "-": 301
+          },
+          "plan_rejections": 0
+        }
+      },
+      "id": "duel_long_plans_equal",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "ai_controls": 0,
+        "ai_observations": 13592,
+        "ai_planner_notes": {
+          "plant": {
+            "econ_emergency": 24,
+            "econ_expand": 77,
+            "mode": "defend",
+            "pushes": 1,
+            "r8_siege": 111,
+            "retreats": 1
+          },
+          "zombie": {
+            "grave_expand": 1,
+            "grave_late": 36,
+            "grave_target": 7,
+            "mode": "defend"
+          }
+        },
+        "ai_planner_resets": 2,
+        "ai_plans": 602,
+        "ai_resets": 2,
+        "backend": "typed72",
+        "dynamic_v_work": {
+          "command_input": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 14169
+          },
+          "step": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 13800
+          }
+        },
+        "frame_description_hits": 845413,
+        "frame_descriptions": 827833,
+        "native_projections": 0,
+        "performance": {
+          "aim_candidates": 0,
+          "aim_full_scan": 0,
+          "aim_queries": 0,
+          "collision_candidates": 18066,
+          "collision_queries": 223740,
+          "content_candidates": 0,
+          "content_queries": 0,
+          "destination_queries": 1,
+          "destination_rebuilds": 1,
+          "destination_reuses": 0,
+          "empty_cell_skips": 215493,
+          "find_contact_calls": 8247,
+          "fixture_retention": {
+            "aliases64": 0,
+            "all_plants": 0,
+            "armor_events": 0,
+            "atlas": 3015,
+            "births": 0,
+            "calls": 0,
+            "cart_events": 0,
+            "chili_keys": 0,
+            "content_events": 0,
+            "controller_events": 0,
+            "cost_calls": 0,
+            "dispatch_calls": 0,
+            "draws64": 0,
+            "events64": 0,
+            "factory_events": 0,
+            "flight_records": 0,
+            "flights": 0,
+            "flying_draws": 0,
+            "flying_events": 0,
+            "frame_commands": 86,
+            "grenade_events": 0,
+            "held": 0,
+            "held_hits": 0,
+            "held_proxy_sources": 0,
+            "ids": 0,
+            "match_log": 15777,
+            "native_objects": 42,
+            "no_trace": true,
+            "observations": 0,
+            "phase_draws": 0,
+            "phase_events": 0,
+            "poison_events": 0,
+            "positions": 0,
+            "raw_calls": 0,
+            "release_fixtures": true,
+            "render_log": 0,
+            "room_events": 5,
+            "runtime_entities": 0,
+            "runtime_events": 1063,
+            "sources": 0,
+            "spawn_events": 0,
+            "spawns64": 0,
+            "states": 0,
+            "summon_events": 0,
+            "tick_events": 0,
+            "ui_atlas": 175,
+            "units": 0
+          },
+          "flood_calls": 246050,
+          "flood_cycles": 1490,
+          "flood_expansions": 78439,
+          "flood_neighbors": 7454948,
+          "full_scan_equivalent": 5709598,
+          "function_profile": {},
+          "head_candidates": 0,
+          "head_exact_tests": 0,
+          "head_full_scan": 0,
+          "head_queries": 0,
+          "head_spatial_bytes": 0,
+          "index_builds": 77315,
+          "max_seeking_plants": 0,
+          "native_entities": 0,
+          "nearest_candidates": 0,
+          "nearest_full_scan": 0,
+          "nearest_queries": 0,
+          "occupied_cells": 48,
+          "plant_target_candidates": 3077570,
+          "plant_target_reuses": 0,
+          "plant_target_scans": 114992,
+          "point_grid_builds": 0,
+          "point_grid_cell_changes": 0,
+          "point_grid_moves": 0,
+          "primal_knock_targets": 0,
+          "primal_knock_velocity": 0,
+          "range_cache_hits": 0,
+          "range_candidates": 0,
+          "range_cell_changes": 0,
+          "range_exact_tests": 0,
+          "range_full_scan": 0,
+          "range_grid_resets": 0,
+          "range_index_bytes": 0,
+          "range_queries": 0,
+          "seeking_plant_ticks": 0,
+          "spatial_bytes": 22384,
+          "torch_batch_reuses": 0,
+          "torch_candidates": 5647477,
+          "torch_scans": 115000,
+          "zombie_collision_candidates": 0,
+          "zombie_collision_full_scan": 0,
+          "zombie_collision_queries": 0,
+          "zombie_exact_tests": 0
+        },
+        "session": true,
+        "snapshot_projections": 13592,
+        "typed_commands": 14169,
+        "typed_steps": 13800,
+        "typed_tick": 13800,
+        "v_activity_total": {
+          "boxes": 111465437,
+          "calls": 4124045
+        },
+        "v_native_tick_at_start": 0,
+        "v_native_tick_now": 0,
+        "v_tick_at_start": 0,
+        "v_tick_now": 0
+      },
+      "id": "duel_long_typed_path",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "plant": {
+          "compared": 70,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "defend": 70
+          },
+          "plan_rejections": 0
+        },
+        "zombie": {
+          "compared": 70,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "-": 70
+          },
+          "plan_rejections": 0
+        }
+      },
+      "id": "duel_rich_plans_equal",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "ai_controls": 0,
+        "ai_observations": 2992,
+        "ai_planner_notes": {
+          "plant": {
+            "balloon_defend": 3,
+            "econ_emergency": 18,
+            "econ_expand": 33,
+            "mode": "defend",
+            "pushes": 5,
+            "recovering_or_low": 3,
+            "siege_wait_econ": 5
+          },
+          "zombie": {
+            "grave_expand": 53,
+            "grave_target": 8,
+            "mode": "defend",
+            "zombie_rich_quotas": 11
+          }
+        },
+        "ai_planner_resets": 2,
+        "ai_plans": 140,
+        "ai_resets": 2,
+        "backend": "typed72",
+        "dynamic_v_work": {
+          "command_input": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 3111
+          },
+          "step": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 3201
+          }
+        },
+        "frame_description_hits": 113785,
+        "frame_descriptions": 147045,
+        "native_projections": 0,
+        "performance": {
+          "aim_candidates": 0,
+          "aim_full_scan": 0,
+          "aim_queries": 0,
+          "collision_candidates": 397,
+          "collision_queries": 8968,
+          "content_candidates": 0,
+          "content_queries": 0,
+          "destination_queries": 1,
+          "destination_rebuilds": 1,
+          "destination_reuses": 0,
+          "empty_cell_skips": 8735,
+          "find_contact_calls": 233,
+          "fixture_retention": {
+            "aliases64": 0,
+            "all_plants": 0,
+            "armor_events": 0,
+            "atlas": 3015,
+            "births": 0,
+            "calls": 0,
+            "cart_events": 0,
+            "chili_keys": 0,
+            "content_events": 0,
+            "controller_events": 0,
+            "cost_calls": 0,
+            "dispatch_calls": 0,
+            "draws64": 0,
+            "events64": 0,
+            "factory_events": 0,
+            "flight_records": 0,
+            "flights": 0,
+            "flying_draws": 0,
+            "flying_events": 0,
+            "frame_commands": 53,
+            "grenade_events": 0,
+            "held": 0,
+            "held_hits": 0,
+            "held_proxy_sources": 0,
+            "ids": 0,
+            "match_log": 3384,
+            "native_objects": 26,
+            "no_trace": true,
+            "observations": 0,
+            "phase_draws": 0,
+            "phase_events": 0,
+            "poison_events": 0,
+            "positions": 0,
+            "raw_calls": 0,
+            "release_fixtures": true,
+            "render_log": 0,
+            "room_events": 6,
+            "runtime_entities": 0,
+            "runtime_events": 109,
+            "sources": 0,
+            "spawn_events": 0,
+            "spawns64": 0,
+            "states": 0,
+            "summon_events": 0,
+            "tick_events": 0,
+            "ui_atlas": 175,
+            "units": 0
+          },
+          "flood_calls": 62466,
+          "flood_cycles": 367,
+          "flood_expansions": 19293,
+          "flood_neighbors": 1819640,
+          "full_scan_equivalent": 157497,
+          "function_profile": {},
+          "head_candidates": 0,
+          "head_exact_tests": 0,
+          "head_full_scan": 0,
+          "head_queries": 0,
+          "head_spatial_bytes": 0,
+          "index_builds": 6215,
+          "max_seeking_plants": 0,
+          "native_entities": 0,
+          "nearest_candidates": 0,
+          "nearest_full_scan": 0,
+          "nearest_queries": 0,
+          "occupied_cells": 67,
+          "plant_target_candidates": 261294,
+          "plant_target_reuses": 0,
+          "plant_target_scans": 26667,
+          "point_grid_builds": 0,
+          "point_grid_cell_changes": 0,
+          "point_grid_moves": 0,
+          "primal_knock_targets": 0,
+          "primal_knock_velocity": 0,
+          "range_cache_hits": 0,
+          "range_candidates": 0,
+          "range_cell_changes": 0,
+          "range_exact_tests": 0,
+          "range_full_scan": 0,
+          "range_grid_resets": 0,
+          "range_index_bytes": 0,
+          "range_queries": 0,
+          "seeking_plant_ticks": 0,
+          "spatial_bytes": 19648,
+          "torch_batch_reuses": 0,
+          "torch_candidates": 757010,
+          "torch_scans": 26675,
+          "zombie_collision_candidates": 0,
+          "zombie_collision_full_scan": 0,
+          "zombie_collision_queries": 0,
+          "zombie_exact_tests": 0
+        },
+        "session": true,
+        "snapshot_projections": 2992,
+        "typed_commands": 3111,
+        "typed_steps": 3201,
+        "typed_tick": 3201,
+        "v_activity_total": {
+          "boxes": 126835902,
+          "calls": 4841019
+        },
+        "v_native_tick_at_start": 0,
+        "v_native_tick_now": 0,
+        "v_tick_at_start": 0,
+        "v_tick_now": 0
+      },
+      "id": "duel_rich_typed_path",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "plant": {
+          "compared": 40,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "defend": 37,
+            "siege": 3
+          },
+          "plan_rejections": 0
+        },
+        "zombie": {
+          "compared": 40,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "-": 32,
+            "defend": 8
+          },
+          "plan_rejections": 0
+        }
+      },
+      "id": "duel_low_zombie_plans_equal",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "ai_controls": 0,
+        "ai_observations": 1616,
+        "ai_planner_notes": {
+          "plant": {
+            "econ_expand": 2,
+            "mode": "siege",
+            "pushes": 1
+          },
+          "zombie": {
+            "grave_target": 4,
+            "mode": "defend",
+            "zombie_balloon_defend": 8
+          }
+        },
+        "ai_planner_resets": 2,
+        "ai_plans": 80,
+        "ai_resets": 2,
+        "backend": "typed72",
+        "dynamic_v_work": {
+          "command_input": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 1669
+          },
+          "step": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 1800
+          }
+        },
+        "frame_description_hits": 14768,
+        "frame_descriptions": 25726,
+        "native_projections": 0,
+        "performance": {
+          "aim_candidates": 0,
+          "aim_full_scan": 0,
+          "aim_queries": 0,
+          "collision_candidates": 0,
+          "collision_queries": 0,
+          "content_candidates": 0,
+          "content_queries": 0,
+          "destination_queries": 1,
+          "destination_rebuilds": 1,
+          "destination_reuses": 0,
+          "empty_cell_skips": 0,
+          "find_contact_calls": 0,
+          "fixture_retention": {
+            "aliases64": 0,
+            "all_plants": 0,
+            "armor_events": 0,
+            "atlas": 3015,
+            "births": 0,
+            "calls": 0,
+            "cart_events": 0,
+            "chili_keys": 0,
+            "content_events": 0,
+            "controller_events": 0,
+            "cost_calls": 0,
+            "dispatch_calls": 0,
+            "draws64": 0,
+            "events64": 0,
+            "factory_events": 0,
+            "flight_records": 0,
+            "flights": 0,
+            "flying_draws": 0,
+            "flying_events": 0,
+            "frame_commands": 26,
+            "grenade_events": 0,
+            "held": 0,
+            "held_hits": 0,
+            "held_proxy_sources": 0,
+            "ids": 0,
+            "match_log": 1778,
+            "native_objects": 23,
+            "no_trace": true,
+            "observations": 0,
+            "phase_draws": 0,
+            "phase_events": 0,
+            "poison_events": 0,
+            "positions": 0,
+            "raw_calls": 0,
+            "release_fixtures": true,
+            "render_log": 0,
+            "room_events": 3,
+            "runtime_entities": 0,
+            "runtime_events": 59,
+            "sources": 0,
+            "spawn_events": 0,
+            "spawns64": 0,
+            "states": 0,
+            "summon_events": 0,
+            "tick_events": 0,
+            "ui_atlas": 175,
+            "units": 0
+          },
+          "flood_calls": 46034,
+          "flood_cycles": 244,
+          "flood_expansions": 13069,
+          "flood_neighbors": 1201380,
+          "full_scan_equivalent": 0,
+          "function_profile": {},
+          "head_candidates": 0,
+          "head_exact_tests": 0,
+          "head_full_scan": 0,
+          "head_queries": 0,
+          "head_spatial_bytes": 0,
+          "index_builds": 0,
+          "max_seeking_plants": 0,
+          "native_entities": 0,
+          "nearest_candidates": 0,
+          "nearest_full_scan": 0,
+          "nearest_queries": 0,
+          "occupied_cells": 0,
+          "plant_target_candidates": 114522,
+          "plant_target_reuses": 0,
+          "plant_target_scans": 14984,
+          "point_grid_builds": 0,
+          "point_grid_cell_changes": 0,
+          "point_grid_moves": 0,
+          "primal_knock_targets": 0,
+          "primal_knock_velocity": 0,
+          "range_cache_hits": 0,
+          "range_candidates": 0,
+          "range_cell_changes": 0,
+          "range_exact_tests": 0,
+          "range_full_scan": 0,
+          "range_grid_resets": 0,
+          "range_index_bytes": 0,
+          "range_queries": 0,
+          "seeking_plant_ticks": 0,
+          "spatial_bytes": 0,
+          "torch_batch_reuses": 0,
+          "torch_candidates": 187206,
+          "torch_scans": 15000,
+          "zombie_collision_candidates": 0,
+          "zombie_collision_full_scan": 0,
+          "zombie_collision_queries": 0,
+          "zombie_exact_tests": 0
+        },
+        "session": true,
+        "snapshot_projections": 1617,
+        "typed_commands": 1669,
+        "typed_steps": 1800,
+        "typed_tick": 1800,
+        "v_activity_total": {
+          "boxes": 132123956,
+          "calls": 5172779
+        },
+        "v_native_tick_at_start": 0,
+        "v_native_tick_now": 0,
+        "v_tick_at_start": 0,
+        "v_tick_now": 0
+      },
+      "id": "duel_low_zombie_typed_path",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "plant": {
+          "compared": 54,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "defend": 37,
+            "siege": 17
+          },
+          "plan_rejections": 0
+        },
+        "zombie": {
+          "compared": 54,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "-": 54
+          },
+          "plan_rejections": 0
+        }
+      },
+      "id": "duel_lifecycle_pause_keeps_strategy",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "resets_after": 4.0,
+        "resets_before": 2.0,
+        "seats": {
+          "plant": {
+            "compared": 94,
+            "first_mismatches": [],
+            "mismatches": 0,
+            "modes": {
+              "defend": 50,
+              "siege": 44
+            },
+            "plan_rejections": 0
+          },
+          "zombie": {
+            "compared": 94,
+            "first_mismatches": [],
+            "mismatches": 0,
+            "modes": {
+              "-": 94
+            },
+            "plan_rejections": 0
+          }
+        }
+      },
+      "id": "duel_lifecycle_rebuild_resets_planner",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "plant": {
+          "compared": 106,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "defend": 106
+          },
+          "plan_rejections": 0
+        },
+        "plant2": {
+          "compared": 106,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "defend": 100,
+            "siege": 6
+          },
+          "plan_rejections": 0
+        },
+        "zombie": {
+          "compared": 106,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "-": 106
+          },
+          "plan_rejections": 0
+        },
+        "zombie2": {
+          "compared": 106,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "-": 106
+          },
+          "plan_rejections": 0
+        }
+      },
+      "id": "duo_plans_equal",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "ai_controls": 0,
+        "ai_observations": 9268,
+        "ai_planner_notes": {
+          "plant": {
+            "balloon_defend": 9,
+            "econ_emergency": 29,
+            "mode": "defend",
+            "recovering_or_low": 13
+          },
+          "plant2": {
+            "balloon_defend": 13,
+            "econ_emergency": 29,
+            "mode": "defend",
+            "pushes": 18,
+            "recovering_or_low": 13,
+            "siege_wait_econ": 18
+          },
+          "zombie": {
+            "grave_expand": 87,
+            "grave_target": 10,
+            "mode": "defend"
+          },
+          "zombie2": {
+            "grave_expand": 88,
+            "grave_target": 10,
+            "mode": "defend"
+          }
+        },
+        "ai_planner_resets": 4,
+        "ai_plans": 424,
+        "ai_resets": 4,
+        "backend": "typed72",
+        "dynamic_v_work": {
+          "command_input": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 9476
+          },
+          "step": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 4843
+          }
+        },
+        "frame_description_hits": 354288,
+        "frame_descriptions": 175782,
+        "native_projections": 0,
+        "performance": {
+          "aim_candidates": 0,
+          "aim_full_scan": 0,
+          "aim_queries": 0,
+          "collision_candidates": 376,
+          "collision_queries": 2867,
+          "content_candidates": 0,
+          "content_queries": 0,
+          "destination_queries": 1,
+          "destination_rebuilds": 1,
+          "destination_reuses": 0,
+          "empty_cell_skips": 2572,
+          "find_contact_calls": 295,
+          "fixture_retention": {
+            "aliases64": 0,
+            "all_plants": 0,
+            "armor_events": 0,
+            "atlas": 3015,
+            "births": 0,
+            "calls": 0,
+            "cart_events": 0,
+            "chili_keys": 0,
+            "content_events": 0,
+            "controller_events": 0,
+            "cost_calls": 0,
+            "dispatch_calls": 0,
+            "draws64": 0,
+            "events64": 0,
+            "factory_events": 0,
+            "flight_records": 0,
+            "flights": 0,
+            "flying_draws": 0,
+            "flying_events": 0,
+            "frame_commands": 92,
+            "grenade_events": 0,
+            "held": 0,
+            "held_hits": 0,
+            "held_proxy_sources": 0,
+            "ids": 0,
+            "match_log": 9817,
+            "native_objects": 37,
+            "no_trace": true,
+            "observations": 0,
+            "phase_draws": 0,
+            "phase_events": 0,
+            "poison_events": 0,
+            "positions": 0,
+            "raw_calls": 0,
+            "release_fixtures": true,
+            "render_log": 0,
+            "room_events": 17,
+            "runtime_entities": 0,
+            "runtime_events": 183,
+            "sources": 0,
+            "spawn_events": 0,
+            "spawns64": 0,
+            "states": 0,
+            "summon_events": 0,
+            "tick_events": 0,
+            "ui_atlas": 175,
+            "units": 0
+          },
+          "flood_calls": 349892,
+          "flood_cycles": 1583,
+          "flood_expansions": 86267,
+          "flood_neighbors": 7893140,
+          "full_scan_equivalent": 55053,
+          "function_profile": {},
+          "head_candidates": 0,
+          "head_exact_tests": 0,
+          "head_full_scan": 0,
+          "head_queries": 0,
+          "head_spatial_bytes": 0,
+          "index_builds": 2291,
+          "max_seeking_plants": 0,
+          "native_entities": 0,
+          "nearest_candidates": 0,
+          "nearest_full_scan": 0,
+          "nearest_queries": 0,
+          "occupied_cells": 62,
+          "plant_target_candidates": 270779,
+          "plant_target_reuses": 37825,
+          "plant_target_scans": 40358,
+          "point_grid_builds": 0,
+          "point_grid_cell_changes": 0,
+          "point_grid_moves": 0,
+          "primal_knock_targets": 0,
+          "primal_knock_velocity": 0,
+          "range_cache_hits": 0,
+          "range_candidates": 0,
+          "range_cell_changes": 0,
+          "range_exact_tests": 0,
+          "range_full_scan": 0,
+          "range_grid_resets": 0,
+          "range_index_bytes": 0,
+          "range_queries": 0,
+          "seeking_plant_ticks": 0,
+          "spatial_bytes": 19352,
+          "torch_batch_reuses": 0,
+          "torch_candidates": 1020661,
+          "torch_scans": 40358,
+          "zombie_collision_candidates": 0,
+          "zombie_collision_full_scan": 0,
+          "zombie_collision_queries": 0,
+          "zombie_exact_tests": 0
+        },
+        "session": true,
+        "snapshot_projections": 9268,
+        "typed_commands": 9476,
+        "typed_steps": 4843,
+        "typed_tick": 4843,
+        "v_activity_total": {
+          "boxes": 190674268,
+          "calls": 7215981
+        },
+        "v_native_tick_at_start": 0,
+        "v_native_tick_now": 0,
+        "v_tick_at_start": 0,
+        "v_tick_now": 0
+      },
+      "id": "duo_typed_path",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "plant": {
+          "compared": 84,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "defend": 84
+          },
+          "plan_rejections": 0
+        },
+        "plant2": {
+          "compared": 84,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "defend": 84
+          },
+          "plan_rejections": 0
+        }
+      },
+      "id": "coop_plans_equal",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "ai_controls": 0,
+        "ai_observations": 3608,
+        "ai_planner_notes": {
+          "plant": {
+            "balloon_defend": 19,
+            "econ_emergency": 27,
+            "econ_expand": 12,
+            "mode": "defend",
+            "recovering_or_low": 19
+          },
+          "plant2": {
+            "balloon_defend": 18,
+            "econ_emergency": 19,
+            "econ_expand": 12,
+            "mode": "defend",
+            "pushes": 3,
+            "recovering_or_low": 18,
+            "siege_wait_econ": 3
+          }
+        },
+        "ai_planner_resets": 2,
+        "ai_plans": 168,
+        "ai_resets": 2,
+        "backend": "typed72",
+        "dynamic_v_work": {
+          "command_input": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 3667
+          },
+          "step": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 3816
+          }
+        },
+        "frame_description_hits": 52862,
+        "frame_descriptions": 83762,
+        "native_projections": 0,
+        "performance": {
+          "aim_candidates": 0,
+          "aim_full_scan": 0,
+          "aim_queries": 0,
+          "collision_candidates": 900,
+          "collision_queries": 7169,
+          "content_candidates": 0,
+          "content_queries": 0,
+          "destination_queries": 0,
+          "destination_rebuilds": 0,
+          "destination_reuses": 0,
+          "empty_cell_skips": 6482,
+          "find_contact_calls": 687,
+          "fixture_retention": {
+            "aliases64": 0,
+            "all_plants": 0,
+            "armor_events": 0,
+            "atlas": 3015,
+            "births": 0,
+            "calls": 0,
+            "cart_events": 0,
+            "chili_keys": 0,
+            "content_events": 0,
+            "controller_events": 0,
+            "cost_calls": 0,
+            "dispatch_calls": 0,
+            "draws64": 0,
+            "events64": 0,
+            "factory_events": 0,
+            "flight_records": 0,
+            "flights": 0,
+            "flying_draws": 0,
+            "flying_events": 0,
+            "frame_commands": 12,
+            "grenade_events": 0,
+            "held": 0,
+            "held_hits": 0,
+            "held_proxy_sources": 0,
+            "ids": 0,
+            "match_log": 3887,
+            "native_objects": 3,
+            "no_trace": true,
+            "observations": 0,
+            "phase_draws": 0,
+            "phase_events": 0,
+            "poison_events": 0,
+            "positions": 0,
+            "raw_calls": 0,
+            "release_fixtures": true,
+            "render_log": 0,
+            "room_events": 6,
+            "runtime_entities": 2,
+            "runtime_events": 109,
+            "sources": 0,
+            "spawn_events": 0,
+            "spawns64": 0,
+            "states": 0,
+            "summon_events": 0,
+            "tick_events": 0,
+            "ui_atlas": 175,
+            "units": 0
+          },
+          "flood_calls": 114498,
+          "flood_cycles": 413,
+          "flood_expansions": 21945,
+          "flood_neighbors": 2054576,
+          "full_scan_equivalent": 29718,
+          "function_profile": {},
+          "head_candidates": 0,
+          "head_exact_tests": 0,
+          "head_full_scan": 0,
+          "head_queries": 0,
+          "head_spatial_bytes": 0,
+          "index_builds": 6295,
+          "max_seeking_plants": 0,
+          "native_entities": 2,
+          "nearest_candidates": 0,
+          "nearest_full_scan": 0,
+          "nearest_queries": 0,
+          "occupied_cells": 15,
+          "plant_target_candidates": 0,
+          "plant_target_reuses": 0,
+          "plant_target_scans": 0,
+          "point_grid_builds": 0,
+          "point_grid_cell_changes": 0,
+          "point_grid_moves": 0,
+          "primal_knock_targets": 0,
+          "primal_knock_velocity": 0,
+          "range_cache_hits": 0,
+          "range_candidates": 0,
+          "range_cell_changes": 0,
+          "range_exact_tests": 0,
+          "range_full_scan": 0,
+          "range_grid_resets": 0,
+          "range_index_bytes": 0,
+          "range_queries": 0,
+          "seeking_plant_ticks": 0,
+          "spatial_bytes": 15208,
+          "torch_batch_reuses": 0,
+          "torch_candidates": 452796,
+          "torch_scans": 31800,
+          "zombie_collision_candidates": 0,
+          "zombie_collision_full_scan": 0,
+          "zombie_collision_queries": 0,
+          "zombie_exact_tests": 0
+        },
+        "session": true,
+        "snapshot_projections": 3608,
+        "typed_commands": 3667,
+        "typed_steps": 3816,
+        "typed_tick": 3816,
+        "v_activity_total": {
+          "boxes": 206231562,
+          "calls": 7940003
+        },
+        "v_native_tick_at_start": 0,
+        "v_native_tick_now": 0,
+        "v_tick_at_start": 0,
+        "v_tick_now": 0
+      },
+      "id": "coop_typed_path",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "after": {
+          "ai_controls": 6784,
+          "ai_observations": 6784,
+          "ai_planner_notes": {
+            "plant": {
+              "mode": "defend"
+            },
+            "plant2": {
+              "mode": "defend",
+              "pushes": 20,
+              "siege_wait_econ": 20
+            },
+            "zombie": {
+              "grave_expand": 60,
+              "grave_target": 8,
+              "mode": "defend"
+            },
+            "zombie2": {
+              "grave_expand": 61,
+              "grave_target": 8,
+              "mode": "defend"
+            }
+          },
+          "ai_planner_resets": 4,
+          "ai_plans": 316,
+          "ai_resets": 4,
+          "backend": "typed72",
+          "dynamic_v_work": {
+            "ai_tick": {
+              "boxes": 0,
+              "calls": 0,
+              "entries": 6784
+            },
+            "command_input": {
+              "boxes": 0,
+              "calls": 0,
+              "entries": 6927
+            },
+            "step": {
+              "boxes": 0,
+              "calls": 0,
+              "entries": 3600
+            }
+          },
+          "frame_description_hits": 0,
+          "frame_descriptions": 0,
+          "native_projections": 0,
+          "performance": {
+            "aim_candidates": 0,
+            "aim_full_scan": 0,
+            "aim_queries": 0,
+            "collision_candidates": 902,
+            "collision_queries": 3384,
+            "content_candidates": 0,
+            "content_queries": 0,
+            "destination_queries": 1,
+            "destination_rebuilds": 1,
+            "destination_reuses": 0,
+            "empty_cell_skips": 2750,
+            "find_contact_calls": 634,
+            "fixture_retention": {
+              "aliases64": 0,
+              "all_plants": 0,
+              "armor_events": 0,
+              "atlas": 3015,
+              "births": 0,
+              "calls": 0,
+              "cart_events": 0,
+              "chili_keys": 0,
+              "content_events": 0,
+              "controller_events": 0,
+              "cost_calls": 0,
+              "dispatch_calls": 0,
+              "draws64": 0,
+              "events64": 0,
+              "factory_events": 0,
+              "flight_records": 0,
+              "flights": 0,
+              "flying_draws": 0,
+              "flying_events": 0,
+              "frame_commands": 50,
+              "grenade_events": 0,
+              "held": 0,
+              "held_hits": 0,
+              "held_proxy_sources": 0,
+              "ids": 0,
+              "match_log": 7117,
+              "native_objects": 28,
+              "no_trace": true,
+              "observations": 0,
+              "phase_draws": 0,
+              "phase_events": 0,
+              "poison_events": 0,
+              "positions": 0,
+              "raw_calls": 0,
+              "release_fixtures": true,
+              "render_log": 0,
+              "room_events": 6,
+              "runtime_entities": 0,
+              "runtime_events": 73,
+              "sources": 0,
+              "spawn_events": 0,
+              "spawns64": 0,
+              "states": 0,
+              "summon_events": 0,
+              "tick_events": 0,
+              "ui_atlas": 175,
+              "units": 0
+            },
+            "flood_calls": 272094,
+            "flood_cycles": 1263,
+            "flood_expansions": 69136,
+            "flood_neighbors": 6309380,
+            "full_scan_equivalent": 64788,
+            "function_profile": {},
+            "head_candidates": 0,
+            "head_exact_tests": 0,
+            "head_full_scan": 0,
+            "head_queries": 0,
+            "head_spatial_bytes": 0,
+            "index_builds": 2718,
+            "max_seeking_plants": 0,
+            "native_entities": 0,
+            "nearest_candidates": 0,
+            "nearest_full_scan": 0,
+            "nearest_queries": 0,
+            "occupied_cells": 60,
+            "plant_target_candidates": 262659,
+            "plant_target_reuses": 30000,
+            "plant_target_scans": 30000,
+            "point_grid_builds": 0,
+            "point_grid_cell_changes": 0,
+            "point_grid_moves": 0,
+            "primal_knock_targets": 0,
+            "primal_knock_velocity": 0,
+            "range_cache_hits": 0,
+            "range_candidates": 0,
+            "range_cell_changes": 0,
+            "range_exact_tests": 0,
+            "range_full_scan": 0,
+            "range_grid_resets": 0,
+            "range_index_bytes": 0,
+            "range_queries": 0,
+            "seeking_plant_ticks": 0,
+            "spatial_bytes": 19344,
+            "torch_batch_reuses": 0,
+            "torch_candidates": 677077,
+            "torch_scans": 30000,
+            "zombie_collision_candidates": 0,
+            "zombie_collision_full_scan": 0,
+            "zombie_collision_queries": 0,
+            "zombie_exact_tests": 0
+          },
+          "session": true,
+          "snapshot_projections": 0,
+          "typed_commands": 6927,
+          "typed_steps": 3600,
+          "typed_tick": 3600,
+          "v_activity_total": {
+            "boxes": 212406301,
+            "calls": 8323113
+          },
+          "v_native_tick_at_start": 0,
+          "v_native_tick_now": 0,
+          "v_tick_at_start": 0,
+          "v_tick_now": 0
+        },
+        "before": {
+          "ai_controls": 0,
+          "ai_observations": 0,
+          "ai_planner_notes": {},
+          "ai_planner_resets": 4,
+          "ai_plans": 0,
+          "ai_resets": 4,
+          "backend": "typed72",
+          "dynamic_v_work": {},
+          "frame_description_hits": 0,
+          "frame_descriptions": 0,
+          "native_projections": 0,
+          "performance": {
+            "aim_candidates": 0,
+            "aim_full_scan": 0,
+            "aim_queries": 0,
+            "collision_candidates": 0,
+            "collision_queries": 0,
+            "content_candidates": 0,
+            "content_queries": 0,
+            "destination_queries": 0,
+            "destination_rebuilds": 0,
+            "destination_reuses": 0,
+            "empty_cell_skips": 0,
+            "find_contact_calls": 0,
+            "fixture_retention": {
+              "aliases64": 0,
+              "all_plants": 0,
+              "armor_events": 0,
+              "atlas": 3015,
+              "births": 0,
+              "calls": 0,
+              "cart_events": 0,
+              "chili_keys": 0,
+              "content_events": 0,
+              "controller_events": 0,
+              "cost_calls": 0,
+              "dispatch_calls": 0,
+              "draws64": 0,
+              "events64": 0,
+              "factory_events": 0,
+              "flight_records": 0,
+              "flights": 0,
+              "flying_draws": 0,
+              "flying_events": 0,
+              "frame_commands": 0,
+              "grenade_events": 0,
+              "held": 0,
+              "held_hits": 0,
+              "held_proxy_sources": 0,
+              "ids": 0,
+              "match_log": 1,
+              "native_objects": 0,
+              "no_trace": true,
+              "observations": 0,
+              "phase_draws": 0,
+              "phase_events": 0,
+              "poison_events": 0,
+              "positions": 0,
+              "raw_calls": 0,
+              "release_fixtures": true,
+              "render_log": 0,
+              "room_events": 0,
+              "runtime_entities": 0,
+              "runtime_events": 0,
+              "sources": 0,
+              "spawn_events": 0,
+              "spawns64": 0,
+              "states": 0,
+              "summon_events": 0,
+              "tick_events": 0,
+              "ui_atlas": 175,
+              "units": 0
+            },
+            "flood_calls": 0,
+            "flood_cycles": 0,
+            "flood_expansions": 0,
+            "flood_neighbors": 0,
+            "full_scan_equivalent": 0,
+            "function_profile": {},
+            "head_candidates": 0,
+            "head_exact_tests": 0,
+            "head_full_scan": 0,
+            "head_queries": 0,
+            "head_spatial_bytes": 0,
+            "index_builds": 0,
+            "max_seeking_plants": 0,
+            "native_entities": 0,
+            "nearest_candidates": 0,
+            "nearest_full_scan": 0,
+            "nearest_queries": 0,
+            "occupied_cells": 0,
+            "plant_target_candidates": 0,
+            "plant_target_reuses": 0,
+            "plant_target_scans": 0,
+            "point_grid_builds": 0,
+            "point_grid_cell_changes": 0,
+            "point_grid_moves": 0,
+            "primal_knock_targets": 0,
+            "primal_knock_velocity": 0,
+            "range_cache_hits": 0,
+            "range_candidates": 0,
+            "range_cell_changes": 0,
+            "range_exact_tests": 0,
+            "range_full_scan": 0,
+            "range_grid_resets": 0,
+            "range_index_bytes": 0,
+            "range_queries": 0,
+            "seeking_plant_ticks": 0,
+            "spatial_bytes": 0,
+            "torch_batch_reuses": 0,
+            "torch_candidates": 0,
+            "torch_scans": 0,
+            "zombie_collision_candidates": 0,
+            "zombie_collision_full_scan": 0,
+            "zombie_collision_queries": 0,
+            "zombie_exact_tests": 0
+          },
+          "session": true,
+          "snapshot_projections": 0,
+          "typed_commands": 0,
+          "typed_steps": 0,
+          "typed_tick": 0,
+          "v_activity_total": {
+            "boxes": 206405139,
+            "calls": 8003768
+          },
+          "v_native_tick_at_start": 0,
+          "v_native_tick_now": 0,
+          "v_tick_at_start": 0,
+          "v_tick_now": 0
+        },
+        "rejected_inputs_sample": [],
+        "seats": {
+          "plant": {
+            "deploys": 20.0,
+            "plan": {
+              "bomb_value": 150,
+              "econ_goal": 2,
+              "global_collect": true,
+              "mode": "defend",
+              "panic_value": 120,
+              "priority": [
+                "plant:向日葵",
+                "plant:豌豆射手",
+                "plant:坚果",
+                "plant:花盆"
+              ],
+              "quotas": {
+                "plant:向日葵": 6,
+                "plant:坚果": 3,
+                "plant:花盆": 30,
+                "plant:豌豆射手": 30
+              },
+              "reserve": 0,
+              "rich": 99999,
+              "siege_dwell": 8,
+              "siege_gap": 240,
+              "siege_lobs": 2,
+              "siege_step": 3,
+              "teleport_hp": 0.7,
+              "vine_reserve": 75,
+              "wall_goal": 1
+            },
+            "rejections": 0
+          },
+          "plant2": {
+            "deploys": 0.0,
+            "plan": {
+              "bomb_value": 150,
+              "econ_goal": 2,
+              "global_collect": true,
+              "mode": "defend",
+              "panic_value": 120,
+              "priority": [
+                "plant:双子向日葵",
+                "plant:卷心菜投手",
+                "plant:高坚果",
+                "plant:花盆"
+              ],
+              "quotas": {
+                "plant:卷心菜投手": 30,
+                "plant:双子向日葵": 4,
+                "plant:花盆": 30,
+                "plant:高坚果": 2
+              },
+              "reserve": 0,
+              "rich": 99999,
+              "siege_dwell": 8,
+              "siege_gap": 240,
+              "siege_lobs": 2,
+              "siege_step": 3,
+              "teleport_hp": 0.7,
+              "vine_reserve": 75,
+              "wall_goal": 1
+            },
+            "rejections": 0
+          },
+          "zombie": {
+            "deploys": 21.0,
+            "plan": {
+              "detonate_value": 200,
+              "grave_every": 1000000000,
+              "grave_max": 8,
+              "grave_start": 8,
+              "priority": [
+                "zombie:普通僵尸",
+                "zombie:路障僵尸"
+              ],
+              "quotas": {
+                "zombie:普通僵尸": 60,
+                "zombie:脑光墓碑": 60,
+                "zombie:路障僵尸": 60
+              },
+              "save_horizon": 3,
+              "teleport_hp": 0.7,
+              "tend_every": 12,
+              "wave_base": 300,
+              "wave_cap": 1000,
+              "wave_growth": 1.5,
+              "wave_hold_max": 32
+            },
+            "rejections": 0
+          },
+          "zombie2": {
+            "deploys": 5.0,
+            "plan": {
+              "detonate_value": 200,
+              "grave_every": 1000000000,
+              "grave_max": 8,
+              "grave_start": 8,
+              "priority": [
+                "zombie:铁桶僵尸"
+              ],
+              "quotas": {
+                "zombie:坚固脑光墓碑": 60,
+                "zombie:成长脑光墓碑": 60,
+                "zombie:铁桶僵尸": 60
+              },
+              "save_horizon": 3,
+              "teleport_hp": 0.7,
+              "tend_every": 12,
+              "wave_base": 300,
+              "wave_cap": 1000,
+              "wave_growth": 1.5,
+              "wave_hold_max": 32
+            },
+            "rejections": 0
+          }
+        },
+        "time": 120.0
+      },
+      "id": "aiseat_typed_control_runs",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "after": 0,
+        "snapshot_projections_before": 0
+      },
+      "id": "aiseat_typed_control_no_v_snapshots",
+      "passed": true
+    }
+  ],
+  "complete": true,
+  "completed_checks": 16,
+  "fail_count": 0,
+  "limitations": [
+    "The controller that executes plans is still V (r22 tactics chain)",
+    "Variant parameters are the production empty variant only",
+    "Branch coverage is reported in planner_notes (and branch_hits), not asserted"
+  ],
+  "outcome": "PASS",
+  "pass_count": 16,
+  "passed": true,
+  "planned_checks": [
+    "duel_plans_equal",
+    "duel_typed_path",
+    "duel_long_plans_equal",
+    "duel_long_typed_path",
+    "duel_rich_plans_equal",
+    "duel_rich_typed_path",
+    "duel_low_zombie_plans_equal",
+    "duel_low_zombie_typed_path",
+    "duel_lifecycle_pause_keeps_strategy",
+    "duel_lifecycle_rebuild_resets_planner",
+    "duo_plans_equal",
+    "duo_typed_path",
+    "coop_plans_equal",
+    "coop_typed_path",
+    "aiseat_typed_control_runs",
+    "aiseat_typed_control_no_v_snapshots"
+  ],
+  "planned_count": 16,
+  "scenarios": {
+    "aiseat_typed_control": {
+      "after": {
+        "ai_controls": 6784,
+        "ai_observations": 6784,
+        "ai_planner_notes": {
+          "plant": {
+            "mode": "defend"
+          },
+          "plant2": {
+            "mode": "defend",
+            "pushes": 20,
+            "siege_wait_econ": 20
+          },
+          "zombie": {
+            "grave_expand": 60,
+            "grave_target": 8,
+            "mode": "defend"
+          },
+          "zombie2": {
+            "grave_expand": 61,
+            "grave_target": 8,
+            "mode": "defend"
+          }
+        },
+        "ai_planner_resets": 4,
+        "ai_plans": 316,
+        "ai_resets": 4,
+        "backend": "typed72",
+        "dynamic_v_work": {
+          "ai_tick": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 6784
+          },
+          "command_input": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 6927
+          },
+          "step": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 3600
+          }
+        },
+        "frame_description_hits": 0,
+        "frame_descriptions": 0,
+        "native_projections": 0,
+        "performance": {
+          "aim_candidates": 0,
+          "aim_full_scan": 0,
+          "aim_queries": 0,
+          "collision_candidates": 902,
+          "collision_queries": 3384,
+          "content_candidates": 0,
+          "content_queries": 0,
+          "destination_queries": 1,
+          "destination_rebuilds": 1,
+          "destination_reuses": 0,
+          "empty_cell_skips": 2750,
+          "find_contact_calls": 634,
+          "fixture_retention": {
+            "aliases64": 0,
+            "all_plants": 0,
+            "armor_events": 0,
+            "atlas": 3015,
+            "births": 0,
+            "calls": 0,
+            "cart_events": 0,
+            "chili_keys": 0,
+            "content_events": 0,
+            "controller_events": 0,
+            "cost_calls": 0,
+            "dispatch_calls": 0,
+            "draws64": 0,
+            "events64": 0,
+            "factory_events": 0,
+            "flight_records": 0,
+            "flights": 0,
+            "flying_draws": 0,
+            "flying_events": 0,
+            "frame_commands": 50,
+            "grenade_events": 0,
+            "held": 0,
+            "held_hits": 0,
+            "held_proxy_sources": 0,
+            "ids": 0,
+            "match_log": 7117,
+            "native_objects": 28,
+            "no_trace": true,
+            "observations": 0,
+            "phase_draws": 0,
+            "phase_events": 0,
+            "poison_events": 0,
+            "positions": 0,
+            "raw_calls": 0,
+            "release_fixtures": true,
+            "render_log": 0,
+            "room_events": 6,
+            "runtime_entities": 0,
+            "runtime_events": 73,
+            "sources": 0,
+            "spawn_events": 0,
+            "spawns64": 0,
+            "states": 0,
+            "summon_events": 0,
+            "tick_events": 0,
+            "ui_atlas": 175,
+            "units": 0
+          },
+          "flood_calls": 272094,
+          "flood_cycles": 1263,
+          "flood_expansions": 69136,
+          "flood_neighbors": 6309380,
+          "full_scan_equivalent": 64788,
+          "function_profile": {},
+          "head_candidates": 0,
+          "head_exact_tests": 0,
+          "head_full_scan": 0,
+          "head_queries": 0,
+          "head_spatial_bytes": 0,
+          "index_builds": 2718,
+          "max_seeking_plants": 0,
+          "native_entities": 0,
+          "nearest_candidates": 0,
+          "nearest_full_scan": 0,
+          "nearest_queries": 0,
+          "occupied_cells": 60,
+          "plant_target_candidates": 262659,
+          "plant_target_reuses": 30000,
+          "plant_target_scans": 30000,
+          "point_grid_builds": 0,
+          "point_grid_cell_changes": 0,
+          "point_grid_moves": 0,
+          "primal_knock_targets": 0,
+          "primal_knock_velocity": 0,
+          "range_cache_hits": 0,
+          "range_candidates": 0,
+          "range_cell_changes": 0,
+          "range_exact_tests": 0,
+          "range_full_scan": 0,
+          "range_grid_resets": 0,
+          "range_index_bytes": 0,
+          "range_queries": 0,
+          "seeking_plant_ticks": 0,
+          "spatial_bytes": 19344,
+          "torch_batch_reuses": 0,
+          "torch_candidates": 677077,
+          "torch_scans": 30000,
+          "zombie_collision_candidates": 0,
+          "zombie_collision_full_scan": 0,
+          "zombie_collision_queries": 0,
+          "zombie_exact_tests": 0
+        },
+        "session": true,
+        "snapshot_projections": 0,
+        "typed_commands": 6927,
+        "typed_steps": 3600,
+        "typed_tick": 3600,
+        "v_activity_total": {
+          "boxes": 212406301,
+          "calls": 8323113
+        },
+        "v_native_tick_at_start": 0,
+        "v_native_tick_now": 0,
+        "v_tick_at_start": 0,
+        "v_tick_now": 0
+      },
+      "before": {
+        "ai_controls": 0,
+        "ai_observations": 0,
+        "ai_planner_notes": {},
+        "ai_planner_resets": 4,
+        "ai_plans": 0,
+        "ai_resets": 4,
+        "backend": "typed72",
+        "dynamic_v_work": {},
+        "frame_description_hits": 0,
+        "frame_descriptions": 0,
+        "native_projections": 0,
+        "performance": {
+          "aim_candidates": 0,
+          "aim_full_scan": 0,
+          "aim_queries": 0,
+          "collision_candidates": 0,
+          "collision_queries": 0,
+          "content_candidates": 0,
+          "content_queries": 0,
+          "destination_queries": 0,
+          "destination_rebuilds": 0,
+          "destination_reuses": 0,
+          "empty_cell_skips": 0,
+          "find_contact_calls": 0,
+          "fixture_retention": {
+            "aliases64": 0,
+            "all_plants": 0,
+            "armor_events": 0,
+            "atlas": 3015,
+            "births": 0,
+            "calls": 0,
+            "cart_events": 0,
+            "chili_keys": 0,
+            "content_events": 0,
+            "controller_events": 0,
+            "cost_calls": 0,
+            "dispatch_calls": 0,
+            "draws64": 0,
+            "events64": 0,
+            "factory_events": 0,
+            "flight_records": 0,
+            "flights": 0,
+            "flying_draws": 0,
+            "flying_events": 0,
+            "frame_commands": 0,
+            "grenade_events": 0,
+            "held": 0,
+            "held_hits": 0,
+            "held_proxy_sources": 0,
+            "ids": 0,
+            "match_log": 1,
+            "native_objects": 0,
+            "no_trace": true,
+            "observations": 0,
+            "phase_draws": 0,
+            "phase_events": 0,
+            "poison_events": 0,
+            "positions": 0,
+            "raw_calls": 0,
+            "release_fixtures": true,
+            "render_log": 0,
+            "room_events": 0,
+            "runtime_entities": 0,
+            "runtime_events": 0,
+            "sources": 0,
+            "spawn_events": 0,
+            "spawns64": 0,
+            "states": 0,
+            "summon_events": 0,
+            "tick_events": 0,
+            "ui_atlas": 175,
+            "units": 0
+          },
+          "flood_calls": 0,
+          "flood_cycles": 0,
+          "flood_expansions": 0,
+          "flood_neighbors": 0,
+          "full_scan_equivalent": 0,
+          "function_profile": {},
+          "head_candidates": 0,
+          "head_exact_tests": 0,
+          "head_full_scan": 0,
+          "head_queries": 0,
+          "head_spatial_bytes": 0,
+          "index_builds": 0,
+          "max_seeking_plants": 0,
+          "native_entities": 0,
+          "nearest_candidates": 0,
+          "nearest_full_scan": 0,
+          "nearest_queries": 0,
+          "occupied_cells": 0,
+          "plant_target_candidates": 0,
+          "plant_target_reuses": 0,
+          "plant_target_scans": 0,
+          "point_grid_builds": 0,
+          "point_grid_cell_changes": 0,
+          "point_grid_moves": 0,
+          "primal_knock_targets": 0,
+          "primal_knock_velocity": 0,
+          "range_cache_hits": 0,
+          "range_candidates": 0,
+          "range_cell_changes": 0,
+          "range_exact_tests": 0,
+          "range_full_scan": 0,
+          "range_grid_resets": 0,
+          "range_index_bytes": 0,
+          "range_queries": 0,
+          "seeking_plant_ticks": 0,
+          "spatial_bytes": 0,
+          "torch_batch_reuses": 0,
+          "torch_candidates": 0,
+          "torch_scans": 0,
+          "zombie_collision_candidates": 0,
+          "zombie_collision_full_scan": 0,
+          "zombie_collision_queries": 0,
+          "zombie_exact_tests": 0
+        },
+        "session": true,
+        "snapshot_projections": 0,
+        "typed_commands": 0,
+        "typed_steps": 0,
+        "typed_tick": 0,
+        "v_activity_total": {
+          "boxes": 206405139,
+          "calls": 8003768
+        },
+        "v_native_tick_at_start": 0,
+        "v_native_tick_now": 0,
+        "v_tick_at_start": 0,
+        "v_tick_now": 0
+      },
+      "planner_notes": null,
+      "rejected_inputs_sample": [],
+      "seats": {
+        "plant": {
+          "deploys": 20.0,
+          "plan": {
+            "bomb_value": 150,
+            "econ_goal": 2,
+            "global_collect": true,
+            "mode": "defend",
+            "panic_value": 120,
+            "priority": [
+              "plant:向日葵",
+              "plant:豌豆射手",
+              "plant:坚果",
+              "plant:花盆"
+            ],
+            "quotas": {
+              "plant:向日葵": 6,
+              "plant:坚果": 3,
+              "plant:花盆": 30,
+              "plant:豌豆射手": 30
+            },
+            "reserve": 0,
+            "rich": 99999,
+            "siege_dwell": 8,
+            "siege_gap": 240,
+            "siege_lobs": 2,
+            "siege_step": 3,
+            "teleport_hp": 0.7,
+            "vine_reserve": 75,
+            "wall_goal": 1
+          },
+          "rejections": 0
+        },
+        "plant2": {
+          "deploys": 0.0,
+          "plan": {
+            "bomb_value": 150,
+            "econ_goal": 2,
+            "global_collect": true,
+            "mode": "defend",
+            "panic_value": 120,
+            "priority": [
+              "plant:双子向日葵",
+              "plant:卷心菜投手",
+              "plant:高坚果",
+              "plant:花盆"
+            ],
+            "quotas": {
+              "plant:卷心菜投手": 30,
+              "plant:双子向日葵": 4,
+              "plant:花盆": 30,
+              "plant:高坚果": 2
+            },
+            "reserve": 0,
+            "rich": 99999,
+            "siege_dwell": 8,
+            "siege_gap": 240,
+            "siege_lobs": 2,
+            "siege_step": 3,
+            "teleport_hp": 0.7,
+            "vine_reserve": 75,
+            "wall_goal": 1
+          },
+          "rejections": 0
+        },
+        "zombie": {
+          "deploys": 21.0,
+          "plan": {
+            "detonate_value": 200,
+            "grave_every": 1000000000,
+            "grave_max": 8,
+            "grave_start": 8,
+            "priority": [
+              "zombie:普通僵尸",
+              "zombie:路障僵尸"
+            ],
+            "quotas": {
+              "zombie:普通僵尸": 60,
+              "zombie:脑光墓碑": 60,
+              "zombie:路障僵尸": 60
+            },
+            "save_horizon": 3,
+            "teleport_hp": 0.7,
+            "tend_every": 12,
+            "wave_base": 300,
+            "wave_cap": 1000,
+            "wave_growth": 1.5,
+            "wave_hold_max": 32
+          },
+          "rejections": 0
+        },
+        "zombie2": {
+          "deploys": 5.0,
+          "plan": {
+            "detonate_value": 200,
+            "grave_every": 1000000000,
+            "grave_max": 8,
+            "grave_start": 8,
+            "priority": [
+              "zombie:铁桶僵尸"
+            ],
+            "quotas": {
+              "zombie:坚固脑光墓碑": 60,
+              "zombie:成长脑光墓碑": 60,
+              "zombie:铁桶僵尸": 60
+            },
+            "save_horizon": 3,
+            "teleport_hp": 0.7,
+            "tend_every": 12,
+            "wave_base": 300,
+            "wave_cap": 1000,
+            "wave_growth": 1.5,
+            "wave_hold_max": 32
+          },
+          "rejections": 0
+        }
+      },
+      "time": 120.0
+    },
+    "coop": {
+      "backend": {
+        "ai_controls": 0,
+        "ai_observations": 3608,
+        "ai_planner_notes": {
+          "plant": {
+            "balloon_defend": 19,
+            "econ_emergency": 27,
+            "econ_expand": 12,
+            "mode": "defend",
+            "recovering_or_low": 19
+          },
+          "plant2": {
+            "balloon_defend": 18,
+            "econ_emergency": 19,
+            "econ_expand": 12,
+            "mode": "defend",
+            "pushes": 3,
+            "recovering_or_low": 18,
+            "siege_wait_econ": 3
+          }
+        },
+        "ai_planner_resets": 2,
+        "ai_plans": 168,
+        "ai_resets": 2,
+        "backend": "typed72",
+        "dynamic_v_work": {
+          "command_input": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 3667
+          },
+          "step": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 3816
+          }
+        },
+        "frame_description_hits": 52862,
+        "frame_descriptions": 83762,
+        "native_projections": 0,
+        "performance": {
+          "aim_candidates": 0,
+          "aim_full_scan": 0,
+          "aim_queries": 0,
+          "collision_candidates": 900,
+          "collision_queries": 7169,
+          "content_candidates": 0,
+          "content_queries": 0,
+          "destination_queries": 0,
+          "destination_rebuilds": 0,
+          "destination_reuses": 0,
+          "empty_cell_skips": 6482,
+          "find_contact_calls": 687,
+          "fixture_retention": {
+            "aliases64": 0,
+            "all_plants": 0,
+            "armor_events": 0,
+            "atlas": 3015,
+            "births": 0,
+            "calls": 0,
+            "cart_events": 0,
+            "chili_keys": 0,
+            "content_events": 0,
+            "controller_events": 0,
+            "cost_calls": 0,
+            "dispatch_calls": 0,
+            "draws64": 0,
+            "events64": 0,
+            "factory_events": 0,
+            "flight_records": 0,
+            "flights": 0,
+            "flying_draws": 0,
+            "flying_events": 0,
+            "frame_commands": 12,
+            "grenade_events": 0,
+            "held": 0,
+            "held_hits": 0,
+            "held_proxy_sources": 0,
+            "ids": 0,
+            "match_log": 3887,
+            "native_objects": 3,
+            "no_trace": true,
+            "observations": 0,
+            "phase_draws": 0,
+            "phase_events": 0,
+            "poison_events": 0,
+            "positions": 0,
+            "raw_calls": 0,
+            "release_fixtures": true,
+            "render_log": 0,
+            "room_events": 6,
+            "runtime_entities": 2,
+            "runtime_events": 109,
+            "sources": 0,
+            "spawn_events": 0,
+            "spawns64": 0,
+            "states": 0,
+            "summon_events": 0,
+            "tick_events": 0,
+            "ui_atlas": 175,
+            "units": 0
+          },
+          "flood_calls": 114498,
+          "flood_cycles": 413,
+          "flood_expansions": 21945,
+          "flood_neighbors": 2054576,
+          "full_scan_equivalent": 29718,
+          "function_profile": {},
+          "head_candidates": 0,
+          "head_exact_tests": 0,
+          "head_full_scan": 0,
+          "head_queries": 0,
+          "head_spatial_bytes": 0,
+          "index_builds": 6295,
+          "max_seeking_plants": 0,
+          "native_entities": 2,
+          "nearest_candidates": 0,
+          "nearest_full_scan": 0,
+          "nearest_queries": 0,
+          "occupied_cells": 15,
+          "plant_target_candidates": 0,
+          "plant_target_reuses": 0,
+          "plant_target_scans": 0,
+          "point_grid_builds": 0,
+          "point_grid_cell_changes": 0,
+          "point_grid_moves": 0,
+          "primal_knock_targets": 0,
+          "primal_knock_velocity": 0,
+          "range_cache_hits": 0,
+          "range_candidates": 0,
+          "range_cell_changes": 0,
+          "range_exact_tests": 0,
+          "range_full_scan": 0,
+          "range_grid_resets": 0,
+          "range_index_bytes": 0,
+          "range_queries": 0,
+          "seeking_plant_ticks": 0,
+          "spatial_bytes": 15208,
+          "torch_batch_reuses": 0,
+          "torch_candidates": 452796,
+          "torch_scans": 31800,
+          "zombie_collision_candidates": 0,
+          "zombie_collision_full_scan": 0,
+          "zombie_collision_queries": 0,
+          "zombie_exact_tests": 0
+        },
+        "session": true,
+        "snapshot_projections": 3608,
+        "typed_commands": 3667,
+        "typed_steps": 3816,
+        "typed_tick": 3816,
+        "v_activity_total": {
+          "boxes": 206231562,
+          "calls": 7940003
+        },
+        "v_native_tick_at_start": 0,
+        "v_native_tick_now": 0,
+        "v_tick_at_start": 0,
+        "v_tick_now": 0
+      },
+      "finished": true,
+      "mode": "coop",
+      "planner_notes": {
+        "plant": {
+          "balloon_defend": 19,
+          "econ_emergency": 27,
+          "econ_expand": 12,
+          "mode": "defend",
+          "recovering_or_low": 19
+        },
+        "plant2": {
+          "balloon_defend": 18,
+          "econ_emergency": 19,
+          "econ_expand": 12,
+          "mode": "defend",
+          "pushes": 3,
+          "recovering_or_low": 18,
+          "siege_wait_econ": 3
+        }
+      },
+      "rejected_inputs_sample": [
+        {
+          "error": "戴夫已阵亡",
+          "input": {
+            "seq": 1532,
+            "target": "u62",
+            "type": "teleport"
+          },
+          "seat": "plant2"
+        },
+        {
+          "error": "戴夫已阵亡",
+          "input": {
+            "seq": 1533,
+            "target": "u57",
+            "type": "teleport"
+          },
+          "seat": "plant2"
+        },
+        {
+          "error": "戴夫已阵亡",
+          "input": {
+            "seq": 1534,
+            "target": "u56",
+            "type": "teleport"
+          },
+          "seat": "plant2"
+        },
+        {
+          "error": "戴夫已阵亡",
+          "input": {
+            "seq": 1608,
+            "target": "u60",
+            "type": "teleport"
+          },
+          "seat": "plant2"
+        },
+        {
+          "error": "戴夫已阵亡",
+          "input": {
+            "seq": 1611,
+            "target": "u57",
+            "type": "teleport"
+          },
+          "seat": "plant2"
+        },
+        {
+          "error": "戴夫已阵亡",
+          "input": {
+            "seq": 1612,
+            "target": "u56",
+            "type": "teleport"
+          },
+          "seat": "plant2"
+        },
+        {
+          "error": "对局已结束",
+          "input": {
+            "edge": false,
+            "jump": false,
+            "move": 1,
+            "seq": 1823,
+            "type": "move"
+          },
+          "seat": "plant"
+        },
+        {
+          "error": "对局已结束",
+          "input": {
+            "edge": false,
+            "jump": false,
+            "move": 1,
+            "seq": 1844,
+            "type": "move"
+          },
+          "seat": "plant2"
+        }
+      ],
+      "result": {
+        "coins": 125,
+        "fallen": 2,
+        "reason": "hero_death",
+        "tick": 3816,
+        "winner": "zombie"
+      },
+      "seats": {
+        "plant": {
+          "compared": 84,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "defend": 84
+          },
+          "plan_rejections": 0
+        },
+        "plant2": {
+          "compared": 84,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "defend": 84
+          },
+          "plan_rejections": 0
+        }
+      },
+      "time": 127.2
+    },
+    "duel": {
+      "backend": {
+        "ai_controls": 0,
+        "ai_observations": 4734,
+        "ai_planner_notes": {
+          "plant": {
+            "balloon_defend": 10,
+            "mode": "defend",
+            "pushes": 1,
+            "r8_siege": 9,
+            "recovering_or_low": 10,
+            "retreats": 1
+          },
+          "zombie": {
+            "grave_expand": 2,
+            "grave_target": 6,
+            "mode": "defend"
+          }
+        },
+        "ai_planner_resets": 2,
+        "ai_plans": 216,
+        "ai_resets": 2,
+        "backend": "typed72",
+        "dynamic_v_work": {
+          "command_input": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 4935
+          },
+          "step": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 4942
+          }
+        },
+        "frame_description_hits": 197803,
+        "frame_descriptions": 209111,
+        "native_projections": 0,
+        "performance": {
+          "aim_candidates": 0,
+          "aim_full_scan": 0,
+          "aim_queries": 0,
+          "collision_candidates": 1643,
+          "collision_queries": 46010,
+          "content_candidates": 0,
+          "content_queries": 0,
+          "destination_queries": 1,
+          "destination_rebuilds": 1,
+          "destination_reuses": 0,
+          "empty_cell_skips": 45040,
+          "find_contact_calls": 970,
+          "fixture_retention": {
+            "aliases64": 0,
+            "all_plants": 0,
+            "armor_events": 0,
+            "atlas": 3015,
+            "births": 0,
+            "calls": 0,
+            "cart_events": 0,
+            "chili_keys": 0,
+            "content_events": 0,
+            "controller_events": 0,
+            "cost_calls": 0,
+            "dispatch_calls": 0,
+            "draws64": 0,
+            "events64": 0,
+            "factory_events": 0,
+            "flight_records": 0,
+            "flights": 0,
+            "flying_draws": 0,
+            "flying_events": 0,
+            "frame_commands": 96,
+            "grenade_events": 0,
+            "held": 0,
+            "held_hits": 0,
+            "held_proxy_sources": 0,
+            "ids": 0,
+            "match_log": 5293,
+            "native_objects": 52,
+            "no_trace": true,
+            "observations": 0,
+            "phase_draws": 0,
+            "phase_events": 0,
+            "poison_events": 0,
+            "positions": 0,
+            "raw_calls": 0,
+            "release_fixtures": true,
+            "render_log": 0,
+            "room_events": 6,
+            "runtime_entities": 2,
+            "runtime_events": 177,
+            "sources": 0,
+            "spawn_events": 0,
+            "spawns64": 0,
+            "states": 0,
+            "summon_events": 0,
+            "tick_events": 0,
+            "ui_atlas": 175,
+            "units": 0
+          },
+          "flood_calls": 98416,
+          "flood_cycles": 577,
+          "flood_expansions": 30527,
+          "flood_neighbors": 2872268,
+          "full_scan_equivalent": 1234394,
+          "function_profile": {},
+          "head_candidates": 0,
+          "head_exact_tests": 0,
+          "head_full_scan": 0,
+          "head_queries": 0,
+          "head_spatial_bytes": 0,
+          "index_builds": 15235,
+          "max_seeking_plants": 0,
+          "native_entities": 2,
+          "nearest_candidates": 0,
+          "nearest_full_scan": 0,
+          "nearest_queries": 0,
+          "occupied_cells": 66,
+          "plant_target_candidates": 765448,
+          "plant_target_reuses": 0,
+          "plant_target_scans": 41175,
+          "point_grid_builds": 0,
+          "point_grid_cell_changes": 0,
+          "point_grid_moves": 0,
+          "primal_knock_targets": 0,
+          "primal_knock_velocity": 0,
+          "range_cache_hits": 0,
+          "range_candidates": 0,
+          "range_cell_changes": 0,
+          "range_exact_tests": 0,
+          "range_full_scan": 0,
+          "range_grid_resets": 0,
+          "range_index_bytes": 0,
+          "range_queries": 0,
+          "seeking_plant_ticks": 0,
+          "spatial_bytes": 19784,
+          "torch_batch_reuses": 0,
+          "torch_candidates": 1398432,
+          "torch_scans": 41183,
+          "zombie_collision_candidates": 0,
+          "zombie_collision_full_scan": 0,
+          "zombie_collision_queries": 0,
+          "zombie_exact_tests": 0
+        },
+        "session": true,
+        "snapshot_projections": 4734,
+        "typed_commands": 4935,
+        "typed_steps": 4942,
+        "typed_tick": 4942,
+        "v_activity_total": {
+          "boxes": 24630423,
+          "calls": 982941
+        },
+        "v_native_tick_at_start": 0,
+        "v_native_tick_now": 0,
+        "v_tick_at_start": 0,
+        "v_tick_now": 0
+      },
+      "finished": true,
+      "mode": "duel",
+      "planner_notes": {
+        "plant": {
+          "balloon_defend": 10,
+          "mode": "defend",
+          "pushes": 1,
+          "r8_siege": 9,
+          "recovering_or_low": 10,
+          "retreats": 1
+        },
+        "zombie": {
+          "grave_expand": 2,
+          "grave_target": 6,
+          "mode": "defend"
+        }
+      },
+      "rejected_inputs_sample": [
+        {
+          "error": "对局已结束",
+          "input": {
+            "edge": false,
+            "jump": false,
+            "move": 1,
+            "seq": 2481,
+            "type": "move"
+          },
+          "seat": "plant"
+        },
+        {
+          "error": "对局已结束",
+          "input": {
+            "edge": false,
+            "jump": false,
+            "move": 0,
+            "seq": 2454,
+            "type": "move"
+          },
+          "seat": "zombie"
+        }
+      ],
+      "result": {
+        "reason": "hero_death",
+        "tick": 4942,
+        "winner": "zombie"
+      },
+      "seats": {
+        "plant": {
+          "compared": 108,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "defend": 48,
+            "siege": 60
+          },
+          "plan_rejections": 0
+        },
+        "zombie": {
+          "compared": 108,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "-": 108
+          },
+          "plan_rejections": 0
+        }
+      },
+      "time": 164.73333333333332
+    },
+    "duel_lifecycle": {
+      "backend": {
+        "ai_controls": 0,
+        "ai_observations": 3992,
+        "ai_planner_notes": {
+          "plant": {
+            "mode": "siege",
+            "pushes": 14,
+            "r8_siege": 34,
+            "siege_wait_econ": 13
+          },
+          "zombie": {
+            "grave_expand": 9,
+            "grave_target": 7,
+            "mode": "defend"
+          }
+        },
+        "ai_planner_resets": 4,
+        "ai_plans": 188,
+        "ai_resets": 6,
+        "backend": "typed72",
+        "dynamic_v_work": {
+          "command_input": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 4146
+          },
+          "step": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 4200
+          }
+        },
+        "frame_description_hits": 145259,
+        "frame_descriptions": 143308,
+        "native_projections": 0,
+        "performance": {
+          "aim_candidates": 0,
+          "aim_full_scan": 0,
+          "aim_queries": 0,
+          "collision_candidates": 1118,
+          "collision_queries": 16330,
+          "content_candidates": 0,
+          "content_queries": 0,
+          "destination_queries": 1,
+          "destination_rebuilds": 1,
+          "destination_reuses": 0,
+          "empty_cell_skips": 15274,
+          "find_contact_calls": 1056,
+          "fixture_retention": {
+            "aliases64": 0,
+            "all_plants": 0,
+            "armor_events": 0,
+            "atlas": 3015,
+            "births": 0,
+            "calls": 0,
+            "cart_events": 0,
+            "chili_keys": 0,
+            "content_events": 0,
+            "controller_events": 0,
+            "cost_calls": 0,
+            "dispatch_calls": 0,
+            "draws64": 0,
+            "events64": 0,
+            "factory_events": 0,
+            "flight_records": 0,
+            "flights": 0,
+            "flying_draws": 0,
+            "flying_events": 0,
+            "frame_commands": 91,
+            "grenade_events": 0,
+            "held": 0,
+            "held_hits": 0,
+            "held_proxy_sources": 0,
+            "ids": 0,
+            "match_log": 4400,
+            "native_objects": 49,
+            "no_trace": true,
+            "observations": 0,
+            "phase_draws": 0,
+            "phase_events": 0,
+            "poison_events": 0,
+            "positions": 0,
+            "raw_calls": 0,
+            "release_fixtures": true,
+            "render_log": 0,
+            "room_events": 3,
+            "runtime_entities": 0,
+            "runtime_events": 107,
+            "sources": 0,
+            "spawn_events": 0,
+            "spawns64": 0,
+            "states": 0,
+            "summon_events": 0,
+            "tick_events": 0,
+            "ui_atlas": 175,
+            "units": 0
+          },
+          "flood_calls": 86050,
+          "flood_cycles": 495,
+          "flood_expansions": 26405,
+          "flood_neighbors": 2465940,
+          "full_scan_equivalent": 413940,
+          "function_profile": {},
+          "head_candidates": 0,
+          "head_exact_tests": 0,
+          "head_full_scan": 0,
+          "head_queries": 0,
+          "head_spatial_bytes": 0,
+          "index_builds": 8151,
+          "max_seeking_plants": 0,
+          "native_entities": 0,
+          "nearest_candidates": 0,
+          "nearest_full_scan": 0,
+          "nearest_queries": 0,
+          "occupied_cells": 92,
+          "plant_target_candidates": 539695,
+          "plant_target_reuses": 0,
+          "plant_target_scans": 34992,
+          "point_grid_builds": 0,
+          "point_grid_cell_changes": 0,
+          "point_grid_moves": 0,
+          "primal_knock_targets": 0,
+          "primal_knock_velocity": 0,
+          "range_cache_hits": 0,
+          "range_candidates": 0,
+          "range_cell_changes": 0,
+          "range_exact_tests": 0,
+          "range_full_scan": 0,
+          "range_grid_resets": 0,
+          "range_index_bytes": 0,
+          "range_queries": 0,
+          "seeking_plant_ticks": 0,
+          "spatial_bytes": 20840,
+          "torch_batch_reuses": 0,
+          "torch_candidates": 1032436,
+          "torch_scans": 35000,
+          "zombie_collision_candidates": 0,
+          "zombie_collision_full_scan": 0,
+          "zombie_collision_queries": 0,
+          "zombie_exact_tests": 0
+        },
+        "session": true,
+        "snapshot_projections": 3992,
+        "typed_commands": 4146,
+        "typed_steps": 4200,
+        "typed_tick": 4200,
+        "v_activity_total": {
+          "boxes": 149823921,
+          "calls": 5853459
+        },
+        "v_native_tick_at_start": 0,
+        "v_native_tick_now": 0,
+        "v_tick_at_start": 0,
+        "v_tick_now": 0
+      },
+      "finished": false,
+      "mode": "duel",
+      "planner_notes": {
+        "plant": {
+          "mode": "siege",
+          "pushes": 14,
+          "r8_siege": 34,
+          "siege_wait_econ": 13
+        },
+        "zombie": {
+          "grave_expand": 9,
+          "grave_target": 7,
+          "mode": "defend"
+        }
+      },
+      "rejected_inputs_sample": [],
+      "result": null,
+      "seats": {
+        "plant": {
+          "compared": 94,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "defend": 50,
+            "siege": 44
+          },
+          "plan_rejections": 0
+        },
+        "zombie": {
+          "compared": 94,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "-": 94
+          },
+          "plan_rejections": 0
+        }
+      },
+      "time": 140.0
+    },
+    "duel_long": {
+      "backend": {
+        "ai_controls": 0,
+        "ai_observations": 13592,
+        "ai_planner_notes": {
+          "plant": {
+            "econ_emergency": 24,
+            "econ_expand": 77,
+            "mode": "defend",
+            "pushes": 1,
+            "r8_siege": 111,
+            "retreats": 1
+          },
+          "zombie": {
+            "grave_expand": 1,
+            "grave_late": 36,
+            "grave_target": 7,
+            "mode": "defend"
+          }
+        },
+        "ai_planner_resets": 2,
+        "ai_plans": 602,
+        "ai_resets": 2,
+        "backend": "typed72",
+        "dynamic_v_work": {
+          "command_input": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 14169
+          },
+          "step": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 13800
+          }
+        },
+        "frame_description_hits": 845413,
+        "frame_descriptions": 827833,
+        "native_projections": 0,
+        "performance": {
+          "aim_candidates": 0,
+          "aim_full_scan": 0,
+          "aim_queries": 0,
+          "collision_candidates": 18066,
+          "collision_queries": 223740,
+          "content_candidates": 0,
+          "content_queries": 0,
+          "destination_queries": 1,
+          "destination_rebuilds": 1,
+          "destination_reuses": 0,
+          "empty_cell_skips": 215493,
+          "find_contact_calls": 8247,
+          "fixture_retention": {
+            "aliases64": 0,
+            "all_plants": 0,
+            "armor_events": 0,
+            "atlas": 3015,
+            "births": 0,
+            "calls": 0,
+            "cart_events": 0,
+            "chili_keys": 0,
+            "content_events": 0,
+            "controller_events": 0,
+            "cost_calls": 0,
+            "dispatch_calls": 0,
+            "draws64": 0,
+            "events64": 0,
+            "factory_events": 0,
+            "flight_records": 0,
+            "flights": 0,
+            "flying_draws": 0,
+            "flying_events": 0,
+            "frame_commands": 86,
+            "grenade_events": 0,
+            "held": 0,
+            "held_hits": 0,
+            "held_proxy_sources": 0,
+            "ids": 0,
+            "match_log": 15777,
+            "native_objects": 42,
+            "no_trace": true,
+            "observations": 0,
+            "phase_draws": 0,
+            "phase_events": 0,
+            "poison_events": 0,
+            "positions": 0,
+            "raw_calls": 0,
+            "release_fixtures": true,
+            "render_log": 0,
+            "room_events": 5,
+            "runtime_entities": 0,
+            "runtime_events": 1063,
+            "sources": 0,
+            "spawn_events": 0,
+            "spawns64": 0,
+            "states": 0,
+            "summon_events": 0,
+            "tick_events": 0,
+            "ui_atlas": 175,
+            "units": 0
+          },
+          "flood_calls": 246050,
+          "flood_cycles": 1490,
+          "flood_expansions": 78439,
+          "flood_neighbors": 7454948,
+          "full_scan_equivalent": 5709598,
+          "function_profile": {},
+          "head_candidates": 0,
+          "head_exact_tests": 0,
+          "head_full_scan": 0,
+          "head_queries": 0,
+          "head_spatial_bytes": 0,
+          "index_builds": 77315,
+          "max_seeking_plants": 0,
+          "native_entities": 0,
+          "nearest_candidates": 0,
+          "nearest_full_scan": 0,
+          "nearest_queries": 0,
+          "occupied_cells": 48,
+          "plant_target_candidates": 3077570,
+          "plant_target_reuses": 0,
+          "plant_target_scans": 114992,
+          "point_grid_builds": 0,
+          "point_grid_cell_changes": 0,
+          "point_grid_moves": 0,
+          "primal_knock_targets": 0,
+          "primal_knock_velocity": 0,
+          "range_cache_hits": 0,
+          "range_candidates": 0,
+          "range_cell_changes": 0,
+          "range_exact_tests": 0,
+          "range_full_scan": 0,
+          "range_grid_resets": 0,
+          "range_index_bytes": 0,
+          "range_queries": 0,
+          "seeking_plant_ticks": 0,
+          "spatial_bytes": 22384,
+          "torch_batch_reuses": 0,
+          "torch_candidates": 5647477,
+          "torch_scans": 115000,
+          "zombie_collision_candidates": 0,
+          "zombie_collision_full_scan": 0,
+          "zombie_collision_queries": 0,
+          "zombie_exact_tests": 0
+        },
+        "session": true,
+        "snapshot_projections": 13592,
+        "typed_commands": 14169,
+        "typed_steps": 13800,
+        "typed_tick": 13800,
+        "v_activity_total": {
+          "boxes": 111465437,
+          "calls": 4124045
+        },
+        "v_native_tick_at_start": 0,
+        "v_native_tick_now": 0,
+        "v_tick_at_start": 0,
+        "v_tick_now": 0
+      },
+      "finished": false,
+      "mode": "duel",
+      "planner_notes": {
+        "plant": {
+          "econ_emergency": 24,
+          "econ_expand": 77,
+          "mode": "defend",
+          "pushes": 1,
+          "r8_siege": 111,
+          "retreats": 1
+        },
+        "zombie": {
+          "grave_expand": 1,
+          "grave_late": 36,
+          "grave_target": 7,
+          "mode": "defend"
+        }
+      },
+      "rejected_inputs_sample": [
+        {
+          "error": "目标超出标记范围或被地形遮挡",
+          "input": {
+            "seq": 7022,
+            "type": "mark"
+          },
+          "seat": "plant"
+        }
+      ],
+      "result": null,
+      "seats": {
+        "plant": {
+          "compared": 301,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "defend": 86,
+            "siege": 215
+          },
+          "plan_rejections": 0
+        },
+        "zombie": {
+          "compared": 301,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "-": 301
+          },
+          "plan_rejections": 0
+        }
+      },
+      "time": 460.0
+    },
+    "duel_low_zombie": {
+      "backend": {
+        "ai_controls": 0,
+        "ai_observations": 1616,
+        "ai_planner_notes": {
+          "plant": {
+            "econ_expand": 2,
+            "mode": "siege",
+            "pushes": 1
+          },
+          "zombie": {
+            "grave_target": 4,
+            "mode": "defend",
+            "zombie_balloon_defend": 8
+          }
+        },
+        "ai_planner_resets": 2,
+        "ai_plans": 80,
+        "ai_resets": 2,
+        "backend": "typed72",
+        "dynamic_v_work": {
+          "command_input": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 1669
+          },
+          "step": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 1800
+          }
+        },
+        "frame_description_hits": 14768,
+        "frame_descriptions": 25726,
+        "native_projections": 0,
+        "performance": {
+          "aim_candidates": 0,
+          "aim_full_scan": 0,
+          "aim_queries": 0,
+          "collision_candidates": 0,
+          "collision_queries": 0,
+          "content_candidates": 0,
+          "content_queries": 0,
+          "destination_queries": 1,
+          "destination_rebuilds": 1,
+          "destination_reuses": 0,
+          "empty_cell_skips": 0,
+          "find_contact_calls": 0,
+          "fixture_retention": {
+            "aliases64": 0,
+            "all_plants": 0,
+            "armor_events": 0,
+            "atlas": 3015,
+            "births": 0,
+            "calls": 0,
+            "cart_events": 0,
+            "chili_keys": 0,
+            "content_events": 0,
+            "controller_events": 0,
+            "cost_calls": 0,
+            "dispatch_calls": 0,
+            "draws64": 0,
+            "events64": 0,
+            "factory_events": 0,
+            "flight_records": 0,
+            "flights": 0,
+            "flying_draws": 0,
+            "flying_events": 0,
+            "frame_commands": 26,
+            "grenade_events": 0,
+            "held": 0,
+            "held_hits": 0,
+            "held_proxy_sources": 0,
+            "ids": 0,
+            "match_log": 1778,
+            "native_objects": 23,
+            "no_trace": true,
+            "observations": 0,
+            "phase_draws": 0,
+            "phase_events": 0,
+            "poison_events": 0,
+            "positions": 0,
+            "raw_calls": 0,
+            "release_fixtures": true,
+            "render_log": 0,
+            "room_events": 3,
+            "runtime_entities": 0,
+            "runtime_events": 59,
+            "sources": 0,
+            "spawn_events": 0,
+            "spawns64": 0,
+            "states": 0,
+            "summon_events": 0,
+            "tick_events": 0,
+            "ui_atlas": 175,
+            "units": 0
+          },
+          "flood_calls": 46034,
+          "flood_cycles": 244,
+          "flood_expansions": 13069,
+          "flood_neighbors": 1201380,
+          "full_scan_equivalent": 0,
+          "function_profile": {},
+          "head_candidates": 0,
+          "head_exact_tests": 0,
+          "head_full_scan": 0,
+          "head_queries": 0,
+          "head_spatial_bytes": 0,
+          "index_builds": 0,
+          "max_seeking_plants": 0,
+          "native_entities": 0,
+          "nearest_candidates": 0,
+          "nearest_full_scan": 0,
+          "nearest_queries": 0,
+          "occupied_cells": 0,
+          "plant_target_candidates": 114522,
+          "plant_target_reuses": 0,
+          "plant_target_scans": 14984,
+          "point_grid_builds": 0,
+          "point_grid_cell_changes": 0,
+          "point_grid_moves": 0,
+          "primal_knock_targets": 0,
+          "primal_knock_velocity": 0,
+          "range_cache_hits": 0,
+          "range_candidates": 0,
+          "range_cell_changes": 0,
+          "range_exact_tests": 0,
+          "range_full_scan": 0,
+          "range_grid_resets": 0,
+          "range_index_bytes": 0,
+          "range_queries": 0,
+          "seeking_plant_ticks": 0,
+          "spatial_bytes": 0,
+          "torch_batch_reuses": 0,
+          "torch_candidates": 187206,
+          "torch_scans": 15000,
+          "zombie_collision_candidates": 0,
+          "zombie_collision_full_scan": 0,
+          "zombie_collision_queries": 0,
+          "zombie_exact_tests": 0
+        },
+        "session": true,
+        "snapshot_projections": 1617,
+        "typed_commands": 1669,
+        "typed_steps": 1800,
+        "typed_tick": 1800,
+        "v_activity_total": {
+          "boxes": 132123956,
+          "calls": 5172779
+        },
+        "v_native_tick_at_start": 0,
+        "v_native_tick_now": 0,
+        "v_tick_at_start": 0,
+        "v_tick_now": 0
+      },
+      "finished": false,
+      "mode": "duel",
+      "planner_notes": {
+        "plant": {
+          "econ_expand": 2,
+          "mode": "siege",
+          "pushes": 1
+        },
+        "zombie": {
+          "grave_target": 4,
+          "mode": "defend",
+          "zombie_balloon_defend": 8
+        }
+      },
+      "rejected_inputs_sample": [],
+      "result": null,
+      "seats": {
+        "plant": {
+          "compared": 40,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "defend": 37,
+            "siege": 3
+          },
+          "plan_rejections": 0
+        },
+        "zombie": {
+          "compared": 40,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "-": 32,
+            "defend": 8
+          },
+          "plan_rejections": 0
+        }
+      },
+      "time": 60.0
+    },
+    "duel_rich": {
+      "backend": {
+        "ai_controls": 0,
+        "ai_observations": 2992,
+        "ai_planner_notes": {
+          "plant": {
+            "balloon_defend": 3,
+            "econ_emergency": 18,
+            "econ_expand": 33,
+            "mode": "defend",
+            "pushes": 5,
+            "recovering_or_low": 3,
+            "siege_wait_econ": 5
+          },
+          "zombie": {
+            "grave_expand": 53,
+            "grave_target": 8,
+            "mode": "defend",
+            "zombie_rich_quotas": 11
+          }
+        },
+        "ai_planner_resets": 2,
+        "ai_plans": 140,
+        "ai_resets": 2,
+        "backend": "typed72",
+        "dynamic_v_work": {
+          "command_input": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 3111
+          },
+          "step": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 3201
+          }
+        },
+        "frame_description_hits": 113785,
+        "frame_descriptions": 147045,
+        "native_projections": 0,
+        "performance": {
+          "aim_candidates": 0,
+          "aim_full_scan": 0,
+          "aim_queries": 0,
+          "collision_candidates": 397,
+          "collision_queries": 8968,
+          "content_candidates": 0,
+          "content_queries": 0,
+          "destination_queries": 1,
+          "destination_rebuilds": 1,
+          "destination_reuses": 0,
+          "empty_cell_skips": 8735,
+          "find_contact_calls": 233,
+          "fixture_retention": {
+            "aliases64": 0,
+            "all_plants": 0,
+            "armor_events": 0,
+            "atlas": 3015,
+            "births": 0,
+            "calls": 0,
+            "cart_events": 0,
+            "chili_keys": 0,
+            "content_events": 0,
+            "controller_events": 0,
+            "cost_calls": 0,
+            "dispatch_calls": 0,
+            "draws64": 0,
+            "events64": 0,
+            "factory_events": 0,
+            "flight_records": 0,
+            "flights": 0,
+            "flying_draws": 0,
+            "flying_events": 0,
+            "frame_commands": 53,
+            "grenade_events": 0,
+            "held": 0,
+            "held_hits": 0,
+            "held_proxy_sources": 0,
+            "ids": 0,
+            "match_log": 3384,
+            "native_objects": 26,
+            "no_trace": true,
+            "observations": 0,
+            "phase_draws": 0,
+            "phase_events": 0,
+            "poison_events": 0,
+            "positions": 0,
+            "raw_calls": 0,
+            "release_fixtures": true,
+            "render_log": 0,
+            "room_events": 6,
+            "runtime_entities": 0,
+            "runtime_events": 109,
+            "sources": 0,
+            "spawn_events": 0,
+            "spawns64": 0,
+            "states": 0,
+            "summon_events": 0,
+            "tick_events": 0,
+            "ui_atlas": 175,
+            "units": 0
+          },
+          "flood_calls": 62466,
+          "flood_cycles": 367,
+          "flood_expansions": 19293,
+          "flood_neighbors": 1819640,
+          "full_scan_equivalent": 157497,
+          "function_profile": {},
+          "head_candidates": 0,
+          "head_exact_tests": 0,
+          "head_full_scan": 0,
+          "head_queries": 0,
+          "head_spatial_bytes": 0,
+          "index_builds": 6215,
+          "max_seeking_plants": 0,
+          "native_entities": 0,
+          "nearest_candidates": 0,
+          "nearest_full_scan": 0,
+          "nearest_queries": 0,
+          "occupied_cells": 67,
+          "plant_target_candidates": 261294,
+          "plant_target_reuses": 0,
+          "plant_target_scans": 26667,
+          "point_grid_builds": 0,
+          "point_grid_cell_changes": 0,
+          "point_grid_moves": 0,
+          "primal_knock_targets": 0,
+          "primal_knock_velocity": 0,
+          "range_cache_hits": 0,
+          "range_candidates": 0,
+          "range_cell_changes": 0,
+          "range_exact_tests": 0,
+          "range_full_scan": 0,
+          "range_grid_resets": 0,
+          "range_index_bytes": 0,
+          "range_queries": 0,
+          "seeking_plant_ticks": 0,
+          "spatial_bytes": 19648,
+          "torch_batch_reuses": 0,
+          "torch_candidates": 757010,
+          "torch_scans": 26675,
+          "zombie_collision_candidates": 0,
+          "zombie_collision_full_scan": 0,
+          "zombie_collision_queries": 0,
+          "zombie_exact_tests": 0
+        },
+        "session": true,
+        "snapshot_projections": 2992,
+        "typed_commands": 3111,
+        "typed_steps": 3201,
+        "typed_tick": 3201,
+        "v_activity_total": {
+          "boxes": 126835902,
+          "calls": 4841019
+        },
+        "v_native_tick_at_start": 0,
+        "v_native_tick_now": 0,
+        "v_tick_at_start": 0,
+        "v_tick_now": 0
+      },
+      "finished": true,
+      "mode": "duel",
+      "planner_notes": {
+        "plant": {
+          "balloon_defend": 3,
+          "econ_emergency": 18,
+          "econ_expand": 33,
+          "mode": "defend",
+          "pushes": 5,
+          "recovering_or_low": 3,
+          "siege_wait_econ": 5
+        },
+        "zombie": {
+          "grave_expand": 53,
+          "grave_target": 8,
+          "mode": "defend",
+          "zombie_rich_quotas": 11
+        }
+      },
+      "rejected_inputs_sample": [],
+      "result": {
+        "reason": "hero_death",
+        "tick": 3201,
+        "winner": "zombie"
+      },
+      "seats": {
+        "plant": {
+          "compared": 70,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "defend": 70
+          },
+          "plan_rejections": 0
+        },
+        "zombie": {
+          "compared": 70,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "-": 70
+          },
+          "plan_rejections": 0
+        }
+      },
+      "time": 106.7
+    },
+    "duo": {
+      "backend": {
+        "ai_controls": 0,
+        "ai_observations": 9268,
+        "ai_planner_notes": {
+          "plant": {
+            "balloon_defend": 9,
+            "econ_emergency": 29,
+            "mode": "defend",
+            "recovering_or_low": 13
+          },
+          "plant2": {
+            "balloon_defend": 13,
+            "econ_emergency": 29,
+            "mode": "defend",
+            "pushes": 18,
+            "recovering_or_low": 13,
+            "siege_wait_econ": 18
+          },
+          "zombie": {
+            "grave_expand": 87,
+            "grave_target": 10,
+            "mode": "defend"
+          },
+          "zombie2": {
+            "grave_expand": 88,
+            "grave_target": 10,
+            "mode": "defend"
+          }
+        },
+        "ai_planner_resets": 4,
+        "ai_plans": 424,
+        "ai_resets": 4,
+        "backend": "typed72",
+        "dynamic_v_work": {
+          "command_input": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 9476
+          },
+          "step": {
+            "boxes": 0,
+            "calls": 0,
+            "entries": 4843
+          }
+        },
+        "frame_description_hits": 354288,
+        "frame_descriptions": 175782,
+        "native_projections": 0,
+        "performance": {
+          "aim_candidates": 0,
+          "aim_full_scan": 0,
+          "aim_queries": 0,
+          "collision_candidates": 376,
+          "collision_queries": 2867,
+          "content_candidates": 0,
+          "content_queries": 0,
+          "destination_queries": 1,
+          "destination_rebuilds": 1,
+          "destination_reuses": 0,
+          "empty_cell_skips": 2572,
+          "find_contact_calls": 295,
+          "fixture_retention": {
+            "aliases64": 0,
+            "all_plants": 0,
+            "armor_events": 0,
+            "atlas": 3015,
+            "births": 0,
+            "calls": 0,
+            "cart_events": 0,
+            "chili_keys": 0,
+            "content_events": 0,
+            "controller_events": 0,
+            "cost_calls": 0,
+            "dispatch_calls": 0,
+            "draws64": 0,
+            "events64": 0,
+            "factory_events": 0,
+            "flight_records": 0,
+            "flights": 0,
+            "flying_draws": 0,
+            "flying_events": 0,
+            "frame_commands": 92,
+            "grenade_events": 0,
+            "held": 0,
+            "held_hits": 0,
+            "held_proxy_sources": 0,
+            "ids": 0,
+            "match_log": 9817,
+            "native_objects": 37,
+            "no_trace": true,
+            "observations": 0,
+            "phase_draws": 0,
+            "phase_events": 0,
+            "poison_events": 0,
+            "positions": 0,
+            "raw_calls": 0,
+            "release_fixtures": true,
+            "render_log": 0,
+            "room_events": 17,
+            "runtime_entities": 0,
+            "runtime_events": 183,
+            "sources": 0,
+            "spawn_events": 0,
+            "spawns64": 0,
+            "states": 0,
+            "summon_events": 0,
+            "tick_events": 0,
+            "ui_atlas": 175,
+            "units": 0
+          },
+          "flood_calls": 349892,
+          "flood_cycles": 1583,
+          "flood_expansions": 86267,
+          "flood_neighbors": 7893140,
+          "full_scan_equivalent": 55053,
+          "function_profile": {},
+          "head_candidates": 0,
+          "head_exact_tests": 0,
+          "head_full_scan": 0,
+          "head_queries": 0,
+          "head_spatial_bytes": 0,
+          "index_builds": 2291,
+          "max_seeking_plants": 0,
+          "native_entities": 0,
+          "nearest_candidates": 0,
+          "nearest_full_scan": 0,
+          "nearest_queries": 0,
+          "occupied_cells": 62,
+          "plant_target_candidates": 270779,
+          "plant_target_reuses": 37825,
+          "plant_target_scans": 40358,
+          "point_grid_builds": 0,
+          "point_grid_cell_changes": 0,
+          "point_grid_moves": 0,
+          "primal_knock_targets": 0,
+          "primal_knock_velocity": 0,
+          "range_cache_hits": 0,
+          "range_candidates": 0,
+          "range_cell_changes": 0,
+          "range_exact_tests": 0,
+          "range_full_scan": 0,
+          "range_grid_resets": 0,
+          "range_index_bytes": 0,
+          "range_queries": 0,
+          "seeking_plant_ticks": 0,
+          "spatial_bytes": 19352,
+          "torch_batch_reuses": 0,
+          "torch_candidates": 1020661,
+          "torch_scans": 40358,
+          "zombie_collision_candidates": 0,
+          "zombie_collision_full_scan": 0,
+          "zombie_collision_queries": 0,
+          "zombie_exact_tests": 0
+        },
+        "session": true,
+        "snapshot_projections": 9268,
+        "typed_commands": 9476,
+        "typed_steps": 4843,
+        "typed_tick": 4843,
+        "v_activity_total": {
+          "boxes": 190674268,
+          "calls": 7215981
+        },
+        "v_native_tick_at_start": 0,
+        "v_native_tick_now": 0,
+        "v_tick_at_start": 0,
+        "v_tick_now": 0
+      },
+      "finished": true,
+      "mode": "duo",
+      "planner_notes": {
+        "plant": {
+          "balloon_defend": 9,
+          "econ_emergency": 29,
+          "mode": "defend",
+          "recovering_or_low": 13
+        },
+        "plant2": {
+          "balloon_defend": 13,
+          "econ_emergency": 29,
+          "mode": "defend",
+          "pushes": 18,
+          "recovering_or_low": 13,
+          "siege_wait_econ": 18
+        },
+        "zombie": {
+          "grave_expand": 87,
+          "grave_target": 10,
+          "mode": "defend"
+        },
+        "zombie2": {
+          "grave_expand": 88,
+          "grave_target": 10,
+          "mode": "defend"
+        }
+      },
+      "rejected_inputs_sample": [],
+      "result": {
+        "reason": "hero_death",
+        "tick": 4843,
+        "winner": "zombie"
+      },
+      "seats": {
+        "plant": {
+          "compared": 106,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "defend": 106
+          },
+          "plan_rejections": 0
+        },
+        "plant2": {
+          "compared": 106,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "defend": 100,
+            "siege": 6
+          },
+          "plan_rejections": 0
+        },
+        "zombie": {
+          "compared": 106,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "-": 106
+          },
+          "plan_rejections": 0
+        },
+        "zombie2": {
+          "compared": 106,
+          "first_mismatches": [],
+          "mismatches": 0,
+          "modes": {
+            "-": 106
+          },
+          "plan_rejections": 0
+        }
+      },
+      "time": 161.43333333333334
+    }
+  },
+  "scope": "Typed r22 planner vs V r22 Agent.plan, same session, same snapshot, inside the shipped AISeat; exact dump equality after validate_plan.",
+  "strict_check_accounting": true,
+  "unrun_checks": [],
+  "unrun_count": 0
+}
