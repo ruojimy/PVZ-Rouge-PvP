@@ -1,0 +1,632 @@
+{
+  "completed": true,
+  "performance_acceptance_passed": false,
+  "phone_tests_ended": true,
+  "final_diagnostic_force_stopped": true,
+  "installed_build_at_end": "1.6.0.74.3-typed.20261114",
+  "installed_code_at_end": 1114081,
+  "device": {
+    "model": "V2456A",
+    "android": "16",
+    "soc": "SM7635"
+  },
+  "versions": {
+    "74.1": 1113075,
+    "74.3": 1114081
+  },
+  "upgrade": "adb install --no-streaming -r; no uninstall or data clearing",
+  "userdata": "Diagnostic TemporaryDirectory isolates test userdata; private production userdata was not individually hashed.",
+  "pressure_control": "Default enabled; display_budget=false does not disable simulation slow motion.",
+  "measurement": "Same phone, sequential actual old/new binaries, one completed run per scene. Fixed initial seed/composition/neutral input; wall-clock runs advance different ticks and are not final-state equality tests.",
+  "sequence": "74.1 ordinary, mixed, barrage, grabber; upgrade; 74.3 ordinary, mixed, barrage, grabber",
+  "comparisons": [
+    {
+      "scene": "ordinary20",
+      "fps_change_percent": 2.8805578546013066,
+      "simulation_wall_ratio_change_percent": -0.15696911839780947,
+      "same_seed_initial_composition_and_input_fixture": true
+    },
+    {
+      "scene": "mixed120",
+      "fps_change_percent": 28.53014258019604,
+      "simulation_wall_ratio_change_percent": -1.4243005488893679,
+      "same_seed_initial_composition_and_input_fixture": true
+    },
+    {
+      "scene": "barrage240",
+      "fps_change_percent": 16.785562686879874,
+      "simulation_wall_ratio_change_percent": 24.519858209701596,
+      "same_seed_initial_composition_and_input_fixture": true
+    },
+    {
+      "scene": "grabber120",
+      "fps_change_percent": -21.93592011780112,
+      "simulation_wall_ratio_change_percent": 82.16848153540542,
+      "same_seed_initial_composition_and_input_fixture": true
+    }
+  ],
+  "results": [
+    {
+      "version": "74.1",
+      "build": "1.6.0.74.1-typed.20261113",
+      "scene": "ordinary20",
+      "completed": true,
+      "seconds": 30.039255041047,
+      "setup_seconds": 3.926107811043039,
+      "fps": 23.70231881673134,
+      "frames": 712,
+      "simulated_seconds": 30.032,
+      "simulation_wall_ratio": 0.9997584813259488,
+      "room_ticks": 901,
+      "native_ticks": 7508,
+      "presentation_interval_ms": {
+        "max": 65.11156202759594,
+        "mean": 42.18502826029212,
+        "p50": 41.46229196339846,
+        "p95": 50.95104197971523,
+        "p99": 58.74651100020856,
+        "samples": 711,
+        "total": 29993.555093067698
+      },
+      "phase_mean_ms": {
+        "room_update": 2.4299605332937593,
+        "refresh": 5.8894871825318305,
+        "render": 19.94405098892539,
+        "screen_scale_blit": 8.774433092552949,
+        "present": 2.749469580869138
+      },
+      "phase_total_ms": {
+        "room_update": 1730.1318997051567,
+        "refresh": 4193.314873962663,
+        "render": 14200.164304114878,
+        "screen_scale_blit": 6247.3963618976995,
+        "present": 1957.6223415788263
+      },
+      "phase_cpu_mean_ms": {
+        "room_update": 2.7173117977526275,
+        "refresh": 6.238598314606762,
+        "render": 21.02079213483156,
+        "screen_scale_blit": 9.081410112359533,
+        "present": 5.91939044943812
+      },
+      "initial_composition": {
+        "zombie:普通僵尸": 20
+      },
+      "primed_grabber_roots": 0,
+      "plants_min_max": [
+        0,
+        0
+      ],
+      "zombies_min_max": [
+        20,
+        20
+      ],
+      "projectiles_observed_min_max": [
+        0,
+        0
+      ],
+      "scale_min": 1,
+      "scale_end": 1,
+      "temperature_battery_before_c": 31.7,
+      "temperature_battery_after_c": 31.7,
+      "temperature_after_collected_after_reconnect": false,
+      "android_thermal_status_at_end": 0,
+      "rss_mib_at_end": 620.4375,
+      "seed": 301,
+      "input": "Neutral move seq=1 at native tick 0 for each side; diagnostic wall-clock heartbeats disabled.",
+      "report_sha256": "f42601313ca693d0805d83946e8533aa6a3fb0ae63ea9f335a85d21a9e482b2c"
+    },
+    {
+      "version": "74.1",
+      "build": "1.6.0.74.1-typed.20261113",
+      "scene": "mixed120",
+      "completed": true,
+      "seconds": 30.009677749010734,
+      "setup_seconds": 4.834874790045433,
+      "fps": 10.69654938265979,
+      "frames": 321,
+      "simulated_seconds": 20.236,
+      "simulation_wall_ratio": 0.6743158046962726,
+      "room_ticks": 607,
+      "native_ticks": 5059,
+      "presentation_interval_ms": {
+        "max": 260.8128129504621,
+        "mean": 93.35213928752637,
+        "p50": 88.51546898949891,
+        "p95": 141.55859302263707,
+        "p99": 152.27171895094216,
+        "samples": 320,
+        "total": 29872.68457200844
+      },
+      "phase_mean_ms": {
+        "room_update": 11.09608399393066,
+        "refresh": 38.92991885744511,
+        "render": 25.62182873336604,
+        "screen_scale_blit": 8.777763814929397,
+        "present": 2.769128089434122
+      },
+      "phase_total_ms": {
+        "room_update": 3561.842962051742,
+        "refresh": 12496.50395323988,
+        "render": 8224.6070234105,
+        "screen_scale_blit": 2817.6621845923364,
+        "present": 888.8901167083532
+      },
+      "phase_cpu_mean_ms": {
+        "room_update": 11.802183800622966,
+        "refresh": 40.527230529594945,
+        "render": 26.386155763239795,
+        "screen_scale_blit": 9.114987538941044,
+        "present": 5.91393769470393
+      },
+      "initial_composition": {
+        "plant:豌豆射手": 60,
+        "zombie:普通僵尸": 60
+      },
+      "primed_grabber_roots": 0,
+      "plants_min_max": [
+        60,
+        60
+      ],
+      "zombies_min_max": [
+        60,
+        60
+      ],
+      "projectiles_observed_min_max": [
+        11,
+        23
+      ],
+      "scale_min": 0.65,
+      "scale_end": 0.65,
+      "temperature_battery_before_c": 31.7,
+      "temperature_battery_after_c": 31.6,
+      "temperature_after_collected_after_reconnect": false,
+      "android_thermal_status_at_end": 0,
+      "rss_mib_at_end": 652.5390625,
+      "seed": 301,
+      "input": "Neutral move seq=1 at native tick 0 for each side; diagnostic wall-clock heartbeats disabled.",
+      "report_sha256": "323d44c4854d39696bdb1c29ba42cb0d8ecbabcdb371745e2d04c37a5f62ca10"
+    },
+    {
+      "version": "74.1",
+      "build": "1.6.0.74.1-typed.20261113",
+      "scene": "barrage240",
+      "completed": true,
+      "seconds": 60.125735080917366,
+      "setup_seconds": 9.815241714939475,
+      "fps": 3.409521725166611,
+      "frames": 205,
+      "simulated_seconds": 33.432,
+      "simulation_wall_ratio": 0.556034782028147,
+      "room_ticks": 1003,
+      "native_ticks": 8358,
+      "presentation_interval_ms": {
+        "max": 509.77020792197436,
+        "mean": 292.5767211908904,
+        "p50": 293.27786492649466,
+        "p95": 404.8373430268839,
+        "p99": 455.0303650321439,
+        "samples": 204,
+        "total": 59685.651122941636
+      },
+      "phase_mean_ms": {
+        "room_update": 102.8935906937255,
+        "refresh": 97.8901952942379,
+        "render": 75.74208964673211,
+        "screen_scale_blit": 8.773512177441905,
+        "present": 2.669250003130334
+      },
+      "phase_total_ms": {
+        "room_update": 21093.186092213728,
+        "refresh": 20067.49003531877,
+        "render": 15527.128377580084,
+        "screen_scale_blit": 1798.5699963755906,
+        "present": 547.1962506417185
+      },
+      "phase_cpu_mean_ms": {
+        "room_update": 106.57851707317086,
+        "refresh": 100.9389804878043,
+        "render": 78.00999512195082,
+        "screen_scale_blit": 9.053263414634491,
+        "present": 5.833999999999597
+      },
+      "initial_composition": {
+        "plant:机枪射手": 40,
+        "zombie:普通僵尸": 120,
+        "plant:杨桃": 40,
+        "plant:香蒲": 40
+      },
+      "primed_grabber_roots": 0,
+      "plants_min_max": [
+        120,
+        120
+      ],
+      "zombies_min_max": [
+        120,
+        120
+      ],
+      "projectiles_observed_min_max": [
+        54,
+        136
+      ],
+      "scale_min": 0.65,
+      "scale_end": 0.65,
+      "temperature_battery_before_c": 31.6,
+      "temperature_battery_after_c": 31.6,
+      "temperature_after_collected_after_reconnect": true,
+      "android_thermal_status_at_end": 0,
+      "rss_mib_at_end": 699.40234375,
+      "seed": 301,
+      "input": "Neutral move seq=1 at native tick 0 for each side; diagnostic wall-clock heartbeats disabled.",
+      "report_sha256": "7a5d5aae92e6d1b526c3fbd36a3ad8553149ffbac7b549e86991167540c55494"
+    },
+    {
+      "version": "74.1",
+      "build": "1.6.0.74.1-typed.20261113",
+      "scene": "grabber120",
+      "completed": true,
+      "seconds": 60.47780445602257,
+      "setup_seconds": 5.386745675001293,
+      "fps": 1.9676640226999778,
+      "frames": 119,
+      "simulated_seconds": 19.832,
+      "simulation_wall_ratio": 0.3279219571276131,
+      "room_ticks": 595,
+      "native_ticks": 4958,
+      "presentation_interval_ms": {
+        "max": 1762.2703639790416,
+        "mean": 508.1780493304812,
+        "p50": 466.87515603844076,
+        "p95": 835.4750520084053,
+        "p99": 1457.221821998246,
+        "samples": 118,
+        "total": 59965.009820996784
+      },
+      "phase_mean_ms": {
+        "room_update": 174.79809567218788,
+        "refresh": 151.4853780870052,
+        "render": 131.16902042622482,
+        "screen_scale_blit": 8.87560354890067,
+        "present": 2.74231968674527
+      },
+      "phase_total_ms": {
+        "room_update": 20800.973384990357,
+        "refresh": 18026.759992353618,
+        "render": 15609.113430720754,
+        "screen_scale_blit": 1056.1968223191798,
+        "present": 326.3360427226871
+      },
+      "phase_cpu_mean_ms": {
+        "room_update": 180.39891596638594,
+        "refresh": 156.23509243697487,
+        "render": 134.9116218487394,
+        "screen_scale_blit": 9.161336134453087,
+        "present": 6.039403361345174
+      },
+      "initial_composition": {
+        "plant:抓人草": 30,
+        "zombie:普通僵尸": 60,
+        "plant:机枪射手": 30
+      },
+      "primed_grabber_roots": 30,
+      "plants_min_max": [
+        147,
+        150
+      ],
+      "zombies_min_max": [
+        60,
+        60
+      ],
+      "projectiles_observed_min_max": [
+        0,
+        3
+      ],
+      "scale_min": 0.516,
+      "scale_end": 0.5524638200020628,
+      "temperature_battery_before_c": 31.6,
+      "temperature_battery_after_c": 31.6,
+      "temperature_after_collected_after_reconnect": false,
+      "android_thermal_status_at_end": 0,
+      "rss_mib_at_end": 728.28125,
+      "seed": 301,
+      "input": "Same neutral input after two deterministic growth steps; wall-clock heartbeats disabled.",
+      "report_sha256": "f68361a0a2f4dcb20dda82b6c55b43bca20fb858648cd0657e05cdeb237ee3f6"
+    },
+    {
+      "version": "74.3",
+      "build": "1.6.0.74.3-typed.20261114",
+      "scene": "ordinary20",
+      "completed": true,
+      "seconds": 30.018358165980317,
+      "setup_seconds": 2.9313423950225115,
+      "fps": 24.385077823129336,
+      "frames": 732,
+      "simulated_seconds": 29.964,
+      "simulation_wall_ratio": 0.9981891692517041,
+      "room_ticks": 899,
+      "native_ticks": 7491,
+      "presentation_interval_ms": {
+        "max": 67.14687496423721,
+        "mean": 41.02707084949306,
+        "p50": 40.278646047227085,
+        "p95": 51.07406200841069,
+        "p99": 58.5134889697656,
+        "samples": 731,
+        "total": 29990.788790979423
+      },
+      "phase_mean_ms": {
+        "room_update": 2.510402471372919,
+        "refresh": 4.654498680976927,
+        "render": 19.61912410992167,
+        "screen_scale_blit": 8.761729055072838,
+        "present": 2.75408563282356
+      },
+      "phase_total_ms": {
+        "room_update": 1837.6146090449765,
+        "refresh": 3407.0930344751105,
+        "render": 14361.198848462664,
+        "screen_scale_blit": 6413.585668313317,
+        "present": 2015.9906832268462
+      },
+      "phase_cpu_mean_ms": {
+        "room_update": 2.7586256830601017,
+        "refresh": 4.883781420765051,
+        "render": 20.535744535519243,
+        "screen_scale_blit": 9.133326502732183,
+        "present": 5.959976775956334
+      },
+      "initial_composition": {
+        "zombie:普通僵尸": 20
+      },
+      "primed_grabber_roots": 0,
+      "plants_min_max": [
+        0,
+        0
+      ],
+      "zombies_min_max": [
+        20,
+        20
+      ],
+      "projectiles_observed_min_max": [
+        0,
+        0
+      ],
+      "scale_min": 1,
+      "scale_end": 1,
+      "temperature_battery_before_c": 32.1,
+      "temperature_battery_after_c": 31.8,
+      "temperature_after_collected_after_reconnect": false,
+      "android_thermal_status_at_end": 0,
+      "rss_mib_at_end": 619.69140625,
+      "seed": 301,
+      "input": "Neutral move seq=1 at native tick 0 for each side; diagnostic wall-clock heartbeats disabled.",
+      "report_sha256": "d243532c2b3803d0c62d0e46eb8a0364a5118015ddc7b6571c450846e3a92f05"
+    },
+    {
+      "version": "74.3",
+      "build": "1.6.0.74.3-typed.20261114",
+      "scene": "mixed120",
+      "completed": true,
+      "seconds": 30.04009915504139,
+      "setup_seconds": 5.378719424945302,
+      "fps": 13.748290172693705,
+      "frames": 413,
+      "simulated_seconds": 19.968,
+      "simulation_wall_ratio": 0.6647115209887359,
+      "room_ticks": 599,
+      "native_ticks": 4992,
+      "presentation_interval_ms": {
+        "max": 119.15244802366942,
+        "mean": 72.72009680599191,
+        "p50": 69.84416698105633,
+        "p95": 97.22192690242082,
+        "p99": 108.53249998763204,
+        "samples": 412,
+        "total": 29960.679884068668
+      },
+      "phase_mean_ms": {
+        "room_update": 9.132159386195477,
+        "refresh": 23.519892535582816,
+        "render": 24.496107934139776,
+        "screen_scale_blit": 8.828056653167772,
+        "present": 2.7553859193861197
+      },
+      "phase_total_ms": {
+        "room_update": 3771.581826498732,
+        "refresh": 9713.715617195703,
+        "render": 10116.892576799728,
+        "screen_scale_blit": 3645.98739775829,
+        "present": 1137.9743847064674
+      },
+      "phase_cpu_mean_ms": {
+        "room_update": 9.819266343825776,
+        "refresh": 24.721980629539825,
+        "render": 25.267878934624875,
+        "screen_scale_blit": 9.109486682808694,
+        "present": 5.9315569007261475
+      },
+      "initial_composition": {
+        "plant:豌豆射手": 60,
+        "zombie:普通僵尸": 60
+      },
+      "primed_grabber_roots": 0,
+      "plants_min_max": [
+        60,
+        60
+      ],
+      "zombies_min_max": [
+        60,
+        60
+      ],
+      "projectiles_observed_min_max": [
+        9,
+        33
+      ],
+      "scale_min": 0.65,
+      "scale_end": 0.65,
+      "temperature_battery_before_c": 32.1,
+      "temperature_battery_after_c": 32.1,
+      "temperature_after_collected_after_reconnect": true,
+      "android_thermal_status_at_end": 0,
+      "rss_mib_at_end": 628.48828125,
+      "seed": 301,
+      "input": "Neutral move seq=1 at native tick 0 for each side; diagnostic wall-clock heartbeats disabled.",
+      "report_sha256": "29e32cd1d54cd6c506d744c78569a70e1b6bf28d2c614e481b1c27c7489ae68d"
+    },
+    {
+      "version": "74.3",
+      "build": "1.6.0.74.3-typed.20261114",
+      "scene": "barrage240",
+      "completed": true,
+      "seconds": 60.27380685205571,
+      "setup_seconds": 11.624096193001606,
+      "fps": 3.981829131667241,
+      "frames": 240,
+      "simulated_seconds": 41.732,
+      "simulation_wall_ratio": 0.692373722178072,
+      "room_ticks": 1252,
+      "native_ticks": 10433,
+      "presentation_interval_ms": {
+        "max": 482.19005193095654,
+        "mean": 251.32767119246174,
+        "p50": 242.2540100524202,
+        "p95": 411.4784380653873,
+        "p99": 473.70442701503634,
+        "samples": 239,
+        "total": 60067.31341499835
+      },
+      "phase_mean_ms": {
+        "room_update": 110.5506551359819,
+        "refresh": 49.388545096250404,
+        "render": 68.51760672871023,
+        "screen_scale_blit": 8.805402357150646,
+        "present": 2.6837486691268473
+      },
+      "phase_total_ms": {
+        "room_update": 26532.157232635655,
+        "refresh": 11853.250823100097,
+        "render": 16444.225614890456,
+        "screen_scale_blit": 2113.296565716155,
+        "present": 644.0996805904433
+      },
+      "phase_cpu_mean_ms": {
+        "room_update": 114.52833749999994,
+        "refresh": 50.98225000000018,
+        "render": 70.62155416666654,
+        "screen_scale_blit": 9.079062500000385,
+        "present": 5.872124999999736
+      },
+      "initial_composition": {
+        "plant:机枪射手": 40,
+        "zombie:普通僵尸": 120,
+        "plant:杨桃": 40,
+        "plant:香蒲": 40
+      },
+      "primed_grabber_roots": 0,
+      "plants_min_max": [
+        120,
+        120
+      ],
+      "zombies_min_max": [
+        120,
+        120
+      ],
+      "projectiles_observed_min_max": [
+        50,
+        198
+      ],
+      "scale_min": 0.65,
+      "scale_end": 0.65,
+      "temperature_battery_before_c": 32.1,
+      "temperature_battery_after_c": 32.1,
+      "temperature_after_collected_after_reconnect": false,
+      "android_thermal_status_at_end": 0,
+      "rss_mib_at_end": 665.91015625,
+      "seed": 301,
+      "input": "Neutral move seq=1 at native tick 0 for each side; diagnostic wall-clock heartbeats disabled.",
+      "report_sha256": "c8afbf33b07d10c32467c0bdba59583d9b82083bef27bc1c4b85760b0768bd0c"
+    },
+    {
+      "version": "74.3",
+      "build": "1.6.0.74.3-typed.20261114",
+      "scene": "grabber120",
+      "completed": true,
+      "seconds": 60.54534502804745,
+      "setup_seconds": 5.930850205942988,
+      "fps": 1.5360388144937984,
+      "frames": 93,
+      "simulated_seconds": 36.168,
+      "simulation_wall_ratio": 0.5973704499205559,
+      "room_ticks": 1085,
+      "native_ticks": 9042,
+      "presentation_interval_ms": {
+        "max": 973.8967709708959,
+        "mean": 657.4724267171089,
+        "p50": 650.9389060083777,
+        "p95": 874.0961449220777,
+        "p99": 969.5794270373881,
+        "samples": 92,
+        "total": 60487.463257974014
+      },
+      "phase_mean_ms": {
+        "room_update": 467.14506483065986,
+        "refresh": 69.57771281726778,
+        "render": 84.00945118953905,
+        "screen_scale_blit": 8.89007726018267,
+        "present": 2.739410275363073
+      },
+      "phase_total_ms": {
+        "room_update": 43444.49102925137,
+        "refresh": 6470.727292005904,
+        "render": 7812.878960627131,
+        "screen_scale_blit": 826.7771851969883,
+        "present": 254.76515560876578
+      },
+      "phase_cpu_mean_ms": {
+        "room_update": 482.9792473118281,
+        "refresh": 71.90027956989262,
+        "render": 86.57705376344069,
+        "screen_scale_blit": 9.240247311828329,
+        "present": 5.989709677418994
+      },
+      "initial_composition": {
+        "plant:抓人草": 30,
+        "zombie:普通僵尸": 60,
+        "plant:机枪射手": 30
+      },
+      "primed_grabber_roots": 30,
+      "plants_min_max": [
+        146,
+        150
+      ],
+      "zombies_min_max": [
+        60,
+        60
+      ],
+      "projectiles_observed_min_max": [
+        2,
+        5
+      ],
+      "scale_min": 0.451,
+      "scale_end": 0.4506472618443936,
+      "temperature_battery_before_c": 32.1,
+      "temperature_battery_after_c": 32.1,
+      "temperature_after_collected_after_reconnect": true,
+      "android_thermal_status_at_end": 0,
+      "rss_mib_at_end": 689.2109375,
+      "seed": 301,
+      "input": "Same neutral input after two deterministic growth steps; wall-clock heartbeats disabled.",
+      "report_sha256": "29b78ebd453f9209fde084769e06c7de75875b0bb2b1175be472a52bbb7f6d53"
+    }
+  ],
+  "scope_limits": [
+    "No standalone asparagus scene exists in this frozen diagnostic.",
+    "Local fixed scenes do not test cloud guest/VPN, cooperative day 9, or long-duration memory growth.",
+    "Battery temperatures are not SoC junction temperatures; some after samples were collected after reconnect.",
+    "Wireless debug endpoints changed. Completed reports were recovered without rerunning completed scenes. No full continuous foreground trace is claimed for 74.1.",
+    "Some touch interactions were recorded in the 74.1 grabber session; the diagnostic disables movement heartbeats, but this remains an uncontrolled single-run comparison.",
+    "74.3 barrage mid-run screenshot was captured during 11.6-second setup and is black; its final rendered scene is retained. This is not diagnosed as a display defect.",
+    "Function profiling and extra engine-switch A/B were canceled at the user request to finish. Hotspots below are measured frame phases, not individual function rankings.",
+    "High-pressure scenes remain visibly slow; this is not a performance acceptance pass."
+  ]
+}
