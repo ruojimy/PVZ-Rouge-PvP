@@ -81,6 +81,38 @@ int main(int argc, char** argv) {
         return {{"resource", resource->key}, {"file", resource->file}, {"matches_live_card_icon", true}};
     });
 
+    test("rage_actual_workshop_card_library_and_editor", [&]() -> J {
+        // Follow the player's real workshop entry; checking Renderer::icon
+        // alone does not exercise browser selection or editor presentation.
+        const auto command = [&](const char* operation, V arg = V::none()) {
+            require(tx::action(app, V::tuple({SV("texture74"), V(operation), arg})), "workshop action rejected");
+        };
+        const auto cyan_pixels = [&](SDL_Rect region) {
+            const auto frame = tx::pixels(screen); size_t count = 0;
+            for(int y=std::max(0,region.y);y<std::min(720,region.y+region.h);++y)
+                for(int x=std::max(0,region.x);x<std::min(1280,region.x+region.w);++x){
+                    const auto p=frame[size_t(y)*1280+x];
+                    if((p>>24)<120&&((p>>16)&255)>100&&((p>>8)&255)>150)++count;
+                }
+            return count;
+        };
+        require(tx::action(app,V::tuple({SV("texture74_open")})),"workshop entry rejected");
+        auto& state=tx::state();state.filter="卡牌";state.query="暴怒";state.page=0;
+        callm(app,SY("render"),Args{});
+        const auto library_cyan=cyan_pixels({28,212,58,60});
+        callm(pg::image_module(),SY("save"),Args{screen,V(p8(out/"rage-actual-library.png"))});
+        require(library_cyan>20,"actual workshop Rage thumbnail is missing its blue flame");
+        command("card",SV("zsecret:暴怒"));
+        require(state.selected_key=="icon:石化火炬-蓝火","Rage selected the wrong main resource");
+        require(state.canvas.flatten()==tx::pixels(tx::original(*tx::resource(state.selected_key))),"editor loaded different original pixels");
+        callm(app,SY("render"),Args{});
+        const auto editor_cyan=cyan_pixels(state.image_rect);
+        callm(pg::image_module(),SY("save"),Args{screen,V(p8(out/"rage-actual-editor.png"))});
+        require(editor_cyan>20,"actual workshop Rage canvas is missing its blue flame");
+        command("library");state.query.clear();
+        return {{"selected_resource",state.selected_key},{"library_cyan_pixels",library_cyan},{"editor_cyan_pixels",editor_cyan},{"actual_application_render",true}};
+    });
+
     const J authority = {{"players", {
         {"plant", {{"hp", 31}, {"stats", {{"earned", 111}, {"spent", 25}, {"coins", 12}}}}},
         {"plant2", {{"hp", 17}, {"stats", {{"earned", 777}, {"spent", 350}, {"coins", 28}}}}},

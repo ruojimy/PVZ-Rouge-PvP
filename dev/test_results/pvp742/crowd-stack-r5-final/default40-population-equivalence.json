@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "layout": "same",
+      "passed": true,
+      "equal": {
+        "admitted": true,
+        "samples": true,
+        "rng_samples": true,
+        "final_rng": true,
+        "final_native": true,
+        "room_tick": true,
+        "native_tick": true,
+        "game_seconds": true
+      }
+    },
+    {
+      "layout": "boundary",
+      "passed": true,
+      "equal": {
+        "admitted": true,
+        "samples": true,
+        "rng_samples": true,
+        "final_rng": true,
+        "final_native": true,
+        "room_tick": true,
+        "native_tick": true,
+        "game_seconds": true
+      }
+    }
+  ],
+  "scope": "Before and after population cold wiring; default40; exact states and all recorded RNG, excluding timing/performance and test metadata."
+}

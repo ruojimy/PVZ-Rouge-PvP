@@ -82,9 +82,21 @@ void initialize(const V& app){auto& s=state();load_inventory();auto parent=u8p(p
 }
 void new_pack(){auto& s=state();if(s.initialized)save_current(s.local_enabled);commit_canvas();s.local_id="pack-"+digest(std::to_string(SDL_GetPerformanceCounter())).substr(0,16);s.document={{"format","pvz-texture-pack-v1"},{"name","新材质包"},{"entries",J::object()}};s.selected_key.clear();s.canvas={};save_current();}
 void commit_canvas(){auto& s=state();if(s.selected_key.empty()||!s.canvas.w||!s.dirty)return;auto& c=s.canvas;J e={{"width",c.w},{"height",c.h},{"png",b64(png_encode(surface(c.w,c.h,c.flatten())))},{"layers",J::array()}};for(const auto& l:c.layers)e["layers"].push_back({{"name",l.name},{"visible",l.visible},{"opacity",l.opacity},{"png",b64(png_encode(surface(c.w,c.h,l.pixels)))}});s.document["entries"][s.selected_key]=e;s.dirty=false;}
-void open_resource(const std::string& key){auto& s=state();if(!s.selected_key.empty())save_current(s.local_enabled);const auto* r=resource(key);if(!r)throw std::runtime_error("资源不存在");s.selected_key=key;Canvas c;c.w=r->w;c.h=r->h;
- if(s.document["entries"].contains(key)){const auto& e=s.document["entries"][key];if(e.contains("layers"))for(const auto& l:e["layers"])c.layers.push_back({l["name"],l["visible"],l["opacity"],pixels(png_decode(unb64(l["png"]),r->w,r->h))});else c.layers.push_back({"导入材质",true,255,pixels(png_decode(unb64(e["png"]),r->w,r->h))});}
- else c.layers.push_back({"原始图层",true,255,pixels(original(*r))});s.canvas=std::move(c);s.dirty=false;s.dragging=false;s.selection={};s.fit_pending=true;fit_canvas();}
+namespace {void swap_canvas(Canvas& a,Canvas& b)noexcept{
+ std::swap(a.w,b.w);std::swap(a.h,b.h);std::swap(a.selected,b.selected);std::swap(a.history_bytes,b.history_bytes);
+ a.layers.swap(b.layers);a.undo.swap(b.undo);a.redo.swap(b.redo);
+}}
+void open_resource(const std::string& key){auto& s=state();
+ // key may alias selected_key. Decode everything before saving or changing the
+ // current editor identity: a missing original must not relabel the old canvas.
+ std::string next_key(key);const auto* r=resource(next_key);if(!r)throw std::runtime_error("资源不存在");Canvas c;c.w=r->w;c.h=r->h;
+ if(next_key==s.selected_key&&s.dirty&&s.canvas.w==r->w&&s.canvas.h==r->h&&!s.canvas.layers.empty())c.layers=s.canvas.layers;
+ else if(s.document["entries"].contains(next_key)){const auto& e=s.document["entries"][next_key];if(e.contains("layers"))for(const auto& l:e["layers"])c.layers.push_back({l["name"],l["visible"],l["opacity"],pixels(png_decode(unb64(l["png"]),r->w,r->h))});else c.layers.push_back({"导入材质",true,255,pixels(png_decode(unb64(e["png"]),r->w,r->h))});}
+ else c.layers.push_back({"原始图层",true,255,pixels(original(*r))});
+ const bool previous_dirty=s.dirty;if(!s.selected_key.empty())try{save_current(s.local_enabled);}catch(...){s.dirty=previous_dirty;throw;}
+ // Member swaps allocate nothing, so no exception can separate the key from its
+ // completed canvas (Canvas's deque move construction may allocate).
+ s.selected_key.swap(next_key);swap_canvas(s.canvas,c);s.dirty=false;s.dragging=false;s.selection={};s.fit_pending=true;fit_canvas();}
 namespace {uint32_t blend(uint32_t dst,uint32_t src,int opacity=255){const int sa=(src&255)*opacity/255,da=dst&255;const int a=sa+da*(255-sa)/255;if(!a)return 0;uint32_t out=a;for(int shift:{8,16,24}){int c=(((src>>shift)&255)*sa+((dst>>shift)&255)*da*(255-sa)/255)/a;out|=uint32_t(c)<<shift;}return out;}}
 void Canvas::checkpoint(){if(layers.empty())return;redo.clear();size_t n=size_t(w)*h*4*layers.size();if(n>64*1024*1024)return;undo.push_back({layers,selected});history_bytes+=n;while(undo.size()>40||history_bytes>64*1024*1024){history_bytes-=size_t(w)*h*4*undo.front().layers.size();undo.pop_front();}}
 bool Canvas::undo_step(bool forward){auto& from=forward?redo:undo;auto& to=forward?undo:redo;if(from.empty())return false;to.push_back({layers,selected});auto prev=std::move(from.back());from.pop_back();layers=std::move(prev.layers);selected=prev.selected;history_bytes=0;for(auto& x:undo)history_bytes+=size_t(w)*h*4*x.layers.size();return true;}

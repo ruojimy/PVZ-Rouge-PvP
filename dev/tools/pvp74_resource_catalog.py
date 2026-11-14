@@ -42,10 +42,16 @@ entries.sort(key=lambda x:(x['name'],x['key']))
 icons=ROOT/'extract/data/texture_card_icons74.json'
 if icons.exists():entries.extend(json.loads(icons.read_text('utf8')))
 # Composite cards expose the actual component sprites as well as their complete icon.
+petrified_cards={ident for ident,c in cards.items()
+                 if any('石化火炬' in (c.get(field) or '') for field in ('name','asset'))}
+# Alias cards such as Rage use the existing blue flame frames and the raw stump
+# input consumed by NativeArt.petrified_torch; their icon remains independent.
+petrified_inputs={'world:蓝火炬1','world:蓝火炬2','world:蓝火炬3','raw:图片/火炬树桩-秃.png'}
 for e in entries:
     for ident,c in cards.items():
         if ('墓碑' in c['name'] and any(p in e['name'] for p in ('坟墓','脑子','鸭圈'))
-            or '石化火炬' in c['name'] and any(p in e['name'] for p in ('火炬','烧焦','树桩'))):
+            or '石化火炬' in c['name'] and any(p in e['name'] for p in ('火炬','烧焦','树桩'))
+            or ident in petrified_cards and e['key'] in petrified_inputs):
             if ident not in e['cards']:e['cards'].append(ident)
 # Grass and stone terrain remain built-in, including old pack aliases.
 excluded_cards={k for k,c in cards.items() if c['name'] in ('草坪','石块')}

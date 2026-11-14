@@ -85,6 +85,8 @@ int main(int argc,char** argv) {
         J out;out["seed"]=sc.value("seed",1.0);
         const auto attr=[&](const char* name){return parsed(pvz::getattr(b,Sym(name),V::none()));};
         for(const char* k:{"tile","width","height","dt","mode","seats","present","command","commands","sky_interval","sky_progress","native_secrets","team_secrets","rules","_multi_plant","_multi_target","team_mode","scripted","ids","terrain_revision"})out["battle"][k]=attr(k);
+        {const V budget=pvz::getattr(b,Sym("scripted_spawn_budget"),V::none());
+         if(!budget.is_none())out["scripted_spawn_limit"]=parsed(pvz::getattr(budget,Sym("limit")));}
         // NativeBattle.map tiles as published so far (the _sync_terrain baseline of the typed public terrain).
         {const V map=pvz::getattr(b,Sym("map"),V::none());if(map.is_dict())out["battle"]["map_tiles"]=parsed(py::m_get(map,V("tiles")));}
         out["avatars"]=attr("avatars");out["players"]=attr("players");

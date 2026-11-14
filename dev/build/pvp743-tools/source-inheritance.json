@@ -1,0 +1,286 @@
+{
+  "kind": "static-source-inheritance-only",
+  "created_utc": "2026-11-14T02:35:20.488323+00:00",
+  "reviewed_base": "build/github-pvp742-20261114/dev",
+  "reviewed_manifest_sha256": "5c4d4555bb33f619818c08f9655bb4f820315713c371066ae3a9a40f3d3c2619",
+  "baseline_hash_errors": [],
+  "passed": true,
+  "scopes": [
+    {
+      "scope": "src",
+      "reviewed_files": 1313,
+      "current_files": 1318,
+      "unchanged_files": 1308,
+      "unchanged_set_sha256": "9cad1ba6395439437d14ca74192f1b9bd897c30e192e7f0e780cb1cc736da8d9",
+      "current_set_sha256": "0ac96fd74fd7186caac993290f2e9729f9c6813fff211b8d38ed796dd4c7fd49",
+      "changes": [
+        {
+          "path": "src/sim/typed72_app/cold_export.cpp",
+          "change": "modified",
+          "reviewed_742_sha256": "bd1b8794805dcffc616f3cf6a770697de6b5f5115d3f9c8fd5d4949144c2375f",
+          "current_sha256": "7b52ea0107e3cc4e30b1662745a8d38f521d277d6f27a9a8e4197a5db74778ff"
+        },
+        {
+          "path": "src/sim/typed72_app/composition/MANIFEST.json",
+          "change": "modified",
+          "reviewed_742_sha256": "1f1c4fb3da1e09d6341b15915fe7a542ee3f0d3106c8e3272165c205e5a188fb",
+          "current_sha256": "9cab5fc6487bdd4aa856f42797c71c4f17c850d48054f87d513ddcd2fea25c3c"
+        },
+        {
+          "path": "src/sim/typed72_app/composition/match_probe.cpp",
+          "change": "modified",
+          "reviewed_742_sha256": "5de242fbb6209ab5e3c5ddb742fb86422138d22b8ef2a785407f15b0b21118c9",
+          "current_sha256": "0298a8a2056023af7086ed4114a166d7262dc38edd7f5dd7cfeb8adaec657c19"
+        },
+        {
+          "path": "src/ui/hand/texture74_model.cpp",
+          "change": "modified",
+          "reviewed_742_sha256": "b4f26f9fd51fcc40ed19f8dae96cdf89c937bd5ceffc0026e21afb3a7dd4d7f3",
+          "current_sha256": "c48ca2a71697c349fddf6654a175a792eefbb76b593b41d307a693bd4f378811"
+        },
+        {
+          "path": "src/uitools/pvp742_conveyor_deployment_audit.cpp",
+          "change": "added",
+          "reviewed_742_sha256": null,
+          "current_sha256": "341ebb9155e755b02995241d26ad23909c833cd1dd51f7ceaeb8cb31bf094c78"
+        },
+        {
+          "path": "src/uitools/pvp742_conveyor_guest_display_audit.cpp",
+          "change": "added",
+          "reviewed_742_sha256": null,
+          "current_sha256": "0c1ce00cc0cdcfbb94394469a1fbd0a18c5d920ceeb253ef9f29ebdf2935b479"
+        },
+        {
+          "path": "src/uitools/pvp742_crowd_stack_audit.cpp",
+          "change": "added",
+          "reviewed_742_sha256": null,
+          "current_sha256": "db9d3481ed70b26522b942c3733febbee624738377b7533efd5ead831c7a5485"
+        },
+        {
+          "path": "src/uitools/pvp742_population_entry_audit.cpp",
+          "change": "added",
+          "reviewed_742_sha256": null,
+          "current_sha256": "36b8e9ff85fd0cf7e702564c6e5d3ee09b6035eaca714fdede28860f1c1860ef"
+        },
+        {
+          "path": "src/uitools/pvp742_rage_resource_audit.cpp",
+          "change": "added",
+          "reviewed_742_sha256": null,
+          "current_sha256": "fba985d0270952e656eb1d93a6d891c01ef1f4b587862998051edbb1d9cf30f4"
+        },
+        {
+          "path": "src/uitools/pvp742_ui_regressions_audit.cpp",
+          "change": "modified",
+          "reviewed_742_sha256": "df10e9c4260a3112f870b236b52d5ccf22a0ca1d7c0add39a9c5ad89091a129c",
+          "current_sha256": "7dc676cf3a95d23ed33358e557ae125be86a9b01f2503b4360375d41d2666033"
+        }
+      ]
+    },
+    {
+      "scope": "build/typed72-integrated-v44/source/src/sim/typed",
+      "reviewed_files": 342,
+      "current_files": 342,
+      "unchanged_files": 342,
+      "unchanged_set_sha256": "82f5ef0cc081c868348234247e4a9ba7d07bc3e70bca15ea012980a152f66ae0",
+      "current_set_sha256": "82f5ef0cc081c868348234247e4a9ba7d07bc3e70bca15ea012980a152f66ae0",
+      "changes": []
+    },
+    {
+      "scope": "build/typed72-match-v1",
+      "reviewed_files": 212,
+      "current_files": 212,
+      "unchanged_files": 210,
+      "unchanged_set_sha256": "86acf8e282f0b184526059258e1d56cd787bb7b89720b05ff2309b4c74945a11",
+      "current_set_sha256": "9bd0a004f6542e6cff9af069d14d2fac5877361aa1c9415a7b75e3075d87f51f",
+      "changes": [
+        {
+          "path": "build/typed72-match-v1/cold72_export.cpp",
+          "change": "modified",
+          "reviewed_742_sha256": "286fc5fbf32e8b05778e33902690cf3339ca62232ce876640f9cb4b6e881d56c",
+          "current_sha256": "c8c739603074d1c73ed9bc454f9dfcaaafd95e5684474541bb27da74bff74386"
+        },
+        {
+          "path": "build/typed72-match-v1/match_probe.cpp",
+          "change": "modified",
+          "reviewed_742_sha256": "b6fc71f8f67df7efd729e3fc302c0e877dfbebb4afc8da27396588e7f48f23cd",
+          "current_sha256": "05f4b89f46fa00f680076a62c8d0263ac49c0675c7ea843917b445be21d670db"
+        }
+      ]
+    }
+  ],
+  "critical_groups": {
+    "giant_imp_secondhand": [
+      {
+        "path": "build/typed72-integrated-v44/source/src/sim/typed/cold_admission.cpp",
+        "current_sha256": "5cd5c48de91505d06468674054da7f8deb75a96dfbd0458307758ac84c289771",
+        "reviewed_742_sha256": "5cd5c48de91505d06468674054da7f8deb75a96dfbd0458307758ac84c289771",
+        "same_as_reviewed_742": true,
+        "package_source": "current-workspace"
+      },
+      {
+        "path": "build/typed72-integrated-v44/source/src/sim/typed/service_plants.cpp",
+        "current_sha256": "c4bdc058304810c5fbd24080d77195f375819b3bd2b7047f7ab30af2c3c8721c",
+        "reviewed_742_sha256": "c4bdc058304810c5fbd24080d77195f375819b3bd2b7047f7ab30af2c3c8721c",
+        "same_as_reviewed_742": true,
+        "package_source": "current-workspace"
+      },
+      {
+        "path": "build/typed72-integrated-v44/source/src/sim/typed/zombie_secret_runtime.cpp",
+        "current_sha256": "025fefac9327bfcaa5d51f0b0f7ff306b0b8a723884e0ff45633fd171f0b9526",
+        "reviewed_742_sha256": "025fefac9327bfcaa5d51f0b0f7ff306b0b8a723884e0ff45633fd171f0b9526",
+        "same_as_reviewed_742": true,
+        "package_source": "current-workspace"
+      },
+      {
+        "path": "build/typed72-integrated-v44/source/src/sim/typed/zombie_secret_runtime.h",
+        "current_sha256": "0c7bec38f8e9573c76f44b2337f6599962c36505e2d9680a01294eec465be607",
+        "reviewed_742_sha256": "0c7bec38f8e9573c76f44b2337f6599962c36505e2d9680a01294eec465be607",
+        "same_as_reviewed_742": true,
+        "package_source": "current-workspace"
+      },
+      {
+        "path": "src/uitools/pvp742_secondhand_audit.cpp",
+        "current_sha256": "9d361a9c11460d67941b2ec4adbe8d744a068ac0a69fb12809b9657e85abab41",
+        "reviewed_742_sha256": "9d361a9c11460d67941b2ec4adbe8d744a068ac0a69fb12809b9657e85abab41",
+        "same_as_reviewed_742": true,
+        "package_source": "current-workspace"
+      }
+    ],
+    "plant_targeting_spatial": [
+      {
+        "path": "build/typed72-integrated-v44/source/src/sim/typed/moving_coverage_grid.h",
+        "current_sha256": "27216108bc8f9ad2d022b47781e7d953ded2a31adfe308a4b8a72b3a2a65c4d4",
+        "reviewed_742_sha256": "27216108bc8f9ad2d022b47781e7d953ded2a31adfe308a4b8a72b3a2a65c4d4",
+        "same_as_reviewed_742": true,
+        "package_source": "current-workspace"
+      },
+      {
+        "path": "build/typed72-integrated-v44/source/src/sim/typed/content_queries.cpp",
+        "current_sha256": "9fe0eadedfdc36373abf0c450a05dc13fe6840a44bc5939bc6b8828421d3580f",
+        "reviewed_742_sha256": "9fe0eadedfdc36373abf0c450a05dc13fe6840a44bc5939bc6b8828421d3580f",
+        "same_as_reviewed_742": true,
+        "package_source": "current-workspace"
+      },
+      {
+        "path": "build/typed72-integrated-v44/source/src/sim/typed/content_target.cpp",
+        "current_sha256": "34083fa24126eaab977efbbb25f28b9aa55ae255cea784f8de2756f8c7308ddc",
+        "reviewed_742_sha256": "34083fa24126eaab977efbbb25f28b9aa55ae255cea784f8de2756f8c7308ddc",
+        "same_as_reviewed_742": true,
+        "package_source": "current-workspace"
+      },
+      {
+        "path": "build/typed72-integrated-v44/source/src/sim/typed/targets.cpp",
+        "current_sha256": "a6459efc402a48b993eb0273d9f0cb7050ea2928cfa99365b52dd2be6a7e4254",
+        "reviewed_742_sha256": "a6459efc402a48b993eb0273d9f0cb7050ea2928cfa99365b52dd2be6a7e4254",
+        "same_as_reviewed_742": true,
+        "package_source": "current-workspace"
+      },
+      {
+        "path": "src/uitools/pvp742_targeting_bench.cpp",
+        "current_sha256": "9991cf8bbaf6157c7c8406218221d39802cd5831f0a47be7a5ed5c10c77a6a89",
+        "reviewed_742_sha256": "9991cf8bbaf6157c7c8406218221d39802cd5831f0a47be7a5ed5c10c77a6a89",
+        "same_as_reviewed_742": true,
+        "package_source": "current-workspace"
+      }
+    ],
+    "network_refresh_and_plant2_sequence": [
+      {
+        "path": "src/ui/gen/pm_app.cpp",
+        "current_sha256": "eeacca74caeb155a31428a5e0f518acdfdacefaa24b665c141ef8b8837f04813",
+        "reviewed_742_sha256": "eeacca74caeb155a31428a5e0f518acdfdacefaa24b665c141ef8b8837f04813",
+        "same_as_reviewed_742": true,
+        "package_source": "current-workspace"
+      },
+      {
+        "path": "src/ui/hand/pressure_pacing.cpp",
+        "current_sha256": "5d8dd913418e08d1507f6d44b5e61afd396cacd607971535c775db58fa3839af",
+        "reviewed_742_sha256": "5d8dd913418e08d1507f6d44b5e61afd396cacd607971535c775db58fa3839af",
+        "same_as_reviewed_742": true,
+        "package_source": "current-workspace"
+      },
+      {
+        "path": "src/ui/hand/pressure_pacing.h",
+        "current_sha256": "a15b3cc20fdbcd9989571ca3db501fe8f5c460568a3948a5c5e5ef1aaac7b9e2",
+        "reviewed_742_sha256": "a15b3cc20fdbcd9989571ca3db501fe8f5c460568a3948a5c5e5ef1aaac7b9e2",
+        "same_as_reviewed_742": true,
+        "package_source": "current-workspace"
+      },
+      {
+        "path": "tools/pvp741_hooks.json",
+        "current_sha256": "598d53e707d202b37e67c1885af7ce5472a4e7cc7139c4fdfdc93dfe04a8e375",
+        "reviewed_742_sha256": "598d53e707d202b37e67c1885af7ce5472a4e7cc7139c4fdfdc93dfe04a8e375",
+        "same_as_reviewed_742": true,
+        "package_source": "current-workspace"
+      },
+      {
+        "path": "src/uitools/pvp742_network_refresh_audit.cpp",
+        "current_sha256": "d1449404d5579ac006ccfa1043875ed7dd22baf177dacf7a9fc73c83576d17cd",
+        "reviewed_742_sha256": "d1449404d5579ac006ccfa1043875ed7dd22baf177dacf7a9fc73c83576d17cd",
+        "same_as_reviewed_742": true,
+        "package_source": "current-workspace"
+      },
+      {
+        "path": "tools/test/pvp742_network_refresh_audit.py",
+        "current_sha256": "2b4a41b7f82434b956f0890c42af367ebe8295632c68757625643c15c92334f4",
+        "reviewed_742_sha256": "2b4a41b7f82434b956f0890c42af367ebe8295632c68757625643c15c92334f4",
+        "same_as_reviewed_742": true,
+        "package_source": "current-workspace"
+      }
+    ],
+    "allocator": [
+      {
+        "path": "src/core/alloc.cpp",
+        "current_sha256": "61d8cd0a0796c96f355bce3e1884fc740bdc33a6da311faa3b304c4e7409577f",
+        "reviewed_742_sha256": "61d8cd0a0796c96f355bce3e1884fc740bdc33a6da311faa3b304c4e7409577f",
+        "same_as_reviewed_742": true,
+        "package_source": "current-workspace"
+      },
+      {
+        "path": "src/core/alloc.h",
+        "current_sha256": "33ae0466a86433b8e9af88d3d814efaaec7576031e362c35ae76535be0f1532e",
+        "reviewed_742_sha256": "33ae0466a86433b8e9af88d3d814efaaec7576031e362c35ae76535be0f1532e",
+        "same_as_reviewed_742": true,
+        "package_source": "current-workspace"
+      },
+      {
+        "path": "src/tools/pvp742_allocator_audit.cpp",
+        "current_sha256": "d6d4d128eb6918012a7db880dd7daf5cfd64cb996862ab00719d754e7010948f",
+        "reviewed_742_sha256": "d6d4d128eb6918012a7db880dd7daf5cfd64cb996862ab00719d754e7010948f",
+        "same_as_reviewed_742": true,
+        "package_source": "current-workspace"
+      }
+    ],
+    "match_owner": [
+      {
+        "path": "build/typed72-match-v1/match_probe.cpp",
+        "current_sha256": "05f4b89f46fa00f680076a62c8d0263ac49c0675c7ea843917b445be21d670db",
+        "reviewed_742_sha256": "b6fc71f8f67df7efd729e3fc302c0e877dfbebb4afc8da27396588e7f48f23cd",
+        "same_as_reviewed_742": false,
+        "package_source": "current-workspace"
+      },
+      {
+        "path": "build/typed72-match-v1/frame_layer.inc",
+        "current_sha256": "ffb0b817f9758671cf75a905978a57b48b3f46c05acfc9d3c5799ce081142d78",
+        "reviewed_742_sha256": "ffb0b817f9758671cf75a905978a57b48b3f46c05acfc9d3c5799ce081142d78",
+        "same_as_reviewed_742": true,
+        "package_source": "current-workspace"
+      },
+      {
+        "path": "build/typed72-match-v1/snapshot_layer.inc",
+        "current_sha256": "2d33ead5c5033aa2ada85506b96efdcdf54ca22d3da76497b9fa3ce973a52991",
+        "reviewed_742_sha256": "2d33ead5c5033aa2ada85506b96efdcdf54ca22d3da76497b9fa3ce973a52991",
+        "same_as_reviewed_742": true,
+        "package_source": "current-workspace"
+      },
+      {
+        "path": "tools/typed72/make_app_composition.py",
+        "current_sha256": "78bdb931d6d346d9caabc93f695ff472784f25faab2482669adb6583f1352b3f",
+        "reviewed_742_sha256": "78bdb931d6d346d9caabc93f695ff472784f25faab2482669adb6583f1352b3f",
+        "same_as_reviewed_742": true,
+        "package_source": "current-workspace"
+      }
+    ]
+  },
+  "game_or_device_tests_run": false,
+  "limitations": "Byte identity/provenance is not a new behavioral regression result."
+}

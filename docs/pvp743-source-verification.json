@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "repository": "ruojimy/PVZ-Rouge-PvP",
+  "branch": "release/pvp743",
+  "base_commit": "5a3c01aeafb8a098a6b3631ac8a411dd953b3c04",
+  "dev_files": 6983,
+  "bytes_verified": 159857295,
+  "worktree_exact_byte_equality": true,
+  "git_index_blob_exact_byte_equality": true,
+  "private_userdata_paths_present": [],
+  "dev_sha256_set_digest": "89298a306a6cafb6c2296ffcd6ea7a5ac46f4f164629b575f36f8073fced54b8",
+  "git_attributes": "dev/src/ui/gen/pm_app.cpp: text: unset",
+  "game_or_device_tests_run_by_this_check": false
+}

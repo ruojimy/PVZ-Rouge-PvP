@@ -1,16 +1,32 @@
 {
-  "version": "PvP74.2",
-  "status": "source-ready-PC-validated-Android-device-pending",
-  "created_utc": "2026-11-13T19:10:26.703967+00:00",
-  "full_regression_counts": {
-    "PASS": 2324,
-    "FAIL": 30,
-    "ERROR": 12,
-    "SKIP": 0
+  "version": "PvP74.3",
+  "build": "1.6.0.74.3-typed.20261114",
+  "status": "source-packaged-new-game-and-device-tests-skipped-at-user-request",
+  "created_utc": "2026-11-14T02:36:19.319454+00:00",
+  "packaging_freeze": {
+    "build": "1.6.0.74.3-typed.20261114",
+    "created_utc": "2026-11-14T02:35:21.531300+00:00",
+    "payload_plan_files_excluding_this_record": 6978,
+    "payload_plan_sha256_excluding_this_record": "a7ff97a639782cc480067f45feb087b31ff88e3089e1d8f948fdb7b4ce158e06",
+    "user_requested_no_new_game_or_device_tests": true,
+    "purpose": "Explicit packaging freeze after parent release coordinator confirmation."
   },
-  "new_nonpass": [],
-  "pure_typed_gate_passed": true,
+  "new_full_regression_run": false,
+  "new_game_and_device_tests_run_by_packaging": false,
+  "latest_user_instruction": "Continue to package; skip actual testing for now.",
+  "historical_742_only": {
+    "full_regression_counts": {
+      "PASS": 2324,
+      "FAIL": 30,
+      "ERROR": 12,
+      "SKIP": 0
+    },
+    "new_nonpass": [],
+    "pure_typed_gate_passed": true,
+    "applies_to_743": false
+  },
   "pending": [
+    "new 74.3 full gameplay regression and user/device acceptance",
     "real Android performance/device acceptance",
     "reported unreproduced crashes and long-session memory growth"
   ],

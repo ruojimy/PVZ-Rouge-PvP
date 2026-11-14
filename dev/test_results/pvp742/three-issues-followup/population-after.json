@@ -1,0 +1,153 @@
+{
+  "cases": [
+    {
+      "evidence": {
+        "accepted": 2,
+        "director": 2.0,
+        "expected": 2,
+        "matched": true,
+        "requested": 3,
+        "rule": 2.0
+      },
+      "name": "Room_command_population_2",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "accepted": 40,
+        "director": 40.0,
+        "expected": 40,
+        "matched": true,
+        "requested": 41,
+        "rule": 40.0
+      },
+      "name": "Room_command_population_40",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "accepted": 120,
+        "director": 120.0,
+        "expected": 120,
+        "matched": true,
+        "requested": 121,
+        "rule": 120.0
+      },
+      "name": "Room_command_population_120",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "accepted": 5,
+        "director": null,
+        "expected": 5,
+        "matched": true,
+        "requested": 5,
+        "rule": 2
+      },
+      "name": "duel_ignores_scripted_population_cap",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "accepted": 40,
+        "director": null,
+        "expected": 40,
+        "matched": true,
+        "original_limit": 40.0,
+        "raw_rule": null,
+        "requested": 41,
+        "rule": null
+      },
+      "name": "cold_rule_conversion_null",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "accepted": 2,
+        "director": null,
+        "expected": 2,
+        "matched": true,
+        "original_limit": 2.0,
+        "raw_rule": "2",
+        "requested": 3,
+        "rule": "2"
+      },
+      "name": "cold_rule_conversion_\"2\"",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "accepted": 2,
+        "director": null,
+        "expected": 2,
+        "matched": true,
+        "original_limit": 2.0,
+        "raw_rule": 2.9,
+        "requested": 3,
+        "rule": 2.9
+      },
+      "name": "cold_rule_conversion_2.9",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "accepted": 1,
+        "director": null,
+        "expected": 1,
+        "matched": true,
+        "original_limit": 1.0,
+        "raw_rule": false,
+        "requested": 2,
+        "rule": false
+      },
+      "name": "cold_rule_conversion_false",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "accepted": 1,
+        "director": null,
+        "expected": 1,
+        "matched": true,
+        "original_limit": 1.0,
+        "raw_rule": -1,
+        "requested": 2,
+        "rule": -1
+      },
+      "name": "cold_rule_conversion_-1",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "accepted": 200,
+        "director": null,
+        "expected": 200,
+        "matched": true,
+        "original_limit": 200.0,
+        "raw_rule": 201,
+        "requested": 201,
+        "rule": 201
+      },
+      "name": "cold_rule_conversion_201",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "accepted": 40,
+        "director": null,
+        "expected": 40,
+        "matched": true,
+        "original_limit": 40.0,
+        "raw_rule": "invalid",
+        "requested": 41,
+        "rule": "invalid"
+      },
+      "name": "cold_rule_conversion_\"invalid\"",
+      "passed": true
+    }
+  ],
+  "failures": 0,
+  "passed": true,
+  "scope": "Actual Room.set_pve + host Room.command pve_population + Room._start_pve, then production typed Session::spawn. No simulation tick or behavior override."
+}

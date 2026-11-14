@@ -1,0 +1,8 @@
+{
+  "build": "1.6.0.74.3-typed.20261114",
+  "created_utc": "2026-11-14T02:35:21.531300+00:00",
+  "payload_plan_files_excluding_this_record": 6978,
+  "payload_plan_sha256_excluding_this_record": "a7ff97a639782cc480067f45feb087b31ff88e3089e1d8f948fdb7b4ce158e06",
+  "user_requested_no_new_game_or_device_tests": true,
+  "purpose": "Explicit packaging freeze after parent release coordinator confirmation."
+}

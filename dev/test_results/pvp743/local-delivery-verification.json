@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "version": "1.6.0.74.3-typed.20261114",
+  "launcher": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\启动PvP.cmd",
+  "target": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\PVZ_rougePvP_native\\PvZPvPNative.exe",
+  "exe_sha256": "bd5697df47bd41351408515d8750acdf9ddac49d86926d6c1d4c9ff7a8260312",
+  "release": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\dist\\PvZ-PvP-Native-20261114-pvp743-r1",
+  "pc_zip": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\dist\\PvZ-PvP-Native-20261114-pvp743-r1.zip",
+  "pc_zip_sha256": "fd3eb4fdd9d8d19a385b709fdac47381ba6120e5652b2fcf9c3e6be2fc6479d3",
+  "shipped_files_verified": 3632,
+  "userdata_files_verified": 556,
+  "all_user_files_preserved": true,
+  "backup_versions": [
+    "1.6.0.74.2-typed.20261113"
+  ],
+  "backup_files": 2,
+  "backup_folder": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\backup-latest",
+  "removed_old_managed_files": [],
+  "source_package": {
+    "file": "PvZ-PvP-Native-20261114-pvp743-r1-Developer-Package.zip",
+    "verification": "External final archive verification and dist/PvP74.3-发行清单.json; no self-referential ZIP hash."
+  },
+  "github": "Final publication status is recorded separately in dist/PvP74.3-发行清单.json.",
+  "game_launched": false,
+  "new_gameplay_tests_run": false
+}

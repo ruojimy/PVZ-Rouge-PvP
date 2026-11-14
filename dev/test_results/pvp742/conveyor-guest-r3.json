@@ -1,0 +1,171 @@
+{
+  "actual_app_render": {
+    "native_error": "",
+    "pixels_sha256": "66fa4781fda7069cee0ee2af414fb9d11b0613664d5e0ede107ba46fd7b48128"
+  },
+  "fresh_reconnect_belt": true,
+  "guest_wire_belt": true,
+  "host_actual_build": {
+    "background_units_retired": 84,
+    "cell": {
+      "background": "土",
+      "kind": "梯子块",
+      "ladder": true,
+      "native": {
+        "_pvp_belt": true,
+        "摧": 0,
+        "方块": "梯子块",
+        "里方块": "土"
+      },
+      "solid": false,
+      "water": false
+    },
+    "col": 41,
+    "first_conveyor": {
+      "__pvz_sb_zombie_observed_max_hp": 75,
+      "_pvp_armor_max": 0,
+      "_pvp_base_speed": 0.2784,
+      "_pvp_born": 27,
+      "_pvp_card": "zombie:传送带僵尸",
+      "_pvp_content": "传送带僵尸",
+      "_pvp_id": "u9",
+      "_pvp_max_hp": 81,
+      "_pvp_owner": "zombie",
+      "_pvp_seat": "zombie",
+      "_pvp_temporary": false,
+      "_pvp_wave_index": 0,
+      "位置": [
+        1135.551326168862,
+        960,
+        0,
+        0
+      ],
+      "僵尸": "梯子僵尸",
+      "入水": false,
+      "再出场": 10000,
+      "出场": 400,
+      "出场初位置": [
+        1135.551326168862,
+        1200
+      ],
+      "出场末位置": [
+        1135.551326168862,
+        969.6
+      ],
+      "受伤": 0,
+      "啃咬": 0,
+      "坚持分兵": 0,
+      "大小": 2,
+      "憋气": 0,
+      "手持": "梯子",
+      "手持受伤": 0,
+      "手持血量": 250,
+      "方向": 1,
+      "炸音": 0,
+      "移速": 0.2784,
+      "血量": 81,
+      "跳跃cd": 0,
+      "防具": "",
+      "防具血量": 0
+    },
+    "room_steps": 1204,
+    "row": 21
+  },
+  "host_payload_has_updated_map": true,
+  "host_reconnect_invalidated_sent_map": true,
+  "no_map_payload_retained_belt": true,
+  "passed": true,
+  "pixel_visibility": {
+    "asset_probes": {
+      "传送带块": {
+        "cache_contains": true,
+        "height": 48.0,
+        "nontransparent_pixels": 1608,
+        "raw_none": false,
+        "width": 48.0
+      },
+      "梯子块": {
+        "cache_contains": true,
+        "height": 16.0,
+        "nontransparent_pixels": 176,
+        "raw_none": false,
+        "width": 16.0
+      }
+    },
+    "belt_vs_empty_changed_pixels": 1934,
+    "belt_vs_ordinary_ladder_changed_pixels": 1544,
+    "camera_scale": 1.0666666666666667,
+    "cell_screen_point": [
+      614.4,
+      334.4
+    ],
+    "isolated_tile_vs_empty": 3584,
+    "isolated_tile_vs_ladder": 2868,
+    "received_cell": {
+      "background": "土",
+      "kind": "梯子块",
+      "ladder": true,
+      "native": {
+        "_pvp_belt": true,
+        "摧": 0,
+        "方块": "梯子块",
+        "里方块": "土"
+      },
+      "solid": false,
+      "water": false
+    },
+    "scope": "Same received battle through WorldView; only display-control cell toggled; extra controls remove native_frame or isolate _tile; default local assets",
+    "without_native_frame_vs_empty": 2392,
+    "without_native_frame_vs_ladder": 1848
+  },
+  "reconnect_app_render": {
+    "native_error": "",
+    "pixels_sha256": "66fa4781fda7069cee0ee2af414fb9d11b0613664d5e0ede107ba46fd7b48128"
+  },
+  "reconnect_visibility": {
+    "asset_probes": {
+      "传送带块": {
+        "cache_contains": true,
+        "height": 48.0,
+        "nontransparent_pixels": 1608,
+        "raw_none": false,
+        "width": 48.0
+      },
+      "梯子块": {
+        "cache_contains": true,
+        "height": 16.0,
+        "nontransparent_pixels": 176,
+        "raw_none": false,
+        "width": 16.0
+      }
+    },
+    "belt_vs_empty_changed_pixels": 1934,
+    "belt_vs_ordinary_ladder_changed_pixels": 1544,
+    "camera_scale": 1.0666666666666667,
+    "cell_screen_point": [
+      614.4,
+      334.4
+    ],
+    "isolated_tile_vs_empty": 3584,
+    "isolated_tile_vs_ladder": 2868,
+    "received_cell": {
+      "background": "土",
+      "kind": "梯子块",
+      "ladder": true,
+      "native": {
+        "_pvp_belt": true,
+        "摧": 0,
+        "方块": "梯子块",
+        "里方块": "土"
+      },
+      "solid": false,
+      "water": false
+    },
+    "scope": "Same received battle through WorldView; only display-control cell toggled; extra controls remove native_frame or isolate _tile; default local assets",
+    "without_native_frame_vs_empty": 2392,
+    "without_native_frame_vs_ladder": 1848
+  },
+  "scope": "Actual Room._start_pve director builds facility; production Application.publish_network synchronous fallback -> pack_snapshot -> encode_frame -> background ClientTransport/FrameDecoder -> UI poll/unpack/merge -> actual Application/WorldView. Transport endpoints only captured/replayed; no cloud sockets, live user pack or user process. Background non-conveyor retirement is the workload fixture; tested conveyor untouched.",
+  "terrain_revision_after": 3,
+  "terrain_revision_before": 0
+}

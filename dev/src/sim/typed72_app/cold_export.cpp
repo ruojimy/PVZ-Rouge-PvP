@@ -63,6 +63,11 @@ ColdExport export_cold(const V& b,double seed){
     J out;out["seed"]=seed;
     const auto attr=[&](const char* name){return parsed(pvz::getattr(b,Sym(name),V::none()));};
     for(const char* k:{"tile","width","height","dt","mode","seats","present","command","commands","sky_interval","sky_progress","native_secrets","team_secrets","rules","_multi_plant","_multi_target","team_mode","scripted","ids","terrain_revision"})out["battle"][k]=attr(k);
+    // The original cold budget resolves director precedence, Python int conversion
+    // and the 1..200 clamp. Admit that effective value once; population changes
+    // are only accepted by Room in config, before this session is constructed.
+    {const V budget=pvz::getattr(b,Sym("scripted_spawn_budget"),V::none());
+     if(!budget.is_none())out["scripted_spawn_limit"]=parsed(pvz::getattr(budget,Sym("limit")));}
     // NativeBattle.map tiles as published so far (the _sync_terrain baseline of the typed public terrain).
     {const V map=pvz::getattr(b,Sym("map"),V::none());if(map.is_dict())out["battle"]["map_tiles"]=parsed(py::m_get(map,V("tiles")));
      // map.environment.zombie_points as rv_tactics18.pick_front reads them: p[0] for a

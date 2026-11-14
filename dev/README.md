@@ -1,52 +1,56 @@
-# PvP74.2 开发者源码与精选证据
+# PvP74.3 开发者源码与继承证据
 
-本目录保留项目原生布局，包含当前 Windows/Android 共用 C++ 源码、全部测试源码、生成工具、数据、素材图集、类型化生产内核和组合层拥有源。PC全量2366项与上一正式版逐项一致：2324 PASS、30 FAIL、12 ERROR，无新增非通过；不能称全绿。三模式类型化门禁通过。Android签名/库/资源已核验，同场景实机性能尚待调试端口恢复；两类群友崩溃和长期内存增长未宣称解决。
+版本为 `1.6.0.74.3-typed.20261114`。本包基于已审核的 PvP74.2 dev，覆盖本次工作区拥有的完整源码、数据、素材、生成器、生产内核与组合层，并保留此前角斗士巨人/携带小鬼/二手防具、植物空间索敌、客机前台 move 刷新和 plant2 序号恢复、allocator 的实现及精选证据。新旧文件 SHA-256 核对见 `build/pvp743-tools/source-inheritance.json` 与同名 Markdown 报告。
 
-当前入口：根 `CMakeLists.txt` 构建 Windows 游戏；`android/` 构建 Android。生产内核是 `build/typed72-integrated-v44/source/src/sim/typed/`，不是早期 `src/sim/typed/`。组合层拥有源为 `build/typed72-match-v1/`，实际编译的生成结果及清单在 `src/sim/typed72_app/composition/`。参照和约定见 `AGENTS.md`。
+用户最新要求是继续完成出包，暂不实际测试。因此本轮不追加对局、循环压力或实机测试，也没有一份新完成的 74.3 全量回归。包内 74.2 的 2366 项完整回归、三模式门禁和旧性能结果均为历史证据，只适用于各自记录的构建；旧全量为 2324 PASS、30 FAIL、12 ERROR，不能称全绿，也不能冒充 74.3 已通过。已完成的本轮定向审计仍保留原输入、执行长度、构建摘要与限制。构建、源码/生成物检查和封包校验分别记录，均不等于实机验收。
 
-本轮结果见 [性能与交付验收](docs/PVP742_性能与交付.md) 和 [专项验收与剩余问题](docs/PVP742_专项验收与剩余问题.md)。精选证据按文中相对路径镜像在 `test_results/`；选入的文件另有 `test_results/PVP742-EVIDENCE-SHA256SUMS.txt`。证据取舍见 [精选证据说明](test_results/pvp742/README-curated-evidence.md)，完整原始日志、大型状态及个人设备/直播采样没有随源码包分发。
+完整任务与边界见 [PvP74.3 任务总清单](PvP74.3_任务总清单.md) 和 [更新说明](更新说明-PvP74.3.md)。历史 74.2 README 和原清单保存在 `docs/history/README-before-PvP74.3.md`、`docs/history/MANIFEST-PvP74.2.json`，旧资料中的“当前”“通过”以当时版本为准。
 
-历史 README 保存在 `docs/history/README-before-PvP74.2.md`。历史版本的完成情况与测试数字只对应当时构建。`build/ai-nn/` 离线语料、`docs/ai-nn/` 训练规格、开发工具迁移材料和 `extract/live/` 等必要参考输入保留；旧语料不会因源码更新自动成为 74.2 训练集。
+## 生产源码入口
 
-## Windows
+Windows 根入口是 `CMakeLists.txt`；Android 入口是 `android/`。两平台共用生产模拟、组合层和大部分 UI，仅必要系统接口做适配。实际生产内核位于 `build/typed72-integrated-v44/source/src/sim/typed/`，早期 `src/sim/typed/` 不能单独代表正式内核。
 
-需要 CMake 3.20+、Visual Studio 2022 C++ 工具链及 Python 3.8（原异步夹具AST指纹在3.8生成，完整回归请用3.8；系统3.13的AST不同）。Python 只用于构建/生成/测试，正式游戏不依赖 Python 解释器。SDL 开发依赖位于 `third_party/`，包括根 CMake 所需的 `lib/x64` 文件；第三方预编译依赖不属于项目自身编译产物。
+组合层拥有源为 `build/typed72-match-v1/{match_probe.cpp,frame_layer.inc,snapshot_layer.inc}`；`tools/typed72/make_app_composition.py` 生成实际编译的 `src/sim/typed72_app/composition/` 和清单。UI 重新翻译后须应用 `tools/pvp74_apply_hooks.py` 与 `tools/pvp741_apply_hooks.py`，并运行 `--check`。材质覆盖只影响显示，不能写入模拟图集。详见 `AGENTS.md`。
+
+全部当前测试源码仍在 `src/uitools/`、`src/cpptests/`、`tools/test/` 与 `tools/typed72/`。审计源码的 `pvp742_` 名称不代表它被移除或改成假实现；本次仍使用该稳定入口。
+
+## Windows 构建
+
+需要 CMake 3.20+、Visual Studio 2022 C++ 工具链及 Python。原异步夹具 AST 指纹在 Python 3.8 生成，完整历史回归应使用 3.8；Python 只用于生成/构建/测试，正式游戏不依赖 Python 解释器。
 
 ```powershell
 python -I -B tools/typed72/make_app_composition.py --check
 python -I -B tools/pvp74_apply_hooks.py --check
 python -I -B tools/pvp741_apply_hooks.py --check
 python -I -B tools/typed72/make_ai_lobby_bridge.py --check
-cmake -S . -B build/dev742 -G "Visual Studio 17 2022" -A x64
-cmake --build build/dev742 --config Release --target PvZPvPNative --parallel 1
+cmake -S . -B build/dev743 -G "Visual Studio 17 2022" -A x64
+cmake --build build/dev743 --config Release --target PvZPvPNative --parallel 1
 ```
 
-若 CMake 选择了不合适的 Python，请配置 `-DPython3_EXECUTABLE=<解释器完整路径>`。不要因为修改了早期阶段源码就认为正式内核已改变。改组合层后用 `make_app_composition.py` 重新生成；重新翻译 UI 后应用两个 hooks，再执行检查。新审计程序和回归入口在 `src/uitools/`、`src/cpptests/`、`tools/test/` 与 `tools/typed72/`，可按同名 CMake target 构建。
+若 CMake 选错解释器，设置 `-DPython3_EXECUTABLE=<解释器完整路径>`。`third_party/` 包含已审核的 SDL 开发依赖和根 CMake 必需的 `lib/x64` 文件；这些第三方预编译依赖不属于本项目自身编译产物。
 
-运行资源需要同版本正式 PC 游戏包中的 `图片/`、`音乐/`、`音效/`、`relay.json`，不能仅靠源码启动完整游戏。将这些运行资源及本包的 `extract/data/`、`extract/assets/`、`fonts/` 放到新 EXE 可识别的运行目录中；运行目录以现有游戏资源路径约定为准。根 `启动PvP.cmd` 保留原生入口形式，开发者应指向自己验证的新构建，不能假定源码包内存在预编译 EXE。本包不附带用户存档。
+完整运行仍需同版本授权游戏包中的 `图片/`、`音乐/`、`音效/`、`relay.json`，以及本包 `extract/data/`、`extract/assets/`、`fonts/`。根 `启动PvP.cmd` 保留本机原生入口源码，开发者须让它指向自己已核验的构建；本源码包不附项目 EXE 或用户存档。不要用测试存档覆盖用户数据。
 
-## Android
+## Android 构建
 
-Windows 与 Android 使用同一套生产内核、组合层和大部分 UI/模拟代码。Android 依赖 Android SDK/NDK、Java/Gradle、SDL Android 头文件和对应 ABI 预编译库，需由开发者环境提供。脚本中历史机器的默认路径仅是兼容默认值，使用前显式设置环境变量。
-
-原生编译入口：
+需要 Android SDK/NDK、Java/Gradle、SDL Android 头文件及对应 ABI 库。机器默认路径仅为兼容值，开发环境应显式配置：
 
 ```bash
 export PVZ_ANDROID_NDK=/path/to/android-ndk
 export PVZ_ANDROID_SDL_DIST=/path/to/sdl-dist
 export PVZ_ANDROID_WORK=/path/to/native-work
-export PVZ_NATIVE_RUN_ID=local-pvp742
+export PVZ_NATIVE_RUN_ID=local-pvp743
 bash android/build_native.sh arm64-v8a 1
 ```
 
-APK 打包还需要 `PVZ_ANDROID_SDK`、`PVZ_ANDROID_GRADLE` 和 `PVZ_ANDROID_ASSET_STAGING`。资源暂存目录须有 `fonts/cjk.ttf`；可从同版本授权游戏资源/APK 获得。`android/build_apk.sh` 还会读取 `build/Release/图片`、`音乐`、`音效` 和 `relay.json`，先将同版本 PC 运行资源准备到该位置。字体目录 `fonts/` 中的许可证应随分发保留。
+APK 打包还需 `PVZ_ANDROID_SDK`、`PVZ_ANDROID_GRADLE`、`PVZ_ANDROID_ASSET_STAGING`；资源暂存目录须有 `fonts/cjk.ttf`。`android/build_apk.sh` 还读取 `build/Release/图片`、`音乐`、`音效`、`relay.json`，先准备同版本运行素材。字体许可证须保留。
 
-`build_apk.sh` 接受 versionCode、versionName 和 ABI，必须绑定同一次 `PVZ_NATIVE_RUN_ID` 的已校验原生候选。签名密钥、密码环境文件、SDK 本地配置和上一个已签名 APK 由开发者自行提供；本暂存不包含它们。正式升级仍须验证包名、版本号和签名连续性，不能用测试存档覆盖用户数据。
+`build_apk.sh` 接受 versionCode、versionName、ABI，并绑定同一 `PVZ_NATIVE_RUN_ID` 的原生候选。签名密钥、密码、SDK 本地配置和升级基准 APK 由开发者自行准备，本包不包含它们。本轮 Android 构建/签名/资源校验状态以发布报告为准，不意味着新增实机性能已验收。
 
 ## 来源与封包
 
-`MANIFEST-PvP74.2.json` 逐文件记录来源类别、相对来源路径、大小和 SHA-256；`SHA256SUMS.txt` 校验载荷和该清单。`STAGING_STATUS.json` 明确未完成的发布门禁。来源分为已审核的上版 dev 基底、当前工作区拥有源和本轮新说明。
+`MANIFEST-PvP74.3.json` 逐文件记录相对来源、来源类别、字节数与 SHA-256；`SHA256SUMS.txt` 覆盖载荷和清单。`STAGING_STATUS.json` 明确当前测试边界，历史全量放在 `historical_742_only` 中。精选证据说明见 `test_results/pvp743/README-curated-evidence.md`；当前新增选入证据另有 `test_results/PVP743-EVIDENCE-SHA256SUMS.txt`，基底历史证据由总清单覆盖。
 
-本暂存排除用户存档、回放、个人日志、原始 getprop/logcat/直播快照、密钥、Python 缓存和本工程编译输出。第三方构建依赖、必要的历史 marshal 输入以及 AI 压缩训练语料仍保留。打包脚本位于 `build/pvp742-tools/package_dev742.py`；当前只做 staging 和哈希复核，最终ZIP附本轮完整回归与精选证据；手机未实测状态会保留在说明和STAGING_STATUS中。ZIP 名称由 Python `zipfile` 以 UTF-8 写入，并按实际 Unicode 码点与清单核对；不要依据终端乱码重建文件名。旧包实查的中文文件名及其 UTF-8 标志正确，新工具额外对所有条目强制 UTF-8 标志。
+打包脚本是 `build/pvp743-tools/package_dev743.py`。默认只检查计划；`--inheritance-only` 只核对源码并生成继承报告。发布协调者冻结 UI、版本、说明和启动器后，才执行 `--record-freeze`、`--stage`、`--finalize`。`--verify-only` 逐文件重算来源和暂存哈希；任何来源变化都要求重新冻结。脚本不启动游戏或实机测试。
 
-完整回归请通过Python3.8运行 `tools/run_cpp_suite.py`，并准备该脚本列出的原始只读测试夹具、字节码oracle和同版本运行素材。可用 `tools/test/pvp742_regression_compare.py` 对照已有完整结果，原断言和指纹不应因解释器升级而重写。
+ZIP 每个条目强制 UTF-8 文件名标志，按实际 Unicode 名称、CRC 和逐文件 SHA-256 核对。历史文本如非 UTF-8 则原字节保留并在归档报告列明，不因终端乱码重写源码。包内排除用户存档、回放、密钥、私人设备/直播日志、缓存和本项目编译输出，保留构建必需的历史 marshal 与 AI 压缩语料；旧语料不自动成为本轮重新导出的训练集。

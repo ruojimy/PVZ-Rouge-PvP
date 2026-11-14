@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "comparisons": [
+    {
+      "case": "oasis-coop40-boundary",
+      "passed": true,
+      "equal": {
+        "admitted": true,
+        "samples": true,
+        "rng_samples": true,
+        "final_rng": true,
+        "final_native": true,
+        "room_tick": true,
+        "native_tick": true,
+        "game_seconds": true
+      }
+    },
+    {
+      "case": "oasis-duel200-same",
+      "passed": true,
+      "equal": {
+        "admitted": true,
+        "samples": true,
+        "rng_samples": true,
+        "final_rng": true,
+        "final_native": true,
+        "room_tick": true,
+        "native_tick": true,
+        "game_seconds": true
+      }
+    },
+    {
+      "case": "oasis-duel320-wide",
+      "passed": true,
+      "equal": {
+        "admitted": true,
+        "samples": true,
+        "rng_samples": true,
+        "final_rng": true,
+        "final_native": true,
+        "room_tick": true,
+        "native_tick": true,
+        "game_seconds": true
+      }
+    }
+  ],
+  "scope": "Exact parsed-value comparison; excludes wall time and performance counters, includes complete sampled native actors/avatars, final native records and all saved RNG states."
+}

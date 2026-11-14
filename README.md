@@ -1,39 +1,37 @@
 # PVZ-Rouge · 对战模式（PvP）
 
-中文版当前为 **PvP74.2**（`1.6.0.74.2-typed.20261113`，C++原生版，无需Python）。英文版仍为PvP64，不能混用联机。
+中文版本次准备更新为 **PvP74.3**（`1.6.0.74.3-typed.20261114`，C++ 原生版，无需 Python）。英文版仍为 PvP64，不能混用联机。
 
-## 下载最新版
+## 下载
 
-[PvP74.2 发布页](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/tag/v1.6.0.74.2-pvp742)
+[PvP74.3 发布页](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/tag/v1.6.0.74.3-pvp743)。此源码提交先随草稿准备，正式发行状态见发布页与[交付记录](docs/pvp743-publication.md)。
 
 | 附件 | 用途 |
 | --- | --- |
-| [Windows玩家包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.74.2-pvp742/PvZ-PvP-Native-20261114-pvp742-r2.zip) | 固定顶层PvZ-PvP-Native，解压运行EXE；覆盖升级保留用户数据 |
-| [Android ARM64](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.74.2-pvp742/PvZ-PvP-Native-1.6.0.74.2-typed.20261113-1114071-20261114-pvp742-r5.apk) | 同签名原生APK，versionCode1114071；构建/库/资源已核验，本版本实机性能仍待完成 |
-| [开发者源码包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.74.2-pvp742/PvZ-PvP-Native-20261114-pvp742-r2-Developer-Package.zip) | C++源码、生产内核/组合层、拥有源、数据、构建工具、原代码参考、精选证据和旧AI训练材料 |
-| [SHA256清单](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.74.2-pvp742/zh-SHA256SUMS.txt) | 核对发行附件 |
+| [Windows 玩家包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.74.3-pvp743/PvZ-PvP-Native-20261114-pvp743-r1.zip) | 解压运行；覆盖升级保留原用户数据 |
+| [Android ARM64](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.74.3-pvp743/PvZ-PvP-Native-1.6.0.74.3-typed.20261114-1114081-20261114-pvp743-r1.apk) | 同包名、同签名，versionCode 1114081，支持覆盖升级 |
+| [开发者源码包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.74.3-pvp743/PvZ-PvP-Native-20261114-pvp743-r1-Developer-Package.zip) | 当前完整源码、拥有源、生产内核/组合层、素材数据、生成工具与精选证据 |
+| [SHA-256 清单](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.74.3-pvp743/zh-SHA256SUMS.txt) | 校验三个包及公开说明/验证附件 |
 
-本轮减少植物全场索敌、抓人草占格重复遍历、显示帧JSON中转、绘制配方编码与前台心跳重复刷新，修复跨线程小对象回收。合作客机结算、重连、工坊暴怒、传送带、扩展绿洲导航、多向红火和巨人背鬼防具继承/二手拾取等均有专项。详细说明见 [更新说明](dev/更新说明-PvP74.2.md)、[性能与交付](dev/docs/PVP742_性能与交付.md)、[专项验收与剩余问题](dev/docs/PVP742_专项验收与剩余问题.md)。
+本次修复合作人数上限未进入生产预算，补齐暴怒实际蓝火炬/树桩资源关联，并使工坊打开资源时先成功构建画布再提交选择。详见[更新说明](dev/更新说明-PvP74.3.md)、[不超过600字公告](dev/更新公告-PvP74.3.txt)及[39项任务总清单](dev/PvP74.3_任务总清单.md)。
 
-[发布回执与存档/附件核验](docs/pvp742-publication.md)记录最终交付状态；开发者包保留封包时点的历史进度。
+## 完整继承与验证范围
 
-## 验证范围
+74.3 完整承接 74.2，不只包含上述三个新反馈。角斗士/普通巨人携带小鬼防具继承、独立甲槽、二手掉落拾取与梯带搭建、弹幕空间碰撞、植物空间索敌、特殊僵尸移动、PC/Android 共用刷新绘制推进、前台心跳重复刷新减少、plant2 重连序号修复、allocator，以及皮肤/英雄/墓碑/状态滤镜均保留。
 
-2026-11-14：204模块/2366项，2324 PASS、30 FAIL、12 ERROR，与上一正式版逐项相同，没有新增非通过；15项已有精确豁免、27项其他旧问题仍保留，不能称全绿。源码/夹具/测试EXE运行中无漂移。真实PvP、合作、双打的战斗步、输入与AI原生入口内V分配/调用均0，三个门禁通过。
+源码继承静态核对：原生产内核342/342文件与已审核74.2字节一致；src中1308个文件未变，5个修改、5个新增；组合层拥有目录212中210未变。逐文件来源与重点机制摘要见[继承核对](dev/build/pvp743-tools/source-inheritance.md)及其JSON；字节一致不等于新行为回归。
 
-同一当前EXE的性能分支离屏对照（Intel Core Ultra 9 275HX，300 room ticks，关闭慢动作）为：普通60.41→60.45FPS、混合44.36→54.47、高弹幕11.73→17.88、抓人草6.42→12.93；完整战斗状态/原生帧/RNG相同。这不是手机帧率或旧版二进制实机对照。13组索敌/移动/密集/体型/生死测试逐值一致，千单位空闲核心步P50 195.03→18.41ms。
+封包时用户要求先出包、不追加对局或实机测试；之后用户又授权手机复测，最新设备结果会单列在交付补充记录。开发者包保留封包时状态，不据此否定之后的实测。历史74.2完整2366项为2324 PASS、30 FAIL、12 ERROR，只对应当时构建，不能称全绿或冒充74.3新全量。
 
-Android已验证签名连续、包名/版本码、5个原生库及资源一致；手机当前无线调试端口关闭，**74.2同场景实机复测尚未完成**。上一版真实手机基线见 [74.1实机记录](docs/pvp741-android-device-performance.md)，不能把PC数字当安卓结果。
+本次三个包均核验SHA-256，Windows与开发者ZIP逐文件/CRC/UTF-8校验，Android核验签名连续、包名/版本码、五个原生库、资源及编译前后源码指纹。已完成的合作人数、实际梯带部署/客机wire显示、密集高台堆叠等专项保持各自输入和边界；未复现现场不等于问题不存在。
 
-密植偶发闪退、群友invalid map<K,T> key/bad allocation及长时客机内存增长仍待现场日志，未宣称已修复；包内debug-run.cmd可开启原始C++抛点，日志另存实际userdata/crashes。232卡路由/文字同步不代表全部图鉴机制验收，高压场景仍有瓶颈。
+密植/抓人草偶发崩溃、invalid map key/bad allocation、客机长期内存增长和真实云端前台卡主机仍需现场证据，不宣称全部解决。设备帧率也不能替代这些长时与联机验收。公开验证附件不包含私人存档明细、getprop/logcat或直播原始快照。
 
-## 源码与兼容
+## 源码与升级
 
-`dev/` 与本次开发者源码包逐文件对应，包含同版本生成器、实际生产阶段、源数据和精选测试证据。生产内核在 `dev/build/typed72-integrated-v44/source/src/sim/typed/`，组合拥有源在 `dev/build/typed72-match-v1/`，不可只改早期typed目录。PC/Android共用生产代码；材质覆盖仅影响显示，英雄/墓碑与状态滤镜保留，草坪和石块仍排除。
+`dev/` 与743开发者包逐文件对应。实际生产内核为 `dev/build/typed72-integrated-v44/source/src/sim/typed/`，组合层拥有源为 `dev/build/typed72-match-v1/`。须同时保留拥有源、生成器和hooks，不能只改早期typed目录。参见[开发者包说明](dev/开发者包说明-PvP74.3.md)。Windows和Android共用大部分代码，只有必须平台层单独适配。
 
-参见 [开发者包说明](dev/开发者包说明-PvP74.2.md)。原异步夹具AST指纹由Python3.8生成，完整回归请使用3.8并按runner准备原始只读夹具/oracle；正式游戏不依赖Python。运行图片/音乐/音效从同版本玩家包准备。SDK、签名密钥和个人存档不在源码包中。
-
-联机玩家/观众请统一74.2。Windows覆盖游戏目录并保留原userdata，Android同包名同签名覆盖安装；旧回放按录制版本播放。历史AI材料保留，不宣称已重新生成74.2训练集。
+联机玩家/观众统一74.3；Windows覆盖时保留userdata，Android同签名覆盖升级。旧回放按录制版本播放。Python仅用于生成/构建/测试，正式游戏不依赖解释器；历史异步夹具AST指纹由Python3.8生成。开发资源、SDK和签名条件详见dev/README。历史AI语料不自动成为本轮重新导出的训练集。
 
 ## 英文版及其依赖
 

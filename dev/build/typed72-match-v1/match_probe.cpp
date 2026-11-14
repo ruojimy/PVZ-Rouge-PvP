@@ -1115,6 +1115,10 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
         economy_rules=room_rules.economy;economy_state.sky_interval=b.at("sky_interval");economy_state.sky_progress=b.at("sky_progress");
         const auto command=b.at("command").get<std::string>();commands.shared=command=="attack"?PathMode::attack_plants:PathMode::follow_hero;
         navigation.scripted=tick_state.scripted;budget.enabled=tick_state.scripted;navigation.water_sprite=g.at("水");navigation.bosses=g.at("boss").get<std::vector<std::string>>();
+        // Cold export already applies the original director/rule precedence and
+        // conversion rules. Older frozen cold inputs omit this field and retain
+        // their historical default 40; live Room construction always exports it.
+        if(cold.contains("scripted_spawn_limit"))budget.limits.rule.set(cold.at("scripted_spawn_limit").get<int64_t>());
         navigation.screen_height=g.at("总高");path_rules.targets=g.at("所有植物").get<std::vector<std::string>>();path_rules.producers=g.at("产光植物").get<std::vector<std::string>>();
         for(const auto seat:seated_seats) {
             const auto& player=cold.at("players").at(seat_name(seat));const auto& avatar=cold.at("avatars").at(seat_name(seat));
