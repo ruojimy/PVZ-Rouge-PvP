@@ -48,6 +48,7 @@ struct C_AppProfiler : PyObj {
     V a_last_export;
     V a_frame_start;
     V a_last;
+    V a_frame_open;
     V a_battle;
     V a_original_profiler;
     V a_wrapped;

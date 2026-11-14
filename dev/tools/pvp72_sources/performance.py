@@ -151,11 +151,14 @@ class AppProfiler:
         for generation in range(3):self.scans.samples['gc_generation_'+str(generation)]=deque(maxlen=3000)
         self.started=time.perf_counter();self.last_export=self.started
         self.frame_start=self.started;self.last=self.started
+        # A button can create us during input handling, before this frame renders.
+        # Only begin() opens a measurable frame; never time a partial startup frame.
+        self.frame_open=False
         self.battle=None;self.original_profiler=None;self.wrapped=[]
         self.native_ticks=0;self.frame_count=0;self.population=[]
         self.last_present=None;self.present_count=0
         self.crowd_samples=deque(maxlen=12)
-        self.room_ticks=0;self.gc_started=None;self._gc_hook=self._gc_event
+        self.room_ticks=0;self.gc_started=None;self._gc_hook=None
         self.path=Path(path) if path else app.settings_path.parent/'performance'/('perf-'+time.strftime('%Y%m%d-%H%M%S')+'-'+str(os.getpid())+('-detail' if detail else '-coarse')+'.json')
         self.error=None
         import hashlib
@@ -173,6 +176,7 @@ class AppProfiler:
         self.original_profiler=battle.profiler
         battle.graphics.profile_detail=self.detail
         import gc
+        self._gc_hook=self._gc_event
         gc.callbacks.append(self._gc_hook)
         if self.native is not None:
             battle.profiler=self.native
@@ -191,7 +195,9 @@ class AppProfiler:
 
     def unbind(self):
         import gc
-        if self._gc_hook in gc.callbacks:gc.callbacks.remove(self._gc_hook)
+        hook=self._gc_hook
+        self._gc_hook=None  # Bound callbacks otherwise keep this native instance alive.
+        if hook is not None and hook in gc.callbacks:gc.callbacks.remove(hook)
         for ns,key,fn,timed in self.wrapped:
             if ns.get(key) is timed:ns[key]=fn
         self.wrapped=[]
@@ -201,6 +207,7 @@ class AppProfiler:
         if self.battle:self.battle.graphics.profile_detail=False
 
     def begin(self,dt):
+        self.frame_open=False
         self.bind();self.tick_before=self.battle.engine.native_tick if self.battle else 0
         self.room_before=self.battle.tick if self.battle else 0
         now=time.perf_counter()
@@ -215,6 +222,7 @@ class AppProfiler:
         replay=getattr(getattr(self.app.renderer,'world',None),'_native_replay',None)
         if replay is not None:replay.profile_detail=self.detail
         self.phases.record('frame_interval',dt*1000.)
+        self.frame_open=True
 
     def _gc_event(self,phase,info):
         if phase=='start':self.gc_started=time.perf_counter()
@@ -223,6 +231,7 @@ class AppProfiler:
             self.gc_started=None
 
     def mark(self,name):
+        if not self.frame_open:return
         now=time.perf_counter();self.phases.record(name,(now-self.last)*1000.);self.last=now
         cpu=time.process_time();self.cpu_phases.record(name,(cpu-self.cpu_last)*1000.);self.cpu_last=cpu
 
@@ -250,6 +259,8 @@ class AppProfiler:
         return (view.get('match_id'),view.get('match_number'),view.get('mode'))
 
     def end(self):
+        if not self.frame_open:return
+        self.frame_open=False
         now=time.perf_counter();self.phases.record('frame_work',(now-self.frame_start)*1000.)
         self.frame_count+=1
         if self.app.frames>self.render_before:
@@ -353,4 +364,6 @@ class AppProfiler:
         return self.path
 
     def close(self):
-        self.export();self.unbind()
+        self.frame_open=False
+        try:self.export()
+        finally:self.unbind()

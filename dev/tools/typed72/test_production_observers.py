@@ -65,7 +65,23 @@ class ObserverTests(unittest.TestCase):
                         # other statement, exception and ordering is preserved.
                         self.assertEqual(result, expected)
                     count += 1
-        self.assertEqual(count, 46)
+        self.assertEqual(count, 47)
+
+    def test_alias_history_is_elided_only_in_generated_production(self):
+        source = self.sources[obs.ZOMBIES64]
+        self.assertIn('aliases64.push_back({source,target});', source)
+        text, records, _ = self.production(obs.ZOMBIES64)
+        self.assertNotIn('aliases64.push_back', text)
+        self.assertEqual(records[0]['removed_statements'],
+                         ['aliases64.push_back({source,target});'])
+        # The enclosing real MatchProbe drawing wrapper is never transformed:
+        # it must still reach the native canvas alias after the base observer.
+        frame = (app.DRIVER / 'frame_layer.inc').read_text(encoding='utf8')
+        signature = 'void alias_art(const std::string& old,const std::string& next)override'
+        result, rules = obs.transform('frame_layer.inc', frame)
+        self.assertEqual((result, rules), (frame, []))
+        self.assertIn('ContentPhaseProbe::alias_art(old,next);canvas.alias(old,next);',
+                      method(result, signature))
 
     def test_known_phase_residuals_are_zero(self):
         text, _, _ = self.production(obs.PHASE)
@@ -188,7 +204,8 @@ class ObserverTests(unittest.TestCase):
         for name, extra in ((obs.PHASE, 'void extra(){p.calls.push_back({"new"});}'),
                             (obs.PHASE, 'void extra(){event("new",unit);}'),
                             (obs.CONTROLLERS, 'void extra(){event("new",unit);}'),
-                            (obs.ZOMBIES, 'void extra(){content_events.emplace_back("new");}')):
+                            (obs.ZOMBIES, 'void extra(){content_events.emplace_back("new");}'),
+                            (obs.ZOMBIES64, 'void extra(){aliases64.emplace_back("new");}')):
             with self.subTest(path=name):
                 with self.assertRaisesRegex(obs.ObserverContractError, 'unexpected'):
                     obs.transform(name, self.sources[name] + extra)

@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "scope": "build/signature/archive/source validation; no device installation or gameplay acceptance",
+  "apk": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\dist\\apk-pvp743-20261114\\PvZ-PvP-Native-1.6.0.74.3-typed.20261114-1114082-20261114-pvp743-r2.apk",
+  "sha256": "4696b75666a6b6ecc4ae943c7be32d12887ceb2abb5d5cc2ad877834904766d5",
+  "bytes": 192080056,
+  "version_code": 1114082,
+  "version_name": "1.6.0.74.3-typed.20261114",
+  "package": "org.pvzrouge.pvzpvpnative",
+  "certificate_sha256": "8193df05d4cd4ae58bb6ea950c0cb8e78d08377dffdf0a20b53f4a4ea0aabc8a",
+  "certificate_continuity": true,
+  "zip_crc": true,
+  "assets_identical_to_r1_except_manifest": 3621,
+  "shared_source_fingerprint_verified": true,
+  "native": {
+    "lib/arm64-v8a/libSDL2.so": {
+      "sha256": "2770b7b213951d0d3913c7ed1a45a59bf6daf2d1779d3b995c20469c7b49d487",
+      "bytes": 2129752
+    },
+    "lib/arm64-v8a/libSDL2_image.so": {
+      "sha256": "06b374273d5bb737b027f35ac018b63c7253d4ebd686d75ff4eb7ce34905c184",
+      "bytes": 279184
+    },
+    "lib/arm64-v8a/libSDL2_mixer.so": {
+      "sha256": "cafdca345f5dc641013cae935db8d6e82eab113bd191d2cecf14d0ab1e15dcac",
+      "bytes": 431720
+    },
+    "lib/arm64-v8a/libSDL2_ttf.so": {
+      "sha256": "187a48994194df3c9f0d81bb22de39a823ec2210e09ebc81ea1402fade200640",
+      "bytes": 4279312
+    },
+    "lib/arm64-v8a/libmain.so": {
+      "sha256": "c9530127ec0ff884acdd5eb36d2cabb4fc50cdd7999932f57429814637860f21",
+      "bytes": 78592328
+    }
+  },
+  "device_installed": false,
+  "real_device_verified": false
+}

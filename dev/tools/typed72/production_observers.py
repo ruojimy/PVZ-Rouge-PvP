@@ -1,7 +1,7 @@
 """Reviewed, production-only fixture observer elision; never edit the probe stage.
 
 Apply BEFORE the historical statement stripper. Every edited method is scoped to
-one of three exact paths, one exact signature and a pinned SHA-256 of its original
+one of the exact allowlisted paths, one exact signature and a pinned SHA-256 of its original
 body (including braces/whitespace, with CRLF normalized to LF). A changed body,
 missing/duplicate signature or unexpected remaining observer call is an error,
 not an invitation to infer whether new C++ is safe to delete.
@@ -115,10 +115,18 @@ class BodyRule:
 PHASE = 'probes/content_phase_probe.cpp'
 ZOMBIES = 'probes/content_zombies_probe.cpp'
 CONTROLLERS = 'probes/content_controllers_probe.cpp'
+ZOMBIES64 = 'probes/content_zombies64_probe.cpp'
 
 # The SHA constants intentionally require human review when source changes.
 # Never update them automatically as part of composition generation.
 RULES = {
+    ZOMBIES64: (
+        # This inherited observer is reached by MatchProbe::alias_art before
+        # NativeCanvas applies the real alias. Custom-zombie art gates call it
+        # repeatedly; retain the independent probe, elide only its JSON history.
+        BodyRule('void alias_art(const std::string& source,const std::string& target)override', '25c610a7927c4f6f13ef520193137a2b8ae922da2001933cbe3cd2e41e849f38', (
+            'aliases64.push_back({source,target});',)),
+    ),
     PHASE: (
         BodyRule('HitResult hit(size_t i,double f,double a)override', '51714c5c264860ab5a40a4243b1bc09504fc2cd0653548a35136a323f7948921', (
             'p.calls.push_back({"pea_damage",i,f,a});',
@@ -199,6 +207,9 @@ def validate_observers(path, text, *, after_legacy=False):
             raise ObserverContractError(f'{path}: unexpected ObservedLower fixture call')
         if after_legacy and re.search(r'\b(?:phase_events|phase_draws)\s*\.\s*(?:push_back|emplace_back)\s*\(', mask):
             raise ObserverContractError(f'{path}: unexpected phase fixture log append')
+    elif path == ZOMBIES64:
+        if re.search(r'\baliases64\s*\.\s*(?:push_back|emplace_back)\s*\(', mask):
+            raise ObserverContractError(f'{path}: unexpected alias fixture log append')
     else:
         if re.search(r'\b(?:content_events|controller_events|factory_events)\s*\.\s*(?:push_back|emplace_back)\s*\(', mask):
             raise ObserverContractError(f'{path}: unexpected fixture log append')

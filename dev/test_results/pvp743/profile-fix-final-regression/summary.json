@@ -1,0 +1,20 @@
+[
+  {
+    "name": "pvp743_profile_lifecycle_audit",
+    "exit": 0,
+    "checks": 2,
+    "passed": 2
+  },
+  {
+    "name": "pvp741_combat_audit",
+    "exit": 0,
+    "checks": 17,
+    "passed": 17
+  },
+  {
+    "name": "pvp742_performance_audit",
+    "exit": 0,
+    "checks": 6,
+    "passed": 6
+  }
+]

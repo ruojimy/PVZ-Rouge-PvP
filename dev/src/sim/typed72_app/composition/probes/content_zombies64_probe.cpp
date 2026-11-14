@@ -25,7 +25,7 @@ struct ContentZombie64Probe : GrenadierProbe,ContentZombie64Services,ScriptedSpa
         throw std::logic_error("dancer outside zombie64 fixture");
     }
     void alias_art(const std::string& source,const std::string& target)override {
-        aliases64.push_back({source,target});;;
+        ;;;
     }
     void draw_zombie(const ZombieRef& unit)override {
         draws64.push_back(index(unit));;;

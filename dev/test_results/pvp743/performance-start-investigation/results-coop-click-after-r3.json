@@ -1,0 +1,28 @@
+[
+  {
+    "level": "coarse",
+    "seconds": 10.31,
+    "forced": [],
+    "exits": {
+      "host": 0,
+      "guest": 0
+    },
+    "completed": {
+      "host": true,
+      "guest": true
+    }
+  },
+  {
+    "level": "detail",
+    "seconds": 10.03,
+    "forced": [],
+    "exits": {
+      "host": 0,
+      "guest": 0
+    },
+    "completed": {
+      "host": true,
+      "guest": true
+    }
+  }
+]

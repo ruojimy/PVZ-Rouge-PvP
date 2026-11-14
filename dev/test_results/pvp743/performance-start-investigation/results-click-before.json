@@ -1,0 +1,10 @@
+[
+  {
+    "level": "coarse",
+    "exit_code": 2
+  },
+  {
+    "level": "detail",
+    "exit_code": 2
+  }
+]

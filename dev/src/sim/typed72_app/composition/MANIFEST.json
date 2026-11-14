@@ -427,7 +427,7 @@
   },
   "probes/content_zombies64_probe.cpp": {
    "source_sha256": "bce256ae4f4fd84b0507fc0c62f0a414a89f1338c19dd9ff1c9abd58eb1326c8",
-   "generated_sha256": "809a9b393b9188a1f558c3d3ef384023453f5e9663a0876490ed385889a5bb49",
+   "generated_sha256": "73583c1689f2fb9724ff944af0302b15c91a3dcd6231362eb616ec6d366d295a",
    "removed": [
     "before(\"zombie64_event\");",
     "after(\"zombie64_event\");",
@@ -440,7 +440,18 @@
     "before(\"zombie64_spawn\");",
     "after(\"zombie64_spawn\");"
    ],
-   "production_observers": [],
+   "production_observers": [
+    {
+     "signature": "void alias_art(const std::string& source,const std::string& target)override",
+     "source_body_sha256": "25c610a7927c4f6f13ef520193137a2b8ae922da2001933cbe3cd2e41e849f38",
+     "observer_result_body_sha256": "bc60ea6e6899280a38d7a6ab06a858f4e956dba703a2fc2fe137c35da1769096",
+     "transform": "null_fixture_statements",
+     "expected_count": 1,
+     "removed_statements": [
+      "aliases64.push_back({source,target});"
+     ]
+    }
+   ],
    "production_changes": []
   },
   "probes/content_zombies_probe.cpp": {
@@ -1195,8 +1206,8 @@
    "production_changes": []
   },
   "match_probe.cpp": {
-   "source_sha256": "05f4b89f46fa00f680076a62c8d0263ac49c0675c7ea843917b445be21d670db",
-   "generated_sha256": "0298a8a2056023af7086ed4114a166d7262dc38edd7f5dd7cfeb8adaec657c19",
+   "source_sha256": "a919e0cf6db76469e6a141f96c67aca892a3fa0182471a36b543eb3bd2efa2ec",
+   "generated_sha256": "90062810d37ecb57d717ed978e8415c6dbde77a9d6f41c774046ae1b40758ded",
    "removed": [
     "spawn_events.push_back({\"black_armor\",name});",
     "spawn_events.push_back({\"spawn_blocked\",card});"

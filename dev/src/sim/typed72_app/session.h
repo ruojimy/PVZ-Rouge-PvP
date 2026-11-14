@@ -110,6 +110,9 @@ public:
     virtual int64_t terrain_revision()const=0;
     virtual std::optional<bool> coop_map_night()const=0;
     virtual nlohmann::json performance_counters()const=0;
+    // Read-only live container lengths, for memory diagnostics only. These are
+    // not serialized into combat snapshots, replay state or hash inputs.
+    virtual nlohmann::json fixture_retention()const=0;
     virtual nlohmann::json events(size_t n)const=0;   // Simulation.events[-n:]
     static std::unique_ptr<Session> create(ColdExport cold,const std::string& map_name);
 };

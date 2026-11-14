@@ -723,7 +723,18 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
         return {{"units",units.size()},{"ids",ids.size()},{"all_plants",all_plants.size()},{"held",held.size()},{"births",births.size()},
                 {"held_hits",held_hits.size()},{"flights",flights.size()},{"chili_keys",chili_keys.size()},{"sources",sources.size()},
                 {"positions",positions.size()},{"held_proxy_sources",held_proxy_sources.size()},{"flight_records",flight_records.size()},
-                {"calls",calls.size()},{"render_log",render_log.size()},{"states",states.size()},{"dispatch_calls",dispatch_calls.size()},{"phase_draws",phase_draws.size()},{"phase_events",phase_events.size()}};
+                {"calls",calls.size()},{"render_log",render_log.size()},{"states",states.size()},{"dispatch_calls",dispatch_calls.size()},{"phase_draws",phase_draws.size()},{"phase_events",phase_events.size()},
+                // Observation only: these counts never alter retention, snapshots,
+                // state hashes, journal cursors, RNG or fixture hook execution.
+                {"tick_events",tick_events.size()},{"controller_events",controller_events.size()},{"factory_events",factory_events.size()},
+                {"content_events",content_events.size()},{"summon_events",summon_events.size()},{"cart_events",cart_events.size()},
+                {"poison_events",poison_events.size()},{"events64",events64.size()},{"aliases64",aliases64.size()},{"draws64",draws64.size()},{"spawns64",spawns64.size()},
+                {"grenade_events",grenade_events.size()},{"cost_calls",cost_calls.size()},{"flying_events",flying_events.size()},{"flying_draws",flying_draws.size()},
+                {"raw_calls",raw_calls.size()},{"armor_events",armor_events.size()},{"observations",observations.size()},
+                {"spawn_events",spawn_events.size()},{"room_events",events.size()},{"match_log",log.size()},{"runtime_events",battle.runtime.events.size()},
+                {"runtime_entities",battle.runtime.entities.list()->size()},{"native_objects",battle.native_objects.size()},
+                {"atlas",canvas.atlas.atlas.size()},{"ui_atlas",canvas.ui.size()},{"frame_commands",canvas.frames.size()},
+                {"no_trace",no_trace},{"release_fixtures",release_fixtures}};
     }
     static void scripted_result_fields(J& row,const RoomResult& r){if(r.coins)row["coins"]=*r.coins;if(r.fallen)row["fallen"]=*r.fallen;}
     static J poison_v(const PoisonSlot& slot){

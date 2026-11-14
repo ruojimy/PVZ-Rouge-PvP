@@ -1,0 +1,23 @@
+{
+  "completed": true,
+  "exits": {
+    "host": 0,
+    "guest": 0
+  },
+  "guard_triggered": false,
+  "host_native_projections_all_zero": true,
+  "host_aliases64_all_zero": true,
+  "baseline": "coop-rail-api-memory-r5",
+  "candidate": "coop-rail-api-memory-r6",
+  "private_delta_slope_reduction": 0.8886713092734428,
+  "requested_delta_slope_reduction": 0.8670433165483438,
+  "not_a_full_regression": true,
+  "remaining_growth_unattributed": true,
+  "evidence_sha256": {
+    "host-memory.jsonl": "5e8e79fb4066a2d783ffa12431432ed4ca6a69fd90101099233f6a11237e2f04",
+    "guest-memory.jsonl": "a62b7b925aad838c7548bc5a939fa6aa8e2d211d24972438de0c927f82ccfe42",
+    "launch.json": "a3e4043c589310ddcafd8fd5a5eca5cae7aef5fb48230419ac35704cacfbb2c7",
+    "r5-comparison.json": "f7504f4832d583ed3334a7021760310788e353290eab37850604d973956a53cb",
+    "assessment.md": "4140b3adfb28ef7ce68f6298d8b902a69217ff8925bb149d067f30303000592f"
+  }
+}

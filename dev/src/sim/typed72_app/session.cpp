@@ -308,12 +308,13 @@ public:
         if(!match_->director.coop_cycle())return {};
         return match_->battle.placement.day=="黑天";
     }
+    nlohmann::json fixture_retention()const override{return nlohmann::json(match_->fixture_retention());}
     nlohmann::json performance_counters()const override{
         const auto& c=match_->contacts;const auto entities=match_->battle.runtime.entities.list();
         const auto t=match_->owner_phase.tracking_counters();const auto& chart=match_->chart;
         const auto& p=match_->peas;const auto& heads=match_->bonus_projectiles;const auto aim=match_->shooting.aim_counters();const auto& f=match_->navigation.flood;const auto& legal=match_->path_banks.destination_field();const auto path=match_->path_banks.target_work();
         nlohmann::json functions=nlohmann::json::object();for(const auto& [name,row]:function_profile::snapshot())functions[name]={{"calls",row.calls},{"total_ms",row.total_ms},{"max_ms",row.max_ms}};
-        return {{"function_profile",std::move(functions)},{"nearest_queries",t[0]+chart.nearest_queries},{"nearest_candidates",t[1]+chart.nearest_candidates},{"nearest_full_scan",t[2]+chart.nearest_full_scan},{"zombie_collision_queries",p.spatial_queries},{"zombie_collision_candidates",p.spatial_candidates},{"zombie_collision_full_scan",p.full_scan_pairs},{"zombie_exact_tests",p.exact_tests},{"spatial_bytes",c.spatial_bytes()+p.spatial_bytes()},
+        return {{"function_profile",std::move(functions)},{"fixture_retention",fixture_retention()},{"nearest_queries",t[0]+chart.nearest_queries},{"nearest_candidates",t[1]+chart.nearest_candidates},{"nearest_full_scan",t[2]+chart.nearest_full_scan},{"zombie_collision_queries",p.spatial_queries},{"zombie_collision_candidates",p.spatial_candidates},{"zombie_collision_full_scan",p.full_scan_pairs},{"zombie_exact_tests",p.exact_tests},{"spatial_bytes",c.spatial_bytes()+p.spatial_bytes()},
             {"primal_knock_targets",match_->content_damage.primal_knock_targets},{"primal_knock_velocity",match_->content_damage.primal_knock_velocity},
             {"content_queries",match_->queries.local_queries},{"content_candidates",match_->queries.local_candidates},{"point_grid_builds",match_->queries.moving_index().rebuilds},{"point_grid_moves",match_->queries.moving_index().moves},{"point_grid_cell_changes",match_->queries.moving_index().cell_changes},
             {"range_queries",match_->queries.range_queries},{"range_candidates",match_->queries.range_candidates},{"range_full_scan",match_->queries.range_full_scan},{"range_exact_tests",match_->queries.range_exact_tests},

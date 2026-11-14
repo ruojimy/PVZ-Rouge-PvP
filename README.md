@@ -1,41 +1,41 @@
 # PVZ-Rouge · 对战模式（PvP）
 
-中文版当前为 **PvP74.3**（`1.6.0.74.3-typed.20261114`，C++ 原生版，无需 Python）。英文版仍为 PvP64，不能混用联机。
+中文版最新为 **PvP74.3 r2**（`1.6.0.74.3-typed.20261114`，C++原生版，无需Python），Android versionCode **1114082**。英文版仍为PvP64，不能混用联机。
 
 ## 下载
 
-[PvP74.3 发布页](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/tag/v1.6.0.74.3-pvp743)。发行附件与最终验证边界见发布页及[交付记录](docs/pvp743-publication.md)。
+[当前发布页](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/tag/v1.6.0.74.3-pvp743)：在原PvP74.3发布页覆盖旧r1附件，不另建仓库。
 
 | 附件 | 用途 |
 | --- | --- |
-| [Windows 玩家包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.74.3-pvp743/PvZ-PvP-Native-20261114-pvp743-r1.zip) | 解压运行；覆盖升级保留原用户数据 |
-| [Android ARM64](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.74.3-pvp743/PvZ-PvP-Native-1.6.0.74.3-typed.20261114-1114081-20261114-pvp743-r1.apk) | 同包名、同签名，versionCode 1114081，支持覆盖升级 |
-| [开发者源码包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.74.3-pvp743/PvZ-PvP-Native-20261114-pvp743-r1-Developer-Package.zip) | 当前完整源码、拥有源、生产内核/组合层、素材数据、生成工具与精选证据 |
-| [SHA-256 清单](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.74.3-pvp743/zh-SHA256SUMS.txt) | 校验三个包及公开说明/验证附件 |
+| [Windows玩家包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.74.3-pvp743/PvZ-PvP-Native-20261114-pvp743-r2.zip) | 解压运行，覆盖升级保留userdata |
+| [Android ARM64](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.74.3-pvp743/PvZ-PvP-Native-1.6.0.74.3-typed.20261114-1114082-20261114-pvp743-r2.apk) | 同包名/同签名覆盖升级，versionCode1114082 |
+| [完整开发者包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.74.3-pvp743/PvZ-PvP-Native-20261114-pvp743-r2-Developer-Package.zip) | 生产源码/拥有源/生成器、素材数据、精选证据及21项待办 |
+| [SHA-256清单](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.74.3-pvp743/zh-SHA256SUMS.txt) | 校验包和公开附件 |
 
-本次修复合作人数上限未进入生产预算，补齐暴怒实际蓝火炬/树桩资源关联，并使工坊打开资源时先成功构建画布再提交选择。详见[更新说明](dev/更新说明-PvP74.3.md)、[不超过600字公告](dev/更新公告-PvP74.3.txt)及[39项任务总清单](dev/PvP74.3_任务总清单.md)。
+## r2修复与验收
 
-## 完整继承与验证范围
+修复基础/详细记录按钮在点击当帧读取未初始化计时的num - absent闪退、停止/切换记录器的回调自环，以及误留在生产路径的僵尸绘图别名观察日志。实际贴图、状态滤镜和战斗机制保留。
 
-74.3 完整承接 74.2，不只包含上述三个新反馈。角斗士/普通巨人携带小鬼防具继承、独立甲槽、二手掉落拾取与梯带搭建、弹幕空间碰撞、植物空间索敌、特殊僵尸移动、PC/Android 共用刷新绘制推进、前台心跳重复刷新减少、plant2 重连序号修复、allocator，以及皮肤/英雄/墓碑/状态滤镜均保留。
+相同合作场景300秒，房主Private由585.35→848.15MiB降为584.79→649.86MiB；后段requested-live增速33.08→4.40MiB/分钟（降低86.70%）。**仍有少量增长，长期/跨局上限未验证，不宣称完全无泄漏。** [内存对照](docs/pvp743-r2-memory.md)。
 
-源码继承静态核对：原生产内核342/342文件与已审核74.2字节一致；src中1308个文件未变，5个修改、5个新增；组合层拥有目录212中210未变。逐文件来源与重点机制摘要见[继承核对](dev/build/pvp743-tools/source-inheritance.md)及其JSON；字节一致不等于新行为回归。
+25项定向检查、主/客×基础/详细4条完整记录流程通过；10000原生tick的完整state/native/RNG/frame/pixels相同，原始豌豆过火单发60。PC包内EXE隔离诊断、ZIP逐文件/CRC/UTF-8、APK同签名/资源/原生库/源码指纹已核验。[交付记录](docs/pvp743-publication.md) · [公开验证](docs/pvp743-r2-validation.json)。
 
-**手机抓人草仍严重卡顿，性能验收未通过。** 同机74.1→74.3：普通23.70→24.39FPS；混合10.70→13.75FPS，但模拟比0.674→0.665没有改善；高弹幕3.41→3.98FPS，模拟比0.556→0.692；抓人草1.97→1.54FPS（-21.9%），模拟比0.328→0.597。不能把减少慢动作直接写成全面更流畅。
+**r2安卓真机、前台FPS及长期跨局未验收。** 旧r1同机抓人草仅1.54FPS、性能未通过；该结果不代表r2，见[历史r1手机报告](docs/pvp743-android-device-comparison.md)。历史742全量2366项为2324 PASS/30 FAIL/12 ERROR，不是全绿，也不冒充r2新全量。
 
-四场各版本一次，共八份完成。详见[去标识实机报告](docs/pvp743-android-device-comparison.md)及[完整公开数据](docs/pvp743-android-device-comparison.json)。默认压力控制开启、墙钟推进步数不同，旧版抓人草记录到触屏动作等限制均保留；这不是最终状态严格等价或统计显著性证明。
+## 后续工作
 
-封包时用户要求先出包、不追加测试；之后用户重新授权才追加手机复测。三个包和dev冻结树不变，包内“未实测”是先前封包时点，最新结果另附。历史74.2完整2366项为2324 PASS、30 FAIL、12 ERROR，只对应当时构建，不能称全绿或冒充74.3新全量。
+[统一待办T01–T21](待办清单.md)区分待优化、待复现和待验收，覆盖手机高压性能、长期内存、偶发崩溃、云端前台卡顿、全量回归和机制覆盖等。旧迁移计划已归档，A1死墓位记忆、A2解除封印出兵口已实现，不重复列未完成。
 
-本次三个包均核验SHA-256，Windows与开发者ZIP逐文件/CRC/UTF-8校验，Android核验签名连续、包名/版本码、五个原生库、资源及编译前后源码指纹。已完成的合作人数、实际梯带部署/客机wire显示、密集高台堆叠等专项保持各自输入和边界；未复现现场不等于问题不存在。
-
-密植/抓人草偶发崩溃、invalid map key/bad allocation、客机长期内存增长和真实云端前台卡主机仍需现场证据，不宣称全部解决。设备帧率也不能替代这些长时与联机验收。公开验证附件不包含私人存档明细、getprop/logcat或直播原始快照。
+[39项历史需求及r2状态](dev/PvP74.3_任务总清单.md) · [修复说明](dev/更新说明-PvP74.3-r2.md) · [600字内纯文本公告](dev/更新公告-PvP74.3-r2.txt)。
 
 ## 源码与升级
 
-`dev/` 与743开发者包逐文件对应。实际生产内核为 `dev/build/typed72-integrated-v44/source/src/sim/typed/`，组合层拥有源为 `dev/build/typed72-match-v1/`。须同时保留拥有源、生成器和hooks，不能只改早期typed目录。参见[开发者包说明](dev/开发者包说明-PvP74.3.md)。Windows和Android共用大部分代码，只有必须平台层单独适配。
+`dev/`与本次开发者包逐文件对应（7005文件），完整继承巨人/背部小鬼防具、二手掉落/拾取搭建、空间碰撞/植物索敌/共享寻路、特殊僵尸、工坊皮肤/英雄/墓碑/滤镜、PC/Android共用推进绘制和联机修复。
 
-联机玩家/观众统一74.3；Windows覆盖时保留userdata，Android同签名覆盖升级。旧回放按录制版本播放。Python仅用于生成/构建/测试，正式游戏不依赖解释器；历史异步夹具AST指纹由Python3.8生成。开发资源、SDK和签名条件详见dev/README。历史AI语料不自动成为本轮重新导出的训练集。
+实际生产内核为`dev/build/typed72-integrated-v44/source/src/sim/typed/`，组合拥有源为`dev/build/typed72-match-v1/`；须保留拥有源、生成器和hooks。[开发者说明](dev/开发者包说明-PvP74.3.md)。PC/Android共用大部分代码，必须平台层单独适配。
+
+联机统一74.3，Windows保留userdata，Android同签名覆盖升级，旧回放按录制版本播放。发布包不含私人存档、原始logcat/getprop和签名私钥。
 
 ## 英文版及其依赖
 

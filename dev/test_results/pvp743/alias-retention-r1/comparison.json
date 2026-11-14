@@ -1,0 +1,131 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "native_tick": 0,
+      "room_tick": 0,
+      "before_aliases64": 0,
+      "after_aliases64": 0,
+      "before_requested_live_bytes": 0,
+      "after_requested_live_bytes": 0,
+      "equal": {
+        "frame": true,
+        "native": true,
+        "pixels": true,
+        "rng": true,
+        "snapshot": true
+      },
+      "all_equal": true,
+      "before_pixels": {
+        "hash": 1469598103934665603,
+        "images": 0,
+        "nontransparent_pixels": 0
+      },
+      "after_pixels": {
+        "hash": 1469598103934665603,
+        "images": 0,
+        "nontransparent_pixels": 0
+      }
+    },
+    {
+      "native_tick": 100,
+      "room_tick": 12,
+      "before_aliases64": 1300,
+      "after_aliases64": 0,
+      "before_requested_live_bytes": 939718,
+      "after_requested_live_bytes": 678095,
+      "equal": {
+        "frame": true,
+        "native": true,
+        "pixels": true,
+        "rng": true,
+        "snapshot": true
+      },
+      "all_equal": true,
+      "before_pixels": {
+        "hash": 1728045955299012156,
+        "images": 12,
+        "nontransparent_pixels": 12347
+      },
+      "after_pixels": {
+        "hash": 1728045955299012156,
+        "images": 12,
+        "nontransparent_pixels": 12347
+      }
+    },
+    {
+      "native_tick": 1000,
+      "room_tick": 120,
+      "before_aliases64": 13000,
+      "after_aliases64": 0,
+      "before_requested_live_bytes": 4020285,
+      "after_requested_live_bytes": 1368934,
+      "equal": {
+        "frame": true,
+        "native": true,
+        "pixels": true,
+        "rng": true,
+        "snapshot": true
+      },
+      "all_equal": true,
+      "before_pixels": {
+        "hash": 10049222967475412913,
+        "images": 12,
+        "nontransparent_pixels": 12260
+      },
+      "after_pixels": {
+        "hash": 10049222967475412913,
+        "images": 12,
+        "nontransparent_pixels": 12260
+      }
+    },
+    {
+      "native_tick": 10000,
+      "room_tick": 1200,
+      "before_aliases64": 130000,
+      "after_aliases64": 0,
+      "before_requested_live_bytes": 27874300,
+      "after_requested_live_bytes": 2062181,
+      "equal": {
+        "frame": true,
+        "native": true,
+        "pixels": true,
+        "rng": true,
+        "snapshot": true
+      },
+      "all_equal": true,
+      "before_pixels": {
+        "hash": 10049222967475412913,
+        "images": 12,
+        "nontransparent_pixels": 12260
+      },
+      "after_pixels": {
+        "hash": 10049222967475412913,
+        "images": 12,
+        "nontransparent_pixels": 12260
+      }
+    }
+  ],
+  "primal_fire": {
+    "ignited": true,
+    "damage": 60.0,
+    "passed": true
+  },
+  "sources": {
+    "before": "before-fixture864.json (custom section only; unrelated later primal fixture failed due invalid height)",
+    "after": "driver864.json (same custom fixture and full values)",
+    "final_valid_ground": "final960.json"
+  },
+  "limits": [
+    "Old before EXE was overwritten by a link after the production Session lib replacement; evidence uses its already-saved complete 864 custom report.",
+    "Original 864 custom units both remained alive and executed 130000 alias observations; only the later primal plant height was invalid.",
+    "Primal-fire independent current-production contract passed on legal flat ground960; not claimed as same-source old/new primal differential.",
+    "Requested live counters are allocator requested bytes, not process PrivateBytes or RSS. No foreground FPS claim."
+  ],
+  "sha256": {
+    "before-fixture864.json": "eeaa17b8dfbad17b8a2d909c568132201685896c5767585696c0f71d4bcdf2ed",
+    "driver864.json": "2fff80561101c1f914cedcc1e2cbddc1be0d6f71ca7656aa834d921179aa7d95",
+    "final960.json": "4dfa30b81d22a09a7207570955e85c527fa667cd086c31267ee0b0fcb6a3c06a",
+    "driver864.cpp": "0e3547e356e8b80a255d190ae2f3d4577d9e0b34478730c6daa6000db1b5fd97"
+  }
+}

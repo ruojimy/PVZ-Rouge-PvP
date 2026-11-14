@@ -1,0 +1,1065 @@
+{
+  "baseline": "coop-rail-api-memory-r5",
+  "candidate": "coop-rail-api-memory-r6",
+  "candidate_exit_codes": {
+    "host": 0,
+    "guest": 0
+  },
+  "candidate_complete": true,
+  "candidate_guard_file_present": false,
+  "scope": "real two-process Application/Room/Windows-render 300s memory comparison; no stack profiler, no foreground FPS or full regression claim",
+  "roles": {
+    "host": {
+      "baseline": {
+        "battle_samples": 300,
+        "battle_wall_seconds": [
+          1.0,
+          300.203
+        ],
+        "game_time": [
+          1.8333333333333333,
+          301.0333333333333
+        ],
+        "units": [
+          0,
+          17
+        ],
+        "max_units": 17,
+        "direct_native_tick_collected": false,
+        "tick_limit": "Public battle game_time is simulation progress; not converted into an asserted native tick count.",
+        "allocation_failures_max": 0,
+        "native_projection_values": [
+          0.0
+        ],
+        "profiler_ever_enabled": false,
+        "pause_ever_enabled": false,
+        "intervals": {
+          "0": {
+            "actual_wall_interval": [
+              1.0,
+              300.203
+            ],
+            "samples": 300,
+            "private_bytes": {
+              "first": 613785600,
+              "last": 889348096,
+              "min": 613785600,
+              "max": 889348096,
+              "ols_mib_per_minute": 55.38991909029777
+            },
+            "working_set_bytes": {
+              "first": 640593920,
+              "last": 915922944,
+              "min": 640593920,
+              "max": 915922944,
+              "ols_mib_per_minute": 54.89684824208567
+            },
+            "requested_live_bytes": {
+              "first": 248969276,
+              "last": 397829402,
+              "min": 239115699,
+              "max": 397829402,
+              "ols_mib_per_minute": 31.843978478258908
+            },
+            "slab_bytes": {
+              "first": 142833568,
+              "last": 359255856,
+              "min": 142833568,
+              "max": 359255856,
+              "ols_mib_per_minute": 45.320978819370666
+            },
+            "surface_owned_bytes": {
+              "first": 168932600,
+              "last": 219657080,
+              "min": 168932600,
+              "max": 219835860,
+              "ols_mib_per_minute": 7.26502706180126
+            }
+          },
+          "30": {
+            "actual_wall_interval": [
+              30.0,
+              300.203
+            ],
+            "samples": 271,
+            "private_bytes": {
+              "first": 614375424,
+              "last": 889348096,
+              "min": 614375424,
+              "max": 889348096,
+              "ols_mib_per_minute": 54.31126011341205
+            },
+            "working_set_bytes": {
+              "first": 641912832,
+              "last": 915922944,
+              "min": 641912832,
+              "max": 915922944,
+              "ols_mib_per_minute": 53.75193224110794
+            },
+            "requested_live_bytes": {
+              "first": 241379043,
+              "last": 397829402,
+              "min": 241379043,
+              "max": 397829402,
+              "ols_mib_per_minute": 33.36644445712897
+            },
+            "slab_bytes": {
+              "first": 143814688,
+              "last": 359255856,
+              "min": 143814688,
+              "max": 359255856,
+              "ols_mib_per_minute": 47.010258333691176
+            },
+            "surface_owned_bytes": {
+              "first": 171709048,
+              "last": 219657080,
+              "min": 171709048,
+              "max": 219835860,
+              "ols_mib_per_minute": 3.8997126793868038
+            }
+          },
+          "120": {
+            "actual_wall_interval": [
+              120.047,
+              300.203
+            ],
+            "samples": 181,
+            "private_bytes": {
+              "first": 736264192,
+              "last": 889348096,
+              "min": 736264192,
+              "max": 889348096,
+              "ols_mib_per_minute": 50.3537469756698
+            },
+            "working_set_bytes": {
+              "first": 762380288,
+              "last": 915922944,
+              "min": 762380288,
+              "max": 915922944,
+              "ols_mib_per_minute": 49.98825640350165
+            },
+            "requested_live_bytes": {
+              "first": 294918963,
+              "last": 397829402,
+              "min": 294918963,
+              "max": 397829402,
+              "ols_mib_per_minute": 33.079875169617885
+            },
+            "slab_bytes": {
+              "first": 218079680,
+              "last": 359255856,
+              "min": 218079680,
+              "max": 359255856,
+              "ols_mib_per_minute": 45.38792629943277
+            },
+            "surface_owned_bytes": {
+              "first": 216462812,
+              "last": 219657080,
+              "min": 216462812,
+              "max": 219835860,
+              "ols_mib_per_minute": 1.3038236848439149
+            }
+          },
+          "180": {
+            "actual_wall_interval": [
+              180.078,
+              300.203
+            ],
+            "samples": 121,
+            "private_bytes": {
+              "first": 783962112,
+              "last": 889348096,
+              "min": 783962112,
+              "max": 889348096,
+              "ols_mib_per_minute": 51.90680936268956
+            },
+            "working_set_bytes": {
+              "first": 809807872,
+              "last": 915922944,
+              "min": 809807872,
+              "max": 915922944,
+              "ols_mib_per_minute": 51.865064664229656
+            },
+            "requested_live_bytes": {
+              "first": 329605330,
+              "last": 397829402,
+              "min": 329605330,
+              "max": 397829402,
+              "ols_mib_per_minute": 32.73781143749676
+            },
+            "slab_bytes": {
+              "first": 263612720,
+              "last": 359255856,
+              "min": 263612720,
+              "max": 359255856,
+              "ols_mib_per_minute": 46.239721555837946
+            },
+            "surface_owned_bytes": {
+              "first": 216609624,
+              "last": 219657080,
+              "min": 216519016,
+              "max": 219835860,
+              "ols_mib_per_minute": 2.1655381207461075
+            }
+          }
+        }
+      },
+      "candidate": {
+        "battle_samples": 299,
+        "battle_wall_seconds": [
+          1.0,
+          299.328
+        ],
+        "game_time": [
+          1.8333333333333333,
+          300.1333333333333
+        ],
+        "units": [
+          0,
+          17
+        ],
+        "max_units": 17,
+        "direct_native_tick_collected": false,
+        "tick_limit": "Public battle game_time is simulation progress; not converted into an asserted native tick count.",
+        "allocation_failures_max": 0,
+        "native_projection_values": [
+          0.0
+        ],
+        "profiler_ever_enabled": false,
+        "pause_ever_enabled": false,
+        "intervals": {
+          "0": {
+            "actual_wall_interval": [
+              1.0,
+              299.328
+            ],
+            "samples": 299,
+            "private_bytes": {
+              "first": 613195776,
+              "last": 681431040,
+              "min": 613195776,
+              "max": 682528768,
+              "ols_mib_per_minute": 11.294905574521119
+            },
+            "working_set_bytes": {
+              "first": 639569920,
+              "last": 708628480,
+              "min": 639569920,
+              "max": 708628480,
+              "ols_mib_per_minute": 11.32721219192229
+            },
+            "requested_live_bytes": {
+              "first": 248980157,
+              "last": 260937581,
+              "min": 239113165,
+              "max": 286242151,
+              "ols_mib_per_minute": 3.5459357762001673
+            },
+            "slab_bytes": {
+              "first": 142833216,
+              "last": 164464704,
+              "min": 142833216,
+              "max": 164464704,
+              "ols_mib_per_minute": 4.8352496252281165
+            },
+            "surface_owned_bytes": {
+              "first": 168932600,
+              "last": 219666504,
+              "min": 168932600,
+              "max": 219827328,
+              "ols_mib_per_minute": 7.3039896147048005
+            }
+          },
+          "30": {
+            "actual_wall_interval": [
+              30.031,
+              299.328
+            ],
+            "samples": 270,
+            "private_bytes": {
+              "first": 613654528,
+              "last": 681431040,
+              "min": 613654528,
+              "max": 682528768,
+              "ols_mib_per_minute": 8.167768443412006
+            },
+            "working_set_bytes": {
+              "first": 640950272,
+              "last": 708628480,
+              "min": 640950272,
+              "max": 708628480,
+              "ols_mib_per_minute": 8.110329472042078
+            },
+            "requested_live_bytes": {
+              "first": 239919662,
+              "last": 260937581,
+              "min": 239919662,
+              "max": 286242151,
+              "ols_mib_per_minute": 4.470054059103934
+            },
+            "slab_bytes": {
+              "first": 143749056,
+              "last": 164464704,
+              "min": 143749056,
+              "max": 164464704,
+              "ols_mib_per_minute": 5.011871174475212
+            },
+            "surface_owned_bytes": {
+              "first": 171709048,
+              "last": 219666504,
+              "min": 171709048,
+              "max": 219827328,
+              "ols_mib_per_minute": 3.9224598703956257
+            }
+          },
+          "120": {
+            "actual_wall_interval": [
+              120.109,
+              299.328
+            ],
+            "samples": 180,
+            "private_bytes": {
+              "first": 667230208,
+              "last": 681431040,
+              "min": 667160576,
+              "max": 682528768,
+              "ols_mib_per_minute": 5.605816723977655
+            },
+            "working_set_bytes": {
+              "first": 694571008,
+              "last": 708628480,
+              "min": 694571008,
+              "max": 708628480,
+              "ols_mib_per_minute": 5.460765351648075
+            },
+            "requested_live_bytes": {
+              "first": 247215853,
+              "last": 260937581,
+              "min": 247215853,
+              "max": 286242151,
+              "ols_mib_per_minute": 4.39819049154719
+            },
+            "slab_bytes": {
+              "first": 155049376,
+              "last": 164464704,
+              "min": 155049376,
+              "max": 164464704,
+              "ols_mib_per_minute": 3.352276074811572
+            },
+            "surface_owned_bytes": {
+              "first": 216509872,
+              "last": 219666504,
+              "min": 216492204,
+              "max": 219827328,
+              "ols_mib_per_minute": 1.3153716880181168
+            }
+          },
+          "180": {
+            "actual_wall_interval": [
+              180.141,
+              299.328
+            ],
+            "samples": 120,
+            "private_bytes": {
+              "first": 668766208,
+              "last": 681431040,
+              "min": 668766208,
+              "max": 682528768,
+              "ols_mib_per_minute": 7.744887027647326
+            },
+            "working_set_bytes": {
+              "first": 696152064,
+              "last": 708628480,
+              "min": 696152064,
+              "max": 708628480,
+              "ols_mib_per_minute": 7.530339564867362
+            },
+            "requested_live_bytes": {
+              "first": 251774645,
+              "last": 260937581,
+              "min": 251774645,
+              "max": 286242151,
+              "ols_mib_per_minute": 4.260514615367694
+            },
+            "slab_bytes": {
+              "first": 157142656,
+              "last": 164464704,
+              "min": 157142656,
+              "max": 164464704,
+              "ols_mib_per_minute": 4.2363427570913235
+            },
+            "surface_owned_bytes": {
+              "first": 216610440,
+              "last": 219666504,
+              "min": 216524524,
+              "max": 219827328,
+              "ols_mib_per_minute": 2.1859014672582453
+            }
+          }
+        },
+        "fixture_retention": {
+          "aliases64": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "all_plants": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "armor_events": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "atlas": {
+            "first": 3015,
+            "last": 3018,
+            "min": 3015,
+            "max": 3018
+          },
+          "births": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "calls": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "cart_events": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "chili_keys": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "content_events": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "controller_events": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "cost_calls": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "dispatch_calls": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "draws64": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "events64": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "factory_events": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "flight_records": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "flights": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "flying_draws": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "flying_events": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "frame_commands": {
+            "first": 2,
+            "last": 35,
+            "min": 2,
+            "max": 39
+          },
+          "grenade_events": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "held": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "held_hits": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "held_proxy_sources": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "ids": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "match_log": {
+            "first": 91,
+            "last": 20559,
+            "min": 91,
+            "max": 20559
+          },
+          "native_objects": {
+            "first": 0,
+            "last": 17,
+            "min": 0,
+            "max": 17
+          },
+          "observations": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "phase_draws": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "phase_events": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "poison_events": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "positions": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "raw_calls": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "render_log": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "room_events": {
+            "first": 0,
+            "last": 2,
+            "min": 0,
+            "max": 2
+          },
+          "runtime_entities": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 2
+          },
+          "runtime_events": {
+            "first": 0,
+            "last": 5521,
+            "min": 0,
+            "max": 5521
+          },
+          "sources": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "spawn_events": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "spawns64": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "states": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "summon_events": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "tick_events": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          },
+          "ui_atlas": {
+            "first": 175,
+            "last": 175,
+            "min": 175,
+            "max": 175
+          },
+          "units": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0
+          }
+        },
+        "fixture_flags": {
+          "no_trace": true,
+          "release_fixtures": true
+        }
+      }
+    },
+    "guest": {
+      "baseline": {
+        "battle_samples": 300,
+        "battle_wall_seconds": [
+          0.015,
+          299.25
+        ],
+        "game_time": [
+          0.8333333333333334,
+          300.06666666666666
+        ],
+        "units": [
+          0,
+          17
+        ],
+        "max_units": 17,
+        "direct_native_tick_collected": false,
+        "tick_limit": "Public battle game_time is simulation progress; not converted into an asserted native tick count.",
+        "allocation_failures_max": 0,
+        "native_projection_values": [],
+        "profiler_ever_enabled": false,
+        "pause_ever_enabled": false,
+        "intervals": {
+          "0": {
+            "actual_wall_interval": [
+              0.015,
+              299.25
+            ],
+            "samples": 300,
+            "private_bytes": {
+              "first": 213942272,
+              "last": 289861632,
+              "min": 213942272,
+              "max": 289861632,
+              "ols_mib_per_minute": 12.798644304302522
+            },
+            "working_set_bytes": {
+              "first": 236101632,
+              "last": 313004032,
+              "min": 236101632,
+              "max": 313004032,
+              "ols_mib_per_minute": 12.827065383869664
+            },
+            "requested_live_bytes": {
+              "first": 51105437,
+              "last": 63398451,
+              "min": 51105437,
+              "max": 63398451,
+              "ols_mib_per_minute": 2.2053905844921182
+            },
+            "slab_bytes": {
+              "first": 94237072,
+              "last": 110176336,
+              "min": 94237072,
+              "max": 110176336,
+              "ols_mib_per_minute": 3.8394644590949496
+            },
+            "surface_owned_bytes": {
+              "first": 13259476,
+              "last": 63143240,
+              "min": 13259476,
+              "max": 64831292,
+              "ols_mib_per_minute": 7.25584108363684
+            }
+          },
+          "30": {
+            "actual_wall_interval": [
+              30.031,
+              299.25
+            ],
+            "samples": 270,
+            "private_bytes": {
+              "first": 217370624,
+              "last": 289861632,
+              "min": 217370624,
+              "max": 289861632,
+              "ols_mib_per_minute": 9.100848806483851
+            },
+            "working_set_bytes": {
+              "first": 240295936,
+              "last": 313004032,
+              "min": 240295936,
+              "max": 313004032,
+              "ols_mib_per_minute": 9.087190972331141
+            },
+            "requested_live_bytes": {
+              "first": 53505444,
+              "last": 63398451,
+              "min": 53490557,
+              "max": 63398451,
+              "ols_mib_per_minute": 2.040776832195307
+            },
+            "slab_bytes": {
+              "first": 94367792,
+              "last": 110176336,
+              "min": 94367792,
+              "max": 110176336,
+              "ols_mib_per_minute": 4.060492685221103
+            },
+            "surface_owned_bytes": {
+              "first": 16347800,
+              "last": 63143240,
+              "min": 16347800,
+              "max": 64831292,
+              "ols_mib_per_minute": 3.760328026886877
+            }
+          },
+          "120": {
+            "actual_wall_interval": [
+              120.109,
+              299.25
+            ],
+            "samples": 180,
+            "private_bytes": {
+              "first": 281219072,
+              "last": 289861632,
+              "min": 281149440,
+              "max": 289861632,
+              "ols_mib_per_minute": 3.668119713446098
+            },
+            "working_set_bytes": {
+              "first": 304128000,
+              "last": 313004032,
+              "min": 304091136,
+              "max": 313004032,
+              "ols_mib_per_minute": 3.6749646728190903
+            },
+            "requested_live_bytes": {
+              "first": 57174659,
+              "last": 63398451,
+              "min": 57174659,
+              "max": 63398451,
+              "ols_mib_per_minute": 2.0138067982907306
+            },
+            "slab_bytes": {
+              "first": 105078640,
+              "last": 110176336,
+              "min": 105078640,
+              "max": 110176336,
+              "ols_mib_per_minute": 2.050272970205589
+            },
+            "surface_owned_bytes": {
+              "first": 61117644,
+              "last": 63143240,
+              "min": 59844856,
+              "max": 64831292,
+              "ols_mib_per_minute": 1.1785216902450033
+            }
+          },
+          "180": {
+            "actual_wall_interval": [
+              180.172,
+              299.25
+            ],
+            "samples": 120,
+            "private_bytes": {
+              "first": 281149440,
+              "last": 289861632,
+              "min": 281149440,
+              "max": 289861632,
+              "ols_mib_per_minute": 6.204636139709346
+            },
+            "working_set_bytes": {
+              "first": 304218112,
+              "last": 313004032,
+              "min": 304218112,
+              "max": 313004032,
+              "ols_mib_per_minute": 6.10696742251781
+            },
+            "requested_live_bytes": {
+              "first": 59305235,
+              "last": 63398451,
+              "min": 59305235,
+              "max": 63398451,
+              "ols_mib_per_minute": 1.9311758426738148
+            },
+            "slab_bytes": {
+              "first": 105406192,
+              "last": 110176336,
+              "min": 105406192,
+              "max": 110176336,
+              "ols_mib_per_minute": 3.296020197553792
+            },
+            "surface_owned_bytes": {
+              "first": 60361940,
+              "last": 63143240,
+              "min": 59844856,
+              "max": 64831292,
+              "ols_mib_per_minute": 2.140579844428998
+            }
+          }
+        }
+      },
+      "candidate": {
+        "battle_samples": 300,
+        "battle_wall_seconds": [
+          0.922,
+          300.203
+        ],
+        "game_time": [
+          1.7333333333333334,
+          300.96666666666664
+        ],
+        "units": [
+          0,
+          17
+        ],
+        "max_units": 17,
+        "direct_native_tick_collected": false,
+        "tick_limit": "Public battle game_time is simulation progress; not converted into an asserted native tick count.",
+        "allocation_failures_max": 0,
+        "native_projection_values": [],
+        "profiler_ever_enabled": false,
+        "pause_ever_enabled": false,
+        "intervals": {
+          "0": {
+            "actual_wall_interval": [
+              0.922,
+              300.203
+            ],
+            "samples": 300,
+            "private_bytes": {
+              "first": 213463040,
+              "last": 289538048,
+              "min": 213463040,
+              "max": 289538048,
+              "ols_mib_per_minute": 12.788703551021554
+            },
+            "working_set_bytes": {
+              "first": 236748800,
+              "last": 313098240,
+              "min": 236748800,
+              "max": 313098240,
+              "ols_mib_per_minute": 12.752549520317656
+            },
+            "requested_live_bytes": {
+              "first": 51167781,
+              "last": 63399651,
+              "min": 51167781,
+              "max": 63399651,
+              "ols_mib_per_minute": 2.19545982902872
+            },
+            "slab_bytes": {
+              "first": 94302544,
+              "last": 110110896,
+              "min": 94302544,
+              "max": 110110896,
+              "ols_mib_per_minute": 3.8259709477168085
+            },
+            "surface_owned_bytes": {
+              "first": 13542680,
+              "last": 62645960,
+              "min": 13542680,
+              "max": 64396556,
+              "ols_mib_per_minute": 7.018354094630837
+            }
+          },
+          "30": {
+            "actual_wall_interval": [
+              30.953,
+              300.203
+            ],
+            "samples": 270,
+            "private_bytes": {
+              "first": 216551424,
+              "last": 289538048,
+              "min": 216551424,
+              "max": 289538048,
+              "ols_mib_per_minute": 9.01926428868934
+            },
+            "working_set_bytes": {
+              "first": 240115712,
+              "last": 313098240,
+              "min": 240115712,
+              "max": 313098240,
+              "ols_mib_per_minute": 8.954370989938539
+            },
+            "requested_live_bytes": {
+              "first": 53494221,
+              "last": 63399651,
+              "min": 53494221,
+              "max": 63399651,
+              "ols_mib_per_minute": 2.0321807013818973
+            },
+            "slab_bytes": {
+              "first": 94367984,
+              "last": 110110896,
+              "min": 94367984,
+              "max": 110110896,
+              "ols_mib_per_minute": 4.033301745325743
+            },
+            "surface_owned_bytes": {
+              "first": 16360732,
+              "last": 62645960,
+              "min": 16360732,
+              "max": 64396556,
+              "ols_mib_per_minute": 3.5172876958282613
+            }
+          },
+          "120": {
+            "actual_wall_interval": [
+              120.078,
+              300.203
+            ],
+            "samples": 181,
+            "private_bytes": {
+              "first": 280829952,
+              "last": 289538048,
+              "min": 280760320,
+              "max": 289538048,
+              "ols_mib_per_minute": 3.696711267661824
+            },
+            "working_set_bytes": {
+              "first": 304099328,
+              "last": 313098240,
+              "min": 304062464,
+              "max": 313098240,
+              "ols_mib_per_minute": 3.713109810751086
+            },
+            "requested_live_bytes": {
+              "first": 57180611,
+              "last": 63399651,
+              "min": 57180611,
+              "max": 63399651,
+              "ols_mib_per_minute": 2.003924589633718
+            },
+            "slab_bytes": {
+              "first": 105078736,
+              "last": 110110896,
+              "min": 105078736,
+              "max": 110110896,
+              "ols_mib_per_minute": 2.0409871713944
+            },
+            "surface_owned_bytes": {
+              "first": 59822776,
+              "last": 62645960,
+              "min": 59219184,
+              "max": 64396556,
+              "ols_mib_per_minute": 1.318878511280252
+            }
+          },
+          "180": {
+            "actual_wall_interval": [
+              180.109,
+              300.203
+            ],
+            "samples": 121,
+            "private_bytes": {
+              "first": 280760320,
+              "last": 289538048,
+              "min": 280760320,
+              "max": 289538048,
+              "ols_mib_per_minute": 6.199038568523941
+            },
+            "working_set_bytes": {
+              "first": 304185344,
+              "last": 313098240,
+              "min": 304185344,
+              "max": 313098240,
+              "ols_mib_per_minute": 6.146993380943605
+            },
+            "requested_live_bytes": {
+              "first": 59327250,
+              "last": 63399651,
+              "min": 59327250,
+              "max": 63399651,
+              "ols_mib_per_minute": 1.9215005572983275
+            },
+            "slab_bytes": {
+              "first": 105406288,
+              "last": 110110896,
+              "min": 105406288,
+              "max": 110110896,
+              "ols_mib_per_minute": 3.2407913159942017
+            },
+            "surface_owned_bytes": {
+              "first": 59685372,
+              "last": 62645960,
+              "min": 59311288,
+              "max": 64396556,
+              "ols_mib_per_minute": 1.9526354920843783
+            }
+          }
+        }
+      }
+    }
+  }
+}

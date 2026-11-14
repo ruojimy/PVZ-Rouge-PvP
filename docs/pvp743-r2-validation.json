@@ -1,0 +1,64 @@
+{
+  "version": "1.6.0.74.3-typed.20261114",
+  "revision": "pvp743-r2",
+  "pc_exe_sha256": "4d0fe7c5762d4e2a1a949b21d5e7bca202d9cdbaf7500a18b3114fd60de80f5e",
+  "packages": {
+    "PvZ-PvP-Native-20261114-pvp743-r2.zip": {
+      "bytes": 169378368,
+      "sha256": "43551e1036ba502543332fe4a3c3c7b1137ae308fa9834a49bf6bf74b9242006"
+    },
+    "PvZ-PvP-Native-20261114-pvp743-r2-Developer-Package.zip": {
+      "bytes": 56114364,
+      "sha256": "22b6efdc57cc13cc21f282dd2ac1e7931fb8dce7e921f7ed7970d37a43d0d9c0"
+    },
+    "PvZ-PvP-Native-1.6.0.74.3-typed.20261114-1114082-20261114-pvp743-r2.apk": {
+      "bytes": 192080056,
+      "sha256": "4696b75666a6b6ecc4ae943c7be32d12887ceb2abb5d5cc2ad877834904766d5"
+    }
+  },
+  "source_files": 7005,
+  "source_docs_refresh_only": true,
+  "open_todo_items": 21,
+  "targeted_native_checks": 25,
+  "coop_profile_flows": 4,
+  "coop_memory_seconds": 300,
+  "custom_alias_native_ticks": 10000,
+  "custom_alias_observations_before_after": [
+    130000,
+    0
+  ],
+  "custom_state_rng_frame_pixels_equal": true,
+  "primal_torch_damage": 60,
+  "host_requested_growth_mib_per_min_before_after": [
+    33.0799,
+    4.3982
+  ],
+  "host_private_growth_mib_per_min_before_after": [
+    50.3537,
+    5.6058
+  ],
+  "host_private_initial_final_mib_before_after": [
+    [
+      585.35,
+      848.15
+    ],
+    [
+      584.79,
+      649.86
+    ]
+  ],
+  "no_complete_memory_plateau_claim": true,
+  "historical_full_suite": {
+    "total": 2366,
+    "pass": 2324,
+    "fail": 30,
+    "error": 12,
+    "applies_to": "74.2 historical build; not r2 fresh full acceptance"
+  },
+  "android_version_code": 1114082,
+  "android_signature_continuity_verified": true,
+  "android_real_device_r2_verified": false,
+  "foreground_fps_r2_verified": false,
+  "long_term_cross_match_memory_verified": false,
+  "user_data_preserved_files": 556
+}
