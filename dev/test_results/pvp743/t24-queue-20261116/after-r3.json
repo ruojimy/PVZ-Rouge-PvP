@@ -1,0 +1,222 @@
+{
+  "codec_cases": [
+    {
+      "bytes": 147,
+      "fast": true,
+      "name": "unicode_bytes_repeated_container"
+    },
+    {
+      "bytes": 35,
+      "fast": false,
+      "name": "mapping_keys_compatibility"
+    },
+    {
+      "bytes": 48148,
+      "fast": true,
+      "name": "finite_numeric_boundaries_and_2048_random_bits"
+    }
+  ],
+  "encoded_bytes": 33284,
+  "frozen_bytes": 648596,
+  "invalid_frozen_cases": 47,
+  "kernel_profiles": [
+    {
+      "base64_encode_cpu": 0,
+      "base64_encode_wall": 0.0219,
+      "json_encode_cpu": 0,
+      "json_encode_wall": 4.0715,
+      "native_json_fast_path": 1,
+      "task_cpu": 0,
+      "task_wall": 7.1171,
+      "zlib_compress_cpu": 0,
+      "zlib_compress_wall": 3.0104
+    },
+    {
+      "base64_encode_cpu": 0,
+      "base64_encode_wall": 0.0228,
+      "json_encode_cpu": 0,
+      "json_encode_wall": 3.9859,
+      "native_json_fast_path": 1,
+      "task_cpu": 15.625,
+      "task_wall": 7.0834,
+      "zlib_compress_cpu": 15.625,
+      "zlib_compress_wall": 3.0653
+    },
+    {
+      "base64_encode_cpu": 0,
+      "base64_encode_wall": 0.0222,
+      "json_encode_cpu": 0,
+      "json_encode_wall": 4.0694,
+      "native_json_fast_path": 1,
+      "task_cpu": 0,
+      "task_wall": 7.1248,
+      "zlib_compress_cpu": 0,
+      "zlib_compress_wall": 3.0251
+    },
+    {
+      "base64_encode_cpu": 0,
+      "base64_encode_wall": 0.0244,
+      "json_encode_cpu": 0,
+      "json_encode_wall": 4.1491,
+      "native_json_fast_path": 1,
+      "task_cpu": 0,
+      "task_wall": 7.353,
+      "zlib_compress_cpu": 0,
+      "zlib_compress_wall": 3.1682
+    },
+    {
+      "base64_encode_cpu": 0,
+      "base64_encode_wall": 0.0221,
+      "json_encode_cpu": 15.625,
+      "json_encode_wall": 4.0546,
+      "native_json_fast_path": 1,
+      "task_cpu": 15.625,
+      "task_wall": 7.0306,
+      "zlib_compress_cpu": 0,
+      "zlib_compress_wall": 2.9468
+    },
+    {
+      "base64_encode_cpu": 0,
+      "base64_encode_wall": 0.0213,
+      "json_encode_cpu": 0,
+      "json_encode_wall": 3.9721,
+      "native_json_fast_path": 1,
+      "task_cpu": 0,
+      "task_wall": 6.9558,
+      "zlib_compress_cpu": 0,
+      "zlib_compress_wall": 2.9573
+    }
+  ],
+  "main_thread_reacquire_max_ms": 0.0012,
+  "main_thread_reacquire_p50_ms": 0.0004,
+  "main_thread_reacquire_p95_ms": 0.0008,
+  "messages": 24,
+  "passed": true,
+  "payload_sha256": "cd38967039bdaeac6ecc39d5b1990bfc4a47de02f9a9f3a529681fa94ff4ed44",
+  "peers": 3,
+  "private_before": 539033600,
+  "private_peak": 543662080,
+  "reacquire_samples": 82,
+  "rounds": [
+    {
+      "completion_age_ms": [
+        17.3312,
+        24.7353,
+        32.9321
+      ],
+      "round_ms": 32.9362,
+      "submit_ms": [
+        5.168,
+        4.0705,
+        3.3988
+      ]
+    },
+    {
+      "completion_age_ms": [
+        21.1972,
+        28.6259,
+        35.2129
+      ],
+      "round_ms": 35.2167,
+      "submit_ms": [
+        4.9693,
+        4.2366,
+        4.0174
+      ]
+    },
+    {
+      "completion_age_ms": [
+        17.034,
+        25.5167,
+        31.508
+      ],
+      "round_ms": 31.5105,
+      "submit_ms": [
+        4.8267,
+        4.1912,
+        3.9905
+      ]
+    },
+    {
+      "completion_age_ms": [
+        16.0366,
+        24.4402,
+        31.9553
+      ],
+      "round_ms": 31.9589,
+      "submit_ms": [
+        4.6972,
+        3.6183,
+        2.8664
+      ]
+    },
+    {
+      "completion_age_ms": [
+        16.1297,
+        23.606,
+        31.2559
+      ],
+      "round_ms": 31.2608,
+      "submit_ms": [
+        4.4321,
+        3.6604,
+        2.8223
+      ]
+    },
+    {
+      "completion_age_ms": [
+        18.3731,
+        25.9358,
+        33.3898
+      ],
+      "round_ms": 33.3942,
+      "submit_ms": [
+        4.8822,
+        4.6914,
+        4.9174
+      ]
+    },
+    {
+      "completion_age_ms": [
+        16.5125,
+        24.0099,
+        31.514
+      ],
+      "round_ms": 31.5161,
+      "submit_ms": [
+        4.7661,
+        4.3833,
+        3.5192
+      ]
+    },
+    {
+      "completion_age_ms": [
+        15.9907,
+        21.9703,
+        28.9788
+      ],
+      "round_ms": 28.9807,
+      "submit_ms": [
+        3.7498,
+        3.3893,
+        2.554
+      ]
+    }
+  ],
+  "scope": "Actual production worker with immutable real Room snapshots; three queued receivers, fixed battle state, no socket/simulation progression/rendering/device acceptance. Lock wait excludes Windows sleep/wakeup granularity.",
+  "units": 300,
+  "worker_telemetry": {
+    "busy_skips": 0,
+    "capacity_declines": 0,
+    "completed": 24,
+    "fallbacks": 0,
+    "freeze_ms": 97.18919999431819,
+    "frozen_byte_limit": 33554432,
+    "frozen_bytes": 0,
+    "inflight_item_limit": 16,
+    "inflight_items": 0,
+    "pack_ms": 174.24319999554427,
+    "peak_frozen_bytes": 1945788,
+    "submitted": 24
+  }
+}

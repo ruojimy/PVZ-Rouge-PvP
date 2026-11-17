@@ -1,0 +1,8 @@
+[
+{"module":"test_pvp_display_pipeline","class":"BudgetTiming","test":"test_deadlines_hysteresis_and_immediate_menu_input_feedback","outcome":"PASS","seconds":0.0001376,"detail":""},
+{"module":"test_pvp_display_pipeline","class":"DisplayPipeline","test":"test_no_present_still_processes_input_room_and_network_and_records_real_display_count","outcome":"PASS","seconds":1.77737,"detail":""},
+{"module":"test_pvp_display_pipeline","class":"DisplayPipeline","test":"test_pixel_scale_writes_matching_display_and_smooth_fallback_matches_reference","outcome":"PASS","seconds":0.137591,"detail":""},
+{"module":"test_pvp_display_pipeline","class":"DisplayPipeline","test":"test_quality_changes_preserve_camera_ui_authority_and_wire_frame","outcome":"PASS","seconds":1.00308,"detail":""},
+{"module":"test_pvp_display_pipeline","class":"DisplayPipeline","test":"test_reduced_buffers_reused_and_released_on_quality_resize_and_room_close","outcome":"PASS","seconds":0.938331,"detail":""},
+{"module":"test_pvp_display_pipeline","class":"DisplayPipeline","test":"test_settings_migration_and_controls_do_not_change_network_identity","outcome":"PASS","seconds":0.0426305,"detail":""}
+]

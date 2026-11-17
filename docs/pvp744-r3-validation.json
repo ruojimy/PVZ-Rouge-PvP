@@ -1,0 +1,14 @@
+{
+  "revision": "pvp744-r3",
+  "version": "1.6.0.74.4-typed.20261117-r3",
+  "pc_zip_sha256": "c02e4cf5b3d8c4117b23cd7b839f7dfc6b2d9168cb34ceee5634f4841cb3d10b",
+  "developer_sha256": "5ea265cafa492c0deb2b123ca255f28b132226f9ad2b58522a6e608e959cd04f",
+  "apk_sha256": "7b338692e328b99130261cbcb7dafaf6ef299f24116dca59c562b5ea18eecfa2",
+  "android_version_code": 1117003,
+  "android_signature_continuity_verified": true,
+  "android_real_device_verified": false,
+  "full_regression_rerun": false,
+  "historical_unwaived": 27,
+  "product_acceptance_passed": false,
+  "note": "生产内核、UI、资源、Boss与结算定向检查及发行包校验；手机实机及全量产品回归未完成。"
+}

@@ -1,0 +1,19 @@
+[
+{"module":"test_pvp_native_physics","class":"NativePhysicsTests","test":"test_both_original_flood_loops_match_raw_world_fields_every_tick","outcome":"PASS","seconds":3.85292,"detail":""},
+{"module":"test_pvp_native_physics","class":"NativePhysicsTests","test":"test_double_jump_preserves_native_horizontal_impulse_and_animation_lock","outcome":"PASS","seconds":0.0077208,"detail":""},
+{"module":"test_pvp_native_physics","class":"NativePhysicsTests","test":"test_feet_water_slows_and_caps_sinking_head_water_floats_without_damage","outcome":"PASS","seconds":0.0004154,"detail":""},
+{"module":"test_pvp_native_physics","class":"NativePhysicsTests","test":"test_flowerpot_is_pass_through_and_lily_preserves_water_original_tile_writes","outcome":"PASS","seconds":0.0047446,"detail":""},
+{"module":"test_pvp_native_physics","class":"NativePhysicsTests","test":"test_original_knockdown_clock_and_balloon_run_but_never_refill_pvp_hp","outcome":"PASS","seconds":36.7353,"detail":""},
+{"module":"test_pvp_native_physics","class":"NativePhysicsTests","test":"test_original_landing_restores_jumps_but_ceiling_does_not","outcome":"PASS","seconds":0.00173,"detail":""},
+{"module":"test_pvp_native_physics","class":"NativePhysicsTests","test":"test_original_normal_full_block_matches_every_tick_on_ground_air_wall_and_landing","outcome":"ERROR","seconds":14.4259,"detail":"AttributeError: unsupported function attribute: __code__"},
+{"module":"test_pvp_native_physics","class":"NativePhysicsTests","test":"test_original_tail_and_balloon_effects_match_every_native_tick","outcome":"PASS","seconds":0.651972,"detail":""},
+{"module":"test_pvp_native_physics","class":"NativePhysicsTests","test":"test_original_water_and_ladder_full_block_matches_every_tick","outcome":"PASS","seconds":20.5539,"detail":""},
+{"module":"test_pvp_native_physics","class":"NativePhysicsTests","test":"test_periodic_collision_matches_extended_original_map_at_both_seams","outcome":"PASS","seconds":2.07735,"detail":""},
+{"module":"test_pvp_native_physics","class":"NativePhysicsTests","test":"test_periodic_flood_reaches_other_edge_and_keeps_matrix_aliases","outcome":"PASS","seconds":0.0008233,"detail":""},
+{"module":"test_pvp_native_physics","class":"NativePhysicsTests","test":"test_refuses_an_unbounded_native_slice","outcome":"PASS","seconds":0.162385,"detail":""},
+{"module":"test_pvp_native_physics","class":"NativePhysicsTests","test":"test_refuses_to_cut_an_extended_argument","outcome":"PASS","seconds":0.114218,"detail":""},
+{"module":"test_pvp_native_physics","class":"NativePhysicsTests","test":"test_tracking_follow_uses_native_mode_filter_and_does_not_mutate_avatar","outcome":"PASS","seconds":0.0006183,"detail":""},
+{"module":"test_pvp_native_physics","class":"NativePhysicsTests","test":"test_two_avatars_restore_world_globals_and_do_not_share_jump_or_water_state","outcome":"PASS","seconds":0.0003618,"detail":""},
+{"module":"test_pvp_native_physics","class":"NativePhysicsTests","test":"test_world_target_indexes_survive_avatar_selection_without_stale_state","outcome":"PASS","seconds":0.0002252,"detail":""},
+{"module":"test_pvp_native_physics","class":"NativePhysicsTests","test":"test_zombie_infinite_jump_is_one_documented_operand_change","outcome":"ERROR","seconds":0.0006174,"detail":"AttributeError: unsupported function attribute: co_code"}
+]

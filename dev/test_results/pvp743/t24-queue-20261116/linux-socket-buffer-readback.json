@@ -1,0 +1,20 @@
+{
+  "platform": "WSL Ubuntu; not Android device",
+  "tcp_wmem": [
+    4096,
+    16384,
+    4194304
+  ],
+  "tcp_rmem": [
+    4096,
+    131072,
+    6291456
+  ],
+  "unconnected_socket_default_send": 16384,
+  "unconnected_socket_default_receive": 131072,
+  "requested_send_receive_bytes": 65536,
+  "readback_send_bytes": 131072,
+  "readback_receive_bytes": 131072,
+  "primary_reference": "https://www.kernel.org/doc/html/latest/networking/ip-sysctl.html",
+  "reason": "Explicit per-socket SO_SNDBUF/SO_RCVBUF disables automatic buffer tuning; readback is platform-dependent and is not a proof of the actual TCP advertised window or a latency guarantee."
+}

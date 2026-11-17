@@ -12,4 +12,12 @@ const char* battle_backend();
 // Start the typed session of a wrapped battle now (the room calls it when every seat has
 // loaded); a no-op for anything else or an already started session.
 void start_battle_session(const V& battle);
+// Private local UI lease. Callers consume nested frame values as read-only;
+// ordinary battle/network/replay snapshots retain their detached-copy contract.
+class LocalPresentationScope {
+    const PyObj* previous_;
+public:
+    explicit LocalPresentationScope(const V& battle);
+    ~LocalPresentationScope();
+};
 } // namespace pvz::typed72app

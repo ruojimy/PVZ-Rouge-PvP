@@ -1,0 +1,24 @@
+{
+  "module": "test_pvp_player_feedback33",
+  "exit": 0,
+  "seconds": 10.648,
+  "expected": 21,
+  "results": 21,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": true,
+  "accepted": true,
+  "counts": {
+    "PASS": 21,
+    "FAIL": 0,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [],
+  "unexpected_nonpass": [],
+  "resolved_waivers": []
+}

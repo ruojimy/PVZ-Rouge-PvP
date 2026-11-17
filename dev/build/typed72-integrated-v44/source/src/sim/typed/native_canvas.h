@@ -57,6 +57,7 @@ public:
     void fill(const NativeArt& target,Json color,Json rect=nullptr,int flags=0);
     // native_status.tint_poison: an alpha-masked colour wash over a copy (level 1 or 2).
     NativeArt tint_poison(const NativeArt& image,int level);
+    NativeArt poisoned(const NativeArt& image,int level);
     // native_status.tint_zombie: replace every art of the unit's roots by its cached tint,
     // keeping the first original in the expansion save so restore_art puts it back.
     void tint_roots(const std::vector<std::string>& roots,int level);
@@ -74,6 +75,7 @@ public:
     // Surface.set_alpha on the atlas image: clamp(int(value), 0, 255).
     void set_alpha(const std::string& name,double value);
     static void set_alpha(const NativeArt& image,double value);
+    NativeArt with_alpha(const std::string& name,double value)const{auto out=NativeArtStore::copy(image(name));set_alpha(out,value);return out;}
     // native_expansion.alias_art / restore_art (aliases share the image object).
     void alias_one(const std::string& old,const std::string& next);
     void alias(const std::string& old,const std::string& next);
@@ -85,7 +87,7 @@ public:
 private:
     std::map<std::string,NativeArt> saved_;
     std::map<std::string,NativeArt> patched_art_;bool patched_=true;
-    std::map<std::pair<const NativeArtImage*,int>,std::pair<NativeArt,NativeArt>> tints_;
+    std::map<std::pair<NativeArtIdentity,int>,NativeArt> tints_;
     Json recipe(const FrozenArt&)const;
 };
 } // namespace pvz::typed72

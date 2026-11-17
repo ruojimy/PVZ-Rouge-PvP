@@ -1,0 +1,4 @@
+[
+{"module":"test_pvp_draw_cache","class":"DrawCacheTests","test":"test_many_sprites_equal_pixels_bounded_cache_and_offscreen_culling","outcome":"PASS","seconds":0.0787162,"detail":""},
+{"module":"test_pvp_draw_cache","class":"DrawCacheTests","test":"test_recipe_keys_reused_until_frame_or_scale_changes","outcome":"PASS","seconds":0.004727,"detail":""}
+]

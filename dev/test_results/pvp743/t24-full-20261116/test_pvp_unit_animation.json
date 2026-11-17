@@ -1,0 +1,5 @@
+[
+{"module":"test_pvp_unit_animation","class":"UnitAnimationTests","test":"test_every_new_plant_animates_while_idle","outcome":"PASS","seconds":13.4498,"detail":""},
+{"module":"test_pvp_unit_animation","class":"UnitAnimationTests","test":"test_every_new_zombie_walks_bites_and_dies_with_animation","outcome":"PASS","seconds":26.066,"detail":""},
+{"module":"test_pvp_unit_animation","class":"UnitAnimationTests","test":"test_new_card_discovery_covers_recent_content","outcome":"PASS","seconds":0.0002005,"detail":""}
+]

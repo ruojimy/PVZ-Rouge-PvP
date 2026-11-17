@@ -1,0 +1,31 @@
+{
+  "module": "test_pvp_chili_zombie_fire",
+  "exit": 1,
+  "seconds": 6.183,
+  "expected": 5,
+  "results": 5,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": false,
+  "accepted": false,
+  "counts": {
+    "PASS": 4,
+    "FAIL": 1,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [],
+  "unexpected_nonpass": [
+    {
+      "id": "test_pvp_chili_zombie_fire.ChiliZombieFireTests.test_ash_marked_grave_burns_out",
+      "outcome": "FAIL",
+      "detail_sha256": "de247f8f058cda52c047f32cca765b12dfe615facd31ce9ee48e264f5a420c26",
+      "reason": "not_waived"
+    }
+  ],
+  "resolved_waivers": []
+}

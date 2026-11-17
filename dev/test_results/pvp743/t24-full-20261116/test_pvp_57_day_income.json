@@ -1,0 +1,9 @@
+[
+{"module":"test_pvp_57_day_income","class":"DayIncome57Tests","test":"test_atlas_matches_the_global_economy_rule","outcome":"PASS","seconds":0.0003431,"detail":""},
+{"module":"test_pvp_57_day_income","class":"DayIncome57Tests","test":"test_deathmatch_does_not_accelerate_allowance_and_result_stops_clock","outcome":"PASS","seconds":3.99149,"detail":""},
+{"module":"test_pvp_57_day_income","class":"DayIncome57Tests","test":"test_first_and_repeating_native_boundaries_without_producers","outcome":"PASS","seconds":2.64842,"detail":""},
+{"module":"test_pvp_57_day_income","class":"DayIncome57Tests","test":"test_native_interval_does_not_depend_on_room_tick_rate","outcome":"PASS","seconds":1.39112,"detail":""},
+{"module":"test_pvp_57_day_income","class":"DayIncome57Tests","test":"test_night_has_no_allowance_and_keeps_opening_resources","outcome":"PASS","seconds":2.97937,"detail":""},
+{"module":"test_pvp_57_day_income","class":"DayIncome57Tests","test":"test_recording_replays_income_once_across_pause_speed_and_backward_seek","outcome":"PASS","seconds":4.21176,"detail":""},
+{"module":"test_pvp_57_day_income","class":"DayIncome57Tests","test":"test_room_loading_pause_resume_keep_battle_clock_and_no_backpay","outcome":"PASS","seconds":0.472962,"detail":""}
+]

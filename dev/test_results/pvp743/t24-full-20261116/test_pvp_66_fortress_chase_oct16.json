@@ -1,0 +1,4 @@
+[
+{"module":"test_pvp_66_fortress_chase_oct16","class":"FortressChase","test":"test_wave_ignores_dead_host_when_the_living_guest_is_the_current_alias","outcome":"PASS","seconds":0.233671,"detail":""},
+{"module":"test_pvp_66_fortress_chase_oct16","class":"FortressChase","test":"test_wave_takes_adjacent_ladder_and_exits_onto_fortress_platform","outcome":"PASS","seconds":3.49267,"detail":""}
+]

@@ -1,0 +1,31 @@
+{
+  "module": "test_pvp_relay",
+  "exit": 1,
+  "seconds": 26.472,
+  "expected": 29,
+  "results": 29,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": false,
+  "accepted": true,
+  "counts": {
+    "PASS": 28,
+    "FAIL": 0,
+    "ERROR": 1,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [
+    {
+      "id": "test_pvp_relay.RelayTests.test_collision_retry_is_bounded",
+      "outcome": "ERROR",
+      "detail_sha256": "1f8448df912bf873fb1ac0986c25f9d186d62a9b03204c190ab4581b02871c2b",
+      "reason": "Python 服务端 secrets.choice 猴子补丁检查；原服务端 owner 和真实 C++ 中继客户端集成通过。"
+    }
+  ],
+  "unexpected_nonpass": [],
+  "resolved_waivers": []
+}

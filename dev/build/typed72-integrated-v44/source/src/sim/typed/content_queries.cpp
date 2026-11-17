@@ -1,4 +1,5 @@
 #include "sim/typed/content_queries.h"
+#include "sim/typed/attention.h"
 #include "sim/typed/plant_lookup.h"
 #include "sim/typed/projectile_rules.h"
 #include "sim/typed/spatial_mode.h"
@@ -60,7 +61,8 @@ std::vector<ContentTarget> ContentQueries::enemy_heroes(std::optional<Seat> owne
 }
 std::optional<ContentTarget> ContentQueries::route_enemies(const ContentTarget& origin,std::optional<ContentTarget> goal,bool heroes){
     PVP_PROFILE_SCOPE("ContentQueries::route_enemies");
-    if(!spatial741_enabled()){auto all=enemies(source(origin));if(!heroes)std::erase_if(all,[](const auto& t){const auto* c=std::get_if<CombatTarget>(&t);return c&&c->is_hero();});return route(origin,goal,all);}
+    const auto unit=attention_owner(source(origin));
+    if((unit&&unit->attention.enabled())||!spatial741_enabled()){auto all=enemies(source(origin));attention_prefer(unit,all,world_.heroes.time);if(!heroes)std::erase_if(all,[](const auto& t){const auto* c=std::get_if<CombatTarget>(&t);return c&&c->is_hero();});return route(origin,goal,all);}
     if(!goal)return {};prepare();++local_queries;const auto owner=world_.heroes.owner(source(origin));
     const auto a=targets_.point(origin),b=targets_.point(*goal);const auto width=world_.world_width.get();const double dx=wrap_delta(a.x,b.x,width),dy=b.y-a.y,length2=dx*dx+dy*dy;
     if(length2<=1.e-12)return goal;const double radius=world_.runtime.tile*.65,r2=radius*radius;
@@ -142,7 +144,8 @@ std::optional<ContentTarget> ContentQueries::route(const ContentTarget& source,s
 }
 std::optional<ContentTarget> ContentQueries::nearest(const ContentTarget& origin) {
     PVP_PROFILE_SCOPE("ContentQueries::nearest");
-    if(spatial741_enabled())return spatial_nearest(origin);
+    const auto unit=attention_owner(source(origin));
+    if(spatial741_enabled()&&(!unit||!unit->attention.enabled()))return spatial_nearest(origin);
     const auto record=source(origin);
     auto candidates=enemies(record);
     const auto point=targets_.point(origin);
@@ -151,6 +154,7 @@ std::optional<ContentTarget> ContentQueries::nearest(const ContentTarget& origin
     if(no_hero)std::erase_if(candidates,[](const auto& target){
         const auto* body=std::get_if<CombatTarget>(&target);return body && body->is_hero();
     });
+    attention_prefer(unit,candidates,world_.heroes.time);
     std::optional<ContentTarget> nearest,hero;
     double best=std::numeric_limits<double>::infinity(),hero_best=best;
     for(const auto& target:candidates) {
@@ -161,6 +165,8 @@ std::optional<ContentTarget> ContentQueries::nearest(const ContentTarget& origin
         if(record->charmed.present() && body && body->is_hero() && distance<hero_best){hero=target;hero_best=distance;}
     }
     if(record->charmed.present() && hero)nearest=route(origin,hero,candidates);
-    return taunts_.taunt_target(origin,std::move(nearest));
+    auto result=taunts_.taunt_target(origin,nearest);
+    if(unit&&unit->attention.enabled()&&result&&std::find(candidates.begin(),candidates.end(),*result)==candidates.end())return nearest;
+    return result;
 }
 } // namespace pvz::typed72

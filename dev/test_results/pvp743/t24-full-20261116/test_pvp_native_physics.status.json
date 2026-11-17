@@ -1,0 +1,37 @@
+{
+  "module": "test_pvp_native_physics",
+  "exit": 1,
+  "seconds": 79.468,
+  "expected": 17,
+  "results": 17,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": false,
+  "accepted": true,
+  "counts": {
+    "PASS": 15,
+    "FAIL": 0,
+    "ERROR": 2,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [
+    {
+      "id": "test_pvp_native_physics.NativePhysicsTests.test_original_normal_full_block_matches_every_tick_on_ground_air_wall_and_landing",
+      "outcome": "ERROR",
+      "detail_sha256": "6ff26307e32bfbf22585a180e204902f7ae06b618f58f1fa8f878653285abed4",
+      "reason": "Python __code__/co_code 元数据检查；原 Python owner 和同例 C++ 实际物理行为补验通过。"
+    },
+    {
+      "id": "test_pvp_native_physics.NativePhysicsTests.test_zombie_infinite_jump_is_one_documented_operand_change",
+      "outcome": "ERROR",
+      "detail_sha256": "00d470ddfbe421d14e414d3f0fec79d23a754eba522d45f3865947de83a06244",
+      "reason": "Python __code__/co_code 元数据检查；原 Python owner 和同例 C++ 实际物理行为补验通过。"
+    }
+  ],
+  "unexpected_nonpass": [],
+  "resolved_waivers": []
+}

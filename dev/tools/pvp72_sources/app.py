@@ -1182,6 +1182,12 @@ class Application(MapEditing, ReplayUI, SpectatorUI, PveUI):
                     if worker.submit(peer, key, self.room.snapshot(peer, include_map=include, copy_state=False), delivery=ticket):
                         continue
                     self.snapshot_deliveries.pop(peer, None)
+                    ticket.cancel()
+                    # Queue saturation is backpressure. Retry with fresh state
+                    # next interval instead of amplifying overload on the UI.
+                    if getattr(worker, 'capacity_declined', False):
+                        self.snapshot_backlog_skips += 1
+                        continue
                 from .snapshot_delivery import annotate_snapshot
                 payload = annotate_snapshot(pack_snapshot(self.room.snapshot(peer, include_map=include)), stamp, include)
                 if self.transport.send(peer, payload):
@@ -1250,6 +1256,10 @@ class Application(MapEditing, ReplayUI, SpectatorUI, PveUI):
         if self.replay_action(action):
             return
         if self.map_editor_action(action):
+            return
+        if right and kind in ('pve_toggle','pve_reward') and len(action)>1 and action[1] in CARDS:
+            self.release_inputs()
+            self.state.update(screen='almanac',return_screen=self.state['screen'],detail=action[1],almanac_category='plant',almanac_scroll=0)
             return
         if self.pve_action(action):
             return

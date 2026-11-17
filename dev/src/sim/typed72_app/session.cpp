@@ -4,6 +4,7 @@
 #define TYPED72_NO_MAIN
 #include "match_probe.cpp"
 #include "sim/typed72_app/session.h"
+#include "sim/typed72_app/metadata_projection.h"
 #include "sim/typed72_app/ai/layers19.h"
 #include <deque>
 #include <map>
@@ -42,7 +43,7 @@ public:
     }
     std::string command(const std::string& side,const nlohmann::json& payload)override{
         auto& m=*match_;const auto seat=parse_seat(side);
-        const auto error=m.inputs.apply(seat,decode_command(payload));
+        const auto error=payload.value("type",std::string{})=="test_mode"?m.test_command(seat,payload):m.inputs.apply(seat,decode_command(payload));
         if(error.empty())m.log_event(m.input_record(seat,side,payload));
         return error;
     }
@@ -52,9 +53,16 @@ public:
         // A result may settle before the caller's requested batch ends. Keep
         // every room step's final native frame; draw hooks carry state and
         // cannot safely be replayed later merely to recover that ending frame.
-        m.scheduler.step();m.flush_journal();++m.current_room;
+        try{m.scheduler.step();m.flush_journal();++m.current_room;}
+        catch(...){m.canvas.restore();m.canvas.expansion.restore();m.canvas.expansion.clear();m.battle.runtime.presentation.source_art.clear();throw;}
     }
-    nlohmann::json snapshot(bool include_frame=true)override{PVP_PROFILE_SCOPE("MatchProbe::snapshot_json");return match_->snapshot_json(include_frame);}
+    nlohmann::json snapshot(bool include_frame=true,bool include_units=true)override{PVP_PROFILE_SCOPE("MatchProbe::snapshot_json");return match_->snapshot_json(include_frame,include_units);}
+    void write_local_metadata(SnapshotSink& sink)override{PVP_PROFILE_SCOPE("StateView::stream_metadata");project_metadata(*match_,sink);}
+    const std::vector<typed72::RoomPublishedUnit>& published_units()const override{return match_->published.units;}
+    nlohmann::json resolved_unit_card(typed72::Seat owner,const std::string& key)const override{
+        try{return match_->card_json(match_->placement_view.unit_card(owner,key));}
+        catch(const std::exception&){return key;}
+    }
     const typed72::NativeFrame& native_frame()const override{return match_->canvas.frames.frame();}
     nlohmann::json reference_native_frame()const override{return match_->canvas.frame_json(native_frame());}
     size_t log_size()const override{return match_->log.size();}
@@ -161,10 +169,23 @@ public:
             else throw std::invalid_argument("unknown controller layer "+layer+" for this seat");
         }
         if(!field_)field_.emplace(initial_tiles_,match_->battle.world_width.get(),match_->battle.world_height.get(),match_->battle.runtime.tile);
+        auto& m=*match_;bool donated=false;
+        if((m.battle.mode==MatchMode::coop||m.battle.mode==MatchMode::duo)&&!m.room.result&&m.world.players[i]&&m.world.players[i]->hp>0.){
+            std::vector<Seat> mates;for(const auto seat:seats_for(m.battle.mode))if(seat!=owner&&team_of(seat)==team_of(owner))mates.push_back(seat);
+            if(!mates.empty()){const auto mate=mates.front();const auto mi=seat_index(mate);
+                if(m.world.players[mi]&&std::find(m.tick_state.present.begin(),m.tick_state.present.end(),mate)!=m.tick_state.present.end()){
+                    const double mine=m.resources.accounts[i].balance,theirs=m.resources.accounts[mi].balance;
+                    const int amount=int(std::min(100.,std::floor((mine-theirs)*.5)));
+                    if(mine>theirs&&mine*5.+1e-9>=theirs*6.&&amount>0&&m.world.time>=m.room.players[i].gift_ready_at)
+                        donated=send("gift",{{"amount",double(amount)}}).empty();
+                }
+            }
+        }
         const auto view=ai_control_view(owner);
         AiServices services(*this,owner,view);
         slot->send=std::move(send);
         auto* ctl=slot->controller.get();
+        if(donated)ctl->log.v["team_gift"]+=1.;
         if(!slot->bound){ControllerSlot* s=&*slot;ctl->bind([s](const std::string& k,const ai::Args& a){return s->send(k,a);});slot->bound=true;}
         ctl->step(view,*last_observation_[i],*last_plan_[i],*field_,services);
         return ctl->log.v;
@@ -310,6 +331,11 @@ public:
     nlohmann::json map_tiles()override{return nlohmann::json(match_->map_tiles_json());}
     void fixture_ditu(int64_t row,int64_t col,const nlohmann::json& cell)override{match_->fixture_ditu(row,col,J(cell));}
     int64_t terrain_revision()const override{return match_->published.terrain.revision;}
+    std::optional<bool> test_map_night()const override{
+        if(!match_->battle.local_test_mode)return {};
+        return match_->battle.placement.day=="黑天";
+    }
+    bool coop_red_sky()const override{return match_->director.red_sky();}
     std::optional<bool> coop_map_night()const override{
         if(!match_->director.coop_cycle())return {};
         return match_->battle.placement.day=="黑天";

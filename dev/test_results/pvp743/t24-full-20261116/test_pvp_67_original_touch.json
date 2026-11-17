@@ -1,0 +1,13 @@
+[
+{"module":"test_pvp_67_original_touch","class":"OriginalTouch18","test":"test_android_back_clears_held_input_and_maps_to_native_escape_only_outside_pvp","outcome":"PASS","seconds":0.0006076,"detail":""},
+{"module":"test_pvp_67_original_touch","class":"OriginalTouch18","test":"test_every_original_mode_layout_has_accessible_nonoverlapping_buttons","outcome":"PASS","seconds":0.0018935,"detail":""},
+{"module":"test_pvp_67_original_touch","class":"OriginalTouch18","test":"test_focus_loss_and_modal_switch_clear_keys_and_leave_pvp_fingers_untouched","outcome":"PASS","seconds":0.0002585,"detail":""},
+{"module":"test_pvp_67_original_touch","class":"OriginalTouch18","test":"test_multifinger_move_jump_and_release_drive_actual_native_hero_physics","outcome":"PASS","seconds":0.0059593,"detail":""},
+{"module":"test_pvp_67_original_touch","class":"OriginalTouch18","test":"test_native_hook_installs_once_after_integration_and_reuses_original_mode_bindings","outcome":"PASS","seconds":0.0002857,"detail":""},
+{"module":"test_pvp_67_original_touch","class":"OriginalTouch18","test":"test_original_controls_use_pvp_button_painter_and_pressed_pixels","outcome":"PASS","seconds":0.0384649,"detail":""},
+{"module":"test_pvp_67_original_touch","class":"OriginalTouch18","test":"test_pause_context_releases_movement_and_exposes_native_escape_resume","outcome":"PASS","seconds":0.0003894,"detail":""},
+{"module":"test_pvp_67_original_touch","class":"OriginalTouch18","test":"test_pvp_slots_and_saved_mirror_size_layout_are_shared_by_original_modes","outcome":"PASS","seconds":0.0126757,"detail":""},
+{"module":"test_pvp_67_original_touch","class":"OriginalTouch18","test":"test_scaled_finger_coordinates_are_already_logical_and_bars_stay_outside","outcome":"PASS","seconds":0.000189,"detail":""},
+{"module":"test_pvp_67_original_touch","class":"OriginalTouch18","test":"test_two_fingers_on_one_key_do_not_release_each_other","outcome":"PASS","seconds":0.0002732,"detail":""},
+{"module":"test_pvp_67_original_touch","class":"OriginalTouch18","test":"test_world_tap_and_right_click_work_while_move_finger_is_held","outcome":"PASS","seconds":0.0002864,"detail":""}
+]

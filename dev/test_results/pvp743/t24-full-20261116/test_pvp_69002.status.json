@@ -1,0 +1,24 @@
+{
+  "module": "test_pvp_69002",
+  "exit": 0,
+  "seconds": 2.062,
+  "expected": 28,
+  "results": 28,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": true,
+  "accepted": true,
+  "counts": {
+    "PASS": 28,
+    "FAIL": 0,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [],
+  "unexpected_nonpass": [],
+  "resolved_waivers": []
+}

@@ -1,0 +1,8 @@
+{
+  "nonpass_rows": 42,
+  "identical_details": 41,
+  "changed_details": 1,
+  "reviewed_case": "test_pvp_57_producer_protection.ProducerProtection57Tests.test_native_supplemental_bite_scales_desired_total",
+  "reason": "Only id(plant) differs. Read-only reference tests/test_pvp_57_producer_protection.py:188 asserts the object ID is in the same empty records mapping. Both remain FAIL.",
+  "waivers_expanded": false
+}

@@ -1,0 +1,8 @@
+[
+{"module":"test_pvp_native_patch_targets","class":"NativePatchTargetTests","test":"test_actual_bonus_reaches_both_source_spawns_without_using_l_and_binding_is_idempotent","outcome":"PASS","seconds":0.0092932,"detail":""},
+{"module":"test_pvp_native_patch_targets","class":"NativePatchTargetTests","test":"test_doom_native_source_hurts_opponents_not_allies_and_does_not_inherit_plant_secret","outcome":"PASS","seconds":0.0035698,"detail":""},
+{"module":"test_pvp_native_patch_targets","class":"NativePatchTargetTests","test":"test_original_pz_target_uses_p_hero_despite_outer_plant_and_stale_l","outcome":"PASS","seconds":0.0032473,"detail":""},
+{"module":"test_pvp_native_patch_targets","class":"NativePatchTargetTests","test":"test_real_charmed_doom_only_hits_enemy_z_hero_once_despite_plant_doom_secret","outcome":"PASS","seconds":0.003826,"detail":""},
+{"module":"test_pvp_native_patch_targets","class":"NativePatchTargetTests","test":"test_real_pea_spawn_saved_original_receives_explicit_source_tags","outcome":"PASS","seconds":0.0046697,"detail":""},
+{"module":"test_pvp_native_patch_targets","class":"NativePatchTargetTests","test":"test_real_zombie_pea_hits_enemy_p_and_never_collocated_allied_z","outcome":"PASS","seconds":0.0045889,"detail":""}
+]

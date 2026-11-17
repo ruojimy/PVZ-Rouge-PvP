@@ -1,0 +1,12 @@
+[
+{"module":"test_pvp_68005_minor","class":"RailAndCarts","test":"test_bottom_rail_real_deploy_matches_remote_preview_in_all_modes","outcome":"PASS","seconds":0.152128,"detail":""},
+{"module":"test_pvp_68005_minor","class":"RailAndCarts","test":"test_cannon_animation_and_shooting_share_freeze_slow_butter_stun_clock","outcome":"PASS","seconds":0.0665895,"detail":""},
+{"module":"test_pvp_68005_minor","class":"RailAndCarts","test":"test_cart_lifetime_uses_spawn_tick_ignores_control_and_secret_lock","outcome":"PASS","seconds":1.27114,"detail":""},
+{"module":"test_pvp_68005_minor","class":"RailAndCarts","test":"test_draw_layers_are_high_resolution_and_statuses_reach_recorded_frame","outcome":"PASS","seconds":0.0181557,"detail":""},
+{"module":"test_pvp_68005_minor","class":"RailAndCarts","test":"test_independent_cart_deadlines_do_not_expire_other_units","outcome":"PASS","seconds":0.0162105,"detail":""},
+{"module":"test_pvp_68005_minor","class":"RailAndCarts","test":"test_loaded_imp_disappears_exactly_when_native_summon_succeeds","outcome":"PASS","seconds":0.0160123,"detail":""},
+{"module":"test_pvp_68005_minor","class":"RailAndCarts","test":"test_poison_damages_frozen_cannon_and_death_never_fires","outcome":"PASS","seconds":0.0162292,"detail":""},
+{"module":"test_pvp_68005_minor","class":"WheelSelection","test":"test_legacy_wheel_and_input_focus_do_not_deploy_or_change_resources","outcome":"PASS","seconds":0.0421047,"detail":""},
+{"module":"test_pvp_68005_minor","class":"WheelSelection","test":"test_real_wheel_events_cycle_across_pages_and_skip_passives","outcome":"PASS","seconds":0.0273662,"detail":""},
+{"module":"test_pvp_68005_minor","class":"WheelSelection","test":"test_thirteen_coop_slots_use_personal_bank_and_clear_other_actions","outcome":"PASS","seconds":0.0234393,"detail":""}
+]

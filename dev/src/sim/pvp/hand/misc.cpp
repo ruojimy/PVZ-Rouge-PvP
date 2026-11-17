@@ -12,6 +12,9 @@
 #include "core/fsutil.h"
 #include "sim/pvp/gen/pm_native_runtime.h"
 #include "sim/pvp/gen/pm_patch1501.h"
+#include "sim/pvp/gen/pm_pve.h"
+#include "sim/pvp/gen/pm_coop_cycle.h"
+#include "sim/pvp/shim/pm_gc_policy.h"
 namespace pvz { void register_original_funcs(Match&); V gated_combat_regions(const V&); }
 namespace pvz::gfx {
 namespace {auto& bridge_surfaces(){static std::map<std::string,V> cache;return cache;}}
@@ -28,6 +31,75 @@ V f_inject_iteration_gate(const Args& A) { return A.pos.at(0); }
 
 namespace pvz::pm_native_battle {
 V f__gated_regions(const Args& A) { return pvz::gated_combat_regions(A.pos.at(0)); }
+
+// Closing a battle is the ownership boundary for installed callbacks. Several
+// callbacks and overlays reference g back from its own slots; reference counting
+// cannot release that graph by merely dropping the outer NativeBattle handle.
+// Preserve the original shutdown sequence before releasing the closed namespace.
+V C_NativeBattle::m_close(const Args& A) {
+    if (const V* closed=find_dyn(Sym("__native_closed")); closed && closed->truthy()) return V::none();
+    const auto keep_alive=shared_from_this();
+    callm(pm_gc_policy::module_ns(),SY("release"),Args{py::id(self_v())});
+    if (pvz::hasattr(self_v(),SY("scripted_spawn_budget"))) callm(pvz::getattr(a_scripted_spawn_budget,SY("pending")),SY("clear"),Args{});
+    if (pvz::hasattr(self_v(),SY("jobs"))) callm(a_jobs,SY("close"),Args{});
+    if (pvz::hasattr(self_v(),SY("gravebusters"))) callm(a_gravebusters,SY("close"),Args{});
+    if (pvz::hasattr(self_v(),SY("patch"))) callm(a_patch,SY("close"),Args{});
+    pm_simulation::C_Battle::m_close(Args{});
+    if (auto* ns=as<MatchNS>(a_g)) {
+        gfx::release_graphics(ns->G->pygame,a_recorder);
+        std::vector<V> names;
+        ns->G->each_present([&](const V& key){names.push_back(key);});
+        for (const V& key:names) ns->G->global(key).del();
+        ns->G->rng_p=&ns->G->own_rng;
+    }
+    // NativeCombatPatch requires a fresh namespace for each match. Its
+    // translated functions keep that namespace alive, and installed hooks
+    // capture the patch itself. Release those private bindings after shutdown.
+    if (pvz::hasattr(self_v(),SY("patch"))) {
+        const V patch_ns=pvz::getattr(a_patch,SY("ns"),V::none());
+        if (auto* ns=as<DynNS>(patch_ns)) {
+            ns->gcache.clear(); ns->map.clear(); ns->order.clear();
+        }
+    }
+    // WaveDirector.bind installs battle -> director -> cycle -> battle and
+    // director -> cycle -> director edges. They belong to this closed battle;
+    // retaining the director's published counters must not retain its runtime.
+    if (auto* director=as<pm_pve::C_WaveDirector>(a_director)) {
+        if (auto* cycle=as<pm_coop_cycle::C_CoopCycle>(director->a_cycle)) {
+            cycle->a_b.del();
+            cycle->a_d.del();
+        }
+        director->a__battle.del();
+        director->a_cycle.del();
+    }
+    // These are per-battle services or bound callbacks, not the public result,
+    // input history, players, or log. Drop their back-references at close.
+    for (const char* name:{"zsecrets","protection","targets","audio","periodic_targets",
+            "projectile_rules","gravebusters","scripted_spawn_budget","expansion","status",
+            "content","grave_idle","imitater","plant_zombies","secrets66","torches"}) {
+        V* value=slot(Sym(name));
+        if (!value || !value->is_inst()) continue;
+        // Some frozen translated classes predate __native_slot_names__.
+        // Their generated slot dispatch remains authoritative. Prime its
+        // interned names, then visit declared slots without regenerating it.
+        const auto service=value->box->inst;
+        service->slot(Sym());
+        const size_t count=sym_count();
+        for (uint32_t id=0;id<count;++id) if(V* field=service->slot(Sym(id))) field->del();
+        service->dyn.clear();
+    }
+    for (const char* name:{"zsecrets","protection","targets","audio","periodic_targets",
+            "projectile_rules","gravebusters","scripted_spawn_budget","expansion","status",
+            "content","grave_idle","imitater","plant_zombies","secrets66","torches",
+            "director","candidate_scans","_native_zombie_gate","_grave_native_factory",
+            "_plant_native_factory","_rally_tracking_base","_petrified_pea_xy",
+            "patch","patch_namespace","engine","g","graphics","recorder"}) {
+        if (V* value=slot(Sym(name))) value->del();
+    }
+    dyn.clear();
+    dyn.emplace_back(Sym("__native_closed"),V(true));
+    return V::none();
+}
 }  // namespace pvz::pm_native_battle
 
 namespace pvz::pm_native_targets {

@@ -1,0 +1,10 @@
+[
+{"module":"test_pvp_66_firing","class":"FiringGeometry","test":"test_firing_height_and_direction_are_required","outcome":"PASS","seconds":0.0004288,"detail":""},
+{"module":"test_pvp_66_firing","class":"FiringGeometry","test":"test_flat_shot_wall_and_target_before_wall","outcome":"PASS","seconds":0.0001615,"detail":""},
+{"module":"test_pvp_66_firing","class":"FiringGeometry","test":"test_lob_uses_native_low_clearance_and_fixed_high_arc","outcome":"PASS","seconds":0.0004513,"detail":""},
+{"module":"test_pvp_66_firing","class":"FiringGeometry","test":"test_mortar_high_arc_is_not_the_flat_ray","outcome":"PASS","seconds":0.000323,"detail":""},
+{"module":"test_pvp_66_firing","class":"FiringGeometry","test":"test_no_target_defense_still_needs_an_open_corridor","outcome":"PASS","seconds":0.0001166,"detail":""},
+{"module":"test_pvp_66_firing","class":"FiringGeometry","test":"test_production_tools_and_nonballistic_reeds_keep_their_rules","outcome":"PASS","seconds":0.0001703,"detail":""},
+{"module":"test_pvp_66_firing","class":"FiringGeometry","test":"test_wrap_seam_checks_the_short_real_lane","outcome":"PASS","seconds":0.0001332,"detail":""},
+{"module":"test_pvp_66_firing","class":"NativeFiring","test":"test_r19_skips_wall_pot_and_shooter_then_open_lane_really_hits","outcome":"PASS","seconds":2.26984,"detail":""}
+]

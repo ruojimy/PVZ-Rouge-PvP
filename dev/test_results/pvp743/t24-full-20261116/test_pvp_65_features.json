@@ -1,0 +1,13 @@
+[
+{"module":"test_pvp_65_features","class":"CatalogTests","test":"test_prices_cooldowns_and_health","outcome":"PASS","seconds":0.0003424,"detail":""},
+{"module":"test_pvp_65_features","class":"CatalogTests","test":"test_producer_rest_ramps_from_12_to_48_seconds","outcome":"PASS","seconds":4.52e-05,"detail":""},
+{"module":"test_pvp_65_features","class":"CatalogTests","test":"test_ranked_grave_buster_reach_is_four","outcome":"PASS","seconds":3.31e-05,"detail":""},
+{"module":"test_pvp_65_features","class":"DeathmatchTests","test":"test_sturdy_grave_and_torch_are_not_banned","outcome":"PASS","seconds":0.0194159,"detail":""},
+{"module":"test_pvp_65_features","class":"PetrifiedTorchTests","test":"test_sleeping_torch_draws_no_flame","outcome":"PASS","seconds":0.0130604,"detail":""},
+{"module":"test_pvp_65_features","class":"PetrifiedTorchTests","test":"test_sleeping_torch_leaves_peas_alone","outcome":"PASS","seconds":0.0117964,"detail":""},
+{"module":"test_pvp_65_features","class":"PetrifiedTorchTests","test":"test_sleeps_after_150_brain","outcome":"PASS","seconds":7.39522,"detail":""},
+{"module":"test_pvp_65_features","class":"PrimalMineTests","test":"test_ash_packet_is_750","outcome":"PASS","seconds":0.338149,"detail":""},
+{"module":"test_pvp_65_features","class":"PrimalMineTests","test":"test_tough_zombie_loses_750","outcome":"PASS","seconds":0.167629,"detail":""},
+{"module":"test_pvp_65_features","class":"ZombieDaveTests","test":"test_rally_flag_halves_rise_and_teleport","outcome":"PASS","seconds":1.50386,"detail":""},
+{"module":"test_pvp_65_features","class":"ZombieDaveTests","test":"test_sturdy_grave_adds_8_hp_and_balloon_at_12","outcome":"PASS","seconds":0.0296484,"detail":""}
+]

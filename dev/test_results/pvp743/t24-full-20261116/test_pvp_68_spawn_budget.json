@@ -1,0 +1,12 @@
+[
+{"module":"test_pvp_68_spawn_budget","class":"ScriptedSpawnBudgetTests","test":"test_barrel_death_children_wait_as_arguments_and_outlive_removed_parent","outcome":"PASS","seconds":0.0222536,"detail":""},
+{"module":"test_pvp_68_spawn_budget","class":"ScriptedSpawnBudgetTests","test":"test_count_excludes_dead_ash_graves_daves_loose_barrels_and_charmed","outcome":"PASS","seconds":0.0119766,"detail":""},
+{"module":"test_pvp_68_spawn_budget","class":"ScriptedSpawnBudgetTests","test":"test_dancer_partial_group_is_finite_and_completes_after_leader_dies","outcome":"PASS","seconds":0.0471172,"detail":""},
+{"module":"test_pvp_68_spawn_budget","class":"ScriptedSpawnBudgetTests","test":"test_default_custom_cap_and_duel_duo_remain_unlimited","outcome":"PASS","seconds":0.0576973,"detail":""},
+{"module":"test_pvp_68_spawn_budget","class":"ScriptedSpawnBudgetTests","test":"test_native_giant_holds_throw_before_state_write_and_retries_with_ancestry","outcome":"PASS","seconds":0.033458,"detail":""},
+{"module":"test_pvp_68_spawn_budget","class":"ScriptedSpawnBudgetTests","test":"test_native_snow_vehicle_holds_capacity_before_spending_snow","outcome":"PASS","seconds":0.0149215,"detail":""},
+{"module":"test_pvp_68_spawn_budget","class":"ScriptedSpawnBudgetTests","test":"test_periodic_cannon_captain_hold_clock_then_retry_without_backlog","outcome":"PASS","seconds":0.085774,"detail":""},
+{"module":"test_pvp_68_spawn_budget","class":"ScriptedSpawnBudgetTests","test":"test_sled_four_unit_card_respects_limit_and_inherits_root_wave_before_return","outcome":"PASS","seconds":0.0150373,"detail":""},
+{"module":"test_pvp_68_spawn_budget","class":"ScriptedSpawnBudgetTests","test":"test_slime_death_two_children_split_without_exceeding_one_live_enemy","outcome":"PASS","seconds":0.0131698,"detail":""},
+{"module":"test_pvp_68_spawn_budget","class":"ScriptedSpawnBudgetTests","test":"test_unconstrained_admission_keeps_native_world_and_random_sequence","outcome":"PASS","seconds":0.0711643,"detail":""}
+]

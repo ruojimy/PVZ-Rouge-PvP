@@ -3,6 +3,8 @@
 #include "ui/gen/pm_acceptance57.h"
 #include "ui/gen/pm_adaptive_pacing.h"
 #include "sim/pvp/gen/pm_almanac_text.h"
+#include "ui/gen/pm_android_original_game.h"
+#include "ui/gen/pm_android_original_touch.h"
 #include "ui/gen/pm_app.h"
 #include "sim/pvp/gen/pm_audit_log.h"
 #include "sim/pvp/gen/pm_balance.h"
@@ -42,6 +44,7 @@
 #include "sim/pvp/gen/pm_maps.h"
 #include "ui/gen/pm_menu_view.h"
 #include "sim/pvp/gen/pm_native_animation.h"
+#include "ui/gen/pm_native_animation_pixels.h"
 #include "sim/pvp/gen/pm_native_audio.h"
 #include "sim/pvp/gen/pm_native_barrels.h"
 #include "sim/pvp/gen/pm_native_battle.h"
@@ -56,6 +59,7 @@
 #include "sim/pvp/gen/pm_native_imitater.h"
 #include "sim/pvp/gen/pm_native_patch.h"
 #include "sim/pvp/gen/pm_native_periodic_targets.h"
+#include "sim/pvp/gen/pm_native_phase_profiler.h"
 #include "sim/pvp/gen/pm_native_physics.h"
 #include "sim/pvp/gen/pm_native_placement.h"
 #include "sim/pvp/gen/pm_native_plant_zombies.h"
@@ -64,13 +68,16 @@
 #include "sim/pvp/gen/pm_native_runtime.h"
 #include "sim/pvp/gen/pm_native_scale.h"
 #include "sim/pvp/gen/pm_native_september_content.h"
+#include "sim/pvp/gen/pm_native_snapshot_worker.h"
 #include "sim/pvp/gen/pm_native_status.h"
 #include "ui/gen/pm_native_style.h"
 #include "sim/pvp/gen/pm_native_targets.h"
 #include "ui/gen/pm_network.h"
 #include "sim/pvp/gen/pm_original_optimizations.h"
+#include "ui/gen/pm_original_pacing.h"
 #include "ui/gen/pm_perf_hooks.h"
 #include "ui/gen/pm_performance.h"
+#include "ui/gen/pm_performance_probe.h"
 #include "ui/gen/pm_performance_window.h"
 #include "ui/gen/pm_player_profile.h"
 #include "ui/gen/pm_presentation.h"
@@ -214,6 +221,8 @@ V import_pvp_module(const std::string& qualname) {
     if (n == "acceptance57") return pm_acceptance57::module_ns();
     if (n == "adaptive_pacing") return pm_adaptive_pacing::module_ns();
     if (n == "almanac_text") return pm_almanac_text::module_ns();
+    if (n == "android_original_game") return pm_android_original_game::module_ns();
+    if (n == "android_original_touch") return pm_android_original_touch::module_ns();
     if (n == "app") return pm_app::module_ns();
     if (n == "audit_log") return pm_audit_log::module_ns();
     if (n == "balance") return pm_balance::module_ns();
@@ -253,6 +262,7 @@ V import_pvp_module(const std::string& qualname) {
     if (n == "maps") return pm_maps::module_ns();
     if (n == "menu_view") return pm_menu_view::module_ns();
     if (n == "native_animation") return pm_native_animation::module_ns();
+    if (n == "native_animation_pixels") return pm_native_animation_pixels::module_ns();
     if (n == "native_audio") return pm_native_audio::module_ns();
     if (n == "native_barrels") return pm_native_barrels::module_ns();
     if (n == "native_battle") return pm_native_battle::module_ns();
@@ -267,6 +277,7 @@ V import_pvp_module(const std::string& qualname) {
     if (n == "native_imitater") return pm_native_imitater::module_ns();
     if (n == "native_patch") return pm_native_patch::module_ns();
     if (n == "native_periodic_targets") return pm_native_periodic_targets::module_ns();
+    if (n == "native_phase_profiler") return pm_native_phase_profiler::module_ns();
     if (n == "native_physics") return pm_native_physics::module_ns();
     if (n == "native_placement") return pm_native_placement::module_ns();
     if (n == "native_plant_zombies") return pm_native_plant_zombies::module_ns();
@@ -275,13 +286,16 @@ V import_pvp_module(const std::string& qualname) {
     if (n == "native_runtime") return pm_native_runtime::module_ns();
     if (n == "native_scale") return pm_native_scale::module_ns();
     if (n == "native_september_content") return pm_native_september_content::module_ns();
+    if (n == "native_snapshot_worker") return pm_native_snapshot_worker::module_ns();
     if (n == "native_status") return pm_native_status::module_ns();
     if (n == "native_style") return pm_native_style::module_ns();
     if (n == "native_targets") return pm_native_targets::module_ns();
     if (n == "network") return pm_network::module_ns();
     if (n == "original_optimizations") return pm_original_optimizations::module_ns();
+    if (n == "original_pacing") return pm_original_pacing::module_ns();
     if (n == "perf_hooks") return pm_perf_hooks::module_ns();
     if (n == "performance") return pm_performance::module_ns();
+    if (n == "performance_probe") return pm_performance_probe::module_ns();
     if (n == "performance_window") return pm_performance_window::module_ns();
     if (n == "player_profile") return pm_player_profile::module_ns();
     if (n == "presentation") return pm_presentation::module_ns();

@@ -1,0 +1,5 @@
+[
+{"module":"test_pvp_tail_start","class":"TailStart","test":"test_opening_gate_then_native_shot_is_drawn_and_replayable","outcome":"PASS","seconds":0.0235381,"detail":""},
+{"module":"test_pvp_tail_start","class":"TailStart","test":"test_opening_preserves_initial_tail_clock","outcome":"PASS","seconds":0.149166,"detail":""},
+{"module":"test_pvp_tail_start","class":"TailStart","test":"test_original_sunshroom_young_and_mature_collection","outcome":"PASS","seconds":0.0172222,"detail":""}
+]

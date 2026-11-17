@@ -17,3 +17,6 @@ It does NOT cover, and grants no rights to:
 测试/构建工具、项目文档）。原版肉鸽游戏的反编译代码与数据归原作者；植物大战
 僵尸的名称、图片、音乐与音效归 PopCap Games / Electronic Arts；third_party/ 下
 的第三方库沿用各自的许可。
+
+Terraria names, original images and sounds are owned by their respective rights holders; they are not covered by this project license. See dev/extract/assets/terraria/ for source manifests.
+泰拉瑞亚名称、原版图像与音效属于各自权利人，不在本项目许可范围内；来源清单见 dev/extract/assets/terraria/。

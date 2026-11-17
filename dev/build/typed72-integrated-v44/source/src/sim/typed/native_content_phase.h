@@ -61,6 +61,8 @@ public:
     void after_plants();
     void plant_gate(PlantRef);
     void entity_gate(const EntityRef&)override;
+    // Display-only resolution for deferred draws, outside the entity gate.
+    std::string projectile_sprite(const Entity&,const std::string&)const;
     // The PvP70 controller invokes this after updating its shots. Flash
     // expiration intentionally occurs only on drawing ticks, like the source.
     void draw_zombie70_effects();

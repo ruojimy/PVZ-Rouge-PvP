@@ -1,0 +1,8 @@
+[
+{"module":"test_pvp_audio56","class":"Audio56","test":"test_bloom_and_water_graves_produce_sounds","outcome":"PASS","seconds":0.105401,"detail":""},
+{"module":"test_pvp_audio56","class":"Audio56","test":"test_music_environment_and_menu","outcome":"PASS","seconds":7.14e-05,"detail":""},
+{"module":"test_pvp_audio56","class":"Audio56","test":"test_native_callbacks_are_bounded_and_do_not_consume_rng","outcome":"PASS","seconds":0.0128787,"detail":""},
+{"module":"test_pvp_audio56","class":"Audio56","test":"test_native_eating_requests_original_eating_sample","outcome":"PASS","seconds":0.486612,"detail":""},
+{"module":"test_pvp_audio56","class":"Audio56","test":"test_real_assets_decode_and_event_dedup_pause_seek","outcome":"PASS","seconds":0.0599937,"detail":""},
+{"module":"test_pvp_audio56","class":"Audio56","test":"test_result_sound_after_reserved_mixer_reinitialisation","outcome":"PASS","seconds":0.080441,"detail":""}
+]

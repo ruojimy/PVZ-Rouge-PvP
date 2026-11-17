@@ -6,6 +6,7 @@
 // an E1 comparison driver, not a production battle (see match-report fields).
 #define main content_phase_unused_main
 #include "sim/typed/pve_director.h"
+#include "sim/typed/terraria_bosses.h"
 #include "sim/typed/zombie_secret_runtime.h"
 #include "content_phase_probe.cpp"
 #undef main
@@ -84,7 +85,7 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
     RoomRules room_rules;
     RoomScheduler scheduler{battle,room,room_rules,tick_state,driver,recovery,economy,resources,*this};
     RoomCommands inputs{battle,room,room_rules,resources,commands,hero_flags,*this};
-    ColdCatalog catalog;
+    ColdCatalog catalog{terraria_catalog()};
     std::vector<Seat> seated_seats;  // every player record; tick_state.present stays the acting set
     ColdDeploymentState deployment;
     RoomPublicState published;
@@ -99,6 +100,19 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
     ColdRegistration cold_registration{battle,catalog,resource_ids,*this};
     ColdZombieSecrets zsecrets{battle,catalog,deployment,scarecrows,*this};
     ColdPlacement placement_view{battle,catalog,deployment,room,published,resources,economy_state,zsecrets};
+    TerrariaBosses terraria{battle,PlantProbe::content,[this](int type,Point p,const ZombieRef& parent){return make_terraria(type,p,parent);}};
+    ZombieRef make_terraria(int type,Point p,const ZombieRef& parent){
+        if((!battle.local_test_mode&&!battle.scripted_terraria_boss)||battle.native_objects.size()>=700)return {};
+        const auto& def=terraria_definition(type);Motion motion{p.x,p.y+battle.runtime.tile,0.,0.};
+        auto u=factory.zombie("普通僵尸",motion,1.);if(!u)return {};
+        u->terraria=std::make_shared<TerrariaNpcState>();auto& n=*u->terraria;n.type=type;n.width=def.width;n.height=def.height;n.damage=def.damage;n.alpha=(type>=13&&type<=15)?255.:0.;
+        u->body.kind=def.name;u->body.hp=def.hp;u->body.defense.set(def.defense);u->attention.hits=type>=13&&type<=15?1:3;u->attention.seconds=type>=13&&type<=15?10.:6.;u->body.external_lifecycle=true;u->body.motion.replace(motion);u->native.entry.set(500.);u->flight.set(type<13||type>15);
+        u->body.armor.clear();u->body.hand.clear();u->body.armor_hp=u->body.hand_hp=0.;
+        const auto& card=catalog.at(std::string("zombie:")+def.name);ColdParent cp;if(parent)cp.id=parent->source.id.get();
+        cold_registration.register_unit(u,card,Seat::zombie,false,cold_admission.context(),parent?&cp:nullptr);return u;
+    }
+    std::optional<std::string> spawn_terraria(const std::string& key,Point p,double)override{auto u=terraria.summon(terraria_type(key),p);return u?std::optional<std::string>(u->source.id.get()):std::nullopt;}
+    void before_native_tick(double now)override{ContentPhaseProbe::before_native_tick(now);terraria.advance();}
     PeaHybrid hybrid{battle,chart,indexes};
     ExpansionCombat expansion{battle,sight,hybrid,action_state.drawing,*this};
     ExpansionGarden garden{battle,scarecrows};
@@ -134,6 +148,10 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
         const auto saved=deployment.scripted_wave;deployment.scripted_wave=wave;++battle.spawn_ban_exempt;
         struct Restore{MatchProbe& m;std::optional<int64_t> wave;~Restore(){m.deployment.scripted_wave=wave;--m.battle.spawn_ban_exempt;}} restore{*this,saved};
         return cold_admission.spawn(key,Seat::zombie,point,facing,false);
+    }
+    std::optional<std::string> spawn_coop_boss(const std::string& key,Point point)override{
+        if(!battle.scripted_terraria_boss||battle.mode!=MatchMode::coop)return {};
+        auto u=terraria.summon(terraria_type(key),point);return u?std::optional<std::string>(u->source.id.get()):std::nullopt;
     }
     ZombieRef native_zombie(const std::string& id)override{const auto o=battle.native_objects.get(id);if(!o)return {};if(const auto* z=std::get_if<ZombieRef>(&*o))return *z;return {};}
     PlantRef native_plant(const std::string& id)override{const auto o=battle.native_objects.get(id);if(!o)return {};if(const auto* q=std::get_if<PlantRef>(&*o))return *q;return {};}
@@ -736,7 +754,7 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
                 {"atlas",canvas.atlas.atlas.size()},{"ui_atlas",canvas.ui.size()},{"frame_commands",canvas.frames.size()},
                 {"no_trace",no_trace},{"release_fixtures",release_fixtures}};
     }
-    static void scripted_result_fields(J& row,const RoomResult& r){if(r.coins)row["coins"]=*r.coins;if(r.fallen)row["fallen"]=*r.fallen;}
+    static void scripted_result_fields(J& row,const RoomResult& r){if(r.coins)row["coins"]=*r.coins;if(r.fallen)row["fallen"]=*r.fallen;if(r.diamond_coins)row["diamond_coins"]=*r.diamond_coins;}
     static J poison_v(const PoisonSlot& slot){
         if(slot.is_null())return nullptr;const auto& s=*slot.get();J out=J::object();
         write(out,"level",s.level);write(out,"until",s.until);write(out,"next",s.next);
@@ -784,8 +802,17 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
         write(j,"_pvp_content",u.source.content);write(j,"_pvp_variant",u.source.variant);write(j,"__pvz_sb_zombie_observed_max_hp",u.patch.observed_max_hp);write(j,"__pvz_sb_chili_zombie_row_hint",u.patch.chili_row_hint);write(j,"__pvz_sb_gravebuster_zombie_done",u.patch.gravebuster_done);
         write(j,"_pvp_temporary",u.registration.temporary);write(j,"_pvp_born",u.born);write(j,"_pvp_producer",u.producer);write(j,"_pvp_produced",u.produced);write(j,"_pvp_mature",u.mature);write(j,"_pvp_idle",u.idle);write(j,"_pvp_zs_awake",u.permanently_awake);write_point(j,"_pvp_anchor",u.anchor);
         for(const auto& [key,field]:{std::pair{"出场初位置",&n.entry_start},std::pair{"出场末位置",&n.entry_end},std::pair{"绳初位置",&n.rope_start}})if(field->present())j[key]={field->get().x,field->get().y};
+        write(j,"防御",b.defense);if(battle.local_test_mode)write(j,"_pvp_taunted_by",u.taunted_by);
+        if(u.attention.enabled())j["attention"]={{"hits",u.attention.hits},{"seconds",u.attention.seconds},{"last",u.attention.last},{"consecutive",u.attention.consecutive},{"marked",u.attention.marked}};
+        if(u.terraria){const auto& t=*u.terraria;const auto link=[](const std::weak_ptr<CombatZombie>& w){auto z=w.lock();return z?z->source.id.or_missing(""):std::string{};};j["terraria"]={{"type",t.type},{"ai",t.ai},{"vx",t.vx},{"vy",t.vy},{"rotation",t.rotation},{"damage",t.damage},{"alpha",t.alpha},{"frame",t.frame},{"frame_ticks",t.frame_ticks},{"despawn",t.despawn},{"target",t.target_id},{"ahead",link(t.ahead)},{"behind",link(t.behind)},{"parent",link(t.parent)}};}
         zombie_extra(j,u);if(u.protection.grave)j["_pvp_grave"]=true;write(j,"_pvp_floating",u.registration.floating);write(j,"_pvp_production_rate",u.production_rate);if(u.grenadier.before.present())j["_pvp_content_position_before"]=as_json(u.grenadier.before.get());
         return j;
+    }
+    J unknown_chili_record(RecordId id)const override{
+        // Production releases fixture retention each tick; persistent hit lists
+        // still carry valid logical IDs, including targets already removed.
+        // RecordId belongs to this battle and is independent of memory addresses.
+        return {{"native_record_id",id.value}};
     }
     J entity_json(const EntityRef& entity){
         J j=phase_entity_json(entity);j.update(pea_state(entity));const auto& e=*entity;J src=source_state(e.source,std::nullopt,e.flight);src.erase("_pvp_instant_attack_text");src.erase("名");j.update(src);
@@ -807,7 +834,8 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
     J input_record(Seat seat,const std::string& side,const J& payload)const{
         const auto kind=payload.value("type",std::string{});const auto& player=*world.players[seat_index(seat)];
         J row={{"event","input"},{"accepted",true},{"kind",kind},{"side",side},{"seq",payload.at("seq")}};
-        if(kind=="move"){row["move"]=player.move;row["jump"]=player.jump_held;}
+        if(kind=="test_mode"){for(const char* key:{"op","side","slot","card","value","max","what","night","id","field"})if(payload.contains(key))row[key]=payload.at(key);}
+        else if(kind=="move"){row["move"]=player.move;row["jump"]=player.jump_held;}
         else if(kind=="deploy"){
             const auto key=payload.at("card").get<std::string>();row["card"]=key;row["x"]=payload.at("x");row["y"]=payload.at("y");if(payload.contains("facing"))row["facing"]=payload.at("facing");
             const auto* card=catalog.find(key);const auto behavior=card?card->behavior:std::string{};
@@ -1051,6 +1079,9 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
                 }
                 if(k=="_pvp_max_hp"){z.max_hp.set(v.get<double>());continue;}
                 if(k=="位置"){b.motion.replace(motion(v));continue;}
+                if(k=="防御"){assign(z.body.defense,v);continue;}
+                if(k=="注意力次数"){z.attention.hits=std::max(0,v.get<int>());continue;}
+                if(k=="注意力时间"){z.attention.seconds=std::max(0.,v.get<double>());continue;}
                 if(k=="魅惑"){assign(z.source.charmed,v);continue;}
                 if(k=="_pvp_zs_headhunt"){if(v.is_null())z.content.headhunt.set_null();else z.content.headhunt.set(v.get<bool>());continue;}
                 if(k=="大小"){assign(b.size,v);continue;}
@@ -1096,10 +1127,88 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
             units.clear();births.clear();render_log.clear();calls.clear();dispatch_calls.clear();phase_draws.clear();phase_events.clear();
             aliases64.clear();draws64.clear();events64.clear();spawns64.clear();
             cost_calls.clear();grenade_events.clear();poison_events.clear();}}
+    void configure_deck_effects(const std::vector<std::string>& plant_team){
+        garden.configure_locked_secrets();expansion.configure_locked_secrets();zsecrets.configure_locked();
+        // Lock-time secret switches, each from the same team set the source reads.
+        const auto plant_has=[&](const char* key){return std::find(plant_team.begin(),plant_team.end(),std::string(key))!=plant_team.end();};
+        gas_secret=plant_has("secret:毒气");hardening=plant_has("secret:硬化");phototherapy=plant_has("secret:光疗");
+        reeds.electrotherapy=plant_has("secret:电疗");
+        plant_rules.lantern_secret=phototherapy;navigation.cactus_secret=plant_has("secret:尖刺");navigation.charm_secret=plant_has("secret:魅惑");
+        death_rules.nuclear_secret=plant_has("secret:核平");death_rules.zombie_secrets_enabled=zsecrets.enabled();
+        death_rules.brain_holders.clear();death_rules.conversion_holders.clear();death_rules.conversion_forms.clear();
+        for(const auto seat:tick_state.present)if(team_of(seat)==Seat::zombie){
+            if(zsecrets.seat_has(seat,"脑光"))death_rules.brain_holders.push_back(seat);
+            if(zsecrets.seat_has(seat,"植物僵尸"))death_rules.conversion_holders.push_back(seat);
+        }
+        // zombie_secrets.PLANT_ZOMBIES, limited to forms present in the card pool.
+        for(const auto& [plant,form]:std::initializer_list<std::pair<const char*,const char*>>{{"豌豆射手","豌豆僵尸"},{"机枪射手","机枪僵尸"},{"坚果","坚果僵尸"},{"高坚果","高坚果僵尸"},
+                {"火爆辣椒","辣椒僵尸"},{"毁灭菇","毁灭菇僵尸"},{"三叶草","三叶草僵尸"},{"路灯花","路灯花僵尸"},{"倭瓜","倭瓜僵尸"},{"窝瓜","倭瓜僵尸"},{"墓碑吞噬者","墓碑吞噬者僵尸"},
+                {"萝卜伞","萝卜伞僵尸"},{"吸金磁","吸金磁僵尸"},{"大喷菇","大喷菇僵尸"}})
+            if(catalog.find(std::string("zombie:")+form))death_rules.conversion_forms[plant]=form;
+        battle.zombie_peas.secret_system_enabled=zsecrets.enabled();battle.zombie_peas.shotgun=zsecrets.has("散弹攻击");
+        economy_state.subsidy=zsecrets.has("补贴");room.zombie_secrets=zsecrets.enabled();
+        // ZombieSecrets.__init__ (豌豆 head) and native_battle:304 (二手 watches armour breaks).
+        zruntime.present=tick_state.present;zruntime.lock();
+        chain.damage.watch_armor=damage.watch_armor=zsecrets.has("二手");
+        torches.fury=zsecrets.has("暴怒");wild_dance=zsecrets.has("狂野舞步");
+    }
+    std::string test_command(Seat sender,const J& command){
+        if(!battle.local_test_mode||battle.mode!=MatchMode::duel)return "仅本地测试模式可使用作弊器";
+        if(!battle.heroes.contains(sender))return "未知玩家";
+        if(!room.audit_error.empty())return room.audit_error;
+        if(!command.contains("seq")||!command.at("seq").is_number())return "序号错误";
+        const double sequence=command.at("seq").get<double>();
+        if(!std::isfinite(sequence)||sequence<0.||sequence>9007199254740992.||std::floor(sequence)!=sequence)return "序号错误";
+        auto& input=room.players[seat_index(sender)];if(sequence<=input.sequence)return "旧输入";input.sequence=int64_t(sequence);input.last_input_tick=room.tick;
+        if(room.result)return "对局已结束";
+        try{
+            const std::string op=command.at("op");
+            const auto seat=parse_seat(command.value("side",std::string(seat_name(sender))));
+            if(!battle.heroes.contains(seat))return "未知玩家";
+            auto& player=*world.players[seat_index(seat)];auto& hero=world.hero(seat);
+            const auto numeric=[&](const char* key,double low,double high){const double v=command.at(key).get<double>();if(!std::isfinite(v)||v<low||v>high)throw std::invalid_argument("数值超出范围");return v;};
+            if(op=="card"){
+                const int slot=command.at("slot").get<int>();const std::string key=command.at("card");if(slot<0||slot>=13)return "卡槽必须为 1–13";
+                const auto* card=key.empty()?nullptr:catalog.find(key);
+                if(!key.empty()&&(!card||card->side!=seat_name(team_of(seat))||!catalog.allowed(key,deployment.bans)))return "卡牌不属于此阵营或不可选";
+                auto& deck=deployment.players[seat_index(seat)].deck;auto next=deck;
+                // A card can occupy only one slot, matching ordinary deck semantics.
+                if(!key.empty())for(auto& old:next)if(old==key)old.clear();next[size_t(slot)]=key;
+                const auto hp_bonus=[](const std::vector<std::string>& d){return (std::find(d.begin(),d.end(),"zombie:坚固脑光墓碑")!=d.end()?8.:0.)+(std::find(d.begin(),d.end(),"zsecret:石更！")!=d.end()?20.:0.);};
+                const double hp_delta=hp_bonus(next)-hp_bonus(deck);deck=std::move(next);
+                player.secrets.clear();for(const auto& k:deck)if(!k.empty()&&catalog.at(k).category=="secret")player.secrets.push_back(k);
+                auto native=catalog.native_secrets(player.secrets,deployment.bans);std::erase(native,std::string("硬化"));hero.frame.secrets.set(std::make_shared<std::vector<std::string>>(native));
+                hero.max_hp.set(std::max(1.,hero.max_hp.get()+hp_delta));hero.frame.hp.set(std::clamp(hero.frame.hp.get()+hp_delta,0.,hero.max_hp.get()));player.hp=hero.frame.hp.get();player.max_hp=hero.max_hp.get();
+                std::vector<std::string> all;for(const auto s:seated_seats)for(const auto& k:world.players[seat_index(s)]->secrets)if(std::find(all.begin(),all.end(),k)==all.end())all.push_back(k);
+                *tick_state.native_secrets=catalog.native_secrets(all,deployment.bans);
+                battle.protection.secrets.configure(world.players);configure_deck_effects(world.players[seat_index(Seat::plant)]->secrets);
+                for(const auto s:seated_seats)world.hero(s).secret.pea_head.set(zsecrets.seat_has(s,"豌豆"));
+                if(card)cooldown_rules[key]=card->cooldown;
+            }else if(op=="unit"){
+                const std::string id=command.at("id"),field=command.at("field");const auto object=battle.native_objects.get(id);if(!object)return "单位已离场";
+                const double value=numeric("value",0.,1000000000.);
+                if(field=="hp")std::visit([&](const auto& u){using T=std::decay_t<decltype(u)>;if constexpr(std::is_same_v<T,PlantRef>){u->hp.set(value);u->content_state.maximum_hp.set(std::max(value,u->content_state.maximum_hp.or_missing(value)));}else{u->body.hp=value;u->max_hp.set(std::max(value,u->max_hp.or_missing(value)));}},*object);
+                else if(field=="defense"){const auto* z=std::get_if<ZombieRef>(&*object);if(!z)return "防御属性目前适用于僵尸单位";(*z)->body.defense.set(value);}
+                else return "未知单位属性";
+            }else if(op=="economy")resources.accounts.at(seat_index(seat)).balance=numeric("value",0.,1000000000.);
+            else if(op=="health"){
+                const double hp=numeric("value",0.,1000000000.);const double maximum=command.contains("max")?numeric("max",1.,1000000000.):std::max(hero.max_hp.get(),std::max(1.,hp));
+                if(hp>maximum)return "血量不能大于最大血量";hero.max_hp.set(maximum);hero.frame.hp.set(hp);hero.previous_hp.set(hp);player.hp=hp;player.max_hp=maximum;
+            }else if(op=="cooldowns"){player.cooldowns.clear();room.players[seat_index(seat)].cooldown_spans.clear();}
+            else if(op=="daylight"){set_daylight(!command.at("night").get<bool>()?false:true);}
+            else if(op=="clear"){
+                const std::string what=command.at("what");if(what!="plants"&&what!="zombies"&&what!="all")return "未知清理范围";
+                if(what!="zombies")for(size_t i=battle.plant_roster->size();i-->0;){const auto p=battle.plant_roster->at(i);p->hp.set(0.);if(p->source.id.present())battle.native_objects.erase(p->source.id.get());const auto cell=battle.terrain.at(p->cell.y,battle.terrain.wrap(p->cell.x));if(cell){cell->plant.erase();cell->pot.erase();cell->lily.erase();}battle.erase_plant_at(i);}
+                if(what!="plants")for(size_t i=battle.targets->size();i-->0;){const auto u=battle.targets->at(i).unit;if(!u)continue;u->body.hp=0.;if(u->terraria)u->terraria->removed=true;if(u->source.id.present())battle.native_objects.erase(u->source.id.get());battle.erase_mobile_at(i);}
+            }else return "未知测试命令";
+            publish(op=="clear"||op=="daylight");return {};
+        }catch(const std::exception& e){return std::string("测试设置无效：")+e.what();}
+    }
+
     void setup(const J& cold,const J& scenario) {
         const auto& g=cold.at("globals");
         // NativeBattle.__init__: g["地刺阳光"] = CARDS["plant:地刺"]["cost"], the 地刺 secret charge state.
-        if(g.contains("地刺阳光")&&g.at("地刺阳光").is_number())deployment.spike_cost.set(g.at("地刺阳光").get<double>());if(cold.at("battle").contains("seats")&&cold.at("battle").at("seats").is_array())battle_seats=cold.at("battle").at("seats");team_mode=cold.at("battle").value("team_mode",false);const auto& b=cold.at("battle");const auto& rules_json=b.at("rules");seed_public_map(b);
+        if(g.contains("地刺阳光")&&g.at("地刺阳光").is_number())deployment.spike_cost.set(g.at("地刺阳光").get<double>());if(cold.at("battle").contains("seats")&&cold.at("battle").at("seats").is_array())battle_seats=cold.at("battle").at("seats");team_mode=cold.at("battle").value("team_mode",false);const auto& b=cold.at("battle");const auto& rules_json=b.at("rules");battle.local_test_mode=rules_json.value("local_test_mode",false)&&b.at("mode")=="duel";seed_public_map(b);
         deployment.bans=b.value("bans",std::vector<std::string>{});
         // pvp61_ranked.ranked(self.rules): the placement ring and the 黄金蓓蕾 collect lock.
         {const J r=rules_json.value("ranked",J(nullptr));deployment.ranked=r.is_boolean()?r.get<bool>():r.is_number()?r.get<double>()!=0.:r.is_string()?!r.get<std::string>().empty():(r.is_array()||r.is_object())?!r.empty():false;}
@@ -1129,6 +1238,12 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
         room_rules.economy={rules_json.at("day_brain_interval"),rules_json.at("day_brain_amount"),rules_json.at("sky_amount"),rules_json.at("sun_lifetime")};
         room_rules.hero_lock_range=rules_json.at("hero_lock_range");room_rules.mark_seconds=rules_json.at("mark_seconds");battle.heroes.mark_seconds=room_rules.mark_seconds;room_rules.teleport_cooldown=rules_json.at("teleport_cooldown");
         economy_rules=room_rules.economy;economy_state.sky_interval=b.at("sky_interval");economy_state.sky_progress=b.at("sky_progress");
+        // Admit the actual opening weather for every mode. Only the co-op cycle
+        // subsequently changes night; rain remains a separate sky-sun gate.
+        // Older cold fixtures lack map_environment but still export native 天.
+        const auto environment=b.value("map_environment",J::object());
+        economy_state.night=environment.value("night",battle.placement.day=="黑天");
+        economy_state.rain=environment.value("weather",std::string{})=="rain";
         const auto command=b.at("command").get<std::string>();commands.shared=command=="attack"?PathMode::attack_plants:PathMode::follow_hero;
         navigation.scripted=tick_state.scripted;budget.enabled=tick_state.scripted;navigation.water_sprite=g.at("水");navigation.bosses=g.at("boss").get<std::vector<std::string>>();
         // Cold export already applies the original director/rule precedence and
@@ -1161,7 +1276,11 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
         collision.unit_scale=constants.at("scale_factor").get<decltype(collision.unit_scale)>();
         if(constants.contains("homing_height"))rules.homing_height=constants.at("homing_height").get<decltype(rules.homing_height)>();
         services.bucket_hp=constants.at("gold_magnet_bucket_hp");services.imp_armor_hooks=true;  // NativeBattle._install_imp_armor_hooks
-        for(const auto& [name,sprite]:runtime.presentation.atlas)if(name.ends_with("-帧0"))collision.flyer_image_height[name.substr(0,name.size()-5)]=sprite.height;
+        // Content stun-star placement reads the same production sprite heights as collision.
+        for(const auto& [name,sprite]:runtime.presentation.atlas){
+            content_heights[name]=sprite.height;
+            if(name.ends_with("-帧0"))collision.flyer_image_height[name.substr(0,name.size()-5)]=sprite.height;
+        }
         if(constants.contains("grave_idle")){
             const auto& gi=constants.at("grave_idle");const auto num=[&](const char* k,double d){if(!gi.contains(k))return d;const auto& v=gi.at(k);
                 if(v.is_string())return v.get<std::string>()=="inf"?std::numeric_limits<double>::infinity():-std::numeric_limits<double>::infinity();return v.get<double>();};
@@ -1180,7 +1299,7 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
         battle.runtime.bind_particles(content_particles);battle.runtime.require_particles();
         owner_phase.bind_content_gate(observed_gate);owner_phase.require_content_gate();
         for(const auto seat:seated_seats){
-            auto& d=deployment.players[seat_index(seat)];d.deck=cold.at("players").at(seat_name(seat)).at("deck").get<std::vector<std::string>>();
+            auto& d=deployment.players[seat_index(seat)];d.deck=cold.at("players").at(seat_name(seat)).at("deck").get<std::vector<std::string>>();if(battle.local_test_mode)d.deck.assign(13,"");
             for(const auto& key:d.deck){const auto* card=catalog.find(key);if(card)cooldown_rules[key]=card->cooldown;}
         }
         auto& policy=battle.protection;policy.secrets.configure(world.players);policy.until=int64_t(pvz::py::round0(rules_json.at("producer_protection_seconds").get<double>()*250.));policy.producer_factor=rules_json.at("producer_protection_multiplier");
@@ -1188,32 +1307,13 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
         // PvP73: production reads NativeBattle._card(side,key) every tick, resolved at the current map night
         // (co-op daylight flips it), not the raw catalog row (night 向日葵 was producing every 16 s instead of 20 s).
         policy.resolve=[this,cache=std::make_shared<std::map<std::string,ProducerPolicy>>()](Seat side,const std::string& key)->const ProducerPolicy&{
-            const std::string memo=std::string(seat_name(side))+''+key+(economy_state.night?"N":"D");
+            std::string memo=std::string(seat_name(side))+''+key+(economy_state.night?"N":"D");
+            if(battle.local_test_mode)for(const auto& secret:world.players[seat_index(side)]->secrets)memo+='\x1f'+secret;
             const auto found=cache->find(memo);if(found!=cache->end())return found->second;
             const auto card=placement_view.player_card(side,key);ProducerPolicy entry;entry.producer=card.producer;entry.period=card.period;
             entry.yield_amount=card.yield_amount;entry.mature_at=card.mature_at;entry.mature_hp=card.mature_hp;entry.mature_yield=card.mature_yield;
             return cache->emplace(memo,std::move(entry)).first->second;};
-        garden.configure_locked_secrets();expansion.configure_locked_secrets();zsecrets.configure_locked();
-        // Lock-time secret switches, each from the same team set the source reads.
-        const auto plant_team=b.at("team_secrets").at("plant").get<std::vector<std::string>>();
-        const auto plant_has=[&](const char* key){return std::find(plant_team.begin(),plant_team.end(),std::string(key))!=plant_team.end();};
-        gas_secret=plant_has("secret:毒气");hardening=plant_has("secret:硬化");phototherapy=plant_has("secret:光疗");
-        plant_rules.lantern_secret=phototherapy;navigation.cactus_secret=plant_has("secret:尖刺");navigation.charm_secret=plant_has("secret:魅惑");
-        death_rules.nuclear_secret=plant_has("secret:核平");death_rules.zombie_secrets_enabled=zsecrets.enabled();
-        death_rules.brain_holders.clear();death_rules.conversion_holders.clear();death_rules.conversion_forms.clear();
-        for(const auto seat:tick_state.present)if(team_of(seat)==Seat::zombie){
-            if(zsecrets.seat_has(seat,"脑光"))death_rules.brain_holders.push_back(seat);
-            if(zsecrets.seat_has(seat,"植物僵尸"))death_rules.conversion_holders.push_back(seat);
-        }
-        // zombie_secrets.PLANT_ZOMBIES, limited to forms present in the card pool.
-        for(const auto& [plant,form]:std::initializer_list<std::pair<const char*,const char*>>{{"豌豆射手","豌豆僵尸"},{"机枪射手","机枪僵尸"},{"坚果","坚果僵尸"},{"高坚果","高坚果僵尸"},
-                {"火爆辣椒","辣椒僵尸"},{"毁灭菇","毁灭菇僵尸"},{"三叶草","三叶草僵尸"},{"路灯花","路灯花僵尸"},{"倭瓜","倭瓜僵尸"},{"窝瓜","倭瓜僵尸"},{"墓碑吞噬者","墓碑吞噬者僵尸"},
-                {"萝卜伞","萝卜伞僵尸"},{"吸金磁","吸金磁僵尸"},{"大喷菇","大喷菇僵尸"}})
-            if(catalog.find(std::string("zombie:")+form))death_rules.conversion_forms[plant]=form;
-        battle.zombie_peas.secret_system_enabled=zsecrets.enabled();battle.zombie_peas.shotgun=zsecrets.has("散弹攻击");
-        economy_state.subsidy=zsecrets.has("补贴");room.zombie_secrets=zsecrets.enabled();
-        // ZombieSecrets.__init__ (豌豆 head) and native_battle:304 (二手 watches armour breaks).
-        zruntime.present=tick_state.present;zruntime.lock();
+        configure_deck_effects(b.at("team_secrets").at("plant").get<std::vector<std::string>>());
         // NativeBattle._team_init: director.bind ran at construction; its products are cold data.
         if(cold.contains("director")){
             const auto& d=cold.at("director");PveDirectorCold c;

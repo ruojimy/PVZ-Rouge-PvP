@@ -1,0 +1,43 @@
+{
+  "module": "test_pvp_63_features",
+  "exit": 1,
+  "seconds": 1.537,
+  "expected": 10,
+  "results": 10,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": false,
+  "accepted": false,
+  "counts": {
+    "PASS": 7,
+    "FAIL": 3,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [],
+  "unexpected_nonpass": [
+    {
+      "id": "test_pvp_63_features.CatalogTests.test_prices_descriptions_and_export_are_current",
+      "outcome": "FAIL",
+      "detail_sha256": "0a9cf6f9f2252e0107c661800fa0ae79c0c579c3fa6cb56c6970f52a260d2336",
+      "reason": "waiver_signature_changed"
+    },
+    {
+      "id": "test_pvp_63_features.RuntimeTests.test_actual_plant_deployment_charges_each_new_price",
+      "outcome": "FAIL",
+      "detail_sha256": "83eefba975405b642e2a75950f91e2413b608563aa4846b14cd1c7a7cc663259",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_63_features.RuntimeTests.test_actual_zombie_deployment_charges_hp_and_cooldown",
+      "outcome": "FAIL",
+      "detail_sha256": "25ba16bd407adf4695f2a06762e6397e5d0c4d31c375cd36fbff61c6d4a4aa05",
+      "reason": "not_waived"
+    }
+  ],
+  "resolved_waivers": []
+}

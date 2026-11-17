@@ -230,10 +230,13 @@ V C_CoopProgress::m_action(const Args& A) {
     V L_room = A.get(0, SY("room"), nullptr, "action");
     V L_peer = A.get(1, SY("peer"), nullptr, "action");
     V L_payload = A.get(2, SY("payload"), nullptr, "action");
+    V L_amount;
     V L_campaign;
     V L_error;
     V L_index;
     V L_kind;
+    V L_mate;
+    V L_seat;
     if ((pvz::getattr(L_room, SY("mode")) != pm_teams::COOP)) {
         return SV("当前不是合作模式");
     }
@@ -246,6 +249,33 @@ V C_CoopProgress::m_action(const Args& A) {
         return SV("只有合作玩家可以操作");
     }
     L_kind = rd(L_payload, SV("type"));
+    if ((L_kind == SV("coop_gift"))) {
+        if ((py::m_get(L_payload, SV("revision")) != pvz::getattr(L_room, SY("revision")))) {
+            return SV("金币或房间状态已变化，请刷新后重试");
+        }
+        L_amount = py::m_get(L_payload, SV("amount"));
+        if ((!py_is(py::type(L_amount), py::builtin(SV("int"))) || !((V(0.0) < L_amount) && (L_amount <= V(1000000000.0))))) {
+            return SV("请输入正整数金币数量");
+        }
+        L_seat = callm(L_room, SY("side_for"), Args{L_peer});
+        L_mate = ((L_seat == SV("plant")) ? V(SV("plant2")) : V(SV("plant")));
+        if ((py::m_get(L_payload, SV("to")) != L_mate)) {
+            return SV("赠送目标必须是另一位合作队友");
+        }
+        if (!([&]() -> V { V L_p; V L_s; { auto it2_ = py::items_vec(pvz::getattr(L_room, SY("members"))); for (size_t i2_ = 0; i2_ < it2_.size(); ++i2_) { L_p = it2_[i2_].first; L_s = it2_[i2_].second; if (((L_s == L_mate) && (callm(L_room, SY("peer_connected"), Args{L_p})).truthy())) return V(true); }}return V(false); }()).truthy()) {
+            return SV("队友尚未入座或已经断开连接");
+        }
+        if ((pvz::getattr(L_campaign, SY("coins")) < L_amount)) {
+            return SV("金币不足");
+        }
+        { V ao3_ = L_campaign; pvz::setattr(ao3_, SY("coins"), (pvz::getattr(ao3_, SY("coins")) - L_amount)); }
+        { V ao4_ = rd(a_campaigns, L_mate); pvz::setattr(ao4_, SY("coins"), py::iadd(pvz::getattr(ao4_, SY("coins")), L_amount)); }
+        (void)(m_sync(Args{L_room}));
+        (void)(m_save(Args{}));
+        { V ao5_ = L_room; pvz::setattr(ao5_, SY("revision"), py::iadd(pvz::getattr(ao5_, SY("revision")), V(1.0))); }
+        pvz::setattr(L_room, SY("status"), py::percent(SV("已赠送队友 $%d 金币"), L_amount));
+        return SV("");
+    }
     if ((L_kind == SV("coop_buy"))) {
         L_index = py::m_get(L_payload, SV("index"));
         if (!py_is(py::type(L_index), py::builtin(SV("int")))) {
@@ -258,7 +288,7 @@ V C_CoopProgress::m_action(const Args& A) {
         if ((pvz::getattr(L_room, SY("phase")) != SV("config"))) {
             return SV("请先返回合作准备界面");
         }
-        pvz::setattr(L_campaign, SY("deck"), [&]() -> V { V out_ = V::list(); V L_key; { V it1_ = py::iter_list(py::tuple_it(py::concat_star({py::star(pm_pve::STARTER_PLANTS), py::one(SV("plant:花盆"))}))); for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) { L_key = it1_.idx(int64_t(i1_)); if (!(py::in(L_key, pvz::getattr(L_campaign, SY("unlocked"))))) continue; out_.append(L_key); }}return out_; }());
+        pvz::setattr(L_campaign, SY("deck"), [&]() -> V { V out_ = V::list(); V L_key; { V it6_ = py::iter_list(py::tuple_it(py::concat_star({py::star(pm_pve::STARTER_PLANTS), py::one(SV("plant:花盆"))}))); for (size_t i6_ = 0; i6_ < it6_.len(); ++i6_) { L_key = it6_.idx(int64_t(i6_)); if (!(py::in(L_key, pvz::getattr(L_campaign, SY("unlocked"))))) continue; out_.append(L_key); }}return out_; }());
         (void)(callm(L_campaign, SY("fit_deck"), Args{}));
         L_error = SV("");
     } else {
@@ -272,7 +302,7 @@ V C_CoopProgress::m_action(const Args& A) {
     if ((pvz::getattr(L_room, SY("phase")) == SV("config"))) {
         (void)(callm(L_room, SY("setup_changed"), Args{callm(L_room, SY("side_for"), Args{L_peer})}));
     }
-    { V ao2_ = L_room; pvz::setattr(ao2_, SY("revision"), py::iadd(pvz::getattr(ao2_, SY("revision")), V(1.0))); }
+    { V ao7_ = L_room; pvz::setattr(ao7_, SY("revision"), py::iadd(pvz::getattr(ao7_, SY("revision")), V(1.0))); }
     pvz::setattr(L_room, SY("status"), SV("合作个人进度已更新，请重新确认选卡"));
     return SV("");
     return V::none();
@@ -362,9 +392,9 @@ V C_CoopProgress::m_finish(const Args& A) {
         (void)(callm(a_applied, SY("add"), Args{L_key}));
         L_before = pvz::getattr(L_campaign, SY("coins"));
         L_coins = py::int_(py_or(py::m_get(L_result, SV("coins"), V(0.0)), [&]() -> V { return V(0.0); }));
-        L_bonus = ((py::m_get(L_result, SV("winner")) == SV("plant")) ? V(callm(L_campaign, SY("win"), Args({L_coins}, {{SY("coop"), V(true)}, {SY("fallen"), py::int_(py_or(py::m_get(L_result, SV("fallen"), V(0.0)), [&]() -> V { return V(0.0); }))}, {SY("played_day"), rd(L_result, SV("pve_day"))}}))) : V(V(0.0)));
+        L_bonus = ((py::m_get(L_result, SV("winner")) == SV("plant")) ? V(callm(L_campaign, SY("win"), Args({L_coins}, {{SY("coop"), V(true)}, {SY("fallen"), py::int_(py_or(py::m_get(L_result, SV("fallen"), V(0.0)), [&]() -> V { return V(0.0); }))}, {SY("played_day"), rd(L_result, SV("pve_day"))}, {SY("diamond_coins"), py::m_get(L_result, SV("diamond_coins"), V(0.0))}}))) : V(V(0.0)));
         if ((py::m_get(L_result, SV("winner")) != SV("plant"))) {
-            (void)(callm(L_campaign, SY("lose"), Args{L_coins}));
+            (void)(callm(L_campaign, SY("lose"), Args({L_coins}, {{SY("diamond_coins"), py::m_get(L_result, SV("diamond_coins"), V(0.0))}})));
         }
         L_total = (pvz::getattr(L_campaign, SY("coins")) - L_before);
         pvz::setitem(a_income, L_seat, py_dict({{SV("day"), rd(L_result, SV("pve_day"))}, {SV("winner"), py::m_get(L_result, SV("winner"))}, {SV("coins"), (L_total - L_bonus)}, {SV("bonus"), L_bonus}, {SV("total"), L_total}, {SV("coin_half"), pvz::getattr(L_campaign, SY("coin_half"))}}));

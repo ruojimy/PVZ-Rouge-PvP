@@ -1,0 +1,5 @@
+[
+{"module":"test_pvp_room_refill","class":"RoomRefillTests","test":"test_direct_guest_leave_refills_same_room_three_times","outcome":"PASS","seconds":1.61261,"detail":""},
+{"module":"test_pvp_room_refill","class":"RoomRefillTests","test":"test_locked_match_disconnect_still_reserves_until_timeout","outcome":"PASS","seconds":0.0055915,"detail":""},
+{"module":"test_pvp_room_refill","class":"RoomRefillTests","test":"test_public_relay_guest_leave_refills_same_code_three_times","outcome":"PASS","seconds":2.86723,"detail":""}
+]

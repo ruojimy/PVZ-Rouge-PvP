@@ -1,0 +1,110 @@
+{
+  "damage": 310.0,
+  "target": {
+    "__pvz_sb_chili_zombie_row_hint": 17,
+    "__pvz_sb_zombie_observed_max_hp": 1000000,
+    "_pvp_armor_max": 0,
+    "_pvp_base_speed": 0.18239999999999998,
+    "_pvp_born": 0,
+    "_pvp_card": "zombie:海盗鹦鹉",
+    "_pvp_content": "海盗鹦鹉",
+    "_pvp_content_position_before": [
+      2280,
+      864,
+      0,
+      0
+    ],
+    "_pvp_flight": true,
+    "_pvp_id": "u2",
+    "_pvp_max_hp": 30,
+    "_pvp_owner": "zombie",
+    "_pvp_summon_clock": 0,
+    "_pvp_target": "hero:zombie",
+    "_pvp_temporary": false,
+    "中场": 0,
+    "位置": [
+      2280,
+      864,
+      0,
+      0
+    ],
+    "僵尸": "气球僵尸",
+    "入水": false,
+    "再出场": 10000,
+    "出场": 500,
+    "出场初位置": [
+      2280,
+      1200
+    ],
+    "出场末位置": [
+      2280,
+      777.6
+    ],
+    "受伤": 0,
+    "啃咬": 0,
+    "坚持分兵": 0,
+    "大小": 2,
+    "憋气": 0,
+    "手持": "",
+    "手持受伤": 0,
+    "手持血量": 0,
+    "方向": -1,
+    "炸音": 0,
+    "移速": 0.18239999999999998,
+    "血量": 999690,
+    "跳跃cd": 0,
+    "防具": "",
+    "防具血量": 0,
+    "黄油": 995000
+  },
+  "trails": [
+    {
+      "needles": [],
+      "tick": 0
+    },
+    {
+      "needles": [],
+      "tick": 50
+    },
+    {
+      "needles": [],
+      "tick": 100
+    },
+    {
+      "needles": [],
+      "tick": 150
+    },
+    {
+      "needles": [],
+      "tick": 200
+    },
+    {
+      "needles": [],
+      "tick": 250
+    },
+    {
+      "needles": [],
+      "tick": 300
+    },
+    {
+      "needles": [],
+      "tick": 350
+    },
+    {
+      "needles": [],
+      "tick": 400
+    },
+    {
+      "needles": [],
+      "tick": 450
+    },
+    {
+      "needles": [],
+      "tick": 500
+    },
+    {
+      "needles": [],
+      "tick": 550
+    }
+  ]
+}

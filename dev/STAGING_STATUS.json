@@ -1,14 +1,11 @@
 {
-  "revision": "ai-nn-20261114-r1",
-  "base_commit": "cb0727c5d68cf9a9310caaf36b6b8d0273ec6541",
-  "formal_player_revision": "pvp743-r2",
-  "research_model_default_game": false,
-  "headless_baseline_runs": 648,
-  "model_test_cases_per_side": 54,
-  "strength_significant": false,
-  "framework_failure_count": 1,
-  "v_controller_reference_failed_checks": 5,
-  "gui_long_term_memory_acceptance": false,
-  "android_model_acceptance": false,
-  "windows_unicode_path_smoke": true
+  "revision": "pvp744-r3",
+  "compatibility_build": "1.6.0.74.4-typed.20261117-r3",
+  "formal_release": true,
+  "release_authorized_by_user": true,
+  "pc_package_verified": true,
+  "android_package_verified": true,
+  "android_real_device_verified": false,
+  "full_regression_rerun": false,
+  "product_acceptance_passed": false
 }

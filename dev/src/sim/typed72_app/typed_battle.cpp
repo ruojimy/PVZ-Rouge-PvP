@@ -1,5 +1,8 @@
 #include "core/function_profile.h"
 #include "sim/typed72_app/frame_projection.h"
+#include "sim/typed72_app/local_frame.h"
+#include "sim/typed72_app/unit_projection.h"
+#include "sim/typed72_app/value_snapshot_sink.h"
 #include <set>
 #include <map>
 #include "sim/typed72_app/typed_battle.h"
@@ -12,10 +15,14 @@
 #include <cstdlib>
 #include <cstring>
 #include <functional>
+#include <deque>
 #include <unordered_map>
 namespace pvz::typed72app {
 namespace {
 using J=nlohmann::json;
+thread_local const PyObj* local_presentation_owner=nullptr;
+bool input_trace_enabled(){static const bool on=[]{const char* p=std::getenv("PVP744_INPUT_TRACE");return p&&std::string(p)=="1";}();return on;}
+double steady_seconds(){return std::chrono::duration<double>(std::chrono::steady_clock::now().time_since_epoch()).count();}
 V jv(const J& j){
     if(j.is_null())return V::none();
     if(j.is_boolean())return V(j.get<bool>());
@@ -92,6 +99,21 @@ struct TypedBattle:PyObj {
     V log_cache=V::list({});size_t logged=0;
     V last_snapshot;J last_json;bool fresh=false;
     FrameProjection frame_projection;
+    // Scheduling diagnostics live outside battle/replay state. Time only the
+    // typed Session loop; record projection and caller edits are separate work.
+    double scheduler_sim_seconds=0.;
+    int64_t scheduler_batches=0,scheduler_budget_yields=0;
+    V local_presentation;
+    V local_native_frame;
+    V local_hud;
+    int64_t state_view_builds=0,state_view_units=0,state_view_cards=0;
+    bool private_projection=false;
+    int64_t metadata_builds=0,private_adoptions=0,public_rebuilds=0;
+    std::shared_ptr<LocalFrameStats> local_frame_stats=std::make_shared<LocalFrameStats>();
+    int64_t state_projection_version=0;
+    int64_t local_presentation_version=-1,local_presentation_builds=0,local_presentation_hits=0;
+    std::deque<J> input_dispatches;
+    int64_t input_dispatches_evicted=0;
     // battle.g / battle.avatars / battle._native_objects: typed record-format projection, cached per state.
     V native_g,native_avatars,native_objects;bool native_fresh=false;
     void refresh_native(){
@@ -223,8 +245,11 @@ struct TypedBattle:PyObj {
         if(base.is_dict())for(auto& kv:base.kv())m.at(kv.first)=kv.second;
         // Only co-op has a running daylight cycle. PvP/PvE retain the exact
         // admitted static environment, including absent optional keys.
-        if(const auto night=session->coop_map_night()){
+        auto projected_night=session->coop_map_night();
+        if(!projected_night)projected_night=session->test_map_night(); // explicit local test cheat only
+        if(const auto night=projected_night){
             V environment=py::dict_of(m.get(V("environment"),V::dict()));
+            if(session->coop_red_sky())environment.at(V("background"))=V("红天");
             environment.at(V("night"))=V(*night);m.at(V("environment"))=environment;
         }
         m.at(V("tiles"))=jv(map_tiles);map_v=m;map_revision=revision;return map_v;
@@ -272,22 +297,66 @@ struct TypedBattle:PyObj {
         std::vector<std::string> seats;for(const auto& s:py::iter_list(ai_seats).items())seats.push_back(py_str(s));
         session->set_ai_subsidy_seats(seats);
     }
-    void refresh(){
+    void refresh(bool local_frame=false,bool state_view=false,bool metadata_view=false){
     PVP_PROFILE_SCOPE("TypedBattle::refresh");
-        if(fresh)return;
         static const bool direct=[]{const char* p=std::getenv("PVP742_FRAME");return !p||*p!='0';}();
-        last_json=session->snapshot(!direct);++snapshot_projections;fresh=true;
+        // A local-only graph belongs to presentation and may be edited there.
+        // Public readers get a freshly projected graph, never that private one.
+        const bool public_rebuild=fresh&&private_projection&&!metadata_view;
+        if(public_rebuild){
+            fresh=false;state_view=true;++public_rebuilds;
+            // Preserve the current publication's resolved cards (co-op can
+            // change production periods). The old process-wide card V cache
+            // must not replace them when making the separate public graph.
+        }
+        if(!fresh){
+        function_profile::Phases phases;
+        // Another ownership domain can project the same state without
+        // invalidating the already-owned local presentation or native frame.
+        if(!public_rebuild){
+            ++state_projection_version;local_native_frame=V();local_hud=V();
+        }
+        private_projection=metadata_view;
+        if(metadata_view){
+            ValueSnapshotSink sink;session->write_local_metadata(sink);last_snapshot=sink.result();
+            if(!direct)last_snapshot.at(V("native_frame"))=jv(session->reference_native_frame());
+            last_json=J();++metadata_builds;
+        }else last_json=session->snapshot(!direct,!state_view);
+        ++snapshot_projections;
+        phases.mark("StateView::metadata_json");
         // Units carry their resolved card: convert each distinct card once.
         V units=V::list({});
-        for(auto& u:last_json["units"]){
+        if(state_view){
+            // Resolved cards can depend on owner secrets/night/copy state.
+            // Deduplicate within this publication, never cache across versions.
+            std::map<std::tuple<typed72::Seat,std::string,bool>,V> resolved;
+            LocalHudCounts hud;
+            for(const auto& u:session->published_units()){
+                const auto key=std::tuple{u.original_owner,u.card->id,u.orphan_barrel};
+                auto found=resolved.find(key);
+                if(found==resolved.end()){
+                    J card=session->resolved_unit_card(u.original_owner,u.card->id);
+                    if(u.orphan_barrel){card["name"]="滚桶";card["asset"]="滚桶";}
+                    found=resolved.emplace(key,jv(card)).first;++state_view_cards;
+                }
+                units.append(project_public_unit(u,found->second));hud.add(u);++state_view_units;
+            }
+            local_hud=hud.value();++state_view_builds;
+        }else for(auto& u:last_json["units"]){
             J card=std::move(u["card"]);u.erase("card");V row=jv(u);
             const auto key=card.is_object()?card.value("id",std::string{})+"|"+card.value("side",std::string{}):card.dump();
             auto found=cards.find(key);if(found==cards.end())found=cards.emplace(key,jv(card)).first;
             row.at(V("card"))=found->second;units.append(row);
         }
-        last_json.erase("units");
-        last_snapshot=jv(last_json);last_snapshot.at(V("units"))=units;
-        if(direct){
+        phases.mark("StateView::unit_values");
+        if(!metadata_view){last_json.erase("units");last_snapshot=jv(last_json);}
+        last_snapshot.at(V("units"))=units;
+        phases.mark("StateView::metadata_values");
+        if(state_view&&std::getenv("PVP744_VERIFY_STATE")&&vj(last_snapshot)!=session->snapshot(!direct))
+            throw PyError("AssertionError","direct state projection differs from reference JSON");
+        fresh=true;
+        }
+        if(direct&&!local_frame&&!last_snapshot.find(V("native_frame"))){
             PVP_PROFILE_SCOPE("TypedBattle::frame_projection");
             V frame=frame_projection.project(session->native_frame());
             if(std::getenv("PVP742_VERIFY_FRAME")&&vj(frame)!=session->reference_native_frame())throw PyError("AssertionError","native frame projection drift");
@@ -300,9 +369,25 @@ struct TypedBattle:PyObj {
     V snapshot(bool include_map,bool copy_state=true){
     PVP_PROFILE_SCOPE("TypedBattle::snapshot");
         if(!session)return callm(native,Sym("snapshot"),Args({},{{Sym("include_map"),V(include_map)},{Sym("copy_state"),V(copy_state)}}));
-        refresh();
-        V out=V::dict();
-        for(const auto& kv:last_snapshot.kv()){
+        const bool local=local_presentation_owner==this&&!include_map&&!copy_state;
+        static const bool lazy_frame=[]{const char* p=std::getenv("PVP744_LOCAL_FRAME");const char* old=std::getenv("PVP742_FRAME");return p&&std::string(p)=="1"&&(!old||*old!='0');}();
+        static const bool metadata_view=[]{const char* p=std::getenv("PVP744_METADATA_VIEW");return p&&std::string(p)=="1";}();
+        static const bool state_view=[]{const char* p=std::getenv("PVP744_STATE_VIEW");return p&&std::string(p)=="1";}();
+        refresh(local&&lazy_frame,local&&(state_view||metadata_view),local&&metadata_view);
+        // A spawn/property/network reader may already have built the public
+        // snapshot for this version. Reuse it; only derive the missing summary.
+        if(local&&(state_view||metadata_view)&&!local_hud.has()){
+            LocalHudCounts hud;for(const auto& u:session->published_units())hud.add(u);
+            local_hud=hud.value();
+        }
+        if(local&&local_presentation_version==state_projection_version&&local_presentation.is_dict()){
+            ++local_presentation_hits;return py::dict_of(local_presentation);
+        }
+        function_profile::Phases copy_phases;
+        const bool adopt=local&&metadata_view&&private_projection;
+        V out=adopt?py::dict_of(last_snapshot):V::dict();
+        if(adopt)++private_adoptions;
+        else for(const auto& kv:last_snapshot.kv()){
             const std::string key=py_str(kv.first);
             if(key=="native_frame"){out.at(kv.first)=kv.second;continue;}
             if(key=="units"||key=="projectiles"||key=="resources"){
@@ -312,7 +397,16 @@ struct TypedBattle:PyObj {
             }
             out.at(kv.first)=py::deepcopy(kv.second);
         }
+        copy_phases.mark("StateView::snapshot_copy");
         if(include_map)out.at(V("map"))=py::deepcopy(typed_map());   // deepcopy(self.map)
+        if(local&&lazy_frame){
+            if(!local_native_frame.has())local_native_frame=make_local_frame(session->native_frame(),local_frame_stats);
+            out.at(V("native_frame"))=local_native_frame;
+        }
+        if(local){
+            if(local_hud.has())out.at(V("_local_hud"))=py::dict_of(local_hud);
+            local_presentation=out;local_presentation_version=state_projection_version;++local_presentation_builds;return py::dict_of(out);
+        }
         return out;
     }
     static bool own_method(const std::string& n){return n=="step"||n=="snapshot"||n=="command_input"||n=="clear_input"||n=="close"||n=="placement"||n=="backend_audit"||n=="tutorial_sleep_grave"||n=="grave_awake"||n=="_sync_public"||n=="fixture_place_zombie"||n=="fixture_set_avatar"||n=="spawn"||n=="resource"||n=="_sync_terrain"||n=="line_of_sight"||n=="distance"||n=="ai_observe"||n=="reset_ai_observation"||n=="ai_plan"||n=="reset_ai_planner"||n=="ai_control"||n=="reset_ai_controller"||n=="ai_control_log"||n=="ai_tick";}
@@ -328,6 +422,7 @@ struct TypedBattle:PyObj {
         const std::string& n=name.str();found=true;
         if(tracing())std::fprintf(stderr,"[typed72] attr %s\n",n.c_str());
         if(own_method(n))return bound(name);
+        if(n=="scheduler_sim_seconds")return V(scheduler_sim_seconds);
         // Capability lookup/reset during cold drafting must not start a battle.
         if(n=="typed_ai_observation"||n=="typed_ai_plan")return V(true);
         if(n=="typed_ai_control")return V(typed_ai_control);
@@ -477,9 +572,18 @@ struct TypedBattle:PyObj {
         if(tracing())std::fprintf(stderr,"[typed72] call %s\n",n.c_str());
         if(n=="step"){
             static const V one(1.0);const int steps=int(a.get(0,Sym("steps"),&one).num());
+            static const V zero(0.);
+            const double budget=a.get(1,Sym("budget_seconds"),&zero).num();
+            if(!std::isfinite(budget)||budget<0.||budget>.1)throw PyError("ValueError","invalid room step budget");
             start();push_edits();
-            {const auto before=v_activity();
-             for(int i=0;i<steps&&!session->finished();++i){session->step();++typed_steps;fresh=false;native_fresh=false;players_fresh=false;}
+            {const auto before=v_activity();const auto started=std::chrono::steady_clock::now();
+             for(int i=0;i<steps&&!session->finished();++i){
+                 session->step();++typed_steps;fresh=false;native_fresh=false;players_fresh=false;
+                 // Only a completed room step is a safe yield point. A single
+                 // step can exceed the budget; no mid-tick callback/reentrancy.
+                 if(budget>0.&&i+1<steps&&!session->finished()&&std::chrono::duration<double>(std::chrono::steady_clock::now()-started).count()>=budget){++scheduler_budget_yields;break;}
+             }
+             scheduler_sim_seconds+=std::chrono::duration<double>(std::chrono::steady_clock::now()-started).count();++scheduler_batches;
              dynamic_v("step",before);}
             if(players_out)sync_players();
             out=V::none();return true;
@@ -490,12 +594,22 @@ struct TypedBattle:PyObj {
             out=snapshot(a.get(0,Sym("include_map"),&no).truthy(),a.get(1,Sym("copy_state"),&yes).truthy());return true;
         }
         if(n=="command_input"){
+            const double entered=input_trace_enabled()?steady_seconds():0.;
             start();
             const std::string side=py_str(a.get(0,Sym("side"),nullptr));
             push_edits();
             {const V payload=a.get(1,Sym("payload"),nullptr);if(payload.is_dict()&&py_str(payload.get(V("type"),V("")))=="mark")push_map_edits();}
             const auto payload=vj(a.get(1,Sym("payload"),nullptr));std::string error;
+            const double dispatch_started=input_trace_enabled()?steady_seconds():0.;
             {const auto before=v_activity();error=session->command(side,payload);dynamic_v("command_input",before);}
+            if(input_trace_enabled()){
+                const auto clock=session->clock();
+                if(input_dispatches.size()==256){input_dispatches.pop_front();++input_dispatches_evicted;}
+                input_dispatches.push_back({{"seat",side},{"type",payload.value("type",std::string{})},
+                    {"sequence",payload.value("seq",J(nullptr))},{"adapter_entered_seconds",entered},
+                    {"dispatch_started_seconds",dispatch_started},{"dispatch_completed_seconds",steady_seconds()},
+                    {"room_tick",clock.room_tick},{"native_tick",clock.native_tick},{"accepted",error.empty()},{"error",error}});
+            }
             ++typed_commands;out=V(error);changed();return true;
         }
         if(n=="clear_input"){
@@ -655,6 +769,20 @@ struct TypedBattle:PyObj {
              d.at(V("dynamic_v_work"))=g;}
             {const auto all=v_activity();V tot=V::dict();tot.at(V("boxes"))=V(double(all.boxes));tot.at(V("calls"))=V(double(all.calls));d.at(V("v_activity_total"))=tot;}
             d.at(V("typed_steps"))=V(double(typed_steps));d.at(V("typed_commands"))=V(double(typed_commands));
+            d.at(V("scheduler_sim_seconds"))=V(scheduler_sim_seconds);
+            d.at(V("scheduler_batches"))=V(double(scheduler_batches));
+            d.at(V("scheduler_budget_yields"))=V(double(scheduler_budget_yields));
+            d.at(V("local_presentation_builds"))=V(double(local_presentation_builds));
+            d.at(V("local_presentation_hits"))=V(double(local_presentation_hits));
+            d.at(V("state_view"))=jv({{"builds",state_view_builds},{"units_projected",state_view_units},{"cards_resolved",state_view_cards}});
+            d.at(V("metadata_view"))=jv({{"builds",metadata_builds},{"private_adoptions",private_adoptions},{"public_rebuilds",public_rebuilds}});
+            d.at(V("local_frame"))=jv({{"frames",local_frame_stats->frames},{"commands_projected",local_frame_stats->projected},
+                {"commands_considered",local_frame_stats->considered},{"commands_culled",local_frame_stats->culled},{"full_fallbacks",local_frame_stats->full_fallbacks}});
+            if(input_trace_enabled()){
+                J entries=J::array();for(const auto& e:input_dispatches)entries.push_back(e);
+                d.at(V("input_dispatch"))=jv({{"entries",entries},{"limit",256},{"evicted",input_dispatches_evicted},
+                    {"scope","Monotonic host clock: typed adapter entry -> validated Session command dispatch. accepted means the command returned success; later movement/jump physics, remote ACK and display are separate stages. Not device-event or touch-to-photon latency."}});
+            }
             d.at(V("typed_tick"))=V(session?double(session->tick()):-1.);
             d.at(V("snapshot_projections"))=V(double(snapshot_projections));
             d.at(V("frame_descriptions"))=V(double(frame_projection.descriptions));
@@ -682,6 +810,10 @@ struct TypedBattle:PyObj {
 };
 }
 const char* battle_backend(){return "typed72";}
+LocalPresentationScope::LocalPresentationScope(const V& battle):previous_(local_presentation_owner){
+    local_presentation_owner=battle.is_inst()?battle.box->inst.get():nullptr;
+}
+LocalPresentationScope::~LocalPresentationScope(){local_presentation_owner=previous_;}
 void start_battle_session(const V& battle){
     if(!battle.is_inst())return;
     if(auto* typed=dynamic_cast<TypedBattle*>(battle.box->inst.get()))typed->start();

@@ -1,4 +1,5 @@
 #include "sim/typed/content_target.h"
+#include "sim/typed/attention.h"
 #include "sim/typed/projectile_rules.h"
 #include "sim/typed/native_barrels.h"
 #include <algorithm>
@@ -27,7 +28,7 @@ CoverageBox ContentTargets::bounds(const ContentTarget& target)const {
     if(std::holds_alternative<PlantRef>(target)){include(p,tile*.45,tile*.45);return out;}
     const auto& t=std::get<CombatTarget>(target);
     if(t.is_hero()){const double scale=unit_scale_factor(*world_.heroes.proxy_source(t.hero),catalog_);include(p,tile*.5*scale,tile*.8*scale);return out;}
-    const auto& u=*t.unit;const auto& m=u.body.motion.get();const double size=u.body.size.or_missing(2.);
+    const auto& u=*t.unit;if(u.terraria){include(p,u.terraria->width*tile/32.,u.terraria->height*tile/32.);return out;}const auto& m=u.body.motion.get();const double size=u.body.size.or_missing(2.);
     include({m.x,m.y-tile*.425*size},tile*.15*size,tile*.425*size);
     // Some legacy darts deliberately use the unscaled ellipse. Broad-phase
     // coverage must contain that shape as well as the scaled flying collider.
@@ -56,11 +57,13 @@ void ContentTargets::damage(const std::shared_ptr<AttackSource>& source,const Co
     HeroContext context(heroes,{*attacker==Seat::plant?Seat::zombie:Seat::plant,*attacker,CombatPhase::content,source,{}});
     if(const auto* p=std::get_if<PlantRef>(&target)) {
         auto& plant=**p;
-        if(plant.kind=="魅惑菇"&&!source->charmed.present())source->charmed.set(0.);
+        const auto attacking_unit=source->unit.lock();
+        if(plant.kind=="魅惑菇"&&!source->charmed.present()&&!(attacking_unit&&attacking_unit->terraria))source->charmed.set(0.);
         const double old=plant.hp.get();
         static const std::string no_hand;
         const auto loss=world_.protection.amount({plant.hp.get(),no_hand,plant.source,plant.protection},amount);
         plant.hp.set(old-loss);plant.hurt.set(1.);
+        attention_damage(source,target,std::min(std::max(0.,old),loss),heroes.time);
         if(plant.hp.get()<=0.)plant.dead.set(DeathMarker(0.));
     }else {
         const auto& t=std::get<CombatTarget>(target);

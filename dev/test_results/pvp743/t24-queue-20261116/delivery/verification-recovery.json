@@ -1,0 +1,8 @@
+{
+  "pc_initial_verifier_error": "LookupError: unknown encoding: utf8-sig; actual packaged EXE exited zero and completed diagnostic before validator failed",
+  "pc_resolution": "Use utf-8-sig and validate the existing preserved native report without rerunning the game",
+  "apk_initial_verifier_error": "Default ZIP metadata decoding could not find Chinese asset names",
+  "apk_observation": "assets/音效/铁桶2.ogg is present, 9721 bytes; aapt names have UTF-8 bytes and ZIP flag_bits 0",
+  "apk_resolution": "Read ZIP metadata as UTF-8 and verify every staged native library and asset; signed APK bytes unchanged",
+  "production_source_changed_for_verifier_recovery": false
+}

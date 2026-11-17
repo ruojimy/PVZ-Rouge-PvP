@@ -1,0 +1,15 @@
+[
+{"module":"test_pvp_57_producer_protection","class":"ProducerProtection57Tests","test":"test_all_catalog_producers_global_boundary_and_newly_planted_units","outcome":"PASS","seconds":0.0242952,"detail":""},
+{"module":"test_pvp_57_producer_protection","class":"ProducerProtection57Tests","test":"test_armor_body_and_star_surface_scale_each_packet_only_once","outcome":"PASS","seconds":0.0121798,"detail":""},
+{"module":"test_pvp_57_producer_protection","class":"ProducerProtection57Tests","test":"test_ash_500_packet_has_protected_death_threshold_and_no_repeat_fire","outcome":"FAIL","seconds":0.0121624,"detail":"AssertionError: 275 != 212.5"},
+{"module":"test_pvp_57_producer_protection","class":"ProducerProtection57Tests","test":"test_damage_rewrite_keeps_wrappers_and_is_match_local","outcome":"PASS","seconds":0.025894,"detail":""},
+{"module":"test_pvp_57_producer_protection","class":"ProducerProtection57Tests","test":"test_day_night_and_clear_rain_have_identical_protection","outcome":"PASS","seconds":0.0585367,"detail":""},
+{"module":"test_pvp_57_producer_protection","class":"ProducerProtection57Tests","test":"test_hardening_and_actual_imitater_producer_transform","outcome":"PASS","seconds":0.811508,"detail":""},
+{"module":"test_pvp_57_producer_protection","class":"ProducerProtection57Tests","test":"test_native_bites_frenzy_and_black_bonus_keep_their_damage_ratios","outcome":"PASS","seconds":0.0195218,"detail":""},
+{"module":"test_pvp_57_producer_protection","class":"ProducerProtection57Tests","test":"test_native_supplemental_bite_scales_desired_total","outcome":"FAIL","seconds":0.0181358,"detail":"AssertionError: 1551205144112 not found in {}"},
+{"module":"test_pvp_57_producer_protection","class":"ProducerProtection57Tests","test":"test_nonproducer_and_hero_are_not_protected","outcome":"PASS","seconds":0.0122573,"detail":""},
+{"module":"test_pvp_57_producer_protection","class":"ProducerProtection57Tests","test":"test_patch_peas_fire_splash_and_fume_keep_mixed_targets_and_death_checks","outcome":"PASS","seconds":0.0125332,"detail":""},
+{"module":"test_pvp_57_producer_protection","class":"ProducerProtection57Tests","test":"test_poison_pulses_use_global_tick_and_leave_hero_and_nonproducer_damage","outcome":"PASS","seconds":0.0128508,"detail":""},
+{"module":"test_pvp_57_producer_protection","class":"ProducerProtection57Tests","test":"test_real_basketball_damage_at_both_sides_of_deadline","outcome":"PASS","seconds":0.0140881,"detail":""},
+{"module":"test_pvp_57_producer_protection","class":"ProducerProtection57Tests","test":"test_shovel_and_native_nonnumeric_incineration_do_not_resurrect","outcome":"PASS","seconds":0.0360626,"detail":""}
+]

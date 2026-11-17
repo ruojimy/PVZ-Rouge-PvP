@@ -57,6 +57,7 @@ PlantRef SweetTaunts::taunting(const ContentTarget& target)const {
     const auto* combat=std::get_if<CombatTarget>(&target);
     if(!combat || combat->is_hero())return {};
     const auto& unit=*combat->unit;
+    if(unit.terraria)return {};
     if(unit.protection.grave || unit.body.hp<=0.)return {};
     if(unit.content.headhunt.or_missing(false)&&!unit.source.charmed.present())return {};
     const auto owner=world_.heroes.owner(source_ref(combat->unit));

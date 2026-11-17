@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "version_name": "1.6.0.74.3-typed.20261114-r4",
+  "version_code": 1114085,
+  "installed_sha256": "4566cc389f2a5e34f7781bb6110bbea8cd80aed5dc37e0b20a2173d2e6a7976e",
+  "first_install_time": [
+    "2026-11-04 09:54:15",
+    "2026-11-04 09:54:15"
+  ],
+  "signature_continuity": true,
+  "default_options": {
+    "candidate": true,
+    "fixed_guard": 0,
+    "local_frame": true,
+    "metadata_view": true,
+    "scale_floor": 0.15,
+    "state_view": true,
+    "step_budget_ms": 8,
+    "step_limit": 12,
+    "view_reuse": true
+  },
+  "metadata_private_adoptions": 86,
+  "original_userdata_files_unchanged": 11,
+  "upgrade_mode": "adb install -r",
+  "diagnostic_engine_options_supplied": false
+}

@@ -60,6 +60,16 @@ void NativeContentPhases::entity_gate(const EntityRef& entity) {
     if(content=="寒冰辣椒")for(const std::string key:{"火1.1","火1.2","火1.3","火2","火3","火尾1","火尾2","火尾3"})
         if(presentation_.has_content_sprite(key))presentation_.alias_content_art(key,"寒冰-"+key);
 }
+std::string NativeContentPhases::projectile_sprite(const Entity& entity,const std::string& key)const {
+    const auto content=name(entity.source.content);
+    std::string result=key;
+    if(content=="原始豌豆射手"&&(key=="火豆"||key=="蓝火豆"))
+        result=projectile_fire_color(entity.source,world_.heroes.globals)=="blue"?"原始蓝火豆":"原始火豆";
+    else if(content=="寒冰辣椒"&&(key=="火1.1"||key=="火1.2"||key=="火1.3"||key=="火2"||key=="火3"||key=="火尾1"||key=="火尾2"||key=="火尾3"))
+        result="寒冰-"+key;
+    else if(key==entity.kind&&!name(entity.art_name).empty())result=std::string(name(entity.art_name));
+    return presentation_.has_content_sprite(result)?result:key;
+}
 void NativeContentPhases::draw_projectiles() {
     if(!drawing_)return;const auto roster=world_.runtime.entities.list();for(size_t i=0;i<roster->size();++i) {
         const auto entity=roster->at(i);if((!yes(entity->mortar.mortar)&&!yes(entity->mortar.multi_red))||entity->expires.or_missing(0.)>0.)continue;

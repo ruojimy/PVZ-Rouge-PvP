@@ -1,0 +1,11 @@
+[
+{"module":"test_pvp_56_ui","class":"ProfileNetwork56Tests","test":"test_names_roundtrip_and_result_count_only_connected_participants","outcome":"PASS","seconds":1.36098,"detail":""},
+{"module":"test_pvp_56_ui","class":"ProfileTests","test":"test_participant_deduplication_persistence_draw_and_name","outcome":"PASS","seconds":0.0163294,"detail":""},
+{"module":"test_pvp_56_ui","class":"Replay56Tests","test":"test_real_native_high_speed_preserves_elapsed_time_and_backlog","outcome":"PASS","seconds":1.18677,"detail":""},
+{"module":"test_pvp_56_ui","class":"Replay56Tests","test":"test_scaled_finger_scrub_resumes_and_speed_button_changes_native_ticks","outcome":"PASS","seconds":1.15963,"detail":""},
+{"module":"test_pvp_56_ui","class":"UI56Tests","test":"test_action_binding_rebind_and_toggle","outcome":"PASS","seconds":0.0439832,"detail":""},
+{"module":"test_pvp_56_ui","class":"UI56Tests","test":"test_compact_map_footer_and_draft_map_label","outcome":"PASS","seconds":0.28816,"detail":""},
+{"module":"test_pvp_56_ui","class":"UI56Tests","test":"test_music_and_effects_have_independent_saved_controls","outcome":"PASS","seconds":0.038542,"detail":""},
+{"module":"test_pvp_56_ui","class":"UI56Tests","test":"test_name_and_room_profile_snapshot_and_immutable_participants","outcome":"PASS","seconds":0.0448634,"detail":""},
+{"module":"test_pvp_56_ui","class":"UI56Tests","test":"test_profile_and_keys_controls_fit_mobile_logical_display","outcome":"PASS","seconds":0.0973693,"detail":""}
+]

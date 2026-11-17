@@ -1,0 +1,9 @@
+[
+{"module":"test_pvp_plant_zombie_allegiance","class":"PlantZombieAllegianceTests","test":"test_charmed_peas_cross_torch_at_head_height_and_hit_enemy_zombies","outcome":"FAIL","seconds":0.473201,"detail":"AssertionError: 0 is not true : head-height charmed peas must ignite"},
+{"module":"test_pvp_plant_zombie_allegiance","class":"PlantZombieAllegianceTests","test":"test_charmed_shooters_aim_at_zombie_dave_with_only_an_ally_in_front","outcome":"PASS","seconds":0.885363,"detail":""},
+{"module":"test_pvp_plant_zombie_allegiance","class":"PlantZombieAllegianceTests","test":"test_doom_death_respects_current_allegiance_for_armies_and_both_daves","outcome":"PASS","seconds":0.0719762,"detail":""},
+{"module":"test_pvp_plant_zombie_allegiance","class":"PlantZombieAllegianceTests","test":"test_grave_stun_counts_down_and_pauses_only_production_clock","outcome":"PASS","seconds":0.0261229,"detail":""},
+{"module":"test_pvp_plant_zombie_allegiance","class":"PlantZombieAllegianceTests","test":"test_squash_hits_enemy_dave_for_16_without_damaging_collocated_ally","outcome":"PASS","seconds":0.238055,"detail":""},
+{"module":"test_pvp_plant_zombie_allegiance","class":"PlantZombieAllegianceTests","test":"test_squash_hits_enemy_units_without_hurting_its_own_army","outcome":"PASS","seconds":0.609629,"detail":""},
+{"module":"test_pvp_plant_zombie_allegiance","class":"PlantZombieAllegianceTests","test":"test_squash_rechecks_target_allegiance_when_it_lands","outcome":"PASS","seconds":0.122205,"detail":""}
+]

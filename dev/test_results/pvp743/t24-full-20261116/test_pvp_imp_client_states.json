@@ -1,0 +1,16 @@
+[
+{"module":"test_pvp_imp_client_states","class":"ContentTests","test":"test_barrel_breaks_into_two_original_imps","outcome":"PASS","seconds":0.0221626,"detail":""},
+{"module":"test_pvp_imp_client_states","class":"ContentTests","test":"test_cannon_emits_original_imp_and_suppresses_basketball","outcome":"PASS","seconds":0.0137032,"detail":""},
+{"module":"test_pvp_imp_client_states","class":"ContentTests","test":"test_charmed_black_armour_uses_enemy_zombies","outcome":"PASS","seconds":0.0288502,"detail":""},
+{"module":"test_pvp_imp_client_states","class":"ContentTests","test":"test_charmed_captain_summons_charmed_parrot_and_uses_enemy_target","outcome":"PASS","seconds":0.0144523,"detail":""},
+{"module":"test_pvp_imp_client_states","class":"ContentTests","test":"test_darts_native_launch_damage_and_unlimited_return_hits","outcome":"PASS","seconds":0.236416,"detail":""},
+{"module":"test_pvp_imp_client_states","class":"ContentTests","test":"test_ice_chili_bypasses_shield_freezes_without_ash","outcome":"PASS","seconds":0.330173,"detail":""},
+{"module":"test_pvp_imp_client_states","class":"ContentTests","test":"test_new_units_construct_and_run_native_statuses","outcome":"PASS","seconds":0.486525,"detail":""},
+{"module":"test_pvp_imp_client_states","class":"ContentTests","test":"test_no_card_ever_falls_back_to_the_placeholder_circle","outcome":"PASS","seconds":0.703067,"detail":""},
+{"module":"test_pvp_imp_client_states","class":"ContentTests","test":"test_poison_bypasses_armour_four_full_seconds_and_clears_death","outcome":"PASS","seconds":0.534454,"detail":""},
+{"module":"test_pvp_imp_client_states","class":"ContentTests","test":"test_poison_coexists_with_freeze_slow_and_butter_in_both_orders","outcome":"PASS","seconds":0.791717,"detail":""},
+{"module":"test_pvp_imp_client_states","class":"ContentTests","test":"test_poison_dart_splash_stacks_but_excludes_own_direct_target","outcome":"PASS","seconds":0.137758,"detail":""},
+{"module":"test_pvp_imp_client_states","class":"ContentTests","test":"test_poison_hero_clock_and_tint","outcome":"PASS","seconds":0.128748,"detail":""},
+{"module":"test_pvp_imp_client_states","class":"ContentTests","test":"test_the_batch_icons_come_from_the_embedded_atlas_alone","outcome":"PASS","seconds":0.000308,"detail":""},
+{"module":"test_pvp_imp_client_states","class":"ImpClientStates","test":"test_all_imp_helmet_states_exist_and_render_on_a_fresh_client","outcome":"PASS","seconds":0.096091,"detail":""}
+]

@@ -1,0 +1,31 @@
+{
+  "module": "test_pvp_62_tick_rate",
+  "exit": 1,
+  "seconds": 3.996,
+  "expected": 4,
+  "results": 4,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": false,
+  "accepted": true,
+  "counts": {
+    "PASS": 3,
+    "FAIL": 0,
+    "ERROR": 1,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [
+    {
+      "id": "test_pvp_62_tick_rate.GcPolicyTests.test_overlapping_battles_keep_the_policy_until_the_last_closes",
+      "outcome": "ERROR",
+      "detail_sha256": "18767fe1f0da3a13bac23201440e107bb5b74921b92780360950a8a92911e891",
+      "reason": "CPython generation GC 阈值检查；C++ 使用 RAII，该接口不适用。"
+    }
+  ],
+  "unexpected_nonpass": [],
+  "resolved_waivers": []
+}

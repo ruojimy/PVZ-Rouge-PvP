@@ -32,6 +32,9 @@ struct State {
     J heroes=J::array(),cards=J::array(),document={{"format","pvz-texture-pack-v1"},{"name","我的材质包"},{"entries",J::object()}};
     std::string local_id="default",active_name="原版材质",selected_key,filter="卡牌",query,card_filter,hero_filter,focus,notice;
     bool local_enabled=true;
+    J local_document;
+    std::string active_local_id="default",pending_op,pending_path;
+    bool unsaved=false,room_picker=false;
     std::vector<std::string> pack_files;int page=0,card_page=0;bool show_packs=false;
     J pack_choices=J::array();
     Canvas canvas;std::string tool="pencil";int brush=1,import_mode=0;uint32_t color=0x66cc66ff;
@@ -60,6 +63,8 @@ J load_file(const std::filesystem::path& p);
 void save_file(const std::filesystem::path& p,const J& j);
 void activate(const J& doc,bool remote=false);
 void save_current(bool enable=true);void activate_local();void open_resource(const std::string& key);void commit_canvas();
+bool has_unsaved();void discard_changes();void refresh_pack_choices();
+void load_saved_pack(const std::filesystem::path& path);void delete_saved_pack(const std::filesystem::path& path);
 void new_pack();void set_notice(const std::string& text);void fit_canvas();
 std::string choose_file(bool save,const std::string& suggested,bool pack);
 void android_export(const std::filesystem::path& path);

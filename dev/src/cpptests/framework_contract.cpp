@@ -558,6 +558,9 @@ bool framework_contract() {
             expect(!packet.is_none() && py_is(pvz::getattr(packet,Sym("frame")),frame),"recorded native frame owns an actual local FramePixels packet");
             V pixels=callm(packet,Sym("get"),Args{frame,description});
             expect(pixels.t==V::INST && py_is(pixels,callm(packet,Sym("get"),Args{frame,description})),"frame-local pixels execute once and retain a stable actual SDL Surface");
+            V public_pixels=pvz::getattr(image,Sym("pixels"));
+            callm(public_pixels,Sym("fill"),Args{V::tuple({V(1),V(2),V(3),V(255)})});
+            expect(callm(pvz::getattr(image,Sym("pixels")),Sym("get_at"),Args{V::tuple({V(0),V(0)})})==V::tuple({V(11),V(22),V(33),V(255)}),"public recorded-image pixels remain isolated from caller mutations");
             callm(image,Sym("fill"),Args{V::tuple({V(90),V(80),V(70),V(255)})});
             expect(callm(pixels,Sym("get_at"),Args{V::tuple({V(0),V(0)})})==V::tuple({V(11),V(22),V(33),V(255)}),"later source mutations preserve the completed packet pixels");
             expect(callm(packet,Sym("get"),Args{pvz::deepcopy(frame),description}).is_none() && callm(packet,Sym("get"),Args{frame,pvz::deepcopy(description)}).is_none(),"foreign or copied wire frames and descriptions do not gain local pixel access");

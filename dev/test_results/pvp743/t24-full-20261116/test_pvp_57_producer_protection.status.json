@@ -1,0 +1,37 @@
+{
+  "module": "test_pvp_57_producer_protection",
+  "exit": 1,
+  "seconds": 2.23,
+  "expected": 13,
+  "results": 13,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": false,
+  "accepted": false,
+  "counts": {
+    "PASS": 11,
+    "FAIL": 2,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [],
+  "unexpected_nonpass": [
+    {
+      "id": "test_pvp_57_producer_protection.ProducerProtection57Tests.test_ash_500_packet_has_protected_death_threshold_and_no_repeat_fire",
+      "outcome": "FAIL",
+      "detail_sha256": "a821a971619db7110377c95c5a654e6b4a291ad624c0512bfb4f413431551fa1",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_57_producer_protection.ProducerProtection57Tests.test_native_supplemental_bite_scales_desired_total",
+      "outcome": "FAIL",
+      "detail_sha256": "181b1d8d850257869e9ea79a6802b12e6c8b53484aa6564fd453286ca138629b",
+      "reason": "not_waived"
+    }
+  ],
+  "resolved_waivers": []
+}

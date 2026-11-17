@@ -88,7 +88,11 @@ int main(int argc,char** argv) {
         {const V budget=pvz::getattr(b,Sym("scripted_spawn_budget"),V::none());
          if(!budget.is_none())out["scripted_spawn_limit"]=parsed(pvz::getattr(budget,Sym("limit")));}
         // NativeBattle.map tiles as published so far (the _sync_terrain baseline of the typed public terrain).
-        {const V map=pvz::getattr(b,Sym("map"),V::none());if(map.is_dict())out["battle"]["map_tiles"]=parsed(py::m_get(map,V("tiles")));}
+        {const V map=pvz::getattr(b,Sym("map"),V::none());if(map.is_dict()){
+            out["battle"]["map_tiles"]=parsed(py::m_get(map,V("tiles")));
+            const V env=py::m_get(map,V("environment"),V::dict());
+            if(env.is_dict())out["battle"]["map_environment"]=parsed(env);
+        }}
         out["avatars"]=attr("avatars");out["players"]=attr("players");
         J globals=J::object(),skipped=J::array();
 #define X(n) {const V& value=G.n;if(value.has()){std::string text=dump(value);if(text.size()<400000)try{globals[#n]=J::parse(text);}catch(...){skipped.push_back(#n);}else skipped.push_back(#n);}}

@@ -268,7 +268,10 @@ class PveUI:
                 # card. Guests receive the pool/slot change in the same revision.
                 decks = dict(pve.get('decks') or {})
                 decks.pop(seat, None)
+                ready = dict(self.room.confirmed)
                 error = self.room.set_pve(decks=decks, **wanted)
+                if not error and self.room.mode == COOP:
+                    self.room.confirmed.update({key: value for key, value in ready.items() if key != seat})
                 if not error:
                     self.room._pve_setup = (wanted, self.room.map_id, self.room.seed)
                     self.refresh()
@@ -388,12 +391,38 @@ class PveUI:
             return True
         if not kind.startswith("pve_"):
             return False
-        if kind in ("pve_open", "pve_toggle", "pve_reward", "pve_item", "pve_buy", "pve_reset", "pve_start", "pve_limit", "pve_skip"):
+        if kind in ("pve_open", "pve_toggle", "pve_reward", "pve_item", "pve_buy", "pve_reset", "pve_start", "pve_limit", "pve_skip", "pve_gift", "pve_gift_send"):
             phase = self.room.phase if self.room else (self.view or {}).get("phase")
             if phase and phase not in ("config", "result"):
                 self.message("请先结束当前挑战，再调整选卡、购买或重开")
                 return True
         campaign = self.campaign
+        if kind == 'pve_gift_cancel':
+            self.state.update(pve_gift_open=False,focus=None)
+            return True
+        if kind == 'pve_gift_amount':
+            self.state['pve_gift_amount'] = str(action[1])
+            return True
+        if kind in ('pve_gift','pve_gift_send'):
+            if (self.view or {}).get('mode') != COOP or not self.pve_room_seat():
+                self.message('只有合作玩家可以赠送金币')
+                return True
+            if kind == 'pve_gift':
+                self.state.update(pve_gift_open=True,pve_gift_amount=str(min(100,campaign.coins)),focus='pve_gift_amount')
+                return True
+            text = str(self.state.get('pve_gift_amount','')).strip()
+            try:
+                amount = int(text) if text.isdecimal() and len(text) <= 10 else 0
+            except ValueError:
+                amount = 0
+            if amount <= 0 or amount > 1000000000:
+                self.message('请输入正整数金币数量')
+                return True
+            seat = self.pve_room_seat()
+            error = self.command(dict(type='coop_gift',to='plant2' if seat=='plant' else 'plant',amount=amount),seat)
+            self.message(error or ('已赠送队友 $%d 金币' % amount if self.mode=='host' else '赠送请求已发送'))
+            if not error:self.state.update(pve_gift_open=False,focus=None)
+            return True
         if kind=='pve_limit':
             if self.mode=='guest':
                 self.message('在场僵尸上限由房主设置');return True
@@ -413,7 +442,7 @@ class PveUI:
                     self.room._pve_setup=None
             return True
         if kind == "pve_open":
-            if self.mode == 'guest' and (self.view or {}).get('mode') == COOP and not self.pve_room_day():
+            if self.mode == 'guest' and (self.view or {}).get('mode') == COOP and not self.pve_room_day() and not self.campaign.rewards:
                 self.message('等待房主设置本次挑战后再选卡')
                 return True
             self.state.pop("pve_pending_ready", None)
@@ -421,6 +450,10 @@ class PveUI:
             # is where the day screen goes back to.
             in_room = bool(self.room) or self.mode == "guest"
             coop = bool(self.room and self.room.mode == COOP) or (self.view or {}).get("mode") == COOP
+            if coop and phase=='config' and self.pve_room_seat():
+                error=self.command(dict(type='pve_unready'),self.pve_room_seat())
+                if error:
+                    self.message(error);return True
             self.state.update(screen="pve", pve_page=0, pve_reset=False, focus=None,
                               pve_return="room" if in_room else ("exit" if self.native_entry else "home"), pve_coop=coop)
         elif kind == "pve_back":
@@ -464,7 +497,7 @@ class PveUI:
                 self.save_campaign()
                 self.message("已花费 $%d 跳过第 %d 天，请选择奖励卡" % (SKIP_PRICE, day))
         elif kind == "pve_shop":
-            self.state.update(screen="pve_shop", focus=None, pve_pick=None, pve_detail=None, pve_detail_scroll=0, message="")
+            self.state.update(screen="pve_shop", focus=None, pve_pick=None, pve_detail=None, pve_detail_scroll=0, pve_gift_open=False, message="")
         elif kind == "pve_shop_back":
             self.state.update(screen="pve", focus=None, pve_pick=None, message="")
         elif kind == "pve_item":
@@ -936,6 +969,23 @@ class PveUI:
         r.text(money, (int(st.ox + 1.92 * st.u) - width, int(st.height - .52 * st.u)), color, fs)
         if guest:
             label(r, "房主的商店：只有房主可以购买", st.pos(8.0, .65), WHITE, fs, BLACK)
+        if (self.view or {}).get('mode') == COOP and self.pve_room_seat():
+            r.button('赠送金币', st.rect(2.6,STAGE_H-.9,3.1,.8), ('pve_gift',), size=fs)
+            if state.get('pve_gift_open'):
+                width,height=r.screen.get_size()
+                w=min(480,width-32);x=(width-w)//2;y=max(12,(height-260)//2)
+                r.box((x,y,w,260),(37,32,26),border=(218,188,116))
+                r.controls=[]
+                r.text('赠送金币给合作队友', (x+20,y+16), WHITE, 21)
+                r.text('当前金币：$%d' % campaign.coins, (x+20,y+52), GOLD, 18)
+                box=r.pg.Rect(x+20,y+84,w-40,42)
+                r.box(tuple(box),(25,18,12),border=GOLD if state.get('focus')=='pve_gift_amount' else INK)
+                r.text(str(state.get('pve_gift_amount','')), (x+30,y+92),WHITE,20)
+                r.controls.append((box,('focus','pve_gift_amount')))
+                for i,amount in enumerate((100,500,1000)):
+                    r.button('$%d'%amount,(x+20+i*(w-40)//3,y+140,(w-52)//3,34),('pve_gift_amount',amount),size=17)
+                r.button('取消',(x+20,y+198,(w-52)//2,42),('pve_gift_cancel',),size=18)
+                r.button('确认赠送',(x+32+(w-52)//2,y+198,(w-52)//2,42),('pve_gift_send',),size=18)
 
     def draw_pve_result(self, r, view):
         """The day's tally on the original 选卡板, plaques underneath."""
@@ -952,15 +1002,17 @@ class PveUI:
               int(7.6 * st.u))
         native_image(r, "钱袋", st.rect(1.6, 3.3, 2, .5))
         income = self.state.get("pve_income") or {}
+        diamonds = max(0, int(result.get("diamond_coins", 0)))
         if income.get("day") == day and income.get("winner") == result.get("winner"):
             summary = "入账 $%d" % income["total"]
             detail = "拾取 %d + 通关奖励 %d（获取已折半）" % (income["coins"], income["bonus"])
+            if diamonds:detail = "普通拾取 %d + 钻石 %d + 通关奖励 %d" % (income["coins"]-diamonds, diamonds, income["bonus"])
             half = income.get("coin_half", 0)
         else:
             # Before the local callback has settled, show only the exact half
             # pickup amount. Never present the original full-value counter.
-            summary = "本局拾取 $" + half_coin_text(result.get("coins", 0))
-            detail = "金币获取已折半，尾数随结算累计"
+            summary = "本局拾取 $" + half_coin_text(max(0, result.get("coins", 0)-diamonds)+diamonds*2)
+            detail = "普通金币折半结算；钻石全额入账" if diamonds else "金币获取已折半，尾数随结算累计"
             half = int(result.get("coins", 0) or 0) % 2
         label(r, summary, st.pos(3.75, 3.33), WHITE, max(11, fs - 2), BLACK, int(5.2 * st.u))
         label(r, detail, st.pos(1.6, 3.95), WHITE, max(11, fs - 3), BLACK, int(7.6 * st.u))
@@ -999,7 +1051,7 @@ class PveUI:
                 plaque(r, st, "开始干", "第 %d 天-作战" % self.campaign.day, 16.5, bottom, ("pve_start",), pointer, fs)
             r.button("选卡 · 商店", st.rect(9.6, bottom, 3.2, 1), ("pve_open",), size=fs)
         else:
-            label(r, "等待房主开始下一天……", st.pos(9.6, bottom + .2), WHITE, fs, BLACK)
+            r.button("领取新卡" if self.campaign.rewards else "选卡 · 商店", st.rect(9.6, bottom, 3.2, 1), ("pve_open",), size=fs)
         plaque(r, st, "返回菜单", "离开", 13.25, bottom, ("leave",), pointer, fs)
         message = self.state.get("message", "")
         if message:

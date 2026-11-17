@@ -109,6 +109,7 @@ V C_ResultOutro::m_start(const Args& A) {
     V L_local_side = (A.size() > 1 || A.has_kw(SY("local_side"))) ? A.get(1, SY("local_side"), nullptr) : V(V::none());
     V L_now = (A.size() > 2 || A.has_kw(SY("now"))) ? A.get(2, SY("now"), nullptr) : V(V::none());
     V L_battle;
+    V L_coop_victory;
     V L_hero;
     V L_players;
     V L_pose;
@@ -122,6 +123,10 @@ V C_ResultOutro::m_start(const Args& A) {
     L_result = py_or(py::m_get(L_battle, SV("result")), [&]() -> V { return py::m_get(L_view, SV("result")); });
     L_terrain = py_or(py::m_get(L_battle, SV("map")), [&]() -> V { return py_or(py::m_get(L_view, SV("map")), [&]() -> V { return py_dict({}); }); });
     a_loser = pm_result_outro::f_losing_side(Args{L_result, L_local_side});
+    L_coop_victory = py_and(V((py::m_get(L_view, SV("mode")) == SV("coop"))), [&]() -> V { return py_and(V((isinstance(L_result, "dict"))), [&]() -> V { return V((py::m_get(L_result, SV("winner")) == SV("plant"))); }); });
+    if ((L_coop_victory).truthy()) {
+        a_loser = (py::in(L_local_side, L_players) ? V(L_local_side) : V(SV("plant")));
+    }
     L_hero = py::m_get(L_players, a_loser);
     L_viewer = py_or(py::m_get(L_players, L_local_side), [&]() -> V { return py_or(py::m_get(L_players, SV("plant")), [&]() -> V { return L_hero; }); });
     if ((!(L_hero).truthy() || !(L_viewer).truthy())) {
@@ -133,7 +138,7 @@ V C_ResultOutro::m_start(const Args& A) {
     a_start_point = V::tuple({rdm(L_viewer, &Obj::x, SV("x")), rdm(L_viewer, &Obj::y, SV("y"))});
     a_end_point = V::tuple({pm_result_outro::f_wrap_toward(Args{rdm(L_viewer, &Obj::x, SV("x")), rdm(L_hero, &Obj::x, SV("x")), L_width}), (rdm(L_hero, &Obj::y, SV("y")) - (L_tile * V(0.5)))});
     L_pose = py_or(py::m_get(L_hero, SV("native_pose")), [&]() -> V { return py_dict({}); });
-    a_already_down = py::bool_(py::m_get_slot(L_pose, &Obj::玩家倒地, SV("玩家倒地"), V(0.0)));
+    a_already_down = py_or(L_coop_victory, [&]() -> V { return py::bool_(py::m_get_slot(L_pose, &Obj::玩家倒地, SV("玩家倒地"), V(0.0))); });
     a_facing = ((py::m_get(L_hero, SV("facing"), V(1.0)) >= V(0.0)) ? V(V(1.0)) : V(V(-1.0)));
     a_battle = L_battle;
     a_started = (py_is(L_now, V::none()) ? V(py::stdlib_call(SV("time.monotonic"), Args{})) : V(py::float_(L_now)));

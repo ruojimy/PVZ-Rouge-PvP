@@ -120,7 +120,7 @@ void ContentZombies::stun_stars(const ZombieRef& unit,std::string_view name) {
     const double dimension=std::max(1.,std::trunc(tile*.2));
     for(int index=0;index<3;++index) {
         const double angle=double(world_.heroes.tick)/50.+index*0x1.921fb54442d18p+1*2./3.;
-        controllers_.stun_star({point.x+std::cos(angle)*tile*.4-tile*.1,
+        controllers_.stun_star(unit,{point.x+std::cos(angle)*tile*.4-tile*.1,
             point.y-height-tile*.3+std::sin(angle)*tile*.08},{dimension,dimension});
     }
 }

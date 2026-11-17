@@ -1,0 +1,15 @@
+[
+{"module":"test_pvp_status_stack_audit","class":"StatusStackAudit","test":"test_black_bucket_stuns_enemy_dave_without_overwriting_butter","outcome":"PASS","seconds":0.0346412,"detail":""},
+{"module":"test_pvp_status_stack_audit","class":"StatusStackAudit","test":"test_black_cone_hits_only_the_opposing_dave_once","outcome":"PASS","seconds":0.0270083,"detail":""},
+{"module":"test_pvp_status_stack_audit","class":"StatusStackAudit","test":"test_control_timers_grave_production_and_hero_lock_with_poison","outcome":"PASS","seconds":0.148087,"detail":""},
+{"module":"test_pvp_status_stack_audit","class":"StatusStackAudit","test":"test_last_charmed_biter_survives_to_attack_opposing_dave","outcome":"PASS","seconds":0.06168,"detail":""},
+{"module":"test_pvp_status_stack_audit","class":"StatusStackAudit","test":"test_ordinary_regift_does_not_reuse_a_stripped_black_imp_marker","outcome":"PASS","seconds":0.0132095,"detail":""},
+{"module":"test_pvp_status_stack_audit","class":"StatusStackAudit","test":"test_parrot_bites_all_enemy_types_once_and_stops_under_control","outcome":"PASS","seconds":0.0771636,"detail":""},
+{"module":"test_pvp_status_stack_audit","class":"StatusStackAudit","test":"test_poison_body_death_of_black_imp_does_not_drop_effect","outcome":"PASS","seconds":0.0136975,"detail":""},
+{"module":"test_pvp_status_stack_audit","class":"StatusStackAudit","test":"test_poison_strengths_stack_refresh_independently_and_keep_cadence","outcome":"PASS","seconds":0.0413414,"detail":""},
+{"module":"test_pvp_status_stack_audit","class":"StatusStackAudit","test":"test_public_imp_and_barrel_summons_do_not_steal_riding_armor","outcome":"PASS","seconds":0.0150714,"detail":""},
+{"module":"test_pvp_status_stack_audit","class":"StatusStackAudit","test":"test_real_throw_transfers_all_six_headgear_slots_and_black_effects","outcome":"PASS","seconds":0.0912193,"detail":""},
+{"module":"test_pvp_status_stack_audit","class":"StatusStackAudit","test":"test_small_body_does_not_reject_valid_area_damage","outcome":"PASS","seconds":0.0134362,"detail":""},
+{"module":"test_pvp_status_stack_audit","class":"StatusStackAudit","test":"test_stacked_status_draws_on_native_zombies_grave_and_dave","outcome":"PASS","seconds":0.102834,"detail":""},
+{"module":"test_pvp_status_stack_audit","class":"StatusStackAudit","test":"test_uncharmed_black_headgear_retains_plant_damage_and_sleep","outcome":"PASS","seconds":0.0630707,"detail":""}
+]

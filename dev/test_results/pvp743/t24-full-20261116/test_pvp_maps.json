@@ -1,0 +1,9 @@
+[
+{"module":"test_pvp_maps","class":"MapTests","test":"test_all_spawns_have_ground_and_clearance","outcome":"PASS","seconds":0.56049,"detail":""},
+{"module":"test_pvp_maps","class":"MapTests","test":"test_every_original_map_uses_real_generator","outcome":"PASS","seconds":0.0645432,"detail":""},
+{"module":"test_pvp_maps","class":"MapTests","test":"test_preview_repeated_generation_does_not_mutate_rng_or_original","outcome":"PASS","seconds":0.0094619,"detail":""},
+{"module":"test_pvp_maps","class":"MapTests","test":"test_registry_preserves_unsupported_maps_and_caches_real_validation","outcome":"PASS","seconds":0.0052009,"detail":""},
+{"module":"test_pvp_maps","class":"MapTests","test":"test_serialization_detects_changed_terrain","outcome":"PASS","seconds":0.0096409,"detail":""},
+{"module":"test_pvp_maps","class":"MapTests","test":"test_unknown_map_never_executes_external_script","outcome":"PASS","seconds":8.85e-05,"detail":""},
+{"module":"test_pvp_maps","class":"MapTests","test":"test_wrap_distance_and_tile_lookup","outcome":"PASS","seconds":0.0045825,"detail":""}
+]

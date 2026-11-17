@@ -1,0 +1,7 @@
+[
+{"module":"test_pvp_68006_black_slots","class":"BlackSlots","test":"test_gladiator_native_imp_black_bucket_effect_and_secondhand_color","outcome":"PASS","seconds":0.0238197,"detail":""},
+{"module":"test_pvp_68006_black_slots","class":"BlackSlots","test":"test_magnet_replacement_plain_bucket_does_not_keep_black_effect","outcome":"PASS","seconds":0.0130577,"detail":""},
+{"module":"test_pvp_68006_black_slots","class":"BlackSlots","test":"test_other_native_bodies_keep_identity_and_black_piece_effects","outcome":"PASS","seconds":0.243131,"detail":""},
+{"module":"test_pvp_68006_black_slots","class":"BlackSlots","test":"test_riding_imp_picks_up_then_inherits_black_piece_without_redrop","outcome":"PASS","seconds":0.0306353,"detail":""},
+{"module":"test_pvp_68006_black_slots","class":"BlackSlots","test":"test_secondhand_piece_can_replace_a_different_black_piece","outcome":"PASS","seconds":0.0129682,"detail":""}
+]

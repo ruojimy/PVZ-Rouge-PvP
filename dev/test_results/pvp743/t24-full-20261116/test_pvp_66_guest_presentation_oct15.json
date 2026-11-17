@@ -1,0 +1,7 @@
+[
+{"module":"test_pvp_66_guest_presentation_oct15","class":"CoopTcpSeatIsolation","test":"test_real_app_keys_and_tcp_guest_input_stay_with_each_contacting_seat","outcome":"PASS","seconds":1.36322,"detail":""},
+{"module":"test_pvp_66_guest_presentation_oct15","class":"SecondSeatPresentation","test":"test_both_second_seats_body_and_player_offsets_agree","outcome":"PASS","seconds":0.0002028,"detail":""},
+{"module":"test_pvp_66_guest_presentation_oct15","class":"SecondSeatPresentation","test":"test_first_seat_identity_keeps_existing_interpolation","outcome":"PASS","seconds":3.51e-05,"detail":""},
+{"module":"test_pvp_66_guest_presentation_oct15","class":"SecondSeatPresentation","test":"test_respawn_or_teleport_never_slides_either_body_through_terrain","outcome":"PASS","seconds":6.46e-05,"detail":""},
+{"module":"test_pvp_66_guest_presentation_oct15","class":"SecondSeatPresentation","test":"test_second_seat_wrap_crossing_uses_short_real_body_offsets","outcome":"PASS","seconds":3.48e-05,"detail":""}
+]

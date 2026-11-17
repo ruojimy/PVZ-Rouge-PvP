@@ -1,0 +1,16 @@
+[
+{"module":"test_pvp_69002_balance","class":"Balance","test":"test_all_mobile_cards_keep_charm_and_reciprocal_native_bite_values","outcome":"FAIL","seconds":0.113885,"detail":"AssertionError: 9940 != 9970"},
+{"module":"test_pvp_69002_balance","class":"Balance","test":"test_basketballs_hit_only_enemy_zombie_bodies_in_both_allegiances","outcome":"PASS","seconds":0.0340745,"detail":""},
+{"module":"test_pvp_69002_balance","class":"Balance","test":"test_charmed_newspaper_after_native_roar_deals_forty","outcome":"PASS","seconds":0.411448,"detail":""},
+{"module":"test_pvp_69002_balance","class":"Balance","test":"test_charmed_pea_fire_keeps_zombie_damage_and_one_third_splash","outcome":"PASS","seconds":0.0272665,"detail":""},
+{"module":"test_pvp_69002_balance","class":"Balance","test":"test_charmed_shooters_use_plant_pea_direct_and_splash_values_on_daves","outcome":"PASS","seconds":0.0408854,"detail":""},
+{"module":"test_pvp_69002_balance","class":"Balance","test":"test_charmed_thunder_fume_uses_either_plant_seats_secret_and_stuns_metal_only","outcome":"PASS","seconds":0.0574008,"detail":""},
+{"module":"test_pvp_69002_balance","class":"Balance","test":"test_charmed_vehicles_do_not_crush_friendly_plants","outcome":"PASS","seconds":0.0941828,"detail":""},
+{"module":"test_pvp_69002_balance","class":"Balance","test":"test_electro_direct_only_for_units_and_heroes_from_both_seats","outcome":"PASS","seconds":0.0326956,"detail":""},
+{"module":"test_pvp_69002_balance","class":"Balance","test":"test_focus_and_native_frenzy_scale_melee_before_the_tenfold_conversion","outcome":"PASS","seconds":0.0296364,"detail":""},
+{"module":"test_pvp_69002_balance","class":"Balance","test":"test_fume_spray_is_ten_on_enemy_bodies_and_one_on_dave_both_directions","outcome":"PASS","seconds":0.0292954,"detail":""},
+{"module":"test_pvp_69002_balance","class":"Balance","test":"test_pole_and_self_destruct_use_tenfold_damage_on_charmed_bodies","outcome":"PASS","seconds":0.0273283,"detail":""},
+{"module":"test_pvp_69002_balance","class":"Balance","test":"test_public_second_seat_grenade_keeps_firing_owner_and_credit_after_charm_or_death","outcome":"PASS","seconds":0.0426386,"detail":""},
+{"module":"test_pvp_69002_balance","class":"Balance","test":"test_slime_body_and_two_split_generations_keep_their_own_hp","outcome":"PASS","seconds":0.0133033,"detail":""},
+{"module":"test_pvp_69002_balance","class":"Balance","test":"test_zombie_prices_charge_the_new_amounts_in_duel_and_duo","outcome":"FAIL","seconds":0.0127209,"detail":"AssertionError: 250 != 275 : zombie:报纸僵尸"}
+]

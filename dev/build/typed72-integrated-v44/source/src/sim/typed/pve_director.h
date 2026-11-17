@@ -29,6 +29,7 @@ public:
     // battle.spawn(key,"zombie",x,y,facing) inside _ban_free_spawn with
     // _scripted_spawn_wave=wave; nullopt when the spawn returns None.
     virtual std::optional<std::string> spawn_wave_zombie(const std::string& key,Point,double facing,int64_t wave)=0;
+    virtual std::optional<std::string> spawn_coop_boss(const std::string& key,Point){return std::nullopt;}
     virtual ZombieRef native_zombie(const std::string& id)=0;
     virtual PlantRef native_plant(const std::string& id)=0;
     // battle.drop_coin(amount,x,y,kind)
@@ -64,6 +65,7 @@ public:
     void bind(const PveDirectorCold&);
     bool bound()const{return bound_;}
     bool coop_cycle()const{return cycle_;}
+    bool red_sky()const{return coop_&&!boss_key_.empty();}
     // NativeBattle.native_cost_ratio; the reference runs on a frozen clock (0).
     double pressure=0.;
     void step();
@@ -98,6 +100,12 @@ private:
     std::set<std::string> sleepers_;
     std::map<int64_t,std::set<std::string>> emitted_;
     std::set<int64_t> finished_;std::optional<int64_t> last_finished_;
+    std::string boss_key_,boss_id_;bool boss_spawned_=false;
+    std::vector<ZombieRef> boss_parts_;
+    Point boss_last_;bool boss_rewarded_=false;double boss_reward_time_=0.;
+    void pay_boss_reward();
+    void summon_boss_if_ready();
+    bool boss_alive()const;
 
     double cost(const std::string& key)const;
     double now()const;

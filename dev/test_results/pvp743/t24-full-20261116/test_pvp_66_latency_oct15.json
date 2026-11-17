@@ -1,0 +1,14 @@
+[
+{"module":"test_pvp_66_latency_oct15","class":"LatencyApplicationTests","test":"test_app_polls_rtt_without_room_commands_and_clears_on_close","outcome":"PASS","seconds":0.161224,"detail":""},
+{"module":"test_pvp_66_latency_oct15","class":"LatencySocketTests","test":"test_direct_full_host_round_trip","outcome":"PASS","seconds":0.0269954,"detail":""},
+{"module":"test_pvp_66_latency_oct15","class":"LatencySocketTests","test":"test_relay_round_trip_reaches_authoritative_host_not_relay","outcome":"PASS","seconds":0.14439,"detail":""},
+{"module":"test_pvp_66_latency_oct15","class":"LatencySocketTests","test":"test_spectator_diagnostics_work_without_allowing_game_commands","outcome":"PASS","seconds":0.043595,"detail":""},
+{"module":"test_pvp_66_latency_oct15","class":"LatencySocketTests","test":"test_transport_filters_bad_diagnostics_and_keeps_next_game_sequence","outcome":"PASS","seconds":0.0211356,"detail":""},
+{"module":"test_pvp_66_latency_oct15","class":"LatencyStateTests","test":"test_failed_queue_send_is_waiting_and_retried_at_bounded_cadence","outcome":"PASS","seconds":8.13e-05,"detail":""},
+{"module":"test_pvp_66_latency_oct15","class":"LatencyStateTests","test":"test_host_summary_is_slowest_and_unknown_peers_are_not_hidden","outcome":"PASS","seconds":6.3e-05,"detail":""},
+{"module":"test_pvp_66_latency_oct15","class":"LatencyStateTests","test":"test_no_fake_zero_before_measurement_or_after_stale_disconnect_and_reconnect","outcome":"PASS","seconds":4.95e-05,"detail":""},
+{"module":"test_pvp_66_latency_oct15","class":"LatencyStateTests","test":"test_oversized_malformed_and_flood_probes_do_not_reflect_or_grant_authority","outcome":"PASS","seconds":0.0008611,"detail":""},
+{"module":"test_pvp_66_latency_oct15","class":"LatencyStateTests","test":"test_probe_cadence_one_pending_and_timeout_cannot_be_a_success","outcome":"PASS","seconds":4.26e-05,"detail":""},
+{"module":"test_pvp_66_latency_oct15","class":"LatencyStateTests","test":"test_round_trip_uses_only_local_monotonic_time_and_bounded_nonce","outcome":"PASS","seconds":3.31e-05,"detail":""},
+{"module":"test_pvp_66_latency_oct15","class":"LatencyStateTests","test":"test_unknown_replayed_wrong_peer_and_previous_connection_echoes_do_not_set_rtt","outcome":"PASS","seconds":5.43e-05,"detail":""}
+]

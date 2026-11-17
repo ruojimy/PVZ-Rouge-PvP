@@ -21,6 +21,7 @@ public:
     virtual void sync_public()=0;
     virtual void sync_terrain()=0;
     virtual void spawn_blocked(const std::string& card)=0;
+    virtual std::optional<std::string> spawn_terraria(const std::string&,Point,double){return {};}
 };
 class ColdAdmission {
 public:

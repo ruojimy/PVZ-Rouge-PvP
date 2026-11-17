@@ -114,7 +114,7 @@ if(AI_NN_GZIP)
   target_link_libraries(pvztyped72headless PUBLIC ZLIB::ZLIB)
 endif()
 
-foreach(tool headless_match headless_neural session_trace card_features replay_planner neural_dataset neural_contract fixture_retention_test)
+foreach(tool headless_match headless_neural session_trace card_features replay_planner neural_dataset neural_contract neural_benchmark neural_profile teacher_trace fixture_retention_test)
   set(tool_source src/${tool}.cpp)
   if(tool STREQUAL "headless_neural")
     set(tool_source src/headless_match.cpp)

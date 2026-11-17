@@ -1,0 +1,9 @@
+[
+{"module":"test_pvp_hardening_copy","class":"HardeningCopyTests","test":"test_black_bucket_drop_finishes_zeroed_plant","outcome":"PASS","seconds":0.0456362,"detail":""},
+{"module":"test_pvp_hardening_copy","class":"HardeningCopyTests","test":"test_copy_default_rechecks_deathmatch_and_rejects_illegal_manual_target","outcome":"PASS","seconds":0.0138711,"detail":""},
+{"module":"test_pvp_hardening_copy","class":"HardeningCopyTests","test":"test_copy_selection_has_visible_hint_and_v_excludes_gravebuster","outcome":"PASS","seconds":0.0423869,"detail":""},
+{"module":"test_pvp_hardening_copy","class":"HardeningCopyTests","test":"test_default_copy_preview_deploy_and_original_transform_with_hardening","outcome":"PASS","seconds":0.864086,"detail":""},
+{"module":"test_pvp_hardening_copy","class":"HardeningCopyTests","test":"test_hardening_flat3_for_base6_and_factor_above","outcome":"PASS","seconds":0.0136049,"detail":""},
+{"module":"test_pvp_hardening_copy","class":"HardeningCopyTests","test":"test_hardening_reaches_the_pvp_health_override_in_catalogue_and_field","outcome":"FAIL","seconds":0.0001578,"detail":"AssertionError: 18 != 36"},
+{"module":"test_pvp_hardening_copy","class":"HardeningCopyTests","test":"test_hardening_resolves_every_card_including_null_hp_tools","outcome":"PASS","seconds":0.004294,"detail":""}
+]

@@ -1,0 +1,24 @@
+{
+  "module": "test_pvp_53_features",
+  "exit": 0,
+  "seconds": 6.288,
+  "expected": 13,
+  "results": 13,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": true,
+  "accepted": true,
+  "counts": {
+    "PASS": 13,
+    "FAIL": 0,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [],
+  "unexpected_nonpass": [],
+  "resolved_waivers": []
+}

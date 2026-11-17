@@ -1,0 +1,31 @@
+{
+  "module": "test_pvp_triple_jump",
+  "exit": 1,
+  "seconds": 15.997,
+  "expected": 27,
+  "results": 27,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": false,
+  "accepted": true,
+  "counts": {
+    "PASS": 26,
+    "FAIL": 0,
+    "ERROR": 1,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [
+    {
+      "id": "test_pvp_triple_jump.TripleJumpTests.test_the_raised_cap_is_one_operand_byte",
+      "outcome": "ERROR",
+      "detail_sha256": "00d470ddfbe421d14e414d3f0fec79d23a754eba522d45f3865947de83a06244",
+      "reason": "Python co_code 操作数字节检查；原 Python owner 和同例 C++ 实际跳跃行为补验通过。"
+    }
+  ],
+  "unexpected_nonpass": [],
+  "resolved_waivers": []
+}

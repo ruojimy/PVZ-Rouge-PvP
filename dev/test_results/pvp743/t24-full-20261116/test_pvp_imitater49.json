@@ -1,0 +1,9 @@
+[
+{"module":"test_pvp_imitater49","class":"ImitaterRegressionTests","test":"test_copied_mine_gets_pvp_emergence_and_secret","outcome":"PASS","seconds":0.305405,"detail":""},
+{"module":"test_pvp_imitater49","class":"ImitaterRegressionTests","test":"test_copy_applies_pvp_health_and_hardening_exactly_once","outcome":"PASS","seconds":1.63007,"detail":""},
+{"module":"test_pvp_imitater49","class":"ImitaterRegressionTests","test":"test_default_target_survives_repeated_imitater_deployments","outcome":"PASS","seconds":0.0132314,"detail":""},
+{"module":"test_pvp_imitater49","class":"ImitaterRegressionTests","test":"test_every_added_plant_and_poison_secret_keep_the_selected_card","outcome":"PASS","seconds":0.83502,"detail":""},
+{"module":"test_pvp_imitater49","class":"ImitaterRegressionTests","test":"test_primal_copy_projectile_really_hits_for_thirty","outcome":"PASS","seconds":0.284476,"detail":""},
+{"module":"test_pvp_imitater49","class":"ImitaterRegressionTests","test":"test_target_ban_is_rechecked_at_transformation","outcome":"PASS","seconds":0.154277,"detail":""},
+{"module":"test_pvp_imitater49","class":"ImitaterRegressionTests","test":"test_template_ban_does_not_block_authorized_primal_copy","outcome":"PASS","seconds":0.153847,"detail":""}
+]

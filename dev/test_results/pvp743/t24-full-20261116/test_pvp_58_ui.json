@@ -1,0 +1,6 @@
+[
+{"module":"test_pvp_58_ui","class":"PvP58UI","test":"test_finger_swipe_collects_without_tap","outcome":"PASS","seconds":0.929046,"detail":""},
+{"module":"test_pvp_58_ui","class":"PvP58UI","test":"test_mouse_sweep_collects_without_click","outcome":"PASS","seconds":0.512962,"detail":""},
+{"module":"test_pvp_58_ui","class":"PvP58UI","test":"test_rally_flag_preview_matches_the_submitted_point_when_zoomed","outcome":"PASS","seconds":0.211056,"detail":""},
+{"module":"test_pvp_58_ui","class":"PvP58UI","test":"test_zombie_side_never_sweeps_plant_sun","outcome":"PASS","seconds":0.51617,"detail":""}
+]

@@ -793,6 +793,7 @@ V C_PveUI::m_pve_push_deck(const Args& A) {
     V L_error;
     V L_pending;
     V L_pve;
+    V L_ready;
     V L_revision;
     V L_scope;
     V L_seat;
@@ -811,7 +812,11 @@ V C_PveUI::m_pve_push_deck(const Args& A) {
         if (((py::m_get(L_pve, SV("day")) == rd(L_wanted, SV("day"))) && (py::m_get(L_pve, SV("seed")) == rd(L_wanted, SV("seed"))) && ([&]() -> V { V L_key; { V it2_ = py::iter_list(V::tuple({SV("unlocked"), SV("slots"), SV("start_sun")})); for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) { L_key = it2_.idx(int64_t(i2_)); if ((py::m_get(L_pve, L_key) != rd(L_wanted, L_key))) return V(true); }}return V(false); }()).truthy())) {
             L_decks = py::dict_of(py_or(py::m_get(L_pve, SV("decks")), [&]() -> V { return py_dict({}); }));
             (void)(callm(L_decks, SY("pop"), Args{L_seat, V::none()}));
+            L_ready = py::dict_of(pvz::getattr(pvz::getattr(self_v(), SY("room")), SY("confirmed")));
             L_error = callm(pvz::getattr(self_v(), SY("room")), SY("set_pve"), py::star_args({}, V::none(), {{SY("decks"), L_decks}}, L_wanted));
+            if ((!(L_error).truthy() && (pvz::getattr(pvz::getattr(self_v(), SY("room")), SY("mode")) == pm_teams::COOP))) {
+                (void)(callm(pvz::getattr(pvz::getattr(self_v(), SY("room")), SY("confirmed")), SY("update"), Args{[&]() -> V { V out_ = V::dict(); V L_key; V L_value; { auto it3_ = py::items_vec(L_ready); for (size_t i3_ = 0; i3_ < it3_.size(); ++i3_) { L_key = it3_[i3_].first; L_value = it3_[i3_].second; if (!((L_key != L_seat))) continue; out_.at(L_key) = L_value; }}return out_; }()}));
+            }
             if (!(L_error).truthy()) {
                 pvz::setattr(pvz::getattr(self_v(), SY("room")), SY("_pve_setup"), V::tuple({L_wanted, pvz::getattr(pvz::getattr(self_v(), SY("room")), SY("map_id")), pvz::getattr(pvz::getattr(self_v(), SY("room")), SY("seed"))}));
                 (void)(callm(self_v(), SY("refresh"), Args{}));
@@ -839,7 +844,7 @@ V C_PveUI::m_pve_push_deck(const Args& A) {
     }
     if ((!(L_error).truthy() && (pvz::getattr(self_v(), SY("room"))).truthy() && (pvz::getattr(self_v(), SY("mode")) == SV("host")))) {
         L_wanted = callm(self(), SY("_pve_wanted"), Args{});
-        L_current = [&]() -> V { V out_ = V::dict(); V L_key; { V it3_ = py::iter_list(L_wanted); for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) { L_key = it3_.idx(int64_t(i3_)); out_.at(L_key) = py::m_get(pvz::getattr(pvz::getattr(self_v(), SY("room")), SY("pve")), L_key); }}return out_; }();
+        L_current = [&]() -> V { V out_ = V::dict(); V L_key; { V it4_ = py::iter_list(L_wanted); for (size_t i4_ = 0; i4_ < it4_.len(); ++i4_) { L_key = it4_.idx(int64_t(i4_)); out_.at(L_key) = py::m_get(pvz::getattr(pvz::getattr(self_v(), SY("room")), SY("pve")), L_key); }}return out_; }();
         if ((L_current == L_wanted)) {
             pvz::setattr(pvz::getattr(self_v(), SY("room")), SY("_pve_setup"), V::tuple({L_wanted, pvz::getattr(pvz::getattr(self_v(), SY("room")), SY("map_id")), pvz::getattr(pvz::getattr(self_v(), SY("room")), SY("seed"))}));
         }
@@ -872,6 +877,7 @@ V C_PveUI::m_pve_action(const Args& A) {
     V L_action = A.get(0, SY("action"), nullptr, "pve_action");
     V L_DEFAULT_DUO_MAP;
     V L_SKIP_PRICE;
+    V L_amount;
     V L_bundled_id;
     V L_campaign;
     V L_coop;
@@ -996,7 +1002,7 @@ V C_PveUI::m_pve_action(const Args& A) {
     if (!(callm(L_kind, SY("startswith"), Args{SV("pve_")})).truthy()) {
         return V(false);
     }
-    if (py::in(L_kind, V::tuple({SV("pve_open"), SV("pve_toggle"), SV("pve_reward"), SV("pve_item"), SV("pve_buy"), SV("pve_reset"), SV("pve_start"), SV("pve_limit"), SV("pve_skip")}))) {
+    if (py::in(L_kind, V::tuple({SV("pve_open"), SV("pve_toggle"), SV("pve_reward"), SV("pve_item"), SV("pve_buy"), SV("pve_reset"), SV("pve_start"), SV("pve_limit"), SV("pve_skip"), SV("pve_gift"), SV("pve_gift_send")}))) {
         L_phase = ((pvz::getattr(self_v(), SY("room"))).truthy() ? V(pvz::getattr(pvz::getattr(self_v(), SY("room")), SY("phase"))) : V(py::m_get(py_or(pvz::getattr(self_v(), SY("view")), [&]() -> V { return py_dict({}); }), SV("phase"))));
         if (((L_phase).truthy() && !py::in(L_phase, V::tuple({SV("config"), SV("result")})))) {
             (void)(callm(self_v(), SY("message"), Args{SV("请先结束当前挑战，再调整选卡、购买或重开")}));
@@ -1004,6 +1010,44 @@ V C_PveUI::m_pve_action(const Args& A) {
         }
     }
     L_campaign = pr_campaign();
+    if ((L_kind == SV("pve_gift_cancel"))) {
+        (void)(callm(pvz::getattr(self_v(), SY("state")), SY("update"), Args({}, {{SY("pve_gift_open"), V(false)}, {SY("focus"), V::none()}})));
+        return V(true);
+    }
+    if ((L_kind == SV("pve_gift_amount"))) {
+        pvz::setitem(pvz::getattr(self_v(), SY("state")), SV("pve_gift_amount"), py::str(rd(L_action, V(1.0))));
+        return V(true);
+    }
+    if (py::in(L_kind, V::tuple({SV("pve_gift"), SV("pve_gift_send")}))) {
+        if (((py::m_get(py_or(pvz::getattr(self_v(), SY("view")), [&]() -> V { return py_dict({}); }), SV("mode")) != pm_teams::COOP) || !(callm(self(), SY("pve_room_seat"), Args{})).truthy())) {
+            (void)(callm(self_v(), SY("message"), Args{SV("只有合作玩家可以赠送金币")}));
+            return V(true);
+        }
+        if ((L_kind == SV("pve_gift"))) {
+            (void)(callm(pvz::getattr(self_v(), SY("state")), SY("update"), Args({}, {{SY("pve_gift_open"), V(true)}, {SY("pve_gift_amount"), py::str(py::min_it(V::list({V(100.0), pvz::getattr(L_campaign, SY("coins"))}), py::Key(), V()))}, {SY("focus"), SV("pve_gift_amount")}})));
+            return V(true);
+        }
+        L_text = callm(py::str(py::m_get(pvz::getattr(self_v(), SY("state")), SV("pve_gift_amount"), SV(""))), SY("strip"), Args{});
+        try {
+            L_amount = (((callm(L_text, SY("isdecimal"), Args{})).truthy() && (py::len(L_text) <= V(10.0))) ? V(py::int_(L_text)) : V(V(0.0)));
+        } catch (PyError& exc_) {
+            if (exc_.matches("ValueError")) {
+                L_amount = V(0.0);
+            }
+            else throw;
+        }
+        if (((L_amount <= V(0.0)) || (L_amount > V(1000000000.0)))) {
+            (void)(callm(self_v(), SY("message"), Args{SV("请输入正整数金币数量")}));
+            return V(true);
+        }
+        L_seat = callm(self(), SY("pve_room_seat"), Args{});
+        L_error = callm(self_v(), SY("command"), Args{py_dict({{SV("type"), SV("coop_gift")}, {SV("to"), ((L_seat == SV("plant")) ? V(SV("plant2")) : V(SV("plant")))}, {SV("amount"), L_amount}}), L_seat});
+        (void)(callm(self_v(), SY("message"), Args{py_or(L_error, [&]() -> V { return ((pvz::getattr(self_v(), SY("mode")) == SV("host")) ? V(py::percent(SV("已赠送队友 $%d 金币"), L_amount)) : V(SV("赠送请求已发送"))); })}));
+        if (!(L_error).truthy()) {
+            (void)(callm(pvz::getattr(self_v(), SY("state")), SY("update"), Args({}, {{SY("pve_gift_open"), V(false)}, {SY("focus"), V::none()}})));
+        }
+        return V(true);
+    }
     if ((L_kind == SV("pve_limit"))) {
         if ((pvz::getattr(self_v(), SY("mode")) == SV("guest"))) {
             (void)(callm(self_v(), SY("message"), Args{SV("在场僵尸上限由房主设置")}));
@@ -1034,13 +1078,20 @@ V C_PveUI::m_pve_action(const Args& A) {
         return V(true);
     }
     if ((L_kind == SV("pve_open"))) {
-        if (((pvz::getattr(self_v(), SY("mode")) == SV("guest")) && (py::m_get(py_or(pvz::getattr(self_v(), SY("view")), [&]() -> V { return py_dict({}); }), SV("mode")) == pm_teams::COOP) && !(callm(self(), SY("pve_room_day"), Args{})).truthy())) {
+        if (((pvz::getattr(self_v(), SY("mode")) == SV("guest")) && (py::m_get(py_or(pvz::getattr(self_v(), SY("view")), [&]() -> V { return py_dict({}); }), SV("mode")) == pm_teams::COOP) && !(callm(self(), SY("pve_room_day"), Args{})).truthy() && !(pvz::getattr(pvz::getattr(self_v(), SY("campaign")), SY("rewards"))).truthy())) {
             (void)(callm(self_v(), SY("message"), Args{SV("等待房主设置本次挑战后再选卡")}));
             return V(true);
         }
         (void)(callm(pvz::getattr(self_v(), SY("state")), SY("pop"), Args{SV("pve_pending_ready"), V::none()}));
         L_in_room = py_or(py::bool_(pvz::getattr(self_v(), SY("room"))), [&]() -> V { return V((pvz::getattr(self_v(), SY("mode")) == SV("guest"))); });
         L_coop = py_or(py::bool_(py_and(pvz::getattr(self_v(), SY("room")), [&]() -> V { return V((pvz::getattr(pvz::getattr(self_v(), SY("room")), SY("mode")) == pm_teams::COOP)); })), [&]() -> V { return V((py::m_get(py_or(pvz::getattr(self_v(), SY("view")), [&]() -> V { return py_dict({}); }), SV("mode")) == pm_teams::COOP)); });
+        if (((L_coop).truthy() && (L_phase == SV("config")) && (callm(self(), SY("pve_room_seat"), Args{})).truthy())) {
+            L_error = callm(self_v(), SY("command"), Args{py_dict({{SV("type"), SV("pve_unready")}}), callm(self(), SY("pve_room_seat"), Args{})});
+            if ((L_error).truthy()) {
+                (void)(callm(self_v(), SY("message"), Args{L_error}));
+                return V(true);
+            }
+        }
         (void)(callm(pvz::getattr(self_v(), SY("state")), SY("update"), Args({}, {{SY("screen"), SV("pve")}, {SY("pve_page"), V(0.0)}, {SY("pve_reset"), V(false)}, {SY("focus"), V::none()}, {SY("pve_return"), ((L_in_room).truthy() ? V(SV("room")) : V(((a_native_entry).truthy() ? V(SV("exit")) : V(SV("home")))))}, {SY("pve_coop"), L_coop}})));
     } else if ((L_kind == SV("pve_back"))) {
         L_target = py::m_get(pvz::getattr(self_v(), SY("state")), SV("pve_return"), SV("home"));
@@ -1092,7 +1143,7 @@ V C_PveUI::m_pve_action(const Args& A) {
             (void)(callm(self_v(), SY("message"), Args{py::percent(SV("已花费 $%d 跳过第 %d 天，请选择奖励卡"), V::tuple({L_SKIP_PRICE, L_day}))}));
         }
     } else if ((L_kind == SV("pve_shop"))) {
-        (void)(callm(pvz::getattr(self_v(), SY("state")), SY("update"), Args({}, {{SY("screen"), SV("pve_shop")}, {SY("focus"), V::none()}, {SY("pve_pick"), V::none()}, {SY("pve_detail"), V::none()}, {SY("pve_detail_scroll"), V(0.0)}, {SY("message"), SV("")}})));
+        (void)(callm(pvz::getattr(self_v(), SY("state")), SY("update"), Args({}, {{SY("screen"), SV("pve_shop")}, {SY("focus"), V::none()}, {SY("pve_pick"), V::none()}, {SY("pve_detail"), V::none()}, {SY("pve_detail_scroll"), V(0.0)}, {SY("pve_gift_open"), V(false)}, {SY("message"), SV("")}})));
     } else if ((L_kind == SV("pve_shop_back"))) {
         (void)(callm(pvz::getattr(self_v(), SY("state")), SY("update"), Args({}, {{SY("screen"), SV("pve")}, {SY("focus"), V::none()}, {SY("pve_pick"), V::none()}, {SY("message"), SV("")}})));
     } else if ((L_kind == SV("pve_item"))) {
@@ -1676,9 +1727,11 @@ V C_PveUI::m__draw_day_board(const Args& A) {
 
 V C_PveUI::m_draw_pve_shop(const Args& A) {
     V L_r = A.get(0, SY("r"), nullptr, "draw_pve_shop");
+    V L_amount;
     V L_anchor;
     V L_back;
     V L_bag;
+    V L_box;
     V L_broke;
     V L_campaign;
     V L_color;
@@ -1687,6 +1740,7 @@ V C_PveUI::m_draw_pve_shop(const Args& A) {
     V L_focus;
     V L_fs;
     V L_guest;
+    V L_height;
     V L_i;
     V L_item;
     V L_lift;
@@ -1701,6 +1755,7 @@ V C_PveUI::m_draw_pve_shop(const Args& A) {
     V L_state;
     V L_top;
     V L_touch;
+    V L_w;
     V L_width;
     V L_x;
     V L_y;
@@ -1790,6 +1845,30 @@ V C_PveUI::m_draw_pve_shop(const Args& A) {
     if ((L_guest).truthy()) {
         (void)(callm(pm_pve_ui::module_ns(), SY("label"), Args{L_r, SV("房主的商店：只有房主可以购买"), callm(L_st, SY("pos"), Args{V(8.0), V(0.65)}), pm_pve_ui::WHITE, L_fs, pm_pve_ui::BLACK}));
     }
+    if (((py::m_get(py_or(pvz::getattr(self_v(), SY("view")), [&]() -> V { return py_dict({}); }), SV("mode")) == pm_teams::COOP) && (callm(self(), SY("pve_room_seat"), Args{})).truthy())) {
+        (void)(callm(L_r, SY("button"), Args({SV("赠送金币"), callm(L_st, SY("rect"), Args{V(2.6), (pm_pve_ui::STAGE_H - V(0.9)), V(3.1), V(0.8)}), V::tuple({SV("pve_gift")})}, {{SY("size"), L_fs}})));
+        if ((py::m_get(L_state, SV("pve_gift_open"))).truthy()) {
+            { V ut8_ = py::as_seq(callm(pvz::getattr(L_r, SY("screen")), SY("get_size"), Args{})); L_width = ut8_.idx(0); L_height = ut8_.idx(1); } 
+            L_w = py::min_it(V::list({V(480.0), (L_width - V(32.0))}), py::Key(), V());
+            L_x = floordiv((L_width - L_w), V(2.0));
+            L_y = py::max_it(V::list({V(12.0), floordiv((L_height - V(260.0)), V(2.0))}), py::Key(), V());
+            (void)(callm(L_r, SY("box"), Args({V::tuple({L_x, L_y, L_w, V(260.0)}), V::tuple({V(37.0), V(32.0), V(26.0)})}, {{SY("border"), V::tuple({V(218.0), V(188.0), V(116.0)})}})));
+            pvz::setattr(L_r, SY("controls"), V::list({}));
+            (void)(callm(L_r, SY("text"), Args{SV("赠送金币给合作队友"), V::tuple({(L_x + V(20.0)), (L_y + V(16.0))}), pm_pve_ui::WHITE, V(21.0)}));
+            (void)(callm(L_r, SY("text"), Args{py::percent(SV("当前金币：$%d"), pvz::getattr(L_campaign, SY("coins"))), V::tuple({(L_x + V(20.0)), (L_y + V(52.0))}), pm_pve_ui::GOLD, V(18.0)}));
+            L_box = callm(pvz::getattr(L_r, SY("pg")), SY("Rect"), Args{(L_x + V(20.0)), (L_y + V(84.0)), (L_w - V(40.0)), V(42.0)});
+            (void)(callm(L_r, SY("box"), Args({py::tuple_it(L_box), V::tuple({V(25.0), V(18.0), V(12.0)})}, {{SY("border"), ((py::m_get(L_state, SV("focus")) == SV("pve_gift_amount")) ? V(pm_pve_ui::GOLD) : V(pm_pve_ui::INK))}})));
+            (void)(callm(L_r, SY("text"), Args{py::str(py::m_get(L_state, SV("pve_gift_amount"), SV(""))), V::tuple({(L_x + V(30.0)), (L_y + V(92.0))}), pm_pve_ui::WHITE, V(20.0)}));
+            (void)(py::m_append(pvz::getattr(L_r, SY("controls")), V::tuple({L_box, V::tuple({SV("focus"), SV("pve_gift_amount")})})));
+            { V it9_ = py::iter_list(V::tuple({V(100.0), V(500.0), V(1000.0)})); const double st9_ = 0.0;
+            for (size_t i9_ = 0; i9_ < it9_.len(); ++i9_) {
+                L_i = V(st9_ + double(i9_)); L_amount = it9_.idx(int64_t(i9_)); 
+                (void)(callm(L_r, SY("button"), Args({py::percent(SV("$%d"), L_amount), V::tuple({((L_x + V(20.0)) + floordiv((L_i * (L_w - V(40.0))), V(3.0))), (L_y + V(140.0)), floordiv((L_w - V(52.0)), V(3.0)), V(34.0)}), V::tuple({SV("pve_gift_amount"), L_amount})}, {{SY("size"), V(17.0)}})));
+            }}
+            (void)(callm(L_r, SY("button"), Args({SV("取消"), V::tuple({(L_x + V(20.0)), (L_y + V(198.0)), floordiv((L_w - V(52.0)), V(2.0)), V(42.0)}), V::tuple({SV("pve_gift_cancel")})}, {{SY("size"), V(18.0)}})));
+            (void)(callm(L_r, SY("button"), Args({SV("确认赠送"), V::tuple({((L_x + V(32.0)) + floordiv((L_w - V(52.0)), V(2.0))), (L_y + V(198.0)), floordiv((L_w - V(52.0)), V(2.0)), V(42.0)}), V::tuple({SV("pve_gift_send")})}, {{SY("size"), V(18.0)}})));
+        }
+    }
     return V::none();
 }
 
@@ -1800,6 +1879,7 @@ V C_PveUI::m_draw_pve_result(const Args& A) {
     V L_bottom;
     V L_day;
     V L_detail;
+    V L_diamonds;
     V L_fs;
     V L_half;
     V L_host;
@@ -1828,13 +1908,17 @@ V C_PveUI::m_draw_pve_result(const Args& A) {
     (void)(callm(pm_pve_ui::module_ns(), SY("label"), Args{L_r, ((L_won).truthy() ? V(SV("全部僵尸已消灭")) : V(SV("所有戴夫阵亡；拾取的金币仍然保留"))), callm(L_st, SY("pos"), Args{V(1.6), V(2.5)}), pm_pve_ui::WHITE, L_fs, pm_pve_ui::BLACK, py::int_((V(7.6) * pvz::getattr(L_st, SY("u"))))}));
     (void)(callm(pm_pve_ui::module_ns(), SY("native_image"), Args{L_r, SV("钱袋"), callm(L_st, SY("rect"), Args{V(1.6), V(3.3), V(2.0), V(0.5)})}));
     L_income = py_or(py::m_get(pvz::getattr(self_v(), SY("state")), SV("pve_income")), [&]() -> V { return py_dict({}); });
+    L_diamonds = py::max_it(V::list({V(0.0), py::int_(py::m_get(L_result, SV("diamond_coins"), V(0.0)))}), py::Key(), V());
     if (((py::m_get(L_income, SV("day")) == L_day) && (py::m_get(L_income, SV("winner")) == py::m_get(L_result, SV("winner"))))) {
         L_summary = py::percent(SV("入账 $%d"), rd(L_income, SV("total")));
         L_detail = py::percent(SV("拾取 %d + 通关奖励 %d（获取已折半）"), V::tuple({rd(L_income, SV("coins")), rd(L_income, SV("bonus"))}));
+        if ((L_diamonds).truthy()) {
+            L_detail = py::percent(SV("普通拾取 %d + 钻石 %d + 通关奖励 %d"), V::tuple({(rd(L_income, SV("coins")) - L_diamonds), L_diamonds, rd(L_income, SV("bonus"))}));
+        }
         L_half = py::m_get(L_income, SV("coin_half"), V(0.0));
     } else {
-        L_summary = (SV("本局拾取 $") + callm(pm_pve_ui::module_ns(), SY("half_coin_text"), Args{py::m_get(L_result, SV("coins"), V(0.0))}));
-        L_detail = SV("金币获取已折半，尾数随结算累计");
+        L_summary = (SV("本局拾取 $") + callm(pm_pve_ui::module_ns(), SY("half_coin_text"), Args{(py::max_it(V::list({V(0.0), (py::m_get(L_result, SV("coins"), V(0.0)) - L_diamonds)}), py::Key(), V()) + (L_diamonds * V(2.0)))}));
+        L_detail = ((L_diamonds).truthy() ? V(SV("普通金币折半结算；钻石全额入账")) : V(SV("金币获取已折半，尾数随结算累计")));
         L_half = (py::int_(py_or(py::m_get(L_result, SV("coins"), V(0.0)), [&]() -> V { return V(0.0); })) % V(2.0));
     }
     (void)(callm(pm_pve_ui::module_ns(), SY("label"), Args{L_r, L_summary, callm(L_st, SY("pos"), Args{V(3.75), V(3.33)}), pm_pve_ui::WHITE, py::max_it(V::list({V(11.0), (L_fs - V(2.0))}), py::Key(), V()), pm_pve_ui::BLACK, py::int_((V(5.2) * pvz::getattr(L_st, SY("u"))))}));
@@ -1866,7 +1950,7 @@ V C_PveUI::m_draw_pve_result(const Args& A) {
         }
         (void)(callm(L_r, SY("button"), Args({SV("选卡 · 商店"), callm(L_st, SY("rect"), Args{V(9.6), L_bottom, V(3.2), V(1.0)}), V::tuple({SV("pve_open")})}, {{SY("size"), L_fs}})));
     } else {
-        (void)(callm(pm_pve_ui::module_ns(), SY("label"), Args{L_r, SV("等待房主开始下一天……"), callm(L_st, SY("pos"), Args{V(9.6), (L_bottom + V(0.2))}), pm_pve_ui::WHITE, L_fs, pm_pve_ui::BLACK}));
+        (void)(callm(L_r, SY("button"), Args({((pvz::getattr(pvz::getattr(self_v(), SY("campaign")), SY("rewards"))).truthy() ? V(SV("领取新卡")) : V(SV("选卡 · 商店"))), callm(L_st, SY("rect"), Args{V(9.6), L_bottom, V(3.2), V(1.0)}), V::tuple({SV("pve_open")})}, {{SY("size"), L_fs}})));
     }
     (void)(callm(pm_pve_ui::module_ns(), SY("plaque"), Args{L_r, L_st, SV("返回菜单"), SV("离开"), V(13.25), L_bottom, V::tuple({SV("leave")}), L_pointer, L_fs}));
     L_message = py::m_get(pvz::getattr(self_v(), SY("state")), SV("message"), SV(""));

@@ -25,6 +25,7 @@ struct ChiliProbe : DoomProbe,ChiliServices,ChiliDispatch {
         return world.proxy(parse_seat(j.at("hero").get<std::string>())).identity;
     }
     ChiliKey key(const J& j){if(j.is_null())return {};if(j.is_object())return ChiliKey::object(record(j));if(j.is_string())return ChiliKey::text(j.get<std::string>());return ChiliKey::number(j.is_boolean()?(j.get<bool>()?1.:0.):j.get<double>());}
+    virtual J unknown_chili_record(RecordId)const{throw std::logic_error("unknown chili record identity");}
     J key_json(const ChiliKey& k)const {
         if(const auto* n=std::get_if<double>(&k.value))return *n;if(const auto* s=std::get_if<std::string>(&k.value))return *s;if(std::holds_alternative<std::monostate>(k.value))return nullptr;
         const auto id=std::get<RecordId>(k.value);
@@ -32,7 +33,7 @@ struct ChiliProbe : DoomProbe,ChiliServices,ChiliDispatch {
         for(size_t i=0;i<births.size();++i)if(births[i]->identity==id)return {{"entity",i}};
         size_t i=0;for(auto handle:battle.plants.order()){if(battle.plants.at(handle)->identity==id)return {{"plant",i}};++i;}
         for(size_t seat=0;seat<world.proxies.size();++seat)if(world.proxies[seat]&&world.proxies[seat]->identity==id)return {{"hero",seat_name(Seat(seat))}};
-        throw std::logic_error("unknown chili record identity");
+        return unknown_chili_record(id);
     }
     void read_hits(const J& j,const char* n,Field<ChiliHits>& f){if(!j.contains(n))return;if(j[n].is_null()){f.set_null();return;}auto v=std::make_shared<std::vector<ChiliKey>>();for(const auto& k:j[n])v->push_back(key(k));f.set(v);}
     J hits_json(const ChiliHits& h)const{if(!h)return nullptr;J a=J::array();for(const auto& k:*h)a.push_back(key_json(k));return a;}

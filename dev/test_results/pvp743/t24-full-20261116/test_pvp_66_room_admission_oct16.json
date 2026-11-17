@@ -1,0 +1,16 @@
+[
+{"module":"test_pvp_66_room_admission_oct16","class":"AdmissionAndAI","test":"test_ai_fill_in_live_draft_is_rejected_without_roster_changes","outcome":"PASS","seconds":0.141851,"detail":""},
+{"module":"test_pvp_66_room_admission_oct16","class":"AdmissionAndAI","test":"test_direct_four_players_join_without_spectating_and_fifth_is_rejected","outcome":"PASS","seconds":0.691489,"detail":""},
+{"module":"test_pvp_66_room_admission_oct16","class":"AdmissionAndAI","test":"test_explicit_coop_ai_loads_current_brain_and_acts_for_its_own_seat","outcome":"PASS","seconds":0.875936,"detail":""},
+{"module":"test_pvp_66_room_admission_oct16","class":"AdmissionAndAI","test":"test_host_ai_invite_targets_empty_seat_and_never_autofills_or_replaces_human","outcome":"PASS","seconds":0.464143,"detail":""},
+{"module":"test_pvp_66_room_admission_oct16","class":"AdmissionAndAI","test":"test_human_duo_room_ai_seats_load_and_send_only_their_actual_seat","outcome":"PASS","seconds":1.03136,"detail":""},
+{"module":"test_pvp_66_room_admission_oct16","class":"AdmissionAndAI","test":"test_legacy_relay_automatically_uses_spare_lanes_for_third_and_fourth_players","outcome":"PASS","seconds":0.884319,"detail":""},
+{"module":"test_pvp_66_room_admission_oct16","class":"AdmissionAndAI","test":"test_legacy_relay_full_listing_join_button_still_attempts_direct_join","outcome":"PASS","seconds":0.0148581,"detail":""},
+{"module":"test_pvp_66_room_admission_oct16","class":"AdmissionAndAI","test":"test_pre_oct16_client_handshake_joins_four_seats_through_legacy_fallback","outcome":"PASS","seconds":0.848727,"detail":""},
+{"module":"test_pvp_66_room_admission_oct16","class":"AdmissionAndAI","test":"test_relay_four_players_join_without_spectating_and_fifth_is_rejected","outcome":"PASS","seconds":0.871265,"detail":""},
+{"module":"test_pvp_66_room_admission_oct16","class":"AdmissionAndAI","test":"test_relay_observing_host_admits_four_remote_players","outcome":"PASS","seconds":1.11172,"detail":""},
+{"module":"test_pvp_66_room_admission_oct16","class":"AdmissionAndAI","test":"test_rendered_coop_ai_control_fills_and_kicks_only_from_host_preparation","outcome":"PASS","seconds":0.161326,"detail":""},
+{"module":"test_pvp_66_room_admission_oct16","class":"DraftVotes","test":"test_duel_restart_still_requires_both","outcome":"PASS","seconds":0.0062488,"detail":""},
+{"module":"test_pvp_66_room_admission_oct16","class":"DraftVotes","test":"test_duo_two_votes_continue_and_third_resets_all_four_seats","outcome":"PASS","seconds":0.0175393,"detail":""},
+{"module":"test_pvp_66_room_admission_oct16","class":"DraftVotes","test":"test_duo_withdrawal_and_stale_revision_cannot_double_vote","outcome":"PASS","seconds":0.0112399,"detail":""}
+]

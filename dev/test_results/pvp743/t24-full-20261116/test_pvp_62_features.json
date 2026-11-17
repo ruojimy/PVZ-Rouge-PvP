@@ -1,0 +1,15 @@
+[
+{"module":"test_pvp_62_features","class":"BattleTests","test":"test_dense_zombie_peas_land_on_the_shell","outcome":"PASS","seconds":0.0194094,"detail":""},
+{"module":"test_pvp_62_features","class":"BattleTests","test":"test_dense_zombies_bite_the_shell_first","outcome":"FAIL","seconds":0.0120047,"detail":"AssertionError: 2 != 1"},
+{"module":"test_pvp_62_features","class":"BattleTests","test":"test_first_sky_sun_falls_at_half_the_interval","outcome":"PASS","seconds":0.451106,"detail":""},
+{"module":"test_pvp_62_features","class":"BattleTests","test":"test_no_dense_secret_leaves_native_pea_functions_alone","outcome":"PASS","seconds":0.0121911,"detail":""},
+{"module":"test_pvp_62_features","class":"BattleTests","test":"test_quiet_sunflower_produces_faster","outcome":"PASS","seconds":13.5472,"detail":""},
+{"module":"test_pvp_62_features","class":"RuleTests","test":"test_bloom_lock_countdown_shows_over_dave","outcome":"PASS","seconds":8.87e-05,"detail":""},
+{"module":"test_pvp_62_features","class":"RuleTests","test":"test_pole_vaulter_costs_60_brains","outcome":"PASS","seconds":2.3e-05,"detail":""},
+{"module":"test_pvp_62_features","class":"RuleTests","test":"test_quiet_producers_ramp_to_fifty_percent","outcome":"PASS","seconds":2.91e-05,"detail":""},
+{"module":"test_pvp_62_features","class":"RuleTests","test":"test_ranked_reach_is_an_ellipse_for_every_card","outcome":"PASS","seconds":4.58e-05,"detail":""},
+{"module":"test_pvp_62_features","class":"RuleTests","test":"test_sky_interval_follows_map_size","outcome":"PASS","seconds":2.15e-05,"detail":""},
+{"module":"test_pvp_62_features","class":"SaveAppTests","test":"test_saves_are_locked_inside_a_room","outcome":"PASS","seconds":0.0885354,"detail":""},
+{"module":"test_pvp_62_features","class":"SaveAppTests","test":"test_switching_saves_swaps_name_record_and_map_library","outcome":"PASS","seconds":0.0493785,"detail":""},
+{"module":"test_pvp_62_features","class":"SaveTests","test":"test_saves_keep_their_own_name_record_and_maps","outcome":"PASS","seconds":0.0076857,"detail":""}
+]

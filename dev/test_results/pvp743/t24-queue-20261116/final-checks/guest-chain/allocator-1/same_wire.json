@@ -1,0 +1,1218 @@
+{
+  "allocator": 1,
+  "allocator_after": {
+    "central_blocks": 0,
+    "central_reused_blocks": 12298,
+    "cross_thread_frees": 0,
+    "legacy": false,
+    "slab_bytes": 101059296,
+    "slab_count": 1546,
+    "thread_cache_flushes": 38
+  },
+  "allocator_before": {
+    "central_blocks": 0,
+    "central_reused_blocks": 12298,
+    "cross_thread_frees": 0,
+    "legacy": false,
+    "slab_bytes": 101059296,
+    "slab_count": 1546,
+    "thread_cache_flushes": 38
+  },
+  "completed_messages": 64,
+  "decoder_retained_bytes": 0,
+  "expected_view_sha256": "2b8c4a0074de94d41e5bf6529d09fad7f1597f08c9275005474996b3bcbc527b",
+  "final_snapshot_equal": true,
+  "final_view_sha256": "2b8c4a0074de94d41e5bf6529d09fad7f1597f08c9275005474996b3bcbc527b",
+  "last_wire_sequence": 72.0,
+  "mode": "same_wire",
+  "passed": true,
+  "private_bytes_after": 517496832,
+  "private_bytes_before": 575950848,
+  "private_growth_cap_bytes": 268435456,
+  "production_thread_placement": false,
+  "queue_window": 1,
+  "requested_final_batch_peak_bytes": 17093,
+  "requested_final_live_bytes": 17093,
+  "requested_held_view_bytes": 8015269,
+  "requested_messages": 64,
+  "samples": [
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 0,
+      "phase": "baseline",
+      "private_bytes": 575950848,
+      "requested_batch_peak_bytes": 0,
+      "requested_live_bytes": 0,
+      "wall_seconds": 3e-07
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 1,
+      "phase": "message",
+      "private_bytes": 575950848,
+      "requested_batch_peak_bytes": 10511091,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.0072233
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 2,
+      "phase": "message",
+      "private_bytes": 575950848,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.0139183
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 3,
+      "phase": "message",
+      "private_bytes": 575950848,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.0220698
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 4,
+      "phase": "message",
+      "private_bytes": 575950848,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.0292821
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 5,
+      "phase": "message",
+      "private_bytes": 575950848,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.0364609
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 6,
+      "phase": "message",
+      "private_bytes": 575950848,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.042831
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 7,
+      "phase": "message",
+      "private_bytes": 575950848,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.0494681
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 8,
+      "phase": "message",
+      "private_bytes": 575950848,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.0556578
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 9,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.0634299
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 10,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.0702114
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 11,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.077528
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 12,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.084049
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 13,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.0911858
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 14,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.098553
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 15,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.1057378
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 16,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.112506
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 17,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.1196082
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 18,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.1270022
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 19,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.1337588
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 20,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.1407011
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 21,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.1476925
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 22,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.1543231
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 23,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.1610756
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 24,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.1676524
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 25,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.1760084
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 26,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.1825195
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 27,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.1891583
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 28,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.1953328
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 29,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.2022323
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 30,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.2090107
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 31,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.2158781
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 32,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.2223791
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 33,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.2293576
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 34,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.23661
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 35,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.2450398
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 36,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.2525256
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 37,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.2589926
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 38,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.2655553
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 39,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.2721418
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 40,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.2783935
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 41,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.2852103
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 42,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.2914491
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 43,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.2983746
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 44,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.3047619
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 45,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.3113972
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 46,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.3178144
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 47,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.3242926
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 48,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.3312081
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 49,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.3380787
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 50,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.3447283
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 51,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.3512149
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 52,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.3577875
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 53,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.3648826
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 54,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.3711506
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 55,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.3782104
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 56,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.3848358
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 57,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.3920842
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 58,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.3987335
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 59,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.4057977
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 60,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.4127801
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 61,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.4205375
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 62,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.4284379
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 63,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.4356513
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 64,
+      "phase": "message",
+      "private_bytes": 516780032,
+      "requested_batch_peak_bytes": 18526360,
+      "requested_live_bytes": 8015269,
+      "wall_seconds": 0.4430241
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 64,
+      "phase": "after_room_close",
+      "private_bytes": 517496832,
+      "requested_batch_peak_bytes": 8030250,
+      "requested_live_bytes": 17093,
+      "wall_seconds": 0.4594225
+    },
+    {
+      "allocator": {
+        "central_blocks": 0,
+        "central_reused_blocks": 12298,
+        "cross_thread_frees": 0,
+        "legacy": false,
+        "slab_bytes": 101059296,
+        "slab_count": 1546,
+        "thread_cache_flushes": 38
+      },
+      "completed": 64,
+      "phase": "after_receiver_exit",
+      "private_bytes": 517496832,
+      "requested_batch_peak_bytes": 21053,
+      "requested_live_bytes": 17093,
+      "wall_seconds": 0.4594379
+    }
+  ],
+  "scope": "Real Room snapshot -> pack_snapshot -> encode_frame -> queued recv -> ClientTransport._read -> FrameDecoder -> _data/_emit -> Application.poll_network -> unpack_snapshot -> merge_view. cross_wire preserves the real receiver/UI thread split; same_wire runs the identical path on the UI thread as a control. No sockets, rendering, user saves, simulation progression during repetitions, or unbounded queue.",
+  "slab_bytes_added": 0,
+  "snapshot_raw_bytes": 340428,
+  "snapshot_sha256": "d9d17611532cfd7e077ecf1f790d6f8a086f0f1de621f5811c9d8aea269b4a6d",
+  "stopped_at_memory_cap": false,
+  "transport_statistics": {
+    "available": true,
+    "coalesced_outgoing_snapshots": 0,
+    "coalesced_snapshots": 0,
+    "command_bytes_limit": 4194304,
+    "command_bytes_peak": 176,
+    "command_item_limit": 256,
+    "command_items": 0,
+    "command_items_peak": 1,
+    "control_item_limit_per_queue": 256,
+    "control_items_peak": 0,
+    "control_overflows": 0,
+    "decoder_retained_peak": 0,
+    "deferred_output_commands": 0,
+    "event_bytes": 0,
+    "event_bytes_limit": 8388608,
+    "event_bytes_peak": 38130,
+    "event_item_limit": 4096,
+    "event_items": 0,
+    "event_items_peak": 1,
+    "max_frame_bytes": 1048576,
+    "peer_command_bytes": {},
+    "queued_command_bytes": 0,
+    "receive_block_limit": 65536,
+    "receive_block_peak": 38107,
+    "received_bytes": 2252731,
+    "scope": "This process application transport; excludes public relay process RSS/buffers",
+    "sent_bytes": 0,
+    "socket_output_limit_per_connection": 4194304,
+    "socket_output_peak": 0
+  },
+  "units": 102,
+  "warm_messages": 8,
+  "wire_frame_bytes": 31192
+}

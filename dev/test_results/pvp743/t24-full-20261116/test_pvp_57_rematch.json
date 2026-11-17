@@ -1,0 +1,6 @@
+[
+{"module":"test_pvp_57_rematch","class":"SameDeckRematchTests","test":"test_changed_roster_or_illegal_deck_rejects_same_deck_rematch","outcome":"PASS","seconds":1.23211,"detail":""},
+{"module":"test_pvp_57_rematch","class":"SameDeckRematchTests","test":"test_conflicting_votes_do_not_skip_consent_or_reset_result","outcome":"PASS","seconds":0.816088,"detail":""},
+{"module":"test_pvp_57_rematch","class":"SameDeckRematchTests","test":"test_public_button_and_prepare_page_render_on_compact_touch","outcome":"PASS","seconds":1.04074,"detail":""},
+{"module":"test_pvp_57_rematch","class":"SameDeckRematchTests","test":"test_vote_then_two_explicit_ready_create_new_match_with_reset_battle","outcome":"PASS","seconds":0.854479,"detail":""}
+]

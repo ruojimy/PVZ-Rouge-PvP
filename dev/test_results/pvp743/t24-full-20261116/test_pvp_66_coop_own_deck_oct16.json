@@ -1,0 +1,8 @@
+[
+{"module":"test_pvp_66_coop_own_deck_oct16","class":"CoopOwnDeck","test":"test_invalid_deck_rejection_clears_ready_without_repeated_requests","outcome":"PASS","seconds":0.41905,"detail":""},
+{"module":"test_pvp_66_coop_own_deck_oct16","class":"CoopOwnDeck","test":"test_pending_ready_is_cancelled_by_editing_day_change_and_observation","outcome":"PASS","seconds":0.309656,"detail":""},
+{"module":"test_pvp_66_coop_own_deck_oct16","class":"CoopOwnDeck","test":"test_ready_without_opening_selection_and_retry_keep_distinct_decks","outcome":"PASS","seconds":2.13622,"detail":""},
+{"module":"test_pvp_66_coop_own_deck_oct16","class":"CoopOwnDeck","test":"test_same_room_authenticated_reconnect_preserves_personal_battle_deck","outcome":"PASS","seconds":1.23392,"detail":""},
+{"module":"test_pvp_66_coop_own_deck_oct16","class":"CoopOwnDeck","test":"test_stale_revision_rejection_does_not_later_auto_ready","outcome":"PASS","seconds":0.318923,"detail":""},
+{"module":"test_pvp_66_coop_own_deck_oct16","class":"CoopOwnDeck","test":"test_unchanged_selection_back_then_immediate_ready_uses_own_cards","outcome":"PASS","seconds":1.23282,"detail":""}
+]

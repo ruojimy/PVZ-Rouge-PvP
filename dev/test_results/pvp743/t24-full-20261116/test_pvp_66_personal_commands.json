@@ -1,0 +1,14 @@
+[
+{"module":"test_pvp_66_personal_commands","class":"FlagRendering","test":"test_two_seat_colors_and_patterns_draw_in_world_and_minimap","outcome":"PASS","seconds":0.0015532,"detail":""},
+{"module":"test_pvp_66_personal_commands","class":"PersonalCommands","test":"test_confluence_refunds_at_own_flag_only","outcome":"PASS","seconds":0.0190063,"detail":""},
+{"module":"test_pvp_66_personal_commands","class":"PersonalCommands","test":"test_duel_snapshot_and_f_to_clear_behavior_remain_compatible","outcome":"PASS","seconds":0.0126452,"detail":""},
+{"module":"test_pvp_66_personal_commands","class":"PersonalCommands","test":"test_flag_rise_eligibility_belongs_to_the_fallen_seat","outcome":"PASS","seconds":0.011949,"detail":""},
+{"module":"test_pvp_66_personal_commands","class":"PersonalCommands","test":"test_flying_and_ranged_zombies_obey_their_own_flag","outcome":"PASS","seconds":0.259167,"detail":""},
+{"module":"test_pvp_66_personal_commands","class":"PersonalCommands","test":"test_mixed_follow_and_attack_choose_their_own_chase_field","outcome":"PASS","seconds":0.18579,"detail":""},
+{"module":"test_pvp_66_personal_commands","class":"PersonalCommands","test":"test_opposite_flags_move_only_their_own_units_and_stop_only_their_owner","outcome":"PASS","seconds":0.208888,"detail":""},
+{"module":"test_pvp_66_personal_commands","class":"PersonalCommands","test":"test_personal_flag_alone_halves_teleport","outcome":"PASS","seconds":0.0137999,"detail":""},
+{"module":"test_pvp_66_personal_commands","class":"PersonalCommands","test":"test_public_snapshot_and_local_views_keep_both_flags_and_audit_own_order","outcome":"PASS","seconds":0.0123575,"detail":""},
+{"module":"test_pvp_66_personal_commands","class":"PersonalCommands","test":"test_recorded_duo_inputs_replay_both_personal_orders","outcome":"PASS","seconds":1.0176,"detail":""},
+{"module":"test_pvp_66_personal_commands","class":"PersonalCommands","test":"test_summoned_child_inherits_the_parent_seat_and_charm_ignores_flags","outcome":"PASS","seconds":0.0256714,"detail":""},
+{"module":"test_pvp_66_personal_commands","class":"PersonalCommands","test":"test_two_commands_and_flags_clear_independently","outcome":"PASS","seconds":0.0143984,"detail":""}
+]

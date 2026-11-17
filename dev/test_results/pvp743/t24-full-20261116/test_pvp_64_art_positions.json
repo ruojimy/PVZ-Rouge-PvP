@@ -1,0 +1,5 @@
+[
+{"module":"test_pvp_64_art_positions","class":"ArtPositionTests","test":"test_all_four_new_plants_make_native_flattened_remains","outcome":"PASS","seconds":0.713128,"detail":""},
+{"module":"test_pvp_64_art_positions","class":"ArtPositionTests","test":"test_conveyor_native_parts_tilt_and_magnet_disarm","outcome":"PASS","seconds":2.08357,"detail":""},
+{"module":"test_pvp_64_art_positions","class":"ArtPositionTests","test":"test_lily_waterline_exact_position_order_and_replay","outcome":"PASS","seconds":0.078231,"detail":""}
+]

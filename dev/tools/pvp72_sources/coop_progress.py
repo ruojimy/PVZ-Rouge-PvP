@@ -120,6 +120,28 @@ class CoopProgress:
         if campaign is None:
             return '只有合作玩家可以操作'
         kind = payload['type']
+        if kind == 'coop_gift':
+            if payload.get('revision') != room.revision:
+                return '金币或房间状态已变化，请刷新后重试'
+            amount = payload.get('amount')
+            if type(amount) is not int or not 0 < amount <= 1000000000:
+                return '请输入正整数金币数量'
+            seat = room.side_for(peer)
+            mate = 'plant2' if seat == 'plant' else 'plant'
+            if payload.get('to') != mate:
+                return '赠送目标必须是另一位合作队友'
+            if not any(s == mate and room.peer_connected(p) for p,s in room.members.items()):
+                return '队友尚未入座或已经断开连接'
+            if campaign.coins < amount:
+                return '金币不足'
+            campaign.coins -= amount
+            self.campaigns[mate].coins += amount
+            self.sync(room)
+            self.save()
+            # Currency transfers do not change either deck or ready status.
+            room.revision += 1
+            room.status = '已赠送队友 $%d 金币' % amount
+            return ''
         if kind == 'coop_buy':
             index = payload.get('index')
             if type(index) is not int:
@@ -198,9 +220,9 @@ class CoopProgress:
             before = campaign.coins
             coins = int(result.get('coins', 0) or 0)
             bonus = campaign.win(coins, coop=True, fallen=int(result.get('fallen', 0) or 0),
-                                 played_day=result['pve_day']) if result.get('winner') == 'plant' else 0
+                                 played_day=result['pve_day'], diamond_coins=result.get('diamond_coins', 0)) if result.get('winner') == 'plant' else 0
             if result.get('winner') != 'plant':
-                campaign.lose(coins)
+                campaign.lose(coins, diamond_coins=result.get("diamond_coins", 0))
             total = campaign.coins - before
             self.income[seat] = dict(day=result['pve_day'], winner=result.get('winner'),
                                     coins=total-bonus, bonus=bonus, total=total, coin_half=campaign.coin_half)

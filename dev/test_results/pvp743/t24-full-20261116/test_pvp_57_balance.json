@@ -1,0 +1,9 @@
+[
+{"module":"test_pvp_57_balance","class":"Balance57Tests","test":"test_card_values_atlas_and_existing_focused_balance","outcome":"PASS","seconds":0.0005603,"detail":""},
+{"module":"test_pvp_57_balance","class":"Balance57Tests","test":"test_distance_is_total_world_path_and_survives_retag_or_direction_change","outcome":"PASS","seconds":0.0179689,"detail":""},
+{"module":"test_pvp_57_balance","class":"Balance57Tests","test":"test_expired_native_shot_cannot_damage_target_or_star_scan","outcome":"PASS","seconds":0.0380927,"detail":""},
+{"module":"test_pvp_57_balance","class":"Balance57Tests","test":"test_flying_range_changes_only_asparagus_and_still_counts_reversal","outcome":"PASS","seconds":0.0273318,"detail":""},
+{"module":"test_pvp_57_balance","class":"Balance57Tests","test":"test_native_constructors_capture_species_and_owner_without_touching_other_shots","outcome":"PASS","seconds":0.0121533,"detail":""},
+{"module":"test_pvp_57_balance","class":"Balance57Tests","test":"test_native_travel_runs_until_species_limit_including_map_seam","outcome":"PASS","seconds":0.199207,"detail":""},
+{"module":"test_pvp_57_balance","class":"Balance57Tests","test":"test_real_native_starburst_has_five_independently_limited_rays","outcome":"PASS","seconds":0.0126391,"detail":""}
+]

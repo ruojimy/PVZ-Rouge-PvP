@@ -4,6 +4,9 @@ import json, struct, hashlib
 ROOT=Path(__file__).resolve().parents[1]
 index=json.loads((ROOT/'extract/assets/index.json').read_text('utf8'))
 cards=json.loads((ROOT/'extract/data/catalog.json').read_text('utf8'))['CARDS']
+terraria_names={4:'克苏鲁之眼',5:'克苏鲁之仆',13:'世界吞噬者',14:'世界吞噬者体节',15:'世界吞噬者尾节',35:'骷髅王',36:'骷髅王之手'}
+for npc,name in terraria_names.items():
+    cards['zombie:'+name]=dict(name=name,side='zombie',category='zombie',asset='terraria/NPC_'+str(npc))
 entries=[]
 prefixes={'图集':'world','ui图集':'ui','背景图集':'bg','近景图集':'near','_globals':'global'}
 shot_words=('弹','豌豆','孢子','星星','西瓜','篮球','玉米粒','黄油','冰球','芦笋','芜菁','火球','投掷','毒镖','回旋镖','冰瓜')
@@ -27,6 +30,26 @@ for atlas,rows in index.items():
     for name,row in rows.items():
         if isinstance(row,list) and len(row)==3 and isinstance(row[0],str) and row[0].endswith('.png'):
             add(prefixes.get(atlas,atlas)+':'+name,name,'extract/assets/_png/'+row[0],int(row[1]),int(row[2]),prefixes.get(atlas,atlas))
+# Runtime NPC recipes use these exact keys, including every summon, arm and
+# death/transform fragment. Their sheets remain outside the simulation atlas.
+for p in sorted((ROOT/'extract/assets/terraria').glob('*.png')):
+    stem=p.stem;owners=[]
+    if stem.startswith('NPC_'):
+        npc=int(stem[4:]);name=terraria_names[npc]
+        root=4 if npc in (4,5) else 13 if npc in (13,14,15) else 35
+        owners=list(dict.fromkeys(['zombie:'+terraria_names[root],'zombie:'+name]))
+    elif stem=='Arm_Bone':name='骷髅王 · 手臂骨骼';owners=['zombie:骷髅王','zombie:骷髅王之手']
+    elif stem.startswith('Gore_'):
+        number=int(stem[5:]);root=4 if number<24 else 13 if number<54 else 35
+        name=terraria_names[root]+' · 碎片 '+str(number);owners=['zombie:'+terraria_names[root]]
+        if number in (6,7):owners.append('zombie:克苏鲁之仆')
+        if number in (26,27):owners.append('zombie:世界吞噬者体节')
+        if number in (28,29):owners.append('zombie:世界吞噬者尾节')
+        if number in (56,57):owners.append('zombie:骷髅王之手')
+    else:continue
+    w,h=struct.unpack('>II',p.read_bytes()[16:24])
+    add('world:terraria/'+stem,name,p.relative_to(ROOT).as_posix(),w,h,'world')
+    entries[-1].update(cards=owners,category='僵尸')
 # Original sheets, card artwork, additional content art and bundled map art.
 seen=set()
 for directory in (ROOT/'build/Release/图片',ROOT/'extract/data/pvp/assets'):

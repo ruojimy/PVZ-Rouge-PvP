@@ -807,6 +807,8 @@ V C_RelayHostTransport::m_bridge(const Args& A) {
     for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) {
         L_sock = it1_.idx(int64_t(i1_)); 
         (void)(callm(L_sock, SY("setblocking"), Args{V(false)}));
+        (void)(callm(L_sock, SY("setsockopt"), Args{py::stdlib_attr(SV("socket"), SV("SOL_SOCKET")), py::stdlib_attr(SV("socket"), SV("SO_SNDBUF")), V(65536.0)}));
+        (void)(callm(L_sock, SY("setsockopt"), Args{py::stdlib_attr(SV("socket"), SV("SOL_SOCKET")), py::stdlib_attr(SV("socket"), SV("SO_RCVBUF")), V(65536.0)}));
     }}
     L_pending = py_dict({{L_remote, (py::builtin(SV("bytearray"))).call(Args{})}, {L_local, (py::builtin(SV("bytearray"))).call(Args{})}});
     L_last_progress = py::stdlib_call(SV("time.monotonic"), Args{});

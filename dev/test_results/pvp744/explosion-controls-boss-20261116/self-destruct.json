@@ -1,0 +1,200 @@
+{
+  "checks": [
+    {
+      "evidence": [
+        {
+          "damage": 1.0,
+          "event": {
+            "damage": 1.0,
+            "entity": "u2",
+            "event": "zsecret_blast",
+            "side": "zombie",
+            "targets": 1,
+            "tick": 0,
+            "time": 0.0
+          },
+          "expected": 1.0,
+          "hp": 1.0
+        },
+        {
+          "damage": 1.0,
+          "event": {
+            "damage": 1.0,
+            "entity": "u2",
+            "event": "zsecret_blast",
+            "side": "zombie",
+            "targets": 1,
+            "tick": 0,
+            "time": 0.0
+          },
+          "expected": 1.0,
+          "hp": 25.0
+        },
+        {
+          "damage": 2.0,
+          "event": {
+            "damage": 2.0,
+            "entity": "u2",
+            "event": "zsecret_blast",
+            "side": "zombie",
+            "targets": 1,
+            "tick": 0,
+            "time": 0.0
+          },
+          "expected": 2.0,
+          "hp": 25.1
+        },
+        {
+          "damage": 2.0,
+          "event": {
+            "damage": 2.0,
+            "entity": "u2",
+            "event": "zsecret_blast",
+            "side": "zombie",
+            "targets": 1,
+            "tick": 0,
+            "time": 0.0
+          },
+          "expected": 2.0,
+          "hp": 50.0
+        },
+        {
+          "damage": 3.0,
+          "event": {
+            "damage": 3.0,
+            "entity": "u2",
+            "event": "zsecret_blast",
+            "side": "zombie",
+            "targets": 1,
+            "tick": 0,
+            "time": 0.0
+          },
+          "expected": 3.0,
+          "hp": 51.0
+        },
+        {
+          "damage": 4.0,
+          "event": {
+            "damage": 4.0,
+            "entity": "u2",
+            "event": "zsecret_blast",
+            "side": "zombie",
+            "targets": 1,
+            "tick": 0,
+            "time": 0.0
+          },
+          "expected": 4.0,
+          "hp": 76.0
+        },
+        {
+          "damage": 20.0,
+          "event": {
+            "damage": 20.0,
+            "entity": "u2",
+            "event": "zsecret_blast",
+            "side": "zombie",
+            "targets": 1,
+            "tick": 0,
+            "time": 0.0
+          },
+          "expected": 20.0,
+          "hp": 500.0
+        }
+      ],
+      "name": "current_hp_ceiling_and_real_plant_damage",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "charmed_damage": 40.0,
+        "events": [
+          {
+            "damage": 4.0,
+            "entity": "u3",
+            "event": "zsecret_blast",
+            "side": "zombie",
+            "targets": 3,
+            "tick": 0,
+            "time": 0.0
+          }
+        ],
+        "friendly_damage": 0.0,
+        "outside_plant_damage": 0.0,
+        "plant_damage": 4.0,
+        "plant_hero_damage": 4.0,
+        "zombie_hero_damage": 0.0
+      },
+      "name": "enemy_plants_hero_charmed_tenfold_and_allied_immunity",
+      "passed": true
+    },
+    {
+      "evidence": [
+        {
+          "damage": 1.0,
+          "distance": 115.1
+        },
+        {
+          "damage": 0.0,
+          "distance": 115.3
+        },
+        {
+          "damage": 1.0,
+          "distance": 34,
+          "periodic_width": 3456
+        }
+      ],
+      "name": "radius_boundary_and_periodic_seam",
+      "passed": true
+    },
+    {
+      "evidence": [
+        "secret absent rejected",
+        "charmed source rejected",
+        "grave rejected",
+        "duo own seat only, real grave and mobile deployment"
+      ],
+      "name": "secret_missing_charmed_source_grave_and_teammate_rejected",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "automatic_blasts": 0,
+        "description_trigger": "click an own living zombie",
+        "plant_hp": 10000.0
+      },
+      "name": "ordinary_death_does_not_automatically_fire_manual_secret",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "packet": {
+          "payload": {
+            "input": {
+              "seq": 1,
+              "target": "u2",
+              "type": "detonate"
+            },
+            "revision": 1,
+            "type": "input"
+          },
+          "type": "room_command"
+        },
+        "plant_damage": 4.0,
+        "selected": "u2"
+      },
+      "name": "production_ui_selects_real_mobile_and_sends_detonate",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "hero_damage": 10.0,
+        "ordinary_secret_events": 0
+      },
+      "name": "clown_retains_native_detonation_branch",
+      "passed": true
+    }
+  ],
+  "failures": 0,
+  "passed": true,
+  "scope": "Real production typed Session command(detonate), not a reimplementation of damage. Current almanac and existing regression define manual clicking, not explosion on every natural death. No user game or data touched."
+}

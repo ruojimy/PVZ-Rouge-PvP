@@ -1,0 +1,7 @@
+[
+{"module":"test_pvp_67_coop_seat_saves","class":"CoopSeatSaves67","test":"test_explicit_restart_resets_both_coop_seats_without_erasing_solo","outcome":"PASS","seconds":0.372353,"detail":""},
+{"module":"test_pvp_67_coop_seat_saves","class":"CoopSeatSaves67","test":"test_reopening_host_room_restores_both_seats_and_calendar_from_disk","outcome":"PASS","seconds":0.288578,"detail":""},
+{"module":"test_pvp_67_coop_seat_saves","class":"CoopSeatSaves67","test":"test_replacement_occupant_inherits_exact_seat_cards_slots_sun_and_shop","outcome":"PASS","seconds":0.255239,"detail":""},
+{"module":"test_pvp_67_coop_seat_saves","class":"CoopSeatSaves67","test":"test_seat_swap_uses_destination_progress_and_observation_preserves_calendar","outcome":"PASS","seconds":0.29468,"detail":""},
+{"module":"test_pvp_67_coop_seat_saves","class":"CoopSeatSaves67","test":"test_storage_profiles_are_independent_and_selected_short_deck_survives","outcome":"PASS","seconds":0.0122264,"detail":""}
+]

@@ -1,0 +1,11 @@
+[
+{"module":"test_pvp_draft_completion49","class":"DraftCompletionRegressionTests","test":"test_additional_producer_cannot_take_a_reserved_precursor_slot","outcome":"PASS","seconds":0.0073745,"detail":""},
+{"module":"test_pvp_draft_completion49","class":"DraftCompletionRegressionTests","test":"test_every_precursor_secret_reserves_both_missing_cards_before_last_slot","outcome":"PASS","seconds":0.0207645,"detail":""},
+{"module":"test_pvp_draft_completion49","class":"DraftCompletionRegressionTests","test":"test_no_available_producer_rejects_secret_before_it_is_locked","outcome":"PASS","seconds":0.0062816,"detail":""},
+{"module":"test_pvp_draft_completion49","class":"DraftCompletionRegressionTests","test":"test_old_no_producer_attack_decks_keep_their_rule","outcome":"PASS","seconds":0.0087124,"detail":""},
+{"module":"test_pvp_draft_completion49","class":"DraftCompletionRegressionTests","test":"test_producer_can_take_the_last_slot_after_all_precursors_are_locked","outcome":"PASS","seconds":0.137611,"detail":""},
+{"module":"test_pvp_draft_completion49","class":"DraftCompletionRegressionTests","test":"test_producing_precursor_uses_one_reserved_slot","outcome":"PASS","seconds":0.0063335,"detail":""},
+{"module":"test_pvp_draft_completion49","class":"DraftCompletionRegressionTests","test":"test_ready_rejects_legacy_conflicted_secret_deck_with_clear_reason","outcome":"PASS","seconds":0.0053229,"detail":""},
+{"module":"test_pvp_draft_completion49","class":"DraftCompletionRegressionTests","test":"test_three_secrets_three_precursors_and_producer_exactly_fill_seven_slots","outcome":"PASS","seconds":0.137577,"detail":""},
+{"module":"test_pvp_draft_completion49","class":"DraftCompletionRegressionTests","test":"test_timeout_fills_all_pending_precursors_after_producer_is_locked","outcome":"PASS","seconds":0.155978,"detail":""}
+]

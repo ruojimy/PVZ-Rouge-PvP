@@ -1,0 +1,6 @@
+[
+{"module":"test_pvp_tutorial","class":"TutorialTests","test":"test_decks_are_legal","outcome":"PASS","seconds":0.106179,"detail":""},
+{"module":"test_pvp_tutorial","class":"TutorialTests","test":"test_newbie_until_renamed","outcome":"PASS","seconds":0.0653724,"detail":""},
+{"module":"test_pvp_tutorial","class":"TutorialTests","test":"test_plant_lesson","outcome":"PASS","seconds":2.72186,"detail":""},
+{"module":"test_pvp_tutorial","class":"TutorialTests","test":"test_zombie_lesson","outcome":"PASS","seconds":0.828205,"detail":""}
+]

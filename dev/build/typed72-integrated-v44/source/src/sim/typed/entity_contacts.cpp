@@ -41,6 +41,7 @@ bool EntityContacts::allows_contact(const Entity& e,const CombatTarget& t) const
         const double dy=(p.y-(b.y-tile*.6))/(tile*.65);
         return std::pow(dx,2.)+std::pow(dy,2.)<=1.;
     }
+    if(t.unit&&t.unit->terraria){const auto& n=*t.unit->terraria;const auto& m=motion(t);return std::abs(wrap_delta(m.x,p.x,world_.world_width.get()))<=n.width*tile/32.&&std::abs(p.y-(m.y-tile))<=n.height*tile/32.;}
     const double feet=motion(t).y;
     if(p.y>=feet)return false;
     if(yes(e.source.melon_splash) || yes(e.source.area_damage))return true;
@@ -62,7 +63,7 @@ void EntityContacts::prepare_contacts() const {
         const auto t=target(z);
         // Hero proxy Motion pointers are resolved live, including context swaps.
         if(t.is_hero()){contact_heroes_.push_back(z);continue;}
-        const auto& m=motion(t);const double size=body(t).size.get(),radius=tile*.15*size;
+        const auto& m=motion(t);if(t.unit->terraria){const auto& n=*t.unit->terraria;contact_grid_.cover(z,{m.x-n.width*tile/32.,m.y-tile-n.height*tile/32.,m.x+n.width*tile/32.,m.y-tile+n.height*tile/32.});continue;}const double size=body(t).size.get(),radius=tile*.15*size;
         // Corpse offsets only shrink this conservative alive envelope.
         double bottom=m.y;
         if(t.unit->orphan_barrel&&t.unit->barrel_position.present()&&!t.unit->barrel_position.is_null())
@@ -103,6 +104,7 @@ std::optional<size_t> EntityContacts::find_contact(size_t l) const {
         const auto& b=body(t);
         if(source.charmed.present() || b.ash.present())return false;
         const auto& m=motion(t);
+        if(t.unit&&t.unit->terraria)return b.hp>0.&&allows_contact(e,t);
         const double dx=b.size.get(), offset=corpse_offset(b,tile);
         return p.x>m.x-tile*.15*dx && p.x<m.x+tile*.15*dx &&
            p.y>m.y-tile*.85*dx+offset && allows_contact(e,t);

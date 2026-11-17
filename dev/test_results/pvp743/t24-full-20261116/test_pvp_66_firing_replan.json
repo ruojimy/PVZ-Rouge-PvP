@@ -1,0 +1,9 @@
+[
+{"module":"test_pvp_66_firing_replan","class":"NativeRouteReplan","test":"test_blocked_flat_shot_changes_to_lob_and_really_hits","outcome":"PASS","seconds":1.62135,"detail":""},
+{"module":"test_pvp_66_firing_replan","class":"NativeRouteReplan","test":"test_blocked_front_turns_for_a_real_close_threat","outcome":"PASS","seconds":1.04601,"detail":""},
+{"module":"test_pvp_66_firing_replan","class":"NativeRouteReplan","test":"test_cached_wall_rechecks_target_entering_gap_and_shot_really_hits","outcome":"PASS","seconds":2.25734,"detail":""},
+{"module":"test_pvp_66_firing_replan","class":"NativeRouteReplan","test":"test_changed_terrain_reopens_the_cached_location","outcome":"PASS","seconds":0.0139416,"detail":""},
+{"module":"test_pvp_66_firing_replan","class":"NativeRouteReplan","test":"test_four_low_lobbers_hit_close_targets_under_roof_while_high_lobbers_refuse","outcome":"PASS","seconds":6.82403,"detail":""},
+{"module":"test_pvp_66_firing_replan","class":"NativeRouteReplan","test":"test_replan_keeps_local_response_reserve","outcome":"PASS","seconds":0.0139647,"detail":""},
+{"module":"test_pvp_66_firing_replan","class":"NativeRouteReplan","test":"test_replan_uses_an_elevated_firing_spot_and_really_hits","outcome":"PASS","seconds":1.34962,"detail":""}
+]

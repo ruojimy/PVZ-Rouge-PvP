@@ -1,0 +1,6 @@
+[
+{"module":"test_pvp_62_tick_rate","class":"GcPolicyTests","test":"test_overlapping_battles_keep_the_policy_until_the_last_closes","outcome":"ERROR","seconds":5.82e-05,"detail":"AttributeError: 'module' object has no attribute 'get_threshold'"},
+{"module":"test_pvp_62_tick_rate","class":"TickRateTests","test":"test_host_rate_choice","outcome":"PASS","seconds":0.0022787,"detail":""},
+{"module":"test_pvp_62_tick_rate","class":"TickRateTests","test":"test_sixty_hertz_recording_replays_to_the_same_state","outcome":"PASS","seconds":1.64098,"detail":""},
+{"module":"test_pvp_62_tick_rate","class":"TickRateTests","test":"test_thirty_hertz_recordings_stay_readable","outcome":"PASS","seconds":1.24729,"detail":""}
+]

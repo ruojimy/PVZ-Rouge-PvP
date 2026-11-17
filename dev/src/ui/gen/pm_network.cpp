@@ -211,13 +211,15 @@ V* C_ProtocolError::slot(Sym name) {
     return nullptr;
 }
 V C_ProtocolError::method(Sym name) {
+    if (name == SY("__native_type__")) { V metadata=V::func([](const Args&) { return pm_network::cls_ProtocolError(); }); metadata.box->fattrs.emplace_back(Sym("__native_type_metadata__"),V(true)); return metadata; }
+    if (name == SY("__native_slot_names__")) return V::func([](const Args&) { return V::tuple({}); });
     return V();
 }
 bool C_ProtocolError::call_method(Sym name, const Args& A, V& out) {
     return false;
 }
 V new_ProtocolError(const Args& A) { return py::make_exc(SV("ProtocolError"), A, "ValueError"); }
-V cls_ProtocolError() { static V c = [] { V c = py::class_value(SV("ProtocolError"), [](const Args& A) { return new_ProtocolError(A); }); return c; }(); return c; }
+V cls_ProtocolError() { static V c = [] { V c = py::class_value(SV("ProtocolError"), [](const Args& A) { return new_ProtocolError(A); }); c.box->fattrs.emplace_back(Sym("__module__"), SV("pvp.network")); return c; }(); return c; }
 bool C_FrameDecoder::isa(const char* c) const { std::string s(c); return s == "FrameDecoder" || s == "object"; }
 V* C_FrameDecoder::slot(Sym name) {
     static const SymIndex idx_({SY("max_frame_bytes"), SY("buffer")});
@@ -230,14 +232,16 @@ V* C_FrameDecoder::slot(Sym name) {
     return nullptr;
 }
 V C_FrameDecoder::method(Sym name) {
+    if (name == SY("__native_type__")) { V metadata=V::func([](const Args&) { return pm_network::cls_FrameDecoder(); }); metadata.box->fattrs.emplace_back(Sym("__native_type_metadata__"),V(true)); return metadata; }
+    if (name == SY("__native_slot_names__")) return V::func([](const Args&) { return V::tuple({SV("max_frame_bytes"), SV("buffer")}); });
     if (V replacement = py::class_method_override(pm_network::cls_FrameDecoder(), name, self()); replacement.has()) return replacement;
     static const SymIndex idx_({SY("__init__"), SY("feed")});
     const int k_ = idx_.find(name);
     if (k_ < 0) return V();
     auto sp = std::static_pointer_cast<C_FrameDecoder>(shared_from_this());
     switch (k_) {
-        case 0: return V::func([sp](const Args& A) { return sp->m___init__(A); });
-        case 1: return V::func([sp](const Args& A) { return sp->m_feed(A); });
+        case 0: { V method=V::func([sp](const Args& A) { return sp->m___init__(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 1: { V method=V::func([sp](const Args& A) { return sp->m_feed(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
     }
     return V();
 }
@@ -302,7 +306,7 @@ V new_FrameDecoder(const Args& A) {
     callm(self, SY("__init__"), A);
     return self;
 }
-V cls_FrameDecoder() { static V c = [] { V c = py::class_value(SV("FrameDecoder"), [](const Args& A) { return new_FrameDecoder(A); }); c.box->fattrs.emplace_back(Sym("__new__"), V::func([](const Args& A) { if (A.pos.size() != 1 || !py_is(A.pos[0], cls_FrameDecoder())) throw PyError("TypeError", "native __new__ requires its exact class"); auto p = std::make_shared<C_FrameDecoder>(); initcv_FrameDecoder(p.get()); return V::inst(p); })); c.box->fattrs.emplace_back(Sym("__init__"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_FrameDecoder>([](pm_network::C_FrameDecoder* self, const Args& args) { return self->pm_network::C_FrameDecoder::m___init__(args); }, A); })); c.box->fattrs.emplace_back(Sym("feed"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_FrameDecoder>([](pm_network::C_FrameDecoder* self, const Args& args) { return self->pm_network::C_FrameDecoder::m_feed(args); }, A); })); for (auto& item : c.box->fattrs) if (item.second.t == V::FUNC) item.second.box->fattrs.emplace_back(Sym("__native_declared_method__"), V(true)); c.box->fattrs.emplace_back(Sym("__native_class_dispatch__"), V(true)); c.box->fattrs.emplace_back(Sym("__native_static_methods__"), V::set({SV("__new__")})); return c; }(); return c; }
+V cls_FrameDecoder() { static V c = [] { V c = py::class_value(SV("FrameDecoder"), [](const Args& A) { return new_FrameDecoder(A); }); c.box->fattrs.emplace_back(Sym("__module__"), SV("pvp.network")); c.box->fattrs.emplace_back(Sym("__new__"), V::func([](const Args& A) { if (A.pos.size() != 1 || !py_is(A.pos[0], cls_FrameDecoder())) throw PyError("TypeError", "native __new__ requires its exact class"); auto p = std::make_shared<C_FrameDecoder>(); initcv_FrameDecoder(p.get()); return V::inst(p); })); c.box->fattrs.emplace_back(Sym("__init__"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_FrameDecoder>([](pm_network::C_FrameDecoder* self, const Args& args) { return self->pm_network::C_FrameDecoder::m___init__(args); }, A); })); c.box->fattrs.emplace_back(Sym("feed"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_FrameDecoder>([](pm_network::C_FrameDecoder* self, const Args& args) { return self->pm_network::C_FrameDecoder::m_feed(args); }, A); })); for (auto& item : c.box->fattrs) if (item.second.t == V::FUNC) item.second.box->fattrs.emplace_back(Sym("__native_declared_method__"), V(true)); c.box->fattrs.emplace_back(Sym("__native_class_dispatch__"), V(true)); c.box->fattrs.emplace_back(Sym("__native_static_methods__"), V::set({SV("__new__")})); return c; }(); return c; }
 bool C__Connection::isa(const char* c) const { std::string s(c); return s == "_Connection" || s == "object"; }
 V* C__Connection::slot(Sym name) {
     static const SymIndex idx_({SY("sock"), SY("decoder"), SY("output"), SY("created"), SY("last_received"), SY("last_ping"), SY("ready"), SY("close_reason"), SY("peer_id"), SY("session"), SY("rate_start"), SY("rate_count")});
@@ -325,13 +329,15 @@ V* C__Connection::slot(Sym name) {
     return nullptr;
 }
 V C__Connection::method(Sym name) {
+    if (name == SY("__native_type__")) { V metadata=V::func([](const Args&) { return pm_network::cls__Connection(); }); metadata.box->fattrs.emplace_back(Sym("__native_type_metadata__"),V(true)); return metadata; }
+    if (name == SY("__native_slot_names__")) return V::func([](const Args&) { return V::tuple({SV("sock"), SV("decoder"), SV("output"), SV("created"), SV("last_received"), SV("last_ping"), SV("ready"), SV("close_reason"), SV("peer_id"), SV("session"), SV("rate_start"), SV("rate_count")}); });
     if (V replacement = py::class_method_override(pm_network::cls__Connection(), name, self()); replacement.has()) return replacement;
     static const SymIndex idx_({SY("__init__")});
     const int k_ = idx_.find(name);
     if (k_ < 0) return V();
     auto sp = std::static_pointer_cast<C__Connection>(shared_from_this());
     switch (k_) {
-        case 0: return V::func([sp](const Args& A) { return sp->m___init__(A); });
+        case 0: { V method=V::func([sp](const Args& A) { return sp->m___init__(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
     }
     return V();
 }
@@ -376,10 +382,10 @@ V new__Connection(const Args& A) {
     callm(self, SY("__init__"), A);
     return self;
 }
-V cls__Connection() { static V c = [] { V c = py::class_value(SV("_Connection"), [](const Args& A) { return new__Connection(A); }); c.box->fattrs.emplace_back(Sym("__new__"), V::func([](const Args& A) { if (A.pos.size() != 1 || !py_is(A.pos[0], cls__Connection())) throw PyError("TypeError", "native __new__ requires its exact class"); auto p = std::make_shared<C__Connection>(); initcv__Connection(p.get()); return V::inst(p); })); c.box->fattrs.emplace_back(Sym("__init__"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__Connection>([](pm_network::C__Connection* self, const Args& args) { return self->pm_network::C__Connection::m___init__(args); }, A); })); for (auto& item : c.box->fattrs) if (item.second.t == V::FUNC) item.second.box->fattrs.emplace_back(Sym("__native_declared_method__"), V(true)); c.box->fattrs.emplace_back(Sym("__native_class_dispatch__"), V(true)); c.box->fattrs.emplace_back(Sym("__native_static_methods__"), V::set({SV("__new__")})); return c; }(); return c; }
+V cls__Connection() { static V c = [] { V c = py::class_value(SV("_Connection"), [](const Args& A) { return new__Connection(A); }); c.box->fattrs.emplace_back(Sym("__module__"), SV("pvp.network")); c.box->fattrs.emplace_back(Sym("__new__"), V::func([](const Args& A) { if (A.pos.size() != 1 || !py_is(A.pos[0], cls__Connection())) throw PyError("TypeError", "native __new__ requires its exact class"); auto p = std::make_shared<C__Connection>(); initcv__Connection(p.get()); return V::inst(p); })); c.box->fattrs.emplace_back(Sym("__init__"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__Connection>([](pm_network::C__Connection* self, const Args& args) { return self->pm_network::C__Connection::m___init__(args); }, A); })); for (auto& item : c.box->fattrs) if (item.second.t == V::FUNC) item.second.box->fattrs.emplace_back(Sym("__native_declared_method__"), V(true)); c.box->fattrs.emplace_back(Sym("__native_class_dispatch__"), V(true)); c.box->fattrs.emplace_back(Sym("__native_static_methods__"), V::set({SV("__new__")})); return c; }(); return c; }
 bool C__BaseTransport::isa(const char* c) const { std::string s(c); return s == "_BaseTransport" || s == "object"; }
 V* C__BaseTransport::slot(Sym name) {
-    static const SymIndex idx_({SY("identity"), SY("room_code"), SY("max_frame_bytes"), SY("heartbeat_interval"), SY("idle_timeout"), SY("handshake_timeout"), SY("reconnect_timeout"), SY("state"), SY("_events"), SY("_commands"), SY("_stop"), SY("_lock"), SY("_event_lock"), SY("_event_bytes"), SY("_ready_peers"), SY("_generations"), SY("_thread"), SY("_queued_bytes"), SY("_peer_queued_bytes"), SY("_wake_lock"), SY("_wake_reader"), SY("_wake_writer"), SY("_wake_pending"), SY("_metrics")});
+    static const SymIndex idx_({SY("identity"), SY("room_code"), SY("max_frame_bytes"), SY("heartbeat_interval"), SY("idle_timeout"), SY("handshake_timeout"), SY("reconnect_timeout"), SY("state"), SY("_events"), SY("_commands"), SY("_stop"), SY("_lock"), SY("_event_lock"), SY("_event_bytes"), SY("_ready_peers"), SY("_generations"), SY("_thread"), SY("_queued_bytes"), SY("_peer_queued_bytes"), SY("_snapshot_commands"), SY("_wake_lock"), SY("_wake_reader"), SY("_wake_writer"), SY("_wake_pending"), SY("_metrics")});
     const int k_ = idx_.find(name);
     if (k_ < 0) return nullptr;
     switch (k_) {
@@ -402,43 +408,46 @@ V* C__BaseTransport::slot(Sym name) {
         case 16: return &a__thread;
         case 17: return &a__queued_bytes;
         case 18: return &a__peer_queued_bytes;
-        case 19: return &a__wake_lock;
-        case 20: return &a__wake_reader;
-        case 21: return &a__wake_writer;
-        case 22: return &a__wake_pending;
-        case 23: return &a__metrics;
+        case 19: return &a__snapshot_commands;
+        case 20: return &a__wake_lock;
+        case 21: return &a__wake_reader;
+        case 22: return &a__wake_writer;
+        case 23: return &a__wake_pending;
+        case 24: return &a__metrics;
     }
     return nullptr;
 }
 V C__BaseTransport::method(Sym name) {
+    if (name == SY("__native_type__")) { V metadata=V::func([](const Args&) { return pm_network::cls__BaseTransport(); }); metadata.box->fattrs.emplace_back(Sym("__native_type_metadata__"),V(true)); return metadata; }
+    if (name == SY("__native_slot_names__")) return V::func([](const Args&) { return V::tuple({SV("identity"), SV("room_code"), SV("max_frame_bytes"), SV("heartbeat_interval"), SV("idle_timeout"), SV("handshake_timeout"), SV("reconnect_timeout"), SV("state"), SV("_events"), SV("_commands"), SV("_stop"), SV("_lock"), SV("_event_lock"), SV("_event_bytes"), SV("_ready_peers"), SV("_generations"), SV("_thread"), SV("_queued_bytes"), SV("_peer_queued_bytes"), SV("_snapshot_commands"), SV("_wake_lock"), SV("_wake_reader"), SV("_wake_writer"), SV("_wake_pending"), SV("_metrics")}); });
     if (V replacement = py::class_method_override(pm_network::cls__BaseTransport(), name, self()); replacement.has()) return replacement;
     static const SymIndex idx_({SY("_init_base"), SY("statistics"), SY("_open_wakeup"), SY("_notify"), SY("_drain_wakeup"), SY("_close_wakeup"), SY("_emit"), SY("poll"), SY("generation"), SY("send"), SY("close"), SY("_ready"), SY("_queue"), SY("_read"), SY("_write"), SY("_heartbeat"), SY("_control"), SY("_pop_commands"), SY("_discard_commands"), SY("_data"), SY("__enter__"), SY("__exit__")});
     const int k_ = idx_.find(name);
     if (k_ < 0) return V();
     auto sp = std::static_pointer_cast<C__BaseTransport>(shared_from_this());
     switch (k_) {
-        case 0: return V::func([sp](const Args& A) { return sp->m__init_base(A); });
-        case 1: return V::func([sp](const Args& A) { return sp->m_statistics(A); });
-        case 2: return V::func([sp](const Args& A) { return sp->m__open_wakeup(A); });
-        case 3: return V::func([sp](const Args& A) { return sp->m__notify(A); });
-        case 4: return V::func([sp](const Args& A) { return sp->m__drain_wakeup(A); });
-        case 5: return V::func([sp](const Args& A) { return sp->m__close_wakeup(A); });
-        case 6: return V::func([sp](const Args& A) { return sp->m__emit(A); });
-        case 7: return V::func([sp](const Args& A) { return sp->m_poll(A); });
-        case 8: return V::func([sp](const Args& A) { return sp->m_generation(A); });
-        case 9: return V::func([sp](const Args& A) { return sp->m_send(A); });
-        case 10: return V::func([sp](const Args& A) { return sp->m_close(A); });
-        case 11: return V::func([sp](const Args& A) { return sp->m__ready(A); });
-        case 12: return V::func([sp](const Args& A) { return sp->m__queue(A); });
-        case 13: return V::func([sp](const Args& A) { return sp->m__read(A); });
-        case 14: return V::func([sp](const Args& A) { return sp->m__write(A); });
-        case 15: return V::func([sp](const Args& A) { return sp->m__heartbeat(A); });
-        case 16: return V::func([sp](const Args& A) { return sp->m__control(A); });
-        case 17: return V::func([sp](const Args& A) { return sp->m__pop_commands(A); });
-        case 18: return V::func([sp](const Args& A) { return sp->m__discard_commands(A); });
-        case 19: return V::func([sp](const Args& A) { return sp->m__data(A); });
-        case 20: return V::func([sp](const Args& A) { return sp->m___enter__(A); });
-        case 21: return V::func([sp](const Args& A) { return sp->m___exit__(A); });
+        case 0: { V method=V::func([sp](const Args& A) { return sp->m__init_base(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 1: { V method=V::func([sp](const Args& A) { return sp->m_statistics(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 2: { V method=V::func([sp](const Args& A) { return sp->m__open_wakeup(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 3: { V method=V::func([sp](const Args& A) { return sp->m__notify(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 4: { V method=V::func([sp](const Args& A) { return sp->m__drain_wakeup(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 5: { V method=V::func([sp](const Args& A) { return sp->m__close_wakeup(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 6: { V method=V::func([sp](const Args& A) { return sp->m__emit(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 7: { V method=V::func([sp](const Args& A) { return sp->m_poll(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 8: { V method=V::func([sp](const Args& A) { return sp->m_generation(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 9: { V method=V::func([sp](const Args& A) { return sp->m_send(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 10: { V method=V::func([sp](const Args& A) { return sp->m_close(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 11: { V method=V::func([sp](const Args& A) { return sp->m__ready(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 12: { V method=V::func([sp](const Args& A) { return sp->m__queue(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 13: { V method=V::func([sp](const Args& A) { return sp->m__read(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 14: { V method=V::func([sp](const Args& A) { return sp->m__write(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 15: { V method=V::func([sp](const Args& A) { return sp->m__heartbeat(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 16: { V method=V::func([sp](const Args& A) { return sp->m__control(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 17: { V method=V::func([sp](const Args& A) { return sp->m__pop_commands(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 18: { V method=V::func([sp](const Args& A) { return sp->m__discard_commands(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 19: { V method=V::func([sp](const Args& A) { return sp->m__data(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 20: { V method=V::func([sp](const Args& A) { return sp->m___enter__(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 21: { V method=V::func([sp](const Args& A) { return sp->m___exit__(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
     }
     return V();
 }
@@ -517,13 +526,14 @@ V C__BaseTransport::m__init_base(const Args& A) {
     a__thread = V::none();
     a__queued_bytes = V(0.0);
     a__peer_queued_bytes = py_dict({});
+    a__snapshot_commands = py_dict({});
     a__wake_lock = py::stdlib_call(SV("threading.Lock"), Args{});
     { V as2_ = V::none();
       a__wake_reader = as2_;
       a__wake_writer = as2_;
     }
     a__wake_pending = V(false);
-    a__metrics = py_dict({{SV("received_bytes"), V(0.0)}, {SV("sent_bytes"), V(0.0)}, {SV("receive_block_peak"), V(0.0)}, {SV("decoder_retained_peak"), V(0.0)}, {SV("socket_output_peak"), V(0.0)}, {SV("command_bytes_peak"), V(0.0)}, {SV("event_bytes_peak"), V(0.0)}, {SV("command_items_peak"), V(0.0)}, {SV("event_items_peak"), V(0.0)}, {SV("control_items_peak"), V(0.0)}, {SV("control_overflows"), V(0.0)}, {SV("coalesced_snapshots"), V(0.0)}});
+    a__metrics = py_dict({{SV("received_bytes"), V(0.0)}, {SV("sent_bytes"), V(0.0)}, {SV("receive_block_peak"), V(0.0)}, {SV("decoder_retained_peak"), V(0.0)}, {SV("socket_output_peak"), V(0.0)}, {SV("command_bytes_peak"), V(0.0)}, {SV("event_bytes_peak"), V(0.0)}, {SV("command_items_peak"), V(0.0)}, {SV("event_items_peak"), V(0.0)}, {SV("control_items_peak"), V(0.0)}, {SV("control_overflows"), V(0.0)}, {SV("coalesced_snapshots"), V(0.0)}, {SV("coalesced_outgoing_snapshots"), V(0.0)}, {SV("deferred_output_commands"), V(0.0)}});
     return V::none();
 }
 
@@ -701,8 +711,14 @@ V C__BaseTransport::m_send(const Args& A) {
     V L_peer_id = A.get(0, SY("peer_id"), nullptr, "send");
     V L_payload = (A.size() > 1 || A.has_kw(SY("payload"))) ? A.get(1, SY("payload"), nullptr) : V(V::none());
     V L_generation = A.has_kw(SY("generation")) ? A.get(99999, SY("generation"), nullptr) : V(V::none());
+    V L_delta;
+    V L_entry;
     V L_frame;
+    V L_map_included;
+    V L_previous;
     V L_raw;
+    V L_replace;
+    V L_stream;
     if ((py_is(L_payload, V::none()) && (V((isinstance(L_peer_id, "dict")))).truthy() && (V((as<pm_network::C_ClientTransport>(self_v()) != nullptr))).truthy())) {
         { V tv1_0 = L_peer_id; V tv1_1 = SV("server"); L_payload = std::move(tv1_0); L_peer_id = std::move(tv1_1); }
     }
@@ -711,6 +727,11 @@ V C__BaseTransport::m_send(const Args& A) {
     }
     L_frame = callm(pm_network::module_ns(), SY("encode_frame"), Args{L_payload, (a_max_frame_bytes - V(128.0))});
     L_raw = py::slice(L_frame, V(4.0), V::none());
+    L_stream = V::none();
+    if (((py::m_get(L_payload, SV("type")) == SV("room_snapshot")) && !py_is(py::m_get(L_payload, SV("snapshot_stream")), V::none()))) {
+        L_stream = py::stdlib_call(SV("json.dumps"), Args({rd(L_payload, SV("snapshot_stream"))}, {{SY("ensure_ascii"), V(true)}, {SY("separators"), V::tuple({SV(","), SV(":")})}}));
+    }
+    L_map_included = py::bool_(py::m_get(L_payload, SV("map_included")));
     {
       py::WithGuard wg2_(a__lock);
         if (((callm(a__stop, SY("is_set"), Args{})).truthy() || !py::in(L_peer_id, a__ready_peers))) {
@@ -719,19 +740,33 @@ V C__BaseTransport::m_send(const Args& A) {
         if ((!py_is(L_generation, V::none()) && (L_generation != py::m_get(a__generations, L_peer_id, V(0.0))))) {
             return V(false);
         }
-        if (((a__queued_bytes + py::len(L_raw)) > (a_max_frame_bytes * V(4.0)))) {
+        L_previous = py::m_get(a__snapshot_commands, L_peer_id);
+        L_replace = py_and(V(!py_is(L_stream, V::none())), [&]() -> V { return py_and(V(!py_is(L_previous, V::none())), [&]() -> V { return py_and(V((rd(L_previous, V(1.0)) == L_stream)), [&]() -> V { return V(!(rd(L_previous, V(2.0))).truthy()); }); }); });
+        L_delta = (py::len(L_raw) - ((L_replace).truthy() ? V(py::len(rd(L_previous, V(0.0)))) : V(V(0.0))));
+        if (((a__queued_bytes + L_delta) > (a_max_frame_bytes * V(4.0)))) {
             return V(false);
         }
-        try {
-            (void)(callm(a__commands, SY("put_nowait"), Args{V::tuple({L_peer_id, L_raw, py::m_get(a__generations, L_peer_id, V(0.0))})}));
-        } catch (PyError& exc_) {
-            if (exc_.matches("Full")) {
-                return V(false);
+        if ((L_replace).truthy()) {
+            { V tv3_0 = L_raw; V tv3_1 = L_map_included; pvz::setitem(L_previous, V(0.0), std::move(tv3_0)); pvz::setitem(L_previous, V(2.0), std::move(tv3_1)); }
+            { V ab4_ = a__metrics; V ak4_ = SV("coalesced_outgoing_snapshots"); pvz::setitem(ab4_, ak4_, py::iadd(rd(ab4_, ak4_), V(1.0))); }
+        } else {
+            L_entry = V::list({L_raw, L_stream, L_map_included});
+            try {
+                (void)(callm(a__commands, SY("put_nowait"), Args{V::tuple({L_peer_id, L_entry, py::m_get(a__generations, L_peer_id, V(0.0))})}));
+            } catch (PyError& exc_) {
+                if (exc_.matches("Full")) {
+                    return V(false);
+                }
+                else throw;
             }
-            else throw;
+            if (py_is(L_stream, V::none())) {
+                (void)(callm(a__snapshot_commands, SY("pop"), Args{L_peer_id, V::none()}));
+            } else {
+                pvz::setitem(a__snapshot_commands, L_peer_id, L_entry);
+            }
         }
-        a__queued_bytes = py::iadd(a__queued_bytes, py::len(L_raw));
-        pvz::setitem(a__peer_queued_bytes, L_peer_id, (py::m_get(a__peer_queued_bytes, L_peer_id, V(0.0)) + py::len(L_raw)));
+        a__queued_bytes = py::iadd(a__queued_bytes, L_delta);
+        pvz::setitem(a__peer_queued_bytes, L_peer_id, (py::m_get(a__peer_queued_bytes, L_peer_id, V(0.0)) + L_delta));
         pvz::setitem(a__metrics, SV("command_bytes_peak"), py::max_it(V::list({rd(a__metrics, SV("command_bytes_peak")), a__queued_bytes}), py::Key(), V()));
         pvz::setitem(a__metrics, SV("command_items_peak"), py::max_it(V::list({rd(a__metrics, SV("command_items_peak")), callm(a__commands, SY("qsize"), Args{})}), py::Key(), V()));
     }
@@ -746,6 +781,7 @@ V C__BaseTransport::m_close(const Args& A) {
     {
       py::WithGuard wg1_(a__lock);
         (void)(callm(a__ready_peers, SY("clear"), Args{}));
+        (void)(callm(a__snapshot_commands, SY("clear"), Args{}));
     }
     if ((!py_is(a__thread, V::none()) && !py_is(a__thread, py::stdlib_call(SV("threading.current_thread"), Args{})))) {
         (void)(callm(a__thread, SY("join"), Args{V(0.2)}));
@@ -760,6 +796,7 @@ V C__BaseTransport::m__ready(const Args& A) {
       py::WithGuard wg1_(a__lock);
         if ((V(py::in(L_peer_id, a__ready_peers)) != py::bool_(L_value))) {
             pvz::setitem(a__generations, L_peer_id, (py::m_get(a__generations, L_peer_id, V(0.0)) + V(1.0)));
+            (void)(callm(a__snapshot_commands, SY("pop"), Args{L_peer_id, V::none()}));
         }
         if ((L_value).truthy()) {
             (void)(callm(a__ready_peers, SY("add"), Args{L_peer_id}));
@@ -857,24 +894,38 @@ V C__BaseTransport::m__control(const Args& A) {
 
 py::PyGen C__BaseTransport::g__pop_commands() {
     V L__;
+    V L_connections;
+    V L_entry;
     V L_generation;
     V L_peer_id;
     V L_raw;
     V L_remaining;
+    V L_selected_peers;
     V L_valid;
-    { const int64_t b1_ = 0, e1_ = (int64_t)(V(64.0)).num(), s1_ = 1;
+    L_selected_peers = py::set_it();
+    { const int64_t b1_ = 0, e1_ = (int64_t)(py::min_it(V::list({V(64.0), callm(a__commands, SY("qsize"), Args{})}), py::Key(), V())).num(), s1_ = 1;
     for (int64_t i1_ = b1_; s1_ > 0 ? i1_ < e1_ : i1_ > e1_; i1_ += s1_) {
         L__ = V(double(i1_)); 
-        try {
-            { V ut2_ = py::as_seq(callm(a__commands, SY("get_nowait"), Args{})); L_peer_id = ut2_.idx(0); L_raw = ut2_.idx(1); L_generation = ut2_.idx(2); } 
-        } catch (PyError& exc_) {
-            if (exc_.matches("Empty")) {
-                break;
-            }
-            else throw;
-        }
         {
-          py::WithGuard wg3_(a__lock);
+          py::WithGuard wg2_(a__lock);
+            try {
+                { V ut3_ = py::as_seq(callm(a__commands, SY("get_nowait"), Args{})); L_peer_id = ut3_.idx(0); L_entry = ut3_.idx(1); L_generation = ut3_.idx(2); } 
+            } catch (PyError& exc_) {
+                if (exc_.matches("Empty")) {
+                    break;
+                }
+                else throw;
+            }
+            L_connections = pvz::getattr(self_v(), (SV("_connections")).sym(), V::none());
+            if (((L_generation == py::m_get(a__generations, L_peer_id, V(0.0))) && !py_is(L_connections, V::none()) && (py::in(L_peer_id, L_selected_peers) || ([&]() -> V { V L_conn; { V it5_ = py::iter_list(callm(L_connections, SY("values"), Args{})); for (size_t i5_ = 0; i5_ < it5_.len(); ++i5_) { L_conn = it5_.idx(int64_t(i5_)); if (((pvz::getattr(L_conn, (SV("ready")).sym(), V(false))).truthy() && (pvz::getattr(L_conn, SY("peer_id")) == L_peer_id) && (pvz::getattr(L_conn, SY("output"))).truthy())) return V(true); }}return V(false); }()).truthy()))) {
+                (void)(callm(a__commands, SY("put_nowait"), Args{V::tuple({L_peer_id, L_entry, L_generation})}));
+                { V ab6_ = a__metrics; V ak6_ = SV("deferred_output_commands"); pvz::setitem(ab6_, ak6_, py::iadd(rd(ab6_, ak6_), V(1.0))); }
+                continue;
+            }
+            L_raw = rd(L_entry, V(0.0));
+            if (py_is(py::m_get(a__snapshot_commands, L_peer_id), L_entry)) {
+                (void)(callm(a__snapshot_commands, SY("pop"), Args{L_peer_id, V::none()}));
+            }
             a__queued_bytes = (a__queued_bytes - py::len(L_raw));
             L_remaining = (py::m_get(a__peer_queued_bytes, L_peer_id, V(0.0)) - py::len(L_raw));
             if ((L_remaining > V(0.0))) {
@@ -883,6 +934,9 @@ py::PyGen C__BaseTransport::g__pop_commands() {
                 (void)(callm(a__peer_queued_bytes, SY("pop"), Args{L_peer_id, V::none()}));
             }
             L_valid = V((L_generation == py::m_get(a__generations, L_peer_id, V(0.0))));
+            if (((L_valid).truthy() && !py_is(L_connections, V::none()))) {
+                (void)(callm(L_selected_peers, SY("add"), Args{L_peer_id}));
+            }
         }
         if (!(L_valid).truthy()) {
             continue;
@@ -898,12 +952,13 @@ V C__BaseTransport::m__pop_commands(const Args& A) {
 
 V C__BaseTransport::m__discard_commands(const Args& A) {
     V L__;
+    V L_entry;
     V L_peer_id;
     V L_raw;
     V L_remaining;
     while (true) {
         try {
-            { V ut1_ = py::as_seq(callm(a__commands, SY("get_nowait"), Args{})); L_peer_id = ut1_.idx(0); L_raw = ut1_.idx(1); L__ = ut1_.idx(2); } 
+            { V ut1_ = py::as_seq(callm(a__commands, SY("get_nowait"), Args{})); L_peer_id = ut1_.idx(0); L_entry = ut1_.idx(1); L__ = ut1_.idx(2); } 
         } catch (PyError& exc_) {
             if (exc_.matches("Empty")) {
                 break;
@@ -912,6 +967,10 @@ V C__BaseTransport::m__discard_commands(const Args& A) {
         }
         {
           py::WithGuard wg2_(a__lock);
+            L_raw = rd(L_entry, V(0.0));
+            if (py_is(py::m_get(a__snapshot_commands, L_peer_id), L_entry)) {
+                (void)(callm(a__snapshot_commands, SY("pop"), Args{L_peer_id, V::none()}));
+            }
             a__queued_bytes = (a__queued_bytes - py::len(L_raw));
             L_remaining = (py::m_get(a__peer_queued_bytes, L_peer_id, V(0.0)) - py::len(L_raw));
             if ((L_remaining > V(0.0))) {
@@ -978,10 +1037,10 @@ V new__BaseTransport(const Args& A) {
     
     return self;
 }
-V cls__BaseTransport() { static V c = [] { V c = py::class_value(SV("_BaseTransport"), [](const Args& A) { return new__BaseTransport(A); }); c.box->fattrs.emplace_back(Sym("__new__"), V::func([](const Args& A) { if (A.pos.size() != 1 || !py_is(A.pos[0], cls__BaseTransport())) throw PyError("TypeError", "native __new__ requires its exact class"); auto p = std::make_shared<C__BaseTransport>(); initcv__BaseTransport(p.get()); return V::inst(p); })); c.box->fattrs.emplace_back(Sym("_init_base"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__init_base(args); }, A); })); c.box->fattrs.emplace_back(Sym("statistics"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_statistics(args); }, A); })); c.box->fattrs.emplace_back(Sym("_open_wakeup"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__open_wakeup(args); }, A); })); c.box->fattrs.emplace_back(Sym("_notify"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__notify(args); }, A); })); c.box->fattrs.emplace_back(Sym("_drain_wakeup"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__drain_wakeup(args); }, A); })); c.box->fattrs.emplace_back(Sym("_close_wakeup"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__close_wakeup(args); }, A); })); c.box->fattrs.emplace_back(Sym("_emit"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__emit(args); }, A); })); c.box->fattrs.emplace_back(Sym("poll"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_poll(args); }, A); })); c.box->fattrs.emplace_back(Sym("generation"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_generation(args); }, A); })); c.box->fattrs.emplace_back(Sym("send"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_send(args); }, A); })); c.box->fattrs.emplace_back(Sym("close"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_close(args); }, A); })); c.box->fattrs.emplace_back(Sym("_ready"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__ready(args); }, A); })); c.box->fattrs.emplace_back(Sym("_queue"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__queue(args); }, A); })); c.box->fattrs.emplace_back(Sym("_read"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__read(args); }, A); })); c.box->fattrs.emplace_back(Sym("_write"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__write(args); }, A); })); c.box->fattrs.emplace_back(Sym("_heartbeat"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__heartbeat(args); }, A); })); c.box->fattrs.emplace_back(Sym("_control"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__control(args); }, A); })); c.box->fattrs.emplace_back(Sym("_pop_commands"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__pop_commands(args); }, A); })); c.box->fattrs.emplace_back(Sym("_discard_commands"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__discard_commands(args); }, A); })); c.box->fattrs.emplace_back(Sym("_data"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__data(args); }, A); })); c.box->fattrs.emplace_back(Sym("__enter__"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m___enter__(args); }, A); })); c.box->fattrs.emplace_back(Sym("__exit__"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m___exit__(args); }, A); })); for (auto& item : c.box->fattrs) if (item.second.t == V::FUNC) item.second.box->fattrs.emplace_back(Sym("__native_declared_method__"), V(true)); c.box->fattrs.emplace_back(Sym("__native_class_dispatch__"), V(true)); c.box->fattrs.emplace_back(Sym("__native_static_methods__"), V::set({SV("__new__")})); return c; }(); return c; }
+V cls__BaseTransport() { static V c = [] { V c = py::class_value(SV("_BaseTransport"), [](const Args& A) { return new__BaseTransport(A); }); c.box->fattrs.emplace_back(Sym("__module__"), SV("pvp.network")); c.box->fattrs.emplace_back(Sym("__new__"), V::func([](const Args& A) { if (A.pos.size() != 1 || !py_is(A.pos[0], cls__BaseTransport())) throw PyError("TypeError", "native __new__ requires its exact class"); auto p = std::make_shared<C__BaseTransport>(); initcv__BaseTransport(p.get()); return V::inst(p); })); c.box->fattrs.emplace_back(Sym("_init_base"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__init_base(args); }, A); })); c.box->fattrs.emplace_back(Sym("statistics"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_statistics(args); }, A); })); c.box->fattrs.emplace_back(Sym("_open_wakeup"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__open_wakeup(args); }, A); })); c.box->fattrs.emplace_back(Sym("_notify"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__notify(args); }, A); })); c.box->fattrs.emplace_back(Sym("_drain_wakeup"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__drain_wakeup(args); }, A); })); c.box->fattrs.emplace_back(Sym("_close_wakeup"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__close_wakeup(args); }, A); })); c.box->fattrs.emplace_back(Sym("_emit"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__emit(args); }, A); })); c.box->fattrs.emplace_back(Sym("poll"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_poll(args); }, A); })); c.box->fattrs.emplace_back(Sym("generation"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_generation(args); }, A); })); c.box->fattrs.emplace_back(Sym("send"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_send(args); }, A); })); c.box->fattrs.emplace_back(Sym("close"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_close(args); }, A); })); c.box->fattrs.emplace_back(Sym("_ready"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__ready(args); }, A); })); c.box->fattrs.emplace_back(Sym("_queue"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__queue(args); }, A); })); c.box->fattrs.emplace_back(Sym("_read"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__read(args); }, A); })); c.box->fattrs.emplace_back(Sym("_write"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__write(args); }, A); })); c.box->fattrs.emplace_back(Sym("_heartbeat"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__heartbeat(args); }, A); })); c.box->fattrs.emplace_back(Sym("_control"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__control(args); }, A); })); c.box->fattrs.emplace_back(Sym("_pop_commands"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__pop_commands(args); }, A); })); c.box->fattrs.emplace_back(Sym("_discard_commands"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__discard_commands(args); }, A); })); c.box->fattrs.emplace_back(Sym("_data"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__data(args); }, A); })); c.box->fattrs.emplace_back(Sym("__enter__"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m___enter__(args); }, A); })); c.box->fattrs.emplace_back(Sym("__exit__"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m___exit__(args); }, A); })); for (auto& item : c.box->fattrs) if (item.second.t == V::FUNC) item.second.box->fattrs.emplace_back(Sym("__native_declared_method__"), V(true)); c.box->fattrs.emplace_back(Sym("__native_class_dispatch__"), V(true)); c.box->fattrs.emplace_back(Sym("__native_static_methods__"), V::set({SV("__new__")})); return c; }(); return c; }
 bool C_ServerTransport::isa(const char* c) const { std::string s(c); return s == "ServerTransport" || s == "_BaseTransport" || s == "object"; }
 V* C_ServerTransport::slot(Sym name) {
-    static const SymIndex idx_({SY("_spectator_pending"), SY("_spectator_full_pending"), SY("_peer_roles"), SY("_peer_channels"), SY("_spectator_policy"), SY("address"), SY("_listener"), SY("_connections"), SY("_sessions"), SY("_releases"), SY("_role_changes"), SY("_rejections"), SY("_thread"), SY("allow_spectators"), SY("max_spectators"), SY("host"), SY("port"), SY("max_peers"), SY("state"), SY("identity"), SY("room_code"), SY("max_frame_bytes"), SY("heartbeat_interval"), SY("idle_timeout"), SY("handshake_timeout"), SY("reconnect_timeout"), SY("_events"), SY("_commands"), SY("_stop"), SY("_lock"), SY("_event_lock"), SY("_event_bytes"), SY("_ready_peers"), SY("_generations"), SY("_queued_bytes"), SY("_peer_queued_bytes"), SY("_wake_lock"), SY("_wake_reader"), SY("_wake_writer"), SY("_wake_pending"), SY("_metrics")});
+    static const SymIndex idx_({SY("_spectator_pending"), SY("_spectator_full_pending"), SY("_peer_roles"), SY("_peer_channels"), SY("_spectator_policy"), SY("address"), SY("_listener"), SY("_connections"), SY("_sessions"), SY("_releases"), SY("_role_changes"), SY("_rejections"), SY("_thread"), SY("allow_spectators"), SY("max_spectators"), SY("host"), SY("port"), SY("max_peers"), SY("state"), SY("identity"), SY("room_code"), SY("max_frame_bytes"), SY("heartbeat_interval"), SY("idle_timeout"), SY("handshake_timeout"), SY("reconnect_timeout"), SY("_events"), SY("_commands"), SY("_stop"), SY("_lock"), SY("_event_lock"), SY("_event_bytes"), SY("_ready_peers"), SY("_generations"), SY("_queued_bytes"), SY("_peer_queued_bytes"), SY("_snapshot_commands"), SY("_wake_lock"), SY("_wake_reader"), SY("_wake_writer"), SY("_wake_pending"), SY("_metrics")});
     const int k_ = idx_.find(name);
     if (k_ < 0) return nullptr;
     switch (k_) {
@@ -1021,15 +1080,18 @@ V* C_ServerTransport::slot(Sym name) {
         case 33: return &a__generations;
         case 34: return &a__queued_bytes;
         case 35: return &a__peer_queued_bytes;
-        case 36: return &a__wake_lock;
-        case 37: return &a__wake_reader;
-        case 38: return &a__wake_writer;
-        case 39: return &a__wake_pending;
-        case 40: return &a__metrics;
+        case 36: return &a__snapshot_commands;
+        case 37: return &a__wake_lock;
+        case 38: return &a__wake_reader;
+        case 39: return &a__wake_writer;
+        case 40: return &a__wake_pending;
+        case 41: return &a__metrics;
     }
     return nullptr;
 }
 V C_ServerTransport::method(Sym name) {
+    if (name == SY("__native_type__")) { V metadata=V::func([](const Args&) { return pm_network::cls_ServerTransport(); }); metadata.box->fattrs.emplace_back(Sym("__native_type_metadata__"),V(true)); return metadata; }
+    if (name == SY("__native_slot_names__")) return V::func([](const Args&) { return V::tuple({SV("_spectator_pending"), SV("_spectator_full_pending"), SV("_peer_roles"), SV("_peer_channels"), SV("_spectator_policy"), SV("address"), SV("_listener"), SV("_connections"), SV("_sessions"), SV("_releases"), SV("_role_changes"), SV("_rejections"), SV("_thread"), SV("allow_spectators"), SV("max_spectators"), SV("host"), SV("port"), SV("max_peers"), SV("state"), SV("identity"), SV("room_code"), SV("max_frame_bytes"), SV("heartbeat_interval"), SV("idle_timeout"), SV("handshake_timeout"), SV("reconnect_timeout"), SV("_events"), SV("_commands"), SV("_stop"), SV("_lock"), SV("_event_lock"), SV("_event_bytes"), SV("_ready_peers"), SV("_generations"), SV("_queued_bytes"), SV("_peer_queued_bytes"), SV("_snapshot_commands"), SV("_wake_lock"), SV("_wake_reader"), SV("_wake_writer"), SV("_wake_pending"), SV("_metrics")}); });
     if (V replacement = py::class_method_override(pm_network::cls_ServerTransport(), name, self()); replacement.has()) return replacement;
     if (V replacement = py::class_method_override(pm_network::cls__BaseTransport(), name, self()); replacement.has()) return replacement;
     static const SymIndex idx_({SY("__init__"), SY("pending_bytes"), SY("set_max_peers"), SY("set_allow_spectators"), SY("send_spectator"), SY("set_peer_role"), SY("reject_peer"), SY("_queue_control"), SY("_pop_commands"), SY("release_peer"), SY("_release_pending"), SY("_reject"), SY("_handle_frame"), SY("_disconnect"), SY("_run"), SY("_init_base"), SY("statistics"), SY("_open_wakeup"), SY("_notify"), SY("_drain_wakeup"), SY("_close_wakeup"), SY("_emit"), SY("poll"), SY("generation"), SY("send"), SY("close"), SY("_ready"), SY("_queue"), SY("_read"), SY("_write"), SY("_heartbeat"), SY("_control"), SY("_discard_commands"), SY("_data"), SY("__enter__"), SY("__exit__")});
@@ -1037,42 +1099,42 @@ V C_ServerTransport::method(Sym name) {
     if (k_ < 0) return V();
     auto sp = std::static_pointer_cast<C_ServerTransport>(shared_from_this());
     switch (k_) {
-        case 0: return V::func([sp](const Args& A) { return sp->m___init__(A); });
-        case 1: return V::func([sp](const Args& A) { return sp->m_pending_bytes(A); });
-        case 2: return V::func([sp](const Args& A) { return sp->m_set_max_peers(A); });
-        case 3: return V::func([sp](const Args& A) { return sp->m_set_allow_spectators(A); });
-        case 4: return V::func([sp](const Args& A) { return sp->m_send_spectator(A); });
-        case 5: return V::func([sp](const Args& A) { return sp->m_set_peer_role(A); });
-        case 6: return V::func([sp](const Args& A) { return sp->m_reject_peer(A); });
-        case 7: return V::func([sp](const Args& A) { return sp->m__queue_control(A); });
-        case 8: return V::func([sp](const Args& A) { return sp->m__pop_commands(A); });
-        case 9: return V::func([sp](const Args& A) { return sp->m_release_peer(A); });
-        case 10: return V::func([sp](const Args& A) { return sp->m__release_pending(A); });
-        case 11: return V::func([sp](const Args& A) { return sp->m__reject(A); });
-        case 12: return V::func([sp](const Args& A) { return sp->m__handle_frame(A); });
-        case 13: return V::func([sp](const Args& A) { return sp->m__disconnect(A); });
-        case 14: return V::func([sp](const Args& A) { return sp->m__run(A); });
-        case 15: return V::func([sp](const Args& A) { return sp->m__init_base(A); });
-        case 16: return V::func([sp](const Args& A) { return sp->m_statistics(A); });
-        case 17: return V::func([sp](const Args& A) { return sp->m__open_wakeup(A); });
-        case 18: return V::func([sp](const Args& A) { return sp->m__notify(A); });
-        case 19: return V::func([sp](const Args& A) { return sp->m__drain_wakeup(A); });
-        case 20: return V::func([sp](const Args& A) { return sp->m__close_wakeup(A); });
-        case 21: return V::func([sp](const Args& A) { return sp->m__emit(A); });
-        case 22: return V::func([sp](const Args& A) { return sp->m_poll(A); });
-        case 23: return V::func([sp](const Args& A) { return sp->m_generation(A); });
-        case 24: return V::func([sp](const Args& A) { return sp->m_send(A); });
-        case 25: return V::func([sp](const Args& A) { return sp->m_close(A); });
-        case 26: return V::func([sp](const Args& A) { return sp->m__ready(A); });
-        case 27: return V::func([sp](const Args& A) { return sp->m__queue(A); });
-        case 28: return V::func([sp](const Args& A) { return sp->m__read(A); });
-        case 29: return V::func([sp](const Args& A) { return sp->m__write(A); });
-        case 30: return V::func([sp](const Args& A) { return sp->m__heartbeat(A); });
-        case 31: return V::func([sp](const Args& A) { return sp->m__control(A); });
-        case 32: return V::func([sp](const Args& A) { return sp->m__discard_commands(A); });
-        case 33: return V::func([sp](const Args& A) { return sp->m__data(A); });
-        case 34: return V::func([sp](const Args& A) { return sp->m___enter__(A); });
-        case 35: return V::func([sp](const Args& A) { return sp->m___exit__(A); });
+        case 0: { V method=V::func([sp](const Args& A) { return sp->m___init__(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 1: { V method=V::func([sp](const Args& A) { return sp->m_pending_bytes(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 2: { V method=V::func([sp](const Args& A) { return sp->m_set_max_peers(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 3: { V method=V::func([sp](const Args& A) { return sp->m_set_allow_spectators(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 4: { V method=V::func([sp](const Args& A) { return sp->m_send_spectator(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 5: { V method=V::func([sp](const Args& A) { return sp->m_set_peer_role(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 6: { V method=V::func([sp](const Args& A) { return sp->m_reject_peer(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 7: { V method=V::func([sp](const Args& A) { return sp->m__queue_control(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 8: { V method=V::func([sp](const Args& A) { return sp->m__pop_commands(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 9: { V method=V::func([sp](const Args& A) { return sp->m_release_peer(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 10: { V method=V::func([sp](const Args& A) { return sp->m__release_pending(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 11: { V method=V::func([sp](const Args& A) { return sp->m__reject(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 12: { V method=V::func([sp](const Args& A) { return sp->m__handle_frame(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 13: { V method=V::func([sp](const Args& A) { return sp->m__disconnect(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 14: { V method=V::func([sp](const Args& A) { return sp->m__run(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 15: { V method=V::func([sp](const Args& A) { return sp->m__init_base(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 16: { V method=V::func([sp](const Args& A) { return sp->m_statistics(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 17: { V method=V::func([sp](const Args& A) { return sp->m__open_wakeup(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 18: { V method=V::func([sp](const Args& A) { return sp->m__notify(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 19: { V method=V::func([sp](const Args& A) { return sp->m__drain_wakeup(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 20: { V method=V::func([sp](const Args& A) { return sp->m__close_wakeup(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 21: { V method=V::func([sp](const Args& A) { return sp->m__emit(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 22: { V method=V::func([sp](const Args& A) { return sp->m_poll(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 23: { V method=V::func([sp](const Args& A) { return sp->m_generation(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 24: { V method=V::func([sp](const Args& A) { return sp->m_send(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 25: { V method=V::func([sp](const Args& A) { return sp->m_close(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 26: { V method=V::func([sp](const Args& A) { return sp->m__ready(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 27: { V method=V::func([sp](const Args& A) { return sp->m__queue(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 28: { V method=V::func([sp](const Args& A) { return sp->m__read(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 29: { V method=V::func([sp](const Args& A) { return sp->m__write(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 30: { V method=V::func([sp](const Args& A) { return sp->m__heartbeat(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 31: { V method=V::func([sp](const Args& A) { return sp->m__control(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 32: { V method=V::func([sp](const Args& A) { return sp->m__discard_commands(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 33: { V method=V::func([sp](const Args& A) { return sp->m__data(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 34: { V method=V::func([sp](const Args& A) { return sp->m___enter__(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 35: { V method=V::func([sp](const Args& A) { return sp->m___exit__(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
     }
     return V();
 }
@@ -1284,15 +1346,23 @@ py::PyGen C_ServerTransport::g__pop_commands() {
     V L_pending;
     V L_raw;
     { V yf1_ = py::iter_list(pm_network::C__BaseTransport::m__pop_commands(Args{})); for (auto& y_ : yf1_.items()) co_yield y_; }
+    L_pending = py_dict({});
     {
       py::WithGuard wg2_(a__lock);
-        L_pending = a__spectator_pending;
-        a__spectator_pending = py_dict({});
-        (void)(callm(a__spectator_full_pending, SY("clear"), Args{}));
+        { V it3_ = py::iter_list(py::list_it(callm(a__spectator_pending, SY("items"), Args{})));
+        for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) {
+            { V ut4_ = py::as_seq(it3_.idx(int64_t(i3_))); L_peer_id = ut4_.idx(0); L_raw = ut4_.idx(1); } 
+            if (([&]() -> V { V L_conn; { V it6_ = py::iter_list(callm(a__connections, SY("values"), Args{})); for (size_t i6_ = 0; i6_ < it6_.len(); ++i6_) { L_conn = it6_.idx(int64_t(i6_)); if (((pvz::getattr(L_conn, (SV("ready")).sym(), V(false))).truthy() && (pvz::getattr(L_conn, SY("peer_id")) == L_peer_id) && (pvz::getattr(L_conn, SY("output"))).truthy())) return V(true); }}return V(false); }()).truthy()) {
+                continue;
+            }
+            pvz::setitem(L_pending, L_peer_id, L_raw);
+            (void)(callm(a__spectator_pending, SY("pop"), Args{L_peer_id, V::none()}));
+            (void)(callm(a__spectator_full_pending, SY("discard"), Args{L_peer_id}));
+        }}
     }
-    { auto it3_ = py::items_vec(L_pending);
-    for (size_t i3_ = 0; i3_ < it3_.size(); ++i3_) {
-        L_peer_id = it3_[i3_].first; L_raw = it3_[i3_].second; 
+    { auto it7_ = py::items_vec(L_pending);
+    for (size_t i7_ = 0; i7_ < it7_.size(); ++i7_) {
+        L_peer_id = it7_[i7_].first; L_raw = it7_[i7_].second; 
         co_yield V::tuple({L_peer_id, callm(pm_network::module_ns(), SY("_decode"), Args{L_raw})});
     }}
     co_return;
@@ -1695,6 +1765,8 @@ V C_ServerTransport::m__run(const Args& A) {
                   { V ut12_ = py::as_seq(callm(a__listener, SY("accept"), Args{})); L_sock = ut12_.idx(0); L__ = ut12_.idx(1); } 
                   (void)(callm(L_sock, SY("setblocking"), Args{V(false)}));
                   (void)(callm(L_sock, SY("setsockopt"), Args{py::stdlib_attr(SV("socket"), SV("IPPROTO_TCP")), py::stdlib_attr(SV("socket"), SV("TCP_NODELAY")), V(1.0)}));
+                  (void)(callm(L_sock, SY("setsockopt"), Args{py::stdlib_attr(SV("socket"), SV("SOL_SOCKET")), py::stdlib_attr(SV("socket"), SV("SO_SNDBUF")), V(65536.0)}));
+                  (void)(callm(L_sock, SY("setsockopt"), Args{py::stdlib_attr(SV("socket"), SV("SOL_SOCKET")), py::stdlib_attr(SV("socket"), SV("SO_RCVBUF")), V(65536.0)}));
                   if ((py::len(a__connections) >= ((a_max_peers + a_max_spectators) + V(4.0)))) {
                       (void)(callm(L_sock, SY("close"), Args{}));
                   } else {
@@ -1768,10 +1840,10 @@ V new_ServerTransport(const Args& A) {
     callm(self, SY("__init__"), A);
     return self;
 }
-V cls_ServerTransport() { static V c = [] { V c = py::class_value(SV("ServerTransport"), [](const Args& A) { return new_ServerTransport(A); }); c.box->fattrs.emplace_back(Sym("__new__"), V::func([](const Args& A) { if (A.pos.size() != 1 || !py_is(A.pos[0], cls_ServerTransport())) throw PyError("TypeError", "native __new__ requires its exact class"); auto p = std::make_shared<C_ServerTransport>(); initcv_ServerTransport(p.get()); return V::inst(p); })); c.box->fattrs.emplace_back(Sym("__init__"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m___init__(args); }, A); })); c.box->fattrs.emplace_back(Sym("pending_bytes"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m_pending_bytes(args); }, A); })); c.box->fattrs.emplace_back(Sym("set_max_peers"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m_set_max_peers(args); }, A); })); c.box->fattrs.emplace_back(Sym("set_allow_spectators"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m_set_allow_spectators(args); }, A); })); c.box->fattrs.emplace_back(Sym("send_spectator"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m_send_spectator(args); }, A); })); c.box->fattrs.emplace_back(Sym("set_peer_role"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m_set_peer_role(args); }, A); })); c.box->fattrs.emplace_back(Sym("reject_peer"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m_reject_peer(args); }, A); })); c.box->fattrs.emplace_back(Sym("_queue_control"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m__queue_control(args); }, A); })); c.box->fattrs.emplace_back(Sym("_pop_commands"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m__pop_commands(args); }, A); })); c.box->fattrs.emplace_back(Sym("release_peer"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m_release_peer(args); }, A); })); c.box->fattrs.emplace_back(Sym("_release_pending"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m__release_pending(args); }, A); })); c.box->fattrs.emplace_back(Sym("_reject"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m__reject(args); }, A); })); c.box->fattrs.emplace_back(Sym("_handle_frame"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m__handle_frame(args); }, A); })); c.box->fattrs.emplace_back(Sym("_disconnect"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m__disconnect(args); }, A); })); c.box->fattrs.emplace_back(Sym("_run"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m__run(args); }, A); })); c.box->fattrs.emplace_back(Sym("_init_base"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__init_base(args); }, A); })); c.box->fattrs.emplace_back(Sym("statistics"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_statistics(args); }, A); })); c.box->fattrs.emplace_back(Sym("_open_wakeup"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__open_wakeup(args); }, A); })); c.box->fattrs.emplace_back(Sym("_notify"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__notify(args); }, A); })); c.box->fattrs.emplace_back(Sym("_drain_wakeup"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__drain_wakeup(args); }, A); })); c.box->fattrs.emplace_back(Sym("_close_wakeup"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__close_wakeup(args); }, A); })); c.box->fattrs.emplace_back(Sym("_emit"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__emit(args); }, A); })); c.box->fattrs.emplace_back(Sym("poll"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_poll(args); }, A); })); c.box->fattrs.emplace_back(Sym("generation"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_generation(args); }, A); })); c.box->fattrs.emplace_back(Sym("send"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_send(args); }, A); })); c.box->fattrs.emplace_back(Sym("close"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_close(args); }, A); })); c.box->fattrs.emplace_back(Sym("_ready"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__ready(args); }, A); })); c.box->fattrs.emplace_back(Sym("_queue"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__queue(args); }, A); })); c.box->fattrs.emplace_back(Sym("_read"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__read(args); }, A); })); c.box->fattrs.emplace_back(Sym("_write"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__write(args); }, A); })); c.box->fattrs.emplace_back(Sym("_heartbeat"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__heartbeat(args); }, A); })); c.box->fattrs.emplace_back(Sym("_control"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__control(args); }, A); })); c.box->fattrs.emplace_back(Sym("_discard_commands"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__discard_commands(args); }, A); })); c.box->fattrs.emplace_back(Sym("_data"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__data(args); }, A); })); c.box->fattrs.emplace_back(Sym("__enter__"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m___enter__(args); }, A); })); c.box->fattrs.emplace_back(Sym("__exit__"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m___exit__(args); }, A); })); for (auto& item : c.box->fattrs) if (item.second.t == V::FUNC) item.second.box->fattrs.emplace_back(Sym("__native_declared_method__"), V(true)); c.box->fattrs.emplace_back(Sym("__native_class_dispatch__"), V(true)); c.box->fattrs.emplace_back(Sym("__native_static_methods__"), V::set({SV("__new__")})); return c; }(); return c; }
+V cls_ServerTransport() { static V c = [] { V c = py::class_value(SV("ServerTransport"), [](const Args& A) { return new_ServerTransport(A); }); c.box->fattrs.emplace_back(Sym("__module__"), SV("pvp.network")); c.box->fattrs.emplace_back(Sym("__new__"), V::func([](const Args& A) { if (A.pos.size() != 1 || !py_is(A.pos[0], cls_ServerTransport())) throw PyError("TypeError", "native __new__ requires its exact class"); auto p = std::make_shared<C_ServerTransport>(); initcv_ServerTransport(p.get()); return V::inst(p); })); c.box->fattrs.emplace_back(Sym("__init__"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m___init__(args); }, A); })); c.box->fattrs.emplace_back(Sym("pending_bytes"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m_pending_bytes(args); }, A); })); c.box->fattrs.emplace_back(Sym("set_max_peers"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m_set_max_peers(args); }, A); })); c.box->fattrs.emplace_back(Sym("set_allow_spectators"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m_set_allow_spectators(args); }, A); })); c.box->fattrs.emplace_back(Sym("send_spectator"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m_send_spectator(args); }, A); })); c.box->fattrs.emplace_back(Sym("set_peer_role"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m_set_peer_role(args); }, A); })); c.box->fattrs.emplace_back(Sym("reject_peer"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m_reject_peer(args); }, A); })); c.box->fattrs.emplace_back(Sym("_queue_control"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m__queue_control(args); }, A); })); c.box->fattrs.emplace_back(Sym("_pop_commands"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m__pop_commands(args); }, A); })); c.box->fattrs.emplace_back(Sym("release_peer"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m_release_peer(args); }, A); })); c.box->fattrs.emplace_back(Sym("_release_pending"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m__release_pending(args); }, A); })); c.box->fattrs.emplace_back(Sym("_reject"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m__reject(args); }, A); })); c.box->fattrs.emplace_back(Sym("_handle_frame"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m__handle_frame(args); }, A); })); c.box->fattrs.emplace_back(Sym("_disconnect"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m__disconnect(args); }, A); })); c.box->fattrs.emplace_back(Sym("_run"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ServerTransport>([](pm_network::C_ServerTransport* self, const Args& args) { return self->pm_network::C_ServerTransport::m__run(args); }, A); })); c.box->fattrs.emplace_back(Sym("_init_base"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__init_base(args); }, A); })); c.box->fattrs.emplace_back(Sym("statistics"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_statistics(args); }, A); })); c.box->fattrs.emplace_back(Sym("_open_wakeup"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__open_wakeup(args); }, A); })); c.box->fattrs.emplace_back(Sym("_notify"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__notify(args); }, A); })); c.box->fattrs.emplace_back(Sym("_drain_wakeup"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__drain_wakeup(args); }, A); })); c.box->fattrs.emplace_back(Sym("_close_wakeup"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__close_wakeup(args); }, A); })); c.box->fattrs.emplace_back(Sym("_emit"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__emit(args); }, A); })); c.box->fattrs.emplace_back(Sym("poll"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_poll(args); }, A); })); c.box->fattrs.emplace_back(Sym("generation"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_generation(args); }, A); })); c.box->fattrs.emplace_back(Sym("send"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_send(args); }, A); })); c.box->fattrs.emplace_back(Sym("close"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_close(args); }, A); })); c.box->fattrs.emplace_back(Sym("_ready"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__ready(args); }, A); })); c.box->fattrs.emplace_back(Sym("_queue"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__queue(args); }, A); })); c.box->fattrs.emplace_back(Sym("_read"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__read(args); }, A); })); c.box->fattrs.emplace_back(Sym("_write"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__write(args); }, A); })); c.box->fattrs.emplace_back(Sym("_heartbeat"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__heartbeat(args); }, A); })); c.box->fattrs.emplace_back(Sym("_control"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__control(args); }, A); })); c.box->fattrs.emplace_back(Sym("_discard_commands"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__discard_commands(args); }, A); })); c.box->fattrs.emplace_back(Sym("_data"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__data(args); }, A); })); c.box->fattrs.emplace_back(Sym("__enter__"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m___enter__(args); }, A); })); c.box->fattrs.emplace_back(Sym("__exit__"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m___exit__(args); }, A); })); for (auto& item : c.box->fattrs) if (item.second.t == V::FUNC) item.second.box->fattrs.emplace_back(Sym("__native_declared_method__"), V(true)); c.box->fattrs.emplace_back(Sym("__native_class_dispatch__"), V(true)); c.box->fattrs.emplace_back(Sym("__native_static_methods__"), V::set({SV("__new__")})); return c; }(); return c; }
 bool C_ClientTransport::isa(const char* c) const { std::string s(c); return s == "ClientTransport" || s == "_BaseTransport" || s == "object"; }
 V* C_ClientTransport::slot(Sym name) {
-    static const SymIndex idx_({SY("spectator"), SY("peer_id"), SY("_conn"), SY("_in_seq"), SY("_out_seq"), SY("_ever_connected"), SY("_terminal_rejection"), SY("_thread"), SY("host"), SY("port"), SY("session_id"), SY("token"), SY("connect_timeout"), SY("reconnect_delay"), SY("state"), SY("identity"), SY("room_code"), SY("max_frame_bytes"), SY("heartbeat_interval"), SY("idle_timeout"), SY("handshake_timeout"), SY("reconnect_timeout"), SY("_events"), SY("_commands"), SY("_stop"), SY("_lock"), SY("_event_lock"), SY("_event_bytes"), SY("_ready_peers"), SY("_generations"), SY("_queued_bytes"), SY("_peer_queued_bytes"), SY("_wake_lock"), SY("_wake_reader"), SY("_wake_writer"), SY("_wake_pending"), SY("_metrics")});
+    static const SymIndex idx_({SY("spectator"), SY("peer_id"), SY("_conn"), SY("_in_seq"), SY("_out_seq"), SY("_ever_connected"), SY("_terminal_rejection"), SY("_thread"), SY("host"), SY("port"), SY("session_id"), SY("token"), SY("connect_timeout"), SY("reconnect_delay"), SY("state"), SY("identity"), SY("room_code"), SY("max_frame_bytes"), SY("heartbeat_interval"), SY("idle_timeout"), SY("handshake_timeout"), SY("reconnect_timeout"), SY("_events"), SY("_commands"), SY("_stop"), SY("_lock"), SY("_event_lock"), SY("_event_bytes"), SY("_ready_peers"), SY("_generations"), SY("_queued_bytes"), SY("_peer_queued_bytes"), SY("_snapshot_commands"), SY("_wake_lock"), SY("_wake_reader"), SY("_wake_writer"), SY("_wake_pending"), SY("_metrics")});
     const int k_ = idx_.find(name);
     if (k_ < 0) return nullptr;
     switch (k_) {
@@ -1807,15 +1879,18 @@ V* C_ClientTransport::slot(Sym name) {
         case 29: return &a__generations;
         case 30: return &a__queued_bytes;
         case 31: return &a__peer_queued_bytes;
-        case 32: return &a__wake_lock;
-        case 33: return &a__wake_reader;
-        case 34: return &a__wake_writer;
-        case 35: return &a__wake_pending;
-        case 36: return &a__metrics;
+        case 32: return &a__snapshot_commands;
+        case 33: return &a__wake_lock;
+        case 34: return &a__wake_reader;
+        case 35: return &a__wake_writer;
+        case 36: return &a__wake_pending;
+        case 37: return &a__metrics;
     }
     return nullptr;
 }
 V C_ClientTransport::method(Sym name) {
+    if (name == SY("__native_type__")) { V metadata=V::func([](const Args&) { return pm_network::cls_ClientTransport(); }); metadata.box->fattrs.emplace_back(Sym("__native_type_metadata__"),V(true)); return metadata; }
+    if (name == SY("__native_slot_names__")) return V::func([](const Args&) { return V::tuple({SV("spectator"), SV("peer_id"), SV("_conn"), SV("_in_seq"), SV("_out_seq"), SV("_ever_connected"), SV("_terminal_rejection"), SV("_thread"), SV("host"), SV("port"), SV("session_id"), SV("token"), SV("connect_timeout"), SV("reconnect_delay"), SV("state"), SV("identity"), SV("room_code"), SV("max_frame_bytes"), SV("heartbeat_interval"), SV("idle_timeout"), SV("handshake_timeout"), SV("reconnect_timeout"), SV("_events"), SV("_commands"), SV("_stop"), SV("_lock"), SV("_event_lock"), SV("_event_bytes"), SV("_ready_peers"), SV("_generations"), SV("_queued_bytes"), SV("_peer_queued_bytes"), SV("_snapshot_commands"), SV("_wake_lock"), SV("_wake_reader"), SV("_wake_writer"), SV("_wake_pending"), SV("_metrics")}); });
     if (V replacement = py::class_method_override(pm_network::cls_ClientTransport(), name, self()); replacement.has()) return replacement;
     if (V replacement = py::class_method_override(pm_network::cls__BaseTransport(), name, self()); replacement.has()) return replacement;
     static const SymIndex idx_({SY("__init__"), SY("_connect"), SY("_handle_frame"), SY("_run_connection"), SY("_run"), SY("_init_base"), SY("statistics"), SY("_open_wakeup"), SY("_notify"), SY("_drain_wakeup"), SY("_close_wakeup"), SY("_emit"), SY("poll"), SY("generation"), SY("send"), SY("close"), SY("_ready"), SY("_queue"), SY("_read"), SY("_write"), SY("_heartbeat"), SY("_control"), SY("_pop_commands"), SY("_discard_commands"), SY("_data"), SY("__enter__"), SY("__exit__")});
@@ -1823,33 +1898,33 @@ V C_ClientTransport::method(Sym name) {
     if (k_ < 0) return V();
     auto sp = std::static_pointer_cast<C_ClientTransport>(shared_from_this());
     switch (k_) {
-        case 0: return V::func([sp](const Args& A) { return sp->m___init__(A); });
-        case 1: return V::func([sp](const Args& A) { return sp->m__connect(A); });
-        case 2: return V::func([sp](const Args& A) { return sp->m__handle_frame(A); });
-        case 3: return V::func([sp](const Args& A) { return sp->m__run_connection(A); });
-        case 4: return V::func([sp](const Args& A) { return sp->m__run(A); });
-        case 5: return V::func([sp](const Args& A) { return sp->m__init_base(A); });
-        case 6: return V::func([sp](const Args& A) { return sp->m_statistics(A); });
-        case 7: return V::func([sp](const Args& A) { return sp->m__open_wakeup(A); });
-        case 8: return V::func([sp](const Args& A) { return sp->m__notify(A); });
-        case 9: return V::func([sp](const Args& A) { return sp->m__drain_wakeup(A); });
-        case 10: return V::func([sp](const Args& A) { return sp->m__close_wakeup(A); });
-        case 11: return V::func([sp](const Args& A) { return sp->m__emit(A); });
-        case 12: return V::func([sp](const Args& A) { return sp->m_poll(A); });
-        case 13: return V::func([sp](const Args& A) { return sp->m_generation(A); });
-        case 14: return V::func([sp](const Args& A) { return sp->m_send(A); });
-        case 15: return V::func([sp](const Args& A) { return sp->m_close(A); });
-        case 16: return V::func([sp](const Args& A) { return sp->m__ready(A); });
-        case 17: return V::func([sp](const Args& A) { return sp->m__queue(A); });
-        case 18: return V::func([sp](const Args& A) { return sp->m__read(A); });
-        case 19: return V::func([sp](const Args& A) { return sp->m__write(A); });
-        case 20: return V::func([sp](const Args& A) { return sp->m__heartbeat(A); });
-        case 21: return V::func([sp](const Args& A) { return sp->m__control(A); });
-        case 22: return V::func([sp](const Args& A) { return sp->m__pop_commands(A); });
-        case 23: return V::func([sp](const Args& A) { return sp->m__discard_commands(A); });
-        case 24: return V::func([sp](const Args& A) { return sp->m__data(A); });
-        case 25: return V::func([sp](const Args& A) { return sp->m___enter__(A); });
-        case 26: return V::func([sp](const Args& A) { return sp->m___exit__(A); });
+        case 0: { V method=V::func([sp](const Args& A) { return sp->m___init__(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 1: { V method=V::func([sp](const Args& A) { return sp->m__connect(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 2: { V method=V::func([sp](const Args& A) { return sp->m__handle_frame(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 3: { V method=V::func([sp](const Args& A) { return sp->m__run_connection(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 4: { V method=V::func([sp](const Args& A) { return sp->m__run(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 5: { V method=V::func([sp](const Args& A) { return sp->m__init_base(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 6: { V method=V::func([sp](const Args& A) { return sp->m_statistics(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 7: { V method=V::func([sp](const Args& A) { return sp->m__open_wakeup(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 8: { V method=V::func([sp](const Args& A) { return sp->m__notify(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 9: { V method=V::func([sp](const Args& A) { return sp->m__drain_wakeup(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 10: { V method=V::func([sp](const Args& A) { return sp->m__close_wakeup(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 11: { V method=V::func([sp](const Args& A) { return sp->m__emit(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 12: { V method=V::func([sp](const Args& A) { return sp->m_poll(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 13: { V method=V::func([sp](const Args& A) { return sp->m_generation(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 14: { V method=V::func([sp](const Args& A) { return sp->m_send(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 15: { V method=V::func([sp](const Args& A) { return sp->m_close(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 16: { V method=V::func([sp](const Args& A) { return sp->m__ready(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 17: { V method=V::func([sp](const Args& A) { return sp->m__queue(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 18: { V method=V::func([sp](const Args& A) { return sp->m__read(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 19: { V method=V::func([sp](const Args& A) { return sp->m__write(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 20: { V method=V::func([sp](const Args& A) { return sp->m__heartbeat(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 21: { V method=V::func([sp](const Args& A) { return sp->m__control(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 22: { V method=V::func([sp](const Args& A) { return sp->m__pop_commands(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 23: { V method=V::func([sp](const Args& A) { return sp->m__discard_commands(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 24: { V method=V::func([sp](const Args& A) { return sp->m__data(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 25: { V method=V::func([sp](const Args& A) { return sp->m___enter__(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 26: { V method=V::func([sp](const Args& A) { return sp->m___exit__(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
     }
     return V();
 }
@@ -1980,6 +2055,8 @@ V C_ClientTransport::m__connect(const Args& A) {
                         py::raise(py::make_exc(SV("OSError"), Args{L_error, SV("connection refused or address unreachable")}, ""));
                     }
                     (void)(callm(L_sock, SY("setsockopt"), Args{py::stdlib_attr(SV("socket"), SV("IPPROTO_TCP")), py::stdlib_attr(SV("socket"), SV("TCP_NODELAY")), V(1.0)}));
+                    (void)(callm(L_sock, SY("setsockopt"), Args{py::stdlib_attr(SV("socket"), SV("SOL_SOCKET")), py::stdlib_attr(SV("socket"), SV("SO_SNDBUF")), V(65536.0)}));
+                    (void)(callm(L_sock, SY("setsockopt"), Args{py::stdlib_attr(SV("socket"), SV("SOL_SOCKET")), py::stdlib_attr(SV("socket"), SV("SO_RCVBUF")), V(65536.0)}));
                     return callm(pm_network::module_ns(), SY("_Connection"), Args{L_sock, a_max_frame_bytes});
                 }
             }
@@ -2198,7 +2275,7 @@ V new_ClientTransport(const Args& A) {
     callm(self, SY("__init__"), A);
     return self;
 }
-V cls_ClientTransport() { static V c = [] { V c = py::class_value(SV("ClientTransport"), [](const Args& A) { return new_ClientTransport(A); }); c.box->fattrs.emplace_back(Sym("__new__"), V::func([](const Args& A) { if (A.pos.size() != 1 || !py_is(A.pos[0], cls_ClientTransport())) throw PyError("TypeError", "native __new__ requires its exact class"); auto p = std::make_shared<C_ClientTransport>(); initcv_ClientTransport(p.get()); return V::inst(p); })); c.box->fattrs.emplace_back(Sym("__init__"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ClientTransport>([](pm_network::C_ClientTransport* self, const Args& args) { return self->pm_network::C_ClientTransport::m___init__(args); }, A); })); c.box->fattrs.emplace_back(Sym("_connect"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ClientTransport>([](pm_network::C_ClientTransport* self, const Args& args) { return self->pm_network::C_ClientTransport::m__connect(args); }, A); })); c.box->fattrs.emplace_back(Sym("_handle_frame"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ClientTransport>([](pm_network::C_ClientTransport* self, const Args& args) { return self->pm_network::C_ClientTransport::m__handle_frame(args); }, A); })); c.box->fattrs.emplace_back(Sym("_run_connection"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ClientTransport>([](pm_network::C_ClientTransport* self, const Args& args) { return self->pm_network::C_ClientTransport::m__run_connection(args); }, A); })); c.box->fattrs.emplace_back(Sym("_run"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ClientTransport>([](pm_network::C_ClientTransport* self, const Args& args) { return self->pm_network::C_ClientTransport::m__run(args); }, A); })); c.box->fattrs.emplace_back(Sym("_init_base"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__init_base(args); }, A); })); c.box->fattrs.emplace_back(Sym("statistics"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_statistics(args); }, A); })); c.box->fattrs.emplace_back(Sym("_open_wakeup"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__open_wakeup(args); }, A); })); c.box->fattrs.emplace_back(Sym("_notify"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__notify(args); }, A); })); c.box->fattrs.emplace_back(Sym("_drain_wakeup"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__drain_wakeup(args); }, A); })); c.box->fattrs.emplace_back(Sym("_close_wakeup"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__close_wakeup(args); }, A); })); c.box->fattrs.emplace_back(Sym("_emit"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__emit(args); }, A); })); c.box->fattrs.emplace_back(Sym("poll"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_poll(args); }, A); })); c.box->fattrs.emplace_back(Sym("generation"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_generation(args); }, A); })); c.box->fattrs.emplace_back(Sym("send"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_send(args); }, A); })); c.box->fattrs.emplace_back(Sym("close"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_close(args); }, A); })); c.box->fattrs.emplace_back(Sym("_ready"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__ready(args); }, A); })); c.box->fattrs.emplace_back(Sym("_queue"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__queue(args); }, A); })); c.box->fattrs.emplace_back(Sym("_read"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__read(args); }, A); })); c.box->fattrs.emplace_back(Sym("_write"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__write(args); }, A); })); c.box->fattrs.emplace_back(Sym("_heartbeat"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__heartbeat(args); }, A); })); c.box->fattrs.emplace_back(Sym("_control"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__control(args); }, A); })); c.box->fattrs.emplace_back(Sym("_pop_commands"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__pop_commands(args); }, A); })); c.box->fattrs.emplace_back(Sym("_discard_commands"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__discard_commands(args); }, A); })); c.box->fattrs.emplace_back(Sym("_data"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__data(args); }, A); })); c.box->fattrs.emplace_back(Sym("__enter__"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m___enter__(args); }, A); })); c.box->fattrs.emplace_back(Sym("__exit__"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m___exit__(args); }, A); })); for (auto& item : c.box->fattrs) if (item.second.t == V::FUNC) item.second.box->fattrs.emplace_back(Sym("__native_declared_method__"), V(true)); c.box->fattrs.emplace_back(Sym("__native_class_dispatch__"), V(true)); c.box->fattrs.emplace_back(Sym("__native_static_methods__"), V::set({SV("__new__")})); return c; }(); return c; }
+V cls_ClientTransport() { static V c = [] { V c = py::class_value(SV("ClientTransport"), [](const Args& A) { return new_ClientTransport(A); }); c.box->fattrs.emplace_back(Sym("__module__"), SV("pvp.network")); c.box->fattrs.emplace_back(Sym("__new__"), V::func([](const Args& A) { if (A.pos.size() != 1 || !py_is(A.pos[0], cls_ClientTransport())) throw PyError("TypeError", "native __new__ requires its exact class"); auto p = std::make_shared<C_ClientTransport>(); initcv_ClientTransport(p.get()); return V::inst(p); })); c.box->fattrs.emplace_back(Sym("__init__"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ClientTransport>([](pm_network::C_ClientTransport* self, const Args& args) { return self->pm_network::C_ClientTransport::m___init__(args); }, A); })); c.box->fattrs.emplace_back(Sym("_connect"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ClientTransport>([](pm_network::C_ClientTransport* self, const Args& args) { return self->pm_network::C_ClientTransport::m__connect(args); }, A); })); c.box->fattrs.emplace_back(Sym("_handle_frame"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ClientTransport>([](pm_network::C_ClientTransport* self, const Args& args) { return self->pm_network::C_ClientTransport::m__handle_frame(args); }, A); })); c.box->fattrs.emplace_back(Sym("_run_connection"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ClientTransport>([](pm_network::C_ClientTransport* self, const Args& args) { return self->pm_network::C_ClientTransport::m__run_connection(args); }, A); })); c.box->fattrs.emplace_back(Sym("_run"), V::func([](const Args& A) { return py::unbound_call<pm_network::C_ClientTransport>([](pm_network::C_ClientTransport* self, const Args& args) { return self->pm_network::C_ClientTransport::m__run(args); }, A); })); c.box->fattrs.emplace_back(Sym("_init_base"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__init_base(args); }, A); })); c.box->fattrs.emplace_back(Sym("statistics"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_statistics(args); }, A); })); c.box->fattrs.emplace_back(Sym("_open_wakeup"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__open_wakeup(args); }, A); })); c.box->fattrs.emplace_back(Sym("_notify"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__notify(args); }, A); })); c.box->fattrs.emplace_back(Sym("_drain_wakeup"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__drain_wakeup(args); }, A); })); c.box->fattrs.emplace_back(Sym("_close_wakeup"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__close_wakeup(args); }, A); })); c.box->fattrs.emplace_back(Sym("_emit"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__emit(args); }, A); })); c.box->fattrs.emplace_back(Sym("poll"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_poll(args); }, A); })); c.box->fattrs.emplace_back(Sym("generation"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_generation(args); }, A); })); c.box->fattrs.emplace_back(Sym("send"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_send(args); }, A); })); c.box->fattrs.emplace_back(Sym("close"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m_close(args); }, A); })); c.box->fattrs.emplace_back(Sym("_ready"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__ready(args); }, A); })); c.box->fattrs.emplace_back(Sym("_queue"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__queue(args); }, A); })); c.box->fattrs.emplace_back(Sym("_read"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__read(args); }, A); })); c.box->fattrs.emplace_back(Sym("_write"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__write(args); }, A); })); c.box->fattrs.emplace_back(Sym("_heartbeat"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__heartbeat(args); }, A); })); c.box->fattrs.emplace_back(Sym("_control"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__control(args); }, A); })); c.box->fattrs.emplace_back(Sym("_pop_commands"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__pop_commands(args); }, A); })); c.box->fattrs.emplace_back(Sym("_discard_commands"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__discard_commands(args); }, A); })); c.box->fattrs.emplace_back(Sym("_data"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m__data(args); }, A); })); c.box->fattrs.emplace_back(Sym("__enter__"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m___enter__(args); }, A); })); c.box->fattrs.emplace_back(Sym("__exit__"), V::func([](const Args& A) { return py::unbound_call<pm_network::C__BaseTransport>([](pm_network::C__BaseTransport* self, const Args& args) { return self->pm_network::C__BaseTransport::m___exit__(args); }, A); })); for (auto& item : c.box->fattrs) if (item.second.t == V::FUNC) item.second.box->fattrs.emplace_back(Sym("__native_declared_method__"), V(true)); c.box->fattrs.emplace_back(Sym("__native_class_dispatch__"), V(true)); c.box->fattrs.emplace_back(Sym("__native_static_methods__"), V::set({SV("__new__")})); return c; }(); return c; }
 static bool inited_ = false;
 void init() {
     if (inited_) return;

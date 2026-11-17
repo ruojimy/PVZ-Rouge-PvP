@@ -1,0 +1,31 @@
+{
+  "module": "test_pvp_review_followup",
+  "exit": 1,
+  "seconds": 3.035,
+  "expected": 7,
+  "results": 7,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": false,
+  "accepted": false,
+  "counts": {
+    "PASS": 6,
+    "FAIL": 1,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [],
+  "unexpected_nonpass": [
+    {
+      "id": "test_pvp_review_followup.ReviewFollowupTests.test_chili_giant_survives_entire_first_fire_but_second_chili_kills",
+      "outcome": "FAIL",
+      "detail_sha256": "f0fd4f9fd952fc39f6efe0809376b679ef35b8df54c0930d26e3c6eb7672a25c",
+      "reason": "not_waived"
+    }
+  ],
+  "resolved_waivers": []
+}

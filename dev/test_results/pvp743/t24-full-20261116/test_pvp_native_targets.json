@@ -1,0 +1,16 @@
+[
+{"module":"test_pvp_native_targets","class":"NativeTargetTests","test":"test_actual_cattail_firing_and_spike_tracking_both_obey_source_gate","outcome":"PASS","seconds":6.61459,"detail":""},
+{"module":"test_pvp_native_targets","class":"NativeTargetTests","test":"test_actual_chomper_direct_minus1024_write_is_capped_and_cooldown_preserved","outcome":"PASS","seconds":0.166634,"detail":""},
+{"module":"test_pvp_native_targets","class":"NativeTargetTests","test":"test_ash_same_attack_multiple_native_calls_only_deal_forty_percent","outcome":"PASS","seconds":0.0010131,"detail":""},
+{"module":"test_pvp_native_targets","class":"NativeTargetTests","test":"test_context_routes_direct_original_hurt_and_restores_every_hero_global","outcome":"PASS","seconds":0.0007916,"detail":""},
+{"module":"test_pvp_native_targets","class":"NativeTargetTests","test":"test_enemy_target_context_keeps_world_plant_secrets","outcome":"PASS","seconds":0.0007632,"detail":""},
+{"module":"test_pvp_native_targets","class":"NativeTargetTests","test":"test_full_targets_does_not_remove_already_present_plant_phase_proxy","outcome":"PASS","seconds":0.0006048,"detail":""},
+{"module":"test_pvp_native_targets","class":"NativeTargetTests","test":"test_native_collider_misses_outside_original_body_without_new_hit_formula","outcome":"PASS","seconds":0.217424,"detail":""},
+{"module":"test_pvp_native_targets","class":"NativeTargetTests","test":"test_native_unit_callbacks_are_passthrough_and_hero_fatal_damage_has_no_zombie_death_effects","outcome":"PASS","seconds":0.0012932,"detail":""},
+{"module":"test_pvp_native_targets","class":"NativeTargetTests","test":"test_nested_source_context_never_restores_old_hp_over_damage","outcome":"PASS","seconds":0.0009054,"detail":""},
+{"module":"test_pvp_native_targets","class":"NativeTargetTests","test":"test_new_native_entity_retains_source_and_friendly_hp_is_rejected","outcome":"PASS","seconds":0.0006394,"detail":""},
+{"module":"test_pvp_native_targets","class":"NativeTargetTests","test":"test_original_homing_index_excludes_unmarked_hero_but_not_physical_target","outcome":"PASS","seconds":0.0005851,"detail":""},
+{"module":"test_pvp_native_targets","class":"NativeTargetTests","test":"test_proxy_cannot_be_charmed_or_converted_and_constructor_does_not_change_world_or_rng","outcome":"PASS","seconds":0.0006248,"detail":""},
+{"module":"test_pvp_native_targets","class":"NativeTargetTests","test":"test_real_native_pea_collision_routes_original_damage_body_to_zombie_dave","outcome":"ERROR","seconds":0.0256883,"detail":"AttributeError: unsupported function attribute: __code__"},
+{"module":"test_pvp_native_targets","class":"NativeTargetTests","test":"test_synchronous_full_targets_keeps_native_deletion_and_new_spawn_after_exception","outcome":"PASS","seconds":0.0008382,"detail":""}
+]

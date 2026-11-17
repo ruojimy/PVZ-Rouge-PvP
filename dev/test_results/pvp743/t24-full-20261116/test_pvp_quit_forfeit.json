@@ -1,0 +1,5 @@
+[
+{"module":"test_pvp_quit_forfeit","class":"QuitForfeitTests","test":"test_guest_closing_the_game_forfeits_immediately","outcome":"PASS","seconds":1.93771,"detail":""},
+{"module":"test_pvp_quit_forfeit","class":"QuitForfeitTests","test":"test_guest_killed_without_leave_forfeits_after_reconnect_window","outcome":"PASS","seconds":1.23472,"detail":""},
+{"module":"test_pvp_quit_forfeit","class":"QuitForfeitTests","test":"test_host_closing_the_game_forfeits_and_the_guest_is_told_it_won","outcome":"PASS","seconds":21.2176,"detail":""}
+]

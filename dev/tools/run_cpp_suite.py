@@ -96,6 +96,12 @@ def clone_fixture(source,target):
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument("--out",required=True);ap.add_argument("--workers",type=worker_count,default=None,help="auto (default) or a positive maximum; memory admission still applies");ap.add_argument("--worker-memory-mib",type=positive_int,default=1536);ap.add_argument("--memory-reserve-mib",type=positive_int,default=1024);ap.add_argument("--timeout",type=int,default=600);ap.add_argument("--module",action="append");ap.add_argument("--reference",default=str(REFERENCE));ap.add_argument("--exe",default=None,help="cpp_tests.exe to run (default build/Release/cpp_tests.exe)");ap.add_argument("--strict",action="store_true",help="Disable the user-approved temporary exact-failure waivers");ap.add_argument("--app-run",default=str(ROOT/"build/app-typed72-v2/Release/app_run.exe"),help="app_run.exe for the PvP73 pure-typed dynamic-path gate");args=ap.parse_args()
+    # Both the frozen async-function ASTs and bytecode capture policy were
+    # produced by CPython 3.8. sys.executable also runs the relay fixtures.
+    # Refuse an incompatible interpreter before copying fixtures or testing.
+    if sys.implementation.name != "cpython" or sys.version_info[:2] != (3,8):
+        fixture_python=Path(args.reference)/"modkit/tools/python38-embed/python.exe"
+        raise RuntimeError("Frozen native fixtures require CPython 3.8; run this script with "+str(fixture_python))
     policy_hash=file_sha(DEFAULT_POLICY) if DEFAULT_POLICY.exists() else None
     waivers={} if args.strict else load_waivers()
     out=Path(args.out).resolve()

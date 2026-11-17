@@ -750,6 +750,12 @@ class Room:
             self.members={p:self._swapped(s) for p,s in self.members.items()}
             self._reset_selection();self.status="阵营已交换，请确认地图"
             return self._record("swap",members=deepcopy(self.members))
+        if kind=='pve_unready':
+            if self.mode!='coop' or self.phase!='config' or team_of(side)!='plant':return '请在合作准备阶段调整选卡'
+            self.confirmed[side]=False
+            self.revision+=1
+            self.status='玩家正在调整选卡，请重新准备'
+            return ''
         if kind=="confirm_map":
             if self.phase!="config":return "地图已锁定"
             if len(self.members)!=len(self.seat_list()) or not all(self.connected.values()):return "等待另一位玩家"
@@ -764,7 +770,7 @@ class Room:
                 else:self._start_bans()
             return ""
         if kind=="pve_deck":return self._pve_seat_deck(side,payload)
-        if kind in ('coop_buy','coop_reward','coop_reset_deck'):
+        if kind in ('coop_buy','coop_reward','coop_reset_deck','coop_gift'):
             return self.coop_progress.action(self,peer_id,payload)
         if kind=='coop_skip':
             return self.coop_progress.skip(self,peer_id)
@@ -1000,6 +1006,15 @@ class Room:
         host_deck=per_seat.get(self.side_for('host'),list(deck))
         self.pve=dict(day=day,deck=list(host_deck),seed=int(seed if seed is not None else self.seed),
                       start_sun=start_sun,slots=slots,decks=per_seat,unlocked=pool,max_zombies=limit)
+        if self.mode == "coop":
+            data=self.map.to_dict()
+            if day in (8, 16, 24):data['environment'].update(night=True, background="红天")
+            elif data['environment'].get("background") == "红天":
+                from .pve import map_for_day
+                data['environment'].pop("background", None)
+                data['environment']['night']=map_for_day(day,True)[2]
+            data.pop('terrain_hash',None)
+            self.map=MapSnapshot.from_dict(data)
         self.rules['pve_max_zombies']=limit
         if self.mode=='coop':self.coop_progress.day=day
         self.coop_progress.sync(self)
@@ -1009,14 +1024,9 @@ class Room:
         return ""
 
     def setup_changed(self, seat):
-        """A seat changed its own co-op setup: seats confirm again.
-
-        An AI teammate's own deck/shop/reward change re-arms only its own
-        confirmation; clearing a human's would undo the host's start click
-        while the AI waits for that human (the room never left config).
-        """
+        """Only the seat changing its co-op setup needs to confirm again."""
         peer=next((p for p,s in self.members.items() if s==seat),None)
-        if peer in self.ai_peers:self.confirmed[seat]=False
+        if self.mode=="coop" or peer in self.ai_peers:self.confirmed[seat]=False
         else:self.confirmed={s:False for s in self.seat_list()}
 
     def _pve_seat_deck(self, seat, payload):

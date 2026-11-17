@@ -1,0 +1,37 @@
+{
+  "module": "test_pvp_69002_balance",
+  "exit": 1,
+  "seconds": 2.181,
+  "expected": 14,
+  "results": 14,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": false,
+  "accepted": false,
+  "counts": {
+    "PASS": 12,
+    "FAIL": 2,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [],
+  "unexpected_nonpass": [
+    {
+      "id": "test_pvp_69002_balance.Balance.test_all_mobile_cards_keep_charm_and_reciprocal_native_bite_values",
+      "outcome": "FAIL",
+      "detail_sha256": "f896e0b10410fff3a80649e2dd8c5f4a678d9cb6765a2855381780bdc1250676",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_69002_balance.Balance.test_zombie_prices_charge_the_new_amounts_in_duel_and_duo",
+      "outcome": "FAIL",
+      "detail_sha256": "6d2243c742747d8ac9da205f5f14b78a38052f74e64429666af69e6ef3ab2a1f",
+      "reason": "not_waived"
+    }
+  ],
+  "resolved_waivers": []
+}

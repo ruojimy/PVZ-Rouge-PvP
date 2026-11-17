@@ -1,0 +1,10 @@
+[
+{"module":"test_pvp_room_roles54","class":"RoleApplicationTests","test":"test_direct_host_observes_two_remote_players_and_native_forfeit","outcome":"PASS","seconds":1.65896,"detail":""},
+{"module":"test_pvp_room_roles54","class":"RoleApplicationTests","test":"test_host_spectator_shutdown_aborts_without_awarding_either_player","outcome":"PASS","seconds":0.704874,"detail":""},
+{"module":"test_pvp_room_roles54","class":"RoleApplicationTests","test":"test_relay_closed_observer_gate_still_admits_a_second_player","outcome":"PASS","seconds":1.34053,"detail":""},
+{"module":"test_pvp_room_roles54","class":"RoleApplicationTests","test":"test_relay_promoted_spectator_stays_connected_when_watch_gate_closes","outcome":"PASS","seconds":1.35775,"detail":""},
+{"module":"test_pvp_room_roles54","class":"RoleApplicationTests","test":"test_relay_second_player_joins_available_seat_and_listing_tracks_room","outcome":"PASS","seconds":1.37672,"detail":""},
+{"module":"test_pvp_room_roles54","class":"RoleApplicationTests","test":"test_result_role_change_resets_before_reusing_seat","outcome":"PASS","seconds":0.693999,"detail":""},
+{"module":"test_pvp_room_roles54","class":"RoleTransportTests","test":"test_promoted_player_reconnects_with_same_authenticated_seat","outcome":"PASS","seconds":0.0767664,"detail":""},
+{"module":"test_pvp_room_roles54","class":"RoleTransportTests","test":"test_server_authorized_promotion_then_demotion_changes_filter_in_place","outcome":"PASS","seconds":0.10288,"detail":""}
+]

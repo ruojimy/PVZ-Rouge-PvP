@@ -179,7 +179,7 @@ void NativePlantDraw::original(size_t l){
         if(name=="火炬树桩")name="火炬树桩-秃";
         if(name=="磁力菇"||name=="吸金磁"){
             if(p.sleep.present()&&name=="磁力菇")name="磁力菇-睡觉";
-            if(num(p.magnet)>0.)name+="-吸";
+            else if(num(p.magnet)>0.)name+="-吸";
         }
         if(name=="玉米加农炮"){citouy-=B*.6;citoux-=B*.5;}
         if(has(rules_.big_heads,name)){citouy-=B*.5;citoux-=B*.25;}
@@ -358,8 +358,7 @@ void NativePlantDraw::original(size_t l){
         const Point at{(toux+((facing*B)*.3))+(xxxx*facing),(touy-(B*.1))+yyyy};
         c.rotated(tu,at,toudushu);
         if(num(p.cannon_flash)<50.){
-            c.set_alpha("玉米炮-受伤",std::sin(pi*(num(p.cannon_flash)/50.))*255.);
-            auto sc=c.image("玉米炮-受伤");
+            auto sc=c.with_alpha("玉米炮-受伤",std::sin(pi*(num(p.cannon_flash)/50.))*255.);
             if(facing==-1.)sc=NativeCanvas::flip(sc);
             c.rotated(sc,at,toudushu);
         }
@@ -377,13 +376,11 @@ void NativePlantDraw::original(size_t l){
         c.rotated(xbtou,{toux+xxxx,touy+yyyy},toudushu);
         c.rotated(sbtou,{toux+(xxxx/4.),touy+(yyyy/4.)},-toudushu);
         if(num(p.hurt)>0.){
-            auto lower=c.image(name+"-下半-受伤");
+            auto lower=c.with_alpha(name+"-下半-受伤",std::sin(pi*(num(p.hurt)/50.))*150.);
             if(facing==-1.)lower=NativeCanvas::flip(lower);
-            c.set_alpha(name+"-下半-受伤",std::sin(pi*(num(p.hurt)/50.))*150.);
             c.rotated(lower,{toux+xxxx,touy+yyyy},toudushu);
-            auto upper=c.image(name+"-上半-受伤");
+            auto upper=c.with_alpha(name+"-上半-受伤",std::sin(pi*(num(p.hurt)/50.))*150.);
             if(facing==-1.)upper=NativeCanvas::flip(upper);
-            c.set_alpha(name+"-上半-受伤",std::sin(pi*(num(p.hurt)/50.))*150.);
             c.rotated(upper,{toux+(xxxx/4.),touy+(yyyy/4.)},-toudushu);
         }
         toux+=xxxx;touy+=yyyy;
@@ -394,16 +391,14 @@ void NativePlantDraw::original(size_t l){
         c.display(tu,{toux,touy});
     }
     if(name=="石果子"&&num(p.expires)>4000.){
-        auto dark=c.image(name+"-黑");
+        auto dark=c.with_alpha(name+"-黑",std::pow((num(p.expires)-4000.)/1000.,5.)*255.);
         if(facing==-1.)dark=NativeCanvas::flip(dark);
-        c.set_alpha(name+"-黑",std::pow((num(p.expires)-4000.)/1000.,5.)*255.);
         if(toudushu==0.)c.display(dark,{toux,touy});else c.rotated(dark,{toux,touy},toudushu);
     }
     if(!(num(p.hurt)<=0.||dazui)){
-        auto hurt=c.image(name+"-受伤");
+        auto hurt=c.with_alpha(name+"-受伤",std::sin(pi*(num(p.hurt)/50.))*150.);
         if(facing==-1.)hurt=NativeCanvas::flip(hurt);
         if(daxiao!=0.)hurt=c.resize(hurt,B-daxiao,B-daxiao);
-        c.set_alpha(name+"-受伤",std::sin(pi*(num(p.hurt)/50.))*150.);
         if(toudushu==0.)c.display(hurt,{toux,touy});else c.rotated(hurt,{toux,touy},toudushu);
     }
     if(name=="萝卜伞"&&num(p.shooting)>0.&&num(p.shooting)<100.){
@@ -414,22 +409,20 @@ void NativePlantDraw::original(size_t l){
         c.display(sc,{toux-(dx/2.),touy-((dx*2.)/3.)});
     }
     const auto glow=[&](const std::string& key){
-        c.set_alpha(key,std::sin(pi*(num(p.burst)/250.))*255.);
-        auto sc=c.image(key);
+        auto sc=c.with_alpha(key,std::sin(pi*(num(p.burst)/250.))*255.);
         if(facing==-1.)sc=NativeCanvas::flip(sc);
         c.display(sc,{toux,touy});
     };
     if(name=="向日葵"&&num(p.burst)>0.)glow("向日葵-生产");
     if(name=="路灯花"&&num(p.burst)>0.){
         glow("路灯花-光疗");
-        const auto light=c.ui_image("发光1");
+        const auto light=NativeArtStore::copy(c.ui_image("发光1"));
         NativeCanvas::set_alpha(light,std::sin(pi*(num(p.burst)/250.))*255.);
         c.display(light,{toux-(B*2.),touy-(B*2.)});
     }
     if(name=="双子向日葵"&&num(p.burst)>0.)glow("双子向日葵-生产");
     if(name=="阳光菇"&&num(p.burst)>0.){
-        c.set_alpha("阳光菇-生产",std::sin(pi*(num(p.burst)/250.))*255.);
-        auto sc=c.image("阳光菇-生产");
+        auto sc=c.with_alpha("阳光菇-生产",std::sin(pi*(num(p.burst)/250.))*255.);
         if(num(p.grown)<200.)sc=c.resize(sc,B-daxiao,B-daxiao);
         if(facing==-1.)sc=NativeCanvas::flip(sc);
         c.rotated(sc,{toux,touy},toudushu);

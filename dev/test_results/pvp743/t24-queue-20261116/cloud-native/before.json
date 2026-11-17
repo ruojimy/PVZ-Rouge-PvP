@@ -1,0 +1,22 @@
+{
+  "status": "ok",
+  "created": 1172,
+  "rejected": 2372,
+  "expired": 1172,
+  "disconnects": 74,
+  "paired": 53,
+  "bytes_in": 848064903,
+  "bytes_out": 848064903,
+  "max_write_buffer": 49152,
+  "rooms": 0,
+  "active_rooms": 0,
+  "connections": 1,
+  "rss_bytes": 25903104,
+  "relay_revision": "pvp67-network1",
+  "read_buffer_bytes": 0,
+  "write_buffer_bytes": 0,
+  "stream_chunk_bytes": 16384,
+  "write_high_bytes": 32768,
+  "uptime_seconds": 152504.71,
+  "relay_protocol": 1
+}

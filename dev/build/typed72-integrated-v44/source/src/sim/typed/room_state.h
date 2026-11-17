@@ -14,6 +14,7 @@ struct RoomResult {
     int64_t tick=0;
     std::optional<double> coins;
     std::optional<uint64_t> fallen;
+    std::optional<double> diamond_coins;
     friend bool operator==(const RoomResult&,const RoomResult&)=default;
 };
 struct RoomDeathmatchEvent {double multiplier;};

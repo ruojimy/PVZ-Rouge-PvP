@@ -1,4 +1,5 @@
 #include "cold_admission.h"
+#include "sim/typed/terraria_bosses.h"
 #include "core/pymath.h"
 namespace pvz::typed72 {
 namespace {
@@ -83,6 +84,7 @@ std::optional<ExpansionVariantSetup> ColdAdmission::expansion_setup(const ColdCa
     return setup;
 }
 std::optional<std::string> ColdAdmission::spawn(const std::string& key,Seat side,Point position,double facing,bool temporary,const ColdParent* parent,std::optional<AttackIdentity> attack){
+    if(terraria_type(key)){if(!world_.local_test_mode||side!=Seat::zombie||!terraria_summon(terraria_type(key)))return {};return services_.spawn_terraria(key,position,facing);}
     if(key=="plant:抓人草触手")throw std::invalid_argument("抓人草触手只能由存活本体生成");
     auto card=world_.spawn_ban_exempt?placement_.unit_card(side,key):placement_.player_card(side,key);
     if(card.behavior=="grass")throw std::invalid_argument("草坪是地形工具，必须通过合法放置建立原生方块");

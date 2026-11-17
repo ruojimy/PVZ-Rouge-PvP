@@ -1,0 +1,31 @@
+{
+  "module": "test_pvp_plant_zombie_allegiance",
+  "exit": 1,
+  "seconds": 3.422,
+  "expected": 7,
+  "results": 7,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": false,
+  "accepted": false,
+  "counts": {
+    "PASS": 6,
+    "FAIL": 1,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [],
+  "unexpected_nonpass": [
+    {
+      "id": "test_pvp_plant_zombie_allegiance.PlantZombieAllegianceTests.test_charmed_peas_cross_torch_at_head_height_and_hit_enemy_zombies",
+      "outcome": "FAIL",
+      "detail_sha256": "a7606f3a149cbb3b075a198c864b32d2a28b3628be2d243e94b1621e3337bbee",
+      "reason": "not_waived"
+    }
+  ],
+  "resolved_waivers": []
+}

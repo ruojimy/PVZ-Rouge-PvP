@@ -1,0 +1,31 @@
+{
+  "module": "test_pvp_native_targets",
+  "exit": 1,
+  "seconds": 8.62,
+  "expected": 14,
+  "results": 14,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": false,
+  "accepted": true,
+  "counts": {
+    "PASS": 13,
+    "FAIL": 0,
+    "ERROR": 1,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [
+    {
+      "id": "test_pvp_native_targets.NativeTargetTests.test_real_native_pea_collision_routes_original_damage_body_to_zombie_dave",
+      "outcome": "ERROR",
+      "detail_sha256": "6ff26307e32bfbf22585a180e204902f7ae06b618f58f1fa8f878653285abed4",
+      "reason": "Python __code__ 元数据检查；原 Python owner 和同例 C++ 实际碰撞行为补验通过。"
+    }
+  ],
+  "unexpected_nonpass": [],
+  "resolved_waivers": []
+}

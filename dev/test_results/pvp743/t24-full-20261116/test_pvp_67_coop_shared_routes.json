@@ -1,0 +1,6 @@
+[
+{"module":"test_pvp_67_coop_shared_routes","class":"SharedRoutes67","test":"test_day_one_pool_and_first_wave_include_a_ladder_without_changing_regular_budget","outcome":"PASS","seconds":0.0446949,"detail":""},
+{"module":"test_pvp_67_coop_shared_routes","class":"SharedRoutes67","test":"test_each_coop_dave_has_an_independent_persistent_field_like_duo","outcome":"PASS","seconds":0.0906526,"detail":""},
+{"module":"test_pvp_67_coop_shared_routes","class":"SharedRoutes67","test":"test_native_blocked_request_works_far_from_dave_and_obeys_original_cooldown","outcome":"PASS","seconds":0.016228,"detail":""},
+{"module":"test_pvp_67_coop_shared_routes","class":"SharedRoutes67","test":"test_same_64_body_positions_match_duo_every_native_tick_with_plants_and_terrain_changes","outcome":"PASS","seconds":1.86225,"detail":""}
+]

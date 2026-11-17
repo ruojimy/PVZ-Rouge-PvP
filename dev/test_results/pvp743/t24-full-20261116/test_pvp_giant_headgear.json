@@ -1,0 +1,9 @@
+[
+{"module":"test_pvp_giant_headgear","class":"GiantHeadgearTests","test":"test_a_144_body_wears_its_headgear_inside_its_own_head_art","outcome":"PASS","seconds":0.157872,"detail":""},
+{"module":"test_pvp_giant_headgear","class":"GiantHeadgearTests","test":"test_a_96_body_keeps_the_original_anchor_untouched","outcome":"PASS","seconds":0.293959,"detail":""},
+{"module":"test_pvp_giant_headgear","class":"GiantHeadgearTests","test":"test_a_standalone_imp_wears_its_headgear_inside_its_head_art","outcome":"PASS","seconds":0.592283,"detail":""},
+{"module":"test_pvp_giant_headgear","class":"GiantHeadgearTests","test":"test_both_facings_are_dressed_the_same_way","outcome":"PASS","seconds":0.29909,"detail":""},
+{"module":"test_pvp_giant_headgear","class":"GiantHeadgearTests","test":"test_only_bodies_whose_head_is_routed_are_composited","outcome":"PASS","seconds":0.494567,"detail":""},
+{"module":"test_pvp_giant_headgear","class":"GiantHeadgearTests","test":"test_oversized_bodies_all_take_the_composite","outcome":"PASS","seconds":0.463696,"detail":""},
+{"module":"test_pvp_giant_headgear","class":"GiantHeadgearTests","test":"test_the_composite_seats_the_headgear_on_the_head_cell","outcome":"PASS","seconds":0.177028,"detail":""}
+]

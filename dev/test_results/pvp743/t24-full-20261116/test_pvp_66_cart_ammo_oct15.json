@@ -1,0 +1,7 @@
+[
+{"module":"test_pvp_66_cart_ammo_oct15","class":"FiniteCartAmmo","test":"test_empty_cart_follow_and_rally_keep_existing_stop_distance","outcome":"PASS","seconds":0.0755284,"detail":""},
+{"module":"test_pvp_66_cart_ammo_oct15","class":"FiniteCartAmmo","test":"test_last_native_ball_fires_once_then_unlocks_and_stays_mortal","outcome":"PASS","seconds":0.343901,"detail":""},
+{"module":"test_pvp_66_cart_ammo_oct15","class":"FiniteCartAmmo","test":"test_order_toggle_never_parks_the_shot_timer","outcome":"PASS","seconds":2.7951,"detail":""},
+{"module":"test_pvp_66_cart_ammo_oct15","class":"WaveCartDestinations","test":"test_coop_wave_cart_keeps_both_daves_in_either_body_order","outcome":"PASS","seconds":0.101112,"detail":""},
+{"module":"test_pvp_66_cart_ammo_oct15","class":"WaveCartDestinations","test":"test_solo_wave_cart_keeps_the_first_dave_position_backup","outcome":"PASS","seconds":0.0409425,"detail":""}
+]

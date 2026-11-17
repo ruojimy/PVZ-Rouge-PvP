@@ -1,0 +1,6 @@
+[
+{"module":"test_pvp_presentation","class":"GuestPresentationTests","test":"test_old_and_duplicate_frames_disable_interpolation","outcome":"PASS","seconds":0.0001358,"detail":""},
+{"module":"test_pvp_presentation","class":"GuestPresentationTests","test":"test_removed_entities_never_reappear_and_ring_seam_uses_short_path","outcome":"PASS","seconds":9.11e-05,"detail":""},
+{"module":"test_pvp_presentation","class":"GuestPresentationTests","test":"test_subframes_smooth_without_modifying_authoritative_snapshot","outcome":"PASS","seconds":6.28e-05,"detail":""},
+{"module":"test_pvp_presentation","class":"GuestPresentationTests","test":"test_teleport_death_pause_and_reconnect_do_not_slide","outcome":"PASS","seconds":8.16e-05,"detail":""}
+]

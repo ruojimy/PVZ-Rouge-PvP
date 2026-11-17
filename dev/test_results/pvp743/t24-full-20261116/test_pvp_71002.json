@@ -1,0 +1,7 @@
+[
+{"module":"test_pvp_71002","class":"PvP71002Tests","test":"test_a_standing_plant_dave_marks_the_zombie_dave_like_a_lantern","outcome":"PASS","seconds":0.0182714,"detail":""},
+{"module":"test_pvp_71002","class":"PvP71002Tests","test":"test_imitate_secret_halves_the_imitater_and_locks_it","outcome":"PASS","seconds":0.0130504,"detail":""},
+{"module":"test_pvp_71002","class":"PvP71002Tests","test":"test_mark_and_slime_almanac_texts","outcome":"PASS","seconds":5.21e-05,"detail":""},
+{"module":"test_pvp_71002","class":"PvP71002Tests","test":"test_pirates_are_water_for_trinity_but_keep_land_placement","outcome":"PASS","seconds":0.0471173,"detail":""},
+{"module":"test_pvp_71002","class":"PvP71002Tests","test":"test_the_zombie_dave_starts_a_ghost_pepper","outcome":"PASS","seconds":0.0632574,"detail":""}
+]

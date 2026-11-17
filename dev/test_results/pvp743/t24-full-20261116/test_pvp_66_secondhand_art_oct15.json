@@ -1,0 +1,6 @@
+[
+{"module":"test_pvp_66_secondhand_art_oct15","class":"SecondHandArt","test":"test_actual_break_exports_color_separately_from_logic_name","outcome":"PASS","seconds":0.0639523,"detail":""},
+{"module":"test_pvp_66_secondhand_art_oct15","class":"SecondHandArt","test":"test_actual_wire_render_uses_existing_material_and_is_readonly","outcome":"PASS","seconds":0.632782,"detail":""},
+{"module":"test_pvp_66_secondhand_art_oct15","class":"SecondHandArt","test":"test_legacy_pickup_snapshot_without_asset_keeps_ordinary_art","outcome":"PASS","seconds":0.0267082,"detail":""},
+{"module":"test_pvp_66_secondhand_art_oct15","class":"SecondHandArt","test":"test_pickup_still_has_half_life_and_never_drops_twice","outcome":"PASS","seconds":0.0655857,"detail":""}
+]

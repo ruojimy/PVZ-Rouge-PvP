@@ -14,7 +14,9 @@ set(SNAPSHOT_ZLIB_ROOT ${SRC_ROOT}/third_party/zlib-1.3.2-compress)
 add_library(pvzsnapshot_zlib STATIC
   ${SNAPSHOT_ZLIB_ROOT}/adler32.c ${SNAPSHOT_ZLIB_ROOT}/compress.c
   ${SNAPSHOT_ZLIB_ROOT}/crc32.c ${SNAPSHOT_ZLIB_ROOT}/deflate.c
-  ${SNAPSHOT_ZLIB_ROOT}/trees.c ${SNAPSHOT_ZLIB_ROOT}/zutil.c)
+  ${SNAPSHOT_ZLIB_ROOT}/trees.c ${SNAPSHOT_ZLIB_ROOT}/zutil.c
+  ${SNAPSHOT_ZLIB_ROOT}/inflate.c ${SNAPSHOT_ZLIB_ROOT}/inffast.c
+  ${SNAPSHOT_ZLIB_ROOT}/inftrees.c)
 set_target_properties(pvzsnapshot_zlib PROPERTIES POSITION_INDEPENDENT_CODE ON)
 target_compile_definitions(pvzsnapshot_zlib PRIVATE Z_PREFIX)
 set(SDL_JNI "" CACHE PATH "p4a dist jni folder (SDL, SDL2_image, SDL2_mixer, SDL2_ttf sources/headers)")
@@ -38,7 +40,7 @@ set_target_properties(pvztyped72kernel PROPERTIES POSITION_INDEPENDENT_CODE ON)
 target_include_directories(pvztyped72kernel BEFORE PRIVATE ${TYPED72_STAGE}/src ${TYPED72_STAGE}/src/sim/typed)
 target_include_directories(pvztyped72kernel PRIVATE ${SRC_ROOT}/src ${SRC_ROOT}/third_party ${SRC_ROOT}/tools/typed72 ${SDL_JNI}/SDL/include)
 target_compile_options(pvztyped72kernel PRIVATE ${TYPED72_FLAGS})
-add_library(pvztyped72app STATIC ${SRC_ROOT}/src/sim/typed72_app/cold_export.cpp ${SRC_ROOT}/src/sim/typed72_app/session.cpp ${SRC_ROOT}/src/sim/typed72_app/typed_battle.cpp
+add_library(pvztyped72app STATIC ${SRC_ROOT}/src/sim/typed72_app/cold_export.cpp ${SRC_ROOT}/src/sim/typed72_app/session.cpp ${SRC_ROOT}/src/sim/typed72_app/typed_battle.cpp ${SRC_ROOT}/src/sim/typed72_app/local_frame.cpp
   ${SRC_ROOT}/src/sim/typed72_app/ai_planner_r22.cpp ${SRC_ROOT}/src/sim/typed72_app/ai/controller.cpp
   ${SRC_ROOT}/src/sim/typed72_app/ai/layers7.cpp ${SRC_ROOT}/src/sim/typed72_app/ai/layers11.cpp ${SRC_ROOT}/src/sim/typed72_app/ai/layers19.cpp)
 set_target_properties(pvztyped72app PROPERTIES POSITION_INDEPENDENT_CODE ON)

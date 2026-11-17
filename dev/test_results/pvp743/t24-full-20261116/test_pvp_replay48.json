@@ -1,0 +1,10 @@
+[
+{"module":"test_pvp_replay48","class":"ReplayTests","test":"test_native_roundtrip_inputs_edge_rejection_clear_and_backwards_seek","outcome":"PASS","seconds":2.25846,"detail":""},
+{"module":"test_pvp_replay48","class":"ReplayTests","test":"test_same_native_authority_with_and_without_recording","outcome":"PASS","seconds":1.58993,"detail":""},
+{"module":"test_pvp_replay48","class":"ReplayTests","test":"test_speed_pause_and_single_tick_do_not_skip_native_time","outcome":"PASS","seconds":1.32237,"detail":""},
+{"module":"test_pvp_replay48","class":"ReplayTests","test":"test_tampered_checkpoint_stops_playback","outcome":"PASS","seconds":1.46718,"detail":""},
+{"module":"test_pvp_replay48","class":"ReplayTests","test":"test_wrong_version_old_logs_and_out_of_order_input_rejected","outcome":"PASS","seconds":0.994893,"detail":""},
+{"module":"test_pvp_replay48","class":"ReplayUITests","test":"test_library_camera_timeline_touch_speed_and_readonly_controls","outcome":"PASS","seconds":1.25729,"detail":""},
+{"module":"test_pvp_replay48","class":"ReplayUITests","test":"test_optional_save_manual_save_settings_and_rematch_files","outcome":"PASS","seconds":1.04623,"detail":""},
+{"module":"test_pvp_replay48","class":"ReplayUITests","test":"test_replay_camera_never_leaks_into_new_custom_map_battle","outcome":"PASS","seconds":3.30317,"detail":""}
+]

@@ -1,0 +1,4 @@
+[
+{"module":"test_pvp_important_blocks","class":"ImportantBlocks","test":"test_native_snow_vehicle_registers_and_expires_snow","outcome":"PASS","seconds":0.158649,"detail":""},
+{"module":"test_pvp_important_blocks","class":"ImportantBlocks","test":"test_removed_snow_record_is_discarded_and_matches_are_isolated","outcome":"PASS","seconds":0.0286606,"detail":""}
+]

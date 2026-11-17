@@ -1,0 +1,56 @@
+[
+  {
+    "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Terraria\\Content\\Sounds\\NPC_Hit_1.xnb",
+    "sha256": "3567eb564833d4e1aec06fa3f1b79e075b6ca90f9bcc9b3727c0d21392b95e85",
+    "output": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\extract\\assets\\terraria\\terraria_NPC_Hit_1.wav",
+    "output_sha256": "a92ec7a1ed8642521a4be34eb858d1692748d52d136de0d191904dd359584406",
+    "loopStart": 0,
+    "loopLength": 6434,
+    "duration": 145
+  },
+  {
+    "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Terraria\\Content\\Sounds\\NPC_Hit_2.xnb",
+    "sha256": "a6dcb08d86f235128795f8118ba19f79c0366c1ba45a6939fb9b324c2b556516",
+    "output": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\extract\\assets\\terraria\\terraria_NPC_Hit_2.wav",
+    "output_sha256": "f060457307defeb332cf85133441b78b955e5731bb0d3a66d365810294ff97b0",
+    "loopStart": 0,
+    "loopLength": 7344,
+    "duration": 166
+  },
+  {
+    "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Terraria\\Content\\Sounds\\NPC_Killed_1.xnb",
+    "sha256": "6ef362df14fcf1625fab927cf3d79121a9ef38fc04ff788b9984031198fe4047",
+    "output": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\extract\\assets\\terraria\\terraria_NPC_Killed_1.wav",
+    "output_sha256": "63799efebc7ac1ecbec1ea4f859ade351b0b626af85ba58fd47a828a0c5d6e61",
+    "loopStart": 0,
+    "loopLength": 15104,
+    "duration": 342
+  },
+  {
+    "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Terraria\\Content\\Sounds\\NPC_Killed_2.xnb",
+    "sha256": "94be1707fec1d44d5ad637309aa90c662241aa1869c8226747f5a0f8ec9514f2",
+    "output": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\extract\\assets\\terraria\\terraria_NPC_Killed_2.wav",
+    "output_sha256": "1253f818536e1875b345c3a54ef5c35f128b5b7494e57619306fb3cf2b122d11",
+    "loopStart": 0,
+    "loopLength": 33536,
+    "duration": 760
+  },
+  {
+    "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Terraria\\Content\\Sounds\\Roar_0.xnb",
+    "sha256": "799b8c2d9a5b08c5dee3abf4bb955da2e1f9b52a39dca5ad1fdcc871583f8db2",
+    "output": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\extract\\assets\\terraria\\terraria_Roar_0.wav",
+    "output_sha256": "0f305cf3d3c080103387afbe6af054177199a0caa820ac6d37b77c801448bccd",
+    "loopStart": 0,
+    "loopLength": 87296,
+    "duration": 1979
+  },
+  {
+    "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Terraria\\Content\\Sounds\\Custom\\eow_dig.xnb",
+    "sha256": "139bc60ab7021e94bc38388f53f0952ae85cc4036cf61ad6f874222b94c33d8b",
+    "output": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\extract\\assets\\terraria\\terraria_eow_dig.wav",
+    "output_sha256": "34c06d4a45b903ac7b19b0d6ce8bac6ee0ce961f7557d9ac6f22291f8ffa176c",
+    "loopStart": 0,
+    "loopLength": 6996,
+    "duration": 158
+  }
+]

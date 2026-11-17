@@ -1,0 +1,56 @@
+{
+  "checks": [
+    {
+      "evidence": {
+        "cases": 32
+      },
+      "name": "unit_wire_parity_optional_fields_charm_seats_and_barrel",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "builds": 2,
+        "cards_resolved": 6,
+        "units_projected": 8
+      },
+      "name": "real_session_parity_duel",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "builds": 2,
+        "cards_resolved": 6,
+        "units_projected": 8
+      },
+      "name": "real_session_parity_duo",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "builds": 2,
+        "cards_resolved": 7,
+        "units_projected": 9
+      },
+      "name": "real_session_parity_coop",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "builds": 2,
+        "cards_resolved": 6,
+        "units_projected": 8
+      },
+      "name": "real_session_parity_pve",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "cases": 8,
+        "death_charm_damage_empty_covered": true
+      },
+      "name": "hud_price_and_feedback_match_scan_across_lifecycle",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": "boss",
+      "checks": 31,
+      "passed": true,
+      "executable_sha256": "d078f10c6693293322acd5cd22f24b298be6c763953c1cacebe690270a88560a",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp744\\r3-feedback-20261117\\packaged-gift-boss\\results.json"
+    },
+    {
+      "case": "controls",
+      "checks": 4,
+      "passed": true,
+      "executable_sha256": "70e5924e26fcb9708b54e00bd2dbd190d7b2ac12aefca7847d37fee5fa45de61",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp744\\r3-feedback-20261117\\packaged-gift-controls\\results.json"
+    },
+    {
+      "case": "weather",
+      "checks": 25,
+      "passed": true,
+      "executable_sha256": "6dfcd0c4f9bee9efb95d0e1b1982fd9df48c062eefcf20007f9b7966eb4f0254",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp744\\r3-feedback-20261117\\packaged-gift-weather\\results.json"
+    },
+    {
+      "case": "material",
+      "checks": 88,
+      "passed": true,
+      "executable_sha256": "702f06d304687f92aa1e2d2e9ea065aa92c5a76499871b4b9462bc7e07609264",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp744\\r3-feedback-20261117\\packaged-gift-material\\results.json"
+    },
+    {
+      "case": "feedback",
+      "checks": 14,
+      "passed": true,
+      "executable_sha256": "b089295e2ec26827014661de0d84d8b24bc96e85b2dca38315cc18389c5280d8",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp744\\r3-feedback-20261117\\packaged-gift-feedback\\results.json"
+    },
+    {
+      "case": "r3",
+      "checks": 14,
+      "passed": true,
+      "executable_sha256": "1e33f487ad09136991ef034b8383e730989f4e66dedb015b2404f95741c83142",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp744\\r3-feedback-20261117\\packaged-gift-r3\\results.json"
+    }
+  ]
+}

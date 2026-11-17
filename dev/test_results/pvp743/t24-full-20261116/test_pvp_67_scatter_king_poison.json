@@ -1,0 +1,4 @@
+[
+{"module":"test_pvp_67_scatter_king_poison","class":"ScatterKingPoison67","test":"test_king_type_two_armor_still_does_not_absorb_poison_ticks","outcome":"PASS","seconds":0.0191033,"detail":""},
+{"module":"test_pvp_67_scatter_king_poison","class":"ScatterKingPoison67","test":"test_scatter_machine_gun_cost_is_200_without_changing_the_base_price","outcome":"PASS","seconds":0.0298426,"detail":""}
+]

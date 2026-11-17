@@ -1,0 +1,9 @@
+{
+  "build": {
+    "BUILD": "1.6.0.74.3-typed.20261114",
+    "PROTOCOL": 1
+  },
+  "reference": "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71",
+  "source_test_origin": "read-only 71 suite; 72 user-rule conformance is reported separately",
+  "ruleset": "pvp73"
+}

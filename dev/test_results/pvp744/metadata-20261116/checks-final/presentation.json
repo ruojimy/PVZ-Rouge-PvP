@@ -1,0 +1,49 @@
+{
+  "checks": [
+    {
+      "name": "duplicates_preserve_origin_until_completion",
+      "passed": true
+    },
+    {
+      "name": "same_tick_health_resources_ack_and_animation_are_live",
+      "passed": true
+    },
+    {
+      "name": "new_pose_continues_from_displayed_position",
+      "passed": true
+    },
+    {
+      "name": "same_tick_coordinate_change_snaps",
+      "passed": true
+    },
+    {
+      "name": "teleport_token_change_snaps_hero",
+      "passed": true
+    },
+    {
+      "name": "death_and_revive_snap",
+      "passed": true
+    },
+    {
+      "name": "pause_disconnect_audit_and_result_reset",
+      "passed": true
+    },
+    {
+      "name": "epoch_map_seat_changes_reset",
+      "passed": true
+    },
+    {
+      "name": "large_gap_and_reverse_time_snap",
+      "passed": true
+    },
+    {
+      "name": "ring_seam_uses_short_path",
+      "passed": true
+    },
+    {
+      "name": "guest_normal_latency_duplicate_and_teleport",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

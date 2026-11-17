@@ -18,7 +18,7 @@ void ColdZombieSecrets::configure_locked(){
     trinity_.fill(false);
     for(Seat seat:seats_for(world_.mode))if(seat_has(seat,"海陆空")){
         bool land_found=false,water_found=false,air_found=false;
-        for(const auto& key:deployment_.players[seat_index(seat)].deck){const auto& card=catalog_.at(key);if(card.category=="secret"||card.behavior=="grave")continue;
+        for(const auto& key:deployment_.players[seat_index(seat)].deck){if(key.empty())continue;const auto& card=catalog_.at(key);if(card.category=="secret"||card.behavior=="grave")continue;
             water_found=water_found||water(key);air_found=air_found||air(key);land_found=land_found||(!water(key)&&!air(key));
         }trinity_[seat_index(seat)]=land_found&&water_found&&air_found;
     }

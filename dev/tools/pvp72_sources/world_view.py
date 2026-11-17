@@ -138,8 +138,9 @@ class WorldView:
             replay=self._ensure_native_replay(terrain,frame["tile"])
             replay.render(screen,frame,point=self.point,scale=scale,clip=rect,layer=layer,
                           offsets=battle.get('_visual_offsets'),local_pixels=getattr(self,'local_pixels',None))
+            self.native_error=""
         except (NativeGraphicsError,OSError,ValueError,KeyError,TypeError,self.pg.error) as exc:
-            if not self.native_error:self.native_error="原动画回放失败："+str(exc)[:200]
+            self.native_error="原动画回放失败："+str(exc)[:200]
         return True
 
     def draw_fallen_hero(self, screen, battle, entity, angle):
@@ -399,8 +400,6 @@ class WorldView:
         return left,top,scale,rect,terrain['width']
 
     def _render_full(self, screen, battle, rect, side="plant", settings=None, terrain=None, replay=False):
-        # Clear once per frame, not after each successful (possibly empty) layer.
-        self.native_error=""
         settings = settings or {}
         terrain = battle.get("map") or terrain
         rect = self.pg.Rect(rect)
@@ -555,8 +554,8 @@ class WorldView:
             coin=resource.get("coin")
             if coin:
                 # PvE coins and money bags, with the original coin art.
-                name="钱袋" if coin=="bag" else "金币"
-                size=pixel_tile*(.75 if coin=="bag" else .62 if coin=="gold" else .48)
+                name="钻石" if coin=="diamond" else "钱袋" if coin=="bag" else "金币"
+                size=pixel_tile*(.9 if coin=="diamond" else .75 if coin=="bag" else .62 if coin=="gold" else .48)
                 self.art.blit(screen,name,(px-size/2,py-size/2),size)
                 continue
             name="阳光球" if str(resource.get("side","plant")).startswith("plant") else "脑子"
@@ -566,22 +565,7 @@ class WorldView:
             # 二手: a dropped half-life piece waiting for a zombie to pick it up.
             px,py=self.point(item["x"],item["y"])
             size=pixel_tile*.7
-            asset=item.get("asset") or item["name"]
-            key=('pickup',asset,int(size))
-            image=self.art.scaled.get(key)
-            if image is None:
-                raw=self.art.raw(asset)
-                if raw is not None:
-                    # Worn armour uses a padded full-body canvas. Crop its
-                    # painted bounds so the dropped piece has a readable size.
-                    box=raw.get_bounding_rect()
-                    if box.width>0 and box.height>0:
-                        factor=size/max(box.width,box.height)
-                        image=self.pg.transform.scale(raw.subsurface(box),(max(1,round(box.width*factor)),max(1,round(box.height*factor))))
-                        self.art.scaled[key]=image
-            if image is not None:
-                screen.blit(image,(px-image.get_width()/2,py-image.get_height()))
-            else:
+            if self.art.blit(screen,item.get("asset") or item["name"],(px-size/2,py-size*.8),size) is None:
                 self.pg.draw.rect(screen,(150,150,150),(px-size/3,py-size/2,size*2/3,size/3))
         for effect in (battle.get('zsecrets') or {}).get('effects',()):
             if effect.get('kind')!='taco':continue

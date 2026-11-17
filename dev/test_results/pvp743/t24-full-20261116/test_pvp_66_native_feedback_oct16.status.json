@@ -1,0 +1,24 @@
+{
+  "module": "test_pvp_66_native_feedback_oct16",
+  "exit": 0,
+  "seconds": 1.846,
+  "expected": 5,
+  "results": 5,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": true,
+  "accepted": true,
+  "counts": {
+    "PASS": 5,
+    "FAIL": 0,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [],
+  "unexpected_nonpass": [],
+  "resolved_waivers": []
+}

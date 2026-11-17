@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": "boss",
+      "checks": 31,
+      "passed": true,
+      "executable_sha256": "914dd45bb98d182edb5560f7699de91cefd7d44202f13e894da6fda6abc4ddb4",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp744\\release-20261117\\packaged-boss\\results.json"
+    },
+    {
+      "case": "controls",
+      "checks": 4,
+      "passed": true,
+      "executable_sha256": "307927e15d9ee19c6fe0d68fc25b79609d5c3e50b711c381467593a3b6b7dbe4",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp744\\release-20261117\\packaged-controls\\results.json"
+    },
+    {
+      "case": "weather",
+      "checks": 25,
+      "passed": true,
+      "executable_sha256": "92058045050e40d673c1b26d5a557fa2bbacda6381e4ffd563da4474b1caf180",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp744\\release-20261117\\packaged-weather\\results.json"
+    },
+    {
+      "case": "material",
+      "checks": 88,
+      "passed": true,
+      "executable_sha256": "d52584863b3af71e9a56452c0647e68abe7c75067b86607b4d3fca389b464063",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp744\\release-20261117\\packaged-material\\results.json"
+    }
+  ]
+}

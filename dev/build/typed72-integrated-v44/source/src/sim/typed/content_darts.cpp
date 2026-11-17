@@ -56,11 +56,11 @@ void ContentDarts::projectiles() {
             // Hero colliders are dict subclasses; the source fast path admits
             // only exact native dictionaries, never those proxy records.
             const bool ordinary=std::holds_alternative<PlantRef>(target)||bool(unit);
-            const bool extended=unit&&(named(unit->source.content,"滚桶僵尸")||unit->orphan_barrel||yes(unit->patch.plant_zombie));
+            const bool extended=unit&&(unit->terraria||named(unit->source.content,"滚桶僵尸")||unit->orphan_barrel||yes(unit->patch.plant_zombie));
             if(broad_phase&&ordinary&&!extended&&(std::abs(dx)>std::abs(position->vx)+std::max(1.,tile*.5)+1e-6||
                 std::abs(point.y-oldy)>std::abs(position->y-oldy)+std::max(1.,tile*.8)+1e-6))continue;
             const Point start{0.,oldy},end{position->vx,position->y};
-            bool contact=segment_hits_ellipse(start,end,{{dx,point.y},tile*.5,tile*.8}),barrel_contact=false;
+            bool contact=unit&&unit->terraria?damage_.contact(target,{oldx,oldy},{position->vx,position->y-oldy}):segment_hits_ellipse(start,end,{{dx,point.y},tile*.5,tile*.8}),barrel_contact=false;
             if(unit&&NativeBarrels::active(*unit)) {
                 const auto barrel=*unit->barrel_position.get();
                 barrel_contact=segment_hits_ellipse(start,end,{{wrap_delta(oldx,barrel.x,width),barrel.y-tile*.6},tile*.65,tile*.65});

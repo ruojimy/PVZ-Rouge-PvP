@@ -1,0 +1,6 @@
+[
+{"module":"test_pvp_result_animation","class":"ResultAnimationTests","test":"test_curve_matches_original_code_at_every_native_tick","outcome":"PASS","seconds":0.0007849,"detail":""},
+{"module":"test_pvp_result_animation","class":"ResultAnimationTests","test":"test_original_logo_and_curtains_close_without_mutating_result","outcome":"PASS","seconds":0.0023752,"detail":""},
+{"module":"test_pvp_result_animation","class":"ResultAnimationTests","test":"test_skip_and_resize_are_local_and_do_not_restart_animation","outcome":"PASS","seconds":0.0051194,"detail":""},
+{"module":"test_pvp_result_animation","class":"ResultAnimationTests","test":"test_win_and_loss_load_the_original_sound_assets","outcome":"PASS","seconds":0.0138192,"detail":""}
+]

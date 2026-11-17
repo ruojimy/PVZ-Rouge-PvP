@@ -1,0 +1,7 @@
+[
+{"module":"test_pvp_66_material_maps_oct16","class":"CampaignMaps","test":"test_every_registered_map_rotates_in_solo_coop_and_is_selectable_in_duo","outcome":"PASS","seconds":0.0030159,"detail":""},
+{"module":"test_pvp_66_material_maps_oct16","class":"CampaignMaps","test":"test_solo_actual_day_configuration_uses_each_registered_map","outcome":"PASS","seconds":0.787601,"detail":""},
+{"module":"test_pvp_66_material_maps_oct16","class":"NativeMaterials","test":"test_card_world_icons_share_pixels_and_secret_decks_keep_identifiers","outcome":"PASS","seconds":0.144605,"detail":""},
+{"module":"test_pvp_66_material_maps_oct16","class":"NativeMaterials","test":"test_new_materials_render_native_states_and_replay_without_mutation","outcome":"PASS","seconds":0.144749,"detail":""},
+{"module":"test_pvp_66_material_maps_oct16","class":"NativeMaterials","test":"test_taco_effect_survives_snapshot_and_does_not_delay_or_duplicate_buff","outcome":"FAIL","seconds":0.0207934,"detail":"AssertionError: 0.35519999999999996 != 0.31079999999999997"}
+]

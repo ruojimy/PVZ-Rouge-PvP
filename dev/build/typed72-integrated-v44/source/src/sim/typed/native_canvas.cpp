@@ -128,12 +128,16 @@ void NativeCanvas::tint_roots(const std::vector<std::string>& roots,int level){
     std::vector<std::string> keys;
     for(const auto& [key,image]:atlas.atlas)for(const auto& r:roots)if(key==r||key.starts_with(r+"-")){keys.push_back(key);break;}
     for(const auto& key:keys){
-        const auto original=atlas.atlas.at(key);const auto token=std::pair{original.get(),level};
-        auto found=tints_.find(token);
-        if(found==tints_.end()){if(tints_.size()>256)tints_.clear();found=tints_.emplace(token,std::pair{original,tint_poison(original,level)}).first;}
+        const auto original=atlas.atlas.at(key);
         saved_.emplace(key,original);
-        atlas.atlas[key]=found->second.second;
+        atlas.atlas[key]=poisoned(original,level);
     }
+}
+NativeArt NativeCanvas::poisoned(const NativeArt& image,int level){
+    const auto token=std::pair{NativeArtStore::identity(image),level};
+    auto found=tints_.find(token);
+    if(found==tints_.end()){if(tints_.size()>256)tints_.clear();found=tints_.emplace(token,tint_poison(image,level)).first;}
+    return found->second;
 }
 bool NativeCanvas::recipe_mentions(const NativeArt& image,const std::string& text)const{
     return recipe(image).dump(-1,' ',false,Json::error_handler_t::replace).find(text)!=std::string::npos;
@@ -142,7 +146,7 @@ void NativeCanvas::set_alpha(const NativeArt& image,double value){image->alpha=s
 void NativeCanvas::set_alpha(const std::string& name,double value){set_alpha(image(name),value);}
 void NativeCanvas::alias_one(const std::string& old,const std::string& next){
     const auto a=atlas.find(old),b=atlas.find(next);if(!a||!b)return;
-    saved_[old]=a;atlas.atlas[old]=b;
+    saved_.try_emplace(old,a);atlas.atlas[old]=b;
 }
 void NativeCanvas::alias(const std::string& old,const std::string& next){
     for(const auto suffix:{"","-受伤","-冰冻","-灰烬","-魅惑"})

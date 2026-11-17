@@ -1,0 +1,16 @@
+[
+{"module":"test_pvp_66_ui","class":"NativeModeCards","test":"test_virtual_cards_listed_and_launch_with_entry","outcome":"PASS","seconds":0.0535983,"detail":""},
+{"module":"test_pvp_66_ui","class":"PvP66NativeEntry","test":"test_coop_hud_for_second_seat","outcome":"PASS","seconds":1.27348,"detail":""},
+{"module":"test_pvp_66_ui","class":"PvP66NativeEntry","test":"test_duo_draft_banks_ready_and_mate_deck","outcome":"PASS","seconds":3.97703,"detail":""},
+{"module":"test_pvp_66_ui","class":"PvP66NativeEntry","test":"test_host_skips_snapshots_while_link_is_backlogged","outcome":"PASS","seconds":0.0215972,"detail":""},
+{"module":"test_pvp_66_ui","class":"PvP66NativeEntry","test":"test_mode_switch_lobby_and_team_hud","outcome":"PASS","seconds":0.232836,"detail":""},
+{"module":"test_pvp_66_ui","class":"PvP66NativeEntry","test":"test_pve_entry_shop_and_coop_entry_screens","outcome":"PASS","seconds":0.106957,"detail":""},
+{"module":"test_pvp_66_ui","class":"PvP66NativeEntry","test":"test_single_pve_day_from_home","outcome":"PASS","seconds":1.71703,"detail":""},
+{"module":"test_pvp_66_ui","class":"PvP66NativeEntry","test":"test_zombie_secret_ban_tab_and_battle_bank","outcome":"PASS","seconds":1.64438,"detail":""},
+{"module":"test_pvp_66_ui","class":"PvP66Screens","test":"test_coop_hud_for_second_seat","outcome":"PASS","seconds":1.02782,"detail":""},
+{"module":"test_pvp_66_ui","class":"PvP66Screens","test":"test_duo_draft_banks_ready_and_mate_deck","outcome":"PASS","seconds":3.96459,"detail":""},
+{"module":"test_pvp_66_ui","class":"PvP66Screens","test":"test_host_skips_snapshots_while_link_is_backlogged","outcome":"PASS","seconds":0.0201504,"detail":""},
+{"module":"test_pvp_66_ui","class":"PvP66Screens","test":"test_mode_switch_lobby_and_team_hud","outcome":"PASS","seconds":0.250755,"detail":""},
+{"module":"test_pvp_66_ui","class":"PvP66Screens","test":"test_single_pve_day_from_home","outcome":"PASS","seconds":1.69157,"detail":""},
+{"module":"test_pvp_66_ui","class":"PvP66Screens","test":"test_zombie_secret_ban_tab_and_battle_bank","outcome":"PASS","seconds":1.07487,"detail":""}
+]

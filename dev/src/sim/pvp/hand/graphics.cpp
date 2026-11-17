@@ -493,7 +493,6 @@ struct PygameFacade : PyObj {
         throw PyError("AttributeError","headless pygame backend has no attribute '"+n.str()+"'");
     }
 };
-static std::shared_ptr<Recorder> g_last_recorder;
 struct MeasuredTransforms : PyObj {
     V operations,metrics;
     const char* type_name()const override{return "NativeRecipeTransforms";}
@@ -512,7 +511,6 @@ V make_pygame() {
     metrics.at(V("counter_scope"))=V("native recipe frontend: requests, physical copies and successful SDL materializer transforms; no frontend transform cache; client replay and public detached pixel snapshots excluded; timings only in detailed mode");
     auto f = std::make_shared<PygameFacade>();
     auto rec = std::make_shared<Recorder>();
-    g_last_recorder = rec;
     V& pg = f->members;
     pg.at(V("__graphics_metrics__"))=metrics;rec->setattr(Sym("__graphics_metrics__"),metrics);
     auto measured=std::make_shared<MeasuredTransforms>();measured->operations=transform_ns();measured->metrics=metrics;
@@ -632,6 +630,21 @@ V install_graphics(Match& G, int tile) {
     }
     (void)tile;
     return recv;
+}
+
+void release_graphics(const V& pygame, const V& recorder) {
+    // This facade belongs to one closed match. Its bound draw functions and
+    // the recorder's source callback must not retain that match's graphics.
+    if (auto* facade=as<PygameFacade>(pygame)) {
+        callm(facade->members,Sym("clear"),Args{});
+    }
+    if (auto* rec=as<Recorder>(recorder)) {
+        rec->source_v=V::none();rec->entity_source=V::none();
+        rec->override_v=V::none();rec->entity_override=V::none();
+        rec->commands.clear();rec->commands_v=V::list();rec->positions_v=V::dict();
+        rec->latest_pixels_v=V::none();rec->local_pixels_v=V::none();
+        rec->dyn.clear();
+    }
 }
 
 }  // namespace pvz::gfx

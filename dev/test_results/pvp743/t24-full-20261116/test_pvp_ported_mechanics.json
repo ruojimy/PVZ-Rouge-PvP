@@ -1,0 +1,10 @@
+[
+{"module":"test_pvp_ported_mechanics","class":"PortedMechanicsTests","test":"test_blover_plant_original_wind_moves_projectiles_zombies_and_z_hero","outcome":"PASS","seconds":0.0278797,"detail":""},
+{"module":"test_pvp_ported_mechanics","class":"PortedMechanicsTests","test":"test_blover_zombie_keeps_original_wind_on_projectiles_and_zombies","outcome":"PASS","seconds":0.0139049,"detail":""},
+{"module":"test_pvp_ported_mechanics","class":"PortedMechanicsTests","test":"test_original_lob_intercept_and_midflight_guidance","outcome":"PASS","seconds":0.0804107,"detail":""},
+{"module":"test_pvp_ported_mechanics","class":"PortedMechanicsTests","test":"test_original_starburst_is_five_rays_with_72_degree_separation","outcome":"PASS","seconds":0.0142868,"detail":""},
+{"module":"test_pvp_ported_mechanics","class":"PortedMechanicsTests","test":"test_plant_umbrella_keeps_own_dave_bounce_and_enemy_proxy","outcome":"PASS","seconds":0.0159305,"detail":""},
+{"module":"test_pvp_ported_mechanics","class":"PortedMechanicsTests","test":"test_squash_zombie_real_jump_never_hits_collocated_allied_dave","outcome":"PASS","seconds":1.12599,"detail":""},
+{"module":"test_pvp_ported_mechanics","class":"PortedMechanicsTests","test":"test_umbrella_zombie_real_bonus_assists_own_dave_without_friendly_damage","outcome":"PASS","seconds":0.0568124,"detail":""},
+{"module":"test_pvp_ported_mechanics","class":"PortedMechanicsTests","test":"test_umbrella_zombie_reflects_lob_and_cancels_guidance","outcome":"PASS","seconds":0.0146024,"detail":""}
+]

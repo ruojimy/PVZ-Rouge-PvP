@@ -67,8 +67,8 @@
    "production_changes": []
   },
   "probes/chili_probe.cpp": {
-   "source_sha256": "3a5cde3091f32a65723dfb094e8bc3a08dec56131a40cc703eee40a6b4edf9ee",
-   "generated_sha256": "184a913a6a6d85d5aaf7fadaea9cdda2c00147fd90734fd459d83780a8850daf",
+   "source_sha256": "b5750b35e5992b1cb94205b71d6bc43036946c63e610204d83b6a754b0a3deed",
+   "generated_sha256": "2ae2b0e663d083fafcf75ee14c73a776405b2eabd059cc9bafc84725cde5af83",
    "removed": [
     "calls.push_back(J::array({\"damage\",amount}));",
     "before(\"player_damage\");",
@@ -1034,8 +1034,8 @@
    "production_changes": []
   },
   "probes/room_match_probe.cpp": {
-   "source_sha256": "cc1a75f231f071a82ed68936c40fc233135984263bfd8b65a38672e93fcbb02c",
-   "generated_sha256": "5eeaeed55fefec04ca98708b2cbad504ae5420e7d1857a3ed4654843338a04af",
+   "source_sha256": "38e433ef5dc9b2a5bb5062e2d1cf343900cdf04ad616f181cc8b0faac960d7e9",
+   "generated_sha256": "38e433ef5dc9b2a5bb5062e2d1cf343900cdf04ad616f181cc8b0faac960d7e9",
    "removed": [],
    "production_observers": [],
    "production_changes": []
@@ -1214,8 +1214,8 @@
    "production_changes": []
   },
   "match_probe.cpp": {
-   "source_sha256": "8ddfee07aecbab00f8e02dc96a594b61d96f6559db4d8ccf567c7346fe60ca18",
-   "generated_sha256": "4a780e04dc3af4f5368f8be22d4e3d1ed1f249aa68cde01e4e4d246cd23a009b",
+   "source_sha256": "c0696e6071a39dc4ea4c8a0a0aeb48757b35ea3a9dd6c27f5287c426930115ba",
+   "generated_sha256": "61b9db75866df69cf2e94942b21f555b4498b8d8485cc4ab49eb61399f565529",
    "removed": [
     "spawn_events.push_back({\"black_armor\",name});",
     "spawn_events.push_back({\"spawn_blocked\",card});"
@@ -1239,15 +1239,15 @@
    ]
   },
   "frame_layer.inc": {
-   "source_sha256": "ffb0b817f9758671cf75a905978a57b48b3f46c05acfc9d3c5799ce081142d78",
-   "generated_sha256": "9458176651420b915c0da443c7b925505ec4ac805dc4ac85add8d115d3e2f2b3",
+   "source_sha256": "4cb175bd7502ff04826b63eccb715ab81fac451e8dfcf137b36b57c334a106fe",
+   "generated_sha256": "60edfdf4854a18559b5816ee9292cef2de24b6cbad26e2b56c7f75d246dc49ea",
    "removed": [],
    "production_observers": [],
    "production_changes": []
   },
   "snapshot_layer.inc": {
-   "source_sha256": "2d33ead5c5033aa2ada85506b96efdcdf54ca22d3da76497b9fa3ce973a52991",
-   "generated_sha256": "c4232acfe1ad79e6208cccf598c64d312b2e82a77c6065b7f17d04a7abf2ba0d",
+   "source_sha256": "933e8ff1fbd3814b29d40988f3c43032b3f551a8b1990676e96148b6993cae14",
+   "generated_sha256": "933e8ff1fbd3814b29d40988f3c43032b3f551a8b1990676e96148b6993cae14",
    "removed": [],
    "production_observers": [],
    "production_changes": []

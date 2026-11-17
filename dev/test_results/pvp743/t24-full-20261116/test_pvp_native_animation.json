@@ -1,0 +1,12 @@
+[
+{"module":"test_pvp_native_animation","class":"NativeAnimation","test":"test_animation_snapshot_is_immutable_and_corrupt_assets_fail_loudly","outcome":"PASS","seconds":0.0474041,"detail":""},
+{"module":"test_pvp_native_animation","class":"NativeAnimation","test":"test_atlas_alpha_transform_and_temporary_canvas_do_not_mutate_live_surface","outcome":"PASS","seconds":0.445587,"detail":""},
+{"module":"test_pvp_native_animation","class":"NativeAnimation","test":"test_long_canvas_remains_bounded_and_transform_depth_is_still_guarded","outcome":"PASS","seconds":0.0017537,"detail":""},
+{"module":"test_pvp_native_animation","class":"NativeAnimation","test":"test_long_canvas_survives_wire_replay_and_keeps_following_sprites","outcome":"PASS","seconds":0.0037513,"detail":""},
+{"module":"test_pvp_native_animation","class":"NativeAnimation","test":"test_native_physics_balloon_effect_keeps_full_graphics_namespace_and_matches_original","outcome":"PASS","seconds":0.376159,"detail":""},
+{"module":"test_pvp_native_animation","class":"NativeAnimation","test":"test_original_camera_rotation_and_crop_preserve_guest_pixels","outcome":"PASS","seconds":1.06381,"detail":""},
+{"module":"test_pvp_native_animation","class":"NativeAnimation","test":"test_original_dave_body_and_hurt_layer_match_and_keep_separate_avatar_clocks","outcome":"PASS","seconds":3.71272,"detail":""},
+{"module":"test_pvp_native_animation","class":"NativeAnimation","test":"test_original_patch_assets_and_dynamic_tripea_vines_use_native_helpers","outcome":"PASS","seconds":1.2834,"detail":""},
+{"module":"test_pvp_native_animation","class":"NativeAnimation","test":"test_original_plant_function_record_replay_matches_actual_pygame_for_native_phases","outcome":"PASS","seconds":5.77879,"detail":""},
+{"module":"test_pvp_native_animation","class":"NativeAnimation","test":"test_production_loader_matches_original_atlas_and_preserves_match_rng","outcome":"PASS","seconds":0.292185,"detail":""}
+]

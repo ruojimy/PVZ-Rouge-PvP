@@ -16,12 +16,14 @@ endif()
 
 set(TP ${CMAKE_SOURCE_DIR}/third_party)
 # Standard zlib stream bytes for network snapshots. Symbols are isolated from
-# SDL's private zlib copies; only upstream compression code is linked.
+# SDL's private zlib copies. Network decode uses bounded streaming inflate.
 set(SNAPSHOT_ZLIB_ROOT ${TP}/zlib-1.3.2-compress)
 add_library(pvzsnapshot_zlib STATIC
   ${SNAPSHOT_ZLIB_ROOT}/adler32.c ${SNAPSHOT_ZLIB_ROOT}/compress.c
   ${SNAPSHOT_ZLIB_ROOT}/crc32.c ${SNAPSHOT_ZLIB_ROOT}/deflate.c
-  ${SNAPSHOT_ZLIB_ROOT}/trees.c ${SNAPSHOT_ZLIB_ROOT}/zutil.c)
+  ${SNAPSHOT_ZLIB_ROOT}/trees.c ${SNAPSHOT_ZLIB_ROOT}/zutil.c
+  ${SNAPSHOT_ZLIB_ROOT}/inflate.c ${SNAPSHOT_ZLIB_ROOT}/inffast.c
+  ${SNAPSHOT_ZLIB_ROOT}/inftrees.c)
 target_compile_definitions(pvzsnapshot_zlib PRIVATE Z_PREFIX)
 set(SDL2_DIR_ROOT ${TP}/SDL2-2.30.9)
 set(SDL2_IMAGE_ROOT ${TP}/SDL2_image-2.8.2)
@@ -91,7 +93,7 @@ if(UI_SRC)
   target_include_directories(pvztyped72kernel PUBLIC src ${TP} ${CMAKE_SOURCE_DIR}/tools/typed72 ${SDL_INCLUDES})
   target_include_directories(pvztyped72kernel PRIVATE ${PVZ_TYPED72_STAGE}/src/sim/typed)
   target_link_libraries(pvztyped72kernel PUBLIC ${SDL_LIBS})
-  add_library(pvztyped72app STATIC src/sim/typed72_app/cold_export.cpp src/sim/typed72_app/session.cpp src/sim/typed72_app/typed_battle.cpp src/sim/typed72_app/ai_planner_r22.cpp src/sim/typed72_app/ai/controller.cpp src/sim/typed72_app/ai/layers7.cpp src/sim/typed72_app/ai/layers11.cpp src/sim/typed72_app/ai/layers19.cpp)
+  add_library(pvztyped72app STATIC src/sim/typed72_app/cold_export.cpp src/sim/typed72_app/session.cpp src/sim/typed72_app/typed_battle.cpp src/sim/typed72_app/local_frame.cpp src/sim/typed72_app/ai_planner_r22.cpp src/sim/typed72_app/ai/controller.cpp src/sim/typed72_app/ai/layers7.cpp src/sim/typed72_app/ai/layers11.cpp src/sim/typed72_app/ai/layers19.cpp)
   target_include_directories(pvztyped72app BEFORE PRIVATE ${PVZ_TYPED72_STAGE}/src ${PVZ_TYPED72_COMPOSITION} ${PVZ_TYPED72_COMPOSITION}/probes)
   target_include_directories(pvztyped72app PRIVATE ${SDL_INCLUDES})
   target_link_libraries(pvztyped72app PUBLIC pvztyped72kernel pvzcore)
@@ -119,10 +121,26 @@ if(UI_SRC)
     COMMAND "${Python3_EXECUTABLE}" -I -B "${CMAKE_SOURCE_DIR}/tools/pvp74_apply_hooks.py" --check
     WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}" VERBATIM)
   add_dependencies(pvzui texture74_hooks_check)
+  add_custom_target(pvp744_testmode_hooks_check
+    COMMAND "${Python3_EXECUTABLE}" -I -B "${CMAKE_SOURCE_DIR}/tools/pvp744_testmode_hooks.py" --check
+    WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")
+  add_dependencies(pvzui pvp744_testmode_hooks_check)
+  add_custom_target(pvp744_controls_hooks_check
+    COMMAND "${Python3_EXECUTABLE}" -I -B "${CMAKE_SOURCE_DIR}/tools/pvp744_controls_hooks.py" --check
+    WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")
+  add_dependencies(pvzui pvp744_controls_hooks_check)
+  add_custom_target(pvp744_feedback_sources_check
+    COMMAND "${Python3_EXECUTABLE}" -I -B "${CMAKE_SOURCE_DIR}/tools/pvp744_feedback_sources.py" --check
+    WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}" VERBATIM)
+  add_dependencies(pvzui pvp744_feedback_sources_check)
   add_custom_target(pvp741_hooks_check
     COMMAND "${Python3_EXECUTABLE}" -I -B "${CMAKE_SOURCE_DIR}/tools/pvp741_apply_hooks.py" --check
     WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}" VERBATIM)
   add_dependencies(pvzui pvp741_hooks_check)
+  add_custom_target(pvp743_network_sources_check
+    COMMAND "${Python3_EXECUTABLE}" -I -B "${CMAKE_SOURCE_DIR}/tools/pvp743_network_sources.py" --check
+    WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}" VERBATIM)
+  add_dependencies(pvzui pvp743_network_sources_check)
   # The AISeat typed-observation bodies in src/ui/gen/pm_lobby_room.cpp are
   # generated from tools/pvp72_sources/lobby_room.py; reject a stale copy.
   add_custom_target(typed72_ai_bridge_check
@@ -142,7 +160,7 @@ if(UI_SRC)
     get_filename_component(n ${f} NAME_WE)
     add_executable(${n} ${f})
     target_link_libraries(${n} PRIVATE pvzui)
-    if(n STREQUAL "pvp741_hero_texture_audit" OR n STREQUAL "pvp742_terrain_units_audit" OR n STREQUAL "pvp742_reverse_subscription_bench" OR n STREQUAL "pvp742_plant_occupancy_audit" OR n STREQUAL "pvp742_secondhand_audit")
+    if(n MATCHES "^pvp744_material_" OR n STREQUAL "pvp741_hero_texture_audit" OR n STREQUAL "pvp742_terrain_units_audit" OR n STREQUAL "pvp742_reverse_subscription_bench" OR n STREQUAL "pvp742_plant_occupancy_audit" OR n STREQUAL "pvp742_secondhand_audit" OR n STREQUAL "pvp744_state_view_audit" OR n STREQUAL "pvp744_r3_audit")
       # These verifiers construct production state (HeroState / FloodState).
       target_include_directories(${n} BEFORE PRIVATE ${PVZ_TYPED72_STAGE}/src)
     endif()

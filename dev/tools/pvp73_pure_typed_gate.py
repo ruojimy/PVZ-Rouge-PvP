@@ -78,6 +78,8 @@ def main():
     for name, app_args, required in SCENARIOS:
         rc, audits, seconds = run(args.app_run, name, app_args, out, args.timeout)
         problems = [] if audits else ["no PURE_TYPED_AUDIT line (run failed or ended before the battle)"]
+        if rc != 0:
+            problems.append("process did not exit successfully: %s" % rc)
         if audits:
             problems += check(audits[-1], required)
         rows.append(dict(scenario=name, rc=rc, seconds=seconds, passed=not problems, problems=problems,

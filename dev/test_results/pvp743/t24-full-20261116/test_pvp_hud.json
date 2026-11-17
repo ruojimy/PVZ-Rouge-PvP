@@ -1,0 +1,6 @@
+[
+{"module":"test_pvp_hud","class":"HudTests","test":"test_bought_slots_fill_one_bank_instead_of_hiding_behind_a_page","outcome":"PASS","seconds":0.0455397,"detail":""},
+{"module":"test_pvp_hud","class":"HudTests","test":"test_hidden_cooldowns_and_producers_follow_snapshot_without_mutation","outcome":"PASS","seconds":0.0007137,"detail":""},
+{"module":"test_pvp_hud","class":"HudTests","test":"test_producer_losses_merge_and_do_not_repeat_on_same_frame","outcome":"PASS","seconds":0.0006624,"detail":""},
+{"module":"test_pvp_hud","class":"HudTests","test":"test_seven_original_seed_slots_and_full_world_stay_read_only_at_small_sizes","outcome":"PASS","seconds":0.0990305,"detail":""}
+]

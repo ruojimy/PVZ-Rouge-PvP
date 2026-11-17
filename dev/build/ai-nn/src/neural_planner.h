@@ -59,7 +59,7 @@ struct Dense {
 };
 class NeuralModel {
     Dense unit,hidden,output;size_t embedding=0;
-    std::vector<bool> enabled_heads;
+    std::vector<bool> enabled_heads;bool residual_=false;
 public:
     explicit NeuralModel(const J& j){
         if(j.at("format")!="pvz-deepset-hybrid-1")throw std::invalid_argument("unknown neural model format");
@@ -71,12 +71,17 @@ public:
         if(j.at("behaviors").get<std::vector<std::string>>()!=neural_behaviors())throw std::invalid_argument("neural model encoder mismatch");
         enabled_heads=j.at("enabled_heads").get<std::vector<bool>>();
         if(enabled_heads.size()!=4)throw std::invalid_argument("neural model head mask dimension");
+        // Optional. A residual model outputs corrections to r22's own value instead of the value
+        // itself: goal classes mean r22 + (class - 5), the mode class means keep (0) or flip (1).
+        // Zero weights with the neutral classes biased therefore reproduce r22 exactly.
+        residual_=j.value("residual",false);
         embedding=j.at("embedding");const size_t width=j.at("hidden");
         if(embedding<1||embedding>128||width<1||width>512)throw std::invalid_argument("neural model dimensions out of bounds");
         unit=Dense(j.at("unit"),16+neural_behaviors().size(),embedding);
         hidden=Dense(j.at("body"),20+4*embedding,width);output=Dense(j.at("heads"),width,27);
     }
     bool enabled(size_t h)const{return enabled_heads.at(h);}
+    bool residual()const{return residual_;}
     std::vector<double> logits(const NeuralFeatures& f)const{
         std::vector<double> x=f.global;
         for(const auto* group:{&f.own,&f.enemy}){
@@ -99,19 +104,31 @@ public:
     AiPlanR22 plan(const AiPlannerInput& in)override{
         const auto f=neural_features(in,base.memory());auto p=base.plan(in);const auto c=model->classes(f);
         if(in.side==Seat::plant){
-            if(model->enabled(0))p.econ_goal=std::clamp(c[0],2,10);
-            if(model->enabled(1))p.mode=c[1]?"siege":"defend";
+            if(model->residual()){
+                if(model->enabled(0)&&c[0]!=5)p.econ_goal=std::clamp(int(p.econ_goal)+c[0]-5,2,10);
+                // Without a flip the plan and r22's memory are left exactly as r22 produced them.
+                if(!(model->enabled(1)&&c[1]))return p;
+                p.mode=p.mode==std::optional<std::string>("siege")?"defend":"siege";
+            }else{
+                if(model->enabled(0))p.econ_goal=std::clamp(c[0],2,10);
+                if(model->enabled(1))p.mode=c[1]?"siege":"defend";
+            }
             // Existing forced recovery behavior remains authoritative in this first candidate.
             if(in.recovering||in.me.hp<=10.)p.mode="defend";
             auto m=base.memory();m.mode=*p.mode;base.set_memory(m);
         }else{
-            if(model->enabled(2))p.grave_start=p.grave_max=std::clamp(c[2],2,10);
-            if(model->enabled(3))p.save=c[3]==2?std::nullopt:std::optional<bool>(c[3]==1);
+            if(model->residual()){
+                if(model->enabled(2)&&c[2]!=5){
+                    p.grave_start=std::clamp(int(p.grave_start)+c[2]-5,2,10);
+                    p.grave_max=std::max(p.grave_max,p.grave_start);
+                }
+            }else if(model->enabled(2))p.grave_start=p.grave_max=std::clamp(c[2],2,10);
+            if(!model->residual()&&model->enabled(3))p.save=c[3]==2?std::nullopt:std::optional<bool>(c[3]==1);
         }
         return p;
     }
     Seat side()const override{return base.side();}
-    const char* name()const override{return "nn-hybrid-v1";}
+    const char* name()const override{return model->residual()?"nn-residual-v1":"nn-hybrid-v1";}
     AiPlannerMemory memory()const override{return base.memory();}
     void set_memory(const AiPlannerMemory& m)override{base.set_memory(m);}
 };

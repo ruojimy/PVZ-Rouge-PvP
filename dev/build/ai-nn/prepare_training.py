@@ -11,6 +11,8 @@ ap.add_argument('--ids', type=Path, required=True)
 ap.add_argument('--encoder', type=Path, required=True)
 ap.add_argument('--out', type=Path, required=True)
 ap.add_argument('--stride', type=int, default=4)
+ap.add_argument('--augment', type=int, default=0, help='relabelled variants per sampled state (neural_dataset --augment)')
+ap.add_argument('--seed', type=int, default=743)
 args = ap.parse_args()
 if args.out.exists():
     raise SystemExit('Dataset exists; use a new path')
@@ -28,8 +30,10 @@ for key in ids:
     manifest.append(dict(id=key, sha256=hashlib.sha256(raw).hexdigest(), map=header['map'],
                          seed=header['seed'], limit_seconds=header['limit_seconds'],
                          timeout=footer['timeout'], time=footer['time']))
-subprocess.run([str(args.encoder), str(args.out), '-', '--stride', str(args.stride), *paths], check=True)
+subprocess.run([str(args.encoder), str(args.out), '-', '--stride', str(args.stride),
+                *(['--augment', str(args.augment), '--seed', str(args.seed)] if args.augment else []), *paths], check=True)
 meta = dict(format='pvz-neural-dataset-provenance-1', stride_per_seat=args.stride, matches=manifest,
+            augment=args.augment, augment_seed=args.seed if args.augment else None,
             encoder_sha256=hashlib.sha256(args.encoder.read_bytes()).hexdigest(),
             dataset_sha256=hashlib.sha256(args.out.read_bytes()).hexdigest())
 args.out.with_suffix('.provenance.json').write_text(json.dumps(meta, ensure_ascii=False, indent=2), 'utf-8')

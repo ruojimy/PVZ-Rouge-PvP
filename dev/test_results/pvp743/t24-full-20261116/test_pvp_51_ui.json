@@ -1,0 +1,4 @@
+[
+{"module":"test_pvp_51_ui","class":"Controls51","test":"test_slot_keys_rebind_persist_and_match_visible_page","outcome":"PASS","seconds":1.59321,"detail":""},
+{"module":"test_pvp_51_ui","class":"SpectatorBP51","test":"test_bp_updates_decks_bans_stage_and_remains_read_only","outcome":"PASS","seconds":0.87978,"detail":""}
+]

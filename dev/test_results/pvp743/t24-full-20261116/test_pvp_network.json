@@ -1,0 +1,18 @@
+[
+{"module":"test_pvp_network","class":"FrameTests","test":"test_fragmented_and_coalesced_unicode_frames","outcome":"PASS","seconds":0.0002258,"detail":""},
+{"module":"test_pvp_network","class":"FrameTests","test":"test_parser_ipv4_ipv6_brackets_and_scope","outcome":"PASS","seconds":0.000421,"detail":""},
+{"module":"test_pvp_network","class":"FrameTests","test":"test_rejects_bad_lengths_json_nonfinite_and_nondicts","outcome":"PASS","seconds":0.0004002,"detail":""},
+{"module":"test_pvp_network","class":"IdnaCodecRaceTests","test":"test_fresh_process_direct_host_creation_survives_the_codec_race","outcome":"ERROR","seconds":6.65e-05,"detail":"NotImplementedError: stdlib call textwrap.dedent"},
+{"module":"test_pvp_network","class":"SocketTests","test":"test_automatic_reconnect_requires_fresh_snapshot","outcome":"PASS","seconds":0.0790177,"detail":""},
+{"module":"test_pvp_network","class":"SocketTests","test":"test_handshake_timeout_and_expiring_reservation","outcome":"PASS","seconds":0.402659,"detail":""},
+{"module":"test_pvp_network","class":"SocketTests","test":"test_idle_peer_times_out_without_fabricating_game_result","outcome":"PASS","seconds":0.235172,"detail":""},
+{"module":"test_pvp_network","class":"SocketTests","test":"test_incompatible_identity_and_room_code_do_not_consume_slot","outcome":"PASS","seconds":0.0265238,"detail":""},
+{"module":"test_pvp_network","class":"SocketTests","test":"test_ipv4_bidirectional_payload_copy_and_stable_ids","outcome":"PASS","seconds":0.0331098,"detail":""},
+{"module":"test_pvp_network","class":"SocketTests","test":"test_ipv6_real_loopback","outcome":"PASS","seconds":0.0327049,"detail":""},
+{"module":"test_pvp_network","class":"SocketTests","test":"test_malformed_handshakes_do_not_kill_listener","outcome":"PASS","seconds":0.0526845,"detail":""},
+{"module":"test_pvp_network","class":"SocketTests","test":"test_room_full_and_reserved_session_cannot_be_stolen","outcome":"PASS","seconds":0.0470588,"detail":""},
+{"module":"test_pvp_network","class":"SocketTests","test":"test_send_size_guard_and_nonblocking_poll","outcome":"PASS","seconds":0.0265722,"detail":""},
+{"module":"test_pvp_network","class":"SocketTests","test":"test_sequence_duplicate_rejected_gap_disconnects","outcome":"PASS","seconds":0.0916062,"detail":""},
+{"module":"test_pvp_network","class":"SocketTests","test":"test_server_shutdown_bounded_reconnect_and_cancel","outcome":"PASS","seconds":0.221858,"detail":""},
+{"module":"test_pvp_network","class":"SocketTests","test":"test_stalled_event_consumer_has_a_byte_bound","outcome":"PASS","seconds":0.033065,"detail":""}
+]

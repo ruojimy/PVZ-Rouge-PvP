@@ -14,6 +14,8 @@ struct EconomyState {
     int64_t previous_tick=0;
     double sky_progress=0.,sky_interval=0.,subsidy_phase=0.;
     bool night=false,subsidy=false;
+    // Rain blocks sky sun independently of the current day/night phase.
+    bool rain=false;
     std::vector<Point> death_points;
     std::unordered_map<std::string,double> grave_progress;
 };

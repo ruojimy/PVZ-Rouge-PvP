@@ -137,6 +137,8 @@ def main():
     split = {"train": [], "validation": [], "test": []}
     for r in rows:
         part = "test" if r["map"] in test_maps else "validation" if r["map"] in validation_maps else "train"
+        if r.get("aug") and part != "train":
+            continue  # relabelled augmentation (neural_dataset --augment) is training data only
         split[part].append(r)
     # Prevent identical feature/label records crossing a split (e.g. empty openings).
     seen = set()

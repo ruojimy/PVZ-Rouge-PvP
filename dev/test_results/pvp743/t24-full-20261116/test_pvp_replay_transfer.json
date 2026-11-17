@@ -1,0 +1,5 @@
+[
+{"module":"test_pvp_replay_transfer","class":"ReplayTransferTests","test":"test_corrupt_out_of_order_unsolicited_and_timeout_never_enter_library","outcome":"PASS","seconds":0.188029,"detail":""},
+{"module":"test_pvp_replay_transfer","class":"ReplayTransferTests","test":"test_guest_auto_save_without_host_auto_save_and_no_duplicate_requests","outcome":"PASS","seconds":1.74964,"detail":""},
+{"module":"test_pvp_replay_transfer","class":"ReplayTransferTests","test":"test_lobby_guest_manual_save_list_reopen_and_native_playback","outcome":"PASS","seconds":1.44689,"detail":""}
+]

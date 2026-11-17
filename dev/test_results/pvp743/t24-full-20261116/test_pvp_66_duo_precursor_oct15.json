@@ -1,0 +1,6 @@
+[
+{"module":"test_pvp_66_duo_precursor_oct15","class":"DuoPrecursorReservation","test":"test_joint_capacity_does_not_spend_reserved_unique_precursor_as_teammates_filler","outcome":"PASS","seconds":0.0124097,"detail":""},
+{"module":"test_pvp_66_duo_precursor_oct15","class":"DuoPrecursorReservation","test":"test_precursor_first_rejects_teammate_secret_but_same_seat_can_finish","outcome":"PASS","seconds":5.30668,"detail":""},
+{"module":"test_pvp_66_duo_precursor_oct15","class":"DuoPrecursorReservation","test":"test_repeatable_coffee_precursor_remains_available_to_both_seats_in_either_order","outcome":"PASS","seconds":5.36621,"detail":""},
+{"module":"test_pvp_66_duo_precursor_oct15","class":"DuoPrecursorReservation","test":"test_secret_first_cannot_lose_precursor_and_real_timeouts_complete_both_teams","outcome":"PASS","seconds":5.43501,"detail":""}
+]

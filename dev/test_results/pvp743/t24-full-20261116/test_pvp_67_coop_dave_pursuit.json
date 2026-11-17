@@ -1,0 +1,5 @@
+[
+{"module":"test_pvp_67_coop_dave_pursuit","class":"DavePursuit67","test":"test_dave_pursuit_retains_native_contact_biting_and_duo_plant_selection","outcome":"PASS","seconds":0.670969,"detail":""},
+{"module":"test_pvp_67_coop_dave_pursuit","class":"DavePursuit67","test":"test_each_curated_map_retargets_both_persistent_fields_when_daves_move","outcome":"PASS","seconds":0.338874,"detail":""},
+{"module":"test_pvp_67_coop_dave_pursuit","class":"DavePursuit67","test":"test_unexpired_split_leaves_remote_spawn_producer_and_chases_dave","outcome":"PASS","seconds":0.706288,"detail":""}
+]

@@ -1,0 +1,7 @@
+[
+{"module":"test_pvp_66_pause_stun","class":"FixedCoopPause","test":"test_coop_fixed_teammate_confirms_p_and_does_not_resume_on_its_own","outcome":"PASS","seconds":1.38415,"detail":""},
+{"module":"test_pvp_66_pause_stun","class":"ParalysisWindow","test":"test_each_spikerock_hit_leaves_real_movement_before_the_next","outcome":"PASS","seconds":0.291185,"detail":""},
+{"module":"test_pvp_66_pause_stun","class":"ParalysisWindow","test":"test_paralysis_never_clears_real_garlic_ice_or_a_longer_stun","outcome":"PASS","seconds":0.0488249,"detail":""},
+{"module":"test_pvp_66_pause_stun","class":"TeamPause","test":"test_all_real_seats_vote_despite_config_revision_and_clock_freezes","outcome":"PASS","seconds":0.0632845,"detail":""},
+{"module":"test_pvp_66_pause_stun","class":"TeamPause","test":"test_second_seat_keyboard_withdraw_resume_and_coop_waiting_text","outcome":"PASS","seconds":0.211033,"detail":""}
+]

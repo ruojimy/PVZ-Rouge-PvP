@@ -1,0 +1,24 @@
+{
+  "module": "test_pvp_native_draft_display",
+  "exit": 0,
+  "seconds": 2.01,
+  "expected": 1,
+  "results": 1,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": true,
+  "accepted": true,
+  "counts": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [],
+  "unexpected_nonpass": [],
+  "resolved_waivers": []
+}

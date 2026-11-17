@@ -106,7 +106,9 @@ struct ZombieRecordFields {
     std::string kind, armor, hand;
     double hp = 0, armor_hp = 0, hand_hp = 0, facing = 1;
     double hurt = 0, hand_hurt = 0;
-    Field<double> ash, balloon;
+    Field<double> ash, balloon;
+    Field<double> defense; // absent: legacy damage; configured: flat defense
+    bool external_lifecycle=false;
     Field<double> size, berserk, pole_vault, dancing;
     Field<bool> in_water;
     Field<double> ice,butter,stun,gravity;

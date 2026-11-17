@@ -1,0 +1,216 @@
+{
+  "codec_cases": [
+    {
+      "bytes": 147,
+      "fast": true,
+      "name": "unicode_bytes_repeated_container"
+    },
+    {
+      "bytes": 35,
+      "fast": false,
+      "name": "mapping_keys_compatibility"
+    },
+    {
+      "bytes": 48148,
+      "fast": true,
+      "name": "finite_numeric_boundaries_and_2048_random_bits"
+    }
+  ],
+  "encoded_bytes": 33284,
+  "frozen_bytes": 648596,
+  "invalid_frozen_cases": 47,
+  "kernel_profiles": [
+    {
+      "base64_encode_cpu": 0,
+      "base64_encode_wall": 0.0273,
+      "json_encode_cpu": 0,
+      "json_encode_wall": 5.936,
+      "task_cpu": 15.625,
+      "task_wall": 16.7832,
+      "zlib_compress_cpu": 0,
+      "zlib_compress_wall": 3.4663
+    },
+    {
+      "base64_encode_cpu": 0,
+      "base64_encode_wall": 0.0281,
+      "json_encode_cpu": 0,
+      "json_encode_wall": 6.0402,
+      "task_cpu": 15.625,
+      "task_wall": 16.1209,
+      "zlib_compress_cpu": 15.625,
+      "zlib_compress_wall": 3.0777
+    },
+    {
+      "base64_encode_cpu": 0,
+      "base64_encode_wall": 0.0264,
+      "json_encode_cpu": 0,
+      "json_encode_wall": 5.9742,
+      "task_cpu": 15.625,
+      "task_wall": 14.9963,
+      "zlib_compress_cpu": 15.625,
+      "zlib_compress_wall": 3.1364
+    },
+    {
+      "base64_encode_cpu": 0,
+      "base64_encode_wall": 0.026,
+      "json_encode_cpu": 15.625,
+      "json_encode_wall": 6.4073,
+      "task_cpu": 15.625,
+      "task_wall": 16.3243,
+      "zlib_compress_cpu": 0,
+      "zlib_compress_wall": 3.0593
+    },
+    {
+      "base64_encode_cpu": 0,
+      "base64_encode_wall": 0.0273,
+      "json_encode_cpu": 0,
+      "json_encode_wall": 5.7536,
+      "task_cpu": 15.625,
+      "task_wall": 15.8022,
+      "zlib_compress_cpu": 0,
+      "zlib_compress_wall": 3.1208
+    },
+    {
+      "base64_encode_cpu": 0,
+      "base64_encode_wall": 0.0253,
+      "json_encode_cpu": 0,
+      "json_encode_wall": 5.2481,
+      "task_cpu": 15.625,
+      "task_wall": 13.8689,
+      "zlib_compress_cpu": 0,
+      "zlib_compress_wall": 3.2181
+    }
+  ],
+  "main_thread_reacquire_max_ms": 33.1783,
+  "main_thread_reacquire_p50_ms": 3.0602,
+  "main_thread_reacquire_p95_ms": 8.8596,
+  "messages": 24,
+  "passed": true,
+  "payload_sha256": "cd38967039bdaeac6ecc39d5b1990bfc4a47de02f9a9f3a529681fa94ff4ed44",
+  "peers": 3,
+  "private_before": 556564480,
+  "private_peak": 579321856,
+  "reacquire_samples": 67,
+  "rounds": [
+    {
+      "completion_age_ms": [
+        62.4733,
+        62.4776,
+        75.7657
+      ],
+      "round_ms": 75.7697,
+      "submit_ms": [
+        4.548,
+        11.4636,
+        3.7122
+      ]
+    },
+    {
+      "completion_age_ms": [
+        37.8315,
+        56.3046,
+        68.92
+      ],
+      "round_ms": 68.9247,
+      "submit_ms": [
+        5.0537,
+        4.0948,
+        9.8577
+      ]
+    },
+    {
+      "completion_age_ms": [
+        40.0615,
+        72.1484,
+        78.386
+      ],
+      "round_ms": 78.3887,
+      "submit_ms": [
+        4.8174,
+        5.9089,
+        2.8258
+      ]
+    },
+    {
+      "completion_age_ms": [
+        36.2436,
+        53.8706,
+        59.4435
+      ],
+      "round_ms": 59.447,
+      "submit_ms": [
+        4.7525,
+        11.5029,
+        4.0667
+      ]
+    },
+    {
+      "completion_age_ms": [
+        36.6469,
+        52.7385,
+        63.9404
+      ],
+      "round_ms": 63.9438,
+      "submit_ms": [
+        4.5915,
+        10.4657,
+        3.8189
+      ]
+    },
+    {
+      "completion_age_ms": [
+        36.5779,
+        55.2665,
+        65.9282
+      ],
+      "round_ms": 65.9315,
+      "submit_ms": [
+        4.551,
+        10.1819,
+        3.1818
+      ]
+    },
+    {
+      "completion_age_ms": [
+        37.885,
+        56.4339,
+        66.5469
+      ],
+      "round_ms": 66.5497,
+      "submit_ms": [
+        4.571,
+        9.9474,
+        3.4213
+      ]
+    },
+    {
+      "completion_age_ms": [
+        34.2394,
+        48.2491,
+        58.0023
+      ],
+      "round_ms": 58.0051,
+      "submit_ms": [
+        4.9026,
+        9.2628,
+        3.7723
+      ]
+    }
+  ],
+  "scope": "Actual production worker with immutable real Room snapshots; three queued receivers, fixed battle state, no socket/simulation progression/rendering/device acceptance. Lock wait excludes Windows sleep/wakeup granularity.",
+  "units": 300,
+  "worker_telemetry": {
+    "busy_skips": 0,
+    "capacity_declines": 0,
+    "completed": 24,
+    "fallbacks": 0,
+    "freeze_ms": 144.61140001367312,
+    "frozen_byte_limit": 33554432,
+    "frozen_bytes": 0,
+    "inflight_item_limit": 16,
+    "inflight_items": 0,
+    "pack_ms": 461.600799979351,
+    "peak_frozen_bytes": 1945788,
+    "submitted": 24
+  }
+}

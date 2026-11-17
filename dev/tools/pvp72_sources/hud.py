@@ -39,11 +39,15 @@ def battle_card(key, player, battle, night=False, copy_id=None):
             card['cost']=actual_card(target,player.get('secrets',()),night)['cost']-100
     if key == "zombie:乌鸦" and "zsecret:鸦群" in player.get("secrets", ()):
         from .zombie_secrets import CROW_SURCHARGE
-        units = battle.get("units") or ()
-        if isinstance(units, dict):
-            units = units.values()
-        count = sum(1 for u in units if u.get("card_id", (u.get("card") or {}).get("id")) == "zombie:稻草人"
-                    and u.get("side") == "zombie" and u.get("hp", 0) > 0)
+        summary = battle.get('_local_hud')
+        if summary is not None:
+            count = summary['scarecrows']
+        else:
+            units = battle.get("units") or ()
+            if isinstance(units, dict):
+                units = units.values()
+            count = sum(1 for u in units if u.get("card_id", (u.get("card") or {}).get("id")) == "zombie:稻草人"
+                        and u.get("side") == "zombie" and u.get("hp", 0) > 0)
         card["cost"] += CROW_SURCHARGE * count
     if card.get("native_input_name") == "地刺":
         price = battle.get("native_placement_state", {}).get("spike_cost")
@@ -204,14 +208,19 @@ class FeedbackTracker:
             self.notice=("本批损失 %d 座经济墓碑" if side=="zombie" else "本批损失 %d 个生产者")%delta
             self.until=now+4.
         self.losses[side]=lost;self.tick=battle.get("tick",0)
-        units=battle.get("units",[])
-        units=units.values() if isinstance(units,dict) else units
-        graves=[u for u in units if u.get("behavior")=="grave" and u.get("side")=="zombie" and u.get("hp",0)>0]
-        damaged=sum(u["hp"]<u.get("max_hp",u["hp"]) for u in graves)
         text=self.notice if now<self.until else ""
         if side=="zombie":
-            status="出兵点 %d"%len(graves)
+            summary=battle.get('_local_hud')
+            if summary is not None:
+                count=summary['graves'];damaged=summary['damaged_graves']
+            else:
+                units=battle.get("units",[])
+                units=units.values() if isinstance(units,dict) else units
+                graves=[u for u in units if u.get("behavior")=="grave" and u.get("side")=="zombie" and u.get("hp",0)>0]
+                count=len(graves)
+                damaged=sum(u["hp"]<u.get("max_hp",u["hp"]) for u in graves)
+            status="出兵点 %d"%count
             if damaged:status+=" · %d 座墓碑受损"%damaged
-            if not graves:status+=" · 无可用墓碑"
+            if not count:status+=" · 无可用墓碑"
             text=status+(" / "+text if text else "")
         return text

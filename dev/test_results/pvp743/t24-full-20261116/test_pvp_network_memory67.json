@@ -1,0 +1,8 @@
+[
+{"module":"test_pvp_network_memory67","class":"QueueMemoryTests","test":"test_backlog_counts_commands_per_seat_and_clears_stale_generations","outcome":"PASS","seconds":0.001802,"detail":""},
+{"module":"test_pvp_network_memory67","class":"QueueMemoryTests","test":"test_non_snapshot_overflow_still_fails_instead_of_losing_inputs","outcome":"PASS","seconds":0.0212544,"detail":""},
+{"module":"test_pvp_network_memory67","class":"QueueMemoryTests","test":"test_receive_coalescing_preserves_input_phase_map_and_peer_barriers","outcome":"PASS","seconds":0.0006342,"detail":""},
+{"module":"test_pvp_network_memory67","class":"QueueMemoryTests","test":"test_sequence_gap_is_rejected_before_any_state_can_be_coalesced","outcome":"PASS","seconds":0.0001877,"detail":""},
+{"module":"test_pvp_network_memory67","class":"QueueMemoryTests","test":"test_stalled_receiver_keeps_latest_state_and_full_map_in_both_modes","outcome":"PASS","seconds":0.180374,"detail":""},
+{"module":"test_pvp_network_memory67","class":"RelayMemoryTests","test":"test_large_frame_is_forwarded_unchanged_with_small_stream_limits","outcome":"PASS","seconds":0.123762,"detail":""}
+]

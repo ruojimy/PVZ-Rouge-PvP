@@ -1,6 +1,7 @@
 #include "sim/typed/hero.h"
 #include "sim/typed/zombie_spawn.h"
 #include "sim/typed/targets.h"
+#include "sim/typed/attention.h"
 #include <algorithm>
 #include <cmath>
 #include <exception>
@@ -221,6 +222,7 @@ double HeroCombat::damage(Seat side, double amount, HeroHit kind) {
     if(damage_factors_enabled)amount*=damage_factor(side);
     if(last_stand_enabled)amount=last_stand_amount(side,amount);
     amount=std::min(amount,a.hp.get());if(amount<=0)return 0.;
+    const double attention_hp_before=a.hp.get();
     HeroFrame saved=globals;
     try {
         globals.overlay(a,true);if(!globals.skin.present())globals.skin.set("普通戴夫");
@@ -229,6 +231,7 @@ double HeroCombat::damage(Seat side, double amount, HeroHit kind) {
     globals=std::move(saved);
     if(active->target==side)copy_hurt(globals,a);
     if(damage_events_enabled)on_damage(side,amount,kind,source());
+    attention_damage(s,CombatTarget::player(hero(side).actual_seat.value_or(side)),attention_hp_before-a.hp.get(),time);
     sync_proxies();return amount;
 }
 std::optional<double> HeroCombat::player_damage(double amount) {

@@ -1,0 +1,13 @@
+[
+{"module":"test_pvp_native_units","class":"NativeUnits","test":"test_actual_projectiles_damage_and_native_chewing_hurts_the_blocking_plant","outcome":"PASS","seconds":0.0929209,"detail":""},
+{"module":"test_pvp_native_units","class":"NativeUnits","test":"test_actual_sunflower_produces_original_sun_balls_without_a_new_economy_formula","outcome":"PASS","seconds":0.146023,"detail":""},
+{"module":"test_pvp_native_units","class":"NativeUnits","test":"test_all_22_original_zombies_execute_complete_regions","outcome":"PASS","seconds":0.353074,"detail":""},
+{"module":"test_pvp_native_units","class":"NativeUnits","test":"test_all_28_original_secrets_run_original_units_with_native_transforms","outcome":"PASS","seconds":0.345009,"detail":""},
+{"module":"test_pvp_native_units","class":"NativeUnits","test":"test_all_48_original_plants_execute_complete_regions","outcome":"PASS","seconds":0.590545,"detail":""},
+{"module":"test_pvp_native_units","class":"NativeUnits","test":"test_all_original_night_plants_run_awake_after_real_coffee","outcome":"PASS","seconds":1.32465,"detail":""},
+{"module":"test_pvp_native_units","class":"NativeUnits","test":"test_all_original_patch_plant_zombies_run_native_loop_and_actual_head_draw","outcome":"PASS","seconds":1.03561,"detail":""},
+{"module":"test_pvp_native_units","class":"NativeUnits","test":"test_complete_native_zombie_loop_draw_matches_direct_pygame_at_real_ticks","outcome":"PASS","seconds":5.07373,"detail":""},
+{"module":"test_pvp_native_units","class":"NativeUnits","test":"test_native_units_advance_on_all_twelve_actual_original_maps","outcome":"PASS","seconds":0.289429,"detail":""},
+{"module":"test_pvp_native_units","class":"NativeUnits","test":"test_original_damage_runs_the_full_death_animation_and_removes_zombie","outcome":"PASS","seconds":0.0404756,"detail":""},
+{"module":"test_pvp_native_units","class":"NativeUnits","test":"test_original_plant_marker_and_coffee_validator_follow_the_real_spawn_function","outcome":"PASS","seconds":0.0070394,"detail":""}
+]

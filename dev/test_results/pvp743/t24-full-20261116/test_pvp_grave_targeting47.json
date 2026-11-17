@@ -1,0 +1,8 @@
+[
+{"module":"test_pvp_grave_targeting47","class":"GraveTargetingTests","test":"test_chart_keeps_native_identity_displacement_and_indexes","outcome":"PASS","seconds":0.0213703,"detail":""},
+{"module":"test_pvp_grave_targeting47","class":"GraveTargetingTests","test":"test_native_exception_restores_chart_before_leaving_phase","outcome":"PASS","seconds":0.0159839,"detail":""},
+{"module":"test_pvp_grave_targeting47","class":"GraveTargetingTests","test":"test_native_fear_and_brave_are_preserved_across_seam","outcome":"PASS","seconds":1.72304,"detail":""},
+{"module":"test_pvp_grave_targeting47","class":"GraveTargetingTests","test":"test_other_forward_shooters_damage_grave_across_both_seams","outcome":"PASS","seconds":33.166,"detail":""},
+{"module":"test_pvp_grave_targeting47","class":"GraveTargetingTests","test":"test_screenshot_layout_all_four_shoot_with_and_without_brave","outcome":"PASS","seconds":4.1987,"detail":""},
+{"module":"test_pvp_grave_targeting47","class":"GraveTargetingTests","test":"test_sleep_and_public_planting_direction_are_preserved","outcome":"PASS","seconds":0.851859,"detail":""}
+]

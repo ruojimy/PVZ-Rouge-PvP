@@ -1,0 +1,5 @@
+[
+{"module":"test_pvp_native_menus","class":"NativeMenuScreens","test":"test_guest_cannot_change_map_but_can_read_unsupported_reason","outcome":"PASS","seconds":0.0263581,"detail":""},
+{"module":"test_pvp_native_menus","class":"NativeMenuScreens","test":"test_home_original_long_cards_preserve_all_entry_actions","outcome":"PASS","seconds":0.0980597,"detail":""},
+{"module":"test_pvp_native_menus","class":"NativeMenuScreens","test":"test_host_map_page_buttons_previews_and_share_controls_fit","outcome":"PASS","seconds":0.365191,"detail":""}
+]

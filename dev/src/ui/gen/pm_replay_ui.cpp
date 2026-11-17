@@ -137,6 +137,7 @@ V C_ReplayUI::m_replay_library(const Args& A) {
     (void)(m_close_playback(Args{}));
     L_files = ((callm(pr_replay_folder(), SY("exists"), Args{})).truthy() ? V(py::sorted_it(callm(pr_replay_folder(), SY("glob"), Args{SV("*.json")}), py::keyfn(V::func([=, this](const Args& A) -> V { V L_p = A.get(0, SY("p"), nullptr); return pvz::getattr(callm(L_p, SY("stat"), Args{}), SY("st_mtime")); })), true)) : V(V::list({})));
     (void)(callm(pvz::getattr(self_v(), SY("state")), SY("update"), Args({}, {{SY("screen"), SV("replays")}, {SY("focus"), V::none()}, {SY("replay_files"), L_files}, {SY("replay_page"), V(0.0)}, {SY("message"), SV("")}})));
+    (void)(callm(pvz::getattr(self_v(), SY("state")), SY("pop"), Args{SV("replay_delete"), V::none()}));
     return V::none();
 }
 
@@ -160,6 +161,8 @@ V C_ReplayUI::m_replay_action(const Args& A) {
     V L_hero;
     V L_kind;
     V L_p;
+    V L_page;
+    V L_path;
     L_kind = rd(L_action, V(0.0));
     if ((!(callm(L_kind, SY("startswith"), Args{SV("replay_")})).truthy() && (L_kind != SV("save_replays")))) {
         return V(false);
@@ -172,6 +175,27 @@ V C_ReplayUI::m_replay_action(const Args& A) {
                 (void)(m_save_recording(Args{pvz::getattr(self_v(), SY("room"))}));
             }
             (void)(m_auto_save_guest_replay(Args{}));
+        } else if ((L_kind == SV("replay_delete_cancel"))) {
+            (void)(callm(pvz::getattr(self_v(), SY("state")), SY("pop"), Args{SV("replay_delete"), V::none()}));
+        } else if (py::in(L_kind, V::tuple({SV("replay_delete"), SV("replay_delete_confirm")}))) {
+            if ((py::m_get(pvz::getattr(self_v(), SY("state")), SV("screen")) != SV("replays"))) {
+                return V(true);
+            }
+            L_path = py::next([&]() -> V { V out_ = V::list(); V L_p; { V it1_ = py::iter_list(py::m_get(pvz::getattr(self_v(), SY("state")), SV("replay_files"), V::list({}))); for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) { L_p = it1_.idx(int64_t(i1_)); if (!((py::str(L_p) == rd(L_action, V(1.0))))) continue; out_.append(L_p); }}return out_; }(), V::none());
+            if ((py_is(L_path, V::none()) || (pvz::getattr(L_path, SY("parent")) != pr_replay_folder()) || (pvz::getattr(L_path, SY("suffix")) != SV(".json")))) {
+                (void)(callm(self_v(), SY("message"), Args{SV("只能删除回放列表中的文件")}));
+                return V(true);
+            }
+            if ((L_kind == SV("replay_delete"))) {
+                pvz::setitem(pvz::getattr(self_v(), SY("state")), SV("replay_delete"), py::str(L_path));
+                (void)(callm(self_v(), SY("message"), Args{SV("再次点击“确认删除”删除此回放，或取消")}));
+            } else if ((py::m_get(pvz::getattr(self_v(), SY("state")), SV("replay_delete")) == py::str(L_path))) {
+                L_page = py::m_get(pvz::getattr(self_v(), SY("state")), SV("replay_page"), V(0.0));
+                (void)(callm(L_path, SY("unlink"), Args{}));
+                (void)(m_replay_library(Args{}));
+                pvz::setitem(pvz::getattr(self_v(), SY("state")), SV("replay_page"), L_page);
+                (void)(callm(self_v(), SY("message"), Args{(SV("已删除回放：") + pvz::getattr(L_path, SY("name")))}));
+            }
         } else if ((L_kind == SV("replay_library"))) {
             (void)(m_replay_library(Args{}));
         } else if ((L_kind == SV("replay_page"))) {
@@ -347,6 +371,7 @@ V C_ReplayUI::m_render_replays(const Args& A) {
     V L_page;
     V L_pages;
     V L_path;
+    V L_pending;
     V L_preview;
     V L_r;
     V L_rect;
@@ -377,7 +402,12 @@ V C_ReplayUI::m_render_replays(const Args& A) {
         { V it2_ = py::iter_list(py::slice(L_files, (L_page * L_count), ((L_page + V(1.0)) * L_count))); const double st2_ = 0.0;
         for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) {
             L_i = V(st2_ + double(i2_)); L_path = it2_.idx(int64_t(i2_)); 
-            (void)(callm(L_r, SY("button"), Args({pvz::getattr(L_path, SY("stem")), V::tuple({V(30.0), (V(165.0) + (L_i * V(58.0))), (L_w - V(60.0)), V(48.0)}), V::tuple({SV("replay_open"), py::str(L_path)})}, {{SY("size"), V(17.0)}})));
+            L_pending = V((py::m_get(L_state, SV("replay_delete")) == py::str(L_path)));
+            (void)(callm(L_r, SY("button"), Args({pvz::getattr(L_path, SY("stem")), V::tuple({V(30.0), (V(165.0) + (L_i * V(58.0))), (L_w - V(280.0)), V(48.0)}), V::tuple({SV("replay_open"), py::str(L_path)})}, {{SY("size"), V(17.0)}})));
+            (void)(callm(L_r, SY("button"), Args({((L_pending).truthy() ? V(SV("确认删除")) : V(SV("删除"))), V::tuple({(L_w - V(238.0)), (V(165.0) + (L_i * V(58.0))), V(104.0), V(48.0)}), V::tuple({((L_pending).truthy() ? V(SV("replay_delete_confirm")) : V(SV("replay_delete"))), py::str(L_path)})}, {{SY("size"), V(16.0)}})));
+            if ((L_pending).truthy()) {
+                (void)(callm(L_r, SY("button"), Args({SV("取消"), V::tuple({(L_w - V(124.0)), (V(165.0) + (L_i * V(58.0))), V(94.0), V(48.0)}), V::tuple({SV("replay_delete_cancel")})}, {{SY("size"), V(16.0)}})));
+            }
         }}
         if (!(L_files).truthy()) {
             (void)(callm(L_r, SY("text"), Args{SV("暂无回放。对局结束后点“保存回放”，或把收到的回放 JSON 放入下方目录。"), V::tuple({V(40.0), V(190.0)}), V::tuple({V(238.0), V(220.0), V(161.0)}), V(20.0), (L_w - V(80.0))}));

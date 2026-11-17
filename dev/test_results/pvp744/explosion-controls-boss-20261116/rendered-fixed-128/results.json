@@ -1,0 +1,101 @@
+{
+  "checks": [
+    {
+      "alternating_charm": false,
+      "count": 128,
+      "kind": "小丑僵尸",
+      "passed": true,
+      "peak_commands": 698,
+      "peak_dropped_visuals": 0,
+      "peak_entities": 696,
+      "private_peak_bytes": 594870272,
+      "rendered_frames": 45,
+      "surface_peak_bytes": 191237388
+    },
+    {
+      "alternating_charm": false,
+      "count": 128,
+      "kind": "辣椒僵尸",
+      "passed": true,
+      "peak_commands": 2051,
+      "peak_dropped_visuals": 0,
+      "peak_entities": 1920,
+      "private_peak_bytes": 652550144,
+      "rendered_frames": 45,
+      "surface_peak_bytes": 196967256
+    },
+    {
+      "alternating_charm": false,
+      "count": 128,
+      "kind": "毁灭菇僵尸",
+      "passed": true,
+      "peak_commands": 1667,
+      "peak_dropped_visuals": 0,
+      "peak_entities": 1536,
+      "private_peak_bytes": 632942592,
+      "rendered_frames": 45,
+      "surface_peak_bytes": 223660164
+    },
+    {
+      "alternating_charm": false,
+      "count": 128,
+      "kind": "mixed",
+      "passed": true,
+      "peak_commands": 868,
+      "peak_dropped_visuals": 0,
+      "peak_entities": 1382,
+      "private_peak_bytes": 683892736,
+      "rendered_frames": 45,
+      "surface_peak_bytes": 257873692
+    },
+    {
+      "alternating_charm": true,
+      "count": 128,
+      "kind": "小丑僵尸",
+      "passed": true,
+      "peak_commands": 13,
+      "peak_dropped_visuals": 0,
+      "peak_entities": 11,
+      "private_peak_bytes": 684638208,
+      "rendered_frames": 45,
+      "surface_peak_bytes": 263710716
+    },
+    {
+      "alternating_charm": true,
+      "count": 128,
+      "kind": "辣椒僵尸",
+      "passed": true,
+      "peak_commands": 2123,
+      "peak_dropped_visuals": 0,
+      "peak_entities": 1926,
+      "private_peak_bytes": 751411200,
+      "rendered_frames": 45,
+      "surface_peak_bytes": 269729992
+    },
+    {
+      "alternating_charm": true,
+      "count": 128,
+      "kind": "毁灭菇僵尸",
+      "passed": true,
+      "peak_commands": 1731,
+      "peak_dropped_visuals": 0,
+      "peak_entities": 1536,
+      "private_peak_bytes": 793264128,
+      "rendered_frames": 45,
+      "surface_peak_bytes": 297752456
+    },
+    {
+      "alternating_charm": true,
+      "count": 128,
+      "kind": "mixed",
+      "passed": true,
+      "peak_commands": 8,
+      "peak_dropped_visuals": 0,
+      "peak_entities": 6,
+      "private_peak_bytes": 791474176,
+      "rendered_frames": 45,
+      "surface_peak_bytes": 303710256
+    }
+  ],
+  "failures": 0
+}

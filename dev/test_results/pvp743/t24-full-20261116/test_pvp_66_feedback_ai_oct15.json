@@ -1,0 +1,5 @@
+[
+{"module":"test_pvp_66_feedback_ai_oct15","class":"CoopSurrender","test":"test_expired_or_own_requests_have_no_vote","outcome":"PASS","seconds":0.0002476,"detail":""},
+{"module":"test_pvp_66_feedback_ai_oct15","class":"CoopSurrender","test":"test_healthy_ai_does_not_treat_other_ai_request_as_human","outcome":"PASS","seconds":6.58e-05,"detail":""},
+{"module":"test_pvp_66_feedback_ai_oct15","class":"CoopSurrender","test":"test_healthy_ai_follows_host_and_guest_from_either_actual_seat","outcome":"PASS","seconds":0.0001298,"detail":""}
+]

@@ -1,0 +1,278 @@
+{
+  "checks": [
+    {
+      "evidence": {
+        "available": true,
+        "coalesced_outgoing_snapshots": 297,
+        "coalesced_snapshots": 0,
+        "command_bytes_limit": 4194304,
+        "command_bytes_peak": 197181,
+        "command_item_limit": 256,
+        "command_items": 6,
+        "command_items_peak": 6,
+        "control_item_limit_per_queue": 256,
+        "control_items_peak": 0,
+        "control_overflows": 0,
+        "decoder_retained_peak": 0,
+        "deferred_output_commands": 0,
+        "event_bytes": 0,
+        "event_bytes_limit": 8388608,
+        "event_bytes_peak": 0,
+        "event_item_limit": 4096,
+        "event_items": 0,
+        "event_items_peak": 0,
+        "max_frame_bytes": 1048576,
+        "peer_command_bytes": {
+          "a": 65727,
+          "b": 65727,
+          "c": 65727
+        },
+        "queued_command_bytes": 197181,
+        "receive_block_limit": 65536,
+        "receive_block_peak": 0,
+        "received_bytes": 0,
+        "scope": "This process application transport; excludes public relay process RSS/buffers",
+        "sent_bytes": 0,
+        "socket_output_limit_per_connection": 4194304,
+        "socket_output_peak": 0
+      },
+      "name": "three_peers_bounded_latest_snapshot_and_full_map",
+      "passed": true
+    },
+    {
+      "evidence": [
+        [
+          "a",
+          {
+            "data": "",
+            "map_included": false,
+            "snapshot_stream": [
+              "battle-1"
+            ],
+            "tick": 1,
+            "type": "room_snapshot"
+          }
+        ],
+        [
+          "a",
+          {
+            "input": "jump",
+            "type": "room_command"
+          }
+        ],
+        [
+          "a",
+          {
+            "data": "",
+            "map_included": false,
+            "snapshot_stream": [
+              "battle-1"
+            ],
+            "tick": 3,
+            "type": "room_snapshot"
+          }
+        ]
+      ],
+      "name": "input_and_other_message_ordering_barriers",
+      "passed": true
+    },
+    {
+      "evidence": [
+        [
+          "a",
+          {
+            "data": "",
+            "map_included": true,
+            "snapshot_stream": [
+              "battle-1"
+            ],
+            "tick": 2,
+            "type": "room_snapshot"
+          }
+        ],
+        [
+          "a",
+          {
+            "data": "",
+            "map_included": false,
+            "snapshot_stream": [
+              "battle-1"
+            ],
+            "tick": 3,
+            "type": "room_snapshot"
+          }
+        ],
+        [
+          "a",
+          {
+            "data": "",
+            "map_included": false,
+            "snapshot_stream": [
+              "battle-2"
+            ],
+            "tick": 5,
+            "type": "room_snapshot"
+          }
+        ]
+      ],
+      "name": "map_phase_and_stream_transitions",
+      "passed": true
+    },
+    {
+      "evidence": [
+        [
+          "a",
+          {
+            "data": "",
+            "map_included": false,
+            "snapshot_stream": [
+              "battle-1"
+            ],
+            "tick": 2,
+            "type": "room_snapshot"
+          }
+        ]
+      ],
+      "name": "reconnect_never_replaces_old_generation",
+      "passed": true
+    },
+    {
+      "evidence": [
+        [
+          "a",
+          {
+            "data": "",
+            "map_included": false,
+            "snapshot_stream": [
+              "battle-1"
+            ],
+            "tick": 2,
+            "type": "room_snapshot"
+          }
+        ]
+      ],
+      "name": "caller_mutation_cannot_change_frozen_payload_or_stream",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "available": true,
+        "coalesced_outgoing_snapshots": 0,
+        "coalesced_snapshots": 0,
+        "command_bytes_limit": 4194304,
+        "command_bytes_peak": 8338,
+        "command_item_limit": 256,
+        "command_items": 256,
+        "command_items_peak": 256,
+        "control_item_limit_per_queue": 256,
+        "control_items_peak": 0,
+        "control_overflows": 0,
+        "decoder_retained_peak": 0,
+        "deferred_output_commands": 0,
+        "event_bytes": 0,
+        "event_bytes_limit": 8388608,
+        "event_bytes_peak": 0,
+        "event_item_limit": 4096,
+        "event_items": 0,
+        "event_items_peak": 0,
+        "max_frame_bytes": 1048576,
+        "peer_command_bytes": {
+          "a": 8338
+        },
+        "queued_command_bytes": 8338,
+        "receive_block_limit": 65536,
+        "receive_block_peak": 0,
+        "received_bytes": 0,
+        "scope": "This process application transport; excludes public relay process RSS/buffers",
+        "sent_bytes": 0,
+        "socket_output_limit_per_connection": 4194304,
+        "socket_output_peak": 0
+      },
+      "name": "ordinary_commands_keep_capacity_and_exact_order",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "available": true,
+        "coalesced_outgoing_snapshots": 49,
+        "coalesced_snapshots": 0,
+        "command_bytes_limit": 4194304,
+        "command_bytes_peak": 65632,
+        "command_item_limit": 256,
+        "command_items": 1,
+        "command_items_peak": 1,
+        "control_item_limit_per_queue": 256,
+        "control_items_peak": 0,
+        "control_overflows": 0,
+        "decoder_retained_peak": 0,
+        "deferred_output_commands": 0,
+        "event_bytes": 0,
+        "event_bytes_limit": 8388608,
+        "event_bytes_peak": 0,
+        "event_item_limit": 4096,
+        "event_items": 0,
+        "event_items_peak": 0,
+        "max_frame_bytes": 1048576,
+        "peer_command_bytes": {
+          "b": 65632
+        },
+        "queued_command_bytes": 65632,
+        "receive_block_limit": 65536,
+        "receive_block_peak": 0,
+        "received_bytes": 0,
+        "scope": "This process application transport; excludes public relay process RSS/buffers",
+        "sent_bytes": 0,
+        "socket_output_limit_per_connection": 4194304,
+        "socket_output_peak": 0
+      },
+      "name": "discard_releases_latest_payload_and_peer_index",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "available": true,
+        "coalesced_outgoing_snapshots": 2,
+        "coalesced_snapshots": 0,
+        "command_bytes_limit": 4194304,
+        "command_bytes_peak": 190,
+        "command_item_limit": 256,
+        "command_items": 0,
+        "command_items_peak": 2,
+        "control_item_limit_per_queue": 256,
+        "control_items_peak": 0,
+        "control_overflows": 0,
+        "decoder_retained_peak": 0,
+        "deferred_output_commands": 2,
+        "event_bytes": 0,
+        "event_bytes_limit": 8388608,
+        "event_bytes_peak": 0,
+        "event_item_limit": 4096,
+        "event_items": 0,
+        "event_items_peak": 0,
+        "max_frame_bytes": 1048576,
+        "peer_command_bytes": {},
+        "queued_command_bytes": 0,
+        "receive_block_limit": 65536,
+        "receive_block_peak": 0,
+        "received_bytes": 0,
+        "scope": "This process application transport; excludes public relay process RSS/buffers",
+        "sent_bytes": 0,
+        "socket_output_limit_per_connection": 4194304,
+        "socket_output_peak": 0
+      },
+      "name": "blocked_wire_defers_encoding_without_blocking_other_peer",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "cancelled_sent": false,
+        "stale_generation_sent": false
+      },
+      "name": "delivery_cancel_and_generation_invalidate_pending_pack",
+      "passed": true
+    }
+  ],
+  "failures": 0,
+  "passed": true,
+  "total": 9
+}

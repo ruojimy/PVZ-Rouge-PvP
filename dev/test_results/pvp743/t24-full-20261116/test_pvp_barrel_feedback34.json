@@ -1,0 +1,15 @@
+[
+{"module":"test_pvp_barrel_feedback34","class":"BarrelFeedback34","test":"test_chomper_can_swallow_loose_barrel_and_break_it_only_once","outcome":"PASS","seconds":0.286831,"detail":""},
+{"module":"test_pvp_barrel_feedback34","class":"BarrelFeedback34","test":"test_cold_chili_deals_ordinary_damage_and_freezes_a_loose_barrel","outcome":"PASS","seconds":0.1995,"detail":""},
+{"module":"test_pvp_barrel_feedback34","class":"BarrelFeedback34","test":"test_detached_barrel_fire_damage_matches_an_unarmored_native_zombie","outcome":"PASS","seconds":0.107747,"detail":""},
+{"module":"test_pvp_barrel_feedback34","class":"BarrelFeedback34","test":"test_fire_and_primal_fire_damage_loose_barrel_as_an_ordinary_target","outcome":"PASS","seconds":0.219981,"detail":""},
+{"module":"test_pvp_barrel_feedback34","class":"BarrelFeedback34","test":"test_loose_barrel_keeps_native_ice_butter_and_fire_thaw_effects","outcome":"PASS","seconds":0.0873954,"detail":""},
+{"module":"test_pvp_barrel_feedback34","class":"BarrelFeedback34","test":"test_native_blue_secret_hit_syncs_one_public_hp_pool","outcome":"PASS","seconds":0.0398183,"detail":""},
+{"module":"test_pvp_barrel_feedback34","class":"BarrelFeedback34","test":"test_native_plants_acquire_and_damage_an_unpushed_loose_barrel","outcome":"PASS","seconds":2.63574,"detail":""},
+{"module":"test_pvp_barrel_feedback34","class":"BarrelFeedback34","test":"test_native_poison_dart_launch_can_poison_a_loose_barrel","outcome":"PASS","seconds":0.470523,"detail":""},
+{"module":"test_pvp_barrel_feedback34","class":"BarrelFeedback34","test":"test_poison_can_break_loose_barrel_once_without_restoring_its_hp","outcome":"PASS","seconds":0.38404,"detail":""},
+{"module":"test_pvp_barrel_feedback34","class":"BarrelFeedback34","test":"test_primal_hybrid_acquires_attached_barrel_from_both_directions","outcome":"PASS","seconds":1.51041,"detail":""},
+{"module":"test_pvp_barrel_feedback34","class":"BarrelFeedback34","test":"test_pushed_barrel_stays_type_two_while_fire_hits_its_pusher","outcome":"PASS","seconds":0.045898,"detail":""},
+{"module":"test_pvp_barrel_feedback34","class":"BarrelFeedback34","test":"test_real_normal_projectiles_damage_round_barrel_from_both_sides","outcome":"PASS","seconds":0.17782,"detail":""},
+{"module":"test_pvp_barrel_feedback34","class":"BarrelFeedback34","test":"test_shot_above_barrel_is_not_swallowed_by_a_phantom_body","outcome":"PASS","seconds":0.0344276,"detail":""}
+]

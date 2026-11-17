@@ -1,0 +1,5 @@
+[
+{"module":"test_pvp_68_vine_sun_ownership","class":"VineSunSeats68","test":"test_each_seat_collects_its_real_vine_sun_in_coop_and_duo","outcome":"PASS","seconds":0.0729323,"detail":""},
+{"module":"test_pvp_68_vine_sun_ownership","class":"VineSunSeats68","test":"test_other_seat_auto_collector_cannot_take_vine_income","outcome":"PASS","seconds":0.0303798,"detail":""},
+{"module":"test_pvp_68_vine_sun_ownership","class":"VineSunSeats68","test":"test_two_owners_remain_separate_but_same_owner_suns_merge_without_loss","outcome":"PASS","seconds":0.0338013,"detail":""}
+]

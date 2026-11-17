@@ -1,0 +1,5 @@
+[
+{"module":"test_pvp_54_ghost_range_art","class":"GhostRangeArtTests","test":"test_inclusive_eleven_cells_and_independent_replay_at_map_edge","outcome":"PASS","seconds":0.0305915,"detail":""},
+{"module":"test_pvp_54_ghost_range_art","class":"GhostRangeArtTests","test":"test_native_clock_animates_fog_without_state_or_rng_mutation","outcome":"PASS","seconds":0.0292128,"detail":""},
+{"module":"test_pvp_54_ghost_range_art","class":"GhostRangeArtTests","test":"test_only_triggered_living_ghost_shows_fog_and_end_removes_it","outcome":"PASS","seconds":0.0143212,"detail":""}
+]

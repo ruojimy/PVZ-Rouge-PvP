@@ -1,0 +1,9 @@
+[
+{"module":"test_pvp_67_map_migration","class":"MapMigration67","test":"test_android_map_location_copies_without_opening_a_pc_folder","outcome":"PASS","seconds":0.0084388,"detail":""},
+{"module":"test_pvp_67_map_migration","class":"MapMigration67","test":"test_deleted_map_is_not_reimported_from_a_new_legacy_path","outcome":"PASS","seconds":0.0493099,"detail":""},
+{"module":"test_pvp_67_map_migration","class":"MapMigration67","test":"test_deletion_decisions_are_local_to_each_player_save","outcome":"PASS","seconds":0.0297004,"detail":""},
+{"module":"test_pvp_67_map_migration","class":"MapMigration67","test":"test_deletion_metadata_is_hidden_and_a_marked_leftover_cannot_load","outcome":"PASS","seconds":0.0157782,"detail":""},
+{"module":"test_pvp_67_map_migration","class":"MapMigration67","test":"test_explicit_save_restores_the_map_and_wins_over_older_deletion_metadata","outcome":"PASS","seconds":0.0378862,"detail":""},
+{"module":"test_pvp_67_map_migration","class":"MapMigration67","test":"test_map_location_follows_current_profile_and_opens_its_actual_folder","outcome":"PASS","seconds":0.011204,"detail":""},
+{"module":"test_pvp_67_map_migration","class":"MapMigration67","test":"test_old_deletion_metadata_imports_without_hiding_existing_current_maps","outcome":"PASS","seconds":0.0282427,"detail":""}
+]

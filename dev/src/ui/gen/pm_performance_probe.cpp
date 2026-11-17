@@ -37,7 +37,7 @@ V f_run(const Args& A) {
 
 bool C_Driver::isa(const char* c) const { std::string s(c); return s == "Driver" || s == "object"; }
 V* C_Driver::slot(Sym name) {
-    static const SymIndex idx_({SY("config"), SY("started"), SY("measuring"), SY("finished"), SY("population_samples"), SY("next_population_sample"), SY("output"), SY("fixture"), SY("setup_seconds"), SY("warm_ticks"), SY("measure_ticks"), SY("tick_limit"), SY("unused_steps"), SY("measure_start")});
+    static const SymIndex idx_({SY("config"), SY("started"), SY("measuring"), SY("finished"), SY("population_samples"), SY("next_population_sample"), SY("output"), SY("fixture"), SY("setup_seconds"), SY("warm_ticks"), SY("measure_ticks"), SY("tick_limit"), SY("measure_start")});
     const int k_ = idx_.find(name);
     if (k_ < 0) return nullptr;
     switch (k_) {
@@ -53,14 +53,13 @@ V* C_Driver::slot(Sym name) {
         case 9: return &a_warm_ticks;
         case 10: return &a_measure_ticks;
         case 11: return &a_tick_limit;
-        case 12: return &a_unused_steps;
-        case 13: return &a_measure_start;
+        case 12: return &a_measure_start;
     }
     return nullptr;
 }
 V C_Driver::method(Sym name) {
     if (name == SY("__native_type__")) { V metadata=V::func([](const Args&) { return pm_performance_probe::cls_Driver(); }); metadata.box->fattrs.emplace_back(Sym("__native_type_metadata__"),V(true)); return metadata; }
-    if (name == SY("__native_slot_names__")) return V::func([](const Args&) { return V::tuple({SV("config"), SV("started"), SV("measuring"), SV("finished"), SV("population_samples"), SV("next_population_sample"), SV("output"), SV("fixture"), SV("setup_seconds"), SV("warm_ticks"), SV("measure_ticks"), SV("tick_limit"), SV("unused_steps"), SV("measure_start")}); });
+    if (name == SY("__native_slot_names__")) return V::func([](const Args&) { return V::tuple({SV("config"), SV("started"), SV("measuring"), SV("finished"), SV("population_samples"), SV("next_population_sample"), SV("output"), SV("fixture"), SV("setup_seconds"), SV("warm_ticks"), SV("measure_ticks"), SV("tick_limit"), SV("measure_start")}); });
     if (V replacement = py::class_method_override(pm_performance_probe::cls_Driver(), name, self()); replacement.has()) return replacement;
     static const SymIndex idx_({SY("__init__"), SY("setup"), SY("__call__")});
     const int k_ = idx_.find(name);
@@ -123,12 +122,10 @@ V C_Driver::m_setup(const Args& A) {
     V L_i;
     V L_key;
     V L_limited_step;
-    V L_limited_update;
     V L_load_display_settings;
     V L_name;
     V L_obj;
     V L_original_step;
-    V L_original_update;
     V L_plant;
     V L_record;
     V L_requested;
@@ -251,6 +248,12 @@ V C_Driver::m_setup(const Args& A) {
             }
         }}
         pvz::setattr(L_app, SY("move_inputs"), V::func([=, this](const Args& A) -> V { V L_dt = A.get(0, SY("dt"), nullptr); return V::none(); }));
+    } else {
+        { V it10_ = py::iter_list(V::tuple({SV("plant"), SV("zombie")}));
+        for (size_t i10_ = 0; i10_ < it10_.len(); ++i10_) {
+            L_side = it10_.idx(int64_t(i10_)); 
+            pvz::setitem(rd(pvz::getattr(L_b, SY("players")), L_side), SV("resource"), V(100000.0));
+        }}
     }
     (void)(callm(pvz::getattr(L_app, SY("state")), SY("update"), Args({}, {{SY("screen"), SV("room")}, {SY("active_side"), SV("plant")}, {SY("zoom"), V(1.0)}, {SY("ui_scale"), V(1.1)}, {SY("sound"), V(false)}})));
     (void)(callm(L_app, SY("apply_scale"), Args{}));
@@ -258,40 +261,34 @@ V C_Driver::m_setup(const Args& A) {
     pvz::setitem(a_fixture, SV("input"), SV("Neutral move seq=1 at native tick 0 for each side; diagnostic wall-clock heartbeats disabled."));
     if ((py::m_get(a_config, SV("interactive_input"), V(false))).truthy()) {
         pvz::setitem(a_fixture, SV("input"), SV("Live keyboard/touch controls and normal input heartbeats enabled; this run is not a deterministic A/B fixture."));
+        pvz::setitem(a_fixture, SV("manual_resource_pool"), V(100000.0));
     }
     if ((py::m_get(a_config, SV("prime_tentacles"), V(false))).truthy()) {
         pvz::setitem(a_fixture, SV("primed_tentacle_roots"), py::len(L_tentacle_roots));
-        pvz::setitem(a_fixture, SV("input"), SV("Same neutral input after two deterministic growth steps; wall-clock heartbeats disabled."));
+        if (!(py::m_get(a_config, SV("interactive_input"), V(false))).truthy()) {
+            pvz::setitem(a_fixture, SV("input"), SV("Same neutral input after two deterministic growth steps; wall-clock heartbeats disabled."));
+        }
     }
     a_started = py::stdlib_call(SV("time.monotonic"), Args{});
     a_setup_seconds = (py::stdlib_call(SV("time.perf_counter"), Args{}) - L_setup_start);
-    callm(pvz::getattr(L_app,SY("state")),SY("update"),Args({},{{SY("wall_clock_debt"),V(0.)},{SY("wall_clock_reset_pending"),V(true)}}));
+    (void)(callm(pvz::getattr(L_app, SY("state")), SY("update"), Args({}, {{SY("wall_clock_debt"), V(0.0)}, {SY("wall_clock_reset_pending"), V(true)}})));
     a_warm_ticks = py::int_(py::m_get(a_config, SV("warmup_room_ticks"), V(0.0)));
     a_measure_ticks = py::int_(py::m_get(a_config, SV("measure_room_ticks"), V(0.0)));
     if ((a_measure_ticks).truthy()) {
         a_tick_limit = py_or(a_warm_ticks, [&]() -> V { return a_measure_ticks; });
         L_original_step = pvz::getattr(L_b, SY("step"));
-        L_original_update = pvz::getattr(L_room, SY("update"));
-        L_limited_step = V::func([=, this, self_owner_ = shared_from_this(), nd10_ = V(V(1.0))](const Args& A) mutable -> V {
-    V L_count = (A.size() > 0 || A.has_kw(SY("count"))) ? A.get(0, SY("count"), nullptr) : V(nd10_);
+        L_limited_step = V::func([=, this, self_owner_ = shared_from_this(), nd11_ = V(V(1.0)), nd12_ = V(V(0.0))](const Args& A) mutable -> V {
+    V L_count = (A.size() > 0 || A.has_kw(SY("count"))) ? A.get(0, SY("count"), nullptr) : V(nd11_);
+    V L_budget_seconds = (A.size() > 1 || A.has_kw(SY("budget_seconds"))) ? A.get(1, SY("budget_seconds"), nullptr) : V(nd12_);
     V L_actual;
     L_actual = py::min_it(V::list({L_count, py::max_it(V::list({V(0.0), (a_tick_limit - pvz::getattr(L_b, SY("tick")))}), py::Key(), V())}), py::Key(), V());
-    a_unused_steps = py::iadd(a_unused_steps, (L_count - L_actual));
+    if ((L_budget_seconds).truthy()) {
+        return (L_original_step).call(Args({L_actual}, {{SY("budget_seconds"), L_budget_seconds}}));
+    }
     return (L_original_step).call(Args{L_actual});
     return V::none();
 });
-        L_limited_update = V::func([=, this, self_owner_ = shared_from_this()](const Args& A) mutable -> V {
-    V L_dt = A.get(0, SY("dt"), nullptr, "limited_update");
-    a_unused_steps = V(0.0);
-    { auto fin1_ = py::finally([&]() {
-        { V ao2_ = L_room; pvz::setattr(ao2_, SY("accumulator"), py::iadd(pvz::getattr(ao2_, SY("accumulator")), (a_unused_steps * pvz::getattr(L_b, SY("dt"))))); }
-    });
-      return (L_original_update).call(Args{L_dt});
-    }
-    return V::none();
-});
         pvz::setattr(L_b, SY("step"), L_limited_step);
-        pvz::setattr(L_room, SY("update"), L_limited_update);
     }
     return V::none();
 }
@@ -327,8 +324,8 @@ V C_Driver::m___call__(const Args& A) {
         if ((a_measure_ticks).truthy()) {
             a_tick_limit = (a_warm_ticks + a_measure_ticks);
         }
-        pvz::setattr(pvz::getattr(L_app,SY("room")),SY("accumulator"),V(0.));
-        callm(pvz::getattr(L_app,SY("state")),SY("update"),Args({},{{SY("wall_clock_debt"),V(0.)},{SY("wall_clock_reset_pending"),V(true)}}));
+        pvz::setattr(pvz::getattr(L_app, SY("room")), SY("accumulator"), V(0.0));
+        (void)(callm(pvz::getattr(L_app, SY("state")), SY("update"), Args({}, {{SY("wall_clock_debt"), V(0.0)}, {SY("wall_clock_reset_pending"), V(true)}})));
         (void)(callm(pvz::getattr(pvz::getattr(L_app, SY("room")), SY("battle")), SY("backend_audit"), Args({}, {{SY("reset_function_profile"), V(true)}})));
         L_AppProfiler = pm_performance::cls_AppProfiler();
         pvz::setattr(L_app, SY("profiler"), (L_AppProfiler).call(Args({L_app}, {{SY("detail"), py::bool_(py::m_get(a_config, SV("detail")))}, {SY("path"), callm(a_output, SY("with_suffix"), Args{SV(".live.json")})}})));

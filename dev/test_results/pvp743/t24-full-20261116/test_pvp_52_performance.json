@@ -1,0 +1,11 @@
+[
+{"module":"test_pvp_52_performance","class":"Authority52","test":"test_capture_switch_alone_keeps_six_visual_states_with_fewer_pixels","outcome":"PASS","seconds":0.12318,"detail":""},
+{"module":"test_pvp_52_performance","class":"Authority52","test":"test_catchup_preserves_rng_visuals_status_units_and_recording_checks","outcome":"PASS","seconds":2.14037,"detail":""},
+{"module":"test_pvp_52_performance","class":"Pixels52","test":"test_actual_app_diagnostic_takes_world_quality_from_config","outcome":"PASS","seconds":2.78702,"detail":""},
+{"module":"test_pvp_52_performance","class":"Pixels52","test":"test_actual_app_diagnostic_uses_same_inputs_across_frame_pacing","outcome":"PASS","seconds":2.13433,"detail":""},
+{"module":"test_pvp_52_performance","class":"Pixels52","test":"test_deferred_scale_freezes_mutable_destination_size","outcome":"PASS","seconds":0.0012746,"detail":""},
+{"module":"test_pvp_52_performance","class":"Pixels52","test":"test_deferred_transform_geometry_and_pixels_match_real_pygame","outcome":"PASS","seconds":0.0583506,"detail":""},
+{"module":"test_pvp_52_performance","class":"Pixels52","test":"test_frozen_lazy_chain_survives_source_and_copy_mutation","outcome":"PASS","seconds":0.0016943,"detail":""},
+{"module":"test_pvp_52_performance","class":"Pixels52","test":"test_full_descriptions_skip_offscreen_pixels_and_camera_jump_materializes","outcome":"PASS","seconds":0.0017054,"detail":""},
+{"module":"test_pvp_52_performance","class":"Pixels52","test":"test_periodic_cache_observes_live_replaced_rows_and_negative_indexes","outcome":"PASS","seconds":0.0001659,"detail":""}
+]

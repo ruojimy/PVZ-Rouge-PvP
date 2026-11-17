@@ -400,6 +400,7 @@ V C_SnapshotPackWorker::m__pack_deliver(const Args& A) {
 }
 
 V C_SnapshotPackWorker::m_submit(const Args& A) {
+    pvz::setattr(self(), SY("capacity_declined"), V(false));
     if (closed_) return V(false);
     V L_peer = A.get(0, SY("peer"), nullptr, "submit");
     V L_key = A.get(1, SY("key"), nullptr, "submit");
@@ -416,6 +417,7 @@ V C_SnapshotPackWorker::m_submit(const Args& A) {
     }
     (void)(callm(self(), SY("_reap_inputs"), Args{}));
     if ((py::len(a__inflight) >= a_inflight_limit)) {
+        pvz::setattr(self(), SY("capacity_declined"), V(true));
         { V ab2_ = a_telemetry; V ak2_ = SV("capacity_declines"); pvz::setitem(ab2_, ak2_, py::iadd(rd(ab2_, ak2_), V(1.0))); }
         return V(false);
     }
@@ -430,6 +432,7 @@ V C_SnapshotPackWorker::m_submit(const Args& A) {
     }
     { V ab3_ = a_telemetry; V ak3_ = SV("freeze_ms"); pvz::setitem(ab3_, ak3_, py::iadd(rd(ab3_, ak3_), (((pm_native_snapshot_worker::_clock).call(Args{}) - L_started) * V(1000.0)))); }
     if (((py::len(L_data) + rd(a_telemetry, SV("frozen_bytes"))) > a_frozen_byte_limit)) {
+        pvz::setattr(self(), SY("capacity_declined"), V(true));
         { V ab4_ = a_telemetry; V ak4_ = SV("capacity_declines"); pvz::setitem(ab4_, ak4_, py::iadd(rd(ab4_, ak4_), V(1.0))); }
         return V(false);
     }
@@ -437,6 +440,7 @@ V C_SnapshotPackWorker::m_submit(const Args& A) {
         L_future = callm(a_executor, SY("submit"), Args{method(SY("_pack_deliver")), L_data, L_delivery, a_profile_detail});
     } catch (PyError& exc_) {
         if (exc_.matches("WorkerFailure")) {
+            pvz::setattr(self(), SY("capacity_declined"), V(true));
             { V ab5_ = a_telemetry; V ak5_ = SV("capacity_declines"); pvz::setitem(ab5_, ak5_, py::iadd(rd(ab5_, ak5_), V(1.0))); }
             return V(false);
         }

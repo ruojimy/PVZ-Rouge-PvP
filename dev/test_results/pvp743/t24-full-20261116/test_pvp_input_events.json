@@ -1,0 +1,4 @@
+[
+{"module":"test_pvp_input_events","class":"InputEventTests","test":"test_guest_key_events_move_even_when_polled_state_is_all_zero","outcome":"PASS","seconds":0.025549,"detail":""},
+{"module":"test_pvp_input_events","class":"InputEventTests","test":"test_reset_then_local_arrow_events_with_short_key_array","outcome":"PASS","seconds":0.0079196,"detail":""}
+]

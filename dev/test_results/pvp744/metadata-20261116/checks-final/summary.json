@@ -1,0 +1,227 @@
+{
+  "completed": true,
+  "results": [
+    {
+      "name": "scheduler-legacy",
+      "exit_code": 0,
+      "checks": 5,
+      "passed": 5,
+      "exe_sha256": "089ad40ad7889cc1f2ab68c8879850ff2ac4831d08f54b8e6cb8ea32448ce2df",
+      "settings": {
+        "PVP744_INPUT_TRACE": "1"
+      }
+    },
+    {
+      "name": "scheduler-candidate",
+      "exit_code": 0,
+      "checks": 5,
+      "passed": 5,
+      "exe_sha256": "089ad40ad7889cc1f2ab68c8879850ff2ac4831d08f54b8e6cb8ea32448ce2df",
+      "settings": {
+        "PVP744_PACING": "1",
+        "PVP744_STEP_LIMIT": "1",
+        "PVP744_STEP_BUDGET_MS": "8",
+        "PVP744_VIEW_REUSE": "1",
+        "PVP744_INPUT_TRACE": "1"
+      }
+    },
+    {
+      "name": "performance",
+      "exit_code": 0,
+      "checks": 6,
+      "passed": 6,
+      "exe_sha256": "b8b225af3bc0810960d9040d8ba2ece163f43d427f0c3874cf893e98c7083815",
+      "settings": {}
+    },
+    {
+      "name": "combat",
+      "exit_code": 0,
+      "checks": 17,
+      "passed": 17,
+      "exe_sha256": "073410cac1be197e4f671f2847197eae4f9925f8573d9684e4abda913e6df6a1",
+      "settings": {}
+    },
+    {
+      "name": "network-legacy",
+      "exit_code": 0,
+      "checks": 11,
+      "passed": 11,
+      "exe_sha256": "3f50309c4e7519d06eadbe6ec688a1249a7bedd8fd80f101cef01253955617b6",
+      "settings": {
+        "PVP741_PROFILE": "1"
+      }
+    },
+    {
+      "name": "network-candidate",
+      "exit_code": 0,
+      "checks": 11,
+      "passed": 11,
+      "exe_sha256": "3f50309c4e7519d06eadbe6ec688a1249a7bedd8fd80f101cef01253955617b6",
+      "settings": {
+        "PVP744_PACING": "1",
+        "PVP744_STEP_LIMIT": "1",
+        "PVP744_STEP_BUDGET_MS": "8",
+        "PVP744_VIEW_REUSE": "1",
+        "PVP744_INPUT_TRACE": "1",
+        "PVP741_PROFILE": "1"
+      }
+    },
+    {
+      "name": "presentation",
+      "exit_code": 0,
+      "checks": 11,
+      "passed": 11,
+      "exe_sha256": "4e6622265e4078752351d787e7841341d9a8fbc9c7c1daa518e2747716ce75df",
+      "settings": {}
+    },
+    {
+      "name": "local-frame",
+      "exit_code": 0,
+      "checks": 5,
+      "passed": 5,
+      "exe_sha256": "96788504e4b2b833244e4dea44e8ccc7136a0fa195f3cd2ae22cb528bf2ae8b1",
+      "settings": {
+        "PVP744_LOCAL_FRAME": "1",
+        "PVP742_VERIFY_FRAME": "1"
+      }
+    },
+    {
+      "name": "network-local-frame",
+      "exit_code": 0,
+      "checks": 11,
+      "passed": 11,
+      "exe_sha256": "3f50309c4e7519d06eadbe6ec688a1249a7bedd8fd80f101cef01253955617b6",
+      "settings": {
+        "PVP744_PACING": "1",
+        "PVP744_STEP_LIMIT": "1",
+        "PVP744_STEP_BUDGET_MS": "8",
+        "PVP744_VIEW_REUSE": "1",
+        "PVP744_INPUT_TRACE": "1",
+        "PVP744_LOCAL_FRAME": "1",
+        "PVP741_PROFILE": "1"
+      }
+    },
+    {
+      "name": "state-view",
+      "exit_code": 0,
+      "checks": 6,
+      "passed": 6,
+      "exe_sha256": "643888561c920eb86b60fb1f0cb1dffa297714e39dc696ea3513ef87fc23686e",
+      "settings": {
+        "PVP744_STATE_VIEW": "1",
+        "PVP744_LOCAL_FRAME": "1",
+        "PVP744_VERIFY_STATE": "1"
+      }
+    },
+    {
+      "name": "pixels-state-view",
+      "exit_code": 0,
+      "checks": 5,
+      "passed": 5,
+      "exe_sha256": "96788504e4b2b833244e4dea44e8ccc7136a0fa195f3cd2ae22cb528bf2ae8b1",
+      "settings": {
+        "PVP744_STATE_VIEW": "1",
+        "PVP744_LOCAL_FRAME": "1",
+        "PVP744_VERIFY_STATE": "1",
+        "PVP742_VERIFY_FRAME": "1"
+      }
+    },
+    {
+      "name": "scheduler-state-view",
+      "exit_code": 0,
+      "checks": 5,
+      "passed": 5,
+      "exe_sha256": "089ad40ad7889cc1f2ab68c8879850ff2ac4831d08f54b8e6cb8ea32448ce2df",
+      "settings": {
+        "PVP744_PACING": "1",
+        "PVP744_STEP_LIMIT": "1",
+        "PVP744_STEP_BUDGET_MS": "8",
+        "PVP744_VIEW_REUSE": "1",
+        "PVP744_INPUT_TRACE": "1",
+        "PVP744_STATE_VIEW": "1",
+        "PVP744_LOCAL_FRAME": "1",
+        "PVP744_VERIFY_STATE": "1"
+      }
+    },
+    {
+      "name": "network-state-view",
+      "exit_code": 0,
+      "checks": 11,
+      "passed": 11,
+      "exe_sha256": "3f50309c4e7519d06eadbe6ec688a1249a7bedd8fd80f101cef01253955617b6",
+      "settings": {
+        "PVP744_PACING": "1",
+        "PVP744_STEP_LIMIT": "1",
+        "PVP744_STEP_BUDGET_MS": "8",
+        "PVP744_VIEW_REUSE": "1",
+        "PVP744_INPUT_TRACE": "1",
+        "PVP744_STATE_VIEW": "1",
+        "PVP744_LOCAL_FRAME": "1",
+        "PVP741_PROFILE": "1"
+      }
+    },
+    {
+      "name": "metadata",
+      "exit_code": 0,
+      "checks": 9,
+      "passed": 9,
+      "exe_sha256": "643888561c920eb86b60fb1f0cb1dffa297714e39dc696ea3513ef87fc23686e",
+      "settings": {
+        "PVP744_METADATA_VIEW": "1",
+        "PVP744_STATE_VIEW": "1",
+        "PVP744_LOCAL_FRAME": "1",
+        "PVP744_VERIFY_STATE": "1"
+      }
+    },
+    {
+      "name": "pixels-metadata",
+      "exit_code": 0,
+      "checks": 5,
+      "passed": 5,
+      "exe_sha256": "96788504e4b2b833244e4dea44e8ccc7136a0fa195f3cd2ae22cb528bf2ae8b1",
+      "settings": {
+        "PVP744_METADATA_VIEW": "1",
+        "PVP744_STATE_VIEW": "1",
+        "PVP744_LOCAL_FRAME": "1",
+        "PVP744_VERIFY_STATE": "1",
+        "PVP742_VERIFY_FRAME": "1"
+      }
+    },
+    {
+      "name": "scheduler-metadata",
+      "exit_code": 0,
+      "checks": 5,
+      "passed": 5,
+      "exe_sha256": "089ad40ad7889cc1f2ab68c8879850ff2ac4831d08f54b8e6cb8ea32448ce2df",
+      "settings": {
+        "PVP744_PACING": "1",
+        "PVP744_STEP_LIMIT": "1",
+        "PVP744_STEP_BUDGET_MS": "8",
+        "PVP744_VIEW_REUSE": "1",
+        "PVP744_INPUT_TRACE": "1",
+        "PVP744_METADATA_VIEW": "1",
+        "PVP744_STATE_VIEW": "1",
+        "PVP744_LOCAL_FRAME": "1",
+        "PVP744_VERIFY_STATE": "1"
+      }
+    },
+    {
+      "name": "network-metadata",
+      "exit_code": 0,
+      "checks": 11,
+      "passed": 11,
+      "exe_sha256": "3f50309c4e7519d06eadbe6ec688a1249a7bedd8fd80f101cef01253955617b6",
+      "settings": {
+        "PVP744_PACING": "1",
+        "PVP744_STEP_LIMIT": "1",
+        "PVP744_STEP_BUDGET_MS": "8",
+        "PVP744_VIEW_REUSE": "1",
+        "PVP744_INPUT_TRACE": "1",
+        "PVP744_METADATA_VIEW": "1",
+        "PVP744_STATE_VIEW": "1",
+        "PVP744_LOCAL_FRAME": "1",
+        "PVP741_PROFILE": "1"
+      }
+    }
+  ]
+}

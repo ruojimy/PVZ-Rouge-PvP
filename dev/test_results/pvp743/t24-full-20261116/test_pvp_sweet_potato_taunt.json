@@ -1,0 +1,6 @@
+[
+{"module":"test_pvp_sweet_potato_taunt","class":"TauntTests","test":"test_dead_potato_stops_taunting","outcome":"PASS","seconds":0.0001813,"detail":""},
+{"module":"test_pvp_sweet_potato_taunt","class":"TauntTests","test":"test_each_taunt_restores_the_pretick_state","outcome":"PASS","seconds":7.59e-05,"detail":""},
+{"module":"test_pvp_sweet_potato_taunt","class":"TauntTests","test":"test_out_of_range_zombie_does_not_touch_g","outcome":"PASS","seconds":3.73e-05,"detail":""},
+{"module":"test_pvp_sweet_potato_taunt","class":"TauntTests","test":"test_second_zombie_does_not_save_the_first_zombies_field","outcome":"PASS","seconds":3.19e-05,"detail":""}
+]

@@ -1,0 +1,24 @@
+{
+  "module": "test_pvp_67_coop_growth_oct18",
+  "exit": 0,
+  "seconds": 1.611,
+  "expected": 7,
+  "results": 7,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": true,
+  "accepted": true,
+  "counts": {
+    "PASS": 7,
+    "FAIL": 0,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [],
+  "unexpected_nonpass": [],
+  "resolved_waivers": []
+}

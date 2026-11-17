@@ -4,6 +4,45 @@
 
 namespace pvz { namespace py { inline void init_deps_presentation() {  } } }
 namespace pvz { namespace pm_presentation {
+V f_same_pose(const Args& A) {
+    V L_before = A.get(0, SY("before"), nullptr, "same_pose");
+    V L_after = A.get(1, SY("after"), nullptr, "same_pose");
+    V L_key;
+    V L_old;
+    V L_old_players;
+    V L_player;
+    V L_players;
+    V L_side;
+    if ((py::m_get(py_or(py::m_get(L_before, SV("native_frame")), [&]() -> V { return py_dict({}); }), SV("positions"), py_dict({})) != py::m_get(py_or(py::m_get(L_after, SV("native_frame")), [&]() -> V { return py_dict({}); }), SV("positions"), py_dict({})))) {
+        return V(false);
+    }
+    L_old_players = py::m_get(L_before, SV("players"), py_dict({}));
+    L_players = py::m_get(L_after, SV("players"), py_dict({}));
+    if ((py::len(L_old_players) != py::len(L_players))) {
+        return V(false);
+    }
+    { auto it1_ = py::items_vec(L_players);
+    for (size_t i1_ = 0; i1_ < it1_.size(); ++i1_) {
+        L_side = it1_[i1_].first; L_player = it1_[i1_].second; 
+        L_old = py::m_get(L_old_players, L_side);
+        if (py_is(L_old, V::none())) {
+            return V(false);
+        }
+        { V it2_ = py::iter_list(V::tuple({SV("x"), SV("y"), SV("teleport_ready_at"), SV("absent")}));
+        for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) {
+            L_key = it2_.idx(int64_t(i2_)); 
+            if ((py::m_get(L_old, L_key) != py::m_get(L_player, L_key))) {
+                return V(false);
+            }
+        }}
+        if ((V((py::m_get(L_old, SV("hp"), V(1.0)) > V(0.0))) != V((py::m_get(L_player, SV("hp"), V(1.0)) > V(0.0))))) {
+            return V(false);
+        }
+    }}
+    return V(([&]() -> V { V out_ = V::list(); V L_u; { V it3_ = py::iter_list(py::m_get(L_before, SV("units"), V::list({}))); for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) { L_u = it3_.idx(int64_t(i3_)); out_.append(V::tuple({py::m_get(L_u, SV("id")), py::m_get_slot(L_u, &Obj::x, SV("x")), py::m_get_slot(L_u, &Obj::y, SV("y")), V((py::m_get(L_u, SV("hp"), V(1.0)) > V(0.0)))})); }}return out_; }() == [&]() -> V { V out_ = V::list(); V L_u; { V it4_ = py::iter_list(py::m_get(L_after, SV("units"), V::list({}))); for (size_t i4_ = 0; i4_ < it4_.len(); ++i4_) { L_u = it4_.idx(int64_t(i4_)); out_.append(V::tuple({py::m_get(L_u, SV("id")), py::m_get_slot(L_u, &Obj::x, SV("x")), py::m_get_slot(L_u, &Obj::y, SV("y")), V((py::m_get(L_u, SV("hp"), V(1.0)) > V(0.0)))})); }}return out_; }()));
+    return V::none();
+}
+
 bool C_GuestPresentation::isa(const char* c) const { std::string s(c); return s == "GuestPresentation" || s == "object"; }
 V* C_GuestPresentation::slot(Sym name) {
     static const SymIndex idx_({SY("clock"), SY("previous"), SY("current"), SY("received"), SY("duration")});
@@ -65,6 +104,7 @@ V C_GuestPresentation::m_clear(const Args& A) {
 V C_GuestPresentation::m_accept(const Args& A) {
     V L_view = A.get(0, SY("view"), nullptr, "accept");
     V L_battle;
+    V L_continuous;
     V L_delta;
     V L_max_delta;
     V L_max_gap;
@@ -75,16 +115,21 @@ V C_GuestPresentation::m_accept(const Args& A) {
     V L_shown;
     L_now = a_clock.call(Args{});
     L_old = a_current;
-    L_shown = (!py_is(L_old, V::none()) ? V(callm(self(), SY("sample"), Args{L_old})) : V(V::none()));
-    a_previous = V::none();
-    a_duration = V(0.0);
     L_battle = py_or(py::m_get(L_view, SV("battle")), [&]() -> V { return py_dict({}); });
     L_prior = py_or(py::m_get(py_or(L_old, [&]() -> V { return py_dict({}); }), SV("battle")), [&]() -> V { return py_dict({}); });
     L_delta = (py::m_get(L_battle, SV("time"), V(0.0)) - py::m_get(L_prior, SV("time"), V(0.0)));
     L_pressure = py::m_get(py_or(py::m_get(L_view, SV("pacing")), [&]() -> V { return py_dict({}); }), SV("slow"), V(false));
     L_max_delta = ((L_pressure).truthy() ? V(V(0.5)) : V(V(0.15)));
     L_max_gap = ((L_pressure).truthy() ? V(V(0.65)) : V(V(0.2)));
-    if (((L_old).truthy() && (py::m_get(L_view, SV("phase")) == SV("battle")) && (py::m_get(L_old, SV("phase")) == SV("battle")) && !(py::m_get(L_view, SV("paused"))).truthy() && !(py::m_get(L_old, SV("paused"))).truthy() && !(py::m_get(L_view, SV("audit_error"))).truthy() && !(py::m_get(L_view, SV("disconnected"))).truthy() && (py::m_get(L_view, SV("terrain_hash")) == py::m_get(L_old, SV("terrain_hash"))) && ((V(0.0) < L_delta) && (L_delta <= L_max_delta)) && ((L_now - a_received) <= L_max_gap))) {
+    L_continuous = py_and(L_old, [&]() -> V { return py_and(V((py::m_get(L_view, SV("phase")) == SV("battle"))), [&]() -> V { return py_and(V((py::m_get(L_old, SV("phase")) == SV("battle"))), [&]() -> V { return py_and(V(!(py::m_get(L_view, SV("paused"))).truthy()), [&]() -> V { return py_and(V(!(py::m_get(L_old, SV("paused"))).truthy()), [&]() -> V { return py_and(V(!(py::m_get(L_view, SV("audit_error"))).truthy()), [&]() -> V { return py_and(V(!(py::m_get(L_view, SV("disconnected"))).truthy()), [&]() -> V { return py_and(V(!(py::m_get(L_old, SV("audit_error"))).truthy()), [&]() -> V { return py_and(V(!(py::m_get(L_old, SV("disconnected"))).truthy()), [&]() -> V { return py_and(V((py::m_get(L_view, SV("terrain_hash")) == py::m_get(L_old, SV("terrain_hash")))), [&]() -> V { return py_and(V((py::m_get(L_view, SV("match_id")) == py::m_get(L_old, SV("match_id")))), [&]() -> V { return py_and(V((py::m_get(L_view, SV("match_number")) == py::m_get(L_old, SV("match_number")))), [&]() -> V { return py_and(V((py::m_get(L_view, SV("loading_id")) == py::m_get(L_old, SV("loading_id")))), [&]() -> V { return py_and(V((py::m_get(L_view, SV("mode")) == py::m_get(L_old, SV("mode")))), [&]() -> V { return py_and(V((py::m_get(L_battle, SV("terrain_revision")) == py::m_get(L_prior, SV("terrain_revision")))), [&]() -> V { return V((py::m_get(L_battle, SV("local_seat")) == py::m_get(L_prior, SV("local_seat")))); }); }); }); }); }); }); }); }); }); }); }); }); }); }); });
+    if (((L_continuous).truthy() && (L_delta == V(0.0)) && (callm(pm_presentation::module_ns(), SY("same_pose"), Args{L_prior, L_battle})).truthy())) {
+        a_current = L_view;
+        return V::none();
+    }
+    L_shown = (!py_is(L_old, V::none()) ? V(callm(self(), SY("sample"), Args{L_old})) : V(V::none()));
+    a_previous = V::none();
+    a_duration = V(0.0);
+    if (((L_continuous).truthy() && ((V(0.0) < L_delta) && (L_delta <= L_max_delta)) && ((L_now - a_received) <= L_max_gap))) {
         a_previous = L_shown;
         a_duration = py::min_it(V::list({((L_pressure).truthy() ? V(V(0.12)) : V(V(0.05))), L_delta}), py::Key(), V());
     }
@@ -221,6 +266,7 @@ void init() {
 static V modattr_(Sym n) {
     init();
     const std::string& s = n.str();
+    if (s == "same_pose") return V::func(f_same_pose);
     if (s == "GuestPresentation") return cls_GuestPresentation();
     if (s == "time") return py::stdlib(SV("time"));
     return V();

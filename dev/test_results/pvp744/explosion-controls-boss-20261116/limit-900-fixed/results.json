@@ -1,0 +1,17 @@
+{
+  "checks": [
+    {
+      "alternating_charm": false,
+      "count": 900,
+      "kind": "辣椒僵尸",
+      "passed": true,
+      "peak_commands": 12000,
+      "peak_dropped_visuals": 2403,
+      "peak_entities": 13500,
+      "private_peak_bytes": 979320832,
+      "rendered_frames": 4,
+      "surface_peak_bytes": 163491052
+    }
+  ],
+  "failures": 0
+}

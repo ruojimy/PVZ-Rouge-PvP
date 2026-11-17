@@ -1,0 +1,16 @@
+[
+{"module":"test_pvp_spectators49","class":"SpectatorRelayTests","test":"test_full_relay_room_observers_have_independent_read_only_channels","outcome":"PASS","seconds":0.151899,"detail":""},
+{"module":"test_pvp_spectators49","class":"SpectatorRelayTests","test":"test_legacy_relay_without_capability_does_not_receive_watch_attempts","outcome":"PASS","seconds":0.452343,"detail":""},
+{"module":"test_pvp_spectators49","class":"SpectatorRelayTests","test":"test_player_slot_refills_while_existing_spectator_stays_connected","outcome":"PASS","seconds":0.766378,"detail":""},
+{"module":"test_pvp_spectators49","class":"SpectatorRelayTests","test":"test_relay_host_policy_updates_listing_and_disconnects_only_audience","outcome":"PASS","seconds":0.335308,"detail":""},
+{"module":"test_pvp_spectators49","class":"SpectatorRelayTests","test":"test_spectator_relay_cannot_forge_player_handshake","outcome":"PASS","seconds":0.228232,"detail":""},
+{"module":"test_pvp_spectators49","class":"SpectatorRoomTests","test":"test_full_room_admits_read_only_spectator_in_every_phase","outcome":"PASS","seconds":0.0068365,"detail":""},
+{"module":"test_pvp_spectators49","class":"SpectatorRoomTests","test":"test_only_host_changes_policy_and_disabling_removes_audience","outcome":"PASS","seconds":0.0057691,"detail":""},
+{"module":"test_pvp_spectators49","class":"SpectatorRoomTests","test":"test_spectator_leave_during_native_battle_never_forfeits_or_clears_inputs","outcome":"PASS","seconds":1.26042,"detail":""},
+{"module":"test_pvp_spectators49","class":"SpectatorSocketTests","test":"test_full_direct_room_separate_slots_snapshots_and_authority_filter","outcome":"PASS","seconds":0.0563205,"detail":""},
+{"module":"test_pvp_spectators49","class":"SpectatorSocketTests","test":"test_host_disables_existing_audience_without_disconnecting_player","outcome":"PASS","seconds":0.0402498,"detail":""},
+{"module":"test_pvp_spectators49","class":"SpectatorSocketTests","test":"test_latest_snapshot_queue_is_bounded_and_does_not_consume_player_budget","outcome":"PASS","seconds":0.0526124,"detail":""},
+{"module":"test_pvp_spectators49","class":"SpectatorSocketTests","test":"test_pending_full_map_cannot_be_replaced_by_mapless_delta","outcome":"PASS","seconds":0.027236,"detail":""},
+{"module":"test_pvp_spectators49","class":"SpectatorSocketTests","test":"test_spectator_session_cannot_resume_as_player","outcome":"PASS","seconds":0.0297416,"detail":""},
+{"module":"test_pvp_spectators49","class":"SpectatorSocketTests","test":"test_stalled_spectator_socket_does_not_block_player_snapshots","outcome":"PASS","seconds":0.15149,"detail":""}
+]

@@ -1,0 +1,52 @@
+{
+  "passed": true,
+  "interleaved_order": [
+    "before-r2",
+    "after-r2",
+    "after-r3",
+    "before-r3"
+  ],
+  "runs": {
+    "before-r2": {
+      "passed": true,
+      "round_mean_ms": 65.6759625,
+      "kernel_mean_ms": 17.949483333333333,
+      "gil_wait_p95_ms": 8.1024,
+      "gil_wait_max_ms": 9.0754,
+      "private_peak_growth_bytes": 23932928,
+      "payload_sha256": "cd38967039bdaeac6ecc39d5b1990bfc4a47de02f9a9f3a529681fa94ff4ed44",
+      "messages": 24
+    },
+    "before-r3": {
+      "passed": true,
+      "round_mean_ms": 67.120025,
+      "kernel_mean_ms": 15.6493,
+      "gil_wait_p95_ms": 8.8596,
+      "gil_wait_max_ms": 33.1783,
+      "private_peak_growth_bytes": 22757376,
+      "payload_sha256": "cd38967039bdaeac6ecc39d5b1990bfc4a47de02f9a9f3a529681fa94ff4ed44",
+      "messages": 24
+    },
+    "after-r2": {
+      "passed": true,
+      "round_mean_ms": 33.5179,
+      "kernel_mean_ms": 7.05395,
+      "gil_wait_p95_ms": 0.0008,
+      "gil_wait_max_ms": 0.038,
+      "private_peak_growth_bytes": 5427200,
+      "payload_sha256": "cd38967039bdaeac6ecc39d5b1990bfc4a47de02f9a9f3a529681fa94ff4ed44",
+      "messages": 24
+    },
+    "after-r3": {
+      "passed": true,
+      "round_mean_ms": 32.0967625,
+      "kernel_mean_ms": 7.110783333333333,
+      "gil_wait_p95_ms": 0.0008,
+      "gil_wait_max_ms": 0.0012,
+      "private_peak_growth_bytes": 4628480,
+      "payload_sha256": "cd38967039bdaeac6ecc39d5b1990bfc4a47de02f9a9f3a529681fa94ff4ed44",
+      "messages": 24
+    }
+  },
+  "scope": "Real 300-unit Room snapshot and real production worker, 3 recipients; fixed battle state, no rendering/device/WAN claims; sleep duration excluded from GIL wait"
+}

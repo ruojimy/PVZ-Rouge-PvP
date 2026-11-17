@@ -1,0 +1,31 @@
+{
+  "module": "test_pvp_network",
+  "exit": 1,
+  "seconds": 2.392,
+  "expected": 16,
+  "results": 16,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": false,
+  "accepted": true,
+  "counts": {
+    "PASS": 15,
+    "FAIL": 0,
+    "ERROR": 1,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [
+    {
+      "id": "test_pvp_network.IdnaCodecRaceTests.test_fresh_process_direct_host_creation_survives_the_codec_race",
+      "outcome": "ERROR",
+      "detail_sha256": "452bae7efecba16cf3fec35f1c6a5a166a3650c7a7527d7f006d483fab19f897",
+      "reason": "Python 新进程 IDNA 编码夹具；原 Python owner 和真实 C++ 新进程建房/网络检查通过。"
+    }
+  ],
+  "unexpected_nonpass": [],
+  "resolved_waivers": []
+}

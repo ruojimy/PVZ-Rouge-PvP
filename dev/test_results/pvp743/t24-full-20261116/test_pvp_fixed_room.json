@@ -1,0 +1,7 @@
+[
+{"module":"test_pvp_fixed_room","class":"FixedRoomTests","test":"test_full_lifecycle","outcome":"PASS","seconds":103.737,"detail":""},
+{"module":"test_pvp_fixed_room","class":"FixedRoomTests","test":"test_host_retakes_seat","outcome":"PASS","seconds":0.214243,"detail":""},
+{"module":"test_pvp_fixed_room","class":"FixedRoomTests","test":"test_leaving_mid_battle_concedes","outcome":"PASS","seconds":8.40145,"detail":""},
+{"module":"test_pvp_fixed_room","class":"FixedRoomTests","test":"test_lobby_entry_is_local_and_always_listed","outcome":"PASS","seconds":0.263572,"detail":""},
+{"module":"test_pvp_fixed_room","class":"FixedRoomTests","test":"test_names_and_delays","outcome":"PASS","seconds":0.0106728,"detail":""}
+]

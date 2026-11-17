@@ -1,0 +1,5 @@
+[
+{"module":"test_pvp_campaign_pool","class":"CampaignPoolTests","test":"test_growth_grave_cost_is_fifty_in_day_and_night","outcome":"PASS","seconds":9.64e-05,"detail":""},
+{"module":"test_pvp_campaign_pool","class":"CampaignPoolTests","test":"test_i_zombie_and_test_pool_unchanged","outcome":"PASS","seconds":0.0247068,"detail":""},
+{"module":"test_pvp_campaign_pool","class":"CampaignPoolTests","test":"test_registered_boss_cannot_enter_night_unlock_pool_but_boss_fight_remains","outcome":"PASS","seconds":0.0043877,"detail":""}
+]

@@ -1,0 +1,13 @@
+[
+{"module":"test_pvp_audit_log","class":"AuditRoomTests","test":"test_100000_validated_inputs_export_completely_without_credentials_or_whole_log_copy","outcome":"PASS","seconds":1.69619,"detail":""},
+{"module":"test_pvp_audit_log","class":"AuditRoomTests","test":"test_failed_export_never_overwrites_existing_export_or_discards_source_events","outcome":"PASS","seconds":0.0170689,"detail":""},
+{"module":"test_pvp_audit_log","class":"AuditRoomTests","test":"test_io_failure_pauses_room_rejects_resume_and_surrender_and_exports_retained_events","outcome":"PASS","seconds":0.0236833,"detail":""},
+{"module":"test_pvp_audit_log","class":"AuditRoomTests","test":"test_rematch_and_normal_close_release_temporary_storage","outcome":"PASS","seconds":0.0200321,"detail":""},
+{"module":"test_pvp_audit_log","class":"AuditRoomTests","test":"test_room_metadata_failure_is_explicit_for_connect_disconnect_map_bp_swap_and_rematch","outcome":"PASS","seconds":0.238136,"detail":""},
+{"module":"test_pvp_audit_log","class":"AuditRoomTests","test":"test_room_metadata_is_also_bounded_retained_across_rematch_and_closed","outcome":"PASS","seconds":0.0162892,"detail":""},
+{"module":"test_pvp_audit_log","class":"AuditStorageTests","test":"test_100001_events_keep_bounded_memory_complete_order_and_access","outcome":"PASS","seconds":1.38322,"detail":""},
+{"module":"test_pvp_audit_log","class":"AuditStorageTests","test":"test_corrupt_segment_is_reported_and_left_available_for_diagnosis","outcome":"PASS","seconds":0.0296001,"detail":""},
+{"module":"test_pvp_audit_log","class":"AuditStorageTests","test":"test_sequence_equality_and_detachment_do_not_expose_mutable_records","outcome":"PASS","seconds":0.0176933,"detail":""},
+{"module":"test_pvp_audit_log","class":"AuditStorageTests","test":"test_unserializable_or_oversized_records_fail_explicitly_without_payload_in_error","outcome":"PASS","seconds":0.0001863,"detail":""},
+{"module":"test_pvp_audit_log","class":"AuditStorageTests","test":"test_write_failure_retains_completed_segments_and_the_triggering_event","outcome":"PASS","seconds":0.0083298,"detail":""}
+]

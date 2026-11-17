@@ -1,0 +1,13 @@
+[
+{"module":"test_pvp_balance_economy","class":"EconomyBalanceTests","test":"test_actual_ice_shroom_hits_grave_and_hero_status_expires","outcome":"PASS","seconds":0.15474,"detail":""},
+{"module":"test_pvp_balance_economy","class":"EconomyBalanceTests","test":"test_grave_day_night_intervals_first_six_and_unchanged_variants","outcome":"PASS","seconds":6.67047,"detail":""},
+{"module":"test_pvp_balance_economy","class":"EconomyBalanceTests","test":"test_grave_first_production_status_clock_and_mature_hp","outcome":"PASS","seconds":1.12075,"detail":""},
+{"module":"test_pvp_balance_economy","class":"EconomyBalanceTests","test":"test_gravebuster_remnant_is_death_only_and_disabled_at_night","outcome":"PASS","seconds":0.117898,"detail":""},
+{"module":"test_pvp_balance_economy","class":"EconomyBalanceTests","test":"test_night_blocks_sky_but_keeps_native_sunflower_and_grave_production","outcome":"PASS","seconds":7.1573,"detail":""},
+{"module":"test_pvp_balance_economy","class":"EconomyBalanceTests","test":"test_night_change_is_host_only_and_invalidates_map_confirmation","outcome":"PASS","seconds":0.0133872,"detail":""},
+{"module":"test_pvp_balance_economy","class":"EconomyBalanceTests","test":"test_night_costs_native_sleep_and_authority_preview","outcome":"PASS","seconds":0.0164244,"detail":""},
+{"module":"test_pvp_balance_economy","class":"EconomyBalanceTests","test":"test_night_starts_plant_side_with_150_sun_only","outcome":"PASS","seconds":0.0269063,"detail":""},
+{"module":"test_pvp_balance_economy","class":"EconomyBalanceTests","test":"test_original_sun_emission_first_six_and_repeating_period","outcome":"PASS","seconds":6.28066,"detail":""},
+{"module":"test_pvp_balance_economy","class":"EconomyBalanceTests","test":"test_uncollected_sun_expires_after_twenty_seconds","outcome":"PASS","seconds":2.3257,"detail":""},
+{"module":"test_pvp_balance_economy","class":"EconomyBalanceTests","test":"test_zombie_cooldowns_and_both_opening_boundaries","outcome":"PASS","seconds":0.013142,"detail":""}
+]

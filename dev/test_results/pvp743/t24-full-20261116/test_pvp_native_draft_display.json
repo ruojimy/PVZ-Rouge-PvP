@@ -1,0 +1,3 @@
+[
+{"module":"test_pvp_native_draft_display","class":"NativeDraftDisplayTests","test":"test_locked_secrets_resolve_bank_grid_and_detail_without_changing_bp_identity","outcome":"PASS","seconds":1.17151,"detail":""}
+]

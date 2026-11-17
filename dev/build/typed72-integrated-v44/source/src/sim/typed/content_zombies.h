@@ -31,6 +31,7 @@ public:
     virtual double image_height(const std::string&)const=0;
     virtual double unit_scale(const ZombieRef&)const=0;
     virtual void stun_star(Point position,Point dimensions)=0;
+    virtual void stun_star(const ZombieRef&,Point position,Point dimensions){stun_star(position,dimensions);}
     virtual void draw_content_zombie(const ZombieRef&)=0;
 };
 

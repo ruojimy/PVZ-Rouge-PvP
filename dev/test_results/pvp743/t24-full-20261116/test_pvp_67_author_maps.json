@@ -1,0 +1,7 @@
+[
+{"module":"test_pvp_67_author_maps","class":"AuthorMaps67","test":"test_active_map_inventory_excludes_all_three_retired_maps","outcome":"PASS","seconds":0.0004188,"detail":""},
+{"module":"test_pvp_67_author_maps","class":"AuthorMaps67","test":"test_every_map_has_four_dry_unique_seats_and_explicit_zombie_points","outcome":"PASS","seconds":0.258361,"detail":""},
+{"module":"test_pvp_67_author_maps","class":"AuthorMaps67","test":"test_invalid_waterfall_spawn_and_ruin_seam_are_playable_now","outcome":"PASS","seconds":0.0244121,"detail":""},
+{"module":"test_pvp_67_author_maps","class":"AuthorMaps67","test":"test_two_complete_map_cycles_are_sequential_for_solo_and_coop","outcome":"PASS","seconds":0.0034511,"detail":""},
+{"module":"test_pvp_67_author_maps","class":"AuthorMaps67","test":"test_wave_director_binds_the_curated_points_of_every_map","outcome":"PASS","seconds":0.211693,"detail":""}
+]

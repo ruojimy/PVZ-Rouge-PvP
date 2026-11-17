@@ -1,0 +1,15 @@
+[
+{"module":"test_pvp_content","class":"ContentTests","test":"test_barrel_breaks_into_two_original_imps","outcome":"PASS","seconds":0.0219902,"detail":""},
+{"module":"test_pvp_content","class":"ContentTests","test":"test_cannon_emits_original_imp_and_suppresses_basketball","outcome":"PASS","seconds":0.013775,"detail":""},
+{"module":"test_pvp_content","class":"ContentTests","test":"test_charmed_black_armour_uses_enemy_zombies","outcome":"PASS","seconds":0.029245,"detail":""},
+{"module":"test_pvp_content","class":"ContentTests","test":"test_charmed_captain_summons_charmed_parrot_and_uses_enemy_target","outcome":"PASS","seconds":0.0145783,"detail":""},
+{"module":"test_pvp_content","class":"ContentTests","test":"test_darts_native_launch_damage_and_unlimited_return_hits","outcome":"PASS","seconds":0.232978,"detail":""},
+{"module":"test_pvp_content","class":"ContentTests","test":"test_ice_chili_bypasses_shield_freezes_without_ash","outcome":"PASS","seconds":0.32924,"detail":""},
+{"module":"test_pvp_content","class":"ContentTests","test":"test_new_units_construct_and_run_native_statuses","outcome":"PASS","seconds":0.485808,"detail":""},
+{"module":"test_pvp_content","class":"ContentTests","test":"test_no_card_ever_falls_back_to_the_placeholder_circle","outcome":"PASS","seconds":0.730548,"detail":""},
+{"module":"test_pvp_content","class":"ContentTests","test":"test_poison_bypasses_armour_four_full_seconds_and_clears_death","outcome":"PASS","seconds":0.54621,"detail":""},
+{"module":"test_pvp_content","class":"ContentTests","test":"test_poison_coexists_with_freeze_slow_and_butter_in_both_orders","outcome":"PASS","seconds":0.779164,"detail":""},
+{"module":"test_pvp_content","class":"ContentTests","test":"test_poison_dart_splash_stacks_but_excludes_own_direct_target","outcome":"PASS","seconds":0.227799,"detail":""},
+{"module":"test_pvp_content","class":"ContentTests","test":"test_poison_hero_clock_and_tint","outcome":"PASS","seconds":0.147035,"detail":""},
+{"module":"test_pvp_content","class":"ContentTests","test":"test_the_batch_icons_come_from_the_embedded_atlas_alone","outcome":"PASS","seconds":0.0003235,"detail":""}
+]

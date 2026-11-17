@@ -281,7 +281,10 @@ V f_draw_touch(const Args& A) {
     V L_bank;
     V L_bank_h;
     V L_bank_w;
+    V L_bh;
     V L_blocked;
+    V L_bw;
+    V L_by;
     V L_card;
     V L_cd;
     V L_ch;
@@ -296,19 +299,26 @@ V f_draw_touch(const Args& A) {
     V L_height;
     V L_hint;
     V L_hp;
+    V L_hp_y;
+    V L_hud;
     V L_index;
     V L_key;
     V L_local;
     V L_maximum;
     V L_message;
+    V L_mh;
     V L_move;
+    V L_ms;
+    V L_mw;
     V L_mx;
+    V L_my;
     V L_notice_w;
     V L_owned;
     V L_p;
     V L_page;
     V L_page_size;
     V L_pitch;
+    V L_placed_slots;
     V L_plaque;
     V L_players;
     V L_preview;
@@ -319,9 +329,14 @@ V f_draw_touch(const Args& A) {
     V L_seconds;
     V L_secret;
     V L_selected;
+    V L_sh;
     V L_shade;
     V L_side;
+    V L_stage;
     V L_status;
+    V L_sw;
+    V L_sx;
+    V L_sy;
     V L_terrain;
     V L_thumb_clusters;
     V L_timer;
@@ -337,6 +352,7 @@ V f_draw_touch(const Args& A) {
     L_COLORS = pm_rendering::COLORS;
     L_WorldView = pm_world_view::cls_WorldView();
     L_thumb_clusters = V::func(pm_touch::f_thumb_clusters);
+    L_placed_slots = V::func(pm_touch::f_placed_slots);
     { V ut1_ = py::as_seq(callm(pvz::getattr(L_r, SY("screen")), SY("get_size"), Args{})); L_width = ut1_.idx(0); L_height = ut1_.idx(1); } 
     pvz::setattr(L_r, SY("controls"), V::list({}));
     L_game = py_or(py::m_get(L_view, SV("battle")), [&]() -> V { return py_dict({}); });
@@ -355,6 +371,7 @@ V f_draw_touch(const Args& A) {
     }
     L_local = py::m_get(L_view, SV("local_sides"), V::list({L_side}));
     L_rules = py::m_get(L_view, SV("rules"), pm_catalog::RULES);
+    L_hud = (L_placed_slots).call(Args{L_width, L_height, L_state});
     L_bank_w = floordiv((L_width - V(160.0)), V(2.0));
     L_bank_h = V(100.0);
     { V it2_ = py::iter_list(pm_battle_view::f_bank_layout(Args{L_view, L_side, L_players, V::tuple({V(8.0), (V(16.0) + L_bank_w)})}));
@@ -364,13 +381,15 @@ V f_draw_touch(const Args& A) {
         L_p = rd(L_players, L_key);
         L_active = V((L_key == L_side));
         L_owned = py_and(V(py::in(L_faction, L_local)), [&]() -> V { return V((L_role != SV("mate"))); });
-        L_tray = V::tuple({L_x, V(8.0), L_bank_w, L_bank_h});
+        L_tray = rd(L_hud, ((L_x == V(8.0)) ? V(SV("own_bank")) : V(SV("mate_bank"))));
+        { V ut4_ = py::as_seq(L_tray); L_x = ut4_.idx(0); L_by = ut4_.idx(1); L_bw = ut4_.idx(2); L_bh = ut4_.idx(3); } 
+        L_hp_y = ((L_by + L_bh) + V(6.0));
         if ((py::m_get(L_p, SV("absent"))).truthy()) {
             (void)(pm_team_hud::f_draw_scripted_tray(Args{L_r, L_tray, L_game}));
             continue;
         }
         if (((L_role == SV("mate")) && (py::m_get(L_state, SV("mate_collapsed"))).truthy())) {
-            (void)(callm(L_r, SY("button"), Args({SV("展开队友卡栏"), V::tuple({L_x, V(8.0), V(140.0), V(40.0)}), V::tuple({SV("hud_toggle"), SV("mate_collapsed")})}, {{SY("size"), V(15.0)}})));
+            (void)(callm(L_r, SY("button"), Args({SV("展开队友卡栏"), V::tuple({L_x, L_by, py::min_it(V::list({V(140.0), L_bw}), py::Key(), V()), V(40.0)}), V::tuple({SV("hud_toggle"), SV("mate_collapsed")})}, {{SY("size"), V(15.0)}})));
             continue;
         }
         L_deck = pm_hud::f_battle_deck(Args{L_p});
@@ -378,7 +397,7 @@ V f_draw_touch(const Args& A) {
         L_page_size = pm_hud::f_bank_page_size(Args{L_rules, L_faction, py::len(L_deck), pm_teams::f_scripted(Args{py::m_get(L_view, SV("mode"))})});
         L_page = (L_page % py::max_it(V::list({V(1.0), V(std::ceil(((py::len(L_deck) / L_page_size)).num()))}), py::Key(), V()));
         L_visible = py::slice(L_deck, (L_page * L_page_size), ((L_page + V(1.0)) * L_page_size));
-        { V ut4_ = py::as_seq(pm_battle_view::f_draw_seed_bank(Args{L_r, L_tray, L_page_size, L_faction, py::m_get(L_p, SV("resource"))})); L_bank = ut4_.idx(0); L_unit = ut4_.idx(1); } 
+        { V ut5_ = py::as_seq(pm_battle_view::f_draw_seed_bank(Args{L_r, L_tray, L_page_size, L_faction, py::m_get(L_p, SV("resource"))})); L_bank = ut5_.idx(0); L_unit = ut5_.idx(1); } 
         (void)(py::m_append(pvz::getattr(L_r, SY("controls")), V::tuple({callm(pvz::getattr(L_r, SY("pg")), SY("Rect"), Args{L_tray}), V::tuple({SV("hud_block")})})));
         if ((L_active).truthy()) {
             (void)(callm(pvz::getattr(pvz::getattr(L_r, SY("pg")), SY("draw")), SY("rect"), Args{pvz::getattr(L_r, SY("screen")), rd(L_COLORS, SV("gold")), L_bank, V(2.0)}));
@@ -386,14 +405,15 @@ V f_draw_touch(const Args& A) {
         L_pitch = L_unit;
         L_cw = (V(0.975) * L_unit);
         L_ch = (V(1.3125) * L_unit);
-        { const int64_t b5_ = 0, e5_ = (int64_t)(L_page_size).num(), s5_ = 1;
-        for (int64_t i5_ = b5_; s5_ > 0 ? i5_ < e5_ : i5_ > e5_; i5_ += s5_) {
-            L_index = V(double(i5_)); 
+        { const int64_t b6_ = 0, e6_ = (int64_t)(L_page_size).num(), s6_ = 1;
+        for (int64_t i6_ = b6_; s6_ > 0 ? i6_ < e6_ : i6_ > e6_; i6_ += s6_) {
+            L_index = V(double(i6_)); 
             L_rect = V::tuple({(rd(L_bank, V(0.0)) + ((V(1.5) + L_index) * L_pitch)), (rd(L_bank, V(1.0)) + (V(0.1) * L_unit)), L_cw, L_ch});
             if ((L_index >= py::len(L_visible))) {
                 continue;
             }
             L_key = rd(L_visible, L_index);
+            if(!L_key.truthy())continue; // PvP744 empty card slots
             L_card = callm(pm_battle_view::module_ns(), SY("battle_card"), Args{L_key, L_p, L_game, py::m_get(py::m_get(L_terrain, SV("environment"), py_dict({})), SV("night"), V(false)), ((L_active).truthy() ? V(py::m_get(L_state, SV("copy"))) : V(py::m_get(py_or(py::m_get(L_view, SV("copy_targets")), [&]() -> V { return py_dict({}); }), L_key)))});
             L_secret = V((rd(L_card, SV("category")) == SV("secret")));
             L_cd = py::max_it(V::list({V(0.0), (py::m_get(py::m_get(L_p, SV("cooldowns"), py_dict({})), L_key, V(0.0)) - py::m_get(L_game, SV("time"), V(0.0)))}), py::Key(), V());
@@ -425,34 +445,35 @@ V f_draw_touch(const Args& A) {
         }
         L_hp = py::max_it(V::list({V(0.0), py::m_get(L_p, SV("hp"), V(0.0))}), py::Key(), V());
         L_maximum = py::m_get(L_p, SV("max_hp"), V(1000.0));
-        (void)(callm(pvz::getattr(pvz::getattr(L_r, SY("pg")), SY("draw")), SY("rect"), Args{pvz::getattr(L_r, SY("screen")), V::tuple({V(36.0), V(28.0), V(34.0)}), V::tuple({L_x, (L_bank_h + V(14.0)), L_bank_w, V(24.0)})}));
-        (void)(callm(pvz::getattr(pvz::getattr(L_r, SY("pg")), SY("draw")), SY("rect"), Args{pvz::getattr(L_r, SY("screen")), V::tuple({V(90.0), V(38.0), V(28.0)}), V::tuple({(L_x + V(3.0)), (L_bank_h + V(30.0)), (L_bank_w - V(6.0)), V(5.0)})}));
-        (void)(callm(pvz::getattr(pvz::getattr(L_r, SY("pg")), SY("draw")), SY("rect"), Args{pvz::getattr(L_r, SY("screen")), rd(L_COLORS, L_faction), V::tuple({(L_x + V(3.0)), (L_bank_h + V(30.0)), py::int_(((L_bank_w - V(6.0)) * py::min_it(V::list({V(1.0), (L_hp / py::max_it(V::list({V(1.0), L_maximum}), py::Key(), V()))}), py::Key(), V()))), V(5.0)})}));
-        (void)(callm(L_r, SY("text"), Args{((((L_role == SV("mate")) ? V(SV("队友 · 只读 · ")) : V(SV(""))) + ((L_faction == SV("plant")) ? V(SV("普通戴夫")) : V(SV("僵尸戴夫")))) + py::percent(SV("  %d / %d"), V::tuple({L_hp, L_maximum}))), V::tuple({(L_x + V(9.0)), (L_bank_h + V(16.0))}), rd(L_COLORS, SV("text")), V(13.0), (L_bank_w - V(126.0))}));
+        (void)(callm(pvz::getattr(pvz::getattr(L_r, SY("pg")), SY("draw")), SY("rect"), Args{pvz::getattr(L_r, SY("screen")), V::tuple({V(36.0), V(28.0), V(34.0)}), V::tuple({L_x, L_hp_y, L_bw, V(24.0)})}));
+        (void)(callm(pvz::getattr(pvz::getattr(L_r, SY("pg")), SY("draw")), SY("rect"), Args{pvz::getattr(L_r, SY("screen")), V::tuple({V(90.0), V(38.0), V(28.0)}), V::tuple({(L_x + V(3.0)), (L_hp_y + V(16.0)), (L_bw - V(6.0)), V(5.0)})}));
+        (void)(callm(pvz::getattr(pvz::getattr(L_r, SY("pg")), SY("draw")), SY("rect"), Args{pvz::getattr(L_r, SY("screen")), rd(L_COLORS, L_faction), V::tuple({(L_x + V(3.0)), (L_hp_y + V(16.0)), py::int_(((L_bw - V(6.0)) * py::min_it(V::list({V(1.0), (L_hp / py::max_it(V::list({V(1.0), L_maximum}), py::Key(), V()))}), py::Key(), V()))), V(5.0)})}));
+        (void)(callm(L_r, SY("text"), Args{((((L_role == SV("mate")) ? V(SV("队友 · 只读 · ")) : V(SV(""))) + ((L_faction == SV("plant")) ? V(SV("普通戴夫")) : V(SV("僵尸戴夫")))) + py::percent(SV("  %d / %d"), V::tuple({L_hp, L_maximum}))), V::tuple({(L_x + V(9.0)), (L_hp_y + V(2.0))}), rd(L_COLORS, SV("text")), V(13.0), py::max_it(V::list({V(40.0), (L_bw - V(126.0))}), py::Key(), V())}));
         if ((L_owned).truthy()) {
-            (void)(callm(L_r, SY("button"), Args({(!(L_active).truthy() ? V(SV("操作此方")) : V(SV("当前操作"))), V::tuple({((L_x + L_bank_w) - V(108.0)), (L_bank_h + V(13.0)), V(108.0), V(26.0)}), V::tuple({SV("active_side"), L_faction})}, {{SY("selected"), L_active}, {SY("accent"), rd(L_COLORS, L_faction)}, {SY("size"), V(13.0)}})));
+            (void)(callm(L_r, SY("button"), Args({(!(L_active).truthy() ? V(SV("操作此方")) : V(SV("当前操作"))), V::tuple({((L_x + L_bw) - V(108.0)), (L_hp_y - V(1.0)), V(108.0), V(26.0)}), V::tuple({SV("active_side"), L_faction})}, {{SY("selected"), L_active}, {SY("accent"), rd(L_COLORS, L_faction)}, {SY("size"), V(13.0)}})));
         }
         if ((L_role == SV("mate"))) {
-            (void)(callm(L_r, SY("button"), Args({SV("收起"), V::tuple({((L_x + L_bank_w) - V(70.0)), (L_bank_h + V(13.0)), V(70.0), V(26.0)}), V::tuple({SV("hud_toggle"), SV("mate_collapsed")})}, {{SY("size"), V(13.0)}})));
+            (void)(callm(L_r, SY("button"), Args({SV("收起"), V::tuple({((L_x + L_bw) - V(70.0)), (L_hp_y - V(1.0)), V(70.0), V(26.0)}), V::tuple({SV("hud_toggle"), SV("mate_collapsed")})}, {{SY("size"), V(13.0)}})));
         }
     }}
-    L_mx = (L_width - V(130.0));
-    (void)(callm(L_r, SY("button"), Args({SV("菜单"), V::tuple({L_mx, V(8.0), V(122.0), V(40.0)}), V::tuple({SV("menu"), SV("settings")})}, {{SY("size"), V(18.0)}})));
-    (void)(callm(L_r, SY("button"), Args({SV("帮助"), V::tuple({L_mx, V(54.0), V(122.0), V(36.0)}), V::tuple({SV("menu"), SV("help")})}, {{SY("size"), V(15.0)}})));
-    (void)(callm(L_r, SY("button"), Args({pm_battle_view::f_pause_label(Args{L_view, L_state}), V::tuple({L_mx, V(96.0), V(122.0), V(36.0)}), V::tuple({SV("pause")})}, {{SY("size"), V(15.0)}})));
+    { V ut7_ = py::as_seq(rd(L_hud, SV("battle_menu"))); L_mx = ut7_.idx(0); L_my = ut7_.idx(1); L_mw = ut7_.idx(2); L_mh = ut7_.idx(3); } 
+    L_ms = (L_mh / V(166.0));
+    (void)(callm(L_r, SY("button"), Args({SV("菜单"), V::tuple({L_mx, L_my, L_mw, (V(40.0) * L_ms)}), V::tuple({SV("menu"), SV("settings")})}, {{SY("size"), V(18.0)}})));
+    (void)(callm(L_r, SY("button"), Args({SV("帮助"), V::tuple({L_mx, (L_my + (V(46.0) * L_ms)), L_mw, (V(36.0) * L_ms)}), V::tuple({SV("menu"), SV("help")})}, {{SY("size"), V(15.0)}})));
+    (void)(callm(L_r, SY("button"), Args({pm_battle_view::f_pause_label(Args{L_view, L_state}), V::tuple({L_mx, (L_my + (V(88.0) * L_ms)), L_mw, (V(36.0) * L_ms)}), V::tuple({SV("pause")})}, {{SY("size"), V(15.0)}})));
     if (py::in(py_or(py::m_get(L_view, SV("mode")), [&]() -> V { return SV("duel"); }), V::tuple({SV("duo"), SV("coop")}))) {
-        (void)(callm(L_r, SY("button"), Args({py::percent(SV("资助队友 %d"), pm_simulation::GIFT_AMOUNT), V::tuple({L_mx, V(138.0), V(122.0), V(36.0)}), V::tuple({SV("gift")})}, {{SY("size"), V(14.0)}})));
+        (void)(callm(L_r, SY("button"), Args({py::percent(SV("资助队友 %d"), pm_simulation::GIFT_AMOUNT), V::tuple({L_mx, (L_my + (V(130.0) * L_ms)), L_mw, (V(36.0) * L_ms)}), V::tuple({SV("gift")})}, {{SY("size"), V(14.0)}})));
     }
     L_seconds = py::int_(py::m_get(L_game, SV("time"), V(0.0)));
     L_timer = py::percent(SV("%02d:%02d"), V::tuple({floordiv(L_seconds, V(60.0)), (L_seconds % V(60.0))}));
-    L_plaque = V::tuple({(floordiv(L_width, V(2.0)) - V(72.0)), (L_bank_h + V(14.0)), V(144.0), V(30.0)});
+    L_plaque = rd(L_hud, SV("timer"));
     (void)(callm(L_r, SY("box"), Args{L_plaque, V::tuple({V(40.0), V(31.0), V(24.0)})}));
-    (void)(callm(L_r, SY("text"), Args{(L_timer + ((py::m_get(L_game, SV("deathmatch"))).truthy() ? V(SV(" 死斗")) : V(SV("")))), V::tuple({(rd(L_plaque, V(0.0)) + V(14.0)), (L_bank_h + V(18.0))}), rd(L_COLORS, SV("gold")), V(20.0), V(116.0)}));
+    (void)(callm(L_r, SY("text"), Args{(L_timer + ((py::m_get(L_game, SV("deathmatch"))).truthy() ? V(SV(" 死斗")) : V(SV("")))), V::tuple({(rd(L_plaque, V(0.0)) + V(8.0)), (rd(L_plaque, V(1.0)) + V(4.0))}), rd(L_COLORS, SV("gold")), py::max_it(V::list({V(10.0), py::int_(((V(20.0) * rd(L_plaque, V(3.0))) / V(30.0)))}), py::Key(), V()), (rd(L_plaque, V(2.0)) - V(16.0))}));
     (void)(py::m_append(pvz::getattr(L_r, SY("controls")), V::tuple({callm(pvz::getattr(L_r, SY("pg")), SY("Rect"), Args{L_plaque}), V::tuple({SV("hud_block")})})));
-    L_fitted = callm(pvz::getattr(L_r, SY("world")), SY("preview"), Args{pvz::getattr(L_r, SY("screen")), L_terrain, V::tuple({(floordiv(L_width, V(2.0)) - V(84.0)), (L_bank_h + V(50.0)), V(168.0), V(62.0)}), L_players});
+    L_fitted = callm(pvz::getattr(L_r, SY("world")), SY("preview"), Args{pvz::getattr(L_r, SY("screen")), L_terrain, rd(L_hud, SV("minimap")), L_players});
     (void)(callm(pvz::getattr(L_r, SY("world")), SY("minimap_flags"), Args{pvz::getattr(L_r, SY("screen")), L_game, L_terrain, L_fitted}));
-    (void)(py::m_append(pvz::getattr(L_r, SY("controls")), V::tuple({callm(pvz::getattr(L_r, SY("pg")), SY("Rect"), Args{(floordiv(L_width, V(2.0)) - V(84.0)), (L_bank_h + V(50.0)), V(168.0), V(62.0)}), V::tuple({SV("hud_block")})})));
-    { V ut6_ = py::as_seq((L_thumb_clusters).call(Args{L_width, L_height, L_state})); L_move = ut6_.idx(0); L_column = ut6_.idx(1); } 
+    (void)(py::m_append(pvz::getattr(L_r, SY("controls")), V::tuple({callm(pvz::getattr(L_r, SY("pg")), SY("Rect"), Args{rd(L_hud, SV("minimap"))}), V::tuple({SV("hud_block")})})));
+    { V ut8_ = py::as_seq((L_thumb_clusters).call(Args{L_width, L_height, L_state})); L_move = ut8_.idx(0); L_column = ut8_.idx(1); } 
     L_x0 = ((rd(L_move, V(0.0)) + rd(L_move, V(2.0))) + V(10.0));
     L_x1 = (rd(L_column, V(0.0)) - V(10.0));
     (void)(callm(L_r, SY("box"), Args{V::tuple({L_x0, (L_height - V(30.0)), py::max_it(V::list({V(120.0), (L_x1 - L_x0)}), py::Key(), V()), V(26.0)}), V::tuple({V(34.0), V(30.0), V(24.0)})}));
@@ -470,24 +491,31 @@ V f_draw_touch(const Args& A) {
     }
     L_message = py_or(L_message, [&]() -> V { return py_or(L_feedback, [&]() -> V { return pm_hud::f_stage_text(Args{L_game, L_rules}); }); });
     (void)(callm(L_r, SY("text"), Args{L_message, V::tuple({(L_x0 + V(10.0)), (L_height - V(25.0))}), rd(L_COLORS, SV("gold")), V(14.0), py::max_it(V::list({V(100.0), ((L_x1 - L_x0) - V(190.0))}), py::Key(), V())}));
-    (void)(callm(L_r, SY("text"), Args{pm_hud::f_latency_text(Args{L_state}), V::tuple({py::max_it(V::list({(L_x0 + V(120.0)), (L_x1 - V(176.0))}), py::Key(), V()), (L_height - V(25.0))}), rd(L_COLORS, SV("muted")), V(13.0), V(168.0)}));
+    (void)(callm(L_r, SY("text"), Args{callm(pm_battle_view::module_ns(), SY("latency_text"), Args{L_state}), V::tuple({py::max_it(V::list({(L_x0 + V(120.0)), (L_x1 - V(176.0))}), py::Key(), V()), (L_height - V(25.0))}), rd(L_COLORS, SV("muted")), V(13.0), V(168.0)}));
+    L_stage = pm_hud::f_stage_text(Args{L_game, L_rules});
+    if ((L_stage).truthy()) {
+        { V ut9_ = py::as_seq(rd(L_hud, SV("stage_info"))); L_sx = ut9_.idx(0); L_sy = ut9_.idx(1); L_sw = ut9_.idx(2); L_sh = ut9_.idx(3); } 
+        (void)(callm(L_r, SY("box"), Args{V::tuple({L_sx, L_sy, L_sw, L_sh}), V::tuple({V(34.0), V(30.0), V(24.0)})}));
+        (void)(callm(L_r, SY("text"), Args{L_stage, V::tuple({(L_sx + V(6.0)), (L_sy + V(5.0))}), rd(L_COLORS, SV("gold")), py::max_it(V::list({V(10.0), py::int_(((V(14.0) * L_sh) / V(30.0)))}), py::Key(), V()), (L_sw - V(12.0))}));
+        (void)(py::m_append(pvz::getattr(L_r, SY("controls")), V::tuple({callm(pvz::getattr(L_r, SY("pg")), SY("Rect"), Args{L_sx, L_sy, L_sw, L_sh}), V::tuple({SV("hud_block")})})));
+    }
     if ((py_or(py::m_get(L_view, SV("mode")), [&]() -> V { return SV("duel"); }) == SV("duo"))) {
         (void)(callm(L_r, SY("button"), Args({((py::m_get(L_state, SV("enemy_overview"))).truthy() ? V(SV("收起敌方卡组")) : V(SV("敌方卡组"))), V::tuple({(floordiv(L_width, V(2.0)) - V(84.0)), (L_bank_h + V(120.0)), V(168.0), V(34.0)}), V::tuple({SV("hud_toggle"), SV("enemy_overview")})}, {{SY("size"), V(15.0)}})));
     }
     (void)(pm_team_hud::f_draw_team_panel(Args{L_r, L_view, L_state, L_game, L_players, L_side}));
-    { auto it7_ = py::items_vec(L_players);
-    for (size_t i7_ = 0; i7_ < it7_.size(); ++i7_) {
-        L_faction = it7_[i7_].first; L_p = it7_[i7_].second; 
+    { auto it10_ = py::items_vec(L_players);
+    for (size_t i10_ = 0; i10_ < it10_.size(); ++i10_) {
+        L_faction = it10_[i10_].first; L_p = it10_[i10_].second; 
         if ((py::m_get(L_p, SV("absent"))).truthy()) {
             continue;
         }
         L_status = py_or(pm_team_hud::f_overhead(Args{L_game, L_faction, L_p}), [&]() -> V { return pm_hud::f_hero_status(Args{L_p, py::m_get(L_game, SV("time"), V(0.0))}); });
         if ((L_status).truthy()) {
-            { V ut8_ = py::as_seq(callm(pvz::getattr(L_r, SY("world")), SY("point"), Args{rdm(L_p, &Obj::x, SV("x")), rdm(L_p, &Obj::y, SV("y"))})); L_x = ut8_.idx(0); L_y = ut8_.idx(1); } 
+            { V ut11_ = py::as_seq(callm(pvz::getattr(L_r, SY("world")), SY("point"), Args{rdm(L_p, &Obj::x, SV("x")), rdm(L_p, &Obj::y, SV("y"))})); L_x = ut11_.idx(0); L_y = ut11_.idx(1); } 
             (void)(callm(L_r, SY("text"), Args{L_status, V::tuple({(L_x - V(48.0)), ((L_y - ((V(2.0) * py::m_get(L_terrain, SV("tile_size"), V(48.0))) * rd(pvz::getattr(L_r, SY("camera")), V(2.0)))) - V(21.0))}), V::tuple({V(83.0), V(41.0), V(14.0)}), V(14.0)}));
         }
     }}
-    L_recent = [&]() -> V { V L_e; { V it10_ = py::iter_list(py::m_get(L_game, SV("events"), V::list({}))); for (size_t i10_ = 0; i10_ < it10_.len(); ++i10_) { L_e = it10_.idx(int64_t(i10_)); if (((py::m_get(L_e, SV("event")) == SV("damage")) && (py::m_get(L_e, SV("target")) == L_side) && py::in(py::m_get(L_e, SV("kind")), V::tuple({SV("ash"), SV("chomp"), SV("crush")})) && ((py::m_get(L_game, SV("time"), V(0.0)) - py::m_get(L_e, SV("time"), V(0.0))) < V(2.0)))) return V(true); }}return V(false); }();
+    L_recent = [&]() -> V { V L_e; { V it13_ = py::iter_list(py::m_get(L_game, SV("events"), V::list({}))); for (size_t i13_ = 0; i13_ < it13_.len(); ++i13_) { L_e = it13_.idx(int64_t(i13_)); if (((py::m_get(L_e, SV("event")) == SV("damage")) && (py::m_get(L_e, SV("target")) == L_side) && py::in(py::m_get(L_e, SV("kind")), V::tuple({SV("ash"), SV("chomp"), SV("crush")})) && ((py::m_get(L_game, SV("time"), V(0.0)) - py::m_get(L_e, SV("time"), V(0.0))) < V(2.0)))) return V(true); }}return V(false); }();
     if ((L_recent).truthy()) {
         (void)(callm(L_r, SY("text"), Args{SV("灰烬 / 吞噬：单轮伤害保护"), V::tuple({V(12.0), (L_bank_h + V(52.0))}), V::tuple({V(122.0), V(35.0), V(21.0)}), V(14.0)}));
     }
@@ -636,6 +664,7 @@ V f__draw_desktop(const Args& A) {
                 continue;
             }
             L_key = rd(L_visible, L_index);
+            if(!L_key.truthy())continue; // PvP744 empty card slots
             L_card = callm(pm_battle_view::module_ns(), SY("battle_card"), Args{L_key, L_p, L_game, py::m_get(py::m_get(L_terrain, SV("environment"), py_dict({})), SV("night"), V(false)), ((L_active).truthy() ? V(py::m_get(L_state, SV("copy"))) : V(py::m_get(py_or(py::m_get(L_view, SV("copy_targets")), [&]() -> V { return py_dict({}); }), L_key)))});
             L_secret = V((rd(L_card, SV("category")) == SV("secret")));
             L_cd = py::max_it(V::list({V(0.0), (py::m_get(py::m_get(L_p, SV("cooldowns"), py_dict({})), L_key, V(0.0)) - py::m_get(L_game, SV("time"), V(0.0)))}), py::Key(), V());

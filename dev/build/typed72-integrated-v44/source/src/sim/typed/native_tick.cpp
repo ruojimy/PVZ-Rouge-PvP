@@ -117,6 +117,7 @@ void NativeTick::finish_frame(bool draw) {
 void NativeTick::run(bool draw) {
     PVP_PROFILE_SCOPE("NativeTick::run");
     function_profile::Phases profile;
+    function_profile::Phases setup_profile;
     LiveBattleSources sources(world_);
     auto& heroes=world_.heroes;
     // Stamp at emission, never at a later drain. Native callbacks use this
@@ -139,24 +140,36 @@ void NativeTick::run(bool draw) {
     systems.zombie_actions.drawing=draw;
     systems.indexes.rows=std::make_shared<TargetBuckets>();
     systems.indexes.columns=std::make_shared<TargetBuckets>();
+    setup_profile.mark("NativeTick::setup::status_and_indexes");
     systems.heroes.advance(state_.present);
+    setup_profile.mark("NativeTick::setup::heroes");
     systems.resources.advance_suns();
+    setup_profile.mark("NativeTick::setup::resources");
     tracking();
+    setup_profile.mark("NativeTick::setup::tracking");
     systems.regions.water_animation();
     systems.regions.important_blocks();
+    setup_profile.mark("NativeTick::setup::regions");
     systems.patches.before_native_tick(now);
+    setup_profile.mark("NativeTick::setup::before_native_tick");
     profile.mark("NativeTick::setup");
     const auto graves=systems.zombies.run(state_.present,state_.multi_plant);
     profile.mark("ZombiePhase::run");
+    function_profile::Phases effects_profile;
     systems.wind.after_zombies();
     for(const auto& plant:*world_.plant_roster)
         if(plant->hp.or_missing(1.)<=0. && !plant->dead.present())plant->dead.set(DeathMarker(0.));
     const bool boosted=world_.protection.deathmatch || !heroes.last_stand_order.empty();
     systems.grave_clock.advance(graves,state_.present,boosted?state_.production.multiplier:1.);
+    effects_profile.mark("NativeTick::effects::wind_and_graves");
     append_heroes();
+    effects_profile.mark("NativeTick::effects::append_heroes");
     for(size_t index=0;index<world_.targets->size();++index)systems.zombie_motion.register_stationary(index);
+    effects_profile.mark("NativeTick::effects::register_stationary");
     systems.heroes.effects(state_.present,now,state_.tail_activation_seconds);
+    effects_profile.mark("NativeTick::effects::hero_effects");
     if(draw)systems.presentation.draw_plants();
+    effects_profile.mark("NativeTick::effects::draw_plants");
     profile.mark("NativeTick::effects_and_draw_plants");
     systems.entities.run();
     profile.mark("EntityPhase::run");

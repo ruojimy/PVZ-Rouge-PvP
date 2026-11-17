@@ -281,7 +281,7 @@ V C_Battle::m___init__(const Args& A) {
         L_seat = it3_.idx(int64_t(i3_)); 
         L_side = pm_teams::f_team_of(Args{L_seat});
         L_deck = py::m_get(L_decks, L_seat, rd(L_decks, L_side));
-        if (!((a_scripted).truthy() && (L_side == SV("zombie")))) {
+        if (!(a_mode==SV("duel")&&py::m_get(a_rules,SV("local_test_mode"),V(false)).truthy()&&!L_deck.truthy()) && !((a_scripted).truthy() && (L_side == SV("zombie")))) { // PvP744 test-only empty cold deck
             L_error = pm_catalog::f_validate_deck(Args({L_side, L_deck, L_bans, rd(a_rules, (L_side + SV("_slots")))}, {{SY("starter_budget"), rd(a_rules, SV("zombie_start"))}}));
             if ((L_error).truthy()) {
                 py::raise(py::make_exc(SV("ValueError"), Args{L_error}, ""));

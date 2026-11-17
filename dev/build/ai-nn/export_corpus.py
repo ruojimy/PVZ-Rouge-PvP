@@ -1,6 +1,6 @@
 """Offline cold-data corpus for headless AI matches (docs/ai-nn).
 
-    python build/ai-nn/export_corpus.py <decks.json from deck73_corpus> <out dir> [jobs]
+    python build/ai-nn/export_corpus.py <decks.json from deck73_corpus> <out dir> [jobs] [cold73_export.exe]
 
 For every scenario: cold73_export -> cold.json, atlas.bin(.draw.json/.recipes.json). The atlas
 pixels and recipes are map/deck independent: one shared copy is kept (verified by SHA256 for every
@@ -10,7 +10,7 @@ import gzip, hashlib, json, shutil, subprocess, sys, tempfile
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
-EXPORT = ROOT / 'build/pvp73-tools/build/Release/cold73_export.exe'
+EXPORT = Path(sys.argv[4]).resolve() if len(sys.argv) > 4 else ROOT / 'build/pvp73-tools/build/Release/cold73_export.exe'
 scen = json.loads(Path(sys.argv[1]).read_text('utf-8'))
 out = Path(sys.argv[2]); jobs = int(sys.argv[3]) if len(sys.argv) > 3 else 6
 assert not out.exists(), out

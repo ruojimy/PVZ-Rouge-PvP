@@ -1,0 +1,10 @@
+[
+{"module":"test_pvp_input_silence","class":"InputSilenceTests","test":"test_a_healthy_link_shows_nothing","outcome":"PASS","seconds":0.0254194,"detail":""},
+{"module":"test_pvp_input_silence","class":"InputSilenceTests","test":"test_a_menu_visit_loses_exactly_the_frames_spent_in_the_menu","outcome":"PASS","seconds":0.0050119,"detail":""},
+{"module":"test_pvp_input_silence","class":"InputSilenceTests","test":"test_a_normal_battle_frame_still_sends_the_current_key_state","outcome":"PASS","seconds":0.0047659,"detail":""},
+{"module":"test_pvp_input_silence","class":"InputSilenceTests","test":"test_a_pause_or_a_finished_battle_is_not_reported_as_an_idle_opponent","outcome":"PASS","seconds":0.0141507,"detail":""},
+{"module":"test_pvp_input_silence","class":"InputSilenceTests","test":"test_a_silent_opponent_is_named_to_the_player_who_can_see_it","outcome":"PASS","seconds":0.0047918,"detail":""},
+{"module":"test_pvp_input_silence","class":"InputSilenceTests","test":"test_every_menu_or_modal_state_silences_the_stream_and_says_so","outcome":"PASS","seconds":0.0337999,"detail":""},
+{"module":"test_pvp_input_silence","class":"InputSilenceTests","test":"test_the_first_seconds_of_a_battle_are_not_reported_as_idle","outcome":"PASS","seconds":0.0048681,"detail":""},
+{"module":"test_pvp_input_silence","class":"InputSilenceTests","test":"test_the_local_notice_waits_out_a_short_blink","outcome":"PASS","seconds":0.0048169,"detail":""}
+]

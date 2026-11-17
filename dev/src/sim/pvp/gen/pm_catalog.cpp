@@ -103,6 +103,7 @@ V f_digest(const Args& A) {
 }
 
 V f_catalog_hash(const Args& A) {
+    V stable=V::dict();for(const auto& kv:pm_catalog::CARDS.kv())if(py::m_get(kv.second,SV("behavior"),V::none())!=SV("terraria"))stable.at(kv.first)=kv.second;return pm_catalog::f_digest(Args{stable}); // PvP744 stable ordinary catalog hash
     return pm_catalog::f_digest(Args{pm_catalog::CARDS});
     return V::none();
 }

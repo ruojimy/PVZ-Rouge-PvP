@@ -1,0 +1,4 @@
+[
+{"module":"test_pvp_flag_performance","class":"FlagPerformanceTests","test":"test_omitting_unused_scans_preserves_native_positions_hp_and_clocks","outcome":"PASS","seconds":0.537722,"detail":""},
+{"module":"test_pvp_flag_performance","class":"FlagPerformanceTests","test":"test_real_flag_population_skips_only_unused_target_searches","outcome":"PASS","seconds":0.207346,"detail":""}
+]

@@ -1,0 +1,7 @@
+[
+{"module":"test_pvp_66_native_seed_bank_oct15","class":"NativeSeedBankPixels","test":"test_pixels_match_independent_original_goldens_at_native_and_fractional_sizes","outcome":"PASS","seconds":0.012066,"detail":""},
+{"module":"test_pvp_66_native_seed_bank_oct15","class":"NativeSeedBankPixels","test":"test_resize_and_count_cache_never_reuses_another_banks_cap","outcome":"PASS","seconds":0.003785,"detail":""},
+{"module":"test_pvp_66_native_seed_bank_oct15","class":"NativeSeedBankSelection","test":"test_coop_preparation_uses_same_original_bank_and_keeps_it_read_only","outcome":"PASS","seconds":0.158644,"detail":""},
+{"module":"test_pvp_66_native_seed_bank_oct15","class":"NativeSeedBankSelection","test":"test_each_card_and_empty_slot_maps_to_its_actual_original_bank_position","outcome":"PASS","seconds":0.616055,"detail":""},
+{"module":"test_pvp_66_native_seed_bank_oct15","class":"NativeSeedBankSelection","test":"test_last_card_click_removes_that_card_and_leaves_a_non_actionable_empty_slot","outcome":"PASS","seconds":0.0431674,"detail":""}
+]

@@ -1,7 +1,7 @@
 {
   "source": "https://zlib.net/fossils/zlib-1.3.2.tar.gz",
   "archive_sha256": "bb329a0a2cd0274d05519d61c667c062e06990d72e125ee2dfa8de64f0119d16",
-  "scope": "Unmodified upstream compression sources only. Z_PREFIX isolates symbols. No upstream inflate or gzip file I/O is compiled.",
+  "scope": "Unmodified upstream compression and streaming inflate sources. Z_PREFIX isolates symbols. No gzip file I/O is compiled.",
   "files": {
     "adler32.c": "9cd1443a24ff2a3053961695bd432035c58347386a420d3388232376ebabe211",
     "compress.c": "41f1c7ad886012571cd481a2b1b6a83812e5125e90d995e298fde34d6c015614",
@@ -17,6 +17,13 @@
     "zconf.h": "cb7c2c84211473b4699223edd363d3207b43b9578e739b5bf638f42204ea6e0f",
     "LICENSE": "e32ff4e00d9d94930537635291da39e7e612703334bf6fde8c7f1686fe8a45a2",
     "README": "4026d921213bb2e311d8d42b44ef53361c102d5d45ae32f93f8e52eaee8d068f",
-    "gzguts.h": "db7690315cda93c0742701365d5218932ff0e2e6b8713c95019553502ada7d2b"
+    "gzguts.h": "db7690315cda93c0742701365d5218932ff0e2e6b8713c95019553502ada7d2b",
+    "inflate.c": "90221ea7d762e7044057f6ad5013e969086c6ba3d3051716b7aa786d7a6362ec",
+    "inflate.h": "e6a43bd0e24ab2cf5fa1dca630859e9a2f6a721f033f75faf179f5c0299e4fe2",
+    "inffast.c": "f96787a11bb7131ffd2221fb40db27f6a5a1dfb12f59c0bc388807010749c34a",
+    "inffast.h": "05cc5dc9ff1da7b8b52a4bd8bda0d8a5c236a2f39efe84b941516ea13857e6c5",
+    "inftrees.c": "f7ee9ce5925fc9d1579c76e574feed85f5ca4ccddc446a7795578854bbc65743",
+    "inftrees.h": "d3a7ea301d8ec514823d052a2e42af4636bc81a0cf07052f526030f208068fb8",
+    "inffixed.h": "fd7c4b1dbdacb283421d0675744aaecda44e840e183b5131448bac94564f6adb"
   }
 }

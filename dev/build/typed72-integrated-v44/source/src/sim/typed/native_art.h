@@ -2,6 +2,7 @@
 #include "sim/typed/state.h"
 #include <map>
 #include <optional>
+#include <tuple>
 
 namespace pvz::typed72 {
 struct NativeArtImage;
@@ -32,6 +33,9 @@ struct NativeArtImage {
     std::shared_ptr<const NativeArtRecipe> recipe;
     mutable std::shared_ptr<const SpritePixels> pixels;
 };
+// Keep the immutable recipe alive: raw image addresses can be reused, and a
+// mutable image handle can acquire a new recipe or alpha without changing address.
+using NativeArtIdentity=std::tuple<std::shared_ptr<const NativeArtRecipe>,int,int,int,bool>;
 struct NativeArtBox {int left=0,top=0,right=0,bottom=0;};
 class NativeArtStore {
 public:
@@ -42,6 +46,7 @@ public:
     NativeArt register_asset(const std::string&,const NativeArt&);
     static FrozenArt freeze(const NativeArt&);
     static NativeArt copy(const NativeArt&);
+    static NativeArtIdentity identity(const FrozenArt& image){return {image->recipe,image->width,image->height,image->alpha,image->pixel_alpha};}
     static NativeArt canvas(int width,int height,int flags=65536);
     // hand graphics rotated_size (the recorded size of transform.rotate / rotozoom).
     static std::pair<int,int> rotated_size(int width,int height,double degrees);

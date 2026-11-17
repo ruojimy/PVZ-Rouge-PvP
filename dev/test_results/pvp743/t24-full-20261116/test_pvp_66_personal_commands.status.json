@@ -1,0 +1,24 @@
+{
+  "module": "test_pvp_66_personal_commands",
+  "exit": 0,
+  "seconds": 2.655,
+  "expected": 12,
+  "results": 12,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": true,
+  "accepted": true,
+  "counts": {
+    "PASS": 12,
+    "FAIL": 0,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [],
+  "unexpected_nonpass": [],
+  "resolved_waivers": []
+}

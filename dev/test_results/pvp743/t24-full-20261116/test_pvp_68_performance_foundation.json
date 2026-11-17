@@ -1,0 +1,14 @@
+[
+{"module":"test_pvp_68_performance_foundation","class":"Cache68","test":"test_cached_original_ui_pixels_match_and_transient_memory_clears","outcome":"PASS","seconds":0.0877493,"detail":""},
+{"module":"test_pvp_68_performance_foundation","class":"Cache68","test":"test_guest_acknowledges_actual_seat_before_local_hud_swap_and_excludes_reconnect","outcome":"PASS","seconds":0.264153,"detail":""},
+{"module":"test_pvp_68_performance_foundation","class":"Cache68","test":"test_lru_replacement_eviction_and_oversized_values_keep_both_bounds","outcome":"PASS","seconds":0.0003208,"detail":""},
+{"module":"test_pvp_68_performance_foundation","class":"Cache68","test":"test_oversized_ui_surfaces_draw_without_being_retained","outcome":"PASS","seconds":0.0104472,"detail":""},
+{"module":"test_pvp_68_performance_foundation","class":"Cache68","test":"test_profiler_uses_real_app_phases_and_does_not_classify_menu_as_battle","outcome":"PASS","seconds":0.0304682,"detail":""},
+{"module":"test_pvp_68_performance_foundation","class":"Measurement68","test":"test_canceled_pack_generations_remain_charged_until_worker_releases_inputs","outcome":"PASS","seconds":0.0058924,"detail":""},
+{"module":"test_pvp_68_performance_foundation","class":"Measurement68","test":"test_control_queue_overflow_is_explicit_terminal_and_bounded","outcome":"PASS","seconds":0.0006039,"detail":""},
+{"module":"test_pvp_68_performance_foundation","class":"Measurement68","test":"test_input_observations_are_bounded_scoped_and_separate_ack_from_present","outcome":"PASS","seconds":8.51e-05,"detail":""},
+{"module":"test_pvp_68_performance_foundation","class":"Measurement68","test":"test_process_memory_reports_current_rss_separately_from_private_commit","outcome":"PASS","seconds":3.12e-05,"detail":""},
+{"module":"test_pvp_68_performance_foundation","class":"Measurement68","test":"test_profiled_snapshot_kernel_and_thread_tasks_preserve_exact_wire_bytes","outcome":"PASS","seconds":0.0053602,"detail":""},
+{"module":"test_pvp_68_performance_foundation","class":"Measurement68","test":"test_rates_close_matching_active_frames_and_exclude_wait_and_boundaries","outcome":"PASS","seconds":6.96e-05,"detail":""},
+{"module":"test_pvp_68_performance_foundation","class":"Measurement68","test":"test_snapshot_coalescing_metrics_never_reacquire_the_held_queue_mutex","outcome":"PASS","seconds":0.0013245,"detail":""}
+]

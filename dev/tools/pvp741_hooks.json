@@ -12,17 +12,17 @@
   {
     "file": "src/ui/gen/pm_app.cpp",
     "before": "        L_previous_members = py::set_it(pvz::getattr(a_room, SY(\"members\")));",
-    "after": "        L_previous_members = py::set_it(pvz::getattr(a_room, SY(\"members\")));\n        const double pressure_advance_started=pressure741::now();"
+    "after": "        L_previous_members = py::set_it(pvz::getattr(a_room, SY(\"members\")));\n        pressure741::AdvanceScope pressure_advance(self_v());"
   },
   {
     "file": "src/ui/gen/pm_app.cpp",
     "before": "        (void)(callm(self(), SY(\"refresh\"), Args{}));\n        if ((L_prof).truthy()) {\n            (void)(callm(L_prof, SY(\"mark\"), Args{SV(\"refresh\")}));",
-    "after": "        (void)(callm(self(), SY(\"refresh\"), Args{}));\n        pressure741::record_advance(self_v(),pressure741::now()-pressure_advance_started);\n        if ((L_prof).truthy()) {\n            (void)(callm(L_prof, SY(\"mark\"), Args{SV(\"refresh\")}));"
+    "after": "        (void)(callm(self(), SY(\"refresh\"), Args{}));\n        pressure_advance.refreshed();\n        if ((L_prof).truthy()) {\n            (void)(callm(L_prof, SY(\"mark\"), Args{SV(\"refresh\")}));"
   },
   {
     "file": "src/ui/gen/pm_adaptive_pacing.h",
     "before": "struct C_AdaptivePacing : PyObj {",
-    "after": "struct C_AdaptivePacing : PyObj {\n    bool frame_gated=false;\n    double frame_age=0.,frame_work=0.,pressure_seconds=0.,recovery_seconds=0.;\n    double advance_cost=0.,advance_delta=0.,last_game_time=0.;\n    double advance_rate=0.,game_rate=0.,base_work=0.,control_target=1.;\n    bool advance_pending=false,game_time_known=false;"
+    "after": "struct C_AdaptivePacing : PyObj {\n    bool frame_gated=false;\n    double frame_age=0.,frame_work=0.,pressure_seconds=0.,recovery_seconds=0.;\n    double advance_cost=0.,advance_delta=0.,last_game_time=0.;\n    double advance_rate=0.,game_rate=0.,base_work=0.,control_target=1.;\n    bool advance_pending=false,game_time_known=false;\n    int pressure_bad_frames=0;"
   },
   {
     "file": "src/ui/gen/pm_adaptive_pacing.cpp",
@@ -162,7 +162,7 @@
   {
     "file": "src/ui/gen/pm_app.cpp",
     "before": "        (void)(callm(a_room, SY(\"update\"), Args{py::min_it(V::list({V(1.0), L_dt}), py::Key(), V())}));",
-    "after": "        (void)(callm(a_room, SY(\"update\"), Args{V(pressure741::authority_delta(self_v(),L_dt.num()))}));"
+    "after": "        (void)(callm(a_room, SY(\"update\"), Args{V(pressure741::authority_delta(self_v(),L_dt.num()))}));\n        pressure_advance.updated();"
   },
   {
     "file": "src/ui/gen/pm_app.cpp",
@@ -188,5 +188,35 @@
     "file": "src/sim/pvp/gen/pm_catalog.cpp",
     "before": "    (void)(pm_pvp71_catalog::f_install(Args{pm_catalog::CARDS}));\n",
     "after": "    (void)(pm_pvp71_catalog::f_install(Args{pm_catalog::CARDS}));\n    // PvP74.2: keep the user-corrected hero damage after imported card installs.\n    for(const char* field : {\"description\", \"native_description\"}) {\n        V card = rd(pm_catalog::CARDS, SV(\"plant:抓人草\"));\n        V text = py::m_get(card, V(field), SV(\"\"));\n        pvz::setitem(card, V(field), callm(text, SY(\"replace\"), Args{SV(\"僵尸戴夫受8伤害\"), SV(\"僵尸戴夫受4伤害\")}));\n    }\n    // PvP74.2: mirror the documented route interception without duplication.\n    {\n        const V note = SV(\"跟随或集结途中，会攻击挡在路径上的合法植物、魅惑僵尸或植物戴夫；受甜薯吸引时优先直奔甜薯。\");\n        for(const char* bird : {\"zombie:海盗鹦鹉\", \"zombie:乌鸦\"})\n            for(const char* field : {\"description\", \"native_description\"}) {\n                V card = rd(pm_catalog::CARDS, V(bird));\n                V text = py::m_get(card, V(field), SV(\"\"));\n                if(!py::in(note, text)) pvz::setitem(card, V(field), text + note);\n            }\n    }\n"
+  },
+  {
+    "file": "src/ui/gen/pm_room.cpp",
+    "before": "#include \"ui/gen/pm_room.h\"",
+    "after": "#include \"ui/gen/pm_room.h\"\n#include \"core/function_profile.h\"\n#include \"ui/hand/pressure_pacing.h\""
+  },
+  {
+    "file": "src/ui/gen/pm_room.cpp",
+    "before": "                (void)(callm(a_battle, SY(\"step\"), Args{L_count}));",
+    "after": "                L_count=pressure741::advance_steps(self_v(),L_count); // debit completed steps only"
+  },
+  {
+    "file": "src/ui/gen/pm_app.cpp",
+    "before": "    L_value = callm(a_room, SY(\"snapshot\"), Args({((a_mode == SV(\"local\")) ? V(V::none()) : V(SV(\"host\")))}, {{SY(\"include_map\"), L_include_map}, {SY(\"copy_state\"), V(false)}}));",
+    "after": "    L_value=pressure741::presentation_snapshot(self_v(),L_include_map);"
+  },
+  {
+    "file": "src/sim/pvp/gen/pm_native_animation.cpp",
+    "before": "    V L_local_pixels = (A.size() > 7 || A.has_kw(SY(\"local_pixels\"))) ? A.get(7, SY(\"local_pixels\"), nullptr) : V(V::none());",
+    "after": "    V L_local_pixels = (A.size() > 7 || A.has_kw(SY(\"local_pixels\"))) ? A.get(7, SY(\"local_pixels\"), nullptr) : V(V::none());\n    if(L_frame.is_dict()&&L_frame.find(SV(\"_typed_local_frame\")))L_frame=py::native_hook(SV(\"pvp744.local_frame\"),Args{L_frame,L_screen,L_point,L_scale,L_clip,L_layer,L_offsets});"
+  },
+  {
+    "file": "src/ui/gen/pm_app.cpp",
+    "before": "V C_Application::m_merge_view(const Args& A) {",
+    "after": "V C_Application::m_merge_view(const Args& A) {\n    PVP_PROFILE_SCOPE(\"Application::merge_view\");"
+  },
+  {
+    "file": "src/ui/gen/pm_room.cpp",
+    "before": "V C_Room::m_snapshot(const Args& A) {",
+    "after": "V C_Room::m_snapshot(const Args& A) {\n    PVP_PROFILE_SCOPE(\"Room::snapshot\");"
   }
 ]

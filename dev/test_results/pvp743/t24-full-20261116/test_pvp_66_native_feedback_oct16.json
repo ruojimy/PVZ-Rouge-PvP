@@ -1,0 +1,7 @@
+[
+{"module":"test_pvp_66_native_feedback_oct16","class":"BalloonCorpse","test":"test_dead_unused_balloon_does_not_start_or_reappear_after_revive","outcome":"PASS","seconds":0.0246284,"detail":""},
+{"module":"test_pvp_66_native_feedback_oct16","class":"BalloonCorpse","test":"test_death_between_physics_and_effects_cannot_apply_balloon_lift","outcome":"PASS","seconds":0.0127496,"detail":""},
+{"module":"test_pvp_66_native_feedback_oct16","class":"BalloonCorpse","test":"test_fatal_hit_stops_live_balloon_and_corpse_falls_in_both_team_modes","outcome":"PASS","seconds":0.918981,"detail":""},
+{"module":"test_pvp_66_native_feedback_oct16","class":"FactionResultAudio","test":"test_coop_fallen_teammate_is_not_a_result_and_requests_no_end_sample","outcome":"PASS","seconds":0.0261293,"detail":""},
+{"module":"test_pvp_66_native_feedback_oct16","class":"FactionResultAudio","test":"test_winning_faction_sample_is_identical_for_both_sides_and_spectator","outcome":"PASS","seconds":0.0366441,"detail":""}
+]

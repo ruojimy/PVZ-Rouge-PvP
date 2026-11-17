@@ -1,22 +1,34 @@
 param(
     [ValidateSet('Play','Evaluate','Train')][string]$Mode = 'Play',
+    [ValidateSet('r4','legacy')][string]$Build = 'r4',
     [string]$Id = '005',
-    [ValidateSet('plant','zombie','both')][string]$Seat = 'both',
+    [string]$Ids = '',
+    [ValidateSet('plant','zombie','both')][string]$Seat = 'plant',
     [double]$LimitSeconds = 600,
     [string]$Model = '',
+    [string]$Data = '',
     [string]$Output = '',
     [switch]$Baseline
 )
 $ErrorActionPreference = 'Stop'
 $taskRoot = (Resolve-Path (Join-Path $PSScriptRoot '../..')).Path
-$evidenceRoot = Join-Path $taskRoot 'test_results/ai-nn-local-20261114'
-if (-not $Model) { $Model = Join-Path $evidenceRoot 'training-v1/model.json' }
+if ($Build -eq 'r4') {
+    $evidenceRoot = Join-Path $taskRoot 'test_results/ai-nn-r4-tempo-20261116'
+    if (-not $Model) { $Model = Join-Path $evidenceRoot 'models/old.json' }
+    if (-not $Data) { $Data = Join-Path $evidenceRoot 'features-r4.jsonl' }
+    $binary = Join-Path $PSScriptRoot 'windows-r4-20261116/Release/headless_match.exe'
+    $corpus = Join-Path $taskRoot 'test_results/ai-nn-strength-20261116/corpus-plain'
+} else {
+    $evidenceRoot = Join-Path $taskRoot 'test_results/ai-nn-followup-20261115'
+    if (-not $Model) { $Model = Join-Path $evidenceRoot 'training-v1-revalidated/model.json' }
+    if (-not $Data) { $Data = Join-Path $evidenceRoot 'dataset.jsonl' }
+    $binary = Join-Path $PSScriptRoot 'windows-local/Release/headless_neural.exe'
+    $corpus = Join-Path $PSScriptRoot 'corpus-pvp743-r2-plain'
+}
 if (-not $Output) { $Output = Join-Path $evidenceRoot ('manual-' + (Get-Date -Format 'yyyyMMdd-HHmmss')) }
 $Model = [System.IO.Path]::GetFullPath($Model)
 $Output = [System.IO.Path]::GetFullPath($Output)
 if (Test-Path -LiteralPath $Output) { throw "Output exists: $Output" }
-$binary = Join-Path $PSScriptRoot 'windows-local/Release/headless_neural.exe'
-$corpus = Join-Path $PSScriptRoot 'corpus-pvp743-r2-plain'
 Push-Location -LiteralPath $taskRoot
 try {
     if (-not (Test-Path -LiteralPath (Join-Path $corpus 'index.json'))) {
@@ -24,17 +36,22 @@ try {
         if ($LASTEXITCODE -ne 0) { throw 'Input preparation failed' }
     }
     if ($Mode -eq 'Train') {
-        if (-not (Test-Path -LiteralPath (Join-Path $evidenceRoot 'dataset.jsonl'))) {
-            & python -X utf8 (Join-Path $PSScriptRoot 'bootstrap.py') --training
-            if ($LASTEXITCODE -ne 0) { throw 'Training input preparation failed' }
+        if (-not (Test-Path -LiteralPath $Data)) {
+            throw "Training dataset missing: $Data. Generate it with prepare_training.py for the current encoder, or specify -Data."
         }
-        & python -X utf8 (Join-Path $PSScriptRoot 'train.py') --data (Join-Path $evidenceRoot 'dataset.jsonl') --out $Output
+        & python -X utf8 (Join-Path $PSScriptRoot 'train.py') --data $Data --out $Output
     } elseif ($Mode -eq 'Evaluate') {
-        $split = Get-Content -LiteralPath (Join-Path (Split-Path $Model) 'split.json') -Raw -Encoding UTF8 | ConvertFrom-Json
-        $index = Get-Content -LiteralPath (Join-Path $corpus 'index.json') -Raw -Encoding UTF8 | ConvertFrom-Json
-        $testIds = @($index.entries | Where-Object { $split.test.maps -contains $_.map } | ForEach-Object { $_.id })
+        if ($Ids) { $evaluationIds = $Ids }
+        elseif ($Build -eq 'r4') {
+            # Already observed reference openings; this is a regression evaluation.
+            $evaluationIds = '@' + (Join-Path $taskRoot 'test_results/ai-nn-strength-20261116/test-ids.txt')
+        } else {
+            $split = Get-Content -LiteralPath (Join-Path (Split-Path $Model) 'split.json') -Raw -Encoding UTF8 | ConvertFrom-Json
+            $index = Get-Content -LiteralPath (Join-Path $corpus 'index.json') -Raw -Encoding UTF8 | ConvertFrom-Json
+            $evaluationIds = (@($index.entries | Where-Object { $split.test.maps -contains $_.map } | ForEach-Object { $_.id }) -join ',')
+        }
         $taskArgs = @('-X','utf8',(Join-Path $PSScriptRoot 'eval.py'),'--bin',$binary,'--corpus',$corpus,'--out-dir',$Output,
-                      '--ids',($testIds -join ','),'--jobs','4','--limit-seconds',"$LimitSeconds")
+                      '--ids',$evaluationIds,'--jobs','4','--limit-seconds',"$LimitSeconds")
         if ($Baseline) { $taskArgs += @('--','--no-records') }
         else { $taskArgs += @('--planner','nn','--','--model',$Model,'--nn-seat',$Seat,'--no-records') }
         & python @taskArgs

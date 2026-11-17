@@ -1,0 +1,76 @@
+{
+  "runs": [
+    {
+      "name": "baseline",
+      "exit_code": 0
+    },
+    {
+      "name": "optimized",
+      "exit_code": 0
+    }
+  ],
+  "passed": true,
+  "scope": "production Application/Room/typed battle; queued transport events; no real WAN test",
+  "deterministic_equal": {
+    "remote_jump_edges_and_non_move_input_order.battle": true,
+    "remote_jump_edges_and_non_move_input_order.accepted_order": true,
+    "coop_knockdown_heartbeats_and_real_revival.players": true
+  },
+  "burst_measurements": [
+    {
+      "commands": 25,
+      "before_refreshes": 26,
+      "after_refreshes": 1,
+      "before_refresh_ms": 5.1052,
+      "after_refresh_ms": 0.3284,
+      "before_frame_ms": 5.9989,
+      "after_frame_ms": 0.9458,
+      "before_typed_frame_projections": 25,
+      "after_typed_frame_projections": 1,
+      "ack_seq": 25
+    },
+    {
+      "commands": 50,
+      "before_refreshes": 51,
+      "after_refreshes": 1,
+      "before_refresh_ms": 19.2405,
+      "after_refresh_ms": 0.4127,
+      "before_frame_ms": 33.2902,
+      "after_frame_ms": 12.2261,
+      "before_typed_frame_projections": 50,
+      "after_typed_frame_projections": 1,
+      "ack_seq": 75
+    }
+  ],
+  "dense_view_measurement": {
+    "before": {
+      "commands": 25,
+      "deferred": 0.0,
+      "frame_ms": 499.8207,
+      "mode": "duel",
+      "refresh_ms": 498.0033000000001,
+      "refreshes": 26,
+      "simulated_ticks": 0.0,
+      "typed_frame_projection_ms": 0.27330000000000004,
+      "typed_frame_projections": 25,
+      "typed_snapshot_calls": 26,
+      "units": 350
+    },
+    "after": {
+      "commands": 25,
+      "deferred": 25.0,
+      "frame_ms": 19.1089,
+      "mode": "duel",
+      "refresh_ms": 18.6835,
+      "refreshes": 1,
+      "simulated_ticks": 0.0,
+      "typed_frame_projection_ms": 0.0109,
+      "typed_frame_projections": 1,
+      "typed_snapshot_calls": 1,
+      "units": 350
+    },
+    "requested_spawns": 300,
+    "scope": "350 public actors after 300 primary spawns, 25 neutral heartbeat burst, zero simulation advancement"
+  },
+  "exe_sha256": "c1b4bf06a766180267b7e8b2d28c26c0a6c39359d2e40bf45c21ec2abfcad7a7"
+}

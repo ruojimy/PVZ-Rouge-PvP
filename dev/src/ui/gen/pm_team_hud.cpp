@@ -2,7 +2,8 @@
 #include "ui/gen/pm_team_hud.h"
 #include "ui/gen/pm_hud.h"
 #include "sim/pvp/gen/pm_teams.h"
-namespace pvz { namespace py { inline void init_deps_team_hud() { pm_hud::init(); pm_teams::init(); } } }
+#include "ui/gen/pm_touch.h"
+namespace pvz { namespace py { inline void init_deps_team_hud() { pm_hud::init(); pm_teams::init(); pm_touch::init(); } } }
 namespace pvz { namespace pm_team_hud {
 V GOLD;
 V TEXT;
@@ -93,16 +94,20 @@ V f_draw_team_panel(const Args& A) {
     V L_game = A.get(3, SY("game"), nullptr, "draw_team_panel");
     V L_players = A.get(4, SY("players"), nullptr, "draw_team_panel");
     V L_side = A.get(5, SY("side"), nullptr, "draw_team_panel");
+    V L_box_h;
     V L_box_w;
     V L_color;
+    V L_font_size;
     V L_height;
     V L_index;
     V L_line;
+    V L_line_h;
     V L_lines;
     V L_mate;
     V L_me;
     V L_message;
     V L_mine;
+    V L_placed_slots;
     V L_progress;
     V L_request;
     V L_seat;
@@ -147,13 +152,21 @@ V f_draw_team_panel(const Args& A) {
     L_box_w = py::min_it(V::list({V(560.0), (L_width - V(220.0))}), py::Key(), V());
     L_x = floordiv((L_width - L_box_w), V(2.0));
     L_y = V(152.0);
-    if ((L_lines).truthy()) {
-        (void)(callm(L_r, SY("box"), Args{V::tuple({L_x, L_y, L_box_w, (V(8.0) + (V(22.0) * py::len(L_lines)))}), pm_team_hud::PANEL}));
+    L_line_h = V(22.0);
+    L_font_size = V(15.0);
+    if ((py::m_get(L_state, SV("touch_mode"))).truthy()) {
+        L_placed_slots = pvz::getattr(pm_touch::module_ns(), SY("placed_slots"));
+        { V ut2_ = py::as_seq(rd((L_placed_slots).call(Args{L_width, L_height, L_state}), SV("team_info"))); L_x = ut2_.idx(0); L_y = ut2_.idx(1); L_box_w = ut2_.idx(2); L_box_h = ut2_.idx(3); } 
+        L_line_h = py::max_it(V::list({V(12.0), py::int_(((V(22.0) * L_box_h) / V(30.0)))}), py::Key(), V());
+        L_font_size = py::max_it(V::list({V(10.0), py::int_(((V(15.0) * L_box_h) / V(30.0)))}), py::Key(), V());
     }
-    { V it2_ = py::iter_list(L_lines); const double st2_ = 0.0;
-    for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) {
-        L_index = V(st2_ + double(i2_)); { V ut3_ = py::as_seq(it2_.idx(int64_t(i2_))); L_line = ut3_.idx(0); L_color = ut3_.idx(1); } 
-        (void)(callm(L_r, SY("text"), Args{L_line, V::tuple({(L_x + V(10.0)), ((L_y + V(5.0)) + (V(22.0) * L_index))}), L_color, V(15.0), (L_box_w - V(20.0))}));
+    if ((L_lines).truthy()) {
+        (void)(callm(L_r, SY("box"), Args{V::tuple({L_x, L_y, L_box_w, (V(8.0) + (L_line_h * py::len(L_lines)))}), pm_team_hud::PANEL}));
+    }
+    { V it3_ = py::iter_list(L_lines); const double st3_ = 0.0;
+    for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) {
+        L_index = V(st3_ + double(i3_)); { V ut4_ = py::as_seq(it3_.idx(int64_t(i3_))); L_line = ut4_.idx(0); L_color = ut4_.idx(1); } 
+        (void)(callm(L_r, SY("text"), Args{L_line, V::tuple({(L_x + V(10.0)), ((L_y + V(5.0)) + (L_line_h * L_index))}), L_color, L_font_size, (L_box_w - V(20.0))}));
     }}
     if (((L_mate).truthy() && !(py::m_get(L_mate, SV("absent"))).truthy() && (py::m_get(L_mate, SV("deck"))).truthy() && !py::in(py_or(py::m_get(L_view, SV("mode")), [&]() -> V { return SV("duel"); }), V::tuple({SV("duo"), SV("coop")})))) {
         if ((py::m_get(L_state, SV("mate_collapsed"))).truthy()) {

@@ -1,0 +1,65 @@
+[
+  {
+    "name": "codec",
+    "exit_code": 0,
+    "command": [
+      "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\build\\app-typed72-v2\\Release\\pvp743_network_codec_audit.exe",
+      "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp743\\t24-queue-20261116\\final-checks\\codec.json"
+    ]
+  },
+  {
+    "name": "transport",
+    "exit_code": 0,
+    "command": [
+      "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\build\\app-typed72-v2\\Release\\pvp743_transport_queue_audit.exe",
+      "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp743\\t24-queue-20261116\\final-checks\\transport.json"
+    ]
+  },
+  {
+    "name": "snapshot",
+    "exit_code": 0,
+    "command": [
+      "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\build\\app-typed72-v2\\Release\\pvp743_snapshot_queue_audit.exe",
+      "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp743\\t24-queue-20261116\\final-checks\\snapshot.json"
+    ]
+  },
+  {
+    "name": "guest-chain",
+    "exit_code": 0,
+    "command": [
+      "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\tools\\python38-embed\\python.exe",
+      "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\test\\pvp742_guest_snapshot_memory_audit.py",
+      "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\build\\app-typed72-v2\\Release\\pvp742_guest_snapshot_memory_audit.exe",
+      "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp743\\t24-queue-20261116\\final-checks\\guest-chain",
+      "--iterations",
+      "64",
+      "--units",
+      "100"
+    ]
+  },
+  {
+    "name": "app-refresh",
+    "exit_code": 0,
+    "command": [
+      "C:\\Users\\xiech\\Downloads\\PVZ-Rouge-v1.4.8\\next-pvp71\\modkit\\tools\\python38-embed\\python.exe",
+      "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\test\\pvp742_network_refresh_audit.py",
+      "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\build\\app-typed72-v2\\Release\\pvp742_network_refresh_audit.exe",
+      "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp743\\t24-queue-20261116\\final-checks\\app-refresh"
+    ]
+  },
+  {
+    "name": "tcp-idle",
+    "exit_code": 0,
+    "command": [
+      "C:\\Users\\xiech\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+      "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\tools\\test\\pvp743_tcp_load_audit.py",
+      "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\build\\app-typed72-v2\\Release\\pvp743_tcp_load_audit.exe",
+      "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp743\\t24-queue-20261116\\final-checks\\room-payload.json",
+      "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp743\\t24-queue-20261116\\final-checks\\tcp-idle.json",
+      "--seconds",
+      "20",
+      "--rate",
+      "131072"
+    ]
+  }
+]

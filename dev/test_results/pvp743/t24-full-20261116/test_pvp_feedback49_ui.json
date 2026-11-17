@@ -1,0 +1,11 @@
+[
+{"module":"test_pvp_feedback49_ui","class":"Feedback49UI","test":"test_auto_cannon_aim_ignores_previous_manual_right_and_explicit_cancel_works","outcome":"PASS","seconds":0.155999,"detail":""},
+{"module":"test_pvp_feedback49_ui","class":"Feedback49UI","test":"test_auto_plant_follows_hero_and_manual_mode_remains","outcome":"PASS","seconds":0.0685373,"detail":""},
+{"module":"test_pvp_feedback49_ui","class":"Feedback49UI","test":"test_empty_world_finger_jumps_and_releases_without_losing_move_finger","outcome":"PASS","seconds":0.064829,"detail":""},
+{"module":"test_pvp_feedback49_ui","class":"Feedback49UI","test":"test_empty_world_jump_preserves_native_mark_range_and_line_of_sight","outcome":"PASS","seconds":0.846279,"detail":""},
+{"module":"test_pvp_feedback49_ui","class":"Feedback49UI","test":"test_mobile_sun_collection_precedes_empty_world_jump_and_mark","outcome":"PASS","seconds":0.500159,"detail":""},
+{"module":"test_pvp_feedback49_ui","class":"Feedback49UI","test":"test_mouse_timeline_motion_and_exact_intermediate_ticks","outcome":"PASS","seconds":1.53783,"detail":""},
+{"module":"test_pvp_feedback49_ui","class":"Feedback49UI","test":"test_result_animation_runs_once_and_skip_only_changes_local_display","outcome":"PASS","seconds":0.0832767,"detail":""},
+{"module":"test_pvp_feedback49_ui","class":"Feedback49UI","test":"test_sun_click_collects_with_selected_card_and_cancel_is_visible","outcome":"PASS","seconds":0.518732,"detail":""},
+{"module":"test_pvp_feedback49_ui","class":"Feedback49UI","test":"test_touch_timeline_and_repeated_step_use_pending_target","outcome":"PASS","seconds":1.05495,"detail":""}
+]

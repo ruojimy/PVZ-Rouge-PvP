@@ -1,0 +1,6 @@
+[
+{"module":"test_pvp_expansion_view","class":"ExpansionViewTests","test":"test_athletic_card_art_uses_original_shared_pivots","outcome":"PASS","seconds":0.0230629,"detail":""},
+{"module":"test_pvp_expansion_view","class":"ExpansionViewTests","test":"test_black_football_is_regular_template_and_both_magnets_strip_helmet","outcome":"PASS","seconds":0.0579067,"detail":""},
+{"module":"test_pvp_expansion_view","class":"ExpansionViewTests","test":"test_independent_client_renders_black_regiment_and_following_objects","outcome":"PASS","seconds":0.447778,"detail":""},
+{"module":"test_pvp_expansion_view","class":"ExpansionViewTests","test":"test_paralysis_dependency_and_final_slot","outcome":"PASS","seconds":0.0067384,"detail":""}
+]

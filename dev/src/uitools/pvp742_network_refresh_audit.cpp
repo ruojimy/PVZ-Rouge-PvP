@@ -10,11 +10,13 @@
 #include "ui/gen/pm_app.h"
 #include "ui/gen/pm_room.h"
 #include "ui/gen/pm_adaptive_pacing.h"
+#include "sim/pvp/gen/pm_native_snapshot_worker.h"
 #include <nlohmann/json.hpp>
 #include <chrono>
 #include <fstream>
 #include <iostream>
 #include <functional>
+#include <thread>
 #include <cmath>
 using namespace pvz;using J=nlohmann::json;
 namespace {
@@ -28,6 +30,7 @@ struct QueuedTransport:PyObj {
   if(n==SY("poll"))return V::func([this](const Args&){V out=incoming;incoming=V::list();return out;});
   if(n==SY("send")||n==SY("send_spectator"))return V::func([this](const Args& a){sent.append(a.pos.at(a.pos.size()-1));return V(true);});
   if(n==SY("pending_bytes"))return V::func([](const Args&){return V(0);});
+  if(n==SY("generation"))return V::func([](const Args&){return V(0);});
   if(n==SY("close")||n==SY("release_peer")||n==SY("set_max_peers")||n==SY("set_room_policy"))return V::func([](const Args&){return V::none();});
   return V();
  }
@@ -89,6 +92,13 @@ int main(int argc,char**argv){
  require(function_profile::enabled(),"run with PVP741_PROFILE=1 to measure real Application refresh calls");
  J checks=J::array();int failures=0;
  auto test=[&](const char* name,auto fn){J row={{"name",name}};try{row["evidence"]=fn();row["passed"]=true;}catch(const std::exception& e){row["error"]=e.what();row["passed"]=false;++failures;}checks.push_back(row);J brief=row;brief.erase("evidence");std::cerr<<brief.dump()<<std::endl;};
+ test("snapshot_worker_saturation_skips_inline_and_recovers",[]{Fixture f;setitem(f.r->a_members,V("guest"),V("plant2"));setitem(f.r->a_connected,V("guest"),V(true));
+  V worker=pm_native_snapshot_worker::new_SnapshotPackWorker(Args{V("thread")});auto* w=as<pm_native_snapshot_worker::C_SnapshotPackWorker>(worker);f.application->a_pack_worker=worker;w->a_inflight_limit=V(0);
+  callm(f.app,SY("publish_network"),Args{V(.11)});require(f.wire->sent.len()==0,"queue saturation amplified load through inline packing");require(f.application->a_snapshot_deliveries.len()==0,"declined ticket retained");require(getattr(worker,SY("capacity_declined")).truthy(),"capacity decline not distinguished from unsupported input");
+  w->a_inflight_limit=V(16);callm(f.app,SY("publish_network"),Args{V(.11)});const auto start=std::chrono::steady_clock::now();
+  while(f.wire->sent.len()==0){{gil::Release release;std::this_thread::sleep_for(std::chrono::milliseconds(1));}callm(f.app,SY("publish_network"),Args{V(0)});require(std::chrono::steady_clock::now()-start<std::chrono::seconds(5),"snapshot did not resume after capacity recovered");}
+  require(!getattr(worker,SY("capacity_declined")).truthy(),"capacity marker did not reset");return J{{"skipped_without_inline",true},{"recovered",true},{"backlog_skips",f.application->a_snapshot_backlog_skips.num()}};
+ });
  test("production_application_remote_neutral_bursts",[&]{Fixture f;J out=J::array();int64_t seq=0;
   for(int count:{25,50}){const auto before=f.accepted.size();for(int i=0;i<count;++i)f.wire->command(move(++seq));J row=f.frame();
    require(f.accepted.size()-before==size_t(count),"burst lost/coalesced commands");require(f.seq("plant2")==seq,"burst seq acknowledgement wrong");
@@ -157,18 +167,22 @@ int main(int argc,char**argv){
  test("real_room_keeps_long_frame_credit_and_drains_zero_delta",[&]{Fixture f;
   f.r->a__paced_battle=f.battle;auto* pacing=as<pm_adaptive_pacing::C_AdaptivePacing>(f.r->a_pacing);pacing->frame_gated=true;pacing->a_scale=V(1.);f.application->a_ai_room=V::none();
   const double dt=getattr(f.battle,SY("dt")).num();const int64_t before=int64_t(getattr(f.battle,SY("tick")).num());J first=f.frame(1.7);const int64_t initial=int64_t(getattr(f.battle,SY("tick")).num())-before;
-  const double debt=f.r->a_accumulator.num();require(initial==12,"long frame did not respect Room's 12-tick work cap");require(std::abs(debt-(1.7-12*dt))<1e-8,"Application clipped credited elapsed time before Room accumulator");
-  int drain_frames=0;while(f.r->a_accumulator.num()+1e-9>=dt&&drain_frames++<12)f.frame(0.);const double elapsed=getattr(f.battle,SY("time")).num();
+  const bool budgeted=std::getenv("PVP744_STEP_BUDGET_MS")||std::getenv("PVP744_STEP_LIMIT");
+  const double debt=f.r->a_accumulator.num();require(budgeted?(initial>=1&&initial<=12):initial==12,"long frame did not respect Room work cap");require(std::abs(debt-(1.7-initial*dt))<1e-8,"Application clipped credited elapsed time before Room accumulator");
+  int drain_frames=0;while(f.r->a_accumulator.num()+1e-9>=dt&&drain_frames++<100)f.frame(0.);const double elapsed=getattr(f.battle,SY("time")).num();
   require(std::abs(elapsed-1.7)<1e-8,"zero-delta draining lost simulated wall-clock credit");require(std::abs(f.r->a_accumulator.num())<1e-8,"remaining accumulator after drain differs");
   return J{{"first_frame_ticks",initial},{"first_frame_credit_remaining_seconds",debt},{"drain_frames",drain_frames},{"simulated_seconds",elapsed},{"remaining_seconds",f.r->a_accumulator.num()},{"frame_measurement",first}};
  });
  test("real_application_lifecycle_discards_suspension_interval",[&]{Fixture f;
   f.r->a__paced_battle=f.battle;auto* pacing=as<pm_adaptive_pacing::C_AdaptivePacing>(f.r->a_pacing);pacing->frame_gated=true;pacing->a_scale=V(1.);f.application->a_ai_room=V::none();
-  f.frame(.1);const double before=getattr(f.battle,SY("time")).num();setitem(f.application->a_state,V("wall_clock_debt"),V(5.));
+  f.frame(.1);const double before=getattr(f.battle,SY("time")).num(),prior_debt=f.r->a_accumulator.num();setitem(f.application->a_state,V("wall_clock_debt"),V(5.));
   callm(f.app,SY("app_background"),Args{});callm(f.app,SY("app_foreground"),Args{});require(py::m_get(f.application->a_state,V("wall_clock_debt")).num()==0.,"lifecycle retained outer wall-clock debt");
-  f.frame(1.7);const double resumed=getattr(f.battle,SY("time")).num();require(std::abs(resumed-before)<1e-8,"first resumed frame credited the suspension interval");
+  f.frame(1.7);const double resumed=getattr(f.battle,SY("time")).num();
+  // A sliced frame may still owe pre-suspension work. It must keep that debt,
+  // while the suspension itself contributes zero new simulation credit.
+  require(std::abs((resumed-before)+f.r->a_accumulator.num()-prior_debt)<1e-8,"resume lost prior debt or credited the suspension interval");
   f.frame(getattr(f.battle,SY("dt")).num());const double after=getattr(f.battle,SY("time")).num();require(after>resumed,"normal clock advancement did not resume after lifecycle reset");
-  f.no_error_messages();return J{{"before_suspension_seconds",before},{"first_resumed_frame_seconds",resumed},{"next_frame_seconds",after},{"discarded_suspension_seconds",1.7},{"outer_debt",py::m_get(f.application->a_state,V("wall_clock_debt")).num()}};
+  f.no_error_messages();return J{{"before_suspension_seconds",before},{"pre_suspension_debt",prior_debt},{"first_resumed_frame_seconds",resumed},{"next_frame_seconds",after},{"discarded_suspension_seconds",1.7},{"outer_debt",py::m_get(f.application->a_state,V("wall_clock_debt")).num()}};
  });
  J report={{"test","pvp742_network_refresh_audit"},{"optimized",optimized()},{"transport","queued event source; production Application.step, Room and typed battle"},{"failures",failures},{"checks",checks}};std::ofstream(argv[1])<<report.dump(2);std::cout<<"failures="<<failures<<std::endl;return failures?1:0;
 }

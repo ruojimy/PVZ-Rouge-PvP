@@ -1,0 +1,31 @@
+{
+  "module": "test_pvp_hero_isolation",
+  "exit": 1,
+  "seconds": 1.887,
+  "expected": 6,
+  "results": 6,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": false,
+  "accepted": true,
+  "counts": {
+    "PASS": 5,
+    "FAIL": 1,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [
+    {
+      "id": "test_pvp_hero_isolation.HeroIsolationTests.test_every_hero_switch_site_is_registered",
+      "outcome": "FAIL",
+      "detail_sha256": "114fff7c6785c1c1cec5e54d49a5492bceaf72d8b8998cbaa10b4195ae571dc1",
+      "reason": "扫描 Python AST 登记切换位置；原 Python owner 和真实 C++ 英雄隔离监控已通过。"
+    }
+  ],
+  "unexpected_nonpass": [],
+  "resolved_waivers": []
+}

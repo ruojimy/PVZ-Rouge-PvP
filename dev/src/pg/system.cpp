@@ -1,5 +1,6 @@
 // pygame display / event / key / mouse / time / mixer / scrap / image and the module object.
 #include "pg/pg.h"
+#include "pg/motion_sensor.h"
 #include "core/fsutil.h"
 #include "core/resource_paths.h"
 #include "core/pyops.h"
@@ -1084,7 +1085,8 @@ V pygame_module() {
             }
             return V::tuple({V(6.0 - failed), V(double(failed))});
         });
-        md->fn("quit", [](const Args&) { return V::none(); });
+        md->fn("quit", [](const Args&) { close_motion_sensor();return V::none(); });
+        md->fn("motion_sensor", motion_sensor);
         md->fn("get_init", [](const Args&) { return V(g_inited); });
         md->fn("get_sdl_version", [](const Args&) { SDL_version v; SDL_GetVersion(&v); return V::tuple({V(double(v.major)), V(double(v.minor)), V(double(v.patch))}); });
 

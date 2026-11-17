@@ -76,6 +76,7 @@ HitResult DamagePatch::ash_from(const ZombieRef& unit,const NativeDamageOrigin& 
     try{effects_.plant_zombie_deaths(index);}catch(const std::exception&){}return {};
 }
 void DamagePatch::knockback(const ZombieRef& unit,double amount) {
+    if(unit->terraria&&unit->terraria->type!=5)return;
     auto& u=*unit;const double resistance=number(u.patch.knockback,0.);
     if(resistance!=0.)amount*=std::clamp(u.patch.knockback_is_boolean?(name(u.patch.plant_name)=="高坚果僵尸"?.25:.35):resistance,0.,1.);
     const auto wet=[&](){if(!u.body.in_water.present())throw std::logic_error("missing in-water field");return !u.body.in_water.is_null()&&u.body.in_water.get();};
@@ -85,6 +86,7 @@ void DamagePatch::knockback(const ZombieRef& unit,double amount) {
         (u.body.hand=="海豚"&&wet())||(u.body.dancing.present()&&u.body.dancing.get()>0.&&u.body.hp>0.)||
         (u.body.hand=="玩偶匣"&&u.body.hp<=0.))amount=0.;
     u.body.motion.get().vx+=amount;
+    if(u.terraria)u.terraria->vx+=amount*250./60.*16./runtime_.tile;
 }
 bool DamagePatch::trigger_deaths(const ZombieRef& unit) {
     bool triggered=false;

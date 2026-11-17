@@ -74,6 +74,8 @@ ColdExport export_cold(const V& b,double seed){
      // sequence, p.get('x') for a dict, None entries dropped (cold: static map facts).
      J points=J::array();
      if(map.is_dict()){const V env=py::m_get(map,V("environment"),V::dict());const V raw=env.is_dict()?py::m_get(env,V("zombie_points"),V::none()):V::none();
+         // Internal cold facts only: never insert defaults into the published map.
+         if(env.is_dict())out["battle"]["map_environment"]=parsed(env);
          if(raw.truthy())for(const auto& item:py::iter_list(raw).items()){
              const V x=item.is_list()?item.idx(0):item.is_dict()?py::m_get(item,V("x"),V::none()):V::none();
              if(!x.is_none())points.push_back(x.num());

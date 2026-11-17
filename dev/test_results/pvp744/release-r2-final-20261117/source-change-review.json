@@ -1,0 +1,192 @@
+[
+  {
+    "path": "android/build_apk.sh",
+    "before": "7c4f4d5d36a8e9cb8cdbb85f2382bed7f28197fe4e7795840d8ecd138827c6be",
+    "after": "1ff49af91c76ecea5b93f68e8b264ac4f23748cea77136bff23efa4966bafdc6"
+  },
+  {
+    "path": "android/build_native.sh",
+    "before": "69e436f9a1ff2e58dec14650ce061a21c171f1ee6960efad8c903b8f8d1a6f42",
+    "after": "63af86b9add177626f7db028144d6fb14392679cb1797d11be7a418515510286"
+  },
+  {
+    "path": "android/project/res/values/strings.xml",
+    "before": "32f9a7f465510ff37dede388461279c161ef83024fe8184c9905b9a800a391ba",
+    "after": "60a0fca0d35187584d2cc63c619f36ed96db09daecea5c449a8da9749808a3b1"
+  },
+  {
+    "path": "build/typed72-integrated-v44/source/src/sim/typed/pve_director.cpp",
+    "before": "a3d7ac198b818890e415fb8a33ac320e69da23aff3d63c4d94f27763935b7639",
+    "after": "36214d27a73d04e1f30d8c5b85eaffc74523a91148a48129e58a6c9fac8a0927"
+  },
+  {
+    "path": "build/typed72-integrated-v44/source/src/sim/typed/pve_director.h",
+    "before": "a70d19c2a19104cb181f246560dc5b372bf1a44ce6477d7e6575782a5a64ba68",
+    "after": "0c2a6f5fb17f142208cc4e6c1daca98d66051d43eb7e9c8dee81f239c4a44e3f"
+  },
+  {
+    "path": "build/typed72-integrated-v44/source/src/sim/typed/targets.h",
+    "before": "d1373b8f889105cd0f4a53efd395e8158c8dc756371e14e0df95ea145f3105e3",
+    "after": "1b6b536854690586be7bd40fb4910dc92c54933f8a58435aefe9fe2f8124408e"
+  },
+  {
+    "path": "build/typed72-integrated-v44/source/src/sim/typed/terraria_bosses.cpp",
+    "before": "7713eee94919bd8299e53c90a8274e29b95be4ff4f33df6cb9f19c63c645446e",
+    "after": "722478e770ed0bb9e38b5c49e4e59eac509212d59d415e8e6f3d00ec44e12537"
+  },
+  {
+    "path": "build/typed72-match-v1/match_probe.cpp",
+    "before": "047f46bd112688b6af23195dc9c64917d1c0926ab0e9b77e0b32341f1611f9ec",
+    "after": "23ca1eac207a56b83eb9f5839b9228ae830a9124447398b5767ff51f8d851ad3"
+  },
+  {
+    "path": "src/pg/motion_sensor.cpp",
+    "before": "64f2a956f0f96a763d2b5b28a3e220d8048d6c37e604cdcfcfdf182408abf307",
+    "after": "1f8d542cd5504f93a5f7dd3a92b28893cbe93b53128f4c90a87fdb20db522749"
+  },
+  {
+    "path": "src/pg/motion_sensor.h",
+    "before": "36246da6d51a58e77be65aaef111ab8a6b84f44cf96048281d19d129a3467c18",
+    "after": "68e9c5ac57a7239ff1109415b390a55771e9d6809e26fa63fc7b96c4a1305f20"
+  },
+  {
+    "path": "src/sim/pvp/gen/pm_pve.cpp",
+    "before": "73d0462570669ac98435234176218c36e483842734cc14af9539522b0b55d691",
+    "after": "7ebec37b108085d11a23f9202507da5a5a557099982817fa4d0c0e182f5b7290"
+  },
+  {
+    "path": "src/sim/typed72_app/composition/MANIFEST.json",
+    "before": "aba062a7b44556543f6bc3b64e294262531df8a676549401a7bba2efbd095b92",
+    "after": "e424ac1592e985af698f4cca8f13e9d270d2b35f4f334be2aec6030fb09d61fb"
+  },
+  {
+    "path": "src/sim/typed72_app/composition/match_probe.cpp",
+    "before": "c3a5b94b7595146da0a41809c6a68e4bf718937921e8ec680ffae6de26617ebb",
+    "after": "e70c71fcd248340168eddd0412a72495d4fb6adbf977a755f39e43507b7610a8"
+  },
+  {
+    "path": "src/ui/gen/pm_app.cpp",
+    "before": "dcaf96633322fc2511a304eb775500256c3b91ee192e45844109dd0cbc8cc9b0",
+    "after": "7a418130c0f7ba8eb76bf8b92e058e68f46b719cbde6bf1c4053a1eb7796e4d3"
+  },
+  {
+    "path": "src/ui/gen/pm_menu_view.cpp",
+    "before": "7dd90c5dcfa1fbe2737c5ef289d8b0f8b7a917f305509f05569cc436ed4ba9bb",
+    "after": "b82b7c15e7210be299dca954c3e373f850a47ef7104fead3d58ded7c75524b4a"
+  },
+  {
+    "path": "src/ui/gen/pm_pve_ui.cpp",
+    "before": "fb94ca6d0d3a1980112d30a12a7382e4893744ff426e56282abb1a9e3ab263b3",
+    "after": "bbc04285f2daeb3a882f5e9e869f4c1839a7bf3c9736891ab63f4e00dbcb75e9"
+  },
+  {
+    "path": "src/ui/gen/pm_replay_ui.cpp",
+    "before": "0e14121cf33686f132fca3ca65d37c3e7f5f1995196d840ef81691713b175838",
+    "after": "0526a864b71855dcdb2569c11e5b74fd80c050575b88d33041437a58b22a837c"
+  },
+  {
+    "path": "src/ui/gen/pm_room.cpp",
+    "before": "89f801103ad9328263861b2a09a6c2e6e91356d4c34e0ca753448c9c84d124f5",
+    "after": "41ac104bd241178e8724e286f79306ba3b8490aff99e73498bc2537253203bf6"
+  },
+  {
+    "path": "src/ui/gen/pm_touch.cpp",
+    "before": "70e00ffbe3e05b07fd08051861bbefe602419f5c16cfc955f97a5933cba9ca38",
+    "after": "1ab92e2d3a27cf1132e9664c7b7b7f31a53cf56e40f892573221a4050d3b6af5"
+  },
+  {
+    "path": "src/ui/hand/test_mode74.cpp",
+    "before": "c8ad4264eb2805df8b82dcf4e91176b327306fbd110ac5b86cc3ff790804511f",
+    "after": "01b361d0690639e6d62e46d14f02db6df13b3f7e45439553fe22e51be8922258"
+  },
+  {
+    "path": "src/ui/hand/texture74_editor.cpp",
+    "before": "093344f356b006d70a3874b516cb454b391a60d59be6773b332dc7e4cb0dde6f",
+    "after": "af395d4dd50e53d50ecdd041b84bf7892509185ab1d95a1f830e41c5807492fe"
+  },
+  {
+    "path": "src/ui/hand/texture74_internal.h",
+    "before": "cc5d5c6a8578fb21c616e4d6a028ad4c1ad31087750b1a9a007256ef0ae064a6",
+    "after": "764d6caf05de1de2bc4b8eeab156d3af762f3b204e7dbe43475465c5b2b292e5"
+  },
+  {
+    "path": "src/ui/hand/texture74_model.cpp",
+    "before": "16327ff7831365ae6d7634e6929d2d55ad448efde7b922f1b3bbbcc991f34b96",
+    "after": "5b91fb3f540553bad956fba2326a25bf489cb0d9561c034878b230ce3c55f694"
+  },
+  {
+    "path": "src/uitools/pvp744_controls_audit.cpp",
+    "before": "43c90de15bf85cca8aaa75b21df51bd2beb36f54858b2598a70d175812f74baa",
+    "after": "907f2662f4e467ff83f3699b83c5c4eac9d323b1b27c6c95c4ba67630944ef58"
+  },
+  {
+    "path": "src/uitools/pvp74_texture_audit.cpp",
+    "before": "64a6a652fd0516e508bea84a1542fe74fd1d98a585f9146a1a76c4fa2d1c2b5f",
+    "after": "81105e3c9deb4ce69d90e06ef90658e43ff3749f7d406c0f49caf6e0043d6f32"
+  },
+  {
+    "path": "tools/pvp72_sources/app.py",
+    "before": "769002ba71500ff9c8cb6b9c1a803fe100a1f3d0725887992af0e3fdda81f072",
+    "after": "35dc6831628ceff94de0d117dd40918a96abc9fba6cbd5595e1bd160010c1e8c"
+  },
+  {
+    "path": "tools/pvp72_sources/pve.py",
+    "before": "0c7de3ac187d8f9185ffc0bc7c98e5f5b030b6a1d57ecd92e10a371670323158",
+    "after": "aa5f736ceddf751570fc4b5b4c527d84dff685ff9508bf5b0078acc3208ff140"
+  },
+  {
+    "path": "tools/pvp72_sources/pve_ui.py",
+    "before": "3ea26d8c9b24156c77c1aa581c3285c85cff3ac76d3d334800597575329c1646",
+    "after": "cf628999bee865b74e6a3c6eed40f818ce557848ed7dad882aba7b8b5a99533a"
+  },
+  {
+    "path": "tools/pvp72_sources/room.py",
+    "before": "3a253fbe9d8b3fda76d763799df91886bfa2037b717fbd93a4ec0e3556a6cc41",
+    "after": "9dc6ba2495caae469fef813f93ecf98460b4578429b9fb6eda83a1637d19d32d"
+  },
+  {
+    "path": "tools/pvp72_sources/touch.py",
+    "before": "4a10f855c29c09739fed2abf8d5ac94a187177c01abde81da790c51c7c6978cc",
+    "after": "caa68687655ec3051f1bbaee30f882346dff999c5bceeea8dbd0570e1dacfe3c"
+  },
+  {
+    "path": "tools/pvp743_network_sources.json",
+    "before": "f19fec7fa37e1933730045ab769dd4c27fcd0a3b091117b9d40ec8daf688da57",
+    "after": "9867515a997e2441dde61090bff74ec45d2d0e5e1cae5fe0d831b061d2d1064c"
+  },
+  {
+    "path": "tools/pvp744_controls_sources.json",
+    "before": "75dcb8ac4469bd1d904f191000a7e9d3f3be42bc3b74f9e1dc30684b50872b1a",
+    "after": "f02f90876e8abc60e7630a516eb369fe6e3ddcd2dcdb7b5a54a56a1cf8875a36"
+  },
+  {
+    "path": "tools/pvp744_testmode_hooks.py",
+    "before": "dac988ca8469fc8c84a97fa654d2bc3dde569979e40e44e55ee55e79e171ef5c",
+    "after": "c0c22566f2eec2cfda50d1fefab55693789f806f0030bf83bf38219ed07a32e0"
+  },
+  {
+    "path": "tools/pvp72_sources/replay_ui.py",
+    "before": null,
+    "after": "1a0475231f6a19097ff50bc080355d3d1b22f1d929a2dc71f6f492ca55cdcded"
+  },
+  {
+    "path": "tools/pvp744_feedback_sources.py",
+    "before": null,
+    "after": "cdb6160550bf578eeb93a70c66ce849ac1faeece32a952a9e17a210cf95017ce"
+  },
+  {
+    "path": "tools/pvp744_feedback_sources.json",
+    "before": null,
+    "after": "fec4139eccd43c163da5324721b801e86a9e2b2ec59a0ef5f083caf665f31462"
+  },
+  {
+    "path": "tools/pvp744_release_r2.py",
+    "before": null,
+    "after": "9364ce2f954c317ee8ec881718ca3c95fc8b05a3edec146a8178d76be123a76d"
+  },
+  {
+    "path": "src/uitools/pvp744_feedback_audit.cpp",
+    "before": null,
+    "after": "3f95d51165563655e2016a2ff4227cf5090f4be28f5da2e25ce9bb3171e023b5"
+  }
+]

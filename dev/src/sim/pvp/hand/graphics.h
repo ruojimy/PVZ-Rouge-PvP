@@ -69,6 +69,7 @@ struct Recorder : PyObj {
 // Install pygame facade, screen recorder and atlas images into the match namespace.
 // Returns the recorder (V instance).
 V install_graphics(Match& G, int tile);
+void release_graphics(const V& pygame, const V& recorder);
 V make_pygame();
 void install_atlases(Match& G);
 // Load atlas sizes from extract/assets/index.json (or data/atlas_index.json)

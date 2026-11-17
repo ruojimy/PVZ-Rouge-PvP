@@ -1,0 +1,9 @@
+[
+{"module":"test_pvp_native_gravebuster","class":"NativeGravebusterTests","test":"test_cancellation_at_loop_entry_cannot_fall_through_to_terrain_destruction","outcome":"PASS","seconds":0.0027324,"detail":""},
+{"module":"test_pvp_native_gravebuster","class":"NativeGravebusterTests","test":"test_original_draw_commands_match_grave_appearance_and_restore_private_grid","outcome":"PASS","seconds":0.0487952,"detail":""},
+{"module":"test_pvp_native_gravebuster","class":"NativeGravebusterTests","test":"test_real_creator_and_1000_tick_completion_preserve_terrain","outcome":"PASS","seconds":0.0056265,"detail":""},
+{"module":"test_pvp_native_gravebuster","class":"NativeGravebusterTests","test":"test_reused_id_or_changed_owner_cannot_retarget_an_existing_buster","outcome":"PASS","seconds":0.0007528,"detail":""},
+{"module":"test_pvp_native_gravebuster","class":"NativeGravebusterTests","test":"test_same_loop_target_death_suppresses_completion_coin_and_destructive_call","outcome":"PASS","seconds":0.0006252,"detail":""},
+{"module":"test_pvp_native_gravebuster","class":"NativeGravebusterTests","test":"test_stale_global_index_and_other_plant_explosion_keep_original_destroy","outcome":"PASS","seconds":0.0006937,"detail":""},
+{"module":"test_pvp_native_gravebuster","class":"NativeGravebusterTests","test":"test_target_dies_first_cancel_without_reward_or_terrain_change","outcome":"PASS","seconds":0.0012144,"detail":""}
+]

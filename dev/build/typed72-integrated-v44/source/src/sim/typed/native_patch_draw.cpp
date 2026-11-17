@@ -47,15 +47,16 @@ void NativePatchDraw::fume_bubbles(){
     if(world_.fume.bubbles.empty())return;
     canvas_.patch_plant_zombie_assets();
     for(const auto& b:world_.fume.bubbles){
+        NativeFrameScope owner(canvas_.frames);
         const auto surface=bubble_surface(b.name.empty()?std::string("大泡泡"):b.name);
         if(!surface)continue;
         canvas_.display(surface,{b.motion.x-double(surface->width)*.5,b.motion.y-double(surface->height)*.5});
     }
 }
 NativeArt NativePatchDraw::flip_cached(const NativeArt& source,const std::string& key){
-    // __pvz_sb_flip_surface: the flipped art is cached in the atlas under `key`.
-    if(const auto cached=canvas_.atlas.find(key))return cached;
-    auto flipped=NativeCanvas::flip(source);canvas_.atlas.atlas[key]=flipped;return flipped;
+    const auto identity=NativeArtStore::identity(source);
+    if(const auto i=flips_.find(key);i!=flips_.end()&&i->second.first==identity)return i->second.second;
+    auto flipped=NativeCanvas::flip(source);flips_[key]={identity,flipped};return flipped;
 }
 NativeArt NativePatchDraw::smoothscaled(const NativeArt& surface,double factor){
     // __pvz_sb_scaled_surface through hand graphics transform.smoothscale.
@@ -76,6 +77,7 @@ void NativePatchDraw::zombie_peas(){
     NativeArt pea=canvas_.atlas.find("僵尸豌豆");if(!pea)pea=canvas_.atlas.find("豌豆");if(!pea)return;
     for(const auto& e:peas){
         const auto& m=e->motion.get();
+        NativeFrameScope owner(canvas_.frames,{text(e->source.id),{m.x,m.y}});
         NativeArt surface=pea;
         const auto fire=text(e->source.zombie_fire);
         if(!fire.empty())if(const auto alt=canvas_.atlas.find(fire=="blue"?"蓝火豆":"火豆"))surface=alt;
@@ -94,6 +96,8 @@ void NativePatchDraw::plant_zombie_heads(){
     }
     if(!drawable.empty())canvas_.patch_plant_zombie_assets();
     for(const auto& u:drawable){
+        const auto& motion=u->body.motion.get();
+        NativeFrameScope owner(canvas_.frames,{text(u->source.id),{motion.x,motion.y}});
         const auto name=text(u->patch.plant_name);
         const auto [direction,angle]=sync_native_head_angle(*u);
         const auto& cfg=*native_plant_zombie_config(name);
@@ -104,11 +108,20 @@ void NativePatchDraw::plant_zombie_heads(){
         const bool is_thunder=name=="大喷菇僵尸"&&thunder&&thunder(u);
         const std::string head_key=is_thunder?std::string("__pvz_sb_fumeshroom_zombie_thunder_head"):name+"-植头";
         const std::string suffix=b.hurt>0.?"-受伤":b.ash.present()?"-灰烬":(b.ice.present()&&!b.ice.is_null()&&b.ice.get()>0.)?"-冰冻":u->source.charmed.present()?"-魅惑":"";
+        const auto poison=[&](NativeArt image){
+            if(u->poison.poison.present()&&!u->poison.poison.is_null()&&u->poison.poison.get()){
+                const auto& level=u->poison.poison.get()->level;
+                if(level.present()&&!level.is_null()&&(level.get()==1||level.get()==2))return canvas_.poisoned(image,level.get());
+            }
+            return image;
+        };
         NativeArt head;
-        if(!suffix.empty())if(const auto variant=canvas_.atlas.find(head_key+suffix))
-            head=direction>0.?variant:flip_cached(variant,head_key+suffix+"-pvp-left");
+        if(!suffix.empty())if(auto variant=canvas_.atlas.find(head_key+suffix)){
+            variant=poison(variant);head=direction>0.?variant:flip_cached(variant,head_key+suffix+"-pvp-left");
+        }
         if(!head){
             head=canvas_.atlas.find(head_key);if(!head)continue;
+            head=poison(head);
             if(!(direction>0.))head=flip_cached(head,is_thunder?head_key+"-左":name+"-植头左");
         }
         // __pvz_sb_plant_zombie_head_center

@@ -24,6 +24,9 @@
         std::ifstream in(draw_atlas_path,std::ios::binary);if(!in)throw std::runtime_error("missing draw atlas "+draw_atlas_path);
         install_frames_json(J::parse(in),cold);
     }
+    static std::string draw_id(const Field<std::string>& id){return id.present()&&!id.is_null()?id.get():std::string{};}
+    NativeFrameScope frame_owner(const ZombieRef& unit){const auto& p=unit->body.motion.get();return {canvas.frames,{draw_id(unit->source.id),{p.x,p.y}}};}
+    NativeFrameScope frame_owner(const EntityRef& entity){const auto& p=entity->motion.get();return {canvas.frames,{draw_id(entity->source.id),{p.x,p.y}}};}
     void install_frames_json(const J& draw_atlas,const J& cold){
         const auto& constants=cold.at("constants");const auto& g=cold.at("globals");
         canvas.install(draw_atlas,battle.runtime.presentation.atlas,constants.at("scale_factor"),constants.at("rider_lift"));
@@ -75,15 +78,18 @@
         if(!patch_draw.update_bubbles)patch_draw.update_bubbles=[this](double when){ShootingProbe::fume.update_bubbles(when);};
         patch_draw.now=now;
         patch_draw.draw_overlays();
+        terraria.draw(canvas);
     }
     NativeContentDraw content_draw{battle,canvas};
     void draw_content_zombie(const ZombieRef& unit)override{
+        auto owner=frame_owner(unit);
         ContentPhaseProbe::draw_content_zombie(unit);
         content_draw.native_tick=battle.heroes.tick;
         if(!content_draw.draw_cart)content_draw.draw_cart=[this](const ZombieRef& u,CartDrawing& d){carts.draw(u,d);};
         content_draw.draw_zombie(unit);
     }
     void draw_zombie(const ZombieRef& unit)override{
+        auto owner=frame_owner(unit);
         ContentPhaseProbe::draw_zombie(unit);
         content_draw.native_tick=battle.heroes.tick;content_draw.draw_zombie64(unit);
     }
@@ -91,23 +97,27 @@
     // NativeBattle._step post draw: self.content.barrels.draw(obj) for every orphan barrel (suspended from
     // the zombie region, so this is its only draw). PvP73: the production layer only recorded the call,
     // so a barrel left by a dead 滚桶僵尸 was never drawn.
-    void draw_barrel(const ZombieRef& unit)override{NativeTickProbe::draw_barrel(unit);barrels.draw(unit,canvas.drawing());}
+    void draw_barrel(const ZombieRef& unit)override{auto owner=frame_owner(unit);NativeTickProbe::draw_barrel(unit);barrels.draw(unit,canvas.drawing());}
     // native_content draw_dart / mortar shots: asset art turned about its centre.
     void draw_dart(const EntityRef& entity,Point point,double angle)override{
+        auto owner=frame_owner(entity);
         if(!canvas.drawing())return;
         const auto key=entity->art_name.present()&&!entity->art_name.is_null()?entity->art_name.get():std::string{};
         content_draw.draw_center(canvas.has(key)?canvas.image(key):canvas.image("豌豆"),point.x,point.y,angle);
     }
     void draw_mortar_projectile(const EntityRef& entity,double angle,const std::optional<Point>& trail,std::string_view tail)override{
+        auto owner=frame_owner(entity);
         if(!canvas.drawing())return;
-        if(trail)content_draw.draw_center(canvas.image(std::string(tail)),trail->x,trail->y,angle);
+        if(trail)content_draw.draw_center(canvas.image(phases.projectile_sprite(*entity,std::string(tail))),trail->x,trail->y,angle);
         const auto& p=entity->motion.get();
-        content_draw.draw_center(canvas.has(entity->kind)?canvas.image(entity->kind):canvas.image("豌豆"),p.x,p.y,angle);
+        const auto key=phases.projectile_sprite(*entity,entity->kind);
+        content_draw.draw_center(canvas.has(key)?canvas.image(key):canvas.image("豌豆"),p.x,p.y,angle);
     }
     NativeContentDraw& effects(){content_draw.native_tick=battle.heroes.tick;return content_draw;}
     // FlyingPlantsProbe only records observer calls. Production must emit the
     // same artwork commands for both asparagus lines and turnip balls.
     void draw_flying_shot(const EntityRef& entity)override{
+        auto owner=frame_owner(entity);
         FlyingPlantsProbe::draw_flying_shot(entity);
         if(!canvas.drawing())return;
         const auto& m=entity->motion.get();
@@ -115,14 +125,14 @@
         if(piercing)effects().draw_center(canvas.image(entity->kind),m.x,m.y,90.-std::atan2(m.vy,m.vx)*180./3.141592653589793);
         else{const auto image=canvas.image(entity->kind);canvas.display(image,{m.x-image->width/2.,m.y-image->height/2.});}
     }
-    void draw_ghost_effect(const GhostBlast& v)override{ContentPhaseProbe::draw_ghost_effect(v);effects().ghost_effect(v);}
-    void draw_reed_effect(const ReedBolt& v)override{ContentPhaseProbe::draw_reed_effect(v);effects().reed_effect(v);}
-    void draw_spring_effect(const SpringSwipe& v)override{ContentPhaseProbe::draw_spring_effect(v);effects().spring_effect(v);}
-    void draw_grenade_effect(const GrenadeBlast& v)override{ContentPhaseProbe::draw_grenade_effect(v);effects().grenade_effect(v);}
-    void draw_grenade_projectile(const GrenadeRef& s,double a,double al)override{ContentPhaseProbe::draw_grenade_projectile(s,a,al);effects().grenade_projectile(s,a,al);}
-    void draw_hook_rope(Point p)override{ContentPhaseProbe::draw_hook_rope(p);effects().hook_rope(p);}
-    void draw_zombie_projectile(const ContentProjectileRef& s,std::string_view n,double a,double al)override{ContentPhaseProbe::draw_zombie_projectile(s,n,a,al);effects().zombie_projectile(s,n,a,al);}
-    void draw_lettuce_flash(const LettuceFlash& v)override{ContentPhaseProbe::draw_lettuce_flash(v);effects().lettuce_flash(v);}
+    void draw_ghost_effect(const GhostBlast& v)override{NativeFrameScope owner(canvas.frames);ContentPhaseProbe::draw_ghost_effect(v);effects().ghost_effect(v);}
+    void draw_reed_effect(const ReedBolt& v)override{NativeFrameScope owner(canvas.frames);ContentPhaseProbe::draw_reed_effect(v);effects().reed_effect(v);}
+    void draw_spring_effect(const SpringSwipe& v)override{NativeFrameScope owner(canvas.frames);ContentPhaseProbe::draw_spring_effect(v);effects().spring_effect(v);}
+    void draw_grenade_effect(const GrenadeBlast& v)override{NativeFrameScope owner(canvas.frames);ContentPhaseProbe::draw_grenade_effect(v);effects().grenade_effect(v);}
+    void draw_grenade_projectile(const GrenadeRef& s,double a,double al)override{NativeFrameScope owner(canvas.frames);ContentPhaseProbe::draw_grenade_projectile(s,a,al);effects().grenade_projectile(s,a,al);}
+    void draw_hook_rope(Point p)override{NativeFrameScope owner(canvas.frames);ContentPhaseProbe::draw_hook_rope(p);effects().hook_rope(p);}
+    void draw_zombie_projectile(const ContentProjectileRef& s,std::string_view n,double a,double al)override{NativeFrameScope owner(canvas.frames);ContentPhaseProbe::draw_zombie_projectile(s,n,a,al);effects().zombie_projectile(s,n,a,al);}
+    void draw_lettuce_flash(const LettuceFlash& v)override{NativeFrameScope owner(canvas.frames);ContentPhaseProbe::draw_lettuce_flash(v);effects().lettuce_flash(v);}
     void draw_zombie70_effects()override{ContentPhaseProbe::draw_zombie70_effects();}
     void draw_hero(Seat seat,bool materialize)override{
         ContentPhaseProbe::draw_hero(seat,materialize);
@@ -133,6 +143,7 @@
         ContentPhaseProbe::stun_star(point,size);
         if(canvas.drawing())canvas.display(NativeArtStore::scale(canvas.image("星星"),int(size.x),int(size.y)),point);
     }
+    void stun_star(const ZombieRef& unit,Point point,Point size)override{auto owner=frame_owner(unit);stun_star(point,size);}
     void tint_poison(const ZombieRef& u)override{
         ContentPhaseProbe::tint_poison(u);
         if(!u->poison.poison.present()||u->poison.poison.is_null()||!u->poison.poison.get())return;
@@ -146,7 +157,8 @@
     void ensure_plant_zombie_assets()override{ContentPhaseProbe::ensure_plant_zombie_assets();canvas.patch_plant_zombie_assets();}
     // 飞贼僵尸 rope: 画线((50,50,50), start, end).
     void line(Point start,Point end)override{ContentPhaseProbe::line(start,end);canvas.line(NativeCanvas::Json::array({50,50,50}),start,end);}
-    void draw_particles(const std::vector<ParticleRect>& rects)override{
+    void draw_particles(const std::vector<ParticleRect>& rects)override{NativeFrameScope owner(canvas.frames);
+        NativeFrameTransientScope transient(canvas.frames);
         for(const auto& r:rects)canvas.frames.primitive({"rect",r.color,r.x,r.y,r.width,r.height,0});
     }
     void draw_plants()override{ContentPhaseProbe::draw_plants();plant_draw.draw_all();}
@@ -160,6 +172,12 @@
         fdbg("alias_art "+old+" , "+next);
         ContentPhaseProbe::alias_art(old,next);canvas.alias(old,next);
     }
+    void alias_content_art(const std::string& old,const std::string& next)override{
+        // Observation only. frame_image resolves this entity's display art.
+        // source_art also controls particle sampling, so it must not be used
+        // as storage for a display-only alias.
+        ContentControllersProbe::alias_art(old,next);
+    }
     // 扁死: 变图(图集[name], 比*1.4, 比*.3), 反 when facing -1; one image per squashed entity.
     uint64_t flat_sprite(std::string name,Point size,bool mirror)override{
         const auto id=ContentPhaseProbe::flat_sprite(name,size,mirror);
@@ -168,7 +186,11 @@
         flat_images[id]=image;return id;
     }
     NativeArt frame_image(const EntitySprite& sprite){
-        if(const auto* name=std::get_if<std::string>(&sprite))return canvas.image(*name);
+        if(const auto* name=std::get_if<std::string>(&sprite)){
+            const auto source=battle.heroes.source();
+            if(source)if(const auto entity=source->entity.lock())return canvas.image(phases.projectile_sprite(*entity,*name));
+            return canvas.image(*name);
+        }
         const auto found=flat_images.find(std::get<uint64_t>(sprite));
         if(found==flat_images.end())throw std::runtime_error("native frame: unknown flat sprite");
         return found->second;
@@ -176,6 +198,10 @@
     void draw(EntityDraw d)override{
         ContentPhaseProbe::draw(d);
         if(!canvas.drawing())return;
+        const auto* effect=std::get_if<std::string>(&d.sprite);
+        const bool cosmetic=effect&&(*effect=="小丑爆炸"||effect->starts_with("毁灭")||effect->starts_with("火1.")||*effect=="火2"||*effect=="火3"||*effect=="爆炸");
+        NativeFrameTransientScope transient(canvas.frames,cosmetic);
+        if(canvas.frames.skip_transient())return;
         auto image=frame_image(d.sprite);
         if(const auto* n=std::get_if<std::string>(&d.sprite))fdbg("draw "+*n);
         if(const auto* n=std::get_if<std::string>(&d.sprite);n&&skip_plant_zombie_armor(*n))return;

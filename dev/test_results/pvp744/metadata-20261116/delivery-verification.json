@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "source_closure": 60,
+  "android_build_sources_unchanged": 1681,
+  "pc_saves_unchanged": 17,
+  "phone_saves_unchanged": 11,
+  "official_launcher_exe_sha256": "db52ea14fd5d722bde1a0cb173cd0164971d9ff2037a973cd8dc588a17c8d0e6",
+  "candidate_exe_sha256": "abb997c917bbd1bff08a006198994b7be686f5395d7f125d3e5155f270f55b9e",
+  "device_clean_cases": 2,
+  "targeted_checks": 139
+}

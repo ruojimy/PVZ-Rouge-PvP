@@ -1,0 +1,6 @@
+[
+{"module":"test_pvp_54_native_art_revision","class":"NativeArtRevisionTests","test":"test_cards_use_shipped_parts_and_bloom_secret_icon","outcome":"PASS","seconds":0.0053603,"detail":""},
+{"module":"test_pvp_54_native_art_revision","class":"NativeArtRevisionTests","test":"test_native_yeti_states_and_bin_removal_are_visible_to_remote_replay","outcome":"PASS","seconds":0.0257706,"detail":""},
+{"module":"test_pvp_54_native_art_revision","class":"NativeArtRevisionTests","test":"test_trash_stays_in_front_in_both_native_facing_poses","outcome":"PASS","seconds":0.13508,"detail":""},
+{"module":"test_pvp_54_native_art_revision","class":"NativeArtRevisionTests","test":"test_yeti_borrows_native_layers_without_changing_regular_unit_or_neighbours","outcome":"PASS","seconds":0.0306772,"detail":""}
+]

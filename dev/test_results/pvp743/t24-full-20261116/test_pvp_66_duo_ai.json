@@ -1,0 +1,9 @@
+[
+{"module":"test_pvp_66_duo_ai","class":"DuoRoomTests","test":"test_duo_room_fills_three_seats_and_plays","outcome":"PASS","seconds":20.8519,"detail":""},
+{"module":"test_pvp_66_duo_ai","class":"DuoRoomTests","test":"test_human_surrender_is_followed_by_the_ai_teammate","outcome":"PASS","seconds":4.88346,"detail":""},
+{"module":"test_pvp_66_duo_ai","class":"FixedRoomTests","test":"test_full_lifecycle","outcome":"PASS","seconds":65.3048,"detail":""},
+{"module":"test_pvp_66_duo_ai","class":"FixedRoomTests","test":"test_host_retakes_seat","outcome":"PASS","seconds":0.200145,"detail":""},
+{"module":"test_pvp_66_duo_ai","class":"FixedRoomTests","test":"test_leaving_mid_battle_concedes","outcome":"PASS","seconds":11.3222,"detail":""},
+{"module":"test_pvp_66_duo_ai","class":"FixedRoomTests","test":"test_lobby_entry_is_local_and_always_listed","outcome":"PASS","seconds":0.278504,"detail":""},
+{"module":"test_pvp_66_duo_ai","class":"FixedRoomTests","test":"test_names_and_delays","outcome":"PASS","seconds":0.0106734,"detail":""}
+]

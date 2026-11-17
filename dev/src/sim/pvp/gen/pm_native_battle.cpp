@@ -4424,25 +4424,7 @@ V C_NativeBattle::m__emit(const Args& A) {
     return V::none();
 }
 
-V C_NativeBattle::m_close(const Args& A) {
-    V L_gc_policy;
-    L_gc_policy = pm_gc_policy::module_ns();
-    (void)(callm(L_gc_policy, SY("release"), Args{py::id(self_v())}));
-    if ((V(pvz::hasattr(self_v(), (SV("scripted_spawn_budget")).sym()))).truthy()) {
-        (void)(callm(pvz::getattr(a_scripted_spawn_budget, SY("pending")), SY("clear"), Args{}));
-    }
-    if ((V(pvz::hasattr(self_v(), (SV("jobs")).sym()))).truthy()) {
-        (void)(callm(a_jobs, SY("close"), Args{}));
-    }
-    if ((V(pvz::hasattr(self_v(), (SV("gravebusters")).sym()))).truthy()) {
-        (void)(callm(a_gravebusters, SY("close"), Args{}));
-    }
-    if ((V(pvz::hasattr(self_v(), (SV("patch")).sym()))).truthy()) {
-        (void)(callm(a_patch, SY("close"), Args{}));
-    }
-    (void)(pm_simulation::C_Battle::m_close(Args{}));
-    return V::none();
-}
+// C_NativeBattle::m_close: hand-written (src/sim/pvp/hand)
 
 void initcv_NativeBattle(C_NativeBattle* p) {
     p->a_SECRET_TRIPLE_JUMP = C_NativeBattle::cv_SECRET_TRIPLE_JUMP();

@@ -1,6 +1,7 @@
 // pve.WaveDirector and coop_cycle.CoopCycle, block by block. Constants and
 // method names follow the source; line references are to pve.py / coop_cycle.py.
 #include "sim/typed/pve_director.h"
+#include "sim/typed/terraria_state.h"
 #include "core/pymath.h"
 #include <algorithm>
 #include <cmath>
@@ -21,6 +22,9 @@ bool standing(const CombatZombie& z){return z.body.hp>0.&&!z.body.ash.present()&
 void PveDirector::bind(const PveDirectorCold& c){
     day_=c.day;seed_=c.seed;max_zombies_=c.max_zombies;coop_=c.coop;points_=c.points;pool_=c.pool;plan_=c.plan;rng_.set_state(c.rng);
     cycle_=c.cycle;initial_night_=c.initial_night;cycle_rng_.set_state(c.cycle_rng);phase_=-1;next_grave_=0.;
+    boss_key_=coop_&&day_==8?"zombie:克苏鲁之眼":coop_&&day_==16?"zombie:世界吞噬者":coop_&&day_==24?"zombie:骷髅王":"";
+    boss_spawned_=false;boss_id_.clear();boss_parts_.clear();boss_rewarded_=false;boss_reward_time_=0.;world_.scripted_terraria_boss=!boss_key_.empty();
+    if(!boss_key_.empty()){initial_night_=true;services_.set_daylight(true);}
     ladders_.director_available=true;bound_=true;
 }
 double PveDirector::now()const{return world_.heroes.time;}
@@ -136,13 +140,14 @@ void PveDirector::pay_bounties(){
         }
         const auto key=entry.first;const auto last=entry.second;alive_.erase(alive_.begin()+std::ptrdiff_t(i));
         if(!last)continue;
+        if(coop_&&rng_.random()>=.5)continue; // chance, never the value of a surviving pickup
         const auto [amount,kind]=coin_drop(key);services_.drop_coin(amount,*last,kind);
     }
 }
 // step (pve.py:242)
 void PveDirector::step(){
     const double t=now();
-    observe_wave_members();pay_bounties();
+    observe_wave_members();pay_bounties();pay_boss_reward();
     if(can_advance()){
         const auto wave_index=next_wave;const auto wave=plan_[size_t(next_wave)];last_flag=wave.flag;
         auto keys=compose(double(wave.budget),wave.flag);
@@ -168,6 +173,35 @@ void PveDirector::step(){
         queue.erase(std::find(queue.begin(),queue.end(),e));
     }
     if(pressure>=SPAWN_PRESSURE_RATIO)pressure_seconds+=1./30.;
+    summon_boss_if_ready();
+}
+void PveDirector::pay_boss_reward(){
+    if(!boss_spawned_||boss_rewarded_||boss_parts_.empty())return;
+    bool live=false,killed=false;for(const auto& u:boss_parts_){
+        killed=killed||u->body.hp<=0.||u->body.ash.present();
+        if(u->body.hp>0.&&!u->terraria->removed&&!u->body.ash.present()){live=true;const auto& m=u->body.motion.get();boss_last_={m.x,m.y-world_.runtime.tile};}
+    }
+    if(live||!killed)return;
+    boss_rewarded_=true;boss_reward_time_=now();boss_parts_.clear();
+    services_.drop_coin(1000.,boss_last_,"diamond");
+    services_.event({"pve_boss_reward",{{"day",day_},{"amount",1000.},{"kind",std::string("diamond")}}});
+}
+bool PveDirector::boss_alive()const{
+    for(const auto& t:*world_.targets)if(t.unit&&t.unit->terraria&&t.unit->body.hp>0.&&!t.unit->terraria->removed){
+        const int type=t.unit->terraria->type;if(type==4||type==35||(type>=13&&type<=15))return true;
+    }
+    return false;
+}
+void PveDirector::summon_boss_if_ready(){
+    if(boss_key_.empty()||boss_spawned_||plan_.empty()||next_wave<int64_t(plan_.size()))return;
+    const auto progress=wave_progress(int64_t(plan_.size())-1);
+    // Count the complete final wave, including delayed summons. A partly emitted
+    // wave must never satisfy 80% just because its first few units were killed.
+    if(progress.queued||progress.pending||progress.clear_percent<80||points_.empty())return;
+    const auto id=services_.spawn_coop_boss(boss_key_,points_.front());if(!id)return;
+    boss_id_=*id;boss_spawned_=true;boss_last_=points_.front();
+    for(const auto& t:*world_.targets)if(t.unit&&t.unit->terraria){const int type=t.unit->terraria->type;if(type==4||type==35||(type>=13&&type<=15))boss_parts_.push_back(t.unit);}
+    services_.event({"pve_boss",{{"day",day_},{"card",boss_key_},{"entity",*id},{"clear_percent",progress.clear_percent}}});
 }
 // request_ladder (pve.py:334)
 void PveDirector::request_ladder(const ZombieRef& z){
@@ -182,7 +216,7 @@ void PveDirector::request_ladder(const ZombieRef& z){
     services_.event({"pve_ladder_support",{{"source",std::string("blocked")},{"point",int64_t(best)},{"day",day_}}});
 }
 bool PveDirector::cleared()const{
-    return bound_&&next_wave>=int64_t(plan_.size())&&queue.empty()&&pending_ladders.empty()&&!budget_.pending_count()&&budget_.count()==0;
+    return bound_&&(boss_key_.empty()||(boss_spawned_&&boss_rewarded_&&now()>=boss_reward_time_+2.&&!boss_alive()))&&next_wave>=int64_t(plan_.size())&&queue.empty()&&pending_ladders.empty()&&!budget_.pending_count()&&budget_.count()==0;
 }
 
 // ------------------------------------------------------------ CoopCycle
@@ -192,8 +226,8 @@ double PveDirector::distance(double x,double y,double tx,double ty)const{
 // CoopCycle.step (coop_cycle.py:29)
 void PveDirector::cycle_step(){
     if(!cycle_)return;
-    const double t=now();const auto phase=int64_t(py::floordiv(t,PHASE_SECONDS));
-    const bool night=initial_night_^bool(py::mod(double(phase),2.)!=0.);const bool changed=phase!=phase_;
+    const double t=now();const auto phase=boss_key_.empty()?int64_t(py::floordiv(t,PHASE_SECONDS)):int64_t(0);
+    const bool night=!boss_key_.empty()||(initial_night_^bool(py::mod(double(phase),2.)!=0.));const bool changed=phase!=phase_;
     if(changed){
         phase_=phase;services_.set_daylight(night);next_grave_=t;
         services_.event({"coop_daylight",{{"night",night},{"phase",phase}}});
@@ -317,11 +351,13 @@ nlohmann::json PveDirector::waves_snapshot(double time){
     J next_in=nullptr;
     if(has_next&&next_wave==0)next_in=py::roundn(std::max(0.,plan_[size_t(next_wave)].time-time),1);
     std::optional<PveWaveProgress> progress;if(next_wave)progress=wave_progress(next_wave-1);
-    return {{"day",day_},{"wave",next_wave},{"waves",plan_.size()},{"next_in",next_in},{"next_flag",has_next&&plan_[size_t(next_wave)].flag},
+    J value={{"day",day_},{"wave",next_wave},{"waves",plan_.size()},{"next_in",next_in},{"next_flag",has_next&&plan_[size_t(next_wave)].flag},
             {"remaining",budget_.count()},{"max_zombies",max_zombies_},{"clear_required",80},
             {"clear_percent",progress?progress->clear_percent:0},{"wave_remaining",progress?progress->remaining:0},
             {"spawn_queued",queue.size()},{"pending_summons",progress?progress->pending:0},
             {"waiting_for_clear",has_next&&next_wave!=0},{"engine_load",py::roundn(pressure,2)},{"paced",paced}};
+    if(!boss_key_.empty()){value["boss_card"]=boss_key_;value["boss_spawned"]=boss_spawned_;value["boss_active"]=boss_alive();value["boss_id"]=boss_id_;}
+    return value;
 }
 nlohmann::json PveDirector::daylight_snapshot(double time,bool night)const{
     using J=nlohmann::json;
@@ -332,6 +368,8 @@ nlohmann::json PveDirector::daylight_snapshot(double time,bool night)const{
         for(const auto& z:graves)rows.push_back({{"id",z->source.id.present()&&!z->source.id.is_null()?J(z->source.id.get()):J(nullptr)},{"share",total/double(graves.size())}});
         fronts.push_back({{"point",point},{"original_share",1.-total},{"graves",rows}});
     }
-    return {{"night",night},{"next_change",std::max(0.,(double(phase_)+1.)*120.-time)},{"fronts",fronts}};
+    J value={{"night",night},{"next_change",std::max(0.,(double(phase_)+1.)*120.-time)},{"fronts",fronts}};
+    if(!boss_key_.empty()){value["permanent_night"]=true;value["next_change"]=nullptr;}
+    return value;
 }
 } // namespace pvz::typed72

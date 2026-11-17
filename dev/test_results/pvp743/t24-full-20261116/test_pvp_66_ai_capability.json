@@ -1,0 +1,12 @@
+[
+{"module":"test_pvp_66_ai_capability","class":"AirGeometry","test":"test_anti_air_reach_is_never_invented","outcome":"PASS","seconds":0.0001097,"detail":""},
+{"module":"test_pvp_66_ai_capability","class":"AirGeometry","test":"test_asparagus_cone_and_facing","outcome":"PASS","seconds":0.0003113,"detail":""},
+{"module":"test_pvp_66_ai_capability","class":"AirGeometry","test":"test_ghost_chili_on_the_ground_sea_needs_its_secret","outcome":"PASS","seconds":3.35e-05,"detail":""},
+{"module":"test_pvp_66_ai_capability","class":"AirGeometry","test":"test_turnip_diagonal_line_of_sight","outcome":"PASS","seconds":0.0004419,"detail":""},
+{"module":"test_pvp_66_ai_capability","class":"AntiAirRallyCell","test":"test_flag_gathers_on_the_air_plants_own_cell_not_one_below","outcome":"PASS","seconds":0.0348031,"detail":""},
+{"module":"test_pvp_66_ai_capability","class":"Drafts","test":"test_duel_draft","outcome":"PASS","seconds":46.7412,"detail":""},
+{"module":"test_pvp_66_ai_capability","class":"Drafts","test":"test_duo_draft","outcome":"PASS","seconds":3.72756,"detail":""},
+{"module":"test_pvp_66_ai_capability","class":"Executors","test":"test_relic_secondhand_confluence_and_auras_use_ordinary_inputs","outcome":"PASS","seconds":0.0003783,"detail":""},
+{"module":"test_pvp_66_ai_capability","class":"Secrets","test":"test_conditions","outcome":"PASS","seconds":7.46e-05,"detail":""},
+{"module":"test_pvp_66_ai_capability","class":"TeamRoles","test":"test_roles_complement_without_economy","outcome":"PASS","seconds":5.15e-05,"detail":""}
+]

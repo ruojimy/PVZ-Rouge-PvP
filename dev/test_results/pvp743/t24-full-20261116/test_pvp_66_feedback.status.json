@@ -1,0 +1,43 @@
+{
+  "module": "test_pvp_66_feedback",
+  "exit": 1,
+  "seconds": 19.565,
+  "expected": 19,
+  "results": 19,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": false,
+  "accepted": false,
+  "counts": {
+    "PASS": 16,
+    "FAIL": 3,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [],
+  "unexpected_nonpass": [
+    {
+      "id": "test_pvp_66_feedback.FeedbackCombat.test_new_speed_secrets_change_car_and_air_travel",
+      "outcome": "FAIL",
+      "detail_sha256": "13f296b514685e82e46d8e302ca71d00de67b523fdacacd3eebe6111367efd9c",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_66_feedback.FeedbackCombat.test_taco_changes_actual_walking_car_and_bird_distance",
+      "outcome": "FAIL",
+      "detail_sha256": "3fc3c85550a2dde80fb0e8f74bd247c886563a539440f1206acc3e72217e941b",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_66_feedback.FeedbackCombat.test_taco_real_twenty_second_timer_and_no_duplicate_buff",
+      "outcome": "FAIL",
+      "detail_sha256": "67303e33f0ce9657f3203ff0a0cf44578b552a55cde3c5d521fe7129de941543",
+      "reason": "not_waived"
+    }
+  ],
+  "resolved_waivers": []
+}

@@ -69,19 +69,28 @@ void activate(const J& doc,bool remote){auto& s=state();J clean=validate_pack(do
 bool active(){return !state().overrides.empty();}uint64_t revision(){return state().generation;}
 bool icon(const V& screen,const std::string& name,const V& box,bool flip){auto it=state().overrides.find("icon:"+name);if(it==state().overrides.end())return false;V image=it->second;if(flip)image=callm(pg::transform_module(),Sym("flip"),Args{image,V(true),V(false)});auto r=pg::rect_of(box);auto* src=pg::surf(image);const double scale=std::min(double(r.w)/src->w(),double(r.h)/src->h());SDL_Rect dest{r.x+int((r.w-src->w()*scale)/2),r.y+int((r.h-src->h()*scale)/2),std::max(1,int(src->w()*scale)),std::max(1,int(src->h()*scale))};SDL_BlitScaled(src->s,nullptr,pg::surf(screen)->s,&dest);return true;}
 void set_notice(const std::string& text){state().notice=text;}
-void persist_editor(const V& app){auto& s=state();if(!s.initialized)return;V st=getattr(app,Sym("state"),V::none());if(!st.is_dict())return;const auto screen=py_str(py::m_get(st,V("screen"),V("")));if(screen!="texture_library"&&screen!="texture_editor")return;try{s.dragging=s.panning=false;s.preview.clear();s.active_slider=-1;save_current(s.local_enabled);}catch(const std::exception& e){set_notice(std::string("自动保存失败：")+e.what());}}
-void activate_local(){auto& s=state();if(s.local_enabled)activate(s.document);else activate({{"format","pvz-texture-pack-v1"},{"name","原版材质"},{"entries",J::object()}});}
-void save_current(bool enable){auto& s=state();commit_canvas();save_file(s.root/"packs"/u8p(s.local_id+".pvptex"),s.document);s.local_enabled=enable;save_file(s.root/"selection.json",{{"active",s.local_id},{"enabled",enable}});activate_local();s.dirty=false;set_notice(enable?"已保存并启用 · 联机时由房主自动共享":"已保存 · 当前仍使用原版材质");}
-void import_pack(const std::filesystem::path& file){auto& s=state();J doc=validate_pack(load_file(file));if(s.initialized)save_current(s.local_enabled);s.local_id="pack-"+digest(doc.dump()).substr(0,16);s.document=std::move(doc);s.selected_key.clear();s.canvas={};save_current();set_notice("材质包导入完成");}
-void export_pack(const std::filesystem::path& file){save_current();save_file(file,state().document);}
-void initialize(const V& app){auto& s=state();load_inventory();auto parent=u8p(py_str(getattr(getattr(app,Sym("settings_path")),Sym("parent"))));auto root=parent/"texture-packs";if(s.initialized&&s.root==root)return;
- s.root=root;s.initialized=true;std::filesystem::create_directories(root/"packs");std::filesystem::create_directories(root/"exports");std::filesystem::create_directories(root/"received");
- try{if(std::filesystem::exists(root/"selection.json"))s.local_id=load_file(root/"selection.json").value("active",std::string("default"));if(s.local_id.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_")!=std::string::npos)s.local_id="default";
- s.document={{"format","pvz-texture-pack-v1"},{"name","我的材质包"},{"entries",J::object()}};if(std::filesystem::exists(root/"packs"/u8p(s.local_id+".pvptex")))s.document=validate_pack(load_file(root/"packs"/u8p(s.local_id+".pvptex")));s.local_enabled=!std::filesystem::exists(root/"selection.json")||load_file(root/"selection.json").value("enabled",true);activate_local();}catch(const std::exception& e){set_notice(std::string("材质包加载失败：")+e.what());s.document={{"format","pvz-texture-pack-v1"},{"name","我的材质包"},{"entries",J::object()}};activate(s.document);}
- register_hooks();
+bool has_unsaved(){return state().dirty||state().unsaved;}
+void persist_editor(const V& app){auto& s=state();if(!s.initialized)return;s.dragging=s.panning=false;s.preview.clear();s.active_slider=-1;/* Backgrounding never creates or saves a pack. */}
+void activate_local(){auto& s=state();if(s.local_enabled&&!s.local_document.is_null())activate(s.local_document);else activate({{"format","pvz-texture-pack-v1"},{"name","原版材质"},{"entries",J::object()}});}
+void save_current(bool enable){auto& s=state();commit_canvas();J clean=validate_pack(s.document);save_file(s.root/"packs"/u8p(s.local_id+".pvptex"),clean);s.document=clean;s.local_document=std::move(clean);s.active_local_id=s.local_id;s.local_enabled=enable;save_file(s.root/"selection.json",{{"active",s.local_id},{"enabled",enable}});activate_local();s.dirty=s.unsaved=false;set_notice(enable?"已保存并启用 · 再次保存覆盖同一个包":"已保存 · 当前仍使用原版材质");}
+void discard_changes(){auto& s=state();s.document=s.local_document;s.local_id=s.active_local_id;s.selected_key.clear();s.canvas={};s.dirty=s.unsaved=false;activate_local();}
+namespace {
+std::filesystem::path saved_path(const std::filesystem::path& path){auto root=std::filesystem::weakly_canonical(state().root/"packs"),p=std::filesystem::weakly_canonical(path);if(p.parent_path()!=root||p.extension()!=".pvptex"||std::filesystem::is_symlink(path)||!std::filesystem::is_regular_file(p))throw std::runtime_error("只能操作列表中的本地材质包");return p;}
 }
-void new_pack(){auto& s=state();if(s.initialized)save_current(s.local_enabled);commit_canvas();s.local_id="pack-"+digest(std::to_string(SDL_GetPerformanceCounter())).substr(0,16);s.document={{"format","pvz-texture-pack-v1"},{"name","新材质包"},{"entries",J::object()}};s.selected_key.clear();s.canvas={};save_current();}
-void commit_canvas(){auto& s=state();if(s.selected_key.empty()||!s.canvas.w||!s.dirty)return;auto& c=s.canvas;J e={{"width",c.w},{"height",c.h},{"png",b64(png_encode(surface(c.w,c.h,c.flatten())))},{"layers",J::array()}};for(const auto& l:c.layers)e["layers"].push_back({{"name",l.name},{"visible",l.visible},{"opacity",l.opacity},{"png",b64(png_encode(surface(c.w,c.h,l.pixels)))}});s.document["entries"][s.selected_key]=e;s.dirty=false;}
+void refresh_pack_choices(){auto& s=state();s.pack_choices=J::array();std::vector<std::filesystem::path> paths;for(const auto& p:std::filesystem::directory_iterator(s.root/"packs"))if(p.path().extension()==".pvptex"&&!p.is_symlink()&&p.is_regular_file())paths.push_back(p.path());std::sort(paths.begin(),paths.end());for(const auto& path:paths)try{s.pack_choices.push_back({{"file",p8(path)},{"name",load_file(path).value("name",p8(path.stem()))}});}catch(const std::exception&){} }
+void load_saved_pack(const std::filesystem::path& path){auto& s=state();auto p=saved_path(path);J doc=validate_pack(load_file(p));s.local_id=p8(p.stem());s.active_local_id=s.local_id;s.document=doc;s.local_document=std::move(doc);s.selected_key.clear();s.canvas={};s.dirty=s.unsaved=false;s.local_enabled=true;save_file(s.root/"selection.json",{{"active",s.local_id},{"enabled",true}});activate_local();set_notice("已启用："+s.active_name);}
+void delete_saved_pack(const std::filesystem::path& path){auto& s=state();const auto p=saved_path(path);const auto id=p8(p.stem());if(!std::filesystem::remove(p))throw std::runtime_error("删除失败，文件已不存在");if(id==s.active_local_id){s.local_document={{"format","pvz-texture-pack-v1"},{"name","我的材质包"},{"entries",J::object()}};s.active_local_id="default";s.local_enabled=false;save_file(s.root/"selection.json",{{"active","default"},{"enabled",false}});activate_local();}if(id==s.local_id)discard_changes();refresh_pack_choices();set_notice("材质包已删除");}
+void import_pack(const std::filesystem::path& file){auto& s=state();J doc=validate_pack(load_file(file));s.local_id="pack-"+digest(doc.dump()).substr(0,16);s.document=std::move(doc);s.selected_key.clear();s.canvas={};s.dirty=false;s.unsaved=true;activate(s.document);set_notice("已导入预览；点击保存才写入材质包列表");}
+void export_pack(const std::filesystem::path& file){commit_canvas();save_file(file,validate_pack(state().document));}
+void initialize(const V& app){auto& s=state();load_inventory();auto parent=u8p(py_str(getattr(getattr(app,Sym("settings_path")),Sym("parent"))));auto root=parent/"texture-packs";if(s.initialized&&s.root==root)return;
+ s.root=root;s.initialized=true;s.local_id="default";s.selected_key.clear();s.canvas={};s.dirty=s.unsaved=false;s.pending_op.clear();s.pending_path.clear();s.room_picker=false;std::filesystem::create_directories(root/"packs");std::filesystem::create_directories(root/"exports");std::filesystem::create_directories(root/"received");
+ try{if(std::filesystem::exists(root/"selection.json"))s.local_id=load_file(root/"selection.json").value("active",std::string("default"));if(s.local_id.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_")!=std::string::npos)s.local_id="default";
+ s.document={{"format","pvz-texture-pack-v1"},{"name","我的材质包"},{"entries",J::object()}};if(std::filesystem::exists(root/"packs"/u8p(s.local_id+".pvptex")))s.document=validate_pack(load_file(root/"packs"/u8p(s.local_id+".pvptex")));s.local_enabled=!std::filesystem::exists(root/"selection.json")||load_file(root/"selection.json").value("enabled",true);
+ }catch(const std::exception& e){set_notice(std::string("材质包加载失败：")+e.what());s.document={{"format","pvz-texture-pack-v1"},{"name","我的材质包"},{"entries",J::object()}};s.local_enabled=false;}
+ s.local_document=s.document;s.active_local_id=s.local_id;activate_local();register_hooks();
+}
+void new_pack(){auto& s=state();s.local_id="pack-"+digest(std::to_string(SDL_GetPerformanceCounter())).substr(0,16);s.document={{"format","pvz-texture-pack-v1"},{"name","新材质包"},{"entries",J::object()}};s.selected_key.clear();s.canvas={};s.dirty=false;s.unsaved=true;set_notice("新包尚未保存；点击保存才写入列表");}
+void commit_canvas(){auto& s=state();if(s.selected_key.empty()||!s.canvas.w||!s.dirty)return;auto& c=s.canvas;J e={{"width",c.w},{"height",c.h},{"png",b64(png_encode(surface(c.w,c.h,c.flatten())))},{"layers",J::array()}};for(const auto& l:c.layers)e["layers"].push_back({{"name",l.name},{"visible",l.visible},{"opacity",l.opacity},{"png",b64(png_encode(surface(c.w,c.h,l.pixels)))}});s.document["entries"][s.selected_key]=e;s.dirty=false;s.unsaved=true;}
 namespace {void swap_canvas(Canvas& a,Canvas& b)noexcept{
  std::swap(a.w,b.w);std::swap(a.h,b.h);std::swap(a.selected,b.selected);std::swap(a.history_bytes,b.history_bytes);
  a.layers.swap(b.layers);a.undo.swap(b.undo);a.redo.swap(b.redo);
@@ -93,7 +102,7 @@ void open_resource(const std::string& key){auto& s=state();
  if(next_key==s.selected_key&&s.dirty&&s.canvas.w==r->w&&s.canvas.h==r->h&&!s.canvas.layers.empty())c.layers=s.canvas.layers;
  else if(s.document["entries"].contains(next_key)){const auto& e=s.document["entries"][next_key];if(e.contains("layers"))for(const auto& l:e["layers"])c.layers.push_back({l["name"],l["visible"],l["opacity"],pixels(png_decode(unb64(l["png"]),r->w,r->h))});else c.layers.push_back({"导入材质",true,255,pixels(png_decode(unb64(e["png"]),r->w,r->h))});}
  else c.layers.push_back({"原始图层",true,255,pixels(original(*r))});
- const bool previous_dirty=s.dirty;if(!s.selected_key.empty())try{save_current(s.local_enabled);}catch(...){s.dirty=previous_dirty;throw;}
+ const bool previous_dirty=s.dirty;if(!s.selected_key.empty())try{commit_canvas();}catch(...){s.dirty=previous_dirty;throw;}
  // Member swaps allocate nothing, so no exception can separate the key from its
  // completed canvas (Canvas's deque move construction may allocate).
  s.selected_key.swap(next_key);swap_canvas(s.canvas,c);s.dirty=false;s.dragging=false;s.selection={};s.fit_pending=true;fit_canvas();}
@@ -109,20 +118,20 @@ void fit_canvas(){auto& s=state();if(!s.canvas.w)return;s.zoom=std::clamp(std::m
 void import_image(const std::filesystem::path& path){auto& s=state();if(!s.canvas.w)throw std::runtime_error("请先选择要绘制的资源");if(std::filesystem::file_size(path)>MAX_PACK)throw std::runtime_error("图片文件超过 32 MB");
  V in=callm(pg::image_module(),Sym("load"),Args{V(p8(path))});auto* image=pg::surf(in);if(image->w()>8192||image->h()>8192||size_t(image->w())*image->h()>MAX_PIXELS)throw std::runtime_error("图片尺寸过大");
  V out=pg::new_surface(s.canvas.w,s.canvas.h,true);SDL_Rect dest{0,0,image->w(),image->h()};if(s.import_mode==1){dest.w=s.canvas.w;dest.h=s.canvas.h;}else if(s.import_mode==0){const double ratio=std::min(double(s.canvas.w)/dest.w,double(s.canvas.h)/dest.h);dest.w=std::max(1,int(dest.w*ratio));dest.h=std::max(1,int(dest.h*ratio));}dest.x=(s.canvas.w-dest.w)/2;dest.y=(s.canvas.h-dest.h)/2;SDL_BlitScaled(image->s,nullptr,pg::surf(out)->s,&dest);s.canvas.checkpoint();s.canvas.layers.at(s.canvas.selected).pixels=pixels(out);s.dirty=true;set_notice("图片已导入当前图层，可撤销");}
-void choose_import(const std::filesystem::path& path){if(path.empty())return;try{auto ext=p8(path.extension());for(char& c:ext)if(c>='A'&&c<='Z')c=char(c-'A'+'a');if(ext==".pvptex"||ext==".json")import_pack(path);else import_image(path);}catch(const std::exception& e){set_notice(std::string("导入失败：")+e.what());}}
+void choose_import(const std::filesystem::path& path){if(path.empty())return;try{auto ext=p8(path.extension());for(char& c:ext)if(c>='A'&&c<='Z')c=char(c-'A'+'a');if(ext==".pvptex"||ext==".json"){if(has_unsaved()){state().pending_op="import_file";state().pending_path=p8(path);}else import_pack(path);}else import_image(path);}catch(const std::exception& e){set_notice(std::string("导入失败：")+e.what());}}
 V artwork(const std::string& name){
  auto& s=state();if(!active())return V::none();
  if(auto it=s.overrides.find(name);it!=s.overrides.end())return it->second;
  if(auto it=s.derived.find(name);it!=s.derived.end())return it->second;
- std::string plain=name;
- for(const char* prefix:{"world:","ui:","bg:","near:","global:"})if(plain.rfind(prefix,0)==0){plain=plain.substr(std::strlen(prefix));break;}
- for(const auto& key:{"world:"+plain,"ui:"+plain,"bg:"+plain,"near:"+plain,"global:"+plain,"raw:图片/"+plain+".png","raw:extract/data/pvp/assets/content/"+plain+".png"})
-  if(auto it=s.overrides.find(key);it!=s.overrides.end())return it->second;
- for(const auto& [key,image]:s.overrides)if(key.rfind("raw:",0)==0){const auto* r=resource(key);if(r&&r->name==plain){s.derived[name]=image;return image;}}
+ // Full resource keys are independent, including raw file entries. Only the
+ // explicit status relationship below derives an image, in the same namespace.
  // Derived status sprites keep the new silhouette. Explicit painted variants win.
  for(const std::string suffix:{"-黑白","-受伤","-冰冻","-灰烬","-魅惑"}){
   if(name.size()<=suffix.size()||name.compare(name.size()-suffix.size(),suffix.size(),suffix)!=0)continue;
   V base=artwork(name.substr(0,name.size()-suffix.size()));if(base.is_none())break;
+  // Original tint helpers mutate their input. Never tint the saved override:
+  // a hurt Dave frame must not permanently whiten every menu's shared Dave.
+  base=callm(base,Sym("copy"),Args{});
   auto world=std::make_unique<Match>();world->pygame=pg::pygame_module();V image;
   if(suffix=="-黑白")image=fn_换黑白(*world,Args{base});
   else {const V color=suffix=="-受伤"?V::tuple({V(255),V(255),V(255)}):suffix=="-灰烬"?V::tuple({V(0),V(0),V(0)}):suffix=="-冰冻"?V::tuple({V(0),V(0),V(255)}):V::tuple({V(128),V(0),V(128)});

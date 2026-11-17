@@ -1,0 +1,314 @@
+{
+  "modules": 204,
+  "tests": 2366,
+  "counts": {
+    "PASS": 2324,
+    "FAIL": 30,
+    "ERROR": 12,
+    "SKIP": 0
+  },
+  "missing": 0,
+  "waived": 15,
+  "unwaived": 27,
+  "new_nonpass": [],
+  "all_nonpass": [
+    {
+      "id": "test_pvp_57_producer_protection.ProducerProtection57Tests.test_ash_500_packet_has_protected_death_threshold_and_no_repeat_fire",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: 275 != 212.5",
+      "new_detail": "AssertionError: 275 != 212.5",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_57_producer_protection.ProducerProtection57Tests.test_native_supplemental_bite_scales_desired_total",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: 1873659910112 not found in {}",
+      "new_detail": "AssertionError: 1551205144112 not found in {}",
+      "detail_identical": false
+    },
+    {
+      "id": "test_pvp_59_features.PvP59Tests.test_masochist_dave_rises_after_3_seconds_instead_of_8",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: 1089 not less than 850",
+      "new_detail": "AssertionError: 1089 not less than 850",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_60_features.PvP60Tests.test_catalog_hud_almanac_and_export_share_prices",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: '4486bb69fab0cb65f12c2304fa14150346aa8b6304f73829eeabdaf064f7f66f' != '40bbdbe49ff07bbdc31d32a842f870cef27fe87b9bdaa8e1d1206ce943c54d09'",
+      "new_detail": "AssertionError: '4486bb69fab0cb65f12c2304fa14150346aa8b6304f73829eeabdaf064f7f66f' != '40bbdbe49ff07bbdc31d32a842f870cef27fe87b9bdaa8e1d1206ce943c54d09'",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_61_features.BalanceAndCatalogTests.test_card_numbers_almanac_and_export",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: '4486bb69fab0cb65f12c2304fa14150346aa8b6304f73829eeabdaf064f7f66f' != '40bbdbe49ff07bbdc31d32a842f870cef27fe87b9bdaa8e1d1206ce943c54d09'",
+      "new_detail": "AssertionError: '4486bb69fab0cb65f12c2304fa14150346aa8b6304f73829eeabdaf064f7f66f' != '40bbdbe49ff07bbdc31d32a842f870cef27fe87b9bdaa8e1d1206ce943c54d09'",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_62_features.BattleTests.test_dense_zombies_bite_the_shell_first",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: 2 != 1",
+      "new_detail": "AssertionError: 2 != 1",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_62_tick_rate.GcPolicyTests.test_overlapping_battles_keep_the_policy_until_the_last_closes",
+      "outcome": "ERROR",
+      "old_detail": "AttributeError: 'module' object has no attribute 'get_threshold'",
+      "new_detail": "AttributeError: 'module' object has no attribute 'get_threshold'",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_63_features.CatalogTests.test_prices_descriptions_and_export_are_current",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: '1.6.0.74.3-typed.20261114' != '1.6.0.71.2-pvp.71'",
+      "new_detail": "AssertionError: '1.6.0.74.3-typed.20261114' != '1.6.0.71.2-pvp.71'",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_63_features.RuntimeTests.test_actual_plant_deployment_charges_each_new_price",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: 60 != 100 : 萝卜伞",
+      "new_detail": "AssertionError: 60 != 100 : 萝卜伞",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_63_features.RuntimeTests.test_actual_zombie_deployment_charges_hp_and_cooldown",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: 200 != 175 : 橄榄球僵尸",
+      "new_detail": "AssertionError: 200 != 175 : 橄榄球僵尸",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_66_ai_gates.VersionSync.test_default_brain_generated_copy_and_factory_agree",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: <function> != 'r22'",
+      "new_detail": "AssertionError: <function> != 'r22'",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_66_ai_gates.VersionSync.test_missing_feature_data_is_an_error",
+      "outcome": "ERROR",
+      "old_detail": "TypeError: unsupported operand type(s) for /: 'function' and 'str'",
+      "new_detail": "TypeError: unsupported operand type(s) for /: 'function' and 'str'",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_66_ai_gates.VersionSync.test_tampering_old_default_stale_and_factory_are_detected",
+      "outcome": "ERROR",
+      "old_detail": "NotImplementedError: stdlib call sync_ai.check",
+      "new_detail": "NotImplementedError: stdlib call sync_ai.check",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_66_feedback.FeedbackCombat.test_new_speed_secrets_change_car_and_air_travel",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: 1.5 != 1.2499941599967228 within 0.14999999999999999 delta (0.25000584000327719 difference) : ('海盗鹦鹉', [52.503645491560746, 65.629250242989201])",
+      "new_detail": "AssertionError: 1.5 != 1.2499941599967228 within 0.14999999999999999 delta (0.25000584000327719 difference) : ('海盗鹦鹉', [52.503645491560746, 65.629250242989201])",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_66_feedback.FeedbackCombat.test_taco_changes_actual_walking_car_and_bird_distance",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: 1 != 0.75",
+      "new_detail": "AssertionError: 1 != 0.75",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_66_feedback.FeedbackCombat.test_taco_real_twenty_second_timer_and_no_duplicate_buff",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: 0.35519999999999996 != 0.31079999999999997 within 7 places (0.044399999999999995 difference)",
+      "new_detail": "AssertionError: 0.35519999999999996 != 0.31079999999999997 within 7 places (0.044399999999999995 difference)",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_66_material_maps_oct16.NativeMaterials.test_taco_effect_survives_snapshot_and_does_not_delay_or_duplicate_buff",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: 0.35519999999999996 != 0.31079999999999997",
+      "new_detail": "AssertionError: 0.35519999999999996 != 0.31079999999999997",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_66_zombie_secrets.EconomyAndAuraTests.test_heal_and_taco_from_the_holder_dave",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: 0.35519999999999996 != 0.31079999999999997 within 7 places (0.044399999999999995 difference)",
+      "new_detail": "AssertionError: 0.35519999999999996 != 0.31079999999999997 within 7 places (0.044399999999999995 difference)",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_66_zombie_secrets.MoreSecretTests.test_trinity_needs_land_water_air_in_own_deck",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: 1.5 != 1.25 within 7 places (0.25 difference)",
+      "new_detail": "AssertionError: 1.5 != 1.25 within 7 places (0.25 difference)",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_69002_balance.Balance.test_all_mobile_cards_keep_charm_and_reciprocal_native_bite_values",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: 9940 != 9970",
+      "new_detail": "AssertionError: 9940 != 9970",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_69002_balance.Balance.test_zombie_prices_charge_the_new_amounts_in_duel_and_duo",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: 250 != 275 : zombie:报纸僵尸",
+      "new_detail": "AssertionError: 250 != 275 : zombie:报纸僵尸",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_balance.BalanceTests.test_native_ashes_and_instant_kills_take_exactly_500_from_a_giant",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: 500 != 250 : plant:火爆辣椒",
+      "new_detail": "AssertionError: 500 != 250 : plant:火爆辣椒",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_balance50.PvP50BalanceTests.test_requested_prices_and_cooldowns",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: 60 != 100",
+      "new_detail": "AssertionError: 60 != 100",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_chili_zombie_fire.ChiliZombieFireTests.test_ash_marked_grave_burns_out",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: 775 != 712.5",
+      "new_detail": "AssertionError: 775 != 712.5",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_content_acceptance.ContentAcceptance.test_actual_native_charm_bites_and_reciprocal_damage",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: 940 != 970 : 墓碑吞噬者僵尸",
+      "new_detail": "AssertionError: 940 != 970 : 墓碑吞噬者僵尸",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_content_acceptance.ContentAcceptance.test_charmed_units_walk_towards_nearest_enemy_and_bite_dave",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: 700.92160000000013 not less than 700 : 普通僵尸",
+      "new_detail": "AssertionError: 700.92160000000013 not less than 700 : 普通僵尸",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_hardening_copy.HardeningCopyTests.test_hardening_reaches_the_pvp_health_override_in_catalogue_and_field",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: 18 != 36",
+      "new_detail": "AssertionError: 18 != 36",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_hero_damage_balance.HeroDamageBalanceTests.test_bite_damage_by_zombie_kind",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: {6} != {3}",
+      "new_detail": "AssertionError: {6} != {3}",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_hero_isolation.HeroIsolationTests.test_every_hero_switch_site_is_registered",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: [] != [('g.update<-hero', 'native_battle.py:_select_hero'), ('g.update<-hero', 'native_battle.py:_switch_plant'), ('g.update<-hero', 'native_targets.py:context'), ('g.update<-hero', 'native_targets.py:damage_hero'), ('loop _COMBAT_HERO_KEYS', 'native_battle.py:_summon_hero'), ('loop _COMBAT_HERO_KEYS', 'native_battle.py:_switch_plant'), ('loop _COMBAT_HERO_KEYS', 'native_targets.py:context'), ('loop _COMBAT_HERO_KEYS', 'native_targets.py:context_effects'), ('select', 'native_battle.py:_deploy'), ('select', 'native_battle.py:_step_original'), ('select', 'native_battle.py:_summon_hero'), ('select', 'native_battle.py:native_cannon')] : REGISTERED 有已不存在的位置，请删掉",
+      "new_detail": "AssertionError: [] != [('g.update<-hero', 'native_battle.py:_select_hero'), ('g.update<-hero', 'native_battle.py:_switch_plant'), ('g.update<-hero', 'native_targets.py:context'), ('g.update<-hero', 'native_targets.py:damage_hero'), ('loop _COMBAT_HERO_KEYS', 'native_battle.py:_summon_hero'), ('loop _COMBAT_HERO_KEYS', 'native_battle.py:_switch_plant'), ('loop _COMBAT_HERO_KEYS', 'native_targets.py:context'), ('loop _COMBAT_HERO_KEYS', 'native_targets.py:context_effects'), ('select', 'native_battle.py:_deploy'), ('select', 'native_battle.py:_step_original'), ('select', 'native_battle.py:_summon_hero'), ('select', 'native_battle.py:native_cannon')] : REGISTERED 有已不存在的位置，请删掉",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_input_latency.PatchSourceCacheTests.test_the_first_build_still_pays_the_parse",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: unexpectedly None : 编译产物应当被记住",
+      "new_detail": "AssertionError: unexpectedly None : 编译产物应当被记住",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_integration.EmbeddedBuilderTests.test_authoritative_start_is_delayed_without_editing_source",
+      "outcome": "ERROR",
+      "old_detail": "AttributeError: 'function' object has no attribute 'read_text'",
+      "new_detail": "AttributeError: 'function' object has no attribute 'read_text'",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_integration.EmbeddedBuilderTests.test_loader_supports_relative_imports_and_missing_standard_library",
+      "outcome": "ERROR",
+      "old_detail": "AttributeError: 'module' object has no attribute 'meta_path'",
+      "new_detail": "AttributeError: 'module' object has no attribute 'meta_path'",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_integration.EmbeddedBuilderTests.test_payload_install_order_and_original_bytecode_are_auditable",
+      "outcome": "ERROR",
+      "old_detail": "NotImplementedError: untranslated: unresolved name compile (test_pvp_integration.py:448)",
+      "new_detail": "NotImplementedError: untranslated: unresolved name compile (test_pvp_integration.py:448)",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_native_physics.NativePhysicsTests.test_original_normal_full_block_matches_every_tick_on_ground_air_wall_and_landing",
+      "outcome": "ERROR",
+      "old_detail": "AttributeError: unsupported function attribute: __code__",
+      "new_detail": "AttributeError: unsupported function attribute: __code__",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_native_physics.NativePhysicsTests.test_zombie_infinite_jump_is_one_documented_operand_change",
+      "outcome": "ERROR",
+      "old_detail": "AttributeError: unsupported function attribute: co_code",
+      "new_detail": "AttributeError: unsupported function attribute: co_code",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_native_targets.NativeTargetTests.test_real_native_pea_collision_routes_original_damage_body_to_zombie_dave",
+      "outcome": "ERROR",
+      "old_detail": "AttributeError: unsupported function attribute: __code__",
+      "new_detail": "AttributeError: unsupported function attribute: __code__",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_network.IdnaCodecRaceTests.test_fresh_process_direct_host_creation_survives_the_codec_race",
+      "outcome": "ERROR",
+      "old_detail": "NotImplementedError: stdlib call textwrap.dedent",
+      "new_detail": "NotImplementedError: stdlib call textwrap.dedent",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_plant_zombie_allegiance.PlantZombieAllegianceTests.test_charmed_peas_cross_torch_at_head_height_and_hit_enemy_zombies",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: 0 is not true : head-height charmed peas must ignite",
+      "new_detail": "AssertionError: 0 is not true : head-height charmed peas must ignite",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_relay.RelayTests.test_collision_retry_is_bounded",
+      "outcome": "ERROR",
+      "old_detail": "AttributeError: Patch target has no attribute choice",
+      "new_detail": "AttributeError: Patch target has no attribute choice",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_review_followup.ReviewFollowupTests.test_chili_giant_survives_entire_first_fire_but_second_chili_kills",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: 500 != 250",
+      "new_detail": "AssertionError: 500 != 250",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_triple_jump.TripleJumpTests.test_the_raised_cap_is_one_operand_byte",
+      "outcome": "ERROR",
+      "old_detail": "AttributeError: unsupported function attribute: co_code",
+      "new_detail": "AttributeError: unsupported function attribute: co_code",
+      "detail_identical": true
+    },
+    {
+      "id": "test_pvp_ui.PvpUITests.test_deck_version_and_almanac_controls",
+      "outcome": "FAIL",
+      "old_detail": "AssertionError: <function> not raised",
+      "new_detail": "AssertionError: <function> not raised",
+      "detail_identical": true
+    }
+  ],
+  "additional_freeze_changed": [],
+  "post_gate_source_changed": [],
+  "pure_typed_passed": true,
+  "product_acceptance_passed": false
+}

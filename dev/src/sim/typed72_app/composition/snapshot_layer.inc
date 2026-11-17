@@ -12,6 +12,9 @@
         PVZ72_COLD_OPTIONAL_STRINGS(O) PVZ72_COLD_OPTIONAL_NUMBERS(O) PVZ72_COLD_OPTIONAL_FLAGS(O)
 #undef O
         if(c.slow.present())j["slow"]=c.slow.is_null()?J(nullptr):std::visit([](auto v){return J(v);},c.slow.get());
+        if(c.defense.present())j["defense"]=opt_json(c.defense);
+        if(c.attention_hits.present())j["attention_hits"]=opt_json(c.attention_hits);
+        if(c.attention_seconds.present())j["attention_seconds"]=opt_json(c.attention_seconds);
         if(c.targets.present())j["targets"]=opt_json(c.targets);
         if(c.native_secret_names.present())j["native_secret_names"]=opt_json(c.native_secret_names);
         return j;
@@ -123,7 +126,7 @@
             row["side"]=std::string(seat_name(team_of(seat)));row["native_side"]=std::string(seat_name(team_of(seat)));
             row["parent_entity"]=nullptr;row["parent_attack"]=nullptr;
             row["w"]=tile*.8;row["h"]=tile*1.9;
-            row["deck"]=deployment.players[i].deck;row["secrets"]=p.secrets;
+            row["deck"]=deployment.players[i].deck;row["secrets"]=p.secrets;if(battle.local_test_mode)row["test_slots"]=true;
             row["input"]={{"move",p.move}};
             row["native_pose"]=published_pose[i].is_null()?frame_json(battle.heroes.hero(seat)):published_pose[i];
             // NativeBattle.select_grave sets players[seat]["selected_grave"] once (解除封印).
@@ -151,9 +154,9 @@
         for(auto i=log.rbegin();i!=log.rend()&&rows.size()<n;++i)if(i->value("event",std::string{})!="input")rows.push_back(&*i);
         J out=J::array();for(auto i=rows.rbegin();i!=rows.rend();++i)out.push_back(**i);return out;
     }
-    J snapshot_json(bool include_frame=true){
+    J snapshot_json(bool include_frame=true,bool include_units=true,bool include_streamed=true){
         J units=J::array();
-        for(const auto& u:published.units){
+        if(include_units)for(const auto& u:published.units){
             J card=nullptr;
             try{card=card_json(placement_view.unit_card(u.original_owner,u.card->id));}catch(const std::exception&){card=J(u.card->id);}
             units.push_back(encode_public_unit(u,card));
@@ -161,14 +164,14 @@
         // Battle.events: emitted events only (inputs are log-only), the last 30.
         J events=recent_events(30);
         J resources=J::array();
-        for(const auto& r:this->resources.records()){
+        if(include_streamed)for(const auto& r:this->resources.records()){
             J row={{"id",r.id},{"side",std::string(seat_name(r.side))},{"amount",r.amount},{"x",r.position.x},{"y",r.position.y},{"born",r.born},{"source",r.source}};
             if(r.shared.present())row["shared"]=opt_json(r.shared);
             if(r.coin.present())row["coin"]=opt_json(r.coin);
             resources.push_back(std::move(row));
         }
         J tentacles=J::array();
-        for(const auto& p:*battle.plant_roster){
+        if(include_streamed)for(const auto& p:*battle.plant_roster){
             if(!p->source.content.present()||p->source.content.is_null()||p->source.content.get()!="抓人草触手")continue;
             if(!(p->hp.present()&&!p->hp.is_null()&&p->hp.get()>0.)||p->dead.present())continue;
             const auto& c=p->content70;
@@ -180,11 +183,15 @@
             scripted_result_fields(result,*room.result);}
         const double now=world.time;
         J out={{"tick",room.tick},{"time",now},{"deathmatch",room.deathmatch},{"result",result},{"audit_error",""},
-                {"players",snapshot_players()},{"units",units},{"projectiles",J::array()},{"resources",resources},
+                {"players",include_streamed?snapshot_players():J::object()},{"units",units},{"projectiles",J::array()},{"resources",resources},
                 {"command",commands.shared==PathMode::follow_hero?"follow":"attack"},{"events",events},{"terrain_revision",published.terrain.revision},
                 {"engine","original-native-250hz"},{"native_tick",battle.heroes.tick},
-                {"native_placement_state",placement_state_json()},
-                {"audio",audio_snapshot()},{"pvp70",{{"projectiles",pvp70_projectiles()},{"tentacles",tentacles}}}};
+                {"native_placement_state",include_streamed?placement_state_json():J::object()},
+                {"audio",audio_snapshot()},{"pvp70",{{"projectiles",include_streamed?pvp70_projectiles():J::array()},{"tentacles",tentacles}}}};
+        if(battle.local_test_mode){
+            J npcs=J::array();for(const auto& target:*battle.targets)if(target.unit&&target.unit->terraria)npcs.push_back(zombie_json(target.unit));
+            out["test_mode"]={{"night",economy_state.night},{"ai_frames",terraria.frames()},{"accumulator",terraria.accumulator()},{"contacts",terraria.contacts_state()},{"npcs",npcs}};
+        }
         if(include_frame)out["native_frame"]=canvas.frame_json(canvas.frames.frame());
         if(hero_flags.shared)out["rally_point"]={{"x",hero_flags.shared->x},{"y",hero_flags.shared->y}};
         if(zsecrets.enabled())out["zsecrets"]=zsecrets_json(now);

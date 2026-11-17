@@ -1,0 +1,12 @@
+[
+{"module":"test_pvp_54_ui","class":"Controls54","test":"test_all_action_keys_are_visible_and_can_move_and_scale_independently","outcome":"PASS","seconds":0.985224,"detail":""},
+{"module":"test_pvp_54_ui","class":"Controls54","test":"test_gold_bloom_native_opening_mask_on_desktop_and_touch","outcome":"PASS","seconds":0.523563,"detail":""},
+{"module":"test_pvp_54_ui","class":"Controls54","test":"test_help_exposes_water_damage_and_touch_toggle_on_pages","outcome":"PASS","seconds":0.200756,"detail":""},
+{"module":"test_pvp_54_ui","class":"Controls54","test":"test_opening_and_deathmatch_cooldown_masks_use_authoritative_remaining_time","outcome":"PASS","seconds":0.561106,"detail":""},
+{"module":"test_pvp_54_ui","class":"Controls54","test":"test_rally_drag_back_to_any_button_never_places","outcome":"PASS","seconds":0.48859,"detail":""},
+{"module":"test_pvp_54_ui","class":"Controls54","test":"test_rally_first_tap_arms_second_world_tap_places_and_tap_cancels","outcome":"PASS","seconds":0.509025,"detail":""},
+{"module":"test_pvp_54_ui","class":"Controls54","test":"test_secrets_last_slots_match_both_renderers_and_rebound_number_keys","outcome":"PASS","seconds":0.526345,"detail":""},
+{"module":"test_pvp_54_ui","class":"Controls54","test":"test_spike_card_cost_follows_actual_native_charge_and_floor","outcome":"PASS","seconds":0.613689,"detail":""},
+{"module":"test_pvp_54_ui","class":"Controls54","test":"test_teleport_tap_toggles_feedback_and_world_tap_executes_native_for_both_sides","outcome":"PASS","seconds":1.12303,"detail":""},
+{"module":"test_pvp_54_ui","class":"Controls54","test":"test_water_graves_hidden_in_dry_draft_grid_but_kept_in_wet_grid_and_almanac","outcome":"PASS","seconds":0.175605,"detail":""}
+]

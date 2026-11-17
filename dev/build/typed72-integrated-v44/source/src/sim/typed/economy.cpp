@@ -60,8 +60,9 @@ double Economy::day_payments(int64_t previous,int64_t now,double interval){
     return std::trunc(count);
 }
 void Economy::sky(double elapsed,const EconomyRules& rules,bool multi_plant){
-    state_.sky_progress=state_.night?0.:state_.sky_progress+elapsed;
-    if(state_.night || state_.sky_progress+1e-9<state_.sky_interval)return;
+    const bool blocked=state_.night||state_.rain;
+    state_.sky_progress=blocked?0.:state_.sky_progress+elapsed;
+    if(blocked || state_.sky_progress+1e-9<state_.sky_interval)return;
     state_.sky_progress=std::max(0.,state_.sky_progress-state_.sky_interval);
     const auto width=world_.world_width.get(),tile=world_.runtime.tile;
     const auto x=world_.room_rng.uniform(0.,width);double floor=world_.world_height.get();

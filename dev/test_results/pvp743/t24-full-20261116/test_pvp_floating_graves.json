@@ -1,0 +1,5 @@
+[
+{"module":"test_pvp_floating_graves","class":"FloatingGraves","test":"test_banning_normal_zombie_does_not_ban_grave_native_template","outcome":"PASS","seconds":1.62546,"detail":""},
+{"module":"test_pvp_floating_graves","class":"FloatingGraves","test":"test_four_graves_water_top_preview_anchor_production_and_duck_exit","outcome":"PASS","seconds":0.79752,"detail":""},
+{"module":"test_pvp_floating_graves","class":"FloatingGraves","test":"test_original_duck_ring_visual","outcome":"PASS","seconds":0.0048151,"detail":""}
+]

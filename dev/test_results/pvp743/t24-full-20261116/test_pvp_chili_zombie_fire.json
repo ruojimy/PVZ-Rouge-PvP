@@ -1,0 +1,7 @@
+[
+{"module":"test_pvp_chili_zombie_fire","class":"ChiliZombieFireTests","test":"test_ash_marked_grave_burns_out","outcome":"FAIL","seconds":1.47872,"detail":"AssertionError: 775 != 712.5"},
+{"module":"test_pvp_chili_zombie_fire","class":"ChiliZombieFireTests","test":"test_doom_zombie_explosion_respects_allegiance_in_battle","outcome":"PASS","seconds":0.567175,"detail":""},
+{"module":"test_pvp_chili_zombie_fire","class":"ChiliZombieFireTests","test":"test_enemy_hero_takes_exactly_one_clown_level_hit","outcome":"PASS","seconds":1.3249,"detail":""},
+{"module":"test_pvp_chili_zombie_fire","class":"ChiliZombieFireTests","test":"test_fire_hurts_enemy_plants_not_own_zombies","outcome":"PASS","seconds":0.567873,"detail":""},
+{"module":"test_pvp_chili_zombie_fire","class":"ChiliZombieFireTests","test":"test_own_hero_launches_once_and_never_relauches_from_tail_fire","outcome":"PASS","seconds":1.42583,"detail":""}
+]

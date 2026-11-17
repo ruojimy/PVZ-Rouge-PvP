@@ -1,0 +1,13 @@
+[
+{"module":"test_pvp_70_coop","class":"CoopAIDeck","test":"test_teammate_considers_basin_for_aquatic_cards_on_dry_map","outcome":"PASS","seconds":0.0490486,"detail":""},
+{"module":"test_pvp_70_coop","class":"CoopNative","test":"test_actual_reaper_bone_grave_is_not_a_live_enemy","outcome":"PASS","seconds":0.108992,"detail":""},
+{"module":"test_pvp_70_coop","class":"CoopNative","test":"test_at_most_three_graves_active_and_finished_graves_rotate","outcome":"PASS","seconds":0.0166567,"detail":""},
+{"module":"test_pvp_70_coop","class":"CoopNative","test":"test_director_spawns_hook_and_reaper_with_wave_identity","outcome":"PASS","seconds":0.0156918,"detail":""},
+{"module":"test_pvp_70_coop","class":"CoopNative","test":"test_dormant_grave_diverts_nothing","outcome":"PASS","seconds":0.014612,"detail":""},
+{"module":"test_pvp_70_coop","class":"CoopNative","test":"test_every_grave_kind_serves_its_nearest_point_at_25_percent","outcome":"PASS","seconds":0.0153257,"detail":""},
+{"module":"test_pvp_70_coop","class":"CoopNative","test":"test_new_plants_deploy_in_coop","outcome":"PASS","seconds":0.0166374,"detail":""},
+{"module":"test_pvp_70_coop","class":"CoopNative","test":"test_night_grave_grows_at_least_8_tiles_from_every_plant_dave","outcome":"PASS","seconds":0.0639993,"detail":""},
+{"module":"test_pvp_70_coop","class":"Pools","test":"test_basin_unlocks_aquatic_campaign_deck_on_dry_map","outcome":"PASS","seconds":0.0003896,"detail":""},
+{"module":"test_pvp_70_coop","class":"Pools","test":"test_new_plants_and_tentacle_secret_are_campaign_rewards","outcome":"PASS","seconds":0.0006037,"detail":""},
+{"module":"test_pvp_70_coop","class":"Pools","test":"test_new_zombies_follow_tier_unlock_days","outcome":"PASS","seconds":0.0001168,"detail":""}
+]

@@ -1,0 +1,43 @@
+{
+  "module": "test_pvp_66_ai_gates",
+  "exit": 1,
+  "seconds": 5.713,
+  "expected": 10,
+  "results": 10,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": false,
+  "accepted": true,
+  "counts": {
+    "PASS": 7,
+    "FAIL": 1,
+    "ERROR": 2,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [
+    {
+      "id": "test_pvp_66_ai_gates.VersionSync.test_default_brain_generated_copy_and_factory_agree",
+      "outcome": "FAIL",
+      "detail_sha256": "ffc97af828b733d3b347336b61a82b568e90561ad07f87061783d26e28ef35a3",
+      "reason": "Python AI 源码同步/版本元数据工具检查；原 Python owner 已通过。"
+    },
+    {
+      "id": "test_pvp_66_ai_gates.VersionSync.test_missing_feature_data_is_an_error",
+      "outcome": "ERROR",
+      "detail_sha256": "37dcf96c804abebc1a6d5f98566d30c9840fd9d4030801767d2d699ce1381fc1",
+      "reason": "Python AI 源码同步/版本元数据工具检查；原 Python owner 已通过。"
+    },
+    {
+      "id": "test_pvp_66_ai_gates.VersionSync.test_tampering_old_default_stale_and_factory_are_detected",
+      "outcome": "ERROR",
+      "detail_sha256": "6fe75126365e04160b3235b8b36d1c4ae86d80703511b7292324af7db5d78d56",
+      "reason": "Python AI 源码同步/版本元数据工具检查；原 Python owner 已通过。"
+    }
+  ],
+  "unexpected_nonpass": [],
+  "resolved_waivers": []
+}

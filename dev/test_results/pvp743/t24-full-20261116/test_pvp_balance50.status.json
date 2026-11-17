@@ -1,0 +1,31 @@
+{
+  "module": "test_pvp_balance50",
+  "exit": 1,
+  "seconds": 1.145,
+  "expected": 6,
+  "results": 6,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": false,
+  "accepted": false,
+  "counts": {
+    "PASS": 5,
+    "FAIL": 1,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [],
+  "unexpected_nonpass": [
+    {
+      "id": "test_pvp_balance50.PvP50BalanceTests.test_requested_prices_and_cooldowns",
+      "outcome": "FAIL",
+      "detail_sha256": "4269c5843e559e3e6a0c714d1f6df702058f88555e7f5b8c3ae165efbcceaa76",
+      "reason": "not_waived"
+    }
+  ],
+  "resolved_waivers": []
+}

@@ -1,0 +1,43 @@
+{
+  "module": "test_pvp_integration",
+  "exit": 1,
+  "seconds": 0.966,
+  "expected": 17,
+  "results": 17,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": false,
+  "accepted": true,
+  "counts": {
+    "PASS": 14,
+    "FAIL": 0,
+    "ERROR": 3,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [
+    {
+      "id": "test_pvp_integration.EmbeddedBuilderTests.test_authoritative_start_is_delayed_without_editing_source",
+      "outcome": "ERROR",
+      "detail_sha256": "c1c7ad697c3ca95e27d65192db3d01fd4179f7e209ee926360298e9d548ceaa4",
+      "reason": "Python 动态加载/compile/meta_path 构建器检查；原 Python owner 已通过。"
+    },
+    {
+      "id": "test_pvp_integration.EmbeddedBuilderTests.test_loader_supports_relative_imports_and_missing_standard_library",
+      "outcome": "ERROR",
+      "detail_sha256": "d109d1bb189a0c54b6e67269ee49126d14f002cf0a8ca7d88f98f56d21fc109e",
+      "reason": "Python 动态加载/compile/meta_path 构建器检查；原 Python owner 已通过。"
+    },
+    {
+      "id": "test_pvp_integration.EmbeddedBuilderTests.test_payload_install_order_and_original_bytecode_are_auditable",
+      "outcome": "ERROR",
+      "detail_sha256": "e34f9924777de552fe009c6e6629a16546fcce69873f9df275a92cca8bf697ff",
+      "reason": "Python 动态加载/compile/meta_path 构建器检查；原 Python owner 已通过。"
+    }
+  ],
+  "unexpected_nonpass": [],
+  "resolved_waivers": []
+}

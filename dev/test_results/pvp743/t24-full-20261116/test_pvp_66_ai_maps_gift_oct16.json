@@ -1,0 +1,8 @@
+[
+{"module":"test_pvp_66_ai_maps_gift_oct16","class":"ContinuousLadder","test":"test_existing_climb_yields_immediately_to_safety_or_new_direction","outcome":"PASS","seconds":0.0044775,"detail":""},
+{"module":"test_pvp_66_ai_maps_gift_oct16","class":"ContinuousLadder","test":"test_native_climb_keeps_key_held_during_alignment_and_goal_refresh","outcome":"PASS","seconds":0.398718,"detail":""},
+{"module":"test_pvp_66_ai_maps_gift_oct16","class":"GiftCooldown","test":"test_each_sender_waits_twelve_seconds_and_boundary_succeeds","outcome":"PASS","seconds":0.0009369,"detail":""},
+{"module":"test_pvp_66_ai_maps_gift_oct16","class":"GiftCooldown","test":"test_rejected_grants_do_not_spend_or_start_cooldown","outcome":"PASS","seconds":0.0009567,"detail":""},
+{"module":"test_pvp_66_ai_maps_gift_oct16","class":"TeamMapsAndHUD","test":"test_all_bundled_maps_select_in_duo_and_rotate_in_coop","outcome":"PASS","seconds":1.29339,"detail":""},
+{"module":"test_pvp_66_ai_maps_gift_oct16","class":"TeamMapsAndHUD","test":"test_desktop_minimap_does_not_cover_gift_or_other_action_buttons","outcome":"PASS","seconds":0.131711,"detail":""}
+]

@@ -9,6 +9,10 @@ JOBS=${2:-1}
 SRC=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
 python3 "$SRC/tools/pvp74_apply_hooks.py" --check
 python3 "$SRC/tools/pvp741_apply_hooks.py" --check
+python3 "$SRC/tools/pvp744_controls_hooks.py" --check
+python3 "$SRC/tools/pvp744_testmode_hooks.py" --check
+python3 "$SRC/tools/pvp744_feedback_sources.py" --check
+python3 "$SRC/tools/pvp743_network_sources.py" --check
 NDK=${PVZ_ANDROID_NDK:-$HOME/pvz-android/sdk/ndk/25.1.8937393}
 DIST=${PVZ_ANDROID_SDL_DIST:-$HOME/pvz-android/build/dists/pvzpvp}
 WORK=${PVZ_ANDROID_WORK:-$HOME/pvz-native-android}
@@ -19,7 +23,7 @@ ABIROOT="$CANDIDATE/jniLibs/$ABI"
 [[ ! -e "$ABIROOT" ]] || { echo "ABI candidate exists: $ABIROOT" >&2; exit 2; }
 [[ -f "$NDK/build/cmake/android.toolchain.cmake" ]] || { echo 'Android NDK missing' >&2; exit 2; }
 mkdir -p "$CANDIDATE/jniLibs" "$WORK/build-$ABI"
-fingerprint() { (cd "$SRC"; find src android extract/data extract/schema tools/pvp72_sources build/typed72-integrated-v44/source/src/sim/typed build/typed72-match-v1/match_probe.cpp build/typed72-match-v1/frame_layer.inc build/typed72-match-v1/snapshot_layer.inc tools/pvp741_hooks.json -type f ! -path '*/__pycache__/*' ! -path 'src/uitools/*' ! -path 'src/cpptests/*' ! -path 'src/tools/*' ! -path 'src/sim/pvp/shim_headless/*' -print0 | sort -z | xargs -0 sha256sum); }
+fingerprint() { (cd "$SRC"; find src android extract/data extract/schema extract/assets tools/pvp72_sources build/typed72-integrated-v44/source/src/sim/typed build/typed72-match-v1/match_probe.cpp build/typed72-match-v1/frame_layer.inc build/typed72-match-v1/snapshot_layer.inc tools/pvp741_hooks.json tools/pvp743_network_sources.py tools/pvp743_network_sources.json tools/pvp744_controls_hooks.py tools/pvp744_controls_sources.json tools/pvp744_testmode_hooks.py tools/pvp744_feedback_sources.py tools/pvp744_feedback_sources.json third_party/zlib-1.3.2-compress -type f ! -path '*/__pycache__/*' ! -path 'src/uitools/*' ! -path 'src/cpptests/*' ! -path 'src/tools/*' ! -path 'src/sim/pvp/shim_headless/*' -print0 | sort -z | xargs -0 sha256sum); }
 fingerprint > "$CANDIDATE/source-$ABI.before.sha256"
 mkdir "$ABIROOT"
 cp "$DIST/libs/$ABI/"libSDL2*.so "$ABIROOT/"

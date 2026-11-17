@@ -445,7 +445,8 @@ V f_draw_map_select(const Args& A) {
         }
         (void)(callm(L_r, SY("text"), Args{L_note, V::tuple({L_right, (L_connection_y + V(83.0))}), pm_menu_view::INK, V(12.0), L_right_w}));
     } else {
-        (void)(callm(L_r, SY("text"), Args{SV("本地双人演练 · 无自动对手"), V::tuple({L_right, (L_connection_y + V(10.0))}), pm_menu_view::INK, V(16.0), L_right_w}));
+        (void)(callm(L_r, SY("text"), Args{SV("本地双人演练 · 无自动对手"), V::tuple({L_right, (L_connection_y + V(10.0))}), pm_menu_view::INK, V(16.0), (L_right_w-V(184))}));
+        if(L_local_test.truthy()&&!L_scripted.truthy())callm(L_r,SY("button"),Args{SV("测试模式"),V::tuple({L_right+L_right_w-V(170),L_connection_y,V(170),V(36)}),V::tuple({SV("test74"),SV("start")})}); // PvP744 local test entry
     }
     if ((py::m_get(L_view, SV("spectating"))).truthy()) {
         (void)(callm(L_r, SY("text"), Args{SV("观战中 · 点击空位入座"), V::tuple({L_right, (L_footer_y + V(11.0))}), pm_menu_view::INK, V(17.0), (L_right_w - V(150.0))}));

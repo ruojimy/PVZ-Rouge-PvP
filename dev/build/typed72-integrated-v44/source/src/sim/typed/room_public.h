@@ -27,6 +27,7 @@ struct RoomPublishedUnit {
     bool mobile=false,burrowed=false,temporary=false,awake=true,floating=false,frozen=false,slowed=false,buttered=false,stunned=false;
     double production_rate=1.,drowsy_level=0.;bool mature=false,torch_blue=false,drowsy=false,orphan_barrel=false;
     int poison_level=0;std::optional<std::string> copy_card;
+    std::optional<double> defense;
     std::optional<bool> first_soldier_ready;
     std::vector<std::pair<std::string,double>> secret_speed;
 };

@@ -1,0 +1,12 @@
+[
+{"module":"test_pvp_input_latency","class":"InputLatencyTests","test":"test_a_reported_press_is_never_counted_twice","outcome":"PASS","seconds":0.036242,"detail":""},
+{"module":"test_pvp_input_latency","class":"InputLatencyTests","test":"test_a_reported_press_jumps_without_a_sampled_release","outcome":"PASS","seconds":0.0593287,"detail":""},
+{"module":"test_pvp_input_latency","class":"InputLatencyTests","test":"test_a_side_that_only_samples_still_jumps","outcome":"PASS","seconds":0.0297978,"detail":""},
+{"module":"test_pvp_input_latency","class":"InputLatencyTests","test":"test_the_authoritative_payload_is_resolved_once","outcome":"PASS","seconds":0.012167,"detail":""},
+{"module":"test_pvp_input_latency","class":"InputLatencyTests","test":"test_the_host_pushes_battle_snapshots_at_twenty_hertz","outcome":"PASS","seconds":0.0001269,"detail":""},
+{"module":"test_pvp_input_latency","class":"InputLatencyTests","test":"test_the_third_jump_waits_for_the_native_lock","outcome":"PASS","seconds":0.86043,"detail":""},
+{"module":"test_pvp_input_latency","class":"InputLatencyTests","test":"test_two_presses_in_one_frame_are_both_queued","outcome":"PASS","seconds":0.0297827,"detail":""},
+{"module":"test_pvp_input_latency","class":"InputLatencyTests","test":"test_without_the_secret_the_cap_stays_two","outcome":"PASS","seconds":0.219268,"detail":""},
+{"module":"test_pvp_input_latency","class":"PatchSourceCacheTests","test":"test_compiled_once_but_namespaces_stay_private","outcome":"PASS","seconds":0.0050572,"detail":""},
+{"module":"test_pvp_input_latency","class":"PatchSourceCacheTests","test":"test_the_first_build_still_pays_the_parse","outcome":"FAIL","seconds":7.27e-05,"detail":"AssertionError: unexpectedly None : 编译产物应当被记住"}
+]

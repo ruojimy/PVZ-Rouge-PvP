@@ -3,6 +3,8 @@
 #include "sim/typed/native_tracking.h"
 #include "sim/typed/plant_spawn.h"
 #include "sim/typed/projectile_rules.h"
+#include <map>
+#include <tuple>
 
 namespace pvz::typed72 {
 struct ZombieNavigation {
@@ -49,6 +51,10 @@ private:
     TargetIndexes& indexes_;
     ZombieMotionServices& callbacks_;
     PlantLifecycle& plants_;
+    struct AttentionRoute {FloodState flood;int64_t tick=-1;};
+    std::map<std::tuple<bool,int,int>,AttentionRoute> attention_routes_;
+    std::shared_ptr<std::vector<int>> attention_field_;
+    void attention_route(const ZombieRef&,ZombieMotionFrame&);
     ZombieRef zombie(size_t index)const;
     bool secret(std::string_view)const;
     TileRef tile(int row,int64_t col)const;

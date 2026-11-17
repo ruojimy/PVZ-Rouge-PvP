@@ -1,0 +1,8 @@
+[
+{"module":"test_pvp_balance50","class":"PvP50BalanceTests","test":"test_requested_prices_and_cooldowns","outcome":"FAIL","seconds":0.0003893,"detail":"AssertionError: 60 != 100"},
+{"module":"test_pvp_balance50","class":"PvP50BalanceTests","test":"test_sea_shroom_gas_poison_on_native_hit","outcome":"PASS","seconds":0.0205415,"detail":""},
+{"module":"test_pvp_balance50","class":"PvP50BalanceTests","test":"test_secrets_and_health_match_native_units","outcome":"PASS","seconds":0.0132617,"detail":""},
+{"module":"test_pvp_balance50","class":"PvP50BalanceTests","test":"test_split_pea_heads_aim_independently_in_both_mirrors","outcome":"PASS","seconds":0.0313179,"detail":""},
+{"module":"test_pvp_balance50","class":"PvP50BalanceTests","test":"test_star_damage_on_native_zombie_and_hero","outcome":"PASS","seconds":0.0136261,"detail":""},
+{"module":"test_pvp_balance50","class":"PvP50BalanceTests","test":"test_star_projectile_real_collision_is_30","outcome":"PASS","seconds":0.19957,"detail":""}
+]

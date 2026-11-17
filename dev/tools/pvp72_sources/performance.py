@@ -263,6 +263,13 @@ class AppProfiler:
         self.frame_open=False
         now=time.perf_counter();self.phases.record('frame_work',(now-self.frame_start)*1000.)
         self.frame_count+=1
+        # These three disjoint authority phases are separate from the inclusive
+        # room_update/refresh markers, never added to those parent measurements.
+        state=self.app.state
+        for key in ('sim','room_overhead','refresh'):
+            self.phases.record('authority_'+key,state.get('pacing_'+key+'_ms',0.))
+        kind='advanced' if state.get('pacing_advanced_seconds',0.)>0 else 'idle'
+        self.phases.record('refresh_'+kind,state.get('pacing_refresh_ms',0.))
         if self.app.frames>self.render_before:
             if self.last_present is not None:
                 self.phases.record('presentation_interval_actual',(now-self.last_present)*1000.)
@@ -291,7 +298,7 @@ class AppProfiler:
             room_ticks=self.room_ticks,room_ticks_per_second=self.room_ticks/max(.001,wall),
             simulated_seconds=self.native_ticks/250.,simulation_wall_ratio=self.native_ticks/250./max(.001,wall),
             sample_window='last 6000 frames / last 6000 native ticks',frame_phases_ms=self.phases.summary(),
-            over_budget_pct={str(ms):100.*sum(v>ms for v in frames)/max(1,len(frames)) for ms in (16.7,33.3,50.)},
+            over_budget_pct={str(ms):100.*sum(v>ms for v in frames)/max(1,len(frames)) for ms in (16.7,33.3,50.,100.,250.)},
             population=self.population,crowd_samples=list(self.crowd_samples),
             native_phases_ms=self.native.summary() if self.native else {},
             nested_patch_scans_ms=self.scans.summary())
@@ -319,10 +326,12 @@ class AppProfiler:
         transport=self.app.transport
         report['transport']=transport.statistics() if transport is not None and hasattr(transport,'statistics') else dict(available=False)
         room=self.app.room
-        report['scheduling']=dict(native_hz=250,room_hz=room.battle.rules['tick_rate'] if room and room.battle else None,
-            max_room_steps_per_update=12,backlog_seconds=room.accumulator if room else None,
+        pacing_configuration=self.app.state.get('pacing_configuration') or {}
+        report['scheduling']=dict(configuration=pacing_configuration,native_hz=250,room_hz=room.battle.rules['tick_rate'] if room and room.battle else None,
+            max_room_steps_per_update=pacing_configuration.get('step_limit',12),step_budget_ms=pacing_configuration.get('step_budget_ms',0.),
+            controller_candidate=pacing_configuration.get('candidate',False),backlog_seconds=room.accumulator if room else None,
             snapshot_period_seconds=self.app.snapshot_interval(),simulation_time_dropped=False,
-            note='Existing independent logic/presentation/snapshot/heartbeat schedules retained; twelve room steps is a count bound, not a frame-time guarantee.')
+            note='Budget yields occur after complete room steps; one step can exceed budget. authority_sim + authority_room_overhead + authority_refresh are disjoint; room_update/refresh include them, do not sum both sets.')
         b=self.battle
         if b:
             g=b.graphics;t=g.pygame.transform;p=g.recorder.latest_pixels

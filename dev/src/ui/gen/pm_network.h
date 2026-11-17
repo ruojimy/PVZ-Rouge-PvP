@@ -99,6 +99,7 @@ struct C__BaseTransport : PyObj {
     V a__thread;
     V a__queued_bytes;
     V a__peer_queued_bytes;
+    V a__snapshot_commands;
     V a__wake_lock;
     V a__wake_reader;
     V a__wake_writer;

@@ -1,0 +1,15 @@
+[
+{"module":"test_pvp_53_features","class":"Editor53","test":"test_background_cancels_drag_and_preserves_placed_flag","outcome":"PASS","seconds":0.151392,"detail":""},
+{"module":"test_pvp_53_features","class":"Editor53","test":"test_desktop_drag_cancel_and_read_only","outcome":"PASS","seconds":0.0775602,"detail":""},
+{"module":"test_pvp_53_features","class":"Editor53","test":"test_touch_drag_rally_does_not_jump_or_scroll","outcome":"PASS","seconds":0.0802307,"detail":""},
+{"module":"test_pvp_53_features","class":"Editor53","test":"test_weather_and_wall_tools_render_and_save","outcome":"PASS","seconds":0.0994887,"detail":""},
+{"module":"test_pvp_53_features","class":"Map53","test":"test_all_templates_keep_original_walls_and_invalid_data_rejected","outcome":"PASS","seconds":0.0696421,"detail":""},
+{"module":"test_pvp_53_features","class":"Map53","test":"test_original_rain_variants_safe_spawns_and_clear_switch","outcome":"PASS","seconds":0.55382,"detail":""},
+{"module":"test_pvp_53_features","class":"Map53","test":"test_walls_persist_undo_and_never_change_collision","outcome":"PASS","seconds":0.04292,"detail":""},
+{"module":"test_pvp_53_features","class":"Rally53","test":"test_charmed_native_movement_is_independent_of_rally","outcome":"PASS","seconds":0.556813,"detail":""},
+{"module":"test_pvp_53_features","class":"Rally53","test":"test_rally_move_arrive_clear_and_dave_is_not_moved","outcome":"PASS","seconds":1.03005,"detail":""},
+{"module":"test_pvp_53_features","class":"Rally53","test":"test_rally_special_mobile_units_and_charmed_parrot","outcome":"PASS","seconds":0.363245,"detail":""},
+{"module":"test_pvp_53_features","class":"Rally53","test":"test_rally_validation_charm_and_solid_target","outcome":"PASS","seconds":0.0149314,"detail":""},
+{"module":"test_pvp_53_features","class":"Rally53","test":"test_recording_replays_place_replace_and_clear","outcome":"PASS","seconds":0.871596,"detail":""},
+{"module":"test_pvp_53_features","class":"Sync53","test":"test_three_clients_share_walls_weather_and_rally","outcome":"PASS","seconds":1.49673,"detail":""}
+]

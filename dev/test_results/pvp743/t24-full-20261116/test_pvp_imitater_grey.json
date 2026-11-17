@@ -1,0 +1,4 @@
+[
+{"module":"test_pvp_imitater_grey","class":"ImitaterGreyTests","test":"test_every_new_plant_copy_is_grey","outcome":"PASS","seconds":5.12383,"detail":""},
+{"module":"test_pvp_imitater_grey","class":"ImitaterGreyTests","test":"test_grabber_heads_follow_their_copied_root","outcome":"PASS","seconds":0.788366,"detail":""}
+]

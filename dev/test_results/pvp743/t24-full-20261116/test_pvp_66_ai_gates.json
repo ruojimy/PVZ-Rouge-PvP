@@ -1,0 +1,12 @@
+[
+{"module":"test_pvp_66_ai_gates","class":"FixedRooms","test":"test_coop_room_switching_pause_and_background_leave_no_leftovers","outcome":"PASS","seconds":1.75394,"detail":""},
+{"module":"test_pvp_66_ai_gates","class":"FixedRooms","test":"test_coop_room_teammate_plays_the_day_and_host_keeps_the_campaign","outcome":"PASS","seconds":1.55367,"detail":""},
+{"module":"test_pvp_66_ai_gates","class":"FixedRooms","test":"test_coop_teammate_plants_on_the_snow_map","outcome":"PASS","seconds":0.86622,"detail":""},
+{"module":"test_pvp_66_ai_gates","class":"FixedRooms","test":"test_duel_room_uses_the_synced_brain_and_rebuilds_per_match","outcome":"PASS","seconds":0.269903,"detail":""},
+{"module":"test_pvp_66_ai_gates","class":"FixedRooms","test":"test_duo_room_every_builtin_seat_uses_the_synced_brain","outcome":"PASS","seconds":0.347058,"detail":""},
+{"module":"test_pvp_66_ai_gates","class":"IdentityCheck","test":"test_flags_identity_words_and_passes_normal_text","outcome":"PASS","seconds":0.0001217,"detail":""},
+{"module":"test_pvp_66_ai_gates","class":"IdentityCheck","test":"test_injected_room_name_is_caught","outcome":"PASS","seconds":0.0001272,"detail":""},
+{"module":"test_pvp_66_ai_gates","class":"VersionSync","test":"test_default_brain_generated_copy_and_factory_agree","outcome":"FAIL","seconds":7.34e-05,"detail":"AssertionError: <function> != 'r22'"},
+{"module":"test_pvp_66_ai_gates","class":"VersionSync","test":"test_missing_feature_data_is_an_error","outcome":"ERROR","seconds":0.00072,"detail":"TypeError: unsupported operand type(s) for /: 'function' and 'str'"},
+{"module":"test_pvp_66_ai_gates","class":"VersionSync","test":"test_tampering_old_default_stale_and_factory_are_detected","outcome":"ERROR","seconds":0.0006688,"detail":"NotImplementedError: stdlib call sync_ai.check"}
+]

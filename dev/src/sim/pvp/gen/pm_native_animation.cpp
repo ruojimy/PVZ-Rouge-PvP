@@ -357,6 +357,7 @@ V C_DrawReplay::m_render(const Args& A) {
     V L_layer = (A.size() > 5 || A.has_kw(SY("layer"))) ? A.get(5, SY("layer"), nullptr) : V(V::none());
     V L_offsets = (A.size() > 6 || A.has_kw(SY("offsets"))) ? A.get(6, SY("offsets"), nullptr) : V(V::none());
     V L_local_pixels = (A.size() > 7 || A.has_kw(SY("local_pixels"))) ? A.get(7, SY("local_pixels"), nullptr) : V(V::none());
+    if(L_frame.is_dict()&&L_frame.find(SV("_typed_local_frame")))L_frame=py::native_hook(SV("pvp744.local_frame"),Args{L_frame,L_screen,L_point,L_scale,L_clip,L_layer,L_offsets});
     if(py::has_native_hook("texture74.render_begin")&&py::native_hook(V("texture74.render_begin"),Args{self()}).truthy())L_local_pixels=V::none(); // PvP74
     V L_area;
     V L_base;

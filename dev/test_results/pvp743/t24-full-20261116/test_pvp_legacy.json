@@ -1,0 +1,15 @@
+[
+{"module":"test_pvp_legacy","class":"LegacyCombatTests","test":"test_chili_native_plant_effect_kept_zombie_fire_guarded","outcome":"PASS","seconds":0.0057342,"detail":""},
+{"module":"test_pvp_legacy","class":"LegacyCombatTests","test":"test_doom_charm_changes_allegiance_without_plant_secret","outcome":"PASS","seconds":0.005665,"detail":""},
+{"module":"test_pvp_legacy","class":"LegacyCombatTests","test":"test_doom_real_death_entrypoint_enemy_filter_and_dedup","outcome":"PASS","seconds":0.0044955,"detail":""},
+{"module":"test_pvp_legacy","class":"LegacyCombatTests","test":"test_doom_rechecks_indices_after_native_death_removal","outcome":"PASS","seconds":0.0042968,"detail":""},
+{"module":"test_pvp_legacy","class":"LegacyCombatTests","test":"test_fume_actual_attack_keeps_enemy_plant_damage","outcome":"PASS","seconds":0.0043277,"detail":""},
+{"module":"test_pvp_legacy","class":"LegacyCombatTests","test":"test_installs_actual_patch_globals_and_is_idempotent","outcome":"PASS","seconds":0.0041231,"detail":""},
+{"module":"test_pvp_legacy","class":"LegacyCombatTests","test":"test_missing_or_copied_namespace_cannot_silently_install","outcome":"PASS","seconds":0.004544,"detail":""},
+{"module":"test_pvp_legacy","class":"LegacyCombatTests","test":"test_normal_doom_behavior_is_forwarded_unchanged","outcome":"PASS","seconds":0.0046026,"detail":""},
+{"module":"test_pvp_legacy","class":"LegacyCombatTests","test":"test_pea_hero_collision_was_real_and_other_mode_stays_identical","outcome":"PASS","seconds":0.0044388,"detail":""},
+{"module":"test_pvp_legacy","class":"LegacyCombatTests","test":"test_real_fallback_damage_is_reproduced_then_blocked","outcome":"PASS","seconds":0.0041689,"detail":""},
+{"module":"test_pvp_legacy","class":"LegacyCombatTests","test":"test_real_projectile_update_passes_allied_hero_then_hits_plant","outcome":"PASS","seconds":0.0042668,"detail":""},
+{"module":"test_pvp_legacy","class":"LegacyCombatTests","test":"test_stale_squash_record_cannot_hit_hero","outcome":"PASS","seconds":0.0041965,"detail":""},
+{"module":"test_pvp_legacy","class":"LegacyCombatTests","test":"test_target_selectors_stop_aiming_at_allied_hero","outcome":"PASS","seconds":0.0043806,"detail":""}
+]

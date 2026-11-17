@@ -1,0 +1,8 @@
+[
+{"module":"test_pvp_hero_isolation","class":"HeroIsolationTests","test":"test_duo_alias_and_both_teams_keep_every_seat_apart","outcome":"PASS","seconds":0.0888154,"detail":""},
+{"module":"test_pvp_hero_isolation","class":"HeroIsolationTests","test":"test_every_card_summoned_in_either_heros_context_keeps_heroes_apart","outcome":"PASS","seconds":0.32624,"detail":""},
+{"module":"test_pvp_hero_isolation","class":"HeroIsolationTests","test":"test_every_hero_switch_site_is_registered","outcome":"FAIL","seconds":0.0002431,"detail":"AssertionError: [] != [('g.update<-hero', 'native_battle.py:_select_hero'), ('g.update<-hero', 'native_battle.py:_switch_plant'), ('g.update<-hero', 'native_targets.py:context'), ('g.update<-hero', 'native_targets.py:damage_hero'), ('loop _COMBAT_HERO_KEYS', 'native_battle.py:_summon_hero'), ('loop _COMBAT_HERO_KEYS', 'native_battle.py:_switch_plant'), ('loop _COMBAT_HERO_KEYS', 'native_targets.py:context'), ('loop _COMBAT_HERO_KEYS', 'native_targets.py:context_effects'), ('select', 'native_battle.py:_deploy'), ('select', 'native_battle.py:_step_original'), ('select', 'native_battle.py:_summon_hero'), ('select', 'native_battle.py:native_cannon')] : REGISTERED 有已不存在的位置，请删掉"},
+{"module":"test_pvp_hero_isolation","class":"HeroIsolationTests","test":"test_monitor_fires_on_the_old_leak","outcome":"PASS","seconds":0.0158912,"detail":""},
+{"module":"test_pvp_hero_isolation","class":"HeroIsolationTests","test":"test_monitor_is_off_in_production","outcome":"PASS","seconds":0.0136369,"detail":""},
+{"module":"test_pvp_hero_isolation","class":"HeroIsolationTests","test":"test_native_airdrop_landing_keeps_the_plant_dave","outcome":"PASS","seconds":0.582869,"detail":""}
+]

@@ -1,0 +1,5 @@
+[
+{"module":"test_pvp_67_pve_shared_tracking","class":"SoloTracking18","test":"test_all_curated_maps_track_actual_feet_after_moving_without_extra_dave_fields","outcome":"PASS","seconds":0.325527,"detail":""},
+{"module":"test_pvp_67_pve_shared_tracking","class":"SoloTracking18","test":"test_native_contact_bites_are_kept_in_solo","outcome":"PASS","seconds":0.459505,"detail":""},
+{"module":"test_pvp_67_pve_shared_tracking","class":"SoloTracking18","test":"test_solo_leaves_remote_producer_and_keeps_one_persistent_field","outcome":"PASS","seconds":0.456259,"detail":""}
+]

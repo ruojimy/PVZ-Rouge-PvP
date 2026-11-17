@@ -23,6 +23,7 @@ struct NativeFrameCommand {
     Point position;
     std::optional<std::string> entity;
     std::string layer;               // replay layer tag ("below_ground", "vine_foreground"), empty = default
+    bool transient=false;            // presentation budget only; never serialized into battle state
 };
 struct NativeFrame {
     int64_t tick=0;
@@ -30,6 +31,7 @@ struct NativeFrame {
     std::vector<NativeFrameCommand> commands;
     // DrawRecorder.positions: insertion-ordered uid -> [x, y] of each attributed source.
     std::vector<std::pair<std::string,Point>> positions;
+    size_t dropped_commands=0;        // diagnostics, excluded from the wire/replay schema
 };
 // DrawRecorder._append attribution: the entity override, else the active source; a source is
 // attributed only when it has a native position (位置, or 玩家位置 for a hero).
@@ -40,6 +42,7 @@ public:
     explicit NativeFrameRecorder(size_t max_commands=12000):max_commands_(max_commands){}
     NativeFrameSources sources;
     bool enabled=true;
+    bool transient=false;
     double tile=48.;
     std::optional<NativeFrameSource> entity_override;
     void begin_frame(int64_t tick);
@@ -53,6 +56,7 @@ public:
     void rotated_camera_display(const NativeArt& image,Point position,double degrees);
     NativeFrame snapshot()const;
     size_t size()const{return frame_.commands.size();}
+    bool skip_transient(){if(transient&&size()>=max_commands_){++frame_.dropped_commands;return true;}return false;}
     // Tags every command recorded since `start` (native_content draw_plant layer override).
     void tag_layer(size_t start,const std::string& layer){for(size_t i=start;i<frame_.commands.size();++i)frame_.commands[i].layer=layer;}
     const NativeFrame& frame()const{return frame_;}
@@ -60,6 +64,24 @@ private:
     size_t max_commands_;
     void append(NativeFrameCommand);
     NativeFrame frame_;
+};
+class NativeFrameTransientScope {
+public:
+    NativeFrameTransientScope(NativeFrameRecorder& r,bool value=true):recorder_(r),previous_(r.transient){r.transient=value;}
+    ~NativeFrameTransientScope(){recorder_.transient=previous_;}
+private:
+    NativeFrameRecorder& recorder_;bool previous_;
+};
+// Empty sources suppress stale simulation attribution. Restore even on exceptions.
+class NativeFrameScope {
+public:
+    NativeFrameScope(NativeFrameRecorder& recorder,NativeFrameSource source={}):recorder_(recorder),previous_(recorder.entity_override){recorder_.entity_override=std::move(source);}
+    ~NativeFrameScope(){recorder_.entity_override=std::move(previous_);}
+    NativeFrameScope(const NativeFrameScope&)=delete;
+    NativeFrameScope& operator=(const NativeFrameScope&)=delete;
+private:
+    NativeFrameRecorder& recorder_;
+    std::optional<NativeFrameSource> previous_;
 };
 // 反: pygame.transform.flip(image, True, False).
 NativeArt native_flip(const NativeArt&);

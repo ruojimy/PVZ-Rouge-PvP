@@ -106,20 +106,35 @@ static V new_match_ns() {
     p->own = std::make_unique<Match>();
     p->G = p->own.get();
     V v = V::inst(p);
-    p->G->__self_ns = v;   // (cycle by design: lives as long as the match)
+    // Frame globals are installed only while a region runs. Keeping v here
+    // would make every battle and every placement-preview namespace immortal.
     return v;
 }
 
-static V region_fn(Match* G, void (*fn)(Match&)) {
-    auto self = std::make_shared<V>();
-    V f = V::func([G, fn, self](const Args&) {
-        py::push_region_frame(*self, G->__self_ns);
+static V region_fn(const V& ns, void (*fn)(Match&)) {
+    // A region is also stored in Match (__region_*), so neither capture may
+    // own its namespace or its own function. The active call owns both until
+    // the frame is popped, including exception unwinding and nested regions.
+    std::weak_ptr<PyObj> owner = ns.box->inst;
+    auto self = std::make_shared<Box*>(nullptr);
+    V f = V::func([owner, fn, self](const Args&) {
+        auto locked = owner.lock();
+        if (!locked) throw PyError("RuntimeError", "native region namespace has expired");
+        V globals = V::inst(std::move(locked));
+        Match& G = match_of(globals);
+        struct Restore {
+            V& slot; V previous;
+            ~Restore() { slot = std::move(previous); }
+        } restore{G.__self_ns, G.__self_ns};
+        G.__self_ns = globals;
+        V code; code.t = V::FUNC; code.box = BoxP(*self);
+        py::push_region_frame(code, globals);
         struct Pop { ~Pop() { py::pop_region_frame(); } } pop_;
-        fn(*G);
+        fn(G);
         return V::none();
     });
     f.box->fattrs.emplace_back(Sym("co_name"), V("<module>"));
-    *self = f;   // f_code identity of the region
+    *self = f.box.get();   // f_code identity, borrowed only by this function
     return f;
 }
 
@@ -129,9 +144,10 @@ V gated_combat_regions(const V& engine) {
     V source=pvz::getattr(engine,Sym("regions"));
     if(source.t!=V::DICT)throw PyError("TypeError","native region table must be a dictionary");
     for(const auto& attr:source.box->fattrs)if(attr.first==Sym("__native_pvp_gated_regions__") && attr.second.truthy())return source;
-    Match& G=match_of(pvz::getattr(engine,Sym("g")));
+    const V ns=pvz::getattr(engine,Sym("g"));
+    Match& G=match_of(ns);
     V regions=py::copy(source);
-#define GATED(n) regions.at(V(#n))=region_fn(&G,&region_##n);
+#define GATED(n) regions.at(V(#n))=region_fn(ns,&region_##n);
     GATED(zombies) GATED(plants) GATED(entities) GATED(plant_maintenance)
 #undef GATED
     G.__region_zombies=rd(regions,V("zombies"));
@@ -143,7 +159,7 @@ V gated_combat_regions(const V& engine) {
 // The zombies region with ScriptedSpawnBudget's four iteration gates (pve / co-op), bound to g.
 V scripted_zombies_region(const V& g) {
     Match& G = match_of(g);
-    V f = region_fn(&G, &region_zombies_scripted);
+    V f = region_fn(g, &region_zombies_scripted);
     G.__region_zombies = f;   // the replaced code object is what frame inspection sees from now on
     return f;
 }
@@ -241,10 +257,9 @@ V C_NativeRuntime::m___init__(const Args& A) {
     Match& G = match_of(a_g);
     G.rng_p = py::random_of(a_rng);
     // regions bound to this match (python: original_regions(root) + exec(code, g))
-    Match* Gp = &G;
     V regions = V::dict();
-#define R(n) regions.at(V(#n)) = region_fn(Gp, &region_##n);
-#define RAW(n) regions.at(V(#n)) = region_fn(Gp, &region_original_##n);
+#define R(n) regions.at(V(#n)) = region_fn(a_g, &region_##n);
+#define RAW(n) regions.at(V(#n)) = region_fn(a_g, &region_original_##n);
     RAW(zombies) RAW(plants) RAW(entities) RAW(plant_maintenance) R(particles) R(placement) R(coffee) R(shovel)
     R(sun_motion) R(water_animation) R(important_blocks) R(water_ice_clock) R(umbrella_player_trigger)
     R(umbrella_player_bounce) R(cannon_select) R(cannon_fire) R(plant_draw) R(unit_target_index)
@@ -490,7 +505,9 @@ V C_NativePhysics::m___init__(const Args& A) {
         // python installs exactly FUNCTIONS into the caller's dict; the native registry binds all originals to this
         // Match, so drop the others (a present 播音 / 增粒子 would also suppress _select's no-op hooks)
         register_original_funcs(M);
-        std::vector<V> extra, hidden;
+        // This field exists only while a region runs. It must be hidden even
+        // though it is absent during construction, including callback flushes.
+        std::vector<V> extra, hidden{V("__self_ns")};
         M.each_present([&](const V& k) {
             if (k.str().rfind("__", 0) == 0) { hidden.push_back(k); return; }   // native bookkeeping (__self_ns ...)
             for (const char* f : kPhysicsFunctions) if (k.str() == f) return;
@@ -531,7 +548,7 @@ V C_NativePhysics::m___init__(const Args& A) {
     G.__native_original_out = G.出界;
     G.__native_original_open_top = G.不封顶出界;
     V regions = V::dict();
-#define R(n) regions.at(V(#n)) = region_fn(Gp, &region_physics_##n);
+#define R(n) regions.at(V(#n)) = region_fn(a_g, &region_physics_##n);
     R(initialize) R(effect_initialize) R(displacement) R(environment_input) R(pose_reset) R(chili_launch)
     R(hurt_recovery) R(hurt_recovery_balloon12) R(movement_lean) R(double_jump_clock) R(hero_effects)
     R(jump_keydown) R(jump_keydown_max3) R(jump_keydown_max2) R(jump_keydown_max1) R(tracking_initialize)

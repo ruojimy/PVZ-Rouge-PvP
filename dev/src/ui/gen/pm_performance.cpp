@@ -4,11 +4,10 @@
 #include "ui/gen/pm_bounded_cache.h"
 #include "sim/pvp/shim/pm_cppcore.h"
 #include "ui/gen/pm_display_pipeline.h"
-#include "sim/pvp/gen/pm_native_animation.h"
 #include "sim/pvp/shim/pm_native_multiworker.h"
 #include "ui/gen/pm_perf_hooks.h"
 #include "ui/gen/pm_performance_window.h"
-namespace pvz { namespace py { inline void init_deps_performance() { pm_bounded_cache::init(); pm_cppcore::init(); pm_display_pipeline::init(); pm_native_animation::init(); pm_native_multiworker::init(); pm_perf_hooks::init(); pm_performance_window::init(); } } }
+namespace pvz { namespace py { inline void init_deps_performance() { pm_bounded_cache::init(); pm_cppcore::init(); pm_display_pipeline::init(); pm_native_multiworker::init(); pm_perf_hooks::init(); pm_performance_window::init(); } } }
 namespace pvz { namespace pm_performance {
 V FLAGS;
 V f_enabled(const Args& A) {
@@ -193,25 +192,7 @@ V C_FramePixels::m_add(const Args& A) {
     return V::none();
 }
 
-V C_FramePixels::m_get(const Args& A) {
-    V L_frame = A.get(0, SY("frame"), nullptr, "get");
-    V L_description = A.get(1, SY("description"), nullptr, "get");
-    V L_NativeImage;
-    V L_entry;
-    V L_value;
-    if (!py_is(L_frame, a_frame)) {
-        return V::none();
-    }
-    L_entry = py::m_get(a_images, py::id(L_description));
-    if ((py_is(L_entry, V::none()) || !py_is(rd(L_entry, V(0.0)), L_description))) {
-        return V::none();
-    }
-    L_value = rd(L_entry, V(1.0));
-    L_NativeImage = pvz::getattr(pm_native_animation::module_ns(), SY("NativeImage"));
-    return ((V((py::isinstance_v(L_value, L_NativeImage)))).truthy() ? V(pvz::getattr(L_value, SY("pixels"))) : V(L_value));
-    return V::none();
-}
-
+// C_FramePixels::m_get: hand-written (src/sim/pvp/hand)
 void initcv_FramePixels(C_FramePixels* p) {
     p->a_LIMIT = C_FramePixels::cv_LIMIT();
 }
@@ -563,7 +544,10 @@ V C_AppProfiler::m_input_scope(const Args& A) {
 
 V C_AppProfiler::m_end(const Args& A) {
     V L_b;
+    V L_key;
+    V L_kind;
     V L_now;
+    V L_state;
     V L_ticks;
     if (!(a_frame_open).truthy()) {
         return V::none();
@@ -572,6 +556,14 @@ V C_AppProfiler::m_end(const Args& A) {
     L_now = py::stdlib_call(SV("time.perf_counter"), Args{});
     (void)(callm(a_phases, SY("record"), Args{SV("frame_work"), ((L_now - a_frame_start) * V(1000.0))}));
     a_frame_count = py::iadd(a_frame_count, V(1.0));
+    L_state = pvz::getattr(a_app, SY("state"));
+    { V it1_ = py::iter_list(V::tuple({SV("sim"), SV("room_overhead"), SV("refresh")}));
+    for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) {
+        L_key = it1_.idx(int64_t(i1_)); 
+        (void)(callm(a_phases, SY("record"), Args{(SV("authority_") + L_key), py::m_get(L_state, ((SV("pacing_") + L_key) + SV("_ms")), V(0.0))}));
+    }}
+    L_kind = ((py::m_get(L_state, SV("pacing_advanced_seconds"), V(0.0)) > V(0.0)) ? V(SV("advanced")) : V(SV("idle")));
+    (void)(callm(a_phases, SY("record"), Args{(SV("refresh_") + L_kind), py::m_get(L_state, SV("pacing_refresh_ms"), V(0.0))}));
     if ((pvz::getattr(a_app, SY("frames")) > a_render_before)) {
         if (!py_is(a_last_present, V::none())) {
             (void)(callm(a_phases, SY("record"), Args{SV("presentation_interval_actual"), ((L_now - a_last_present) * V(1000.0))}));
@@ -587,7 +579,7 @@ V C_AppProfiler::m_end(const Args& A) {
         a_room_ticks = py::iadd(a_room_ticks, py::max_it(V::list({V(0.0), (pvz::getattr(a_battle, SY("tick")) - a_room_before)}), py::Key(), V()));
         if (((a_frame_count % V(30.0)) == V(0.0))) {
             L_b = a_battle;
-            (void)(py::m_append(a_population, py_dict({{SV("elapsed"), (L_now - a_started)}, {SV("native_tick"), pvz::getattr(pvz::getattr(L_b, SY("engine")), SY("native_tick"))}, {SV("zombies"), py::sum_it([&]() -> V { V out_ = V::list(); V L_z; { V it1_ = py::iter_list(rdm(pvz::getattr(L_b, SY("g")), &Obj::僵尸, SV("僵尸"))); for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) { L_z = it1_.idx(int64_t(i1_)); out_.append(V((py::m_get_slot(L_z, &Obj::血量, SV("血量"), V(0.0)) > V(0.0)))); }}return out_; }())}, {SV("plants"), py::sum_it([&]() -> V { V out_ = V::list(); V L_p; { V it2_ = py::iter_list(rdm(pvz::getattr(L_b, SY("g")), &Obj::植物, SV("植物"))); for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) { L_p = it2_.idx(int64_t(i2_)); out_.append(V((py::m_get_slot(L_p, &Obj::植物血, SV("植物血"), V(0.0)) > V(0.0)))); }}return out_; }())}, {SV("projectiles"), py::len(rd(pvz::getattr(L_b, SY("g")), SV("实体")))}, {SV("backlog_seconds"), pvz::getattr(pvz::getattr(a_app, SY("room")), SY("accumulator"))}})));
+            (void)(py::m_append(a_population, py_dict({{SV("elapsed"), (L_now - a_started)}, {SV("native_tick"), pvz::getattr(pvz::getattr(L_b, SY("engine")), SY("native_tick"))}, {SV("zombies"), py::sum_it([&]() -> V { V out_ = V::list(); V L_z; { V it2_ = py::iter_list(rdm(pvz::getattr(L_b, SY("g")), &Obj::僵尸, SV("僵尸"))); for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) { L_z = it2_.idx(int64_t(i2_)); out_.append(V((py::m_get_slot(L_z, &Obj::血量, SV("血量"), V(0.0)) > V(0.0)))); }}return out_; }())}, {SV("plants"), py::sum_it([&]() -> V { V out_ = V::list(); V L_p; { V it3_ = py::iter_list(rdm(pvz::getattr(L_b, SY("g")), &Obj::植物, SV("植物"))); for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) { L_p = it3_.idx(int64_t(i3_)); out_.append(V((py::m_get_slot(L_p, &Obj::植物血, SV("植物血"), V(0.0)) > V(0.0)))); }}return out_; }())}, {SV("projectiles"), py::len(rd(pvz::getattr(L_b, SY("g")), SV("实体")))}, {SV("backlog_seconds"), pvz::getattr(pvz::getattr(a_app, SY("room")), SY("accumulator"))}})));
             if ((py::len(a_population) > V(1200.0))) {
                 (void)(callm(a_population, SY("pop"), Args{V(0.0)}));
             }
@@ -612,6 +604,7 @@ V C_AppProfiler::m_report(const Args& A) {
     V L_g;
     V L_key;
     V L_p;
+    V L_pacing_configuration;
     V L_platform_report;
     V L_r;
     V L_report;
@@ -622,7 +615,7 @@ V C_AppProfiler::m_report(const Args& A) {
     V L_worker;
     L_wall = (py::stdlib_call(SV("time.perf_counter"), Args{}) - a_started);
     L_frames = py::m_get(pvz::getattr(a_phases, SY("samples")), SV("frame_work"), V::tuple({}));
-    L_report = py_dict({{SV("format"), SV("pvp-app-performance-2")}, {SV("runtime"), callm(pm_performance::module_ns(), SY("runtime_info"), Args{a_app})}, {SV("detail"), a_detail}, {SV("source_hashes"), a_source_hashes}, {SV("wall_seconds"), L_wall}, {SV("frames"), a_frame_count}, {SV("native_ticks"), a_native_ticks}, {SV("native_ticks_per_second"), (a_native_ticks / py::max_it(V::list({V(0.001), L_wall}), py::Key(), V()))}, {SV("room_ticks"), a_room_ticks}, {SV("room_ticks_per_second"), (a_room_ticks / py::max_it(V::list({V(0.001), L_wall}), py::Key(), V()))}, {SV("simulated_seconds"), (a_native_ticks / V(250.0))}, {SV("simulation_wall_ratio"), ((a_native_ticks / V(250.0)) / py::max_it(V::list({V(0.001), L_wall}), py::Key(), V()))}, {SV("sample_window"), SV("last 6000 frames / last 6000 native ticks")}, {SV("frame_phases_ms"), callm(a_phases, SY("summary"), Args{})}, {SV("over_budget_pct"), [&]() -> V { V out_ = V::dict(); V L_ms; { V it1_ = py::iter_list(V::tuple({V(16.7), V(33.3), V(50.0)})); for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) { L_ms = it1_.idx(int64_t(i1_)); out_.at(py::str(L_ms)) = ((V(100.0) * py::sum_it([&]() -> V { V out_ = V::list(); V L_v; { V it2_ = py::iter_list(L_frames); for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) { L_v = it2_.idx(int64_t(i2_)); out_.append(V((L_v > L_ms))); }}return out_; }())) / py::max_it(V::list({V(1.0), py::len(L_frames)}), py::Key(), V())); }}return out_; }()}, {SV("population"), a_population}, {SV("crowd_samples"), py::list_it(a_crowd_samples)}, {SV("native_phases_ms"), ((a_native).truthy() ? V(callm(a_native, SY("summary"), Args{})) : V(py_dict({})))}, {SV("nested_patch_scans_ms"), callm(a_scans, SY("summary"), Args{})}});
+    L_report = py_dict({{SV("format"), SV("pvp-app-performance-2")}, {SV("runtime"), callm(pm_performance::module_ns(), SY("runtime_info"), Args{a_app})}, {SV("detail"), a_detail}, {SV("source_hashes"), a_source_hashes}, {SV("wall_seconds"), L_wall}, {SV("frames"), a_frame_count}, {SV("native_ticks"), a_native_ticks}, {SV("native_ticks_per_second"), (a_native_ticks / py::max_it(V::list({V(0.001), L_wall}), py::Key(), V()))}, {SV("room_ticks"), a_room_ticks}, {SV("room_ticks_per_second"), (a_room_ticks / py::max_it(V::list({V(0.001), L_wall}), py::Key(), V()))}, {SV("simulated_seconds"), (a_native_ticks / V(250.0))}, {SV("simulation_wall_ratio"), ((a_native_ticks / V(250.0)) / py::max_it(V::list({V(0.001), L_wall}), py::Key(), V()))}, {SV("sample_window"), SV("last 6000 frames / last 6000 native ticks")}, {SV("frame_phases_ms"), callm(a_phases, SY("summary"), Args{})}, {SV("over_budget_pct"), [&]() -> V { V out_ = V::dict(); V L_ms; { V it1_ = py::iter_list(V::tuple({V(16.7), V(33.3), V(50.0), V(100.0), V(250.0)})); for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) { L_ms = it1_.idx(int64_t(i1_)); out_.at(py::str(L_ms)) = ((V(100.0) * py::sum_it([&]() -> V { V out_ = V::list(); V L_v; { V it2_ = py::iter_list(L_frames); for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) { L_v = it2_.idx(int64_t(i2_)); out_.append(V((L_v > L_ms))); }}return out_; }())) / py::max_it(V::list({V(1.0), py::len(L_frames)}), py::Key(), V())); }}return out_; }()}, {SV("population"), a_population}, {SV("crowd_samples"), py::list_it(a_crowd_samples)}, {SV("native_phases_ms"), ((a_native).truthy() ? V(callm(a_native, SY("summary"), Args{})) : V(py_dict({})))}, {SV("nested_patch_scans_ms"), callm(a_scans, SY("summary"), Args{})}});
     pvz::setitem(L_report, SV("active_battle"), callm(a_active_window, SY("report"), Args{}));
     pvz::setitem(L_report, SV("presentation"), py_dict({{SV("frames"), a_present_count}, {SV("frames_per_second"), (a_present_count / py::max_it(V::list({V(0.001), L_wall}), py::Key(), V()))}, {SV("service_iterations"), a_frame_count}, {SV("interval_scope"), SV("presentation_interval_actual: completed displays; frame_interval_actual: service loop")}}));
     L_budget = pvz::getattr(a_app, (SV("presentation_budget")).sym(), V::none());
@@ -653,7 +646,8 @@ V C_AppProfiler::m_report(const Args& A) {
     L_transport = pvz::getattr(a_app, SY("transport"));
     pvz::setitem(L_report, SV("transport"), ((!py_is(L_transport, V::none()) && (V(pvz::hasattr(L_transport, (SV("statistics")).sym()))).truthy()) ? V(callm(L_transport, SY("statistics"), Args{})) : V(py_dict({{SV("available"), V(false)}}))));
     L_room = pvz::getattr(a_app, SY("room"));
-    pvz::setitem(L_report, SV("scheduling"), py_dict({{SV("native_hz"), V(250.0)}, {SV("room_hz"), (((L_room).truthy() && (pvz::getattr(L_room, SY("battle"))).truthy()) ? V(rd(pvz::getattr(pvz::getattr(L_room, SY("battle")), SY("rules")), SV("tick_rate"))) : V(V::none()))}, {SV("max_room_steps_per_update"), V(12.0)}, {SV("backlog_seconds"), ((L_room).truthy() ? V(pvz::getattr(L_room, SY("accumulator"))) : V(V::none()))}, {SV("snapshot_period_seconds"), callm(a_app, SY("snapshot_interval"), Args{})}, {SV("simulation_time_dropped"), V(false)}, {SV("note"), SV("Existing independent logic/presentation/snapshot/heartbeat schedules retained; twelve room steps is a count bound, not a frame-time guarantee.")}}));
+    L_pacing_configuration = py_or(py::m_get(pvz::getattr(a_app, SY("state")), SV("pacing_configuration")), [&]() -> V { return py_dict({}); });
+    pvz::setitem(L_report, SV("scheduling"), py_dict({{SV("configuration"), L_pacing_configuration}, {SV("native_hz"), V(250.0)}, {SV("room_hz"), (((L_room).truthy() && (pvz::getattr(L_room, SY("battle"))).truthy()) ? V(rd(pvz::getattr(pvz::getattr(L_room, SY("battle")), SY("rules")), SV("tick_rate"))) : V(V::none()))}, {SV("max_room_steps_per_update"), py::m_get(L_pacing_configuration, SV("step_limit"), V(12.0))}, {SV("step_budget_ms"), py::m_get(L_pacing_configuration, SV("step_budget_ms"), V(0.0))}, {SV("controller_candidate"), py::m_get(L_pacing_configuration, SV("candidate"), V(false))}, {SV("backlog_seconds"), ((L_room).truthy() ? V(pvz::getattr(L_room, SY("accumulator"))) : V(V::none()))}, {SV("snapshot_period_seconds"), callm(a_app, SY("snapshot_interval"), Args{})}, {SV("simulation_time_dropped"), V(false)}, {SV("note"), SV("Budget yields occur after complete room steps; one step can exceed budget. authority_sim + authority_room_overhead + authority_refresh are disjoint; room_update/refresh include them, do not sum both sets.")}}));
     L_b = a_battle;
     if ((L_b).truthy()) {
         L_g = pvz::getattr(L_b, SY("graphics"));

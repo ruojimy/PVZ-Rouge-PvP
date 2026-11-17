@@ -35,16 +35,38 @@ V value72(const nlohmann::json& j) {
     if(j.is_array()){V out=V::list();for(const auto& v:j)out.append(value72(v));return out;}
     V out=V::dict();for(const auto& item:j.items())out.at(V(item.key()))=value72(item.value());return out;
 }
+nlohmann::json diagnostic_save_hashes(const std::filesystem::path& folder){
+    nlohmann::json out=nlohmann::json::object();
+    if(!std::filesystem::exists(folder))return out;
+    for(const auto& entry:std::filesystem::recursive_directory_iterator(folder)){
+        if(!entry.is_regular_file()||entry.is_symlink())continue;
+        std::ifstream in(entry.path(),std::ios::binary);
+        if(!in)throw std::runtime_error("Cannot read diagnostic save audit input");
+        std::string bytes((std::istreambuf_iterator<char>(in)),{});
+        if(in.bad())throw std::runtime_error("Cannot finish diagnostic save audit read");
+        out[p8(entry.path().lexically_relative(folder))]=py_str(callm(py::sha256_obj(V::bytes(bytes)),Sym("hexdigest"),Args{}));
+    }
+    return out;
+}
 }
 int run_diagnostic72(const std::string& raw) {
     using json=nlohmann::json;namespace fs=std::filesystem;
     if(raw.size()>32768)throw std::runtime_error("Diagnostic config too large");
     json config=json::parse(raw);
     if(!config.is_object())throw std::runtime_error("Diagnostic config must be an object");
+    const bool audit_saves=config.value("audit_userdata",false);
+    const char* original_userdata=std::getenv("PVP_USERDATA");
+    const fs::path save_folder=original_userdata?u8p(original_userdata):fs::path{};
+    if(audit_saves&&save_folder.empty())throw std::runtime_error("Userdata audit requires an explicit original directory");
+    const json saves_before=audit_saves?diagnostic_save_hashes(save_folder):json();
     // Explicit per-process diagnostic controls, shared by PC and Android.
     if(config.value("function_profile",false))diagnostic_env("PVP741_PROFILE","1");
     if(config.contains("engine_options"))for(const auto& [name,value]:config["engine_options"].items()){
-        if(name!="PVP742_FRAME"&&name!="PVP742_RECIPE_KEY"&&name!="PVP742_WALL_CLOCK"&&name!="PVP742_LAZY_CANVAS"&&name!="PVP742_INPUT_REFRESH"&&name!="PVP742_TARGETING")throw std::runtime_error("Unknown diagnostic engine option");
+        if(name=="PVP744_STEP_BUDGET_MS"){
+            if(!value.is_number()||!std::isfinite(value.get<double>())||value.get<double>()<0.||value.get<double>()>50.)throw std::runtime_error("Invalid step budget");
+            const std::string text=std::to_string(value.get<double>());diagnostic_env(name.c_str(),text.c_str());continue;
+        }
+        if(name!="PVP742_FRAME"&&name!="PVP742_RECIPE_KEY"&&name!="PVP742_WALL_CLOCK"&&name!="PVP742_LAZY_CANVAS"&&name!="PVP742_INPUT_REFRESH"&&name!="PVP742_TARGETING"&&name!="PVP744_PACING"&&name!="PVP744_VIEW_REUSE"&&name!="PVP744_LOCAL_FRAME"&&name!="PVP744_STATE_VIEW"&&name!="PVP744_METADATA_VIEW")throw std::runtime_error("Unknown diagnostic engine option");
         if(!value.is_boolean())throw std::runtime_error("Diagnostic engine option must be boolean");
         diagnostic_env(name.c_str(),value.get<bool>()?"1":"0");
     }
@@ -81,6 +103,11 @@ int run_diagnostic72(const std::string& raw) {
             {"cross_thread_frees",allocator.cross_thread_frees},{"central_reused_blocks",allocator.central_reused_blocks},
             {"central_blocks",allocator.central_blocks},{"thread_cache_flushes",allocator.thread_cache_flushes},{"legacy",allocator.legacy}}},
         {"memory",json::parse(dump(pm_performance_window::f_process_memory(Args{})))}};
+    if(audit_saves){
+        const auto after=diagnostic_save_hashes(save_folder);
+        report["userdata_audit"]={{"before",saves_before},{"after",after},{"unchanged",saves_before==after},
+            {"scope","Original userdata read before and after isolated diagnostic; hashing is outside measured frames"}};
+    }
     std::ofstream result(output,std::ios::binary|std::ios::trunc);result<<report.dump(2);result.close();
     if(result.fail())throw std::runtime_error("Cannot finish diagnostic report");
     SDL_Log("PVP72_DIAGNOSTIC_COMPLETE %s",p8(output).c_str());

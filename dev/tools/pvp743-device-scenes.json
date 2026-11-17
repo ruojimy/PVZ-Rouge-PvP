@@ -1,0 +1,6 @@
+[
+  {"name":"ordinary20","scenario":"ordinary","units":20,"seconds":30},
+  {"name":"mixed120","scenario":"mixed","units":120,"seconds":30},
+  {"name":"barrage240","scenario":"barrage","units":240,"seconds":60},
+  {"name":"grabber120","scenario":"grabber","units":120,"seconds":60}
+]

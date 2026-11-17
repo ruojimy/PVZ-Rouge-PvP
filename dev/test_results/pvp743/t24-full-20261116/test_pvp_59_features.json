@@ -1,0 +1,19 @@
+[
+{"module":"test_pvp_59_features","class":"PvP59SweepTests","test":"test_sweeping_the_pointer_over_a_drowsy_grave_wakes_it","outcome":"PASS","seconds":0.947755,"detail":""},
+{"module":"test_pvp_59_features","class":"PvP59Tests","test":"test_a_planted_flower_pot_no_longer_changes_the_map_every_tick","outcome":"PASS","seconds":0.28172,"detail":""},
+{"module":"test_pvp_59_features","class":"PvP59Tests","test":"test_blover_wind_reaches_projectiles_only_within_8_tiles","outcome":"PASS","seconds":0.0145234,"detail":""},
+{"module":"test_pvp_59_features","class":"PvP59Tests","test":"test_blover_zombie_pushes_plant_dave_inside_8_tiles_only","outcome":"PASS","seconds":1.22543,"detail":""},
+{"module":"test_pvp_59_features","class":"PvP59Tests","test":"test_coffee_without_dense_is_unchanged","outcome":"PASS","seconds":0.0150373,"detail":""},
+{"module":"test_pvp_59_features","class":"PvP59Tests","test":"test_dense_coffee_wakes_every_sleeper_in_the_cell","outcome":"PASS","seconds":0.0180101,"detail":""},
+{"module":"test_pvp_59_features","class":"PvP59Tests","test":"test_gloom_pulse_hits_zombie_dave_for_4","outcome":"PASS","seconds":0.605904,"detail":""},
+{"module":"test_pvp_59_features","class":"PvP59Tests","test":"test_imitater_copies_aquatic_plants_in_the_water","outcome":"PASS","seconds":0.77365,"detail":""},
+{"module":"test_pvp_59_features","class":"PvP59Tests","test":"test_masochist_dave_rises_after_3_seconds_instead_of_8","outcome":"FAIL","seconds":1.3669,"detail":"AssertionError: 1089 not less than 850"},
+{"module":"test_pvp_59_features","class":"PvP59Tests","test":"test_parrots_eat_snow_blocks_without_breaking_the_match","outcome":"PASS","seconds":4.52776,"detail":""},
+{"module":"test_pvp_59_features","class":"PvP59Tests","test":"test_plant_clover_blows_zombie_dave_twice_as_far_and_onto_a_mine","outcome":"PASS","seconds":2.54238,"detail":""},
+{"module":"test_pvp_59_features","class":"PvP59Tests","test":"test_producing_graves_turn_drowsy_after_20_seconds_at_half_rate","outcome":"PASS","seconds":14.8369,"detail":""},
+{"module":"test_pvp_59_features","class":"PvP59Tests","test":"test_sea_shroom_attacks_graves_on_the_water","outcome":"PASS","seconds":2.2358,"detail":""},
+{"module":"test_pvp_59_features","class":"PvP59Tests","test":"test_sweep_input_tends_awake_or_drowsy_zombie_graves","outcome":"PASS","seconds":5.01659,"detail":""},
+{"module":"test_pvp_59_features","class":"PvP59Tests","test":"test_turnip_ball_hits_zombie_dave_for_2_5","outcome":"PASS","seconds":1.42474,"detail":""},
+{"module":"test_pvp_59_features","class":"PvP59Tests","test":"test_zombie_dave_touching_a_drowsy_grave_wakes_it","outcome":"PASS","seconds":2.57742,"detail":""},
+{"module":"test_pvp_59_features","class":"RelayExpiryTests","test":"test_room_with_a_watch_lane_player_outlives_the_waiting_timeout","outcome":"PASS","seconds":7.63145,"detail":""}
+]

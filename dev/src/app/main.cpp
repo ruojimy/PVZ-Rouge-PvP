@@ -48,6 +48,20 @@ static void set_env(const char* k, const std::string& v) {
 #endif
 }
 
+// PvP74.3 r4: ship the validated presentation/pacing configuration in both
+// native entry points. Explicit process/diagnostic overrides remain usable;
+// no user setting or battle/replay field is written by these defaults.
+static void release_performance_defaults() {
+    for (const char* name : {"PVP744_PACING", "PVP744_VIEW_REUSE", "PVP744_LOCAL_FRAME",
+                             "PVP744_STATE_VIEW", "PVP744_METADATA_VIEW", "PVP744_STEP_BUDGET_MS"}) {
+        std::string existing;
+        if (env_u8(name, existing)) continue;
+        const char* value = std::strcmp(name, "PVP744_STEP_BUDGET_MS") == 0 ? "8" : "1";
+        SDL_setenv(name, value, 1);
+        set_env(name, value);
+    }
+}
+
 // Error text for the crash file / message box as UTF-8. MSVC's std::system_error and
 // filesystem_error messages come from FormatMessageA in the ANSI code page (GBK on Chinese
 // Windows); shown as UTF-8 every Chinese character turned into boxes.
@@ -246,6 +260,7 @@ int main(int argc, char** argv) {
     bool default_pc_userdata=false;
     install_crash_handler();
     gil::init();   // main thread holds the GIL; network transports run on GIL threads
+    release_performance_defaults();
 #ifdef _WIN32
     {   // release layout (dist/PvZ-PvP-Native): data beside the exe -> run from there, whatever the launch cwd
         wchar_t buf[MAX_PATH];

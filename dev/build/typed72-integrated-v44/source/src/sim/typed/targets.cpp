@@ -1,4 +1,5 @@
 #include "sim/typed/targets.h"
+#include "sim/typed/attention.h"
 #include <algorithm>
 #include <exception>
 
@@ -56,6 +57,7 @@ HitResult TargetDamage::unit_damage(Callback callback,const ZombieRef& target,do
     packets_.insert(target.get());
     struct PacketGuard {std::unordered_set<const CombatZombie*>& packets;const CombatZombie* unit;~PacketGuard(){packets.erase(unit);}} guard{packets_,target.get()};
     const auto head=target->body.armor,hand=target->body.hand;
+    const auto attacker=heroes_.source();const double body_hp=std::max(0.,target->body.hp);
     const double head_hp=target->body.armor_hp,hand_hp=target->body.hand_hp;
     HitResult result;std::exception_ptr failure;
     try{result=shielded(callback,target,facing,amount);}catch(...){failure=std::current_exception();}
@@ -63,7 +65,9 @@ HitResult TargetDamage::unit_damage(Callback callback,const ZombieRef& target,do
         if(!head.empty()&&head_hp>0&&target->body.armor_hp<=0)raw_.armor_broken(target,ArmorSlot::head,head,positive_or(target->armor_max,head_hp));
         if(!hand.empty()&&hand_hp>0&&target->body.hand_hp<=0)raw_.armor_broken(target,ArmorSlot::hand,hand,positive_or(target->hand_max,hand_hp));
     }
-    if(failure)std::rethrow_exception(failure);return result;
+    if(failure)std::rethrow_exception(failure);
+    const double loss=body_hp-std::max(0.,target->body.hp)+std::max(0.,head_hp)-std::max(0.,target->body.armor_hp)+std::max(0.,hand_hp)-std::max(0.,target->body.hand_hp);
+    attention_damage(attacker,CombatTarget::zombie(target),loss,heroes_.time);return result;
 }
 HitResult TargetDamage::ash(CombatTarget target) {
     auto source=heroes_.source();

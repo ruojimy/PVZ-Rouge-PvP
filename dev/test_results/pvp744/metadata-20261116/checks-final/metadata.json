@@ -1,0 +1,82 @@
+{
+  "checks": [
+    {
+      "evidence": {
+        "cases": 32
+      },
+      "name": "unit_wire_parity_optional_fields_charm_seats_and_barrel",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "builds": 3,
+        "cards_resolved": 9,
+        "units_projected": 12
+      },
+      "name": "real_session_parity_duel",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "builds": 3,
+        "cards_resolved": 9,
+        "units_projected": 12
+      },
+      "name": "real_session_parity_duo",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "builds": 3,
+        "cards_resolved": 11,
+        "units_projected": 14
+      },
+      "name": "real_session_parity_coop",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "builds": 3,
+        "cards_resolved": 9,
+        "units_projected": 12
+      },
+      "name": "real_session_parity_pve",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "cases": 8,
+        "death_charm_damage_empty_covered": true
+      },
+      "name": "hud_price_and_feedback_match_scan_across_lifecycle",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "builds": 2,
+        "private_adoptions": 2,
+        "public_rebuilds": 1
+      },
+      "name": "private_graph_edits_cannot_corrupt_public_snapshot",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "air": 2,
+        "sleep": 1,
+        "vines": 3
+      },
+      "name": "placement_shapes_sleep_vines_air_and_resources",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "fields": 6,
+        "same_tick": true
+      },
+      "name": "same_tick_player_metadata_edits_refresh_and_detach",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

@@ -1,9 +1,31 @@
-"""Guest-only positional interpolation of authoritative native draw frames.
+"""Positional interpolation of guest and local slow-motion authority frames.
 
 Never advances combat or mutates a received snapshot. Latest poses, health,
 spawns and removals take effect immediately; positions catch up in <=50 ms.
 """
 import time
+
+
+def same_pose(before, after):
+    """Compare only spatial discontinuities; health/resources/animation stay live.
+
+    A repeated room observation is not a new interpolation endpoint. Native tick
+    alone is insufficient: a command can teleport a player within the same tick.
+    """
+    if ((before.get('native_frame') or {}).get('positions',{}) !=
+            (after.get('native_frame') or {}).get('positions',{})):
+        return False
+    old_players=before.get('players',{})
+    players=after.get('players',{})
+    if len(old_players)!=len(players):return False
+    for side,player in players.items():
+        old=old_players.get(side)
+        if old is None:return False
+        for key in ('x','y','teleport_ready_at','absent'):
+            if old.get(key)!=player.get(key):return False
+        if (old.get('hp',1)>0)!=(player.get('hp',1)>0):return False
+    # Keep the published roster order: a different roster is a new visual state.
+    return [(u.get('id'),u.get('x'),u.get('y'),u.get('hp',1)>0) for u in before.get('units',[])] == [(u.get('id'),u.get('x'),u.get('y'),u.get('hp',1)>0) for u in after.get('units',[])]
 
 
 class GuestPresentation:
@@ -20,9 +42,6 @@ class GuestPresentation:
     def accept(self, view):
         now=self.clock()
         old=self.current
-        shown=self.sample(old) if old is not None else None
-        self.previous=None
-        self.duration=0.
         battle=view.get('battle') or {}
         prior=(old or {}).get('battle') or {}
         delta=battle.get('time',0)-prior.get('time',0)
@@ -31,11 +50,26 @@ class GuestPresentation:
         pressure=(view.get('pacing') or {}).get('slow',False)
         max_delta=.5 if pressure else .15
         max_gap=.65 if pressure else .2
-        if (old and view.get('phase')=='battle' and old.get('phase')=='battle'
+        continuous=(old and view.get('phase')=='battle' and old.get('phase')=='battle'
                 and not view.get('paused') and not old.get('paused')
                 and not view.get('audit_error') and not view.get('disconnected')
+                and not old.get('audit_error') and not old.get('disconnected')
                 and view.get('terrain_hash')==old.get('terrain_hash')
-                and 0 < delta <= max_delta and now-self.received <= max_gap):
+                and view.get('match_id')==old.get('match_id')
+                and view.get('match_number')==old.get('match_number')
+                and view.get('loading_id')==old.get('loading_id')
+                and view.get('mode')==old.get('mode')
+                and battle.get('terrain_revision')==prior.get('terrain_revision')
+                and battle.get('local_seat')==prior.get('local_seat'))
+        if continuous and delta==0 and same_pose(prior,battle):
+            # Replace the observation (including same-tick health and ACKs), but
+            # retain the original interpolation endpoints and wall-clock origin.
+            self.current=view
+            return
+        shown=self.sample(old) if old is not None else None
+        self.previous=None
+        self.duration=0.
+        if continuous and 0 < delta <= max_delta and now-self.received <= max_gap:
             # An early snapshot interrupts an in-progress interpolation.
             # Continue from what was actually shown, not the last target.
             self.previous=shown

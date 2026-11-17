@@ -4,6 +4,25 @@
 #include "ui/gen/pm_native_animation_pixels.h"
 #include "sim/pvp/pvprt.h"
 #include "ui/gen/pm_performance.h"
+#include "sim/pvp/hand/graphics.h"
+#include "sim/pvp/gen/pm_native_animation.h"
+
+namespace pvz::pm_performance {
+V C_FramePixels::m_get(const Args& a) {
+    const V frame=a.get(0,SY("frame"),nullptr,"get");
+    const V description=a.get(1,SY("description"),nullptr,"get");
+    if(!py_is(frame,a_frame))return V::none();
+    const V entry=py::m_get(a_images,py::id(description));
+    if(entry.is_none() || !py_is(entry.idx(0),description))return V::none();
+    const V value=entry.idx(1);
+    // A packet owns this frozen image. Its pixel identity must remain stable
+    // across reads; the public Image.pixels property deliberately returns a
+    // defensive copy for callers who may mutate it.
+    if(gfx::image_of(value))return py::native_hook("graphics.recorded_image_pixels",Args{value});
+    const V image_class=pvz::getattr(pm_native_animation::module_ns(),SY("NativeImage"));
+    return py::isinstance_v(value,image_class).truthy()?pvz::getattr(value,SY("pixels")):value;
+}
+}
 
 namespace pvz::pg {
 void register_pixel_graphics_hooks() {

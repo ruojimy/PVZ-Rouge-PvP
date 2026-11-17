@@ -1,0 +1,24 @@
+{
+  "module": "test_pvp_67_coop_spectators",
+  "exit": 0,
+  "seconds": 2.714,
+  "expected": 2,
+  "results": 2,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": true,
+  "accepted": true,
+  "counts": {
+    "PASS": 2,
+    "FAIL": 0,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [],
+  "unexpected_nonpass": [],
+  "resolved_waivers": []
+}

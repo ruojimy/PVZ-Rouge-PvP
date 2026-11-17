@@ -1,0 +1,9 @@
+[
+{"module":"test_pvp_star_shovel","class":"StarShovelTests","test":"test_all_independent_upgrade_bans_and_direct_native_planting","outcome":"PASS","seconds":0.119879,"detail":""},
+{"module":"test_pvp_star_shovel","class":"StarShovelTests","test":"test_automatic_star_target_and_visible_five_rays_both_directions","outcome":"PASS","seconds":0.0940752,"detail":""},
+{"module":"test_pvp_star_shovel","class":"StarShovelTests","test":"test_awake_mushroom_and_torch_projectiles_are_drawn","outcome":"PASS","seconds":0.336786,"detail":""},
+{"module":"test_pvp_star_shovel","class":"StarShovelTests","test":"test_native_shovel_pumpkin_layer_right_click_and_ownership","outcome":"PASS","seconds":0.207607,"detail":""},
+{"module":"test_pvp_star_shovel","class":"StarShovelTests","test":"test_original_projectile_draw_commands_survive_snapshot","outcome":"PASS","seconds":0.0720359,"detail":""},
+{"module":"test_pvp_star_shovel","class":"StarShovelTests","test":"test_star_does_not_fire_only_because_target_is_on_same_row","outcome":"PASS","seconds":0.0667689,"detail":""},
+{"module":"test_pvp_star_shovel","class":"StarShovelTests","test":"test_star_upper_body_ray_acquires_and_damages_hero_head","outcome":"PASS","seconds":1.00499,"detail":""}
+]

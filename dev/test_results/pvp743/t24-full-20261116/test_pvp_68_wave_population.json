@@ -1,0 +1,13 @@
+[
+{"module":"test_pvp_68_wave_population","class":"PopulationRoom68","test":"test_custom_cap_reaches_native_director_and_spectating_host_can_set_it","outcome":"PASS","seconds":0.793422,"detail":""},
+{"module":"test_pvp_68_wave_population","class":"PopulationRoom68","test":"test_host_only_configuration_is_revisioned_and_validated_before_mutation","outcome":"PASS","seconds":0.0089236,"detail":""},
+{"module":"test_pvp_68_wave_population","class":"PopulationUi68","test":"test_population_controls_fit_both_creation_and_day_pages_at_supported_sizes","outcome":"PASS","seconds":0.14543,"detail":""},
+{"module":"test_pvp_68_wave_population","class":"PopulationUi68","test":"test_solo_preference_and_coop_creation_use_independent_population_settings","outcome":"PASS","seconds":0.0925325,"detail":""},
+{"module":"test_pvp_68_wave_population","class":"WavePopulation68","test":"test_exact_80_percent_boundary_and_no_time_catchup","outcome":"PASS","seconds":0.0004102,"detail":""},
+{"module":"test_pvp_68_wave_population","class":"WavePopulation68","test":"test_final_wave_requires_every_enemy_and_pending_child_to_clear","outcome":"PASS","seconds":0.0002006,"detail":""},
+{"module":"test_pvp_68_wave_population","class":"WavePopulation68","test":"test_first_wave_keeps_buffer_and_elapsed_time_cannot_advance_later_wave","outcome":"PASS","seconds":0.000188,"detail":""},
+{"module":"test_pvp_68_wave_population","class":"WavePopulation68","test":"test_full_cap_retains_queue_and_rng_until_a_death_releases_a_slot","outcome":"PASS","seconds":0.000118,"detail":""},
+{"module":"test_pvp_68_wave_population","class":"WavePopulation68","test":"test_old_saves_default_to_40_and_custom_limit_round_trips","outcome":"PASS","seconds":0.0008709,"detail":""},
+{"module":"test_pvp_68_wave_population","class":"WavePopulation68","test":"test_queued_roots_prevent_advance_even_when_all_born_enemies_are_cleared","outcome":"PASS","seconds":7.65e-05,"detail":""},
+{"module":"test_pvp_68_wave_population","class":"WavePopulation68","test":"test_summoned_children_and_pending_death_children_belong_to_parent_wave","outcome":"PASS","seconds":0.0001867,"detail":""}
+]

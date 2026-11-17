@@ -1,4 +1,5 @@
 #include "sim/typed/zombie_motion.h"
+#include "sim/typed/attention.h"
 #include "sim/typed/plant_lookup.h"
 #include "core/pymath.h"
 #include <algorithm>
@@ -34,7 +35,35 @@ TileRef ZombieMotion::tile(int row,int64_t col)const{
     return world_.terrain.valid_row(row)?world_.terrain.at(row,world_.terrain.wrap(col)):TileRef{};
 }
 int ZombieMotion::flood(int field,int row,int64_t col)const{
+    if(attention_field_)return std::abs(attention_field_->at(size_t(row)*world_.terrain.cols()+world_.terrain.wrap(col)));
     return std::abs(routes_.chase_fields.at(field)->at(size_t(row)*world_.terrain.cols()+world_.terrain.wrap(col)));
+}
+void ZombieMotion::attention_route(const ZombieRef& u,ZombieMotionFrame& f){
+    if(!u->attention.enabled()||u->body.hp<=0.)return;
+    auto candidates=attention_enemies(world_,u);if(candidates.empty())return;
+    const auto& from=u->body.motion.get();const double tile=world_.runtime.tile;
+    const auto position=[&](const ContentTarget& t)->Point{
+        if(const auto* p=std::get_if<PlantRef>(&t))return {((*p)->cell.x+.5)*tile,((*p)->cell.y+.5)*tile};
+        const auto& z=std::get<CombatTarget>(t);const auto& m=z.is_hero()?*world_.heroes.hero(z.hero).frame.position.get():z.unit->body.motion.get();return {m.x,m.y};
+    };
+    const auto distance=[&](const ContentTarget& t){const auto p=position(t);return std::hypot(wrap_delta(from.x,p.x,world_.world_width.get()),from.y-p.y);};
+    auto selected=std::min_element(candidates.begin(),candidates.end(),[&](const auto& a,const auto& b){return distance(a)<distance(b);});
+    const bool plant=std::holds_alternative<PlantRef>(*selected);
+    Cell goal=plant?std::get<PlantRef>(*selected)->cell:player_flood_seed(position(*selected),tile);
+    goal.x=world_.terrain.wrap(goal.x);
+    if(!world_.terrain.valid_row(goal.y))return;
+    const auto now=world_.heroes.tick;
+    std::erase_if(attention_routes_,[&](const auto& pair){return pair.second.tick<now-250;});
+    auto& route=attention_routes_[{plant,goal.y,int(goal.x)}];auto& field=route.flood;
+    if(field.field->empty()){
+        field.field->assign(size_t(world_.terrain.rows())*world_.terrain.cols(),1);field.sign=-1;
+        // Warm up one reverse flood for this destination, shared by every unit
+        // choosing it. Terrain predicates and periodic coordinates stay native.
+        for(size_t i=0;i<=field.field->size();++i){field.cooldown=0;advance_flood(world_.terrain,field,{plant,true,goal,world_.terrain.water_surface});if(field.queue->empty())break;}
+    }
+    if(route.tick!=now){advance_flood(world_.terrain,field,{plant,true,goal,world_.terrain.water_surface});route.tick=now;}
+    attention_field_=field.field;
+    if(world_.terrain.valid_row(f.cell.y))f.original_heading=f.heading=flood(0,f.cell.y,f.cell.x);
 }
 void ZombieMotion::sound_at(const char* stem,int variants,size_t i){
     auto& w=world_.runtime;const auto suffix=w.rng.randint(1,variants);
@@ -156,6 +185,7 @@ double ZombieMotion::bite_amount(const ZombieRef& attacker,const ZombieRef& targ
 }
 void ZombieMotion::reciprocal(size_t i,const ZombieRef& attacker){
     auto target=zombie(i);auto& h=world_.heroes;
+    if(!attention_accepts(world_,attacker,CombatTarget::zombie(target)))return;
     if(h.tick<value(target->protection.anchor_until))return;
     auto source=source_ref(attacker);const auto owner=h.owner(source).value();
     const double amount=bite_amount(attacker,target);
@@ -165,6 +195,7 @@ void ZombieMotion::reciprocal(size_t i,const ZombieRef& attacker){
 void ZombieMotion::bite_hero(const ZombieRef& u){
     if(flag(u->patch.no_attack))return;
     auto& h=world_.heroes;const auto target=h.active.value().target;
+    if(!attention_accepts(world_,u,CombatTarget::player(h.hero(target).actual_seat.value_or(target))))return;
     h.proxy(target);
     const auto damage=h.player_damage(bite_amount(u,{}));
     if(damage.value_or(0.)!=0. && (field_is(u->source.content,"海盗鹦鹉")||field_is(u->source.content,"乌鸦"))) {
@@ -188,6 +219,8 @@ void ZombieMotion::bite_plant(ZombieMotionFrame& f,size_t z) {
     const auto l=f.index;auto& w=world_.runtime;
     const auto get=[&]{return world_.plant_roster->at(z);};
     auto u=zombie(l);auto& b=u->body;auto& n=u->native;
+    const auto victim=get();if(!attention_accepts(world_,u,victim))return;
+    const double hp_before=victim->hp.get();
     if(b.hand=="撑杆" && !b.in_water.get()){
         n.garlic.set(200.);b.hand.clear();b.pole_vault.set(1.);n.move_speed.set(60.*w.plk);return;
     }
@@ -214,6 +247,7 @@ void ZombieMotion::bite_plant(ZombieMotionFrame& f,size_t z) {
         }
     }
     auto p=get();
+    attention_damage(source_ref(u),victim,std::min(std::max(0.,hp_before),hp_before-p->hp.get()),world_.heroes.time);
     if((p->kind=="土豆地雷" && p->emerged.get()>0. && !p->dead.present()) || (p->kind=="缠绕海草"&&!p->dead.present()))
         p->dead.set(DeathMarker(0.));
     else if(p->kind=="魅惑菇" && !p->sleep.present() &&
@@ -306,7 +340,7 @@ void ZombieMotion::chase(ZombieMotionFrame& f) {
         }else if(f.heading==1)callbacks_.surface(l,b.facing,1.);
     }else if(f.heading<=2 || (field_is(u->source.content,"滚桶僵尸") && b.hand_hp>0. && !u->source.charmed.present())) {
         f.heading=b.facing==-1.?4:3;
-    }else if(u->source.charmed.present() && u->source.charmed.get()<3000.) {
+    }else if(!attention_field_ && u->source.charmed.present() && u->source.charmed.get()<3000.) {
         if(f.heading==3 || f.heading==4)f.heading=7-f.heading;
     }
     double speed=n.move_speed.get();
@@ -385,10 +419,12 @@ void ZombieMotion::register_stationary(size_t index) {
     }
 }
 ZombieMotionFrame ZombieMotion::advance(size_t l) {
+    attention_field_.reset();
     LiveBattleSources sources(world_);world_.heroes.source_index=int64_t(l);
     NativeBirthScope births(world_.runtime,callbacks_);
     ZombieMotionFrame f;f.index=l;entry(f);environment(f);
     auto u=zombie(l);auto& b=u->body;auto& n=u->native;auto& w=world_.runtime;
+    attention_route(u,f);
     if(n.wake.present()){f.can_bite=false;f.immobile=true;}
     if((b.hp>0. || one_of(b.kind,{"旗帜僵尸","小丑僵尸"})) && n.entry.get()==500. && !b.ash.present() && !n.wake.present()) {
         status(f);

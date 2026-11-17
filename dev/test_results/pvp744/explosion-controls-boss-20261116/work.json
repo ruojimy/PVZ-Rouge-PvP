@@ -1,0 +1,86 @@
+{
+  "status": "source_implemented_pc_verified_device_pending",
+  "updated": "2026-11-17T01:17:38.288052+08:00",
+  "scope": [
+    "simultaneous_explosion_crash",
+    "touch_shape_joystick_facing_slider",
+    "optional_gyro_movement",
+    "classic_terraria_boss_fidelity"
+  ],
+  "package_requested_this_turn": false,
+  "packaged": false,
+  "verification": [
+    {
+      "path": "controls-verified/results.json",
+      "checks": 4,
+      "failures": 0,
+      "sha256": "a3d1d3fdfed5b4f018ad7a082f1a4d4187b6fb8eedd62bb7dd1b9e3c46369de1"
+    },
+    {
+      "path": "boss-verified/results.json",
+      "checks": 31,
+      "failures": 0,
+      "sha256": "d3945dd3e3e9cff494948aad9e94ebf78cd520a38e343459d1920bb1eb8f0dec"
+    },
+    {
+      "path": "rendered-fixed-128/results.json",
+      "checks": 8,
+      "failures": 0,
+      "sha256": "8c84aaa037713f641acfc3de3d2620cebef80f6f6f6d82add8ab7915e4f99c13"
+    },
+    {
+      "path": "limit-900-fixed/results.json",
+      "checks": 1,
+      "failures": 0,
+      "sha256": "624fea701d6b518ee4c1753ee3c31218f039ce1bb434755880886e06d2aab547"
+    },
+    {
+      "path": "material-pixels.json",
+      "checks": 88,
+      "failures": 0,
+      "sha256": "a39c3d3d5d468173ab7f5345fd19e9ec43bcbfc07f463ed2c3840f4fcbf307c2"
+    },
+    {
+      "path": "sky-weather/results.json",
+      "checks": 25,
+      "failures": 0,
+      "sha256": "5a3c24259204509329fe11c59d2c01f35d19d747873faa366bd3b41a59a7e1bf"
+    },
+    {
+      "path": "self-destruct.json",
+      "checks": 7,
+      "failures": 0,
+      "sha256": "f32a17d8f18b5f7f3adc11beed2a2429c8e267af9419dec36748a8e166831d99"
+    }
+  ],
+  "windows_release": {
+    "passed": true,
+    "executables_sha256": {
+      "pvp744_controls_audit": "307927e15d9ee19c6fe0d68fc25b79609d5c3e50b711c381467593a3b6b7dbe4",
+      "pvp744_testmode_audit": "914dd45bb98d182edb5560f7699de91cefd7d44202f13e894da6fda6abc4ddb4",
+      "pvp744_explosion_stress": "f9e5ab16429a50d810e7669ca35e749765887814d10ac87e4235046801f3c505",
+      "pvp744_material_pixels_audit": "d17c2352b14de490446f65570ad1bd6fe327f0039ecfc71f93967239efce80e9",
+      "pvp744_sky_weather_audit": "b679c476c42380b57d059f439f46f4a16fc701958b2f584b731972d7f0275dfe",
+      "pvp742_self_destruct_audit": "315636ce18a0a39f5cdbdd64df35ef32b815f24ca3e0884469d1d6b64e307c07"
+    }
+  },
+  "android_arm64": {
+    "passed": true,
+    "candidate": "/home/ruojimy/pvz-native-android/candidates/pvp744-controls-boss-20261117-r3",
+    "source_fingerprint_equal": true,
+    "libmain_sha256": "f42b1d3de6a57fa49832ab7c91c7072472d6ca785bbc5fc83a90c96f52e1e72c",
+    "installed": false
+  },
+  "original_assets_verified": 22,
+  "device": {
+    "adb_attached": [],
+    "tested": false
+  },
+  "unverified": [
+    "reported_old_build_low_count_explosion_root_cause",
+    "Android_real_device_memory_and_controls",
+    "gyro_physical_axes_and_feel",
+    "full_continuous_Terraria_visual_fidelity_acceptance"
+  ],
+  "report": "实现与验证.md"
+}

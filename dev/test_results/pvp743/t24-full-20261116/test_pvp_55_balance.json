@@ -1,0 +1,7 @@
+[
+{"module":"test_pvp_55_balance","class":"PvP55BalanceTests","test":"test_card_cooldowns_and_almanac_match","outcome":"PASS","seconds":0.0003135,"detail":""},
+{"module":"test_pvp_55_balance","class":"PvP55BalanceTests","test":"test_ghost_hero_pulse_and_ash_explosion_share_native_cap","outcome":"PASS","seconds":0.0201243,"detail":""},
+{"module":"test_pvp_55_balance","class":"PvP55BalanceTests","test":"test_ghost_is_excluded_from_native_and_content_targeting","outcome":"PASS","seconds":0.014629,"detail":""},
+{"module":"test_pvp_55_balance","class":"PvP55BalanceTests","test":"test_primal_knockback_radius_strength_and_shield","outcome":"PASS","seconds":0.0425947,"detail":""},
+{"module":"test_pvp_55_balance","class":"PvP55BalanceTests","test":"test_thief_preview_and_authority_both_reject_ghost_and_copy","outcome":"PASS","seconds":0.0132591,"detail":""}
+]

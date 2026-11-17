@@ -1,4 +1,5 @@
 #include "cold_placement.h"
+#include "sim/typed/terraria_bosses.h"
 #include "core/pymath.h"
 #include <algorithm>
 #include <cmath>
@@ -175,6 +176,12 @@ ColdPlacementResult ColdPlacement::zombie(Seat seat,const std::string& key,Point
     const auto team=team_of(seat);if(balance(seat)<charge)return team==Seat::plant?"阳光不足":"脑光不足";
     if(published_.units.size()>=700)return "战场单位达到上限";
     ColdPlacementPlan plan;plan.card=card;plan.charge=charge;plan.slot=key;plan.temporary=copied_id&& !copied_id->empty();
+    if(card.behavior=="terraria"){
+        if(!world_.local_test_mode||team!=Seat::zombie||!terraria_summon(terraria_type(key)))return "仅本地测试模式可召唤";
+        const size_t count=terraria_type(key)==13?67:terraria_type(key)==35?3:1;
+        if(world_.native_objects.size()+count>700)return "战场单位达到上限";
+        plan.position={mod(p.x,width()),p.y};return plan;
+    }
     if(team==Seat::zombie&&card.behavior!="grave"){
         const auto* grave=grave_id?find(*grave_id):nullptr;
         if(!grave||grave->side!=team||grave->card->behavior!="grave"||grave->hp<=0.)return "请选择存活的己方脑光墓碑";

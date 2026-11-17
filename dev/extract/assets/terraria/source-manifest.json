@@ -1,0 +1,70 @@
+{
+  "terraria_version": "1.4.5.8",
+  "display_only": true,
+  "files": [
+    {
+      "file": "Arm_Bone.png",
+      "width": 26,
+      "height": 98,
+      "sha256": "e0f159ca0c07b7dfcdb89a406fcb8fbfb831390b77f34dc90d4db958f9738bf5",
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Terraria\\Content\\Images\\Arm_Bone.xnb",
+      "source_sha256": "b5113cc507bbc63dc22c9a9144f25f254e0c1d51ce4a87de2f0067491053557e"
+    },
+    {
+      "file": "NPC_13.png",
+      "width": 46,
+      "height": 90,
+      "sha256": "314333b35155df2c60c1c08623ade81290a57cd5f70f15e68c7af59b6ad74729",
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Terraria\\Content\\Images\\NPC_13.xnb",
+      "source_sha256": "6b16a3cd6413bd7ec6e570f02411af64a9b0da94e64c2f4b788e26cf20af5414"
+    },
+    {
+      "file": "NPC_14.png",
+      "width": 46,
+      "height": 90,
+      "sha256": "5dd0a88ce2b5631c7c732d5f3f34db43a72c679ddb70a2b5a16d345bf02e6edc",
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Terraria\\Content\\Images\\NPC_14.xnb",
+      "source_sha256": "acbff918fb6ab1138a87b7dab2bdc83211dd8e8f747dbc2021d77dd74f954a1a"
+    },
+    {
+      "file": "NPC_15.png",
+      "width": 46,
+      "height": 90,
+      "sha256": "f09a1cc2a9ac518e7bf66c964e9aad934394bea084b185dd4b703b51b67b2986",
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Terraria\\Content\\Images\\NPC_15.xnb",
+      "source_sha256": "323a8a83fb8f0dc7991cbe35d4e1511abe25f6adead385ad53c159da55f4cc12"
+    },
+    {
+      "file": "NPC_35.png",
+      "width": 114,
+      "height": 264,
+      "sha256": "dda42d6e6a40dab274ad2dd1fe5c11121eb75f0f6c0767336fb938580730516d",
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Terraria\\Content\\Images\\NPC_35.xnb",
+      "source_sha256": "30c9cc7d7b96f0ed130e3280cc8d07845a04665939ed3ac74fd6d22105b94fdd"
+    },
+    {
+      "file": "NPC_36.png",
+      "width": 58,
+      "height": 156,
+      "sha256": "86ca620badb4b158c8f1b9debe24d9bd9c26c832420b16acbb48815292e902e8",
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Terraria\\Content\\Images\\NPC_36.xnb",
+      "source_sha256": "d778dde667c1a459e9af42c7df9dc8fbf94b310026f4fb7ed480636bf593774d"
+    },
+    {
+      "file": "NPC_4.png",
+      "width": 110,
+      "height": 996,
+      "sha256": "8b57153b39491d053911b0c8def9c565adbdb593e9f6277fcad2ce623e708980",
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Terraria\\Content\\Images\\NPC_4.xnb",
+      "source_sha256": "61f36ea6d9c0b680498a395e2b30091f294ef3faa862c04ac6b492cda5477b17"
+    },
+    {
+      "file": "NPC_5.png",
+      "width": 20,
+      "height": 64,
+      "sha256": "142bb100b4ddbc4a052c9415e126b382ef4beb21d94f33762f0865984aed1fc8",
+      "source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Terraria\\Content\\Images\\NPC_5.xnb",
+      "source_sha256": "f5000e7d40a471e9ecd4505cdcc7ff58854b5c681313f70f936ea9c9d48e5c1e"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+[
+{"module":"test_pvp_status_visuals","class":"StatusVisuals","test":"test_45_zombies_damage_freeze_butter_draw_without_missing_assets","outcome":"PASS","seconds":0.663156,"detail":""},
+{"module":"test_pvp_status_visuals","class":"StatusVisuals","test":"test_all_45_plant_hurt_draws_and_four_secret_forms","outcome":"PASS","seconds":0.101163,"detail":""},
+{"module":"test_pvp_status_visuals","class":"StatusVisuals","test":"test_both_40hp_heroes_hurt_ice_and_butter_visuals_keep_combat_hp","outcome":"PASS","seconds":0.0223295,"detail":""},
+{"module":"test_pvp_status_visuals","class":"StatusVisuals","test":"test_native_damage_and_freeze_butter_have_real_effects_and_images","outcome":"PASS","seconds":0.0469396,"detail":""}
+]

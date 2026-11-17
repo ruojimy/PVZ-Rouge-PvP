@@ -1,0 +1,6 @@
+[
+{"module":"test_pvp_67_crowd_routing","class":"CrowdRouting67","test":"test_crowd_log_is_coarse_bounded_and_does_not_mutate_or_restart_after_stop","outcome":"PASS","seconds":0.0382625,"detail":""},
+{"module":"test_pvp_67_crowd_routing","class":"CrowdRouting67","test":"test_expired_split_first_body_selects_its_field_without_old_zombie_scratch","outcome":"PASS","seconds":0.0150152,"detail":""},
+{"module":"test_pvp_67_crowd_routing","class":"CrowdRouting67","test":"test_explicit_wave_hunt_updates_the_second_field_and_restores_native_baseline","outcome":"PASS","seconds":0.0136269,"detail":""},
+{"module":"test_pvp_67_crowd_routing","class":"CrowdRouting67","test":"test_mixed_expired_crowd_detours_and_climbs_house_ladder_in_coop_and_duo","outcome":"PASS","seconds":16.1491,"detail":""}
+]

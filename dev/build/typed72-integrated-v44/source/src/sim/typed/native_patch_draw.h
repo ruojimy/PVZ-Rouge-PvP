@@ -24,6 +24,7 @@ private:
     NativeArt bubble_surface(const std::string& name);
     TypedBattleState& world_;
     NativeCanvas& canvas_;
+    std::map<std::string,std::pair<NativeArtIdentity,NativeArt>> flips_;
     NativeArt flip_cached(const NativeArt& source,const std::string& key);
     NativeArt smoothscaled(const NativeArt& surface,double factor);
     void missing(const std::string& what){if(unsupported)unsupported(what);}

@@ -1,0 +1,31 @@
+{
+  "module": "test_pvp_62_features",
+  "exit": 1,
+  "seconds": 15.658,
+  "expected": 13,
+  "results": 13,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": false,
+  "accepted": false,
+  "counts": {
+    "PASS": 12,
+    "FAIL": 1,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [],
+  "unexpected_nonpass": [
+    {
+      "id": "test_pvp_62_features.BattleTests.test_dense_zombies_bite_the_shell_first",
+      "outcome": "FAIL",
+      "detail_sha256": "a8ec80fb21214689a993df0e53c9cea76a50c77925553a6530c0cd11bdbc94a7",
+      "reason": "not_waived"
+    }
+  ],
+  "resolved_waivers": []
+}

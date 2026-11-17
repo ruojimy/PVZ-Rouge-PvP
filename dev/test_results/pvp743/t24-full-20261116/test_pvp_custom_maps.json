@@ -1,0 +1,15 @@
+[
+{"module":"test_pvp_custom_maps","class":"CustomMaps","test":"test_adaptation_preserves_water_ladders_and_ladder_exit","outcome":"PASS","seconds":0.0113589,"detail":""},
+{"module":"test_pvp_custom_maps","class":"CustomMaps","test":"test_all_native_map_adaptations_preserve_protected_cells","outcome":"PASS","seconds":1.29165,"detail":""},
+{"module":"test_pvp_custom_maps","class":"CustomMaps","test":"test_atomic_failure_preserves_previous_save","outcome":"PASS","seconds":0.0283228,"detail":""},
+{"module":"test_pvp_custom_maps","class":"CustomMaps","test":"test_bad_shapes_kinds_ids_and_corrupt_file_are_rejected","outcome":"PASS","seconds":0.0137759,"detail":""},
+{"module":"test_pvp_custom_maps","class":"CustomMaps","test":"test_invalid_draft_can_save_but_cannot_open_room","outcome":"PASS","seconds":0.0240078,"detail":""},
+{"module":"test_pvp_custom_maps","class":"CustomMaps","test":"test_native_runtime_uses_exact_custom_water_ladder_spawns","outcome":"PASS","seconds":0.310928,"detail":""},
+{"module":"test_pvp_custom_maps","class":"CustomMaps","test":"test_room_authority_snapshot_roundtrip_and_night_preserve_edits","outcome":"PASS","seconds":0.0382844,"detail":""},
+{"module":"test_pvp_custom_maps","class":"CustomMaps","test":"test_save_restart_edit_preserves_original_and_native_grid","outcome":"PASS","seconds":0.0425034,"detail":""},
+{"module":"test_pvp_custom_maps","class":"CustomMaps","test":"test_undo_redo_and_spawn_placement","outcome":"PASS","seconds":0.0140094,"detail":""},
+{"module":"test_pvp_custom_maps","class":"EditorUI","test":"test_dirty_exit_and_save_copy_do_not_lose_original","outcome":"PASS","seconds":0.0632254,"detail":""},
+{"module":"test_pvp_custom_maps","class":"EditorUI","test":"test_edit_save_reopen_use_local_room_and_visual_bounds","outcome":"PASS","seconds":0.469424,"detail":""},
+{"module":"test_pvp_custom_maps","class":"EditorUI","test":"test_loopback_guest_receives_custom_map_without_local_file","outcome":"PASS","seconds":0.280133,"detail":""},
+{"module":"test_pvp_custom_maps","class":"EditorUI","test":"test_touch_drag_long_press_preserves_brush_and_zoom_coordinates","outcome":"PASS","seconds":0.0263892,"detail":""}
+]

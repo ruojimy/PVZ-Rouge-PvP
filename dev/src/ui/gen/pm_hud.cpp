@@ -37,7 +37,8 @@ V f_battle_deck(const Args& A) {
     V L_player = A.get(0, SY("player"), nullptr, "battle_deck");
     V L_deck;
     L_deck = py::m_get(L_player, SV("deck"), V::list({}));
-    return ([&]() -> V { V out_ = V::list(); V L_key; { V it1_ = py::iter_list(L_deck); for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) { L_key = it1_.idx(int64_t(i1_)); if (!((rd(rd(pm_catalog::CARDS, L_key), SV("category")) != SV("secret")))) continue; out_.append(L_key); }}return out_; }() + [&]() -> V { V out_ = V::list(); V L_key; { V it2_ = py::iter_list(L_deck); for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) { L_key = it2_.idx(int64_t(i2_)); if (!((rd(rd(pm_catalog::CARDS, L_key), SV("category")) == SV("secret")))) continue; out_.append(L_key); }}return out_; }());
+    if(py::m_get(L_player,SV("test_slots"),V(false)).truthy())return L_deck; // PvP744 stable empty slots
+    return ([&]() -> V { V out_ = V::list(); V L_key; { V it1_ = py::iter_list(L_deck); for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) { L_key = it1_.idx(int64_t(i1_)); if(!L_key.truthy())continue; if (!((rd(rd(pm_catalog::CARDS, L_key), SV("category")) != SV("secret")))) continue; out_.append(L_key); }}return out_; }() + [&]() -> V { V out_ = V::list(); V L_key; { V it2_ = py::iter_list(L_deck); for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) { L_key = it2_.idx(int64_t(i2_)); if(!L_key.truthy())continue; if (!((rd(rd(pm_catalog::CARDS, L_key), SV("category")) == SV("secret")))) continue; out_.append(L_key); }}return out_; }());
     return V::none();
 }
 
@@ -51,6 +52,7 @@ V f_battle_card(const Args& A) {
     V L_card;
     V L_count;
     V L_price;
+    V L_summary;
     V L_target;
     V L_units;
     L_card = callm(pm_hud::module_ns(), SY("actual_card"), Args{L_key, py::m_get(L_player, SV("secrets"), V::tuple({})), L_night});
@@ -62,11 +64,16 @@ V f_battle_card(const Args& A) {
     }
     if (((L_key == SV("zombie:乌鸦")) && py::in(SV("zsecret:鸦群"), py::m_get(L_player, SV("secrets"), V::tuple({}))))) {
         L_CROW_SURCHARGE = pm_zombie_secrets::CROW_SURCHARGE;
-        L_units = py_or(py::m_get(L_battle, SV("units")), [&]() -> V { return V::tuple({}); });
-        if ((V((isinstance(L_units, "dict")))).truthy()) {
-            L_units = callm(L_units, SY("values"), Args{});
+        L_summary = py::m_get(L_battle, SV("_local_hud"));
+        if (!py_is(L_summary, V::none())) {
+            L_count = rd(L_summary, SV("scarecrows"));
+        } else {
+            L_units = py_or(py::m_get(L_battle, SV("units")), [&]() -> V { return V::tuple({}); });
+            if ((V((isinstance(L_units, "dict")))).truthy()) {
+                L_units = callm(L_units, SY("values"), Args{});
+            }
+            L_count = py::sum_it([&]() -> V { V out_ = V::list(); V L_u; { V it1_ = py::iter_list(L_units); for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) { L_u = it1_.idx(int64_t(i1_)); if (!(((py::m_get(L_u, SV("card_id"), py::m_get(py_or(py::m_get(L_u, SV("card")), [&]() -> V { return py_dict({}); }), SV("id"))) == SV("zombie:稻草人")) && (py::m_get(L_u, SV("side")) == SV("zombie")) && (py::m_get(L_u, SV("hp"), V(0.0)) > V(0.0))))) continue; out_.append(V(1.0)); }}return out_; }());
         }
-        L_count = py::sum_it([&]() -> V { V out_ = V::list(); V L_u; { V it1_ = py::iter_list(L_units); for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) { L_u = it1_.idx(int64_t(i1_)); if (!(((py::m_get(L_u, SV("card_id"), py::m_get(py_or(py::m_get(L_u, SV("card")), [&]() -> V { return py_dict({}); }), SV("id"))) == SV("zombie:稻草人")) && (py::m_get(L_u, SV("side")) == SV("zombie")) && (py::m_get(L_u, SV("hp"), V(0.0)) > V(0.0))))) continue; out_.append(V(1.0)); }}return out_; }());
         { V ab2_ = L_card; V ak2_ = SV("cost"); pvz::setitem(ab2_, ak2_, py::iadd(rd(ab2_, ak2_), (L_CROW_SURCHARGE * L_count))); }
     }
     if ((py::m_get(L_card, SV("native_input_name")) == SV("地刺"))) {
@@ -237,7 +244,7 @@ V f_page_summary(const Args& A) {
     V L_pages;
     V L_ready;
     V L_text;
-    L_keys = [&]() -> V { V out_ = V::list(); V L_key; { V it1_ = py::iter_list(py::m_get(L_player, SV("deck"), V::list({}))); for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) { L_key = it1_.idx(int64_t(i1_)); if (!((rd(rd(pm_catalog::CARDS, L_key), SV("category")) != SV("secret")))) continue; out_.append(L_key); }}return out_; }();
+    L_keys = [&]() -> V { V out_ = V::list(); V L_key; { V it1_ = py::iter_list(py::m_get(L_player, SV("deck"), V::list({}))); for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) { L_key = it1_.idx(int64_t(i1_)); if(!L_key.truthy())continue; if (!((rd(rd(pm_catalog::CARDS, L_key), SV("category")) != SV("secret")))) continue; out_.append(L_key); }}return out_; }();
     L_pages = py::max_it(V::list({V(1.0), V(std::ceil(((py::len(L_keys) / L_capacity)).num()))}), py::Key(), V());
     L_page = (L_page % L_pages);
     L_hidden = (py::slice(L_keys, V::none(), (L_page * L_capacity)) + py::slice(L_keys, ((L_page + V(1.0)) * L_capacity), V::none()));
@@ -365,6 +372,7 @@ V C_FeedbackTracker::m_update(const Args& A) {
     V L_view = A.get(0, SY("view"), nullptr, "update");
     V L_side = A.get(1, SY("side"), nullptr, "update");
     V L_battle;
+    V L_count;
     V L_damaged;
     V L_delta;
     V L_graves;
@@ -372,6 +380,7 @@ V C_FeedbackTracker::m_update(const Args& A) {
     V L_lost;
     V L_now;
     V L_status;
+    V L_summary;
     V L_text;
     V L_units;
     L_battle = py_or(py::m_get(L_view, SV("battle")), [&]() -> V { return py_dict({}); });
@@ -391,17 +400,24 @@ V C_FeedbackTracker::m_update(const Args& A) {
     }
     pvz::setitem(a_losses, L_side, L_lost);
     a_tick = py::m_get(L_battle, SV("tick"), V(0.0));
-    L_units = py::m_get(L_battle, SV("units"), V::list({}));
-    L_units = ((V((isinstance(L_units, "dict")))).truthy() ? V(callm(L_units, SY("values"), Args{})) : V(L_units));
-    L_graves = [&]() -> V { V out_ = V::list(); V L_u; { V it1_ = py::iter_list(L_units); for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) { L_u = it1_.idx(int64_t(i1_)); if (!(((py::m_get(L_u, SV("behavior")) == SV("grave")) && (py::m_get(L_u, SV("side")) == SV("zombie")) && (py::m_get(L_u, SV("hp"), V(0.0)) > V(0.0))))) continue; out_.append(L_u); }}return out_; }();
-    L_damaged = py::sum_it([&]() -> V { V out_ = V::list(); V L_u; { V it2_ = py::iter_list(L_graves); for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) { L_u = it2_.idx(int64_t(i2_)); out_.append(V((rd(L_u, SV("hp")) < py::m_get(L_u, SV("max_hp"), rd(L_u, SV("hp")))))); }}return out_; }());
     L_text = ((L_now < a_until) ? V(a_notice) : V(SV("")));
     if ((L_side == SV("zombie"))) {
-        L_status = py::percent(SV("出兵点 %d"), py::len(L_graves));
+        L_summary = py::m_get(L_battle, SV("_local_hud"));
+        if (!py_is(L_summary, V::none())) {
+            L_count = rd(L_summary, SV("graves"));
+            L_damaged = rd(L_summary, SV("damaged_graves"));
+        } else {
+            L_units = py::m_get(L_battle, SV("units"), V::list({}));
+            L_units = ((V((isinstance(L_units, "dict")))).truthy() ? V(callm(L_units, SY("values"), Args{})) : V(L_units));
+            L_graves = [&]() -> V { V out_ = V::list(); V L_u; { V it1_ = py::iter_list(L_units); for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) { L_u = it1_.idx(int64_t(i1_)); if (!(((py::m_get(L_u, SV("behavior")) == SV("grave")) && (py::m_get(L_u, SV("side")) == SV("zombie")) && (py::m_get(L_u, SV("hp"), V(0.0)) > V(0.0))))) continue; out_.append(L_u); }}return out_; }();
+            L_count = py::len(L_graves);
+            L_damaged = py::sum_it([&]() -> V { V out_ = V::list(); V L_u; { V it2_ = py::iter_list(L_graves); for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) { L_u = it2_.idx(int64_t(i2_)); out_.append(V((rd(L_u, SV("hp")) < py::m_get(L_u, SV("max_hp"), rd(L_u, SV("hp")))))); }}return out_; }());
+        }
+        L_status = py::percent(SV("出兵点 %d"), L_count);
         if ((L_damaged).truthy()) {
             L_status = py::iadd(L_status, py::percent(SV(" · %d 座墓碑受损"), L_damaged));
         }
-        if (!(L_graves).truthy()) {
+        if (!(L_count).truthy()) {
             L_status = py::iadd(L_status, SV(" · 无可用墓碑"));
         }
         L_text = (L_status + ((L_text).truthy() ? V((SV(" / ") + L_text)) : V(SV(""))));

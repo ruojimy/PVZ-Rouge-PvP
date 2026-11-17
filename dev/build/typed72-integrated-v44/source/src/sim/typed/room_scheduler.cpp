@@ -84,7 +84,12 @@ void RoomScheduler::revive(Seat seat,Seat helper){
 }
 void RoomScheduler::finish_result(){
     if(!state_.result)return;
-    if(scripted(world_.mode)){state_.result->coins=resources_.coins;state_.result->fallen=state_.fallen_count;}
+    if(scripted(world_.mode)){
+        // A defeated boss reward cannot be lost to immediate stage completion.
+        if(state_.result->winner==RoomWinner::plant){std::vector<std::string> diamonds;for(const auto& r:resources_.records())if(r.coin.or_missing("")=="diamond")diamonds.push_back(r.id);for(const auto& id:diamonds)resources_.collect(id);}
+        state_.result->coins=resources_.coins;state_.result->fallen=state_.fallen_count;
+        if(resources_.diamond_coins>0.)state_.result->diamond_coins=resources_.diamond_coins;
+    }
     services_.emit(*state_.result);
 }
 void RoomScheduler::team_step(double elapsed){

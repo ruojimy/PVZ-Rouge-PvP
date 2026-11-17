@@ -91,7 +91,7 @@ V C_NativeArt::m_raw(const Args& A) {
     texture74::DisplayScope texture74_art; // PvP74
     V L_name = A.get(0, SY("name"), nullptr, "raw");
     texture74::sync_art(self());
-    if(V custom=texture74::artwork(py_str(L_name));!custom.is_none())return custom; // PvP74
+    if(V custom=texture74::artwork("world:"+py_str(L_name));!custom.is_none())return custom; // PvP74
     V L_a;
     V L_b;
     V L_content;

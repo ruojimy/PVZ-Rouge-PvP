@@ -8,7 +8,7 @@ bool armed(const ZombieRef& unit){return unit&&unit->poison.imp_armor.present()&
 }
 void ExpansionArt::clear(){body_.reset();wearer_.reset();imp_.reset();suppress_.clear();}
 void ExpansionArt::restore(){for(const auto& [key,image]:saved_atlas_)store_.atlas[key]=image;saved_atlas_.clear();}
-void ExpansionArt::alias_one(const std::string& old,const std::string& next){saved_atlas_[old]=store_.atlas.at(old);store_.atlas[old]=store_.atlas.at(next);}
+void ExpansionArt::alias_one(const std::string& old,const std::string& next){saved_atlas_.try_emplace(old,store_.atlas.at(old));store_.atlas[old]=store_.atlas.at(next);}
 void ExpansionArt::alias(const std::string& old,const std::string& next){for(const auto suffix:suffixes)if(has(old+suffix)&&has(next+suffix))alias_one(old+suffix,next+suffix);}
 bool ExpansionArt::imp_armored()const{return armed(wearer_);}
 std::string ExpansionArt::worn_name(const std::string& armor)const {
@@ -16,9 +16,14 @@ std::string ExpansionArt::worn_name(const std::string& armor)const {
 }
 NativeArt ExpansionArt::armor_art(const std::string& name,const std::string& wearer) {
     const double scale=store_.factor(wearer);if(scale==1.)return store_.find(name);
-    const auto key=wearer+"-"+name;const auto existing=store_.find(key);if(existing)return existing;
+    // A separately authored scaled atlas entry has its own full resource key
+    // (and workshop override). Only synthesize when that entry is absent.
+    if(const auto authored=store_.find(wearer+"-"+name))return authored;
     const auto raw=store_.find(name);if(!raw)return {};
-    return store_.register_asset(key,store_.shrink(raw,scale));
+    const auto key=std::tuple{wearer+"-"+name,NativeArtStore::identity(raw),scale};
+    if(const auto i=armor_images_.find(key);i!=armor_images_.end())return i->second;
+    if(armor_images_.size()>256)armor_images_.clear();
+    return armor_images_[key]=store_.shrink(raw,scale);
 }
 void ExpansionArt::gate(const ZombieRef& unit) {
     clear();if(!unit)return;
@@ -46,20 +51,25 @@ std::optional<Point> ExpansionArt::seat(const std::string& armor,const NativeArt
     return Point{(h->left+h->right-p->left-p->right)/2.,h->top+overlap(armor,*h,*p)-p->bottom};
 }
 std::optional<Point> ExpansionArt::imp_seat(const std::string& armor) {
-    const auto found=imp_seats_.find(armor);if(found!=imp_seats_.end())return found->second;
-    return imp_seats_[armor]=seat(armor,store_.find("小鬼僵尸-首"),armor_art(armor));
+    const auto head=store_.find("小鬼僵尸-首"),plate=armor_art(armor);if(!head||!plate)return {};
+    const CompositeKey key{armor,NativeArtStore::identity(head),NativeArtStore::identity(plate)};
+    const auto found=imp_seats_.find(key);if(found!=imp_seats_.end())return found->second;
+    if(imp_seats_.size()>256)imp_seats_.clear();
+    return imp_seats_[key]=seat(armor,head,plate);
 }
 NativeArt ExpansionArt::imp_composite(const std::string& armor,Point point) {
-    const auto found=imp_composites_.find(armor);if(found!=imp_composites_.end())return found->second;
     const auto base=store_.find("小鬼僵尸"),plate=armor_art(armor);if(!base||!plate)return {};
-    auto composite=NativeArtStore::copy(base);NativeArtStore::blit(composite,plate,point);imp_composites_[armor]=composite;return composite;
+    const CompositeKey key{armor+":"+std::to_string(point.x)+":"+std::to_string(point.y),NativeArtStore::identity(base),NativeArtStore::identity(plate)};
+    const auto found=imp_composites_.find(key);if(found!=imp_composites_.end())return found->second;
+    if(imp_composites_.size()>256)imp_composites_.clear();
+    auto composite=NativeArtStore::copy(base);NativeArtStore::blit(composite,plate,point);imp_composites_[key]=composite;return composite;
 }
 NativeArt ExpansionArt::retrace(const NativeArt& image,const NativeArt& replacement) {
     using Kind=NativeArtRecipe::Kind;
     std::vector<const NativeArtRecipe*> operations;FrozenArt node=image;
     for(int i=0;i<8&&node;++i) {
         const auto& r=*node->recipe;if(r.kind==Kind::asset)break;
-        if(r.kind!=Kind::rotate&&r.kind!=Kind::flip)return {};
+        if(r.kind!=Kind::rotate&&r.kind!=Kind::flip)break;
         operations.push_back(&r);node=r.source;
     }
     auto out=replacement;
@@ -78,13 +88,13 @@ NativeArt ExpansionArt::carrier_headgear(const std::string& key,const NativeArt&
     const auto name=NativeArtStore::atlas_name(key);const auto split=name.find("-首");
     const auto suffix=split==std::string::npos?std::string{}:name.substr(split+std::string("-首").size());
     auto tinted=armor_art(worn_name(armor)+suffix,name.substr(0,name.find('-')));if(!tinted)tinted=plate;
-    const auto art=NativeArtStore::art_key(tinted);
-    const auto cache=std::pair{key,art?NativeArtStore::atlas_name(*art):armor};
+    const auto base=store_.find(name);if(!base||!tinted)return {};
+    const CompositeKey cache{armor,NativeArtStore::identity(base),NativeArtStore::identity(tinted)};
     const auto found=carrier_heads_.find(cache);NativeArt composite;
     if(found!=carrier_heads_.end())composite=found->second;
     else {
-        const auto base=store_.find(name);if(!base)return {};
         const auto point=seat(armor,base,tinted);if(!point)return {};
+        if(carrier_heads_.size()>256)carrier_heads_.clear();
         composite=NativeArtStore::copy(base);NativeArtStore::blit(composite,tinted,*point);carrier_heads_[cache]=composite;
     }
     return retrace(image,composite);

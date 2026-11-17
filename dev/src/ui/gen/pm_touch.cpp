@@ -15,10 +15,84 @@ V ACTION_H;
 V ACTION_GAP;
 V ACTION_ROWS;
 V ACTION_SLOTS;
+V HUD_SLOTS;
 V SLOTS;
 V SLOT_NAMES;
 V SCALE_MIN;
 V SCALE_MAX;
+V f_control_options(const Args& A) {
+    V L_value = A.get(0, SY("value"), nullptr, "control_options");
+    V L_high;
+    V L_key;
+    V L_low;
+    V L_number;
+    V L_out;
+    V L_shapes;
+    V L_slot;
+    L_value = ((V((isinstance(L_value, "dict")))).truthy() ? V(L_value) : V(py_dict({})));
+    L_shapes = py::m_get(L_value, SV("shapes"), py_dict({}));
+    L_shapes = ((V((isinstance(L_shapes, "dict")))).truthy() ? V(L_shapes) : V(py_dict({})));
+    L_out = py_dict({{SV("movement"), SV("buttons")}, {SV("facing_slider"), py::bool_(py::m_get(L_value, SV("facing_slider"), V(false)))}, {SV("gyro"), py::bool_(py::m_get(L_value, SV("gyro"), V(false)))}, {SV("jump_angle"), V(60.0)}, {SV("gyro_threshold"), V(12.0)}, {SV("shapes"), py_dict({})}});
+    if (py::in(py::m_get(L_value, SV("movement")), V::tuple({SV("buttons"), SV("joystick"), SV("off")}))) {
+        pvz::setitem(L_out, SV("movement"), rd(L_value, SV("movement")));
+    }
+    { V it1_ = py::iter_list(V::tuple({V::tuple({SV("jump_angle"), V(20.0), V(160.0)}), V::tuple({SV("gyro_threshold"), V(2.0), V(35.0)})}));
+    for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) {
+        { V ut2_ = py::as_seq(it1_.idx(int64_t(i1_))); L_key = ut2_.idx(0); L_low = ut2_.idx(1); L_high = ut2_.idx(2); } 
+        try {
+            L_number = py::float_(py::m_get(L_value, L_key, rd(L_out, L_key)));
+            if ((V(std::isfinite((L_number).num()))).truthy()) {
+                pvz::setitem(L_out, L_key, py::min_it(V::list({L_high, py::max_it(V::list({L_low, L_number}), py::Key(), V())}), py::Key(), V()));
+            }
+        } catch (PyError& exc_) {
+            if (exc_.matches("ValueError") || exc_.matches("TypeError")) {
+            }
+            else throw;
+        }
+    }}
+    { V it3_ = py::iter_list(pm_touch::SLOTS);
+    for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) {
+        L_slot = it3_.idx(int64_t(i3_)); 
+        if ((!py::in(L_slot, pm_touch::HUD_SLOTS) && (py::m_get(L_shapes, L_slot) == SV("circle")))) {
+            pvz::setitem(rd(L_out, SV("shapes")), L_slot, SV("circle"));
+        }
+    }}
+    return L_out;
+    return V::none();
+}
+
+V f_visible_slots(const Args& A) {
+    V L_state = A.get(0, SY("state"), nullptr, "visible_slots");
+    V L_editor = (A.size() > 1 || A.has_kw(SY("editor"))) ? A.get(1, SY("editor"), nullptr) : V(V(false));
+    V L_options;
+    V L_out;
+    V L_slot;
+    L_options = callm(pm_touch::module_ns(), SY("control_options"), Args{py::m_get(L_state, SV("touch_options"))});
+    L_out = V::list({});
+    { V it1_ = py::iter_list(pm_touch::SLOTS);
+    for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) {
+        L_slot = it1_.idx(int64_t(i1_)); 
+        if ((py::in(L_slot, pm_touch::HUD_SLOTS) && !(L_editor).truthy())) {
+            continue;
+        }
+        if ((py::in(L_slot, V::tuple({SV("left"), SV("right")})) && (rd(L_options, SV("movement")) != SV("buttons")))) {
+            continue;
+        }
+        if (((L_slot == SV("joystick")) && ((rd(L_options, SV("movement")) == SV("buttons")) || ((rd(L_options, SV("movement")) == SV("off")) && !(L_editor).truthy())))) {
+            continue;
+        }
+        if ((py::in(L_slot, V::tuple({SV("facing_auto"), SV("facing_left"), SV("facing_right")})) && (rd(L_options, SV("facing_slider"))).truthy())) {
+            continue;
+        }
+        if (((L_slot == SV("facing_slider")) && !(rd(L_options, SV("facing_slider"))).truthy())) {
+            continue;
+        }
+        (void)(py::m_append(L_out, L_slot));
+    }}
+    return L_out;
+    return V::none();
+}
+
 V f_button_size(const Args& A) {
     V L_state = A.get(0, SY("state"), nullptr, "button_size");
     V L_index;
@@ -98,17 +172,24 @@ V f_default_slots(const Args& A) {
     V L_width = A.get(0, SY("width"), nullptr, "default_slots");
     V L_height = A.get(1, SY("height"), nullptr, "default_slots");
     V L_state = A.get(2, SY("state"), nullptr, "default_slots");
+    V L_bank_w;
     V L_column;
     V L_cw;
+    V L_diameter;
+    V L_h;
     V L_index;
     V L_inner;
     V L_move;
     V L_outer;
+    V L_shapes;
     V L_size;
     V L_slot;
     V L_slots;
     V L_third;
     V L_top;
+    V L_w;
+    V L_x;
+    V L_y;
     L_size = callm(pm_touch::module_ns(), SY("button_size"), Args{L_state});
     { V ut1_ = py::as_seq(callm(pm_touch::module_ns(), SY("thumb_clusters"), Args{L_width, L_height, L_state})); L_move = ut1_.idx(0); L_column = ut1_.idx(1); } 
     L_slots = py_dict({{SV("left"), V::tuple({rd(L_move, V(0.0)), rd(L_move, V(1.0)), L_size, L_size})}, {SV("right"), V::tuple({((rd(L_move, V(0.0)) + L_size) + pm_touch::GAP), rd(L_move, V(1.0)), L_size, L_size})}, {SV("jump"), ((py::m_get(L_state, SV("touch_mirror"))).truthy() ? V(V::tuple({pm_touch::MARGIN, ((L_height - pm_touch::MARGIN) - L_size), L_size, L_size})) : V(V::tuple({((L_width - pm_touch::MARGIN) - L_size), ((L_height - pm_touch::MARGIN) - L_size), L_size, L_size})))}});
@@ -131,6 +212,22 @@ V f_default_slots(const Args& A) {
     for (size_t i4_ = 0; i4_ < it4_.len(); ++i4_) {
         L_index = V(st4_ + double(i4_)); L_slot = it4_.idx(int64_t(i4_)); 
         pvz::setitem(L_slots, L_slot, V::tuple({(L_inner + (L_index * (L_third + V(4.0)))), L_top, L_third, pm_touch::ACTION_H}));
+    }}
+    L_diameter = (L_size * V(1.8));
+    pvz::setitem(L_slots, SV("joystick"), V::tuple({rd(L_move, V(0.0)), ((L_height - pm_touch::MARGIN) - L_diameter), L_diameter, L_diameter}));
+    pvz::setitem(L_slots, SV("facing_slider"), V::tuple({L_inner, L_top, L_cw, pm_touch::ACTION_H}));
+    L_bank_w = floordiv((L_width - V(160.0)), V(2.0));
+    (void)(callm(L_slots, SY("update"), Args({}, {{SY("own_bank"), V::tuple({V(8.0), V(8.0), L_bank_w, V(100.0)})}, {SY("mate_bank"), V::tuple({(V(16.0) + L_bank_w), V(8.0), L_bank_w, V(100.0)})}, {SY("minimap"), V::tuple({(L_width - V(188.0)), V(190.0), V(168.0), V(62.0)})}, {SY("timer"), V::tuple({(floordiv(L_width, V(2.0)) - V(72.0)), V(114.0), V(144.0), V(30.0)})}, {SY("stage_info"), V::tuple({V(8.0), V(150.0), (L_width - V(160.0)), V(30.0)})}, {SY("team_info"), V::tuple({V(8.0), V(186.0), py::min_it(V::list({V(560.0), (L_width - V(220.0))}), py::Key(), V()), V(30.0)})}, {SY("battle_menu"), V::tuple({(L_width - V(130.0)), V(8.0), V(122.0), V(166.0)})}})));
+    L_shapes = rd(callm(pm_touch::module_ns(), SY("control_options"), Args{py::m_get(L_state, SV("touch_options"))}), SV("shapes"));
+    { V it5_ = py::iter_list(L_shapes);
+    for (size_t i5_ = 0; i5_ < it5_.len(); ++i5_) {
+        L_slot = it5_.idx(int64_t(i5_)); 
+        if (py::in(L_slot, V::tuple({SV("joystick"), SV("facing_slider")}))) {
+            continue;
+        }
+        { V ut6_ = py::as_seq(rd(L_slots, L_slot)); L_x = ut6_.idx(0); L_y = ut6_.idx(1); L_w = ut6_.idx(2); L_h = ut6_.idx(3); } 
+        L_diameter = py::min_it(V::list({L_w, L_h}), py::Key(), V());
+        pvz::setitem(L_slots, L_slot, V::tuple({(L_x + floordiv((L_w - L_diameter), V(2.0))), (L_y + floordiv((L_h - L_diameter), V(2.0))), L_diameter, L_diameter}));
     }}
     return L_slots;
     return V::none();
@@ -175,6 +272,7 @@ V f_placed_slots(const Args& A) {
             continue;
         }
         L_base = rd(callm(pm_touch::module_ns(), SY("default_slots"), Args{L_width, L_height, L_state}), L_slot);
+        L_scale = py::min_it(V::list({L_scale, (L_width / py::max_it(V::list({V(1.0), rd(L_base, V(2.0))}), py::Key(), V())), (L_height / py::max_it(V::list({V(1.0), rd(L_base, V(3.0))}), py::Key(), V()))}), py::Key(), V());
         { V tv6_0 = py::int_((rd(L_base, V(2.0)) * L_scale)); V tv6_1 = py::int_((rd(L_base, V(3.0)) * L_scale)); L_w = std::move(tv6_0); L_h = std::move(tv6_1); }
         pvz::setitem(L_slots, L_slot, V::tuple({py::int_(py::min_it(V::list({(L_width - L_w), py::max_it(V::list({V(0.0), (L_fx * L_width)}), py::Key(), V())}), py::Key(), V())), py::int_(py::min_it(V::list({(L_height - L_h), py::max_it(V::list({V(0.0), (L_fy * L_height)}), py::Key(), V())}), py::Key(), V())), L_w, L_h}));
     }}
@@ -189,7 +287,7 @@ V f_placed_slots(const Args& A) {
 
 bool C_TouchControls::isa(const char* c) const { std::string s(c); return s == "TouchControls" || s == "object"; }
 V* C_TouchControls::slot(Sym name) {
-    static const SymIndex idx_({SY("app"), SY("fingers"), SY("pressed"), SY("_hover"), SY("_scroll"), SY("editor_selected")});
+    static const SymIndex idx_({SY("app"), SY("fingers"), SY("pressed"), SY("_hover"), SY("_scroll"), SY("editor_selected"), SY("editor_panel"), SY("virtual_keys"), SY("virtual_bindings"), SY("gyro_bindings"), SY("gyro_status"), SY("gyro_calibrate")});
     const int k_ = idx_.find(name);
     if (k_ < 0) return nullptr;
     switch (k_) {
@@ -199,46 +297,65 @@ V* C_TouchControls::slot(Sym name) {
         case 3: return &a__hover;
         case 4: return &a__scroll;
         case 5: return &a_editor_selected;
+        case 6: return &a_editor_panel;
+        case 7: return &a_virtual_keys;
+        case 8: return &a_virtual_bindings;
+        case 9: return &a_gyro_bindings;
+        case 10: return &a_gyro_status;
+        case 11: return &a_gyro_calibrate;
     }
     return nullptr;
 }
 V C_TouchControls::method(Sym name) {
+    if (name == SY("__native_type__")) { V metadata=V::func([](const Args&) { return pm_touch::cls_TouchControls(); }); metadata.box->fattrs.emplace_back(Sym("__native_type_metadata__"),V(true)); return metadata; }
+    if (name == SY("__native_slot_names__")) return V::func([](const Args&) { return V::tuple({SV("app"), SV("fingers"), SV("pressed"), SV("_hover"), SV("_scroll"), SV("editor_selected"), SV("editor_panel"), SV("virtual_keys"), SV("virtual_bindings"), SV("gyro_bindings"), SV("gyro_status"), SV("gyro_calibrate")}); });
     if (V replacement = py::class_method_override(pm_touch::cls_TouchControls(), name, self()); replacement.has()) return replacement;
-    static const SymIndex idx_({SY("__init__"), SY("_hold_binding"), SY("_copy_name"), SY("_action_buttons"), SY("layout"), SY("_hit"), SY("finger"), SY("mouse_down"), SY("mouse_motion"), SY("mouse_up"), SY("_down"), SY("_motion"), SY("_up"), SY("_dispatch"), SY("update"), SY("clear"), SY("hover_pos"), SY("_editor_grab"), SY("_editor_drag"), SY("editor_scale_selected"), SY("draw_editor"), SY("_fit_font"), SY("_paint_button"), SY("draw")});
+    static const SymIndex idx_({SY("__init__"), SY("_hold_binding"), SY("_copy_name"), SY("_action_buttons"), SY("layout"), SY("_hit"), SY("_slot"), SY("_contains"), SY("_sync_virtual"), SY("_stick_motion"), SY("_slider_motion"), SY("finger"), SY("mouse_down"), SY("mouse_motion"), SY("mouse_up"), SY("_down"), SY("_motion"), SY("_up"), SY("_dispatch"), SY("update"), SY("clear"), SY("hover_pos"), SY("_update_gyro"), SY("editor_option"), SY("_panel_rect"), SY("_draw_options"), SY("_editor_grab"), SY("_editor_drag"), SY("editor_scale_selected"), SY("draw_editor"), SY("_fit_font"), SY("_paint_button"), SY("_paint_stick"), SY("_paint_slider"), SY("draw")});
     const int k_ = idx_.find(name);
     if (k_ < 0) return V();
     auto sp = std::static_pointer_cast<C_TouchControls>(shared_from_this());
     switch (k_) {
-        case 0: return V::func([sp](const Args& A) { return sp->m___init__(A); });
-        case 1: return V::func([sp](const Args& A) { return sp->m__hold_binding(A); });
-        case 2: return V::func([sp](const Args& A) { return sp->m__copy_name(A); });
-        case 3: return V::func([sp](const Args& A) { return sp->m__action_buttons(A); });
-        case 4: return V::func([sp](const Args& A) { return sp->m_layout(A); });
-        case 5: return V::func([sp](const Args& A) { return sp->m__hit(A); });
-        case 6: return V::func([sp](const Args& A) { return sp->m_finger(A); });
-        case 7: return V::func([sp](const Args& A) { return sp->m_mouse_down(A); });
-        case 8: return V::func([sp](const Args& A) { return sp->m_mouse_motion(A); });
-        case 9: return V::func([sp](const Args& A) { return sp->m_mouse_up(A); });
-        case 10: return V::func([sp](const Args& A) { return sp->m__down(A); });
-        case 11: return V::func([sp](const Args& A) { return sp->m__motion(A); });
-        case 12: return V::func([sp](const Args& A) { return sp->m__up(A); });
-        case 13: return V::func([sp](const Args& A) { return sp->m__dispatch(A); });
-        case 14: return V::func([sp](const Args& A) { return sp->m_update(A); });
-        case 15: return V::func([sp](const Args& A) { return sp->m_clear(A); });
-        case 16: return V::func([sp](const Args& A) { return sp->m_hover_pos(A); });
-        case 17: return V::func([sp](const Args& A) { return sp->m__editor_grab(A); });
-        case 18: return V::func([sp](const Args& A) { return sp->m__editor_drag(A); });
-        case 19: return V::func([sp](const Args& A) { return sp->m_editor_scale_selected(A); });
-        case 20: return V::func([sp](const Args& A) { return sp->m_draw_editor(A); });
-        case 21: return V::func([sp](const Args& A) { return sp->m__fit_font(A); });
-        case 22: return V::func([sp](const Args& A) { return sp->m__paint_button(A); });
-        case 23: return V::func([sp](const Args& A) { return sp->m_draw(A); });
+        case 0: { V method=V::func([sp](const Args& A) { return sp->m___init__(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 1: { V method=V::func([sp](const Args& A) { return sp->m__hold_binding(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 2: { V method=V::func([sp](const Args& A) { return sp->m__copy_name(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 3: { V method=V::func([sp](const Args& A) { return sp->m__action_buttons(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 4: { V method=V::func([sp](const Args& A) { return sp->m_layout(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 5: { V method=V::func([sp](const Args& A) { return sp->m__hit(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 6: { V method=V::func([sp](const Args& A) { return sp->m__slot(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 7: { V method=V::func([sp](const Args& A) { return sp->m__contains(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 8: { V method=V::func([sp](const Args& A) { return sp->m__sync_virtual(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 9: { V method=V::func([sp](const Args& A) { return sp->m__stick_motion(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 10: { V method=V::func([sp](const Args& A) { return sp->m__slider_motion(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 11: { V method=V::func([sp](const Args& A) { return sp->m_finger(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 12: { V method=V::func([sp](const Args& A) { return sp->m_mouse_down(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 13: { V method=V::func([sp](const Args& A) { return sp->m_mouse_motion(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 14: { V method=V::func([sp](const Args& A) { return sp->m_mouse_up(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 15: { V method=V::func([sp](const Args& A) { return sp->m__down(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 16: { V method=V::func([sp](const Args& A) { return sp->m__motion(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 17: { V method=V::func([sp](const Args& A) { return sp->m__up(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 18: { V method=V::func([sp](const Args& A) { return sp->m__dispatch(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 19: { V method=V::func([sp](const Args& A) { return sp->m_update(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 20: { V method=V::func([sp](const Args& A) { return sp->m_clear(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 21: { V method=V::func([sp](const Args& A) { return sp->m_hover_pos(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 22: { V method=V::func([sp](const Args& A) { return sp->m__update_gyro(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 23: { V method=V::func([sp](const Args& A) { return sp->m_editor_option(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 24: { V method=V::func([sp](const Args& A) { return sp->m__panel_rect(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 25: { V method=V::func([sp](const Args& A) { return sp->m__draw_options(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 26: { V method=V::func([sp](const Args& A) { return sp->m__editor_grab(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 27: { V method=V::func([sp](const Args& A) { return sp->m__editor_drag(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 28: { V method=V::func([sp](const Args& A) { return sp->m_editor_scale_selected(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 29: { V method=V::func([sp](const Args& A) { return sp->m_draw_editor(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 30: { V method=V::func([sp](const Args& A) { return sp->m__fit_font(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 31: { V method=V::func([sp](const Args& A) { return sp->m__paint_button(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 32: { V method=V::func([sp](const Args& A) { return sp->m__paint_stick(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 33: { V method=V::func([sp](const Args& A) { return sp->m__paint_slider(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
+        case 34: { V method=V::func([sp](const Args& A) { return sp->m_draw(A); }); method.box->fattrs.emplace_back(Sym("__self__"), V::inst(sp)); method.box->fattrs.emplace_back(Sym("__native_bound_name__"), V(name)); return method; }
     }
     return V();
 }
 bool C_TouchControls::call_method(Sym name, const Args& A, V& out) {
     if (V replacement = py::class_method_override(pm_touch::cls_TouchControls(), name, self()); replacement.has()) { out = replacement.call(A); return true; }
-    static const SymIndex idx_({SY("__init__"), SY("_hold_binding"), SY("_copy_name"), SY("_action_buttons"), SY("layout"), SY("_hit"), SY("finger"), SY("mouse_down"), SY("mouse_motion"), SY("mouse_up"), SY("_down"), SY("_motion"), SY("_up"), SY("_dispatch"), SY("update"), SY("clear"), SY("hover_pos"), SY("_editor_grab"), SY("_editor_drag"), SY("editor_scale_selected"), SY("draw_editor"), SY("_fit_font"), SY("_paint_button"), SY("draw")});
+    static const SymIndex idx_({SY("__init__"), SY("_hold_binding"), SY("_copy_name"), SY("_action_buttons"), SY("layout"), SY("_hit"), SY("_slot"), SY("_contains"), SY("_sync_virtual"), SY("_stick_motion"), SY("_slider_motion"), SY("finger"), SY("mouse_down"), SY("mouse_motion"), SY("mouse_up"), SY("_down"), SY("_motion"), SY("_up"), SY("_dispatch"), SY("update"), SY("clear"), SY("hover_pos"), SY("_update_gyro"), SY("editor_option"), SY("_panel_rect"), SY("_draw_options"), SY("_editor_grab"), SY("_editor_drag"), SY("editor_scale_selected"), SY("draw_editor"), SY("_fit_font"), SY("_paint_button"), SY("_paint_stick"), SY("_paint_slider"), SY("draw")});
     const int k_ = idx_.find(name);
     if (k_ < 0) return false;
     switch (k_) {
@@ -248,24 +365,35 @@ bool C_TouchControls::call_method(Sym name, const Args& A, V& out) {
         case 3: out = m__action_buttons(A); return true;
         case 4: out = m_layout(A); return true;
         case 5: out = m__hit(A); return true;
-        case 6: out = m_finger(A); return true;
-        case 7: out = m_mouse_down(A); return true;
-        case 8: out = m_mouse_motion(A); return true;
-        case 9: out = m_mouse_up(A); return true;
-        case 10: out = m__down(A); return true;
-        case 11: out = m__motion(A); return true;
-        case 12: out = m__up(A); return true;
-        case 13: out = m__dispatch(A); return true;
-        case 14: out = m_update(A); return true;
-        case 15: out = m_clear(A); return true;
-        case 16: out = m_hover_pos(A); return true;
-        case 17: out = m__editor_grab(A); return true;
-        case 18: out = m__editor_drag(A); return true;
-        case 19: out = m_editor_scale_selected(A); return true;
-        case 20: out = m_draw_editor(A); return true;
-        case 21: out = m__fit_font(A); return true;
-        case 22: out = m__paint_button(A); return true;
-        case 23: out = m_draw(A); return true;
+        case 6: out = m__slot(A); return true;
+        case 7: out = m__contains(A); return true;
+        case 8: out = m__sync_virtual(A); return true;
+        case 9: out = m__stick_motion(A); return true;
+        case 10: out = m__slider_motion(A); return true;
+        case 11: out = m_finger(A); return true;
+        case 12: out = m_mouse_down(A); return true;
+        case 13: out = m_mouse_motion(A); return true;
+        case 14: out = m_mouse_up(A); return true;
+        case 15: out = m__down(A); return true;
+        case 16: out = m__motion(A); return true;
+        case 17: out = m__up(A); return true;
+        case 18: out = m__dispatch(A); return true;
+        case 19: out = m_update(A); return true;
+        case 20: out = m_clear(A); return true;
+        case 21: out = m_hover_pos(A); return true;
+        case 22: out = m__update_gyro(A); return true;
+        case 23: out = m_editor_option(A); return true;
+        case 24: out = m__panel_rect(A); return true;
+        case 25: out = m__draw_options(A); return true;
+        case 26: out = m__editor_grab(A); return true;
+        case 27: out = m__editor_drag(A); return true;
+        case 28: out = m_editor_scale_selected(A); return true;
+        case 29: out = m_draw_editor(A); return true;
+        case 30: out = m__fit_font(A); return true;
+        case 31: out = m__paint_button(A); return true;
+        case 32: out = m__paint_stick(A); return true;
+        case 33: out = m__paint_slider(A); return true;
+        case 34: out = m_draw(A); return true;
     }
     return false;
 }
@@ -284,6 +412,12 @@ V C_TouchControls::m___init__(const Args& A) {
     a__hover = V::none();
     a__scroll = V(0.0);
     a_editor_selected = V::none();
+    a_editor_panel = V(false);
+    a_virtual_keys = py::set_it();
+    a_virtual_bindings = py::set_it();
+    a_gyro_bindings = V::list({});
+    a_gyro_status = SV("");
+    a_gyro_calibrate = V(false);
     return V::none();
 }
 
@@ -324,6 +458,10 @@ V C_TouchControls::m__action_buttons(const Args& A) {
     for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) {
         { V ut2_ = py::as_seq(it1_.idx(int64_t(i1_))); L_payload = ut2_.idx(0); L_label = ut2_.idx(1); } 
         if ((L_payload == V::tuple({SV("facing")}))) {
+            if ((rd(callm(pm_touch::module_ns(), SY("control_options"), Args{py::m_get(pvz::getattr(a_app, SY("state")), SV("touch_options"))}), SV("facing_slider"))).truthy()) {
+                (void)(py::m_append(L_buttons, V::tuple({rd(L_slots, SV("facing_slider")), SV("slider"), V::tuple({SV("facing_slider")}), SV("左  自动  右")})));
+                continue;
+            }
             { V it3_ = py::iter_list(V::tuple({V::tuple({SV("facing_auto"), V(0.0), SV("自动")}), V::tuple({SV("facing_left"), V(-1.0), SV("左")}), V::tuple({SV("facing_right"), V(1.0), SV("右")})}));
             for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) {
                 { V ut4_ = py::as_seq(it3_.idx(int64_t(i3_))); L_slot = ut4_.idx(0); L_value = ut4_.idx(1); L_title = ut4_.idx(2); } 
@@ -347,6 +485,7 @@ V C_TouchControls::m_layout(const Args& A) {
     V L_height;
     V L_label;
     V L_local;
+    V L_movement;
     V L_players;
     V L_remaining;
     V L_renderer;
@@ -361,8 +500,13 @@ V C_TouchControls::m_layout(const Args& A) {
     L_buttons = V::list({});
     if (((py::m_get(L_state, SV("screen")) == SV("room")) && (py::m_get(pvz::getattr(L_app, SY("view")), SV("phase")) == SV("battle")) && !(py::m_get(L_state, SV("confirm_leave"))).truthy() && !(py::m_get(L_state, SV("leave_pending"))).truthy() && !(py::m_get(pvz::getattr(L_app, SY("view")), SV("spectating"))).truthy())) {
         L_slots = callm(pm_touch::module_ns(), SY("placed_slots"), Args{L_width, L_height, L_state});
-        (void)(py::m_append(L_buttons, V::tuple({rd(L_slots, SV("left")), SV("hold"), SV("left"), SV("左")})));
-        (void)(py::m_append(L_buttons, V::tuple({rd(L_slots, SV("right")), SV("hold"), SV("right"), SV("右")})));
+        L_movement = rd(callm(pm_touch::module_ns(), SY("control_options"), Args{py::m_get(L_state, SV("touch_options"))}), SV("movement"));
+        if ((L_movement == SV("buttons"))) {
+            (void)(py::m_append(L_buttons, V::tuple({rd(L_slots, SV("left")), SV("hold"), SV("left"), SV("左")})));
+            (void)(py::m_append(L_buttons, V::tuple({rd(L_slots, SV("right")), SV("hold"), SV("right"), SV("右")})));
+        } else if ((L_movement == SV("joystick"))) {
+            (void)(py::m_append(L_buttons, V::tuple({rd(L_slots, SV("joystick")), SV("stick"), SV("joystick"), SV("移动")})));
+        }
         L_battle = py_or(py::m_get(pvz::getattr(L_app, SY("view")), SV("battle")), [&]() -> V { return py_dict({}); });
         L_players = py::m_get(L_battle, SV("players"), py_dict({}));
         L_side = py::m_get(L_state, SV("active_side"), SV("plant"));
@@ -373,7 +517,7 @@ V C_TouchControls::m_layout(const Args& A) {
             if (((L_side == SV("plant")) && py::in(SV("plant"), L_local))) {
                 (void)(py::m_append(L_actions, V::tuple({V::tuple({SV("shovel")}), SV("铲子")})));
                 L_deck = py::m_get(py::m_get(L_players, L_side, py_dict({})), SV("deck"), V::list({}));
-                if (([&]() -> V { V L_key; { V it3_ = py::iter_list(L_deck); for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) { L_key = it3_.idx(int64_t(i3_)); if ((rd(rd(pm_catalog::CARDS, L_key), SV("behavior")) == SV("copy"))) return V(true); }}return V(false); }()).truthy()) {
+                if (([&]() -> V { V L_key; { V it3_ = py::iter_list(L_deck); for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) { L_key = it3_.idx(int64_t(i3_)); if ((py::in(L_key, pm_catalog::CARDS) && (rd(rd(pm_catalog::CARDS, L_key), SV("behavior")) == SV("copy")))) return V(true); }}return V(false); }()).truthy()) {
                     (void)(py::m_append(L_actions, V::tuple({V::tuple({SV("copy_target")}), (SV("模仿·") + callm(self(), SY("_copy_name"), Args{L_battle}))})));
                 }
             }
@@ -407,15 +551,165 @@ V C_TouchControls::m__hit(const Args& A) {
     V L_payload;
     V L_rect;
     V L_role;
+    V L_slot;
     { V it1_ = py::iter_list(callm(self(), SY("layout"), Args{}));
     for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) {
         { V ut2_ = py::as_seq(it1_.idx(int64_t(i1_))); L_rect = ut2_.idx(0); L_role = ut2_.idx(1); L_payload = ut2_.idx(2); L_label = ut2_.idx(3); } 
         L_box = callm(pvz::getattr(a_app, SY("pg")), SY("Rect"), Args{L_rect});
-        if ((callm(L_box, SY("collidepoint"), Args{L_pos})).truthy()) {
+        L_slot = callm(self(), SY("_slot"), Args{L_payload, L_role});
+        if ((callm(self(), SY("_contains"), Args{L_box, L_pos, L_slot})).truthy()) {
             return V::tuple({L_box, L_role, L_payload, L_label});
         }
     }}
     return V::none();
+    return V::none();
+}
+
+V C_TouchControls::m__slot(const Args& A) {
+    V L_payload = A.get(0, SY("payload"), nullptr, "_slot");
+    V L_role = A.get(1, SY("role"), nullptr, "_slot");
+    if (py::in(L_role, V::tuple({SV("hold"), SV("stick")}))) {
+        return L_payload;
+    }
+    if ((L_role == SV("slider"))) {
+        return SV("facing_slider");
+    }
+    if ((L_payload == SV("escape"))) {
+        return SV("cancel");
+    }
+    if ((rd(L_payload, V(0.0)) == SV("facing"))) {
+        return ((rd(L_payload, V(1.0)) == V(0.0)) ? V(SV("facing_auto")) : V(((rd(L_payload, V(1.0)) < V(0.0)) ? V(SV("facing_left")) : V(SV("facing_right")))));
+    }
+    return rd(L_payload, V(0.0));
+    return V::none();
+}
+
+V C_TouchControls::m__contains(const Args& A) {
+    V L_box = A.get(0, SY("box"), nullptr, "_contains");
+    V L_pos = A.get(1, SY("pos"), nullptr, "_contains");
+    V L_slot = A.get(2, SY("slot"), nullptr, "_contains");
+    if (!(callm(L_box, SY("collidepoint"), Args{L_pos})).truthy()) {
+        return V(false);
+    }
+    if (((L_slot == SV("joystick")) || (py::m_get(rd(callm(pm_touch::module_ns(), SY("control_options"), Args{py::m_get(pvz::getattr(a_app, SY("state")), SV("touch_options"))}), SV("shapes")), L_slot) == SV("circle")))) {
+        return V(((pow(((rd(L_pos, V(0.0)) - pvz::getattr(L_box, SY("centerx"))) / (pvz::getattr(L_box, SY("w")) * V(0.5))), V(2.0)) + pow(((rd(L_pos, V(1.0)) - pvz::getattr(L_box, SY("centery"))) / (pvz::getattr(L_box, SY("h")) * V(0.5))), V(2.0))) <= V(1.0)));
+    }
+    return V(true);
+    return V::none();
+}
+
+V C_TouchControls::m__sync_virtual(const Args& A) {
+    V L_binding;
+    V L_bindings;
+    V L_changed;
+    V L_code;
+    V L_keys;
+    V L_manual;
+    V L_role;
+    L_manual = [&]() -> V { V L_role; { V it2_ = py::iter_list(callm(a_fingers, SY("values"), Args{})); for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) { L_role = it2_.idx(int64_t(i2_)); if (((rd(L_role, V(0.0)) == SV("stick")) || ((rd(L_role, V(0.0)) == SV("hold")) && (callm(rd(L_role, V(1.0)), SY("endswith"), Args{V::tuple({SV("_left"), SV("_right")})})).truthy()))) return V(true); }}return V(false); }();
+    L_bindings = ((L_manual).truthy() ? V(py::set_it()) : V(py::set_it(a_gyro_bindings)));
+    { V it3_ = py::iter_list(callm(a_fingers, SY("values"), Args{}));
+    for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) {
+        L_role = it3_.idx(int64_t(i3_)); 
+        if ((rd(L_role, V(0.0)) == SV("stick"))) {
+            (void)(callm(L_bindings, SY("update"), Args{rd(L_role, V(3.0))}));
+        }
+    }}
+    L_keys = py::set_it();
+    { V it4_ = py::iter_list(L_bindings);
+    for (size_t i4_ = 0; i4_ < it4_.len(); ++i4_) {
+        L_binding = it4_.idx(int64_t(i4_)); 
+        L_code = py::m_get(rd(pvz::getattr(a_app, SY("state")), SV("bindings")), L_binding);
+        if (!py_is(L_code, V::none())) {
+            (void)(callm(L_keys, SY("add"), Args{L_code}));
+        }
+    }}
+    { V it5_ = py::iter_list((a_virtual_keys - L_keys));
+    for (size_t i5_ = 0; i5_ < it5_.len(); ++i5_) {
+        L_code = it5_.idx(int64_t(i5_)); 
+        if (!([&]() -> V { V L_role; { V it7_ = py::iter_list(callm(a_fingers, SY("values"), Args{})); for (size_t i7_ = 0; i7_ < it7_.len(); ++i7_) { L_role = it7_.idx(int64_t(i7_)); if (((rd(L_role, V(0.0)) == SV("hold")) && (rd(L_role, V(2.0)) == L_code))) return V(true); }}return V(false); }()).truthy()) {
+            if (!(rd(callm(pvz::getattr(pvz::getattr(a_app, SY("pg")), SY("key")), SY("get_pressed"), Args{}), L_code)).truthy()) {
+                (void)(callm(pvz::getattr(a_app, SY("held_keys")), SY("discard"), Args{L_code}));
+            }
+        }
+    }}
+    { V it8_ = py::iter_list((a_virtual_bindings - L_bindings));
+    for (size_t i8_ = 0; i8_ < it8_.len(); ++i8_) {
+        L_binding = it8_.idx(int64_t(i8_)); 
+        if (!([&]() -> V { V L_role; { V it10_ = py::iter_list(callm(a_fingers, SY("values"), Args{})); for (size_t i10_ = 0; i10_ < it10_.len(); ++i10_) { L_role = it10_.idx(int64_t(i10_)); if (((rd(L_role, V(0.0)) == SV("hold")) && (rd(L_role, V(1.0)) == L_binding))) return V(true); }}return V(false); }()).truthy()) {
+            (void)(callm(a_pressed, SY("discard"), Args{L_binding}));
+        }
+    }}
+    { V it11_ = py::iter_list(L_keys);
+    for (size_t i11_ = 0; i11_ < it11_.len(); ++i11_) {
+        L_code = it11_.idx(int64_t(i11_)); 
+        (void)(callm(pvz::getattr(a_app, SY("held_keys")), SY("add"), Args{L_code}));
+    }}
+    { V it12_ = py::iter_list(L_bindings);
+    for (size_t i12_ = 0; i12_ < it12_.len(); ++i12_) {
+        L_binding = it12_.idx(int64_t(i12_)); 
+        (void)(callm(a_pressed, SY("add"), Args{L_binding}));
+    }}
+    L_changed = V((L_keys != a_virtual_keys));
+    a_virtual_keys = L_keys;
+    a_virtual_bindings = L_bindings;
+    if ((L_changed).truthy()) {
+        (void)(callm(a_app, SY("move_inputs"), Args{V(0.0)}));
+    }
+    return V::none();
+}
+
+V C_TouchControls::m__stick_motion(const Args& A) {
+    V L_role = A.get(0, SY("role"), nullptr, "_stick_motion");
+    V L_pos = A.get(1, SY("pos"), nullptr, "_stick_motion");
+    V L_bindings;
+    V L_code;
+    V L_dx;
+    V L_dy;
+    V L_jump;
+    V L_jump_edge;
+    V L_names;
+    V L_options;
+    V L_rect;
+    L_rect = rd(L_role, V(1.0));
+    L_dx = (((rd(L_pos, V(0.0)) - rd(L_rect, V(0.0))) - (rd(L_rect, V(2.0)) * V(0.5))) / (rd(L_rect, V(2.0)) * V(0.5)));
+    L_dy = (((rd(L_pos, V(1.0)) - rd(L_rect, V(1.0))) - (rd(L_rect, V(3.0)) * V(0.5))) / (rd(L_rect, V(3.0)) * V(0.5)));
+    L_names = V::list({});
+    if ((py::abs(L_dx) > V(0.22))) {
+        (void)(py::m_append(L_names, ((L_dx < V(0.0)) ? V(SV("left")) : V(SV("right")))));
+    }
+    L_options = callm(pm_touch::module_ns(), SY("control_options"), Args{py::m_get(pvz::getattr(a_app, SY("state")), SV("touch_options"))});
+    if (((L_dy < V(-0.3)) && (((V(std::atan2((py::abs(L_dx)).num(), ((-L_dy)).num())) * V(180.0)) / py::stdlib_attr(SV("math"), SV("pi"))) <= (rd(L_options, SV("jump_angle")) * V(0.5))))) {
+        (void)(py::m_append(L_names, SV("jump")));
+    }
+    L_bindings = [&]() -> V { V out_ = V::list(); V L_name; { V it1_ = py::iter_list(L_names); for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) { L_name = it1_.idx(int64_t(i1_)); out_.append(rd(callm(self(), SY("_hold_binding"), Args{L_name}), V(1.0))); }}return out_; }();
+    L_jump = rd(callm(self(), SY("_hold_binding"), Args{SV("jump")}), V(1.0));
+    L_jump_edge = py_and(V(py::in(L_jump, L_bindings)), [&]() -> V { return V(!py::in(L_jump, rd(L_role, V(3.0)))); });
+    pvz::setitem(L_role, V(2.0), L_pos);
+    pvz::setitem(L_role, V(3.0), L_bindings);
+    (void)(callm(self(), SY("_sync_virtual"), Args{}));
+    if ((L_jump_edge).truthy()) {
+        L_code = py::m_get(rd(pvz::getattr(a_app, SY("state")), SV("bindings")), L_jump);
+        if (!py_is(L_code, V::none())) {
+            (void)(callm(a_app, SY("jump_press"), Args{L_code}));
+        }
+    }
+    return V::none();
+}
+
+V C_TouchControls::m__slider_motion(const Args& A) {
+    V L_role = A.get(0, SY("role"), nullptr, "_slider_motion");
+    V L_pos = A.get(1, SY("pos"), nullptr, "_slider_motion");
+    V L_index;
+    V L_rect;
+    V L_value;
+    L_rect = rd(L_role, V(1.0));
+    L_index = py::min_it(V::list({V(2.0), py::max_it(V::list({V(0.0), py::int_((((rd(L_pos, V(0.0)) - rd(L_rect, V(0.0))) * V(3.0)) / rd(L_rect, V(2.0))))}), py::Key(), V())}), py::Key(), V());
+    L_value = rd(V::tuple({V(-1.0), V(0.0), V(1.0)}), L_index);
+    if ((rd(L_role, V(2.0)) != L_value)) {
+        pvz::setitem(L_role, V(2.0), L_value);
+        (void)(callm(self(), SY("_dispatch"), Args{V::tuple({SV("facing"), L_value})}));
+    }
     return V::none();
 }
 
@@ -492,6 +786,7 @@ V C_TouchControls::m__down(const Args& A) {
     V L_role;
     V L_side;
     V L_slot;
+    V L_value;
     if (py::in(L_fid, a_fingers)) {
         return V::none();
     }
@@ -501,6 +796,24 @@ V C_TouchControls::m__down(const Args& A) {
     L_hit = callm(self(), SY("_hit"), Args{L_pos});
     if (!py_is(L_hit, V::none())) {
         { V ut1_ = py::as_seq(L_hit); L_rect = ut1_.idx(0); L_role = ut1_.idx(1); L_payload = ut1_.idx(2); L_label = ut1_.idx(3); } 
+        if ((L_role == SV("stick"))) {
+            if (([&]() -> V { V L_value; { V it3_ = py::iter_list(callm(a_fingers, SY("values"), Args{})); for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) { L_value = it3_.idx(int64_t(i3_)); if ((rd(L_value, V(0.0)) == SV("stick"))) return V(true); }}return V(false); }()).truthy()) {
+                return V::none();
+            }
+            L_value = V::list({SV("stick"), py::tuple_it(L_rect), L_pos, V::list({})});
+            pvz::setitem(a_fingers, L_fid, L_value);
+            (void)(callm(self(), SY("_stick_motion"), Args{L_value, L_pos}));
+            return V::none();
+        }
+        if ((L_role == SV("slider"))) {
+            if (([&]() -> V { V L_value; { V it5_ = py::iter_list(callm(a_fingers, SY("values"), Args{})); for (size_t i5_ = 0; i5_ < it5_.len(); ++i5_) { L_value = it5_.idx(int64_t(i5_)); if ((rd(L_value, V(0.0)) == SV("slider"))) return V(true); }}return V(false); }()).truthy()) {
+                return V::none();
+            }
+            L_value = V::list({SV("slider"), py::tuple_it(L_rect), V::none()});
+            pvz::setitem(a_fingers, L_fid, L_value);
+            (void)(callm(self(), SY("_slider_motion"), Args{L_value, L_pos}));
+            return V::none();
+        }
         if ((L_payload == V::tuple({SV("rally")}))) {
             if ((callm(a_app, SY("begin_rally"), Args{V::none()})).truthy()) {
                 pvz::setitem(a_fingers, L_fid, V::tuple({SV("rally"), L_pos}));
@@ -508,7 +821,7 @@ V C_TouchControls::m__down(const Args& A) {
             return V::none();
         }
         if ((L_role == SV("hold"))) {
-            { V ut2_ = py::as_seq(callm(self(), SY("_hold_binding"), Args{L_payload})); L_side = ut2_.idx(0); L_binding = ut2_.idx(1); } 
+            { V ut6_ = py::as_seq(callm(self(), SY("_hold_binding"), Args{L_payload})); L_side = ut6_.idx(0); L_binding = ut6_.idx(1); } 
             L_keycode = py::m_get(rd(pvz::getattr(a_app, SY("state")), SV("bindings")), L_binding);
             if (py_is(L_keycode, V::none())) {
                 return V::none();
@@ -528,12 +841,12 @@ V C_TouchControls::m__down(const Args& A) {
         }
         return V::none();
     }
-    if (([&]() -> V { V L_value; { V it4_ = py::iter_list(callm(a_fingers, SY("values"), Args{})); for (size_t i4_ = 0; i4_ < it4_.len(); ++i4_) { L_value = it4_.idx(int64_t(i4_)); if ((rd(L_value, V(0.0)) == SV("screen"))) return V(true); }}return V(false); }()).truthy()) {
+    if (([&]() -> V { V L_value; { V it8_ = py::iter_list(callm(a_fingers, SY("values"), Args{})); for (size_t i8_ = 0; i8_ < it8_.len(); ++i8_) { L_value = it8_.idx(int64_t(i8_)); if ((rd(L_value, V(0.0)) == SV("screen"))) return V(true); }}return V(false); }()).truthy()) {
         return V::none();
     }
     L_editor = V((py::m_get(pvz::getattr(a_app, SY("state")), SV("screen")) == SV("touch_layout")));
     if ((py_is(callm(pvz::getattr(a_app, SY("renderer")), SY("hit"), Args{L_pos}), V::none()) && (callm(a_app, SY("world_touch_can_jump"), Args{L_pos})).truthy())) {
-        { V ut5_ = py::as_seq(callm(self(), SY("_hold_binding"), Args{SV("jump")})); L_side = ut5_.idx(0); L_binding = ut5_.idx(1); } 
+        { V ut9_ = py::as_seq(callm(self(), SY("_hold_binding"), Args{SV("jump")})); L_side = ut9_.idx(0); L_binding = ut9_.idx(1); } 
         L_keycode = rd(rd(pvz::getattr(a_app, SY("state")), SV("bindings")), L_binding);
         pvz::setitem(a_fingers, L_fid, V::tuple({SV("hold"), L_binding, L_keycode, SV("world")}));
         a__hover = L_pos;
@@ -548,9 +861,9 @@ V C_TouchControls::m__down(const Args& A) {
     if (((L_editor).truthy() && py_is(callm(pvz::getattr(a_app, SY("renderer")), SY("hit"), Args{L_pos}), V::none()))) {
         L_grab = callm(self(), SY("_editor_grab"), Args{L_pos});
         if (!py_is(L_grab, V::none())) {
-            { V ut6_ = py::as_seq(L_grab); L_slot = ut6_.idx(0); L_dx = ut6_.idx(1); L_dy = ut6_.idx(2); } 
+            { V ut10_ = py::as_seq(L_grab); L_slot = ut10_.idx(0); L_dx = ut10_.idx(1); L_dy = ut10_.idx(2); } 
             a_editor_selected = L_slot;
-            pvz::setitem(a_fingers, L_fid, V::tuple({SV("editor"), L_slot, L_dx, L_dy}));
+            pvz::setitem(a_fingers, L_fid, V::list({SV("editor"), L_slot, L_dx, L_dy, L_pos, V(false)}));
             return V::none();
         }
     }
@@ -575,6 +888,14 @@ V C_TouchControls::m__motion(const Args& A) {
     if (py_is(L_role, V::none())) {
         return V::none();
     }
+    if ((rd(L_role, V(0.0)) == SV("stick"))) {
+        (void)(callm(self(), SY("_stick_motion"), Args{L_role, L_pos}));
+        return V::none();
+    }
+    if ((rd(L_role, V(0.0)) == SV("slider"))) {
+        (void)(callm(self(), SY("_slider_motion"), Args{L_role, L_pos}));
+        return V::none();
+    }
     if ((rd(L_role, V(0.0)) == SV("rally"))) {
         if ((((py::abs((rd(L_pos, V(0.0)) - rd(rd(L_role, V(1.0)), V(0.0)))) + py::abs((rd(L_pos, V(1.0)) - rd(rd(L_role, V(1.0)), V(1.0))))) >= pm_touch::LONG_PRESS_SLACK) && py_is(callm(self(), SY("_hit"), Args{L_pos}), V::none()))) {
             pvz::setitem(pvz::getattr(a_app, SY("state")), SV("rally_drag"), L_pos);
@@ -582,7 +903,13 @@ V C_TouchControls::m__motion(const Args& A) {
         return V::none();
     }
     if ((rd(L_role, V(0.0)) == SV("editor"))) {
-        (void)(callm(self(), SY("_editor_drag"), Args{rd(L_role, V(1.0)), L_pos, rd(L_role, V(2.0)), rd(L_role, V(3.0))}));
+        if (((py::abs((rd(L_pos, V(0.0)) - rd(rd(L_role, V(4.0)), V(0.0)))) + py::abs((rd(L_pos, V(1.0)) - rd(rd(L_role, V(4.0)), V(1.0))))) >= pm_touch::LONG_PRESS_SLACK)) {
+            pvz::setitem(L_role, V(5.0), V(true));
+        }
+        if ((rd(L_role, V(5.0))).truthy()) {
+            a_editor_panel = V(false);
+            (void)(callm(self(), SY("_editor_drag"), Args{rd(L_role, V(1.0)), L_pos, rd(L_role, V(2.0)), rd(L_role, V(3.0))}));
+        }
         return V::none();
     }
     if ((rd(L_role, V(0.0)) == SV("hold"))) {
@@ -630,6 +957,10 @@ V C_TouchControls::m__up(const Args& A) {
     if (py_is(L_role, V::none())) {
         return V::none();
     }
+    if (py::in(rd(L_role, V(0.0)), V::tuple({SV("stick"), SV("slider")}))) {
+        (void)(callm(self(), SY("_sync_virtual"), Args{}));
+        return V::none();
+    }
     if ((rd(L_role, V(0.0)) == SV("rally"))) {
         L_dragging = V(!py_is(callm(pvz::getattr(a_app, SY("state")), SY("pop"), Args{SV("rally_drag"), V::none()}), V::none()));
         if (((L_dragging).truthy() && py_is(callm(self(), SY("_hit"), Args{L_pos}), V::none()))) {
@@ -638,15 +969,18 @@ V C_TouchControls::m__up(const Args& A) {
         return V::none();
     }
     if ((rd(L_role, V(0.0)) == SV("editor"))) {
+        if (!(rd(L_role, V(5.0))).truthy()) {
+            a_editor_panel = V(true);
+        }
         (void)(callm(a_app, SY("save_settings"), Args{}));
     } else if ((rd(L_role, V(0.0)) == SV("hold"))) {
         if (((py::slice(L_role, V(3.0), V::none()) == V::tuple({SV("world")})) && (L_fid != SV("mouse")))) {
             a__hover = V::none();
         }
-        if (!([&]() -> V { V L_other; { V it2_ = py::iter_list(callm(a_fingers, SY("values"), Args{})); for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) { L_other = it2_.idx(int64_t(i2_)); if (((rd(L_other, V(0.0)) == SV("hold")) && (rd(L_other, V(1.0)) == rd(L_role, V(1.0))))) return V(true); }}return V(false); }()).truthy()) {
+        if ((!py::in(rd(L_role, V(1.0)), a_virtual_bindings) && !([&]() -> V { V L_other; { V it2_ = py::iter_list(callm(a_fingers, SY("values"), Args{})); for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) { L_other = it2_.idx(int64_t(i2_)); if (((rd(L_other, V(0.0)) == SV("hold")) && (rd(L_other, V(1.0)) == rd(L_role, V(1.0))))) return V(true); }}return V(false); }()).truthy())) {
             (void)(callm(a_pressed, SY("discard"), Args{rd(L_role, V(1.0))}));
         }
-        if (!([&]() -> V { V L_other; { V it4_ = py::iter_list(callm(a_fingers, SY("values"), Args{})); for (size_t i4_ = 0; i4_ < it4_.len(); ++i4_) { L_other = it4_.idx(int64_t(i4_)); if (((rd(L_other, V(0.0)) == SV("hold")) && (rd(L_other, V(2.0)) == rd(L_role, V(2.0))))) return V(true); }}return V(false); }()).truthy()) {
+        if ((!py::in(rd(L_role, V(2.0)), a_virtual_keys) && !([&]() -> V { V L_other; { V it4_ = py::iter_list(callm(a_fingers, SY("values"), Args{})); for (size_t i4_ = 0; i4_ < it4_.len(); ++i4_) { L_other = it4_.idx(int64_t(i4_)); if (((rd(L_other, V(0.0)) == SV("hold")) && (rd(L_other, V(2.0)) == rd(L_role, V(2.0))))) return V(true); }}return V(false); }()).truthy())) {
             (void)(callm(pvz::getattr(a_app, SY("held_keys")), SY("discard"), Args{rd(L_role, V(2.0))}));
             (void)(callm(a_app, SY("move_inputs"), Args{V(0.0)}));
         }
@@ -681,6 +1015,7 @@ V C_TouchControls::m_update(const Args& A) {
     V L_pos;
     V L_role;
     V L_start;
+    (void)(callm(self(), SY("_update_gyro"), Args{}));
     if (((py::m_get(pvz::getattr(a_app, SY("state")), SV("rally"))).truthy() || (py::m_get(pvz::getattr(a_app, SY("state")), SV("teleport"))).truthy() || py::in(py::m_get(pvz::getattr(a_app, SY("state")), SV("screen")), V::tuple({SV("map_editor"), SV("replay"), SV("touch_layout")})) || (py::m_get(pvz::getattr(a_app, SY("view")), SV("spectating"))).truthy())) {
         return V::none();
     }
@@ -703,6 +1038,12 @@ V C_TouchControls::m_update(const Args& A) {
 
 V C_TouchControls::m_clear(const Args& A) {
     V L_role;
+    V L_sensor;
+    L_sensor = pvz::getattr(pvz::getattr(a_app, SY("pg")), (SV("motion_sensor")).sym(), V::none());
+    if ((py::callable(L_sensor)).truthy()) {
+        (void)((L_sensor).call(Args{V(false), V(false)}));
+    }
+    a_gyro_bindings = V::list({});
     { V it1_ = py::iter_list(callm(a_fingers, SY("values"), Args{}));
     for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) {
         L_role = it1_.idx(int64_t(i1_)); 
@@ -711,6 +1052,7 @@ V C_TouchControls::m_clear(const Args& A) {
         }
     }}
     (void)(callm(a_fingers, SY("clear"), Args{}));
+    (void)(callm(self(), SY("_sync_virtual"), Args{}));
     (void)(callm(a_pressed, SY("clear"), Args{}));
     a__hover = V::none();
     a__scroll = V(0.0);
@@ -722,6 +1064,147 @@ V C_TouchControls::m_hover_pos(const Args& A) {
     return V::none();
 }
 
+V C_TouchControls::m__update_gyro(const Args& A) {
+    V L_enabled;
+    V L_manual;
+    V L_options;
+    V L_reading;
+    V L_sensor;
+    V L_state;
+    L_state = pvz::getattr(a_app, SY("state"));
+    L_options = callm(pm_touch::module_ns(), SY("control_options"), Args{py::m_get(L_state, SV("touch_options"))});
+    L_enabled = py_and(rd(L_options, SV("gyro")), [&]() -> V { return py_and(pvz::getattr(self_v(), SY("active")), [&]() -> V { return py_and(py::m_get(L_state, SV("focused"), V(true)), [&]() -> V { return py_and(V((py::m_get(L_state, SV("screen")) == SV("room"))), [&]() -> V { return py_and(V((py::m_get(pvz::getattr(a_app, SY("view")), SV("phase")) == SV("battle"))), [&]() -> V { return py_and(V(!(py::m_get(pvz::getattr(a_app, SY("view")), SV("spectating"))).truthy()), [&]() -> V { return py_and(V(!(py::m_get(L_state, SV("focus"))).truthy()), [&]() -> V { return py_and(V(!(py::m_get(L_state, SV("confirm_leave"))).truthy()), [&]() -> V { return V(!(py::m_get(L_state, SV("leave_pending"))).truthy()); }); }); }); }); }); }); }); });
+    L_sensor = pvz::getattr(pvz::getattr(a_app, SY("pg")), (SV("motion_sensor")).sym(), V::none());
+    L_reading = ((py::callable(L_sensor)).truthy() ? V((L_sensor).call(Args{L_enabled, a_gyro_calibrate})) : V(V::none()));
+    a_gyro_bindings = V::list({});
+    if ((L_enabled).truthy()) {
+        if (py_is(L_reading, V::none())) {
+            a_gyro_status = SV("设备无可用陀螺仪");
+        } else {
+            a_gyro_status = SV("已校准");
+            a_gyro_calibrate = V(false);
+            L_manual = [&]() -> V { V L_role; { V it2_ = py::iter_list(callm(a_fingers, SY("values"), Args{})); for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) { L_role = it2_.idx(int64_t(i2_)); if (((rd(L_role, V(0.0)) == SV("stick")) || ((rd(L_role, V(0.0)) == SV("hold")) && (callm(rd(L_role, V(1.0)), SY("endswith"), Args{V::tuple({SV("_left"), SV("_right")})})).truthy()))) return V(true); }}return V(false); }();
+            if ((!(L_manual).truthy() && (py::abs(L_reading) >= rd(L_options, SV("gyro_threshold"))))) {
+                a_gyro_bindings = V::list({rd(callm(self(), SY("_hold_binding"), Args{((L_reading < V(0.0)) ? V(SV("left")) : V(SV("right")))}), V(1.0))});
+            }
+        }
+    }
+    (void)(callm(self(), SY("_sync_virtual"), Args{}));
+    return V::none();
+}
+
+V C_TouchControls::m_editor_option(const Args& A) {
+    V L_key = A.get(0, SY("key"), nullptr, "editor_option");
+    V L_value = A.get(1, SY("value"), nullptr, "editor_option");
+    V L_options;
+    V L_slot;
+    V L_state;
+    L_state = pvz::getattr(a_app, SY("state"));
+    L_options = callm(pm_touch::module_ns(), SY("control_options"), Args{py::m_get(L_state, SV("touch_options"))});
+    if ((L_key == SV("close"))) {
+        a_editor_panel = V(false);
+        return V::none();
+    }
+    if ((L_key == SV("movement_settings"))) {
+        a_editor_selected = ((rd(L_options, SV("movement")) == SV("buttons")) ? V(SV("left")) : V(SV("joystick")));
+        a_editor_panel = V(true);
+        return V::none();
+    }
+    if ((L_key == SV("calibrate"))) {
+        a_gyro_calibrate = V(true);
+        (void)(callm(a_app, SY("message"), Args{SV("回到对局后，以当前握持角度校准")}));
+        return V::none();
+    }
+    if (((L_key == SV("shape")) && (a_editor_selected).truthy() && !py::in(a_editor_selected, pm_touch::HUD_SLOTS))) {
+        L_slot = a_editor_selected;
+        if ((py::m_get(rd(L_options, SV("shapes")), L_slot) == SV("circle"))) {
+            (void)(callm(rd(L_options, SV("shapes")), SY("pop"), Args{L_slot}));
+        } else {
+            pvz::setitem(rd(L_options, SV("shapes")), L_slot, SV("circle"));
+        }
+    } else if (py::in(L_key, V::tuple({SV("movement"), SV("facing_slider"), SV("gyro"), SV("jump_angle"), SV("gyro_threshold")}))) {
+        pvz::setitem(L_options, L_key, L_value);
+    }
+    if ((L_key == SV("movement"))) {
+        a_editor_selected = ((L_value == SV("buttons")) ? V(SV("left")) : V(SV("joystick")));
+    }
+    if ((L_key == SV("facing_slider"))) {
+        a_editor_selected = ((L_value).truthy() ? V(SV("facing_slider")) : V(SV("facing_auto")));
+    }
+    pvz::setitem(L_state, SV("touch_options"), callm(pm_touch::module_ns(), SY("control_options"), Args{L_options}));
+    if (((L_key == SV("gyro")) && !(L_value).truthy())) {
+        a_gyro_calibrate = V(false);
+    }
+    (void)(callm(a_app, SY("save_settings"), Args{}));
+    return V::none();
+}
+
+V C_TouchControls::m__panel_rect(const Args& A) {
+    V L_height;
+    V L_width;
+    { V ut1_ = py::as_seq(callm(pvz::getattr(pvz::getattr(a_app, SY("renderer")), SY("screen")), SY("get_size"), Args{})); L_width = ut1_.idx(0); L_height = ut1_.idx(1); } 
+    return V::tuple({floordiv((L_width - V(440.0)), V(2.0)), py::max_it(V::list({V(12.0), floordiv((L_height - V(360.0)), V(2.0))}), py::Key(), V()), V(440.0), V(360.0)});
+    return V::none();
+}
+
+V C_TouchControls::m__draw_options(const Args& A) {
+    V L_h;
+    V L_index;
+    V L_mode;
+    V L_options;
+    V L_pg;
+    V L_r;
+    V L_row;
+    V L_screen;
+    V L_shape;
+    V L_slot;
+    V L_w;
+    V L_x;
+    V L_y;
+    if ((!(a_editor_panel).truthy() || !(a_editor_selected).truthy())) {
+        return V::none();
+    }
+    L_r = pvz::getattr(a_app, SY("renderer"));
+    L_pg = pvz::getattr(a_app, SY("pg"));
+    L_screen = pvz::getattr(L_r, SY("screen"));
+    { V ut1_ = py::as_seq(callm(self(), SY("_panel_rect"), Args{})); L_x = ut1_.idx(0); L_y = ut1_.idx(1); L_w = ut1_.idx(2); L_h = ut1_.idx(3); } 
+    (void)(callm(pvz::getattr(L_pg, SY("draw")), SY("rect"), Args({L_screen, V::tuple({V(37.0), V(32.0), V(26.0)}), V::tuple({L_x, L_y, L_w, L_h})}, {{SY("border_radius"), V(12.0)}})));
+    (void)(callm(pvz::getattr(L_pg, SY("draw")), SY("rect"), Args({L_screen, V::tuple({V(218.0), V(188.0), V(116.0)}), V::tuple({L_x, L_y, L_w, L_h}), V(2.0)}, {{SY("border_radius"), V(12.0)}})));
+    L_options = callm(pm_touch::module_ns(), SY("control_options"), Args{py::m_get(pvz::getattr(a_app, SY("state")), SV("touch_options"))});
+    L_slot = a_editor_selected;
+    (void)(callm(L_r, SY("text"), Args({py::m_get(pm_touch::SLOT_NAMES, L_slot, L_slot), V::tuple({(L_x + V(16.0)), (L_y + V(12.0))})}, {{SY("size"), V(20.0)}})));
+    (void)(callm(L_r, SY("button"), Args{SV("关闭"), V::tuple({((L_x + L_w) - V(88.0)), (L_y + V(8.0)), V(72.0), V(32.0)}), V::tuple({SV("touch_option"), SV("close"), V(0.0)})}));
+    if (py::in(L_slot, pm_touch::HUD_SLOTS)) {
+        (void)(callm(L_r, SY("text"), Args({SV("拖动更改位置，用缩小／放大调整尺寸"), V::tuple({(L_x + V(16.0)), (L_y + V(62.0))})}, {{SY("size"), V(17.0)}})));
+        (void)(callm(L_r, SY("button"), Args{SV("- 缩小"), V::tuple({(L_x + V(16.0)), (L_y + V(106.0)), V(192.0), V(38.0)}), V::tuple({SV("layout_scale"), V(-1.0)})}));
+        (void)(callm(L_r, SY("button"), Args{SV("+ 放大"), V::tuple({(L_x + V(224.0)), (L_y + V(106.0)), V(200.0), V(38.0)}), V::tuple({SV("layout_scale"), V(1.0)})}));
+    } else if (!py::in(L_slot, V::tuple({SV("joystick"), SV("facing_slider")}))) {
+        L_shape = ((py::m_get(rd(L_options, SV("shapes")), L_slot) == SV("circle")) ? V(SV("圆形")) : V(SV("方形")));
+        (void)(callm(L_r, SY("button"), Args{((SV("形状：") + L_shape) + SV("（点击切换）")), V::tuple({(L_x + V(16.0)), (L_y + V(52.0)), (L_w - V(32.0)), V(36.0)}), V::tuple({SV("touch_option"), SV("shape"), V(0.0)})}));
+    }
+    L_row = (L_y + V(100.0));
+    if (py::in(L_slot, V::tuple({SV("left"), SV("right"), SV("joystick")}))) {
+        { V it2_ = py::iter_list(V::tuple({SV("buttons"), SV("joystick"), SV("off")})); const double st2_ = 0.0;
+        for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) {
+            L_index = V(st2_ + double(i2_)); L_mode = it2_.idx(int64_t(i2_)); 
+            (void)(callm(L_r, SY("button"), Args({rd(V::tuple({SV("双按键"), SV("圆盘摇杆"), SV("关闭移动键")}), L_index), V::tuple({((L_x + V(16.0)) + (L_index * V(136.0))), L_row, V(128.0), V(36.0)}), V::tuple({SV("touch_option"), SV("movement"), L_mode})}, {{SY("selected"), V((rd(L_options, SV("movement")) == L_mode))}})));
+        }}
+        L_row = py::iadd(L_row, V(48.0));
+        (void)(callm(L_r, SY("text"), Args({py::percent(SV("上拉跳跃角度：%d°（以正上方为中心）"), rd(L_options, SV("jump_angle"))), V::tuple({(L_x + V(16.0)), L_row})}, {{SY("size"), V(16.0)}})));
+        (void)(callm(L_r, SY("button"), Args{SV("缩小角度"), V::tuple({(L_x + V(16.0)), (L_row + V(32.0)), V(192.0), V(34.0)}), V::tuple({SV("touch_option"), SV("jump_angle"), (rd(L_options, SV("jump_angle")) - V(10.0))})}));
+        (void)(callm(L_r, SY("button"), Args{SV("扩大角度"), V::tuple({(L_x + V(224.0)), (L_row + V(32.0)), V(200.0), V(34.0)}), V::tuple({SV("touch_option"), SV("jump_angle"), (rd(L_options, SV("jump_angle")) + V(10.0))})}));
+    }
+    if ((callm(L_slot, SY("startswith"), Args{SV("facing_")})).truthy()) {
+        (void)(callm(L_r, SY("button"), Args{(SV("朝向：") + ((rd(L_options, SV("facing_slider"))).truthy() ? V(SV("左 / 自动 / 右 滑动条")) : V(SV("三个独立按键")))), V::tuple({(L_x + V(16.0)), L_row, (L_w - V(32.0)), V(40.0)}), V::tuple({SV("touch_option"), SV("facing_slider"), V(!(rd(L_options, SV("facing_slider"))).truthy())})}));
+    }
+    (void)(callm(L_r, SY("button"), Args{(SV("陀螺仪：") + ((rd(L_options, SV("gyro"))).truthy() ? V(SV("开")) : V(SV("关")))), V::tuple({(L_x + V(16.0)), ((L_y + L_h) - V(84.0)), V(192.0), V(34.0)}), V::tuple({SV("touch_option"), SV("gyro"), V(!(rd(L_options, SV("gyro"))).truthy())})}));
+    (void)(callm(L_r, SY("button"), Args{SV("重新校准"), V::tuple({(L_x + V(224.0)), ((L_y + L_h) - V(84.0)), V(200.0), V(34.0)}), V::tuple({SV("touch_option"), SV("calibrate"), V(0.0)})}));
+    (void)(callm(L_r, SY("button"), Args{SV("灵敏度 -"), V::tuple({(L_x + V(16.0)), ((L_y + L_h) - V(42.0)), V(124.0), V(30.0)}), V::tuple({SV("touch_option"), SV("gyro_threshold"), (rd(L_options, SV("gyro_threshold")) + V(1.0))})}));
+    (void)(callm(L_r, SY("text"), Args({py::percent(SV("%d%% · %d°"), V::tuple({py::round((((V(35.0) - rd(L_options, SV("gyro_threshold"))) * V(100.0)) / V(33.0))), rd(L_options, SV("gyro_threshold"))})), V::tuple({(L_x + V(152.0)), ((L_y + L_h) - V(38.0))})}, {{SY("size"), V(16.0)}})));
+    (void)(callm(L_r, SY("button"), Args{SV("灵敏度 +"), V::tuple({(L_x + V(300.0)), ((L_y + L_h) - V(42.0)), V(124.0), V(30.0)}), V::tuple({SV("touch_option"), SV("gyro_threshold"), (rd(L_options, SV("gyro_threshold")) - V(1.0))})}));
+    return V::none();
+}
+
 V C_TouchControls::m__editor_grab(const Args& A) {
     V L_pos = A.get(0, SY("pos"), nullptr, "_editor_grab");
     V L_height;
@@ -729,10 +1212,13 @@ V C_TouchControls::m__editor_grab(const Args& A) {
     V L_slot;
     V L_width;
     { V ut1_ = py::as_seq(callm(pvz::getattr(pvz::getattr(a_app, SY("renderer")), SY("screen")), SY("get_size"), Args{})); L_width = ut1_.idx(0); L_height = ut1_.idx(1); } 
+    if (((a_editor_panel).truthy() && (callm(callm(pvz::getattr(a_app, SY("pg")), SY("Rect"), Args{callm(self(), SY("_panel_rect"), Args{})}), SY("collidepoint"), Args{L_pos})).truthy())) {
+        return V::none();
+    }
     { auto it2_ = py::items_vec(callm(pm_touch::module_ns(), SY("placed_slots"), Args{L_width, L_height, pvz::getattr(a_app, SY("state"))}));
     for (size_t i2_ = 0; i2_ < it2_.size(); ++i2_) {
         L_slot = it2_[i2_].first; L_rect = it2_[i2_].second; 
-        if ((callm(callm(pvz::getattr(a_app, SY("pg")), SY("Rect"), Args{L_rect}), SY("collidepoint"), Args{L_pos})).truthy()) {
+        if ((py::in(L_slot, callm(pm_touch::module_ns(), SY("visible_slots"), Args{pvz::getattr(a_app, SY("state")), V(true)})) && (callm(self(), SY("_contains"), Args{callm(pvz::getattr(a_app, SY("pg")), SY("Rect"), Args{L_rect}), L_pos, L_slot})).truthy())) {
             return V::tuple({L_slot, (rd(L_pos, V(0.0)) - rd(L_rect, V(0.0))), (rd(L_pos, V(1.0)) - rd(L_rect, V(1.0)))});
         }
     }}
@@ -798,6 +1284,7 @@ V C_TouchControls::m_draw_editor(const Args& A) {
     V L_app;
     V L_height;
     V L_label;
+    V L_options;
     V L_payload;
     V L_pg;
     V L_preview;
@@ -809,6 +1296,7 @@ V C_TouchControls::m_draw_editor(const Args& A) {
     V L_shade;
     V L_slot;
     V L_slots;
+    V L_toolbar_y;
     V L_width;
     L_app = a_app;
     L_pg = pvz::getattr(L_app, SY("pg"));
@@ -819,7 +1307,7 @@ V C_TouchControls::m_draw_editor(const Args& A) {
     (void)(callm(L_shade, SY("fill"), Args{V::tuple({V(10.0), V(8.0), V(6.0), V(150.0)})}));
     (void)(callm(L_screen, SY("blit"), Args{L_shade, V::tuple({V(0.0), V(0.0)})}));
     L_slots = callm(pm_touch::module_ns(), SY("placed_slots"), Args{L_width, L_height, pvz::getattr(L_app, SY("state"))});
-    { V it2_ = py::iter_list(pm_touch::SLOTS);
+    { V it2_ = py::iter_list(callm(pm_touch::module_ns(), SY("visible_slots"), Args{pvz::getattr(L_app, SY("state")), V(true)}));
     for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) {
         L_slot = it2_.idx(int64_t(i2_)); 
         if ((L_slot == a_editor_selected)) {
@@ -827,20 +1315,38 @@ V C_TouchControls::m_draw_editor(const Args& A) {
         }
     }}
     L_preview = V::list({V::tuple({SV("escape"), SV("取消")}), V::tuple({V::tuple({SV("facing")}), SV("")}), V::tuple({V::tuple({SV("shovel")}), SV("铲子")}), V::tuple({V::tuple({SV("copy_target")}), SV("模仿·目标")}), V::tuple({V::tuple({SV("rally")}), SV("召集")}), V::tuple({V::tuple({SV("command")}), SV("调令")}), V::tuple({V::tuple({SV("teleport")}), SV("传送")}), V::tuple({V::tuple({SV("battle_page")}), SV("翻面")})});
-    (void)(callm(self(), SY("_paint_button"), Args{rd(L_slots, SV("left")), SV("左"), V((a_editor_selected == SV("left")))}));
-    (void)(callm(self(), SY("_paint_button"), Args{rd(L_slots, SV("right")), SV("右"), V((a_editor_selected == SV("right")))}));
-    (void)(callm(self(), SY("_paint_button"), Args{rd(L_slots, SV("jump")), SV("跳"), V((a_editor_selected == SV("jump")))}));
+    L_options = callm(pm_touch::module_ns(), SY("control_options"), Args{py::m_get(pvz::getattr(L_app, SY("state")), SV("touch_options"))});
+    if ((rd(L_options, SV("movement")) == SV("buttons"))) {
+        (void)(callm(self(), SY("_paint_button"), Args{rd(L_slots, SV("left")), SV("左"), V((a_editor_selected == SV("left"))), SV("left")}));
+        (void)(callm(self(), SY("_paint_button"), Args{rd(L_slots, SV("right")), SV("右"), V((a_editor_selected == SV("right"))), SV("right")}));
+    } else {
+        (void)(callm(self(), SY("_paint_stick"), Args{rd(L_slots, SV("joystick")), V((rd(L_options, SV("movement")) == SV("off")))}));
+    }
+    (void)(callm(self(), SY("_paint_button"), Args{rd(L_slots, SV("jump")), SV("跳"), V((a_editor_selected == SV("jump"))), SV("jump")}));
     { V it3_ = py::iter_list(callm(self(), SY("_action_buttons"), Args{L_slots, L_preview}));
     for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) {
         { V ut4_ = py::as_seq(it3_.idx(int64_t(i3_))); L_rect = ut4_.idx(0); L_role = ut4_.idx(1); L_payload = ut4_.idx(2); L_label = ut4_.idx(3); } 
-        (void)(callm(self(), SY("_paint_button"), Args{L_rect, L_label, py_and(V(py::in(a_editor_selected, L_slots)), [&]() -> V { return V((L_rect == rd(L_slots, a_editor_selected))); })}));
+        if ((L_role == SV("slider"))) {
+            (void)(callm(self(), SY("_paint_slider"), Args{L_rect}));
+        } else {
+            (void)(callm(self(), SY("_paint_button"), Args{L_rect, L_label, py_and(V(py::in(a_editor_selected, L_slots)), [&]() -> V { return V((L_rect == rd(L_slots, a_editor_selected))); }), callm(self(), SY("_slot"), Args{L_payload, L_role})}));
+        }
+    }}
+    { V it5_ = py::iter_list(pm_touch::HUD_SLOTS);
+    for (size_t i5_ = 0; i5_ < it5_.len(); ++i5_) {
+        L_slot = it5_.idx(int64_t(i5_)); 
+        (void)(callm(self(), SY("_paint_button"), Args{rd(L_slots, L_slot), rd(pm_touch::SLOT_NAMES, L_slot), V((a_editor_selected == L_slot)), L_slot}));
     }}
     L_selected = py::m_get(pm_touch::SLOT_NAMES, a_editor_selected);
-    (void)(callm(L_renderer, SY("text"), Args({(SV("已选：") + py_or(L_selected, [&]() -> V { return SV("无（点选一个按键）"); })), V::tuple({V(560.0), V(102.0)})}, {{SY("size"), V(17.0)}})));
-    (void)(callm(L_renderer, SY("button"), Args({SV("- 缩小"), V::tuple({V(24.0), V(126.0), V(120.0), V(38.0)}), V::tuple({SV("layout_scale"), V(-1.0)})}, {{SY("active"), py::bool_(L_selected)}})));
-    (void)(callm(L_renderer, SY("button"), Args({SV("+ 放大"), V::tuple({V(156.0), V(126.0), V(120.0), V(38.0)}), V::tuple({SV("layout_scale"), V(1.0)})}, {{SY("active"), py::bool_(L_selected)}})));
-    (void)(callm(L_renderer, SY("button"), Args{SV("重置布局"), V::tuple({(L_width - V(304.0)), V(126.0), V(132.0), V(38.0)}), V::tuple({SV("layout_reset")})}));
-    (void)(callm(L_renderer, SY("button"), Args{SV("完成"), V::tuple({(L_width - V(160.0)), V(126.0), V(136.0), V(38.0)}), V::tuple({SV("menu"), SV("back")})}));
+    L_toolbar_y = py::max_it(V::list({V(220.0), py::int_((L_height * V(0.38)))}), py::Key(), V());
+    (void)(callm(L_renderer, SY("text"), Args({(SV("已选：") + py_or(L_selected, [&]() -> V { return SV("无（点选一个按键）"); })), V::tuple({V(24.0), (L_toolbar_y - V(28.0))})}, {{SY("size"), V(17.0)}})));
+    (void)(callm(L_renderer, SY("button"), Args({SV("- 缩小"), V::tuple({V(24.0), L_toolbar_y, V(120.0), V(38.0)}), V::tuple({SV("layout_scale"), V(-1.0)})}, {{SY("active"), py::bool_(L_selected)}})));
+    (void)(callm(L_renderer, SY("button"), Args({SV("+ 放大"), V::tuple({V(156.0), L_toolbar_y, V(120.0), V(38.0)}), V::tuple({SV("layout_scale"), V(1.0)})}, {{SY("active"), py::bool_(L_selected)}})));
+    (void)(callm(L_renderer, SY("button"), Args{SV("移动设置"), V::tuple({V(288.0), L_toolbar_y, V(132.0), V(38.0)}), V::tuple({SV("touch_option"), SV("movement_settings"), V(0.0)})}));
+    (void)(callm(L_renderer, SY("button"), Args{SV("重置布局"), V::tuple({(L_width - V(304.0)), L_toolbar_y, V(132.0), V(38.0)}), V::tuple({SV("layout_reset")})}));
+    (void)(callm(L_renderer, SY("button"), Args{SV("完成"), V::tuple({(L_width - V(160.0)), L_toolbar_y, V(136.0), V(38.0)}), V::tuple({SV("menu"), SV("back")})}));
+    (void)(callm(L_renderer, SY("text"), Args({SV("点击控件设置，拖动改位置；卡槽、小地图、信息栏均可调整；移动键从“移动设置”恢复"), V::tuple({V(24.0), (L_toolbar_y + V(52.0))})}, {{SY("size"), V(15.0)}})));
+    (void)(callm(self(), SY("_draw_options"), Args{}));
     return V::none();
 }
 
@@ -860,7 +1366,9 @@ V C_TouchControls::m__paint_button(const Args& A) {
     V L_rect = A.get(0, SY("rect"), nullptr, "_paint_button");
     V L_label = A.get(1, SY("label"), nullptr, "_paint_button");
     V L_held = (A.size() > 2 || A.has_kw(SY("held"))) ? A.get(2, SY("held"), nullptr) : V(V(false));
+    V L_slot = (A.size() > 3 || A.has_kw(SY("slot"))) ? A.get(3, SY("slot"), nullptr) : V(SV(""));
     V L_box;
+    V L_circle;
     V L_image;
     V L_overlay;
     V L_pg;
@@ -869,11 +1377,91 @@ V C_TouchControls::m__paint_button(const Args& A) {
     L_screen = pvz::getattr(pvz::getattr(a_app, SY("renderer")), SY("screen"));
     L_box = callm(L_pg, SY("Rect"), Args{L_rect});
     L_overlay = callm(L_pg, SY("Surface"), Args{pvz::getattr(L_box, SY("size")), pvz::getattr(L_pg, SY("SRCALPHA"))});
-    (void)(callm(L_overlay, SY("fill"), Args{V::tuple({V(20.0), V(16.0), V(12.0), ((L_held).truthy() ? V(V(165.0)) : V(V(96.0)))})}));
+    L_circle = V((py::m_get(rd(callm(pm_touch::module_ns(), SY("control_options"), Args{py::m_get(pvz::getattr(a_app, SY("state")), SV("touch_options"))}), SV("shapes")), L_slot) == SV("circle")));
+    if ((L_circle).truthy()) {
+        (void)(callm(pvz::getattr(L_pg, SY("draw")), SY("ellipse"), Args{L_overlay, V::tuple({V(20.0), V(16.0), V(12.0), ((L_held).truthy() ? V(V(165.0)) : V(V(96.0)))}), V::tuple({V(0.0), V(0.0), pvz::getattr(L_box, SY("w")), pvz::getattr(L_box, SY("h"))})}));
+    } else {
+        (void)(callm(L_overlay, SY("fill"), Args{V::tuple({V(20.0), V(16.0), V(12.0), ((L_held).truthy() ? V(V(165.0)) : V(V(96.0)))})}));
+    }
     (void)(callm(L_screen, SY("blit"), Args{L_overlay, pvz::getattr(L_box, SY("topleft"))}));
-    (void)(callm(pvz::getattr(L_pg, SY("draw")), SY("rect"), Args({L_screen, ((L_held).truthy() ? V(V::tuple({V(255.0), V(224.0), V(125.0)})) : V(V::tuple({V(198.0), V(181.0), V(145.0)}))), L_box, V(2.0)}, {{SY("border_radius"), V(9.0)}})));
+    if ((L_circle).truthy()) {
+        (void)(callm(pvz::getattr(L_pg, SY("draw")), SY("ellipse"), Args{L_screen, ((L_held).truthy() ? V(V::tuple({V(255.0), V(224.0), V(125.0)})) : V(V::tuple({V(198.0), V(181.0), V(145.0)}))), L_box, V(2.0)}));
+    } else {
+        (void)(callm(pvz::getattr(L_pg, SY("draw")), SY("rect"), Args({L_screen, ((L_held).truthy() ? V(V::tuple({V(255.0), V(224.0), V(125.0)})) : V(V::tuple({V(198.0), V(181.0), V(145.0)}))), L_box, V(2.0)}, {{SY("border_radius"), V(9.0)}})));
+    }
+    if (((L_circle).truthy() && (py::len(L_label) > V(3.0)))) {
+        L_label = py::slice(L_label, V::none(), V(2.0));
+    }
     L_image = callm(callm(self(), SY("_fit_font"), Args{L_label, (pvz::getattr(L_box, SY("w")) - V(10.0))}), SY("render"), Args{L_label, V(true), V::tuple({V(255.0), V(239.0), V(199.0)})});
     (void)(callm(L_screen, SY("blit"), Args{L_image, V::tuple({(pvz::getattr(L_box, SY("x")) + floordiv((pvz::getattr(L_box, SY("w")) - callm(L_image, SY("get_width"), Args{})), V(2.0))), (pvz::getattr(L_box, SY("y")) + floordiv((pvz::getattr(L_box, SY("h")) - callm(L_image, SY("get_height"), Args{})), V(2.0)))})}));
+    return V::none();
+}
+
+V C_TouchControls::m__paint_stick(const Args& A) {
+    V L_rect = A.get(0, SY("rect"), nullptr, "_paint_stick");
+    V L_disabled = (A.size() > 1 || A.has_kw(SY("disabled"))) ? A.get(1, SY("disabled"), nullptr) : V(V(false));
+    V L_angle;
+    V L_cx;
+    V L_cy;
+    V L_dx;
+    V L_dy;
+    V L_h;
+    V L_length;
+    V L_overlay;
+    V L_pg;
+    V L_role;
+    V L_screen;
+    V L_side;
+    V L_w;
+    V L_x;
+    V L_y;
+    L_pg = pvz::getattr(a_app, SY("pg"));
+    L_screen = pvz::getattr(pvz::getattr(a_app, SY("renderer")), SY("screen"));
+    { V ut1_ = py::as_seq(L_rect); L_x = ut1_.idx(0); L_y = ut1_.idx(1); L_w = ut1_.idx(2); L_h = ut1_.idx(3); } 
+    { V tv2_0 = (L_x + (L_w * V(0.5))); V tv2_1 = (L_y + (L_h * V(0.5))); L_cx = std::move(tv2_0); L_cy = std::move(tv2_1); }
+    L_overlay = callm(L_pg, SY("Surface"), Args{V::tuple({py::int_(L_w), py::int_(L_h)}), pvz::getattr(L_pg, SY("SRCALPHA"))});
+    (void)(callm(pvz::getattr(L_pg, SY("draw")), SY("ellipse"), Args{L_overlay, V::tuple({V(20.0), V(16.0), V(12.0), ((L_disabled).truthy() ? V(V(70.0)) : V(V(110.0)))}), V::tuple({V(0.0), V(0.0), L_w, L_h})}));
+    (void)(callm(L_screen, SY("blit"), Args{L_overlay, V::tuple({L_x, L_y})}));
+    (void)(callm(pvz::getattr(L_pg, SY("draw")), SY("ellipse"), Args{L_screen, V::tuple({V(198.0), V(181.0), V(145.0)}), L_rect, V(2.0)}));
+    L_angle = (((rd(callm(pm_touch::module_ns(), SY("control_options"), Args{py::m_get(pvz::getattr(a_app, SY("state")), SV("touch_options"))}), SV("jump_angle")) * V(0.5)) * py::stdlib_attr(SV("math"), SV("pi"))) / V(180.0));
+    { V it3_ = py::iter_list(V::tuple({V(-1.0), V(1.0)}));
+    for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) {
+        L_side = it3_.idx(int64_t(i3_)); 
+        (void)(callm(pvz::getattr(L_pg, SY("draw")), SY("line"), Args{L_screen, V::tuple({V(158.0), V(159.0), V(133.0)}), V::tuple({L_cx, L_cy}), V::tuple({(L_cx + (((L_side * V(std::sin((L_angle).num()))) * L_w) * V(0.45))), (L_cy - ((V(std::cos((L_angle).num())) * L_h) * V(0.45)))}), V(1.0)}));
+    }}
+    { V tv4_0 = V(0.0); V tv4_1 = V(0.0); L_dx = std::move(tv4_0); L_dy = std::move(tv4_1); }
+    { V it5_ = py::iter_list(callm(a_fingers, SY("values"), Args{}));
+    for (size_t i5_ = 0; i5_ < it5_.len(); ++i5_) {
+        L_role = it5_.idx(int64_t(i5_)); 
+        if ((rd(L_role, V(0.0)) == SV("stick"))) {
+            { V tv6_0 = (rd(rd(L_role, V(2.0)), V(0.0)) - L_cx); V tv6_1 = (rd(rd(L_role, V(2.0)), V(1.0)) - L_cy); L_dx = std::move(tv6_0); L_dy = std::move(tv6_1); }
+            L_length = V(std::sqrt((((L_dx * L_dx) + (L_dy * L_dy))).num()));
+            if ((L_length > (L_w * V(0.35)))) {
+                { V tv7_0 = (((L_dx * L_w) * V(0.35)) / L_length); V tv7_1 = (((L_dy * L_w) * V(0.35)) / L_length); L_dx = std::move(tv7_0); L_dy = std::move(tv7_1); }
+            }
+        }
+    }}
+    (void)(callm(pvz::getattr(L_pg, SY("draw")), SY("circle"), Args{L_screen, V::tuple({V(216.0), V(191.0), V(131.0)}), V::tuple({py::int_((L_cx + L_dx)), py::int_((L_cy + L_dy))}), py::int_((L_w * V(0.16))), V(2.0)}));
+    (void)(callm(pvz::getattr(a_app, SY("renderer")), SY("text"), Args({((L_disabled).truthy() ? V(SV("移动已关")) : V(SV("上拉跳跃"))), V::tuple({((L_x + (L_w * V(0.5))) - V(30.0)), (L_y + (L_h * V(0.73)))})}, {{SY("size"), V(15.0)}})));
+    return V::none();
+}
+
+V C_TouchControls::m__paint_slider(const Args& A) {
+    V L_rect = A.get(0, SY("rect"), nullptr, "_paint_slider");
+    V L_h;
+    V L_index;
+    V L_selected;
+    V L_value;
+    V L_w;
+    V L_x;
+    V L_y;
+    { V ut1_ = py::as_seq(L_rect); L_x = ut1_.idx(0); L_y = ut1_.idx(1); L_w = ut1_.idx(2); L_h = ut1_.idx(3); } 
+    L_selected = ((py::m_get(pvz::getattr(a_app, SY("state")), SV("touch_quick_plant"), V(true))).truthy() ? V(V(0.0)) : V(py::m_get(pvz::getattr(a_app, SY("state")), SV("touch_facing"), V(-1.0))));
+    { V it2_ = py::iter_list(V::tuple({V(-1.0), V(0.0), V(1.0)})); const double st2_ = 0.0;
+    for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) {
+        L_index = V(st2_ + double(i2_)); L_value = it2_.idx(int64_t(i2_)); 
+        (void)(callm(self(), SY("_paint_button"), Args{V::tuple({(L_x + ((L_index * L_w) / V(3.0))), L_y, (L_w / V(3.0)), L_h}), rd(V::tuple({SV("左"), SV("自动"), SV("右")}), L_index), V((L_value == L_selected))}));
+    }}
     return V::none();
 }
 
@@ -887,6 +1475,14 @@ V C_TouchControls::m_draw(const Args& A) {
     { V it1_ = py::iter_list(callm(self(), SY("layout"), Args{}));
     for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) {
         { V ut2_ = py::as_seq(it1_.idx(int64_t(i1_))); L_rect = ut2_.idx(0); L_role = ut2_.idx(1); L_payload = ut2_.idx(2); L_label = ut2_.idx(3); } 
+        if ((L_role == SV("stick"))) {
+            (void)(callm(self(), SY("_paint_stick"), Args{L_rect}));
+            continue;
+        }
+        if ((L_role == SV("slider"))) {
+            (void)(callm(self(), SY("_paint_slider"), Args{L_rect}));
+            continue;
+        }
         L_key = ((L_role == SV("tap")) ? V(L_payload) : V(rd(callm(self(), SY("_hold_binding"), Args{L_payload}), V(1.0))));
         L_held = py_or(py_and(V((L_role == SV("tap"))), [&]() -> V { return V(py::in(L_payload, a_pressed)); }), [&]() -> V { return py_and(V((L_role == SV("hold"))), [&]() -> V { return V(py::in(L_key, a_pressed)); }); });
         if (py::in(L_payload, V::tuple({V::tuple({SV("teleport")}), V::tuple({SV("rally")}), V::tuple({SV("shovel")})}))) {
@@ -895,8 +1491,11 @@ V C_TouchControls::m_draw(const Args& A) {
         if (((V((isinstance(L_payload, "tuple")))).truthy() && (py::len(L_payload) == V(2.0)) && (rd(L_payload, V(0.0)) == SV("facing")))) {
             L_held = ((py::m_get(pvz::getattr(a_app, SY("state")), SV("touch_quick_plant"), V(true))).truthy() ? V(V((rd(L_payload, V(1.0)) == V(0.0)))) : V(V((py::m_get(pvz::getattr(a_app, SY("state")), SV("touch_facing"), V(-1.0)) == rd(L_payload, V(1.0))))));
         }
-        (void)(callm(self(), SY("_paint_button"), Args{L_rect, L_label, L_held}));
+        (void)(callm(self(), SY("_paint_button"), Args{L_rect, L_label, L_held, callm(self(), SY("_slot"), Args{L_payload, L_role})}));
     }}
+    if (((rd(callm(pm_touch::module_ns(), SY("control_options"), Args{py::m_get(pvz::getattr(a_app, SY("state")), SV("touch_options"))}), SV("gyro"))).truthy() && (a_gyro_status == SV("设备无可用陀螺仪")))) {
+        (void)(callm(pvz::getattr(a_app, SY("renderer")), SY("text"), Args({a_gyro_status, V::tuple({V(18.0), V(198.0)})}, {{SY("size"), V(14.0)}})));
+    }
     return V::none();
 }
 
@@ -917,7 +1516,7 @@ V new_TouchControls(const Args& A) {
     callm(self, SY("__init__"), A);
     return self;
 }
-V cls_TouchControls() { static V c = [] { V c = py::class_value(SV("TouchControls"), [](const Args& A) { return new_TouchControls(A); }); c.box->fattrs.emplace_back(Sym("__new__"), V::func([](const Args& A) { if (A.pos.size() != 1 || !py_is(A.pos[0], cls_TouchControls())) throw PyError("TypeError", "native __new__ requires its exact class"); auto p = std::make_shared<C_TouchControls>(); initcv_TouchControls(p.get()); return V::inst(p); })); c.box->fattrs.emplace_back(Sym("__init__"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m___init__(args); }, A); })); c.box->fattrs.emplace_back(Sym("_hold_binding"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__hold_binding(args); }, A); })); c.box->fattrs.emplace_back(Sym("_copy_name"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__copy_name(args); }, A); })); c.box->fattrs.emplace_back(Sym("_action_buttons"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__action_buttons(args); }, A); })); c.box->fattrs.emplace_back(Sym("layout"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m_layout(args); }, A); })); c.box->fattrs.emplace_back(Sym("_hit"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__hit(args); }, A); })); c.box->fattrs.emplace_back(Sym("finger"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m_finger(args); }, A); })); c.box->fattrs.emplace_back(Sym("mouse_down"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m_mouse_down(args); }, A); })); c.box->fattrs.emplace_back(Sym("mouse_motion"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m_mouse_motion(args); }, A); })); c.box->fattrs.emplace_back(Sym("mouse_up"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m_mouse_up(args); }, A); })); c.box->fattrs.emplace_back(Sym("_down"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__down(args); }, A); })); c.box->fattrs.emplace_back(Sym("_motion"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__motion(args); }, A); })); c.box->fattrs.emplace_back(Sym("_up"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__up(args); }, A); })); c.box->fattrs.emplace_back(Sym("_dispatch"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__dispatch(args); }, A); })); c.box->fattrs.emplace_back(Sym("update"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m_update(args); }, A); })); c.box->fattrs.emplace_back(Sym("clear"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m_clear(args); }, A); })); c.box->fattrs.emplace_back(Sym("hover_pos"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m_hover_pos(args); }, A); })); c.box->fattrs.emplace_back(Sym("_editor_grab"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__editor_grab(args); }, A); })); c.box->fattrs.emplace_back(Sym("_editor_drag"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__editor_drag(args); }, A); })); c.box->fattrs.emplace_back(Sym("editor_scale_selected"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m_editor_scale_selected(args); }, A); })); c.box->fattrs.emplace_back(Sym("draw_editor"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m_draw_editor(args); }, A); })); c.box->fattrs.emplace_back(Sym("_fit_font"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__fit_font(args); }, A); })); c.box->fattrs.emplace_back(Sym("_paint_button"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__paint_button(args); }, A); })); c.box->fattrs.emplace_back(Sym("draw"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m_draw(args); }, A); })); for (auto& item : c.box->fattrs) if (item.second.t == V::FUNC) item.second.box->fattrs.emplace_back(Sym("__native_declared_method__"), V(true)); c.box->fattrs.emplace_back(Sym("__native_class_dispatch__"), V(true)); c.box->fattrs.emplace_back(Sym("__native_static_methods__"), V::set({SV("__new__")})); return c; }(); return c; }
+V cls_TouchControls() { static V c = [] { V c = py::class_value(SV("TouchControls"), [](const Args& A) { return new_TouchControls(A); }); c.box->fattrs.emplace_back(Sym("__module__"), SV("pvp.touch")); c.box->fattrs.emplace_back(Sym("__new__"), V::func([](const Args& A) { if (A.pos.size() != 1 || !py_is(A.pos[0], cls_TouchControls())) throw PyError("TypeError", "native __new__ requires its exact class"); auto p = std::make_shared<C_TouchControls>(); initcv_TouchControls(p.get()); return V::inst(p); })); c.box->fattrs.emplace_back(Sym("__init__"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m___init__(args); }, A); })); c.box->fattrs.emplace_back(Sym("_hold_binding"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__hold_binding(args); }, A); })); c.box->fattrs.emplace_back(Sym("_copy_name"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__copy_name(args); }, A); })); c.box->fattrs.emplace_back(Sym("_action_buttons"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__action_buttons(args); }, A); })); c.box->fattrs.emplace_back(Sym("layout"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m_layout(args); }, A); })); c.box->fattrs.emplace_back(Sym("_hit"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__hit(args); }, A); })); c.box->fattrs.emplace_back(Sym("_slot"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__slot(args); }, A); })); c.box->fattrs.emplace_back(Sym("_contains"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__contains(args); }, A); })); c.box->fattrs.emplace_back(Sym("_sync_virtual"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__sync_virtual(args); }, A); })); c.box->fattrs.emplace_back(Sym("_stick_motion"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__stick_motion(args); }, A); })); c.box->fattrs.emplace_back(Sym("_slider_motion"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__slider_motion(args); }, A); })); c.box->fattrs.emplace_back(Sym("finger"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m_finger(args); }, A); })); c.box->fattrs.emplace_back(Sym("mouse_down"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m_mouse_down(args); }, A); })); c.box->fattrs.emplace_back(Sym("mouse_motion"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m_mouse_motion(args); }, A); })); c.box->fattrs.emplace_back(Sym("mouse_up"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m_mouse_up(args); }, A); })); c.box->fattrs.emplace_back(Sym("_down"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__down(args); }, A); })); c.box->fattrs.emplace_back(Sym("_motion"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__motion(args); }, A); })); c.box->fattrs.emplace_back(Sym("_up"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__up(args); }, A); })); c.box->fattrs.emplace_back(Sym("_dispatch"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__dispatch(args); }, A); })); c.box->fattrs.emplace_back(Sym("update"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m_update(args); }, A); })); c.box->fattrs.emplace_back(Sym("clear"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m_clear(args); }, A); })); c.box->fattrs.emplace_back(Sym("hover_pos"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m_hover_pos(args); }, A); })); c.box->fattrs.emplace_back(Sym("_update_gyro"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__update_gyro(args); }, A); })); c.box->fattrs.emplace_back(Sym("editor_option"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m_editor_option(args); }, A); })); c.box->fattrs.emplace_back(Sym("_panel_rect"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__panel_rect(args); }, A); })); c.box->fattrs.emplace_back(Sym("_draw_options"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__draw_options(args); }, A); })); c.box->fattrs.emplace_back(Sym("_editor_grab"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__editor_grab(args); }, A); })); c.box->fattrs.emplace_back(Sym("_editor_drag"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__editor_drag(args); }, A); })); c.box->fattrs.emplace_back(Sym("editor_scale_selected"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m_editor_scale_selected(args); }, A); })); c.box->fattrs.emplace_back(Sym("draw_editor"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m_draw_editor(args); }, A); })); c.box->fattrs.emplace_back(Sym("_fit_font"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__fit_font(args); }, A); })); c.box->fattrs.emplace_back(Sym("_paint_button"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__paint_button(args); }, A); })); c.box->fattrs.emplace_back(Sym("_paint_stick"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__paint_stick(args); }, A); })); c.box->fattrs.emplace_back(Sym("_paint_slider"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m__paint_slider(args); }, A); })); c.box->fattrs.emplace_back(Sym("draw"), V::func([](const Args& A) { return py::unbound_call<pm_touch::C_TouchControls>([](pm_touch::C_TouchControls* self, const Args& args) { return self->pm_touch::C_TouchControls::m_draw(args); }, A); })); for (auto& item : c.box->fattrs) if (item.second.t == V::FUNC) item.second.box->fattrs.emplace_back(Sym("__native_declared_method__"), V(true)); c.box->fattrs.emplace_back(Sym("__native_class_dispatch__"), V(true)); c.box->fattrs.emplace_back(Sym("__native_static_methods__"), V::set({SV("__new__")})); return c; }(); return c; }
 static bool inited_ = false;
 void init() {
     if (inited_) return;
@@ -935,9 +1534,11 @@ void init() {
     pm_touch::ACTION_GAP = V(10.0);
     pm_touch::ACTION_ROWS = V(6.0);
     pm_touch::ACTION_SLOTS = V::tuple({SV("cancel"), SV("facing_auto"), SV("facing_left"), SV("facing_right"), SV("shovel"), SV("copy_target"), SV("rally"), SV("command"), SV("teleport"), SV("battle_page")});
-    pm_touch::SLOTS = (V::tuple({SV("left"), SV("right"), SV("jump")}) + pm_touch::ACTION_SLOTS);
-    pm_touch::SLOT_NAMES = py_dict({{SV("left"), SV("左移")}, {SV("right"), SV("右移")}, {SV("jump"), SV("跳跃")}, {SV("cancel"), SV("取消")}, {SV("facing_auto"), SV("自动朝向")}, {SV("facing_left"), SV("朝向左")}, {SV("facing_right"), SV("朝向右")}, {SV("shovel"), SV("铲子")}, {SV("copy_target"), SV("模仿")}, {SV("rally"), SV("召集")}, {SV("command"), SV("调令")}, {SV("teleport"), SV("传送")}, {SV("battle_page"), SV("翻面")}});
-    { V tv1_0 = V(0.7); V tv1_1 = V(1.6); pm_touch::SCALE_MIN = std::move(tv1_0); pm_touch::SCALE_MAX = std::move(tv1_1); }
+    pm_touch::HUD_SLOTS = V::tuple({SV("own_bank"), SV("mate_bank"), SV("minimap"), SV("timer"), SV("stage_info"), SV("team_info"), SV("battle_menu")});
+    pm_touch::SLOTS = ((V::tuple({SV("left"), SV("right"), SV("jump"), SV("joystick"), SV("facing_slider")}) + pm_touch::ACTION_SLOTS) + pm_touch::HUD_SLOTS);
+    pm_touch::SLOT_NAMES = py_dict({{SV("left"), SV("左移")}, {SV("right"), SV("右移")}, {SV("jump"), SV("跳跃")}, {SV("cancel"), SV("取消")}, {SV("facing_auto"), SV("自动朝向")}, {SV("facing_left"), SV("朝向左")}, {SV("facing_right"), SV("朝向右")}, {SV("shovel"), SV("铲子")}, {SV("copy_target"), SV("模仿")}, {SV("rally"), SV("召集")}, {SV("command"), SV("调令")}, {SV("teleport"), SV("传送")}, {SV("battle_page"), SV("翻面")}, {SV("joystick"), SV("移动摇杆")}, {SV("facing_slider"), SV("朝向滑条")}});
+    (void)(callm(pm_touch::SLOT_NAMES, SY("update"), Args({}, {{SY("own_bank"), SV("自己的卡槽")}, {SY("mate_bank"), SV("队友／另一方卡槽")}, {SY("minimap"), SV("小地图")}, {SY("timer"), SV("计时器")}, {SY("stage_info"), SV("波次与僵尸数量")}, {SY("team_info"), SV("队友与复活信息")}, {SY("battle_menu"), SV("菜单与资助按钮")}})));
+    { V tv1_0 = V(0.4); V tv1_1 = V(2.0); pm_touch::SCALE_MIN = std::move(tv1_0); pm_touch::SCALE_MAX = std::move(tv1_1); }
 }
 static V modattr_(Sym n) {
     init();
@@ -953,10 +1554,13 @@ static V modattr_(Sym n) {
     if (s == "ACTION_GAP") return pm_touch::ACTION_GAP;
     if (s == "ACTION_ROWS") return pm_touch::ACTION_ROWS;
     if (s == "ACTION_SLOTS") return pm_touch::ACTION_SLOTS;
+    if (s == "HUD_SLOTS") return pm_touch::HUD_SLOTS;
     if (s == "SLOTS") return pm_touch::SLOTS;
     if (s == "SLOT_NAMES") return pm_touch::SLOT_NAMES;
     if (s == "SCALE_MIN") return pm_touch::SCALE_MIN;
     if (s == "SCALE_MAX") return pm_touch::SCALE_MAX;
+    if (s == "control_options") return V::func(f_control_options);
+    if (s == "visible_slots") return V::func(f_visible_slots);
     if (s == "button_size") return V::func(f_button_size);
     if (s == "thumb_clusters") return V::func(f_thumb_clusters);
     if (s == "layout_overrides") return V::func(f_layout_overrides);
@@ -981,6 +1585,7 @@ static V modwrite_(const Args& A) {
     if (s == "ACTION_GAP") { pm_touch::ACTION_GAP = A.pos.at(1); return V(true); }
     if (s == "ACTION_ROWS") { pm_touch::ACTION_ROWS = A.pos.at(1); return V(true); }
     if (s == "ACTION_SLOTS") { pm_touch::ACTION_SLOTS = A.pos.at(1); return V(true); }
+    if (s == "HUD_SLOTS") { pm_touch::HUD_SLOTS = A.pos.at(1); return V(true); }
     if (s == "SLOTS") { pm_touch::SLOTS = A.pos.at(1); return V(true); }
     if (s == "SLOT_NAMES") { pm_touch::SLOT_NAMES = A.pos.at(1); return V(true); }
     if (s == "SCALE_MIN") { pm_touch::SCALE_MIN = A.pos.at(1); return V(true); }

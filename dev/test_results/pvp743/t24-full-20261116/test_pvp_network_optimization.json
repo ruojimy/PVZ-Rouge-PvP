@@ -1,0 +1,12 @@
+[
+{"module":"test_pvp_network_optimization","class":"ControlsTests","test":"test_c_cancel_v_copy_and_escape_have_distinct_actions_and_rebind_persists","outcome":"PASS","seconds":0.0317462,"detail":""},
+{"module":"test_pvp_network_optimization","class":"ControlsTests","test":"test_immediate_direction_edges_jump_release_and_held_rate","outcome":"PASS","seconds":0.0127161,"detail":""},
+{"module":"test_pvp_network_optimization","class":"ControlsTests","test":"test_settings_buttons_fit_and_changed_binding_is_shown","outcome":"PASS","seconds":0.0263542,"detail":""},
+{"module":"test_pvp_network_optimization","class":"SchedulingTests","test":"test_cancel_and_connection_generation_reject_late_completed_work","outcome":"PASS","seconds":0.0121991,"detail":""},
+{"module":"test_pvp_network_optimization","class":"SchedulingTests","test":"test_coalescing_preserves_maps_phases_other_messages_and_legacy_peers","outcome":"PASS","seconds":8.69e-05,"detail":""},
+{"module":"test_pvp_network_optimization","class":"SchedulingTests","test":"test_early_snapshot_continues_from_current_display_for_body_and_unit","outcome":"PASS","seconds":0.0001052,"detail":""},
+{"module":"test_pvp_network_optimization","class":"SchedulingTests","test":"test_packing_publishes_before_the_ui_collects_completion","outcome":"PASS","seconds":0.0038648,"detail":""},
+{"module":"test_pvp_network_optimization","class":"SchedulingTests","test":"test_real_step_captures_after_room_update","outcome":"PASS","seconds":0.0002591,"detail":""},
+{"module":"test_pvp_network_optimization","class":"SchedulingTests","test":"test_snapshot_remainder_preserves_twenty_hz_without_catchup_bursts","outcome":"PASS","seconds":0.0180943,"detail":""},
+{"module":"test_pvp_network_optimization","class":"SchedulingTests","test":"test_socket_wakeup_interrupts_wait_and_stale_queued_generation_is_dropped","outcome":"PASS","seconds":0.0042857,"detail":""}
+]

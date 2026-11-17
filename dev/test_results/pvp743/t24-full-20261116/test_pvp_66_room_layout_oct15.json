@@ -1,0 +1,8 @@
+[
+{"module":"test_pvp_66_room_layout_oct15","class":"RoomConnectionLayoutTests","test":"test_direct_four_seats_preview_share_and_footer_all_fit","outcome":"PASS","seconds":1.21395,"detail":""},
+{"module":"test_pvp_66_room_layout_oct15","class":"RoomConnectionLayoutTests","test":"test_direct_two_seats_preview_share_and_footer_all_fit","outcome":"PASS","seconds":0.885293,"detail":""},
+{"module":"test_pvp_66_room_layout_oct15","class":"RoomConnectionLayoutTests","test":"test_local_two_and_four_seat_sections_leave_footer_space","outcome":"PASS","seconds":0.724435,"detail":""},
+{"module":"test_pvp_66_room_layout_oct15","class":"RoomConnectionLayoutTests","test":"test_relay_four_seats_preview_code_and_footer_all_fit","outcome":"PASS","seconds":1.32543,"detail":""},
+{"module":"test_pvp_66_room_layout_oct15","class":"RoomConnectionLayoutTests","test":"test_relay_two_seats_preview_code_and_footer_all_fit","outcome":"PASS","seconds":0.738655,"detail":""},
+{"module":"test_pvp_66_room_layout_oct15","class":"RoomConnectionLayoutTests","test":"test_touch_spectator_seat_actions_do_not_cover_names_or_connection","outcome":"PASS","seconds":0.671973,"detail":""}
+]

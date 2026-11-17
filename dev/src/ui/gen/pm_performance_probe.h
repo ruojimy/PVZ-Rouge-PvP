@@ -22,7 +22,6 @@ struct C_Driver : PyObj {
     V a_warm_ticks;
     V a_measure_ticks;
     V a_tick_limit;
-    V a_unused_steps;
     V a_measure_start;
     const char* type_name() const override { return "Driver"; }
     bool isa(const char* c) const override;

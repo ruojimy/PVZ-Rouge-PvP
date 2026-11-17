@@ -28,9 +28,10 @@ private:
     ZombieRef wearer_;
     std::optional<std::pair<NativeArt,Point>> imp_;
     std::set<std::string> suppress_;
-    std::map<std::string,std::optional<Point>> imp_seats_;
-    std::map<std::string,NativeArt> imp_composites_;
-    std::map<std::pair<std::string,std::string>,NativeArt> carrier_heads_;
+    using CompositeKey=std::tuple<std::string,NativeArtIdentity,NativeArtIdentity>;
+    std::map<CompositeKey,std::optional<Point>> imp_seats_;
+    std::map<CompositeKey,NativeArt> imp_composites_,carrier_heads_;
+    std::map<std::tuple<std::string,NativeArtIdentity,double>,NativeArt> armor_images_;
     bool imp_armored()const;
     std::string worn_name(const std::string&)const;
     std::optional<Point> imp_seat(const std::string& armor);

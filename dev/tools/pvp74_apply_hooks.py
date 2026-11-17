@@ -38,12 +38,14 @@ def app(t):
 edit('src/ui/gen/pm_app.cpp',app)
 def art(t):
  t=ui_include(t)
- t=insert(t,'texture74::artwork(py_str(L_name))', '    V L_name = A.get(0, SY("name"), nullptr, "raw");\n','    texture74::sync_art(self());\n    if(V custom=texture74::artwork(py_str(L_name));!custom.is_none())return custom; // PvP74\n')
+ t=t.replace('if(V custom=texture74::artwork(py_str(L_name));!custom.is_none())return custom; // PvP74','if(V custom=texture74::artwork("world:"+py_str(L_name));!custom.is_none())return custom; // PvP74')
+ t=insert(t,'texture74::artwork("world:"+py_str(L_name))', '    V L_name = A.get(0, SY("name"), nullptr, "raw");\n','    texture74::sync_art(self());\n    if(V custom=texture74::artwork("world:"+py_str(L_name));!custom.is_none())return custom; // PvP74\n')
  t=insert(t,'texture74::sync_art(self()); // PvP74 image', 'V C_NativeArt::m_image(const Args& A) {\n','    texture74::sync_art(self()); // PvP74 image cache\n')
  t=insert(t,'DisplayScope texture74_art', 'V C_NativeArt::m_raw(const Args& A) {\n','    texture74::DisplayScope texture74_art; // PvP74\n')
  return t
 edit('src/ui/gen/pm_native_style.cpp',art)
 def rendering(t):
+ t=insert(t,'PvP744 exact card bridge scope','                L_image = callm(a_bridge, SY("surface"), Args{L_key, L_ui});\n','                if(!L_image.is_none()){V custom=texture74::artwork(std::string(L_ui.truthy()?"ui:":"world:")+py_str(L_key));if(!custom.is_none())L_image=custom;} // PvP744 exact card bridge scope\n')
  t=ui_include(t);start=t.index('V C_Renderer::m_artwork(');anchor='    V L_name = A.get(0, SY("name"), nullptr, "artwork");\n';at=t.index(anchor,start)
  if 'texture74::artwork(py_str(L_name))' not in t:t=t[:at]+t[at:].replace(anchor,anchor+'    if(V custom=texture74::artwork(py_str(L_name));!custom.is_none())return custom; // PvP74\n',1)
  anchor='    V L_flip = (A.size() > 2 || A.has_kw(SY("flip"))) ? A.get(2, SY("flip"), nullptr) : V(V(false));\n'

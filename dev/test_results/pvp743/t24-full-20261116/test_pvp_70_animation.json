@@ -1,0 +1,9 @@
+[
+{"module":"test_pvp_70_animation","class":"AnimationTests","test":"test_deploy_preview_matches_battle_black_regiment_art","outcome":"PASS","seconds":0.454212,"detail":""},
+{"module":"test_pvp_70_animation","class":"AnimationTests","test":"test_hook_layers_stack_into_the_whole_almanac_art","outcome":"PASS","seconds":0.0374901,"detail":""},
+{"module":"test_pvp_70_animation","class":"AnimationTests","test":"test_hook_zombie_uses_native_head_and_body_layers","outcome":"PASS","seconds":0.35898,"detail":""},
+{"module":"test_pvp_70_animation","class":"AnimationTests","test":"test_lettuce_breathes_cold_mist_and_bursts_on_freeze","outcome":"PASS","seconds":0.0284149,"detail":""},
+{"module":"test_pvp_70_animation","class":"AnimationTests","test":"test_pirate_captain_uses_native_head_and_body_layers","outcome":"PASS","seconds":0.356993,"detail":""},
+{"module":"test_pvp_70_animation","class":"AnimationTests","test":"test_scarecrow_tips_over_before_its_lying_frame","outcome":"PASS","seconds":0.0138852,"detail":""},
+{"module":"test_pvp_70_animation","class":"AnimationTests","test":"test_sleeping_head_vine_meets_the_drooped_mouth","outcome":"PASS","seconds":0.0126857,"detail":""}
+]

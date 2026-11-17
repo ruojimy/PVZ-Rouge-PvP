@@ -1,0 +1,6 @@
+[
+{"module":"test_pvp_summon_bans","class":"SummonBanTests","test":"test_banned_imp_still_emerges_twice_when_the_barrel_breaks","outcome":"PASS","seconds":0.0222987,"detail":""},
+{"module":"test_pvp_summon_bans","class":"SummonBanTests","test":"test_banned_parrot_is_summoned_with_its_captains_allegiance","outcome":"PASS","seconds":0.0297475,"detail":""},
+{"module":"test_pvp_summon_bans","class":"SummonBanTests","test":"test_cannon_fires_the_banned_original_imp","outcome":"PASS","seconds":0.0144587,"detail":""},
+{"module":"test_pvp_summon_bans","class":"SummonBanTests","test":"test_internal_summons_do_not_unlock_manual_deployment","outcome":"PASS","seconds":0.013619,"detail":""}
+]

@@ -1,0 +1,31 @@
+{
+  "module": "test_pvp_66_material_maps_oct16",
+  "exit": 1,
+  "seconds": 1.983,
+  "expected": 5,
+  "results": 5,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": false,
+  "accepted": false,
+  "counts": {
+    "PASS": 4,
+    "FAIL": 1,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [],
+  "unexpected_nonpass": [
+    {
+      "id": "test_pvp_66_material_maps_oct16.NativeMaterials.test_taco_effect_survives_snapshot_and_does_not_delay_or_duplicate_buff",
+      "outcome": "FAIL",
+      "detail_sha256": "4ec3738fba66aee2b64381cfe4fd62d646a4d395e7e4c26543c0fda663596aa9",
+      "reason": "not_waived"
+    }
+  ],
+  "resolved_waivers": []
+}

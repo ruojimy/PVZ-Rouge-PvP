@@ -596,7 +596,7 @@ def digest(value):
 
 
 def catalog_hash():
-    return digest(CARDS)
+    return digest({k: v for k, v in CARDS.items() if v.get("behavior") != "terraria"})
 
 
 # Room tick rates a battle may run at.  The rate only sets how many original

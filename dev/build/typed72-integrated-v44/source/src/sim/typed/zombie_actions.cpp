@@ -531,6 +531,7 @@ void ZombieActions::run(){
     LiveBattleSources sources(world_);NativeBirthScope births(world_.runtime,move_);
     // range(len(...)-1,-1,-1) freezes the count, not the index contents.
     for(size_t i=world_.targets->size();i-- >0;){
+        if(world_.targets->at(i).unit&&world_.targets->at(i).unit->terraria)continue;
         world_.heroes.source_index=int64_t(i);actions_.zombie_gate(i);
         finish(motion_.advance(i));
     }

@@ -89,6 +89,10 @@ class Driver:
                 error=b.command_input(side,dict(type='move',seq=1,move=0,jump=False))
                 if error:raise AssertionError(error)
             app.move_inputs=lambda dt:None
+        else:
+            # Explicit manual diagnostic only: make legal deployment affordable.
+            # Cooldowns, placement rules and combat effects remain authoritative.
+            for side in ('plant','zombie'):b.players[side]['resource']=100000.
         app.state.update(screen='room',active_side='plant',zoom=1.,ui_scale=1.1,sound=False)
         app.apply_scale()
         self.fixture=dict(scenario=scenario,requested_units=size,composition=requested,seed=301,
@@ -98,9 +102,11 @@ class Driver:
         self.fixture['input']='Neutral move seq=1 at native tick 0 for each side; diagnostic wall-clock heartbeats disabled.'
         if self.config.get('interactive_input',False):
             self.fixture['input']='Live keyboard/touch controls and normal input heartbeats enabled; this run is not a deterministic A/B fixture.'
+            self.fixture['manual_resource_pool']=100000.
         if self.config.get('prime_tentacles',False):
             self.fixture['primed_tentacle_roots']=len(tentacle_roots)
-            self.fixture['input']='Same neutral input after two deterministic growth steps; wall-clock heartbeats disabled.'
+            if not self.config.get('interactive_input',False):
+                self.fixture['input']='Same neutral input after two deterministic growth steps; wall-clock heartbeats disabled.'
         self.started=time.monotonic()
         self.setup_seconds=time.perf_counter()-setup_start
         # Cold scene construction is outside the live battle timing window.
@@ -109,18 +115,14 @@ class Driver:
         self.measure_ticks=int(self.config.get('measure_room_ticks',0))
         if self.measure_ticks:
             self.tick_limit=self.warm_ticks or self.measure_ticks
-            original_step=b.step;original_update=room.update
-            # Diagnostic boundary only: preserve the unprocessed accumulator
-            # while stopping at an exact logical tick for comparable evidence.
-            def limited_step(count=1):
+            original_step=b.step
+            # Native Room debits only the tick delta. No second compensation of
+            # unused work here, including budget yields and terminal steps.
+            def limited_step(count=1,budget_seconds=0.):
                 actual=min(count,max(0,self.tick_limit-b.tick))
-                self.unused_steps+=count-actual
+                if budget_seconds:return original_step(actual,budget_seconds=budget_seconds)
                 return original_step(actual)
-            def limited_update(dt):
-                self.unused_steps=0
-                try:return original_update(dt)
-                finally:room.accumulator+=self.unused_steps*b.dt
-            b.step=limited_step;room.update=limited_update
+            b.step=limited_step
 
     def __call__(self,app,frame):
         if self.finished:return

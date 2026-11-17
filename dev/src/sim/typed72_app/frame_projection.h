@@ -47,9 +47,7 @@ class FrameProjection {
     }
 public:
     uint64_t descriptions=0,hits=0,frames=0;
-    V project(const typed72::NativeFrame& frame){
-        ++frames;current_.clear();V commands=V::list();
-        for(const auto& c:frame.commands){
+    V command(const typed72::NativeFrameCommand& c){
             V row=V::dict();
             if(c.primitive){
                 const auto& p=*c.primitive;row.at(V("op"))=V("primitive");row.at(V("primitive"))=V(p.name);
@@ -61,8 +59,11 @@ public:
                 row.at(V("area"))=V::none();row.at(V("flags"))=V(0.);
                 if(!c.layer.empty())row.at(V("layer"))=V(c.layer);
             }
-            if(c.entity)row.at(V("entity"))=V(*c.entity);commands.append(row);
-        }
+            if(c.entity)row.at(V("entity"))=V(*c.entity);return row;
+    }
+    V project(const typed72::NativeFrame& frame){
+        ++frames;current_.clear();V commands=V::list();
+        for(const auto& c:frame.commands)commands.append(command(c));
         V positions=V::dict();for(const auto& [id,p]:frame.positions)positions.at(V(id))=point(p.x,p.y);
         V out=V::dict();out.at(V("protocol"))=V("native-draw-v1");out.at(V("tick"))=V(double(frame.tick));out.at(V("tile"))=V(frame.tile);
         out.at(V("commands"))=commands;out.at(V("positions"))=positions;

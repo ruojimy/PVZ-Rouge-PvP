@@ -1,0 +1,9 @@
+[
+{"module":"test_pvp_67_coop_growth_oct18","class":"CoopAIGrowth18","test":"test_ai_evaluates_reward_instead_of_taking_first_then_advances_only_once","outcome":"PASS","seconds":0.167975,"detail":""},
+{"module":"test_pvp_67_coop_growth_oct18","class":"CoopAIGrowth18","test":"test_host_and_guest_commands_cannot_reintroduce_disabled_decks","outcome":"PASS","seconds":0.0740636,"detail":""},
+{"module":"test_pvp_67_coop_growth_oct18","class":"CoopAIGrowth18","test":"test_invited_and_fixed_ai_buy_upgrade_and_replace_cards_without_spending_host_money","outcome":"PASS","seconds":0.270859,"detail":""},
+{"module":"test_pvp_67_coop_growth_oct18","class":"CoopAIGrowth18","test":"test_paid_ai_preparation_finishes_before_one_human_start_confirmation","outcome":"PASS","seconds":0.227499,"detail":""},
+{"module":"test_pvp_67_coop_growth_oct18","class":"CoopRestrictions18","test":"test_invalid_ids_do_not_bypass_policy_or_raise_hash_errors","outcome":"PASS","seconds":4.01e-05,"detail":""},
+{"module":"test_pvp_67_coop_growth_oct18","class":"CoopRestrictions18","test":"test_old_seat_save_keeps_ownership_but_retires_forbidden_active_choices","outcome":"PASS","seconds":0.0096003,"detail":""},
+{"module":"test_pvp_67_coop_growth_oct18","class":"CoopRestrictions18","test":"test_solo_and_coop_reward_shop_deck_and_wave_pools_exclude_disabled_cards","outcome":"PASS","seconds":0.0074238,"detail":""}
+]

@@ -4,6 +4,7 @@
 namespace pvz { namespace pm_presentation {
 V module_ns();
 void init();
+V f_same_pose(const Args& A);
 struct C_GuestPresentation;
 V new_GuestPresentation(const Args& A);
 V cls_GuestPresentation();

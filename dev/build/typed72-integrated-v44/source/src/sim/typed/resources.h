@@ -20,7 +20,7 @@ public:
     Resources(TypedBattleState& world,WorldRegions& regions,uint64_t& sequence)
         :world_(world),regions_(regions),sequence_(sequence){}
     std::array<ResourceAccount,4> accounts;
-    double coins=0.;
+    double coins=0.,diamond_coins=0.;
     const std::list<MatchResource>& records()const{return records_;}
     const std::list<ResourceMotion>& motions()const{return motions_;}
     MatchResource* find(const std::string& id);

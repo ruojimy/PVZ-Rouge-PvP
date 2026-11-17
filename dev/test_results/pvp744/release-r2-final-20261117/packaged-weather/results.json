@@ -1,0 +1,369 @@
+{
+  "checks": [
+    {
+      "evidence": {
+        "day_income": 8,
+        "environment_unchanged": true,
+        "producer": 1,
+        "sky": 8
+      },
+      "name": "duel_day_clear",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "day_income": 8,
+        "environment_unchanged": true,
+        "producer": 1,
+        "sky": 0
+      },
+      "name": "duel_day_rain",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "day_income": 0,
+        "environment_unchanged": true,
+        "producer": 1,
+        "sky": 0
+      },
+      "name": "duel_night_clear",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "day_income": 0,
+        "environment_unchanged": true,
+        "producer": 1,
+        "sky": 0
+      },
+      "name": "duel_night_rain",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "day_income": 16,
+        "environment_unchanged": true,
+        "producer": 1,
+        "sky": 8
+      },
+      "name": "duo_day_clear",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "day_income": 16,
+        "environment_unchanged": true,
+        "producer": 1,
+        "sky": 0
+      },
+      "name": "duo_day_rain",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "day_income": 0,
+        "environment_unchanged": true,
+        "producer": 1,
+        "sky": 0
+      },
+      "name": "duo_night_clear",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "day_income": 0,
+        "environment_unchanged": true,
+        "producer": 1,
+        "sky": 0
+      },
+      "name": "duo_night_rain",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "day_income": 0,
+        "environment_unchanged": true,
+        "producer": 1,
+        "sky": 8
+      },
+      "name": "coop_day_clear",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "day_income": 0,
+        "environment_unchanged": true,
+        "producer": 1,
+        "sky": 0
+      },
+      "name": "coop_day_rain",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "day_income": 0,
+        "environment_unchanged": true,
+        "producer": 1,
+        "sky": 0
+      },
+      "name": "coop_night_clear",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "day_income": 0,
+        "environment_unchanged": true,
+        "producer": 1,
+        "sky": 0
+      },
+      "name": "coop_night_rain",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "day_income": 0,
+        "environment_unchanged": true,
+        "producer": 1,
+        "sky": 8
+      },
+      "name": "pve_day_clear",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "day_income": 0,
+        "environment_unchanged": true,
+        "producer": 1,
+        "sky": 0
+      },
+      "name": "pve_day_rain",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "day_income": 0,
+        "environment_unchanged": true,
+        "producer": 1,
+        "sky": 0
+      },
+      "name": "pve_night_clear",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "day_income": 0,
+        "environment_unchanged": true,
+        "producer": 1,
+        "sky": 0
+      },
+      "name": "pve_night_rain",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "boundaries": [
+          {
+            "night": true,
+            "sky_total": 120,
+            "time": 120.0
+          },
+          {
+            "night": false,
+            "sky_total": 120,
+            "time": 240.0
+          }
+        ],
+        "first_sky_by_phase": [
+          [
+            0,
+            0.5
+          ],
+          [
+            2,
+            240.96666666666667
+          ]
+        ],
+        "real_simulated_seconds": 241.2,
+        "sky_by_phase": [
+          [
+            0,
+            120
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      "name": "coop_cycle_day_clear",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "boundaries": [
+          {
+            "night": true,
+            "sky_total": 0,
+            "time": 120.0
+          },
+          {
+            "night": false,
+            "sky_total": 0,
+            "time": 240.0
+          }
+        ],
+        "first_sky_by_phase": [],
+        "real_simulated_seconds": 241.2,
+        "sky_by_phase": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      },
+      "name": "coop_cycle_day_rain",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "boundaries": [
+          {
+            "night": false,
+            "sky_total": 0,
+            "time": 120.0
+          },
+          {
+            "night": true,
+            "sky_total": 120,
+            "time": 240.0
+          }
+        ],
+        "first_sky_by_phase": [
+          [
+            1,
+            120.96666666666667
+          ]
+        ],
+        "real_simulated_seconds": 241.2,
+        "sky_by_phase": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            120
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      },
+      "name": "coop_cycle_night_clear",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "boundaries": [
+          {
+            "night": false,
+            "sky_total": 0,
+            "time": 120.0
+          },
+          {
+            "night": true,
+            "sky_total": 0,
+            "time": 240.0
+          }
+        ],
+        "first_sky_by_phase": [],
+        "real_simulated_seconds": 241.2,
+        "sky_by_phase": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      },
+      "name": "coop_cycle_night_rain",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "income": {
+          "plant": 30.0,
+          "plant2": 30.0
+        },
+        "sky": 2
+      },
+      "name": "duo_shared_sky_clear",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "income": {
+          "plant": 0.0,
+          "plant2": 0.0
+        },
+        "sky": 0
+      },
+      "name": "duo_shared_sky_rain",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "income": {
+          "plant": 30.0,
+          "plant2": 30.0
+        },
+        "sky": 2
+      },
+      "name": "coop_shared_sky_clear",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "income": {
+          "plant": 0.0,
+          "plant2": 0.0
+        },
+        "sky": 0
+      },
+      "name": "coop_shared_sky_rain",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "day_income": 0,
+        "sky": 0
+      },
+      "name": "historical_cold_night_fallback",
+      "passed": true
+    }
+  ],
+  "failures": 0,
+  "packaged": false,
+  "passed": true
+}

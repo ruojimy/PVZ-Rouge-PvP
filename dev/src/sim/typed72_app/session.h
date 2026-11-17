@@ -10,8 +10,9 @@
 #include <functional>
 #include <memory>
 #include <optional>
-namespace pvz::typed72 {struct NativeFrame;}
+namespace pvz::typed72 {struct NativeFrame;struct RoomPublishedUnit;}
 namespace pvz::typed72app {
+struct SnapshotSink;
 // Owned values from the authoritative typed match. No spans or native handles
 // escape a sample; the legacy planner/controller may project these at its exit.
 struct AiObservationPacket {
@@ -34,7 +35,12 @@ public:
     virtual std::string command(const std::string& side,const nlohmann::json& payload)=0;
     virtual void clear_input(const std::string& side)=0;
     virtual void step()=0;                       // one room tick, including its final display frame
-    virtual nlohmann::json snapshot(bool include_frame=true)=0;
+    virtual nlohmann::json snapshot(bool include_frame=true,bool include_units=true)=0;
+    virtual void write_local_metadata(SnapshotSink&)=0;
+    // Synchronous, read-only view of the existing publication. Borrowed only
+    // until the next Session mutation; UI must copy values, never retain rows.
+    virtual const std::vector<typed72::RoomPublishedUnit>& published_units()const=0;
+    virtual nlohmann::json resolved_unit_card(typed72::Seat,const std::string&)const=0;
     virtual const typed72::NativeFrame& native_frame()const=0;
     virtual nlohmann::json reference_native_frame()const=0; // explicit differential verification
     // Battle event log, read incrementally. The composition keeps it in its own json type
@@ -118,6 +124,8 @@ public:
     virtual void fixture_ditu(int64_t row,int64_t col,const nlohmann::json& cell)=0;
     virtual int64_t terrain_revision()const=0;
     virtual std::optional<bool> coop_map_night()const=0;
+    virtual bool coop_red_sky()const=0;
+    virtual std::optional<bool> test_map_night()const=0;
     virtual nlohmann::json performance_counters()const=0;
     // Read-only live container lengths, for memory diagnostics only. These are
     // not serialized into combat snapshots, replay state or hash inputs.

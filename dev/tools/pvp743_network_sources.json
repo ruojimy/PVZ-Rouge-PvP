@@ -1,0 +1,9 @@
+{
+  "tools/pvp72_sources/network.py": "94db3ca7143c7c082e75f6dbe24d49fd96b23ec36ae92e9783070724702f6e24",
+  "tools/pvp72_sources/app.py": "35dc6831628ceff94de0d117dd40918a96abc9fba6cbd5595e1bd160010c1e8c",
+  "tools/pvp72_sources/relay.py": "049c6baac6eb777c7215ec8575550d562a14217a74de3719d5e6a410aa2bc291",
+  "src/ui/gen/pm_network.cpp": "4fa031b7af3d7fd13793104f7c3bde1b62e853f4c58ad7b4d4bb3b59c88623b1",
+  "src/ui/gen/pm_network.h": "40694b224d5790fba5359bffa218deb1279d93cb5ccae5a1f5e33999c14ecb51",
+  "src/ui/gen/pm_app.cpp::publish_network": "ba96f910b28379ce4af6636bf2498046c6c365d36c06e3c4078ea1179b2bda66",
+  "src/ui/gen/pm_relay.cpp::bridge": "add3ac8d2ade2200571ac4dc685de40f9492676925a62658ab3a8c6e66e6f408"
+}

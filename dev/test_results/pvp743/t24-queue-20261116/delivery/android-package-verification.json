@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "apk": "C:/Users/xiech/Downloads/PVZ_rougePvP_native/dist/apk-pvp743-20261116/PvZ-PvP-Native-1.6.0.74.3-typed.20261114-r3-1114083-20261116-pvp743-r3.apk",
+  "sha256": "956c4992d55eccb925e69980c1990a603e19f3223a08a4da63507b1ea97acd13",
+  "version_code": 1114083,
+  "version_name": "1.6.0.74.3-typed.20261114-r3",
+  "package": "org.pvzrouge.pvzpvpnative",
+  "signature_continuity_verified": true,
+  "signing_certificate_sha256": [
+    "8193df05d4cd4ae58bb6ea950c0cb8e78d08377dffdf0a20b53f4a4ea0aabc8a"
+  ],
+  "zip_crc_verified": true,
+  "abi": [
+    "arm64-v8a"
+  ],
+  "elf_machine": "AArch64",
+  "native_libraries": {
+    "libSDL2_image.so": "06b374273d5bb737b027f35ac018b63c7253d4ebd686d75ff4eb7ce34905c184",
+    "libSDL2_ttf.so": "187a48994194df3c9f0d81bb22de39a823ec2210e09ebc81ea1402fade200640",
+    "libSDL2.so": "2770b7b213951d0d3913c7ed1a45a59bf6daf2d1779d3b995c20469c7b49d487",
+    "libmain.so": "c5b4501519afb97dbbef3a9a1e763a708ce55455510cd9e68f5406ba29859731",
+    "libSDL2_mixer.so": "cafdca345f5dc641013cae935db8d6e82eab113bd191d2cecf14d0ab1e15dcac"
+  },
+  "assets_verified": 3622,
+  "source_before_after_equal": true,
+  "physical_device_verified": false
+}

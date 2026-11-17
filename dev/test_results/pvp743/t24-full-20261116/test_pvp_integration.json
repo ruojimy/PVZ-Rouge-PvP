@@ -1,0 +1,19 @@
+[
+{"module":"test_pvp_integration","class":"EmbeddedBuilderTests","test":"test_authoritative_start_is_delayed_without_editing_source","outcome":"ERROR","seconds":7.64e-05,"detail":"AttributeError: 'function' object has no attribute 'read_text'"},
+{"module":"test_pvp_integration","class":"EmbeddedBuilderTests","test":"test_loader_supports_relative_imports_and_missing_standard_library","outcome":"ERROR","seconds":4.86e-05,"detail":"AttributeError: 'module' object has no attribute 'meta_path'"},
+{"module":"test_pvp_integration","class":"EmbeddedBuilderTests","test":"test_payload_install_order_and_original_bytecode_are_auditable","outcome":"ERROR","seconds":1.58e-05,"detail":"NotImplementedError: untranslated: unresolved name compile (test_pvp_integration.py:448)"},
+{"module":"test_pvp_integration","class":"IntegrationTests","test":"test_actual_locked_block_names_are_paged_without_losing_native_art","outcome":"PASS","seconds":0.0022483,"detail":""},
+{"module":"test_pvp_integration","class":"IntegrationTests","test":"test_classification_unknown_metadata_and_native_continue_subset","outcome":"PASS","seconds":0.0118812,"detail":""},
+{"module":"test_pvp_integration","class":"IntegrationTests","test":"test_click_result_uses_grid_not_native_tall_rect","outcome":"PASS","seconds":0.001533,"detail":""},
+{"module":"test_pvp_integration","class":"IntegrationTests","test":"test_grid_background_click_cannot_trigger_stale_selection","outcome":"PASS","seconds":0.0014336,"detail":""},
+{"module":"test_pvp_integration","class":"IntegrationTests","test":"test_grid_contains_every_old_mode_and_continue_selection","outcome":"PASS","seconds":0.0057839,"detail":""},
+{"module":"test_pvp_integration","class":"IntegrationTests","test":"test_home_bridges_original_continue_new_settings_and_pvp_return","outcome":"PASS","seconds":0.0017362,"detail":""},
+{"module":"test_pvp_integration","class":"IntegrationTests","test":"test_locked_click_drag_out_focus_loss_and_release_only_never_dispatch","outcome":"PASS","seconds":0.0016683,"detail":""},
+{"module":"test_pvp_integration","class":"IntegrationTests","test":"test_native_bytecode_dispatch_receives_exact_new_continue_and_mode_names","outcome":"PASS","seconds":0.0079229,"detail":""},
+{"module":"test_pvp_integration","class":"IntegrationTests","test":"test_native_card_easing_clock_is_not_reset_by_frame_preparation","outcome":"PASS","seconds":0.0040954,"detail":""},
+{"module":"test_pvp_integration","class":"IntegrationTests","test":"test_native_cards_keep_ids_ownership_cooldowns_and_all_counts","outcome":"PASS","seconds":0.0015737,"detail":""},
+{"module":"test_pvp_integration","class":"IntegrationTests","test":"test_nonbattle_layout_is_untouched","outcome":"PASS","seconds":0.0013463,"detail":""},
+{"module":"test_pvp_integration","class":"IntegrationTests","test":"test_overlay_preserves_native_canvas_logo_and_uses_native_fonts","outcome":"PASS","seconds":0.0025431,"detail":""},
+{"module":"test_pvp_integration","class":"IntegrationTests","test":"test_return_preserves_category_page_focus_and_native_back_event","outcome":"PASS","seconds":0.0018354,"detail":""},
+{"module":"test_pvp_integration","class":"IntegrationTests","test":"test_twenty_modes_all_reachable_at_every_size_with_no_hidden_hits","outcome":"PASS","seconds":0.0969468,"detail":""}
+]

@@ -1,0 +1,7 @@
+[
+{"module":"test_pvp_spectator_ui49","class":"SpectatorApplicationTests","test":"test_direct_immediate_reenable_revokes_old_sessions_and_refills_all_slots","outcome":"PASS","seconds":3.39425,"detail":""},
+{"module":"test_pvp_spectator_ui49","class":"SpectatorApplicationTests","test":"test_direct_spectator_receives_dynamic_terrain_and_new_match","outcome":"PASS","seconds":1.20484,"detail":""},
+{"module":"test_pvp_spectator_ui49","class":"SpectatorApplicationTests","test":"test_full_direct_battle_cameras_touch_and_inputs_are_read_only","outcome":"PASS","seconds":1.17763,"detail":""},
+{"module":"test_pvp_spectator_ui49","class":"SpectatorApplicationTests","test":"test_full_relay_battle_disable_reenable_and_leave_preserve_players","outcome":"PASS","seconds":2.46676,"detail":""},
+{"module":"test_pvp_spectator_ui49","class":"SpectatorApplicationTests","test":"test_relay_immediate_reenable_revokes_old_sessions_and_refills_all_slots","outcome":"PASS","seconds":3.14167,"detail":""}
+]

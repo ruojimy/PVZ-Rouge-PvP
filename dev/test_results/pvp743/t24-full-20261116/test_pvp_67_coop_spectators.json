@@ -1,0 +1,4 @@
+[
+{"module":"test_pvp_67_coop_spectators","class":"CoopSpectators67","test":"test_host_observes_two_real_players_and_only_players_receive_growth","outcome":"PASS","seconds":1.59087,"detail":""},
+{"module":"test_pvp_67_coop_spectators","class":"CoopSpectators67","test":"test_return_to_empty_seat_and_role_buttons_fit_desktop_and_touch_layouts","outcome":"PASS","seconds":0.247668,"detail":""}
+]

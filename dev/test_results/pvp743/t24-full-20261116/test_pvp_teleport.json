@@ -1,0 +1,5 @@
+[
+{"module":"test_pvp_teleport","class":"TeleportTests","test":"test_authority_target_cooldown_ownership_and_safe_body","outcome":"PASS","seconds":0.0197678,"detail":""},
+{"module":"test_pvp_teleport","class":"TeleportTests","test":"test_blocked_destination_never_spends_cooldown","outcome":"PASS","seconds":0.0134274,"detail":""},
+{"module":"test_pvp_teleport","class":"TeleportTests","test":"test_button_click_routes_target_and_cancel_without_deploy","outcome":"PASS","seconds":0.0405522,"detail":""}
+]

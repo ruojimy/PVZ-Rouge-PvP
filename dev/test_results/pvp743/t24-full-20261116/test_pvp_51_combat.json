@@ -1,0 +1,5 @@
+[
+{"module":"test_pvp_51_combat","class":"Projectile51","test":"test_actual_native_pea_disappears_after_32_tiles","outcome":"PASS","seconds":0.109655,"detail":""},
+{"module":"test_pvp_51_combat","class":"Projectile51","test":"test_dave_overrides_keep_other_sources_and_zombies","outcome":"PASS","seconds":0.0137243,"detail":""},
+{"module":"test_pvp_51_combat","class":"Projectile51","test":"test_range_counts_wraps_reversals_and_torch_changes","outcome":"PASS","seconds":0.0126464,"detail":""}
+]

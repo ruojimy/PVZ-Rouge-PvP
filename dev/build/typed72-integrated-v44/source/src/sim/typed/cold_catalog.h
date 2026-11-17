@@ -30,6 +30,8 @@ struct ColdCard {
 #define BOOL(n) Field<bool> n;
     PVZ72_COLD_OPTIONAL_FLAGS(BOOL)
 #undef BOOL
+    Field<double> attention_hits,attention_seconds; // opt-in, independent unless explicitly linked
+    Field<double> defense; // optional shared defense, absent preserves legacy units
     Field<ColdNumber> slow;
     Field<std::vector<std::string>> targets,native_secret_names;
 };

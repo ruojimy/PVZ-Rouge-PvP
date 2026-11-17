@@ -65,6 +65,7 @@ void Resources::collect(const std::string& id,std::optional<Seat> collector){
     const bool coin=r->coin.present()&&!r->coin.is_null()&&!r->coin.get().empty();
     if(coin){
         const auto copy=*r;expire(id);remove_motion(id);coins+=copy.amount;
+        if(copy.coin.or_missing("")=="diamond")diamond_coins+=copy.amount;
         const auto side=collector.value_or(copy.side);
         if(world_.heroes.players.at(seat_index(side))){auto& count=accounts.at(seat_index(side)).coins;count.set(count.or_missing(0.)+copy.amount);}
         world_.runtime.events.emplace_back(CoinIncomeEvent{side,copy.amount,copy.id});

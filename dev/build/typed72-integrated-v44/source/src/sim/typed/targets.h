@@ -17,6 +17,8 @@
 #include "sim/typed/content_zombie_state.h"
 #include "sim/typed/content_zombie56_state.h"
 #include "sim/typed/content_zombie70_state.h"
+#include "sim/typed/terraria_state.h"
+#include "sim/typed/attention_state.h"
 #include <span>
 #include <unordered_set>
 
@@ -42,6 +44,8 @@ struct ZombiePatchState {
     bool knockback_is_boolean=false;
 };
 struct CombatZombie {
+    AttentionState attention;
+    std::shared_ptr<TerrariaNpcState> terraria;
     PveZombieState pve;
     ZombieSecretUnitState secret;
     ColdFactoryZombieState factory;
@@ -78,7 +82,7 @@ struct CombatZombie {
     DamageTarget damage_target(){return {body.hp,body.hand,source,protection};}
 };
 using ZombieRef=std::shared_ptr<CombatZombie>;
-inline std::shared_ptr<AttackSource> source_ref(const ZombieRef& unit){unit->source.unit.bind(unit);return {unit,&unit->source};}
+inline std::shared_ptr<AttackSource> source_ref(const ZombieRef& unit){unit->source.unit.bind(unit);if(unit->attention.enabled())unit->source.attention_origin=unit;return {unit,&unit->source};}
 
 struct CombatTarget {
     ZombieRef unit;
@@ -150,6 +154,8 @@ private:
 // There is deliberately no step()/legacy conversion until the full driver is
 // implemented; this type is not a selectable production battle backend yet.
 struct TypedBattleState : EntityBirthObserver {
+    bool local_test_mode=false;
+    bool scripted_terraria_boss=false; // Only the fixed co-op Boss days; never enables test commands/cards.
     using UnitId=Store<ZombieRef>::Id;
     explicit TypedBattleState(int64_t seed=1):runtime(seed),room_rng(seed),heroes(runtime),protection(heroes){runtime.birth_observer=this;}
     TypedBattleState(const TypedBattleState&)=delete;

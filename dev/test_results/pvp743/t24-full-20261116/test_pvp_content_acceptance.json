@@ -1,0 +1,20 @@
+[
+{"module":"test_pvp_content_acceptance","class":"ContentAcceptance","test":"test_actual_native_charm_bites_and_reciprocal_damage","outcome":"FAIL","seconds":0.0684933,"detail":"AssertionError: 940 != 970 : 墓碑吞噬者僵尸"},
+{"module":"test_pvp_content_acceptance","class":"ContentAcceptance","test":"test_barrel_fixed_heading_charm_and_spikes","outcome":"PASS","seconds":0.0290083,"detail":""},
+{"module":"test_pvp_content_acceptance","class":"ContentAcceptance","test":"test_cars_follow_own_dave_without_attacking","outcome":"PASS","seconds":0.0674467,"detail":""},
+{"module":"test_pvp_content_acceptance","class":"ContentAcceptance","test":"test_charm_secret_halves_incoming_native_bites","outcome":"PASS","seconds":0.0133905,"detail":""},
+{"module":"test_pvp_content_acceptance","class":"ContentAcceptance","test":"test_charmed_units_walk_towards_nearest_enemy_and_bite_dave","outcome":"FAIL","seconds":0.0229677,"detail":"AssertionError: 700.92160000000013 not less than 700 : 普通僵尸"},
+{"module":"test_pvp_content_acceptance","class":"ContentAcceptance","test":"test_chomper_eats_new_cannon_and_does_not_eat_gladiator","outcome":"PASS","seconds":0.283975,"detail":""},
+{"module":"test_pvp_content_acceptance","class":"ContentAcceptance","test":"test_dart_head_union_deduplicates_and_return_can_hit_again","outcome":"PASS","seconds":0.0282313,"detail":""},
+{"module":"test_pvp_content_acceptance","class":"ContentAcceptance","test":"test_dependencies_and_card_order","outcome":"PASS","seconds":0.0110512,"detail":""},
+{"module":"test_pvp_content_acceptance","class":"ContentAcceptance","test":"test_gas_all_four_native_attacks","outcome":"PASS","seconds":0.335805,"detail":""},
+{"module":"test_pvp_content_acceptance","class":"ContentAcceptance","test":"test_independent_atlas_and_native_render_states","outcome":"PASS","seconds":0.565498,"detail":""},
+{"module":"test_pvp_content_acceptance","class":"ContentAcceptance","test":"test_marigold_accelerates_all_new_shooters_and_poison_replacement","outcome":"PASS","seconds":2.26841,"detail":""},
+{"module":"test_pvp_content_acceptance","class":"ContentAcceptance","test":"test_new_projectiles_head_only_damage_effects_and_splash","outcome":"PASS","seconds":0.0157601,"detail":""},
+{"module":"test_pvp_content_acceptance","class":"ContentAcceptance","test":"test_pepper_native_launch_gravity_bonus_and_umbrella_reflection","outcome":"PASS","seconds":0.0151228,"detail":""},
+{"module":"test_pvp_content_acceptance","class":"ContentAcceptance","test":"test_poison_dart_exact_overlapping_damage","outcome":"PASS","seconds":0.0143996,"detail":""},
+{"module":"test_pvp_content_acceptance","class":"ContentAcceptance","test":"test_primal_native_hit_values_splash_and_held_knockback","outcome":"PASS","seconds":0.0147343,"detail":""},
+{"module":"test_pvp_content_acceptance","class":"ContentAcceptance","test":"test_shot_cadence_matches_native_emission_ticks","outcome":"PASS","seconds":2.19256,"detail":""},
+{"module":"test_pvp_content_acceptance","class":"ContentAcceptance","test":"test_six_black_zombies_bite_plants_three_and_charmed_enemies_thirty","outcome":"PASS","seconds":0.115156,"detail":""},
+{"module":"test_pvp_content_acceptance","class":"ContentAcceptance","test":"test_splash_includes_head_edge_once_for_all_native_splash_names","outcome":"PASS","seconds":0.0143001,"detail":""}
+]

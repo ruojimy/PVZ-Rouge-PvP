@@ -1,0 +1,7 @@
+[
+{"module":"test_pvp_deployment_controls","class":"DeploymentControls","test":"test_all_economy_graves_use_hovered_floor_not_overhanging_ceiling","outcome":"PASS","seconds":0.125299,"detail":""},
+{"module":"test_pvp_deployment_controls","class":"DeploymentControls","test":"test_all_ground_zombies_deploy_from_fortress_grave_beside_step","outcome":"PASS","seconds":0.0767864,"detail":""},
+{"module":"test_pvp_deployment_controls","class":"DeploymentControls","test":"test_both_mouse_buttons_commit_on_press_once_despite_motion_and_revision","outcome":"PASS","seconds":0.0691893,"detail":""},
+{"module":"test_pvp_deployment_controls","class":"DeploymentControls","test":"test_deploy_direction_does_not_turn_hero_and_invalid_wire_direction_is_rejected","outcome":"PASS","seconds":0.0138066,"detail":""},
+{"module":"test_pvp_deployment_controls","class":"DeploymentControls","test":"test_hovering_live_grave_previews_same_grave_as_click","outcome":"PASS","seconds":0.0252057,"detail":""}
+]

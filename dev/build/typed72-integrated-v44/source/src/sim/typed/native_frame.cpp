@@ -2,13 +2,23 @@
 #include "sim/typed/native_frame.h"
 #include <cmath>
 #include <stdexcept>
+#include <algorithm>
 namespace pvz::typed72 {
 void NativeFrameRecorder::begin_frame(int64_t tick){
     // New containers every frame; the previous frame may still be shared.
-    frame_=NativeFrame{};frame_.tick=tick;frame_.tile=tile;entity_override.reset();
+    frame_=NativeFrame{};frame_.tick=tick;frame_.tile=tile;entity_override.reset();transient=false;
 }
 void NativeFrameRecorder::append(NativeFrameCommand command){
-    if(frame_.commands.size()>=max_commands_)throw std::runtime_error("Native draw command limit exceeded");
+    command.transient=transient;
+    if(frame_.commands.size()>=max_commands_){
+        ++frame_.dropped_commands;
+        if(transient)return;
+        // A burst of explosion visuals must not abort the authoritative tick.
+        // Keep later units/heroes by replacing a transient draw, preserving order.
+        auto last=std::find_if(frame_.commands.rbegin(),frame_.commands.rend(),[](const auto& c){return c.transient;});
+        if(last==frame_.commands.rend())return;
+        frame_.commands.erase(std::next(last).base());
+    }
     const auto source=entity_override?entity_override:sources?sources():std::nullopt;
     if(source&&!source->id.empty()){
         command.entity=source->id;
@@ -20,11 +30,11 @@ void NativeFrameRecorder::append(NativeFrameCommand command){
 }
 void NativeFrameRecorder::blit(const NativeArt& image,Point position){
     if(!image)throw std::invalid_argument("Original drawing returned None");
-    if(!enabled)return;
+    if(!enabled||skip_transient())return;
     append(NativeFrameCommand{NativeArtStore::freeze(image),std::nullopt,position,std::nullopt,{}});
 }
 void NativeFrameRecorder::primitive(NativeFramePrimitive p){
-    if(!enabled)return;
+    if(!enabled||skip_transient())return;
     append(NativeFrameCommand{{},std::move(p),{},std::nullopt,{}});
 }
 void NativeFrameRecorder::rotated_camera_display(const NativeArt& image,Point position,double degrees){

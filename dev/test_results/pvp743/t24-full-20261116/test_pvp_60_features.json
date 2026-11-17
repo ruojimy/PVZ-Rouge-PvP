@@ -1,0 +1,16 @@
+[
+{"module":"test_pvp_60_features","class":"PvP60Tests","test":"test_catalog_hud_almanac_and_export_share_prices","outcome":"FAIL","seconds":0.0146892,"detail":"AssertionError: '4486bb69fab0cb65f12c2304fa14150346aa8b6304f73829eeabdaf064f7f66f' != '40bbdbe49ff07bbdc31d32a842f870cef27fe87b9bdaa8e1d1206ce943c54d09'"},
+{"module":"test_pvp_60_features","class":"PvP60Tests","test":"test_deathmatch_clears_all_producer_sleep_and_preserves_real_status","outcome":"PASS","seconds":0.257951,"detail":""},
+{"module":"test_pvp_60_features","class":"PvP60Tests","test":"test_growth_graves_charge_60_on_land_and_water","outcome":"PASS","seconds":0.0265373,"detail":""},
+{"module":"test_pvp_60_features","class":"PvP60Tests","test":"test_idle_clock_has_no_grace_period_since_pvp61","outcome":"PASS","seconds":4.76756,"detail":""},
+{"module":"test_pvp_60_features","class":"PvP60Tests","test":"test_insufficient_resources_reject_secret_and_base_without_entities","outcome":"PASS","seconds":0.0366604,"detail":""},
+{"module":"test_pvp_60_features","class":"PvP60Tests","test":"test_secret_forms_charge_250_and_225_without_changing_base_card","outcome":"PASS","seconds":0.0244152,"detail":""},
+{"module":"test_pvp_60_features","class":"PvP60Tests","test":"test_seven_peas_charge_exact_new_price_and_preserve_native_evidence","outcome":"PASS","seconds":0.0855341,"detail":""},
+{"module":"test_pvp_60_features","class":"PvP60Tests","test":"test_sled_opening_mask_and_deathmatch_clock","outcome":"PASS","seconds":0.0139792,"detail":""},
+{"module":"test_pvp_60_features","class":"PvP60Tests","test":"test_turn_applies_to_all_three_bodies_and_pumpkin_or_vine","outcome":"PASS","seconds":0.0445264,"detail":""},
+{"module":"test_pvp_60_features","class":"PvP60Tests","test":"test_turn_changes_new_native_pea_heading","outcome":"PASS","seconds":0.0192681,"detail":""},
+{"module":"test_pvp_60_features","class":"PvP60Tests","test":"test_turn_validates_ownership_secret_direction_and_keeps_charge_and_status","outcome":"PASS","seconds":0.0139463,"detail":""},
+{"module":"test_pvp_60_features","class":"PvP60UITests","test":"test_dense_and_turn_icons_in_draft_and_both_battle_banks","outcome":"PASS","seconds":0.934737,"detail":""},
+{"module":"test_pvp_60_features","class":"PvP60UITests","test":"test_dense_latest_layer_is_selected_and_active_shovel_has_priority","outcome":"PASS","seconds":0.51664,"detail":""},
+{"module":"test_pvp_60_features","class":"PvP60UITests","test":"test_mouse_buttons_turn_and_touch_direction_does_not_jump","outcome":"PASS","seconds":0.553925,"detail":""}
+]

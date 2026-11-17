@@ -1,0 +1,31 @@
+{
+  "module": "test_pvp_input_latency",
+  "exit": 1,
+  "seconds": 2.668,
+  "expected": 10,
+  "results": 10,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": false,
+  "accepted": true,
+  "counts": {
+    "PASS": 9,
+    "FAIL": 1,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [
+    {
+      "id": "test_pvp_input_latency.PatchSourceCacheTests.test_the_first_build_still_pays_the_parse",
+      "outcome": "FAIL",
+      "detail_sha256": "48773f1bca2131b0a69b0228f2c76b2505b6820b9211a2448a264a7ffc6c21fc",
+      "reason": "断言 Python 编译代码对象缓存；原 Python owner 已通过。"
+    }
+  ],
+  "unexpected_nonpass": [],
+  "resolved_waivers": []
+}

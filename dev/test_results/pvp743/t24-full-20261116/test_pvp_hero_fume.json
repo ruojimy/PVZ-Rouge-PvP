@@ -1,0 +1,3 @@
+[
+{"module":"test_pvp_hero_fume","class":"HeroFumeTests","test":"test_supported_fume_hits_zombie_hero_body_and_head_both_directions","outcome":"PASS","seconds":2.8951,"detail":""}
+]

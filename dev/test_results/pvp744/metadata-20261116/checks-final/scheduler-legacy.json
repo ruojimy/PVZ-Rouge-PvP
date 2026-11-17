@@ -1,0 +1,50 @@
+{
+  "checks": [
+    {
+      "evidence": {
+        "budget_yields": 66,
+        "input_edges": 20,
+        "steps": 70
+      },
+      "name": "budget_boundary_state_rng_and_repeated_jump_edges",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "debt": -2.498001805406602e-16,
+        "drain_calls": 4,
+        "first_steps": 12.0,
+        "total_steps": 51.0
+      },
+      "name": "real_room_debt_conservation_and_zero_delta_drain",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "builds": 4,
+        "held_frames_unchanged": true,
+        "hits": 201
+      },
+      "name": "local_frame_reuse_detached_public_snapshots_and_invalidation",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "completed_steps": 1.0,
+        "retained_seconds": 0.3666666666666667
+      },
+      "name": "early_terminal_battle_debits_only_executed_steps",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "candidate": false,
+        "recovered": 1.0,
+        "slow": 0.26666666666666666
+      },
+      "name": "wall_pressure_requires_independent_frames_and_recovers",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

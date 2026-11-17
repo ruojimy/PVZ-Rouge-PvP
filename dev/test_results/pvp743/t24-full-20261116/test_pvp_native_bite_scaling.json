@@ -1,0 +1,4 @@
+[
+{"module":"test_pvp_native_bite_scaling","class":"NativeBiteScalingTests","test":"test_actual_bites_and_frenzy_with_and_without_body_aroma","outcome":"PASS","seconds":0.060202,"detail":""},
+{"module":"test_pvp_native_bite_scaling","class":"NativeBiteScalingTests","test":"test_charmed_reciprocal_bites_and_opposing_dave_unchanged","outcome":"PASS","seconds":0.0214863,"detail":""}
+]

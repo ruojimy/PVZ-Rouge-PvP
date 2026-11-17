@@ -5,7 +5,7 @@
 namespace pvz::typed72 {
 enum class RoomPhase {config,banning,picking,loading,battle,result};
 enum class RoomSettlementReason {hero_death,waves_cleared,surrender,leave,kick,disconnect,host_closed,load_timeout};
-struct RoomSettlement {std::optional<RoomWinner> winner;RoomSettlementReason reason;int64_t tick=0;std::optional<Seat> forfeit;std::optional<int> pve_day;std::optional<double> coins;std::optional<uint64_t> fallen;};
+struct RoomSettlement {std::optional<RoomWinner> winner;RoomSettlementReason reason;int64_t tick=0;std::optional<Seat> forfeit;std::optional<int> pve_day;std::optional<double> coins;std::optional<uint64_t> fallen;std::optional<double> diamond_coins;};
 struct RoomMember {std::string peer;Seat seat;bool connected=true;};
 enum class RoomMembershipEventKind {joined,reconnected,left,kicked,disconnected,disconnected_after_result,forfeit,interrupted,result,role_changed,battle};
 struct RoomMembershipEvent {RoomMembershipEventKind kind;std::string peer;std::optional<Seat> seat;std::optional<bool> spectator;std::optional<RoomSettlementReason> reason;std::optional<RoomSettlement> result;int64_t match_number=0;};

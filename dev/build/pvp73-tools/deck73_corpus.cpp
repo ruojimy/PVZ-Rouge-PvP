@@ -2,7 +2,7 @@
 // For every (map, night, seed, ban variant): random unit bans, then the lobby AI's own draft
 // choice (draft_advisor.recommend_ai, zombie first, then plant knowing the zombie deck), checked
 // with catalog.validate_deck. Writes a JSON list of cold73_export scenarios.
-//   deck73_corpus out.json [seeds_per_map=3] [ban_variants=2]
+//   deck73_corpus out.json [seeds_per_map=3] [ban_variants=2] [seed_base=0] [draft_rng_seed=73]
 #include "sim/pvp/pvprt.h"
 #include "sim/pvp/battle_api.h"
 #include "sim/pvp/gen/pm_native_bridge.h"
@@ -24,6 +24,9 @@ static V list_of(const std::vector<std::string>& xs){std::vector<V> it;for(const
 int main(int argc,char** argv){
     if(argc<2){std::fprintf(stderr,"usage: deck73_corpus out.json [seeds] [ban_variants]\n");return 1;}
     const int seeds=argc>2?std::atoi(argv[2]):3,variants=argc>3?std::atoi(argv[3]):2;
+    const int seed_base=argc>4?std::stoi(argv[4]):0;
+    const unsigned draft_seed=argc>5?unsigned(std::stoul(argv[5])):73;
+    if(seeds<1||variants<1||seed_base<0)throw std::invalid_argument("positive scenario counts and nonnegative seed base required");
     SDL_SetMainReady();SDL_setenv("SDL_VIDEODRIVER","dummy",0);SDL_setenv("SDL_AUDIODRIVER","dummy",0);
     gil::init();data::set_data_dir("extract/data");pg::install_pygame();callm(pg::pygame_module(),Sym("init"),Args{});
     J out=J::array();
@@ -38,9 +41,9 @@ int main(int argc,char** argv){
             if(cat=="secret")continue;
             (side=="plant"?plant_units:zombie_units).push_back(py_str(k));
         }
-        std::mt19937 rng(73);
+        std::mt19937 rng(draft_seed);
         for(const auto& map:maps)for(int night=0;night<2;++night)for(int s=0;s<seeds;++s)for(int v=0;v<variants;++v){
-            const int seed=1000*(s+1)+17*v+(night?500:0);
+            const int seed=seed_base+1000*(s+1)+17*v+(night?500:0);
             J sc={{"map",map},{"seed",seed},{"night",bool(night)}};
             try{
                 V terrain=pm_maps::f_build_snapshot(Args({bridge,V(map),V(double(seed))},{{Sym("weather"),V("clear")}}));

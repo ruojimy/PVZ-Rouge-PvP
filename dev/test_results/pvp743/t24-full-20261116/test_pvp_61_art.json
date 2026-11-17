@@ -1,0 +1,9 @@
+[
+{"module":"test_pvp_61_art","class":"ArtAndAnimationTests","test":"test_all_new_plant_native_statuses_render_and_replay","outcome":"PASS","seconds":0.521518,"detail":""},
+{"module":"test_pvp_61_art","class":"ArtAndAnimationTests","test":"test_black_bucket_sleep_and_coffee_use_native_presence_flag","outcome":"PASS","seconds":0.539285,"detail":""},
+{"module":"test_pvp_61_art","class":"ArtAndAnimationTests","test":"test_native_crush_creates_correct_card_remains_and_expires","outcome":"PASS","seconds":2.4633,"detail":""},
+{"module":"test_pvp_61_art","class":"ArtAndAnimationTests","test":"test_native_death_particles_use_card_art","outcome":"PASS","seconds":0.0723954,"detail":""},
+{"module":"test_pvp_61_art","class":"ArtAndAnimationTests","test":"test_sprite_shapes_and_pose_atlas","outcome":"PASS","seconds":0.0028817,"detail":""},
+{"module":"test_pvp_61_art","class":"LocalRankedPracticeTests","test":"test_local_ranked_rules_allow_practice_but_never_record_results","outcome":"PASS","seconds":0.968127,"detail":""},
+{"module":"test_pvp_61_art","class":"ZombieArtTests","test":"test_scarecrow_crow_states_and_art_preview","outcome":"PASS","seconds":0.0640147,"detail":""}
+]

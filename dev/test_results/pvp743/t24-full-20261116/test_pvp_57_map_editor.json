@@ -1,0 +1,10 @@
+[
+{"module":"test_pvp_57_map_editor","class":"MapEditor57","test":"test_all_original_map_materials_available_and_special_entities_excluded","outcome":"PASS","seconds":0.11167,"detail":""},
+{"module":"test_pvp_57_map_editor","class":"MapEditor57","test":"test_color_save_load_undo_redo_and_native_collision_are_independent","outcome":"PASS","seconds":0.0546086,"detail":""},
+{"module":"test_pvp_57_map_editor","class":"MapEditor57","test":"test_invalid_color_payloads_cannot_reach_network_or_disk","outcome":"PASS","seconds":0.0085461,"detail":""},
+{"module":"test_pvp_57_map_editor","class":"MapEditor57","test":"test_legacy_document_defaults_keep_identical_snapshot_hash","outcome":"PASS","seconds":0.0194472,"detail":""},
+{"module":"test_pvp_57_map_editor","class":"MapEditor57","test":"test_loopback_colored_map_reaches_guest_without_local_file","outcome":"PASS","seconds":0.299371,"detail":""},
+{"module":"test_pvp_57_map_editor","class":"MapEditor57","test":"test_real_native_and_saved_replay_preserve_colors_and_render_both_pixel_paths","outcome":"PASS","seconds":0.964591,"detail":""},
+{"module":"test_pvp_57_map_editor","class":"MapEditor57","test":"test_texture_tint_preserves_alpha_detail_and_shared_source","outcome":"PASS","seconds":0.0200686,"detail":""},
+{"module":"test_pvp_57_map_editor","class":"MapEditor57","test":"test_touch_palette_toggle_grid_selection_and_recolor_dont_paint_under_panel","outcome":"PASS","seconds":0.462905,"detail":""}
+]

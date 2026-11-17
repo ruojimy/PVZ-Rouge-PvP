@@ -16,7 +16,8 @@ FORMAT = 'pvz-pvp-replay-1'
 MAX_BYTES = 64 * 1024 * 1024
 SPEEDS = (.25, .5, 1., 2., 4., 8.)
 INPUT_FIELDS = ('type', 'seq', 'move', 'jump', 'edge', 'card', 'x', 'y',
-                'facing', 'grave', 'copy', 'resource', 'right', 'target', 'clear', 'request')
+                'facing', 'grave', 'copy', 'resource', 'right', 'target', 'clear', 'request',
+                'op', 'side', 'slot', 'value', 'max', 'what', 'night', 'id', 'field')
 
 
 def state_hash(battle):
@@ -130,7 +131,8 @@ def read_recording(path):
     if (data.get('build'), data.get('catalog_hash'), data.get('rules_hash')) != (BUILD, catalog_hash(), rules_hash()):
         raise ValueError('回放与当前游戏版本/规则不同，请使用记录时的版本：'+str(data.get('build')))
     initial = data.get('initial', {})
-    rules = initial.get('rules', {})
+    rules = dict(initial.get('rules', {}))
+    if type(rules.get('local_test_mode')) is bool:rules.pop('local_test_mode')
     if set(rules) != set(RULES) or any(type(v) is not type(RULES[k]) for k,v in rules.items()):
         raise ValueError('回放规则无效')
     if rules['tick_rate'] not in ROOM_TICK_RATES:raise ValueError('回放时间刻频率无效')

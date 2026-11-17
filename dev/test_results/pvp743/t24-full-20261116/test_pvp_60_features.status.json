@@ -1,0 +1,31 @@
+{
+  "module": "test_pvp_60_features",
+  "exit": 1,
+  "seconds": 8.161,
+  "expected": 14,
+  "results": 14,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": false,
+  "accepted": false,
+  "counts": {
+    "PASS": 13,
+    "FAIL": 1,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [],
+  "unexpected_nonpass": [
+    {
+      "id": "test_pvp_60_features.PvP60Tests.test_catalog_hud_almanac_and_export_share_prices",
+      "outcome": "FAIL",
+      "detail_sha256": "69b920dfc1aa65cb63ed2ab20afb9cb666a371317ebed27e89544b18f267f9fd",
+      "reason": "waiver_signature_changed"
+    }
+  ],
+  "resolved_waivers": []
+}

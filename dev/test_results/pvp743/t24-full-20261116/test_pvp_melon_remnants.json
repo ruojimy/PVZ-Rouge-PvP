@@ -1,0 +1,6 @@
+[
+{"module":"test_pvp_melon_remnants","class":"MelonRemnants","test":"test_airborne_death_creates_anchored_target_despite_normal_ban","outcome":"PASS","seconds":0.139514,"detail":""},
+{"module":"test_pvp_melon_remnants","class":"MelonRemnants","test":"test_ground_splash_hits_grave_and_hero","outcome":"PASS","seconds":0.0191666,"detail":""},
+{"module":"test_pvp_melon_remnants","class":"MelonRemnants","test":"test_melons_direct_and_adjacent_damage_without_double_hit","outcome":"PASS","seconds":0.0418459,"detail":""},
+{"module":"test_pvp_melon_remnants","class":"MelonRemnants","test":"test_splash_callback_excludes_charmed_ally","outcome":"PASS","seconds":0.0130748,"detail":""}
+]

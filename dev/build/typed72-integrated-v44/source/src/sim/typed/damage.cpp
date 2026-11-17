@@ -2,6 +2,7 @@
 // PvP damage packets, hero proxy and patch wrappers are separate
 // migration obligations; never route a production PvP tick to this in isolation.
 #include "state.h"
+#include "sim/typed/defense.h"
 
 namespace pvz::typed72 {
 namespace {
@@ -27,7 +28,9 @@ void damage_zombie(CombatStages& w, Handle<Zombie> id, double facing, double amo
 void damage_zombie(CombatRuntime& w, Zombie& z, double facing, double amount) {
     ++w.damage_calls;
     if (w.branch(0, z.ash.present())) return;
+    amount=defended_damage(amount,z.defense);
     z.hurt = 1;
+    if(z.external_lifecycle){if(z.hp>0.)z.hp=std::max(0.,z.hp-amount);return;}
     if (w.branch(1, z.armor_hp > 0 && amount < z.armor_hp + z.hp)) {
         if (w.branch(2, z.armor == "路障" || z.armor == "橄榄球头盔" || z.armor == "黑橄榄球头盔"))
             w.sound(sound_variant(w, "路障"), z.motion.get());
@@ -73,6 +76,7 @@ SurfaceDamageResult surface_hand_damage(CombatRuntime& w,Zombie& z,double facing
     ++w.surface_calls;
     if (w.branch(12, !z.ash.present())) {
         if (w.branch(13, z.hand_hp > 0)) {
+            amount=defended_damage(amount,z.defense);
             z.hand_hurt = 1;
             if (w.branch(14, z.hand == "报纸")) w.sound("报纸", z.motion.get());
             if (w.branch(15, z.hand == "气球")) w.sound("气球爆炸", z.motion.get());

@@ -1,0 +1,5 @@
+[
+{"module":"test_pvp_66_sun_ownership","class":"ExportedDraft","test":"test_exported_sequence_matches_room_sequence","outcome":"PASS","seconds":0.0128993,"detail":""},
+{"module":"test_pvp_66_sun_ownership","class":"StackedProduction","test":"test_coop_stacked_producers_pay_their_actual_seats","outcome":"PASS","seconds":0.0570736,"detail":""},
+{"module":"test_pvp_66_sun_ownership","class":"StackedProduction","test":"test_duo_stacked_producers_pay_their_actual_seats","outcome":"PASS","seconds":0.0672344,"detail":""}
+]

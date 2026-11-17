@@ -248,8 +248,8 @@ V f_map_for_day(const Args& A) {
     V L_entry;
     V L_index;
     V L_night;
-    L_night = V(((L_day % V(4.0)) == V(3.0)));
-    L_bundled_index = pvz::getattr(pm_team_maps::module_ns(),SY("bundled_index"));
+    L_night = py_or(V(((L_day % V(4.0)) == V(3.0))), [&]() -> V { return py_and(L_coop, [&]() -> V { return V(py::in(L_day, V::tuple({V(8.0), V(16.0), V(24.0)}))); }); });
+    L_bundled_index = pvz::getattr(pm_team_maps::module_ns(), SY("bundled_index"));
     L_index = (L_bundled_index).call(Args{});
     if (!(L_index).truthy()) {
         py::raise(py::make_exc(SV("ValueError"), Args{SV("扩展地图资源缺失，请重新安装")}, ""));
@@ -311,7 +311,7 @@ V f_describe_day(const Args& A) {
         L_bundled_index = pvz::getattr(pm_team_maps::module_ns(),SY("bundled_index"));
         L_name = py::next([&]() -> V { V out_ = V::list(); V L_e; { V it4_ = py::iter_list((L_bundled_index).call(Args{})); for (size_t i4_ = 0; i4_ < it4_.len(); ++i4_) { L_e = it4_.idx(int64_t(i4_)); if (!((rd(L_e, SV("id")) == L_name))) continue; out_.append(rd(L_e, SV("name"))); }}return out_; }(), L_name);
     }
-    return py::percent(SV("第 %d 天 · %s%s · %d 波 · 僵尸：%s"), V::tuple({L_day, L_name, ((L_night).truthy() ? V(SV("（夜）")) : V(SV(""))), pm_pve::f_waves_for_day(Args{L_day}), callm(SV("、"), SY("join"), Args{L_tiers})}));
+    return py::percent(SV("第 %d 天 · %s%s · %d 波 · 僵尸：%s"), V::tuple({L_day, L_name, (((L_coop).truthy() && py::in(L_day, V::tuple({V(8.0), V(16.0), V(24.0)}))) ? V(SV("（永夜 · Boss）")) : V(((L_night).truthy() ? V(SV("（夜）")) : V(SV(""))))), pm_pve::f_waves_for_day(Args{L_day}), callm(SV("、"), SY("join"), Args{L_tiers})}));
     return V::none();
 }
 
@@ -1184,12 +1184,13 @@ V C_Campaign::m_win(const Args& A) {
     V L_coop = (A.size() > 1 || A.has_kw(SY("coop"))) ? A.get(1, SY("coop"), nullptr) : V(V(false));
     V L_fallen = (A.size() > 2 || A.has_kw(SY("fallen"))) ? A.get(2, SY("fallen"), nullptr) : V(V(0.0));
     V L_played_day = (A.size() > 3 || A.has_kw(SY("played_day"))) ? A.get(3, SY("played_day"), nullptr) : V(V::none());
+    V L_diamond_coins = (A.size() > 4 || A.has_kw(SY("diamond_coins"))) ? A.get(4, SY("diamond_coins"), nullptr) : V(V(0.0));
     V L_bonus;
     V L_bonus_day;
     V L_earned;
     L_bonus_day = (py_is(L_played_day, V::none()) ? V(a_day) : V(py::max_it(V::list({V(1.0), py::int_(L_played_day)}), py::Key(), V())));
     L_bonus = pm_pve::f_clear_bonus(Args{L_bonus_day, L_coop, L_fallen});
-    L_earned = m__credit_pickups(Args{L_coins});
+    L_earned = m__credit_pickups(Args{L_coins, L_diamond_coins});
     a_coins = py::iadd(a_coins, L_bonus);
     (void)(py::m_append(a_history, py_dict({{SV("day"), a_day}, {SV("played_day"), L_bonus_day}, {SV("result"), SV("win")}, {SV("coins"), L_earned}, {SV("raw_coins"), py::int_(L_coins)}, {SV("bonus"), L_bonus}, {SV("coin_half"), a_coin_half}})));
     a_best_day = py::max_it(V::list({a_best_day, a_day}), py::Key(), V());
@@ -1218,16 +1219,22 @@ V C_Campaign::m_skip_day(const Args& A) {
 
 V C_Campaign::m_lose(const Args& A) {
     V L_coins = (A.size() > 0 || A.has_kw(SY("coins"))) ? A.get(0, SY("coins"), nullptr) : V(V(0.0));
+    V L_diamond_coins = (A.size() > 1 || A.has_kw(SY("diamond_coins"))) ? A.get(1, SY("diamond_coins"), nullptr) : V(V(0.0));
     V L_earned;
-    L_earned = m__credit_pickups(Args{L_coins});
+    L_earned = m__credit_pickups(Args{L_coins, L_diamond_coins});
     (void)(py::m_append(a_history, py_dict({{SV("day"), a_day}, {SV("result"), SV("lose")}, {SV("coins"), L_earned}, {SV("raw_coins"), py::int_(L_coins)}, {SV("coin_half"), a_coin_half}})));
     return V::none();
 }
 
 V C_Campaign::m__credit_pickups(const Args& A) {
     V L_raw_coins = A.get(0, SY("raw_coins"), nullptr, "_credit_pickups");
+    V L_diamond_coins = (A.size() > 1 || A.has_kw(SY("diamond_coins"))) ? A.get(1, SY("diamond_coins"), nullptr) : V(V(0.0));
+    V L_diamonds;
     V L_earned;
-    { V ut1_ = py::as_seq(py::divmod((py::max_it(V::list({V(0.0), py::int_(L_raw_coins)}), py::Key(), V()) + a_coin_half), V(2.0))); L_earned = ut1_.idx(0); a_coin_half = ut1_.idx(1); } 
+    L_raw_coins = py::max_it(V::list({V(0.0), py::int_(L_raw_coins)}), py::Key(), V());
+    L_diamonds = py::min_it(V::list({L_raw_coins, py::max_it(V::list({V(0.0), py::int_(L_diamond_coins)}), py::Key(), V())}), py::Key(), V());
+    { V ut1_ = py::as_seq(py::divmod(((L_raw_coins - L_diamonds) + a_coin_half), V(2.0))); L_earned = ut1_.idx(0); a_coin_half = ut1_.idx(1); } 
+    L_earned = py::iadd(L_earned, L_diamonds);
     a_coins = py::iadd(a_coins, L_earned);
     return L_earned;
     return V::none();

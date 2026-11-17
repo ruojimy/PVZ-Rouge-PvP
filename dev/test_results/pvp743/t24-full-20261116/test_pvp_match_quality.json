@@ -1,0 +1,9 @@
+[
+{"module":"test_pvp_match_quality","class":"MatchQuality","test":"test_40_hp_instant_cap_preserves_original_damage_units","outcome":"PASS","seconds":0.0191707,"detail":""},
+{"module":"test_pvp_match_quality","class":"MatchQuality","test":"test_40_hp_recovery_waits_eight_seconds_resets_on_damage_never_revives","outcome":"PASS","seconds":2.43915,"detail":""},
+{"module":"test_pvp_match_quality","class":"MatchQuality","test":"test_button_feedback_changes_pixels_and_cooperation_names_missing_side","outcome":"PASS","seconds":0.046801,"detail":""},
+{"module":"test_pvp_match_quality","class":"MatchQuality","test":"test_entering_battle_clears_old_text_focus_and_first_move_is_sent","outcome":"PASS","seconds":0.1418,"detail":""},
+{"module":"test_pvp_match_quality","class":"MatchQuality","test":"test_remote_both_sides_use_wasd_local_keeps_independent_keys","outcome":"PASS","seconds":0.0225802,"detail":""},
+{"module":"test_pvp_match_quality","class":"MatchQuality","test":"test_sky_sun_uses_original_motion_falls_and_stops_on_ground","outcome":"PASS","seconds":0.612225,"detail":""},
+{"module":"test_pvp_match_quality","class":"MatchQuality","test":"test_standalone_cards_independent_bans_and_secret_images","outcome":"PASS","seconds":0.0390378,"detail":""}
+]

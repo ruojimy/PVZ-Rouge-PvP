@@ -1,0 +1,52 @@
+{
+  "checks": [
+    {
+      "evidence": {
+        "commands_considered": 0,
+        "commands_culled": 0,
+        "commands_projected": 0,
+        "frames": 1,
+        "full_fallbacks": 0
+      },
+      "name": "local_frame_is_lazy_public_protocol_stays_complete",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "local_frame": {
+          "commands_considered": 756,
+          "commands_culled": 606,
+          "commands_projected": 36,
+          "frames": 1,
+          "full_fallbacks": 0
+        },
+        "pixel_comparisons": 7
+      },
+      "name": "real_world_pixels_layers_clipping_zoom_and_offsets",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "pixels_equal": true
+      },
+      "name": "outro_hide_and_fallen_hero_materialize_only_on_request",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "held_frame_immutable": true,
+        "rng_unchanged_by_render": true
+      },
+      "name": "full_fallback_matches_protocol_and_held_version_survives",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "custom_and_restore_equal": true
+      },
+      "name": "material_override_and_original_restore_match",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,9 @@
+[
+{"module":"test_pvp_57_deathmatch","class":"Deathmatch57","test":"test_music_switches_for_players_spectators_replays_and_resets","outcome":"PASS","seconds":0.0001794,"detail":""},
+{"module":"test_pvp_57_deathmatch","class":"Deathmatch57","test":"test_notice_asset_draws_transparent_readable_banner_without_world_mutation","outcome":"PASS","seconds":0.0230976,"detail":""},
+{"module":"test_pvp_57_deathmatch","class":"Deathmatch57","test":"test_notice_uses_authoritative_time_survives_event_churn_and_seek","outcome":"PASS","seconds":4.54e-05,"detail":""},
+{"module":"test_pvp_57_deathmatch","class":"Deathmatch57","test":"test_real_transition_emits_one_original_wave_sound","outcome":"PASS","seconds":0.188196,"detail":""},
+{"module":"test_pvp_57_deathmatch","class":"DeathmatchViews57","test":"test_actual_replay_follow_views_seek_notice_back_and_forth","outcome":"PASS","seconds":1.96884,"detail":""},
+{"module":"test_pvp_57_deathmatch","class":"DeathmatchViews57","test":"test_actual_spectator_views_show_notice_and_pause_keeps_its_age","outcome":"PASS","seconds":0.560406,"detail":""},
+{"module":"test_pvp_57_deathmatch","class":"DeathmatchViews57","test":"test_spectator_and_fast_replay_audio_play_wave_once_without_seek_echo","outcome":"PASS","seconds":1.01047,"detail":""}
+]

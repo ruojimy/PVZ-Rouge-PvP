@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "file": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\backup-latest\\previous-release.zip",
+      "revision": "pvp743-r4",
+      "sha256": "96d4bdd87efe242fcef70b5f287b94974b00c840a9825a213090a0bfdc9b7d56",
+      "original_file": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\dist\\PvZ-PvP-Native-20261116-pvp743-r4.zip"
+    },
+    {
+      "file": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\backup-latest\\previous-source.zip",
+      "revision": "pvp743-r4",
+      "sha256": "f0fbb59580d8a7afa32128439067cb42cc768dbb60207d524f5ffb8f695e4928",
+      "original_file": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\dist\\PvZ-PvP-Native-20261116-pvp743-r4-Developer-Package.zip"
+    },
+    {
+      "file": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\backup-latest\\previous-android.apk",
+      "revision": "pvp743-r4",
+      "sha256": "4566cc389f2a5e34f7781bb6110bbea8cd80aed5dc37e0b20a2173d2e6a7976e",
+      "original_file": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\dist\\apk-pvp743-r4-20261116\\PvZ-PvP-Native-1.6.0.74.3-typed.20261114-r4-1114085-20261116-pvp743-r4.apk"
+    },
+    {
+      "file": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\backup-latest\\release-state-before.zip",
+      "revision": "pre-pvp744-release",
+      "sha256": "e790da22b00a81961c6c712a9001ab5163c155ee1b76ff6a32713a7a59e41167"
+    }
+  ],
+  "latest_group_only": true
+}

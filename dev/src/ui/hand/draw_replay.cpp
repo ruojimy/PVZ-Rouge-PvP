@@ -1,7 +1,9 @@
 // Replay of the simulation's recorded original draw frames ("native-draw-v1") onto the UI screen.
 #include "ui/hand/texture_pack.h"
+#include "ui/hand/test_mode74.h"
 #include "ui/hand/draw_replay_diagnostics.h"
 #include "core/function_profile.h"
+#include "sim/typed72_app/local_frame.h"
 // Port of native_animation.DrawReplay plus world_view's asset resolution: recipes name baked atlas
 // images (tools/bake_atlas.py) instead of re-running the original asset loader in a second runtime.
 #include "pg/pg.h"
@@ -25,6 +27,24 @@ namespace {
 V pgmod() { static V m = py::stdlib_module(V("pygame")); return m; }
 V tmod() { static V m = pvz::getattr(pgmod(), Sym("transform")); return m; }
 V dmod() { static V m = pvz::getattr(pgmod(), Sym("draw")); return m; }
+// Preserve the existing materializer, pixel transforms, cache and blend rules.
+// Select typed commands by layer/viewport before constructing V descriptions.
+const bool registered_local_frame = [] {
+    py::register_native_hook("pvp744.local_frame",[](const Args& a){
+        const V frame=a.pos.at(0),screen=a.pos.at(1),point=a.pos.at(2),scale=a.pos.at(3),clip=a.pos.at(4),layer=a.pos.at(5),offsets=a.pos.at(6);
+        const V effective=clip.is_none()?callm(screen,Sym("get_clip"),Args{}):callm(callm(pgmod(),Sym("Rect"),Args{clip}),Sym("clip"),Args{callm(screen,Sym("get_rect"),Args{})});
+        return typed72app::select_local_frame(frame,[&](const typed72app::LocalCommandBounds& c){
+            if(!layer.is_none()&&c.layer!=py_str(layer))return false;
+            if(!c.image)return true;
+            double x=c.x,y=c.y;
+            if(offsets.is_dict())if(const auto* offset=offsets.find(V(c.entity))){x+=offset->idx(0).num();y+=offset->idx(1).num();}
+            const V pos=point.truthy()?point.call(Args{V(x),V(y)}):V::tuple({V(x),V(y)});
+            const V bounds=callm(pgmod(),Sym("Rect"),Args{py::round(pos.idx(0)),py::round(pos.idx(1)),
+                V(std::max(1.,py::round(V(c.width)*scale).num())),V(std::max(1.,py::round(V(c.height)*scale).num()))});
+            return callm(effective,Sym("colliderect"),Args{callm(bounds,Sym("inflate"),Args{V(4),V(4)})}).truthy();
+        });
+    });return true;
+}();
 const V& get(const V& d, const char* k) { static const V none = V::none(); const V* p = d.find(V(k)); return p && p->has() ? *p : none; }
 
 std::string exe_dir() {
@@ -119,6 +139,7 @@ V C_WorldView::m__ensure_native_replay(const Args& A) {
 
 V C_WorldView::m__native_asset(const Args& A) {
     V L_key = A.get(0, SY("key"), nullptr, "_native_asset");
+    if(auto asset=test74::original_asset(py_str(L_key));!asset.is_none())return asset;
     V L_NativeGraphicsError;
     V L_h;
     V L_name;

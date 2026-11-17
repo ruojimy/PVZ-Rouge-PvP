@@ -1,0 +1,31 @@
+{
+  "module": "test_pvp_balance",
+  "exit": 1,
+  "seconds": 2.237,
+  "expected": 17,
+  "results": 17,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": false,
+  "accepted": false,
+  "counts": {
+    "PASS": 16,
+    "FAIL": 1,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [],
+  "unexpected_nonpass": [
+    {
+      "id": "test_pvp_balance.BalanceTests.test_native_ashes_and_instant_kills_take_exactly_500_from_a_giant",
+      "outcome": "FAIL",
+      "detail_sha256": "e92a6143e7993324a7cf63a924e96939e22fccb487cec8d2cfa855af419e310b",
+      "reason": "not_waived"
+    }
+  ],
+  "resolved_waivers": []
+}

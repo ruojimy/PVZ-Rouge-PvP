@@ -1,0 +1,9 @@
+[
+{"module":"test_pvp_native_placement","class":"NativePlacementTests","test":"test_copy_is_original_entity_charge_and_cannot_bypass_producer_ban","outcome":"PASS","seconds":0.0037823,"detail":""},
+{"module":"test_pvp_native_placement","class":"NativePlacementTests","test":"test_gravebuster_adapts_only_live_enemy_entity_never_old_grave_tile","outcome":"PASS","seconds":0.0015613,"detail":""},
+{"module":"test_pvp_native_placement","class":"NativePlacementTests","test":"test_ground_brick_pot_and_original_plant_occupancy","outcome":"PASS","seconds":0.0048403,"detail":""},
+{"module":"test_pvp_native_placement","class":"NativePlacementTests","test":"test_lily_water_coffee_and_pumpkin_original_queries","outcome":"PASS","seconds":0.0075705,"detail":""},
+{"module":"test_pvp_native_placement","class":"NativePlacementTests","test":"test_preview_is_read_only_and_missing_native_state_never_uses_synthetic_rules","outcome":"PASS","seconds":0.0019337,"detail":""},
+{"module":"test_pvp_native_placement","class":"NativePlacementTests","test":"test_secret_replacement_original_base_input_and_protocol_guards","outcome":"PASS","seconds":0.0014001,"detail":""},
+{"module":"test_pvp_native_placement","class":"NativePlacementTests","test":"test_stone_native_patch_diagonal_support_and_occupied_rejection","outcome":"PASS","seconds":0.0027236,"detail":""}
+]

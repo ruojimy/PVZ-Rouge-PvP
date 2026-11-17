@@ -16,8 +16,12 @@ namespace {
 void need(bool ok,const std::string& text){if(!ok)throw std::runtime_error(text);}
 struct Fixture {
  BattleHandle h;std::unique_ptr<typed72app::Session> b;V world,screen,rect;
- explicit Fixture(bool poison=false):h(battle_from_scenario({{"seed",74214},{"fixture_flat",true},{"night",poison},{"durable_heroes",true},{"rules",{{"plant_slots",32},{"zombie_slots",32}}},
-  {"decks",{{"plant",poison?J::array({"plant:大喷菇","plant:回旋镖射手","plant:坚果","plant:抓人草","plant:芦笋战机","secret:毒镖","secret:毒气"}):J::array({"plant:坚果","plant:抓人草","plant:芦笋战机"})},
+ static J plant_deck(bool poison,const std::vector<std::string>& extra){
+  J deck=poison?J::array({"plant:大喷菇","plant:回旋镖射手","plant:坚果","plant:抓人草","plant:芦笋战机","secret:毒镖","secret:毒气"}):J::array({"plant:坚果","plant:抓人草","plant:芦笋战机"});
+  for(const auto& key:extra)deck.push_back(key);return deck;
+ }
+ explicit Fixture(bool poison=false,const std::vector<std::string>& extra={}):h(battle_from_scenario({{"seed",74214},{"fixture_flat",true},{"night",poison},{"durable_heroes",true},{"rules",{{"plant_slots",32},{"zombie_slots",32}}},
+  {"decks",{{"plant",plant_deck(poison,extra)},
     {"zombie",{"zombie:脑光墓碑","zombie:普通僵尸","zombie:黑铁桶僵尸","zombie:雪人僵尸","zsecret:二手"}}}}})){
   b=typed72app::Session::create(typed72app::export_cold(h.battle,74214),"map key production audit");
   for(const char* side:{"plant","zombie"})b->fixture_set_avatar(side,{{"玩家位置",{3400,96,0,0}},{"玩家血量",1.e8},{"_pvp_butter",1.e8}});
@@ -35,8 +39,51 @@ struct Fixture {
 }
 int main(int argc,char**argv){
  if(argc<2||!std::getenv("PVP_USERDATA"))return 2;install_crash_handler();SDL_SetMainReady();gil::init();data::set_data_dir("extract/data");pg::install_pygame();init_pvp_modules();
- J checks=J::array();int failures=0;auto test=[&](std::string name,auto fn){J r={{"name",name}};try{r["evidence"]=fn();r["passed"]=true;}catch(const std::exception& e){print_last_cpp_throw(stderr);r["passed"]=false;r["error"]=e.what();++failures;}checks.push_back(r);J shortrow=r;shortrow.erase("evidence");std::cerr<<shortrow.dump()<<std::endl;};
+ J checks=J::array();int failures=0;auto test=[&](std::string name,auto fn){const char* only=std::getenv("PVP_MAP_KEY_CASE");if(only&&name!=only)return;J r={{"name",name}};try{r["evidence"]=fn();r["passed"]=true;}catch(const std::exception& e){print_last_cpp_throw(stderr);r["passed"]=false;r["error"]=e.what();++failures;}checks.push_back(r);J shortrow=r;shortrow.erase("evidence");std::cerr<<shortrow.dump()<<std::endl;};
  test("toolchain_exception_fingerprint",[]()->J{std::string ordered,hashed;try{std::map<int,int> m;(void)m.at(7);}catch(const std::out_of_range& e){ordered=e.what();}try{std::unordered_map<int,int> m;(void)m.at(7);}catch(const std::out_of_range& e){hashed=e.what();}need(!ordered.empty()&&!hashed.empty()&&ordered!=hashed,"map exception fingerprints are not distinct");return {{"std_map_missing_key",ordered},{"std_unordered_map_missing_key",hashed},{"expected_exceptions_only",true}};});
+ test("crow_garlic_stun_and_native_draw",[&]()->J{
+  Fixture f;
+  const auto garlic=f.spawn("plant:大蒜",1224.,960.);
+  const auto crow=f.spawn("zombie:乌鸦",1236.,960.);
+  f.b->fixture_place_zombie(crow,1236.,960.,-1.);
+  f.b->native_set(false,crow,{{"血量",1000.},{"_pvp_max_hp",1000.},{"出场",500.},{"黄油",0.}});
+  J progress={{"garlic",garlic},{"crow",crow},{"frames",0},{"stun_observed",false},{"before",f.b->native_view()}};
+  const auto evidence_path=std::filesystem::path(argv[1]).parent_path()/"crow-garlic-progress.json";
+  int frames=0;bool stunned=false;
+  for(int tick=0;tick<90;++tick){
+   try{f.b->step();auto native=f.b->native_view();
+    for(const auto& z:native["g"]["僵尸"])if(z.value("_pvp_id",std::string{})==crow&&z.value("眩晕",0.)>0.)stunned=true;
+    f.draw(1224.,960.);++frames;
+    progress["last_native"]=native;progress["room_ticks"]=f.b->tick();progress["stun_observed"]=stunned;progress["frames"]=frames;
+    std::ofstream(evidence_path)<<progress.dump(2);
+   }catch(const std::exception& e){
+    print_last_cpp_throw(stderr);progress["error"]=e.what();progress["room_ticks"]=f.b->tick();progress["last_native"]=f.b->native_view();
+    std::ofstream(evidence_path)<<progress.dump(2);throw;
+   }
+  }
+  need(stunned,"crow did not naturally acquire stun after biting garlic");
+  return {{"natural_stun_observed",stunned},{"world_frames",frames},{"room_ticks",f.b->tick()},{"evidence_path",evidence_path.string()}};
+ });
+ // The stun-star height lookup serves every content zombie, not only the crow: the real 窝瓜 landing with
+ // 压顶 stuns ground content zombies, which are then drawn while stunned.
+ test("squash_stun_content_ground_zombies_and_native_draw",[&]()->J{
+  J rows=J::array();
+  for(const char* card:{"zombie:滚桶僵尸","zombie:海盗船长","zombie:稻草人"}){
+   Fixture f(false,{"plant:窝瓜","secret:压顶"});
+   const auto squash=f.spawn("plant:窝瓜",1224.,960.);
+   const auto unit=f.zombie(card,1260.,960.);
+   int frames=0,stunned_frames=0,first_stun_tick=-1;double peak=0.;
+   for(int tick=0;tick<360&&stunned_frames<40;++tick){
+    f.b->step();const auto native=f.b->native_view();bool now=false;
+    for(const auto& z:native["g"]["僵尸"])if(z.value("_pvp_id",std::string{})==unit){const double stun=z.value("眩晕",0.);peak=std::max(peak,stun);now=stun>0.;}
+    f.draw(1224.,960.);++frames;
+    if(now){++stunned_frames;if(first_stun_tick<0)first_stun_tick=tick;}
+   }
+   need(stunned_frames>=40,std::string(card)+" was not stunned by the real squash landing: "+J{{"frames",frames},{"stunned_frames",stunned_frames},{"peak",peak}}.dump());
+   rows.push_back({{"card",card},{"squash",squash},{"unit",unit},{"first_stun_room_tick",first_stun_tick},{"stunned_world_frames",stunned_frames},{"world_frames",frames},{"peak_stun",peak}});
+  }
+  return {{"units",rows},{"scope","Natural stun from the 窝瓜 landing with 压顶; each unit drawn for 40 stunned frames in its own Session."}};
+ });
  test("real_poison_levels_and_repeated_world_draw",[]()->J{Fixture f(true);const auto p1=f.spawn("plant:大喷菇",768.),p2=f.spawn("plant:回旋镖射手",1920.);f.b->native_set(false,p1,{{"射",0.},{"射cd",0.}});f.b->native_set(false,p2,{{"射",0.},{"射cd",0.}});f.zombie("zombie:普通僵尸",864.);f.zombie("zombie:黑铁桶僵尸",2112.);int level1=0,level2=0,frames=0;for(int i=0;i<150;++i){f.b->step();auto s=f.b->snapshot(false);for(const auto& u:s["units"]){const int level=u.value("poison_level",0);need(level>=0&&level<=2,"natural poison admitted invalid level");level1+=level==1;level2+=level==2;}if(i%5==0){f.draw(i%10?1920.:768.);++frames;}}need(level1>0&&level2>0,"real projectile path did not exercise both poison tint keys: "+J{{"level1",level1},{"level2",level2}}.dump());return {{"room_ticks",150},{"actual_world_frames",frames},{"level1_observations",level1},{"level2_observations",level2}};});
  test("more_than_64_distinct_yeti_goal_cells",[]()->J{
   Fixture f;int created=0;

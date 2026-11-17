@@ -1,0 +1,144 @@
+{
+  "checks": [
+    {
+      "evidence": {},
+      "name": "roundtrip_level_0",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "roundtrip_level_1",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "roundtrip_level_4",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "roundtrip_level_6",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "roundtrip_level_9",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "corrupt_checksum_rejected",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "missing_checksum_rejected",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "trailing_bytes_rejected",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "concatenated_stream_rejected",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "prefixes": 50
+      },
+      "name": "all_truncated_prefixes_rejected",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "invalid_header_rejected",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "incremental_stream_exact",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "small_and_exact_output_caps",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "empty_stream_eof",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "post_eof_unused_data_accumulates",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "flush_consumes_bounded_tail",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "flush_finishes_stream_once",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "truncated_flush_preserves_incomplete_state",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "bad_checksum_flush_never_claims_eof",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "snapshot_exact_limit_accepted",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "snapshot_one_byte_over_limit_rejected",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "cap_bytes": 1048576,
+        "compressed_bytes": 146431,
+        "expanded_bytes": 33554432,
+        "requested_allocation_peak": 2635143,
+        "returned_bytes": 1048576.0
+      },
+      "name": "output_cap_during_inflate",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "bounded_stream_not_eof",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "bounded_stream_resume_exact",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "iterations": 12,
+        "mean_ms": 3.9378333333333333,
+        "raw_bytes": 265141
+      },
+      "name": "synthetic_snapshot_unpack",
+      "passed": true
+    }
+  ],
+  "failures": 0,
+  "passed": true,
+  "scope": "Production zlib adapter and unpack_snapshot; synthetic payloads, no device or WAN acceptance"
+}

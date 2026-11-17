@@ -1,0 +1,6 @@
+[
+{"module":"test_pvp_barrel_crush_visual","class":"BarrelCrushVisual","test":"test_flattened_frame_replays_on_an_independent_client","outcome":"PASS","seconds":0.405283,"detail":""},
+{"module":"test_pvp_barrel_crush_visual","class":"BarrelCrushVisual","test":"test_moving_and_falling_barrels_emit_one_native_flattened_remain","outcome":"PASS","seconds":0.88379,"detail":""},
+{"module":"test_pvp_barrel_crush_visual","class":"BarrelCrushVisual","test":"test_new_plant_uses_its_own_art_in_the_native_flattened_sprite","outcome":"PASS","seconds":0.36151,"detail":""},
+{"module":"test_pvp_barrel_crush_visual","class":"BarrelCrushVisual","test":"test_spikes_keep_their_existing_rupture_and_survival_rules","outcome":"PASS","seconds":0.708636,"detail":""}
+]

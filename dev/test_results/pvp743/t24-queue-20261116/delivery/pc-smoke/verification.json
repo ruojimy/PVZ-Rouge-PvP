@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "exe_sha256": "db52ea14fd5d722bde1a0cb173cd0164971d9ff2037a973cd8dc588a17c8d0e6",
+  "default_APPDATA_isolated": true,
+  "PVP_USERDATA_was_unset": true,
+  "default_path_source": "src/app/main.cpp:259-263",
+  "diagnostic_completed": true,
+  "user_data_unchanged": true,
+  "validation_resumed_after_encoding_alias_error": true,
+  "scope": "Packaged EXE launches and completes real typed/render diagnostic; SDL dummy, not FPS/device acceptance."
+}

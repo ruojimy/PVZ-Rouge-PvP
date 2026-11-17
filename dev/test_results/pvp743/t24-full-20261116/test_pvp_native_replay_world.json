@@ -1,0 +1,8 @@
+[
+{"module":"test_pvp_native_replay_world","class":"NativeReplayWorldTests","test":"test_custom_graves_and_hud_keep_their_separate_display","outcome":"PASS","seconds":0.0146249,"detail":""},
+{"module":"test_pvp_native_replay_world","class":"NativeReplayWorldTests","test":"test_missing_local_native_source_is_visible_error_not_ui_exception","outcome":"PASS","seconds":0.0030352,"detail":""},
+{"module":"test_pvp_native_replay_world","class":"NativeReplayWorldTests","test":"test_overview_scales_graves_ducks_and_resources_with_native_world","outcome":"PASS","seconds":0.175752,"detail":""},
+{"module":"test_pvp_native_replay_world","class":"NativeReplayWorldTests","test":"test_real_lazy_original_load_is_recreated_locally_without_asset_packet","outcome":"PASS","seconds":0.0134919,"detail":""},
+{"module":"test_pvp_native_replay_world","class":"NativeReplayWorldTests","test":"test_unsupported_frame_is_explicit_and_does_not_guess_units","outcome":"PASS","seconds":0.0139533,"detail":""},
+{"module":"test_pvp_native_replay_world","class":"NativeReplayWorldTests","test":"test_world_native_frame_exact_pixels_with_independent_local_assets","outcome":"PASS","seconds":0.0202529,"detail":""}
+]

@@ -5,6 +5,7 @@
 #include "core/pyops.h"
 #include "core/gil.h"
 #include "core/snapshot_compression.h"
+#include "core/snapshot_inflation.h"
 #include "core/native_file.h"
 #include "ui/pyregex.h"
 #include "sim/pvp/pvprt.h"
@@ -19,6 +20,7 @@
 #include <deque>
 #include <filesystem>
 #include <fstream>
+#include <limits>
 #include <random>
 #include <sstream>
 #include <thread>
@@ -406,39 +408,56 @@ V base64_module() {
 
 // ------------------------------------------------------------------ zlib
 V zlib_decompress(const std::string& in) {
-    std::vector<uint8_t> out;
-    if (!png::inflate_zlib(reinterpret_cast<const uint8_t*>(in.data()), in.size(), out))
-        throw PyError("error", "Error -3 while decompressing data: invalid stream");
-    return V::bytes(std::string(out.begin(), out.end()));
+    const std::string input=in;
+    std::string output;
+    bool eof=false;
+    try {
+        gil::Release unlocked;
+        SnapshotInflater inflater;
+        output=inflater.decompress(input);
+        eof=inflater.state().eof;
+    } catch(const std::bad_alloc&) { throw PyError("MemoryError","zlib decompression allocation failed"); }
+      catch(const std::exception& e) { throw PyError("error",e.what()); }
+    if(!eof) throw PyError("error","incomplete zlib stream");
+    return V::bytes(std::move(output));
 }
 struct Decomp : PyObj {
-    std::string pending, tail;
-    bool eof = false;
+    SnapshotInflater inflater;
     const char* type_name() const override { return "Decompress"; }
     V property(Sym n, bool& found) override {
         found = true;
-        if (n.str() == "eof") return V(eof);
-        if (n.str() == "unused_data") return V("");
-        if (n.str() == "unconsumed_tail") return V(tail);
+        if (n.str() == "eof") return V(inflater.state().eof);
+        if (n.str() == "unused_data") return V::bytes(inflater.state().unused_data);
+        if (n.str() == "unconsumed_tail") return V::bytes(inflater.state().unconsumed_tail);
         found = false;
         return V();
     }
     bool call_method(Sym name, const Args& a, V& out) override {
-        if (name.str() == "decompress") {   // whole-stream semantics: buffer until it inflates
-            pending += py::bytes_data(a.pos.at(0));
-            size_t max_length = a.pos.size() > 1 && a.pos[1].num() > 0 ? size_t(a.pos[1].num()) : 0;
-            std::vector<uint8_t> o;
-            if (png::inflate_zlib(reinterpret_cast<const uint8_t*>(pending.data()), pending.size(), o)) {
-                pending.clear();
-                eof = true;
-                std::string r(o.begin(), o.end());
-                if (max_length && r.size() > max_length) { tail = "x"; r.resize(max_length); }   // input left over (output limit hit)
-                out = V::bytes(r);
-            }
-            else out = V::bytes("");
+        if (name.str() == "decompress") {
+            const std::string input=py::bytes_data(a.pos.at(0));
+            static const V zero(0);
+            const double limit=a.get(1,Sym("max_length"),&zero).num();
+            if(limit<0 || !std::isfinite(limit)) throw PyError("ValueError","max_length must be non-negative");
+            if(limit>=double(std::numeric_limits<size_t>::max())) throw PyError("OverflowError","max_length too large");
+            std::string result;
+            try { gil::Release unlocked; result=inflater.decompress(input,size_t(limit)); }
+            catch(const std::bad_alloc&) { throw PyError("MemoryError","zlib decompression allocation failed"); }
+            catch(const std::exception& e) { throw PyError("error",e.what()); }
+            out=V::bytes(std::move(result));
             return true;
         }
-        if (name.str() == "flush") { out = V(""); return true; }
+        if (name.str() == "flush") {
+            static const V initial(16384);
+            const double length=a.get(0,Sym("length"),&initial).num();
+            if(length<1 || !std::isfinite(length)) throw PyError("ValueError","length must be greater than zero");
+            if(length>=double(std::numeric_limits<size_t>::max())) throw PyError("OverflowError","length too large");
+            std::string result;
+            try { gil::Release unlocked; result=inflater.flush(); }
+            catch(const std::bad_alloc&) { throw PyError("MemoryError","zlib decompression allocation failed"); }
+            catch(const std::exception& e) { throw PyError("error",e.what()); }
+            out=V::bytes(std::move(result));
+            return true;
+        }
         return false;
     }
 };

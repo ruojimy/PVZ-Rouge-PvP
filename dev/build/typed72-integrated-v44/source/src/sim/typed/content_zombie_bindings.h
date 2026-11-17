@@ -16,6 +16,7 @@ public:
     virtual void tint_poison(const ZombieRef&)=0;
     virtual double image_height(const std::string&)const=0;
     virtual void stun_star(Point,Point)=0;
+    virtual void stun_star(const ZombieRef&,Point position,Point dimensions){stun_star(position,dimensions);}
     virtual void draw_content_zombie(const ZombieRef&)=0;
 };
 // Production controller wiring. Every gate/finish branch calls a concrete
@@ -49,6 +50,7 @@ public:
     double image_height(const std::string& name)const override{return presentation_.image_height(name);}
     double unit_scale(const ZombieRef&)const override;
     void stun_star(Point point,Point dimensions)override{presentation_.stun_star(point,dimensions);}
+    void stun_star(const ZombieRef& unit,Point point,Point dimensions)override{presentation_.stun_star(unit,point,dimensions);}
     void draw_content_zombie(const ZombieRef& unit)override{presentation_.draw_content_zombie(unit);}
 private:
     TypedBattleState& world_;

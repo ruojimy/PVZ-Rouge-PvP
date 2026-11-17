@@ -8,6 +8,7 @@ int main(int argc,char** argv){
         using namespace ainn;using namespace pvz::typed72app;
         if(argc!=2)throw std::invalid_argument("neural_contract model.json");
         J j=J::parse(read_file_maybe_gz(argv[1]));
+        j["residual"]=false;
         for(auto& row:j["heads"]["weight"])for(auto& value:row)value=0.;
         for(auto& value:j["heads"]["bias"])value=0.;
         j["heads"]["bias"][10]=100.; // economy 10
@@ -35,7 +36,50 @@ int main(int argc,char** argv){
                 ++compared;
             }
         }
-        std::cout<<J{{"passed",true},{"masked_plan_memory_comparisons",compared},{"pressure_save_preserved",true},
-            {"recovery_preserved",true},{"low_hp_preserved",true}}.dump()<<'\n';return 0;
+        j["residual"]=true;j["enabled_heads"]={true,true,true,false};
+        for(auto& value:j["heads"]["bias"])value=0.;
+        j["heads"]["bias"][5]=100.;j["heads"]["bias"][11]=100.;j["heads"]["bias"][18]=100.;
+        model=std::make_shared<NeuralModel>(j);
+        units.assign(15,AiUnitView{});
+        for(size_t i=0;i<units.size();++i){auto& u=units[i];u.id=std::to_string(i);u.side=Seat::plant;
+            u.hp=u.max_hp=20.;u.position={100.,100.};u.card_info.cost=0.;
+            u.card_info.producer=i<11;u.card_info.behavior=i<11?"sun":"shoot";}
+        in.units=units;in.me.resource=100.;in.foe.resource=0.;in.me.hp=40.;in.recovering=false;
+        size_t neutral_compared=0;bool goal11=false;
+        for(const auto side:{Seat::plant,Seat::zombie}){
+            AiPlannerR22 r22(side);NeuralPlanner neutral(side,model);in.side=side;
+            for(double t:{200.,210.,450.}){
+                in.time=t;const auto base=r22.plan(in),nn=neutral.plan(in);
+                goal11|=side==Seat::plant&&base.econ_goal==11.;
+                if(plan_json(base)!=plan_json(nn)||memory_json(r22.memory())!=memory_json(neutral.memory()))
+                    throw std::runtime_error("neutral residual changed r22 plan or memory: "+J{{"base",plan_json(base)},{"nn",plan_json(nn)}}.dump());
+                ++neutral_compared;
+            }
+        }
+        if(!goal11)throw std::runtime_error("neutral fixture did not exercise economy goal 11");
+        size_t correction_compared=0;
+        for(const int delta:{-5,5}){
+            for(auto& value:j["heads"]["bias"])value=0.;
+            j["heads"]["bias"][5+delta]=100.;j["heads"]["bias"][12]=100.;j["heads"]["bias"][18+delta]=100.;
+            model=std::make_shared<NeuralModel>(j);
+            for(const auto side:{Seat::plant,Seat::zombie})for(int condition=0;condition<3;++condition){
+                in.side=side;in.time=200.;in.recovering=condition==1;in.me.hp=condition==2?5.:40.;
+                AiPlannerR22 r22(side);NeuralPlanner nn(side,model);auto expected=r22.plan(in);
+                if(side==Seat::plant){
+                    expected.econ_goal=std::clamp(int(expected.econ_goal)+delta,2,10);
+                    expected.mode=expected.mode==std::optional<std::string>("siege")?"defend":"siege";
+                    if(in.recovering||in.me.hp<=10.)expected.mode="defend";
+                    auto memory=r22.memory();memory.mode=*expected.mode;r22.set_memory(memory);
+                }else{
+                    expected.grave_start=std::clamp(int(expected.grave_start)+delta,2,10);
+                    expected.grave_max=std::max(expected.grave_max,expected.grave_start);
+                }
+                if(plan_json(nn.plan(in))!=plan_json(expected)||memory_json(nn.memory())!=memory_json(r22.memory()))
+                    throw std::runtime_error("residual correction, mode flip, safety or grave cap contract changed");
+                ++correction_compared;
+            }
+        }
+        std::cout<<J{{"passed",true},{"masked_plan_memory_comparisons",compared},{"neutral_plan_memory_comparisons",neutral_compared},{"neutral_econ_goal_11_preserved",goal11},{"pressure_save_preserved",true},
+            {"residual_correction_comparisons",correction_compared},{"recovery_preserved",true},{"low_hp_preserved",true}}.dump()<<'\n';return 0;
     }catch(const std::exception& e){std::cerr<<e.what()<<'\n';return 2;}
 }

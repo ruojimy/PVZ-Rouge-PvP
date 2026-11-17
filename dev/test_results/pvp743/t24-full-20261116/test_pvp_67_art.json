@@ -1,0 +1,4 @@
+[
+{"module":"test_pvp_67_art","class":"GeneratedArt","test":"test_generated_vine_and_rotor_use_identical_card_and_world_pixels","outcome":"PASS","seconds":0.0969412,"detail":""},
+{"module":"test_pvp_67_art","class":"GeneratedArt","test":"test_rotor_animates_without_rotating_the_body_and_stops_in_sleep","outcome":"PASS","seconds":0.0047724,"detail":""}
+]

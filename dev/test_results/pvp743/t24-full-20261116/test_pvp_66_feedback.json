@@ -1,0 +1,21 @@
+[
+{"module":"test_pvp_66_feedback","class":"EnhancedPlantAudit","test":"test_noon_first_sky_drop_really_arrives_in_half_the_time","outcome":"PASS","seconds":0.712838,"detail":""},
+{"module":"test_pvp_66_feedback","class":"EnhancedPlantAudit","test":"test_supplement_death_really_drops_twenty_five_once","outcome":"PASS","seconds":0.0611898,"detail":""},
+{"module":"test_pvp_66_feedback","class":"EnhancedPlantAudit","test":"test_transformed_cards_really_charge_and_spawn_with_new_values","outcome":"PASS","seconds":0.0906754,"detail":""},
+{"module":"test_pvp_66_feedback","class":"FeedbackCombat","test":"test_auto_sky_split_once_and_personal_production","outcome":"PASS","seconds":0.0272579,"detail":""},
+{"module":"test_pvp_66_feedback","class":"FeedbackCombat","test":"test_fallen_body_rises_in_water_and_can_be_revived","outcome":"PASS","seconds":0.0157955,"detail":""},
+{"module":"test_pvp_66_feedback","class":"FeedbackCombat","test":"test_headhunter_really_passes_a_plant_without_biting_it","outcome":"PASS","seconds":2.12064,"detail":""},
+{"module":"test_pvp_66_feedback","class":"FeedbackCombat","test":"test_last_stand_really_stands_up_and_prevents_knockdown","outcome":"PASS","seconds":0.0309408,"detail":""},
+{"module":"test_pvp_66_feedback","class":"FeedbackCombat","test":"test_new_speed_secrets_change_car_and_air_travel","outcome":"FAIL","seconds":1.24899,"detail":"AssertionError: 1.5 != 1.2499941599967228 within 0.14999999999999999 delta (0.25000584000327719 difference) : ('海盗鹦鹉', [52.503645491560746, 65.629250242989201])"},
+{"module":"test_pvp_66_feedback","class":"FeedbackCombat","test":"test_pea_head_damages_front_plant_and_tags_owner","outcome":"PASS","seconds":0.81396,"detail":""},
+{"module":"test_pvp_66_feedback","class":"FeedbackCombat","test":"test_surrender_expiry_cancel_and_second_seat_view","outcome":"PASS","seconds":0.0140138,"detail":""},
+{"module":"test_pvp_66_feedback","class":"FeedbackCombat","test":"test_surrender_requires_mate_and_rejects_enemy_stale_votes","outcome":"PASS","seconds":0.0270567,"detail":""},
+{"module":"test_pvp_66_feedback","class":"FeedbackCombat","test":"test_taco_changes_actual_walking_car_and_bird_distance","outcome":"FAIL","seconds":0.600636,"detail":"AssertionError: 1 != 0.75"},
+{"module":"test_pvp_66_feedback","class":"FeedbackCombat","test":"test_taco_real_twenty_second_timer_and_no_duplicate_buff","outcome":"FAIL","seconds":4.99152,"detail":"AssertionError: 0.35519999999999996 != 0.31079999999999997 within 7 places (0.044399999999999995 difference)"},
+{"module":"test_pvp_66_feedback","class":"FeedbackDraft","test":"test_real_team_draft_chooses_secrets_and_two_secret_bans_per_round","outcome":"PASS","seconds":3.59112,"detail":""},
+{"module":"test_pvp_66_feedback","class":"FeedbackDraft","test":"test_team_ban_round_is_one_unit_and_secret_pair_per_seat_in_turn","outcome":"PASS","seconds":0.0126582,"detail":""},
+{"module":"test_pvp_66_feedback","class":"FeedbackScreens","test":"test_bp_chat_button_and_enter_without_card_submission","outcome":"PASS","seconds":0.183125,"detail":""},
+{"module":"test_pvp_66_feedback","class":"FeedbackScreens","test":"test_secret_almanac_icons_and_separate_ban_columns","outcome":"PASS","seconds":0.194495,"detail":""},
+{"module":"test_pvp_66_feedback","class":"FeedbackScreens","test":"test_spectator_cameras_include_all_four_read_only","outcome":"PASS","seconds":0.90694,"detail":""},
+{"module":"test_pvp_66_feedback","class":"FloodEquivalence","test":"test_optimized_flood_matches_original_every_tick","outcome":"PASS","seconds":0.14383,"detail":""}
+]

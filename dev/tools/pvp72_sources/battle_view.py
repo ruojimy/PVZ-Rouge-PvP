@@ -144,7 +144,7 @@ def draw_touch(r,view,state):
     """Thumb-first battle layout: taller banks, corner virtual pads, wide targets."""
     from .rendering import COLORS
     from .world_view import WorldView
-    from .touch import thumb_clusters
+    from .touch import thumb_clusters, placed_slots
     width,height=r.screen.get_size();r.controls=[]
     game=view.get("battle") or {};terrain=game.get("map") or view.get("map")
     players=game.get("players",{});side=state.get("active_side","plant")
@@ -155,15 +155,18 @@ def draw_touch(r,view,state):
     if not terrain or not players:
         r.text("正在载入战场…",(32,42),COLORS["text"],23);return
     local=view.get("local_sides",[side]);rules=view.get("rules",RULES)
+    hud=placed_slots(width,height,state)
     bank_w=(width-160)//2;bank_h=100
     for key,x,role in bank_layout(view,side,players,(8,16+bank_w)):
         faction=team_of(key);p=players[key];active=key==side;owned=faction in local and role!="mate"
-        tray=(x,8,bank_w,bank_h)
+        tray=hud["own_bank" if x==8 else "mate_bank"]
+        x,by,bw,bh=tray
+        hp_y=by+bh+6
         if p.get("absent"):
             draw_scripted_tray(r,tray,game);continue
         if role=="mate" and state.get("mate_collapsed"):
             # Touch: the teammate bank folds into a small tab, freeing the lawn.
-            r.button("展开队友卡栏",(x,8,140,40),("hud_toggle","mate_collapsed"),size=15)
+            r.button("展开队友卡栏",(x,by,min(140,bw),40),("hud_toggle","mate_collapsed"),size=15)
             continue
         deck=battle_deck(p);page=state.get("battle_page",0) if active else 0
         page_size=bank_page_size(rules,faction,len(deck),scripted(view.get("mode")));page%=max(1,math.ceil(len(deck)/page_size));visible=deck[page*page_size:(page+1)*page_size]
@@ -191,27 +194,28 @@ def draw_touch(r,view,state):
             # Read-only: dimmed, labelled, no select_card targets.
             veil=r.pg.Surface((int(bank[2]),int(bank[3])),r.pg.SRCALPHA);veil.fill((20,20,26,70));r.screen.blit(veil,bank[:2])
         hp=max(0,p.get("hp",0));maximum=p.get("max_hp",1000)
-        r.pg.draw.rect(r.screen,(36,28,34),(x,bank_h+14,bank_w,24))
-        r.pg.draw.rect(r.screen,(90,38,28),(x+3,bank_h+30,bank_w-6,5))
-        r.pg.draw.rect(r.screen,COLORS[faction],(x+3,bank_h+30,int((bank_w-6)*min(1.,hp/max(1,maximum))),5))
-        r.text(("队友 · 只读 · " if role=="mate" else "")+("普通戴夫" if faction=="plant" else "僵尸戴夫")+"  %d / %d"%(hp,maximum),(x+9,bank_h+16),COLORS["text"],13,bank_w-126)
+        r.pg.draw.rect(r.screen,(36,28,34),(x,hp_y,bw,24))
+        r.pg.draw.rect(r.screen,(90,38,28),(x+3,hp_y+16,bw-6,5))
+        r.pg.draw.rect(r.screen,COLORS[faction],(x+3,hp_y+16,int((bw-6)*min(1.,hp/max(1,maximum))),5))
+        r.text(("队友 · 只读 · " if role=="mate" else "")+("普通戴夫" if faction=="plant" else "僵尸戴夫")+"  %d / %d"%(hp,maximum),(x+9,hp_y+2),COLORS["text"],13,max(40,bw-126))
         if owned:
-            r.button("操作此方" if not active else "当前操作",(x+bank_w-108,bank_h+13,108,26),("active_side",faction),selected=active,accent=COLORS[faction],size=13)
+            r.button("操作此方" if not active else "当前操作",(x+bw-108,hp_y-1,108,26),("active_side",faction),selected=active,accent=COLORS[faction],size=13)
         if role=="mate":
-            r.button("收起",(x+bank_w-70,bank_h+13,70,26),("hud_toggle","mate_collapsed"),size=13)
-    mx=width-130
-    r.button("菜单",(mx,8,122,40),("menu","settings"),size=18)
-    r.button("帮助",(mx,54,122,36),("menu","help"),size=15)
-    r.button(pause_label(view,state),(mx,96,122,36),("pause",),size=15)
+            r.button("收起",(x+bw-70,hp_y-1,70,26),("hud_toggle","mate_collapsed"),size=13)
+    mx,my,mw,mh=hud["battle_menu"]
+    ms=mh/166.
+    r.button("菜单",(mx,my,mw,40*ms),("menu","settings"),size=18)
+    r.button("帮助",(mx,my+46*ms,mw,36*ms),("menu","help"),size=15)
+    r.button(pause_label(view,state),(mx,my+88*ms,mw,36*ms),("pause",),size=15)
     if (view.get("mode") or "duel") in ("duo","coop"):
-        r.button("资助队友 %d" % GIFT_AMOUNT,(mx,138,122,36),("gift",),size=14)
+        r.button("资助队友 %d" % GIFT_AMOUNT,(mx,my+130*ms,mw,36*ms),("gift",),size=14)
     seconds=int(game.get("time",0));timer="%02d:%02d"%(seconds//60,seconds%60)
-    plaque=(width//2-72,bank_h+14,144,30)
-    r.box(plaque,(40,31,24));r.text(timer+(" 死斗" if game.get("deathmatch") else ""),(plaque[0]+14,bank_h+18),COLORS["gold"],20,116)
+    plaque=hud["timer"]
+    r.box(plaque,(40,31,24));r.text(timer+(" 死斗" if game.get("deathmatch") else ""),(plaque[0]+8,plaque[1]+4),COLORS["gold"],max(10,int(20*plaque[3]/30)),plaque[2]-16)
     r.controls.append((r.pg.Rect(plaque),("hud_block",)))
-    fitted=r.world.preview(r.screen,terrain,(width//2-84,bank_h+50,168,62),players)
+    fitted=r.world.preview(r.screen,terrain,hud["minimap"],players)
     r.world.minimap_flags(r.screen,game,terrain,fitted)
-    r.controls.append((r.pg.Rect(width//2-84,bank_h+50,168,62),("hud_block",)))
+    r.controls.append((r.pg.Rect(hud["minimap"]),("hud_block",)))
     move,column=thumb_clusters(width,height,state)
     x0=move[0]+move[2]+10;x1=column[0]-10
     r.box((x0,height-30,max(120,x1-x0),26),(34,30,24))
@@ -228,8 +232,12 @@ def draw_touch(r,view,state):
     message=message or feedback or stage_text(game,rules)
     r.text(message,(x0+10,height-25),COLORS["gold"],14,max(100,x1-x0-190))
     r.text(latency_text(state),(max(x0+120,x1-176),height-25),COLORS["muted"],13,168)
-    # The floating stage line is skipped here: the bottom bar already carries
-    # the same stage_text when nothing more urgent is showing.
+    stage=stage_text(game,rules)
+    if stage:
+        sx,sy,sw,sh=hud["stage_info"]
+        r.box((sx,sy,sw,sh),(34,30,24))
+        r.text(stage,(sx+6,sy+5),COLORS["gold"],max(10,int(14*sh/30)),sw-12)
+        r.controls.append((r.pg.Rect(sx,sy,sw,sh),("hud_block",)))
     if (view.get("mode") or "duel")=="duo":
         r.button("收起敌方卡组" if state.get("enemy_overview") else "敌方卡组",(width//2-84,bank_h+120,168,34),("hud_toggle","enemy_overview"),size=15)
     draw_team_panel(r,view,state,game,players,side)

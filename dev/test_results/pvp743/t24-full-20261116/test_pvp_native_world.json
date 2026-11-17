@@ -1,0 +1,16 @@
+[
+{"module":"test_pvp_native_world","class":"NativeBodyPhysics","test":"test_all_twelve_original_map_spawn_headrooms_fit_real_dave_body","outcome":"PASS","seconds":0.241563,"detail":""},
+{"module":"test_pvp_native_world","class":"NativeBodyPhysics","test":"test_dave_two_tile_canvas_has_matching_body_and_cannot_walk_one_tile_tunnel","outcome":"PASS","seconds":0.0014232,"detail":""},
+{"module":"test_pvp_native_world","class":"NativeBodyPhysics","test":"test_dave_walks_two_tile_tunnel_and_wraps_both_directions","outcome":"PASS","seconds":0.0016011,"detail":""},
+{"module":"test_pvp_native_world","class":"NativeBodyPhysics","test":"test_ladder_climb_landing_and_fresh_jump_still_work","outcome":"PASS","seconds":0.0009627,"detail":""},
+{"module":"test_pvp_native_world","class":"NativeWorldRendering","test":"test_background_shading_preserves_png_alpha_and_shared_source","outcome":"PASS","seconds":0.0016671,"detail":""},
+{"module":"test_pvp_native_world","class":"NativeWorldRendering","test":"test_camera_20_tile_width_inverse_mapping_and_full_world_screenshot","outcome":"PASS","seconds":0.0252087,"detail":""},
+{"module":"test_pvp_native_world","class":"NativeWorldRendering","test":"test_dave_canvas_not_cropped_or_fitted_into_collision_rectangle","outcome":"PASS","seconds":0.000487,"detail":""},
+{"module":"test_pvp_native_world","class":"NativeWorldRendering","test":"test_every_deployable_catalogue_sprite_has_native_art_and_empty_head_target_is_safe","outcome":"PASS","seconds":0.676283,"detail":""},
+{"module":"test_pvp_native_world","class":"NativeWorldRendering","test":"test_fence_caps_use_real_pngs_and_transparent_pixels_keep_sky","outcome":"PASS","seconds":0.0040695,"detail":""},
+{"module":"test_pvp_native_world","class":"NativeWorldRendering","test":"test_flowerpot_uses_side_view_base_below_plant_without_changing_game_state","outcome":"PASS","seconds":0.0086459,"detail":""},
+{"module":"test_pvp_native_world","class":"NativeWorldRendering","test":"test_original_zombie_layers_share_canvas_and_plant_zombie_head_uses_patch_size","outcome":"PASS","seconds":0.0014517,"detail":""},
+{"module":"test_pvp_native_world","class":"NativeWorldRendering","test":"test_real_textured_previews_include_all_twelve_maps_and_leave_data_rng_untouched","outcome":"PASS","seconds":0.160761,"detail":""},
+{"module":"test_pvp_native_world","class":"NativeWorldRendering","test":"test_sky_is_original_band_palette_not_a_new_dark_theme","outcome":"PASS","seconds":0.0002173,"detail":""},
+{"module":"test_pvp_native_world","class":"NativeWorldRendering","test":"test_water_uses_individual_original_frames_and_does_not_change_raw_alpha","outcome":"PASS","seconds":0.0005187,"detail":""}
+]

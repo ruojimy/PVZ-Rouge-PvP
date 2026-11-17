@@ -1,0 +1,15 @@
+[
+{"module":"test_pvp_56_zombies","class":"PvP56ZombieTests","test":"test_actual_garlic_and_hypnoshroom_still_trigger","outcome":"PASS","seconds":0.0682341,"detail":""},
+{"module":"test_pvp_56_zombies","class":"PvP56ZombieTests","test":"test_backup_native_umbrella_impulse_runs_then_returns_to_owned_slot","outcome":"PASS","seconds":0.830189,"detail":""},
+{"module":"test_pvp_56_zombies","class":"PvP56ZombieTests","test":"test_banned_backup_only_internal_children_bypass","outcome":"PASS","seconds":0.514946,"detail":""},
+{"module":"test_pvp_56_zombies","class":"PvP56ZombieTests","test":"test_catalog_and_campaign_boss_are_separate","outcome":"PASS","seconds":0.0132183,"detail":""},
+{"module":"test_pvp_56_zombies","class":"PvP56ZombieTests","test":"test_charm_leader_releases_old_group_and_summons_friendly_group","outcome":"PASS","seconds":1.13311,"detail":""},
+{"module":"test_pvp_56_zombies","class":"PvP56ZombieTests","test":"test_charmed_miner_ignores_enemy_rally","outcome":"PASS","seconds":0.108897,"detail":""},
+{"module":"test_pvp_56_zombies","class":"PvP56ZombieTests","test":"test_formation_follows_rally_and_owner_death_releases_children","outcome":"PASS","seconds":0.86001,"detail":""},
+{"module":"test_pvp_56_zombies","class":"PvP56ZombieTests","test":"test_independent_leaders_refill_only_when_two_or_fewer_survive","outcome":"PASS","seconds":1.30348,"detail":""},
+{"module":"test_pvp_56_zombies","class":"PvP56ZombieTests","test":"test_initial_dance_uses_native_clock_then_exactly_four_children","outcome":"PASS","seconds":0.819474,"detail":""},
+{"module":"test_pvp_56_zombies","class":"PvP56ZombieTests","test":"test_miner_emerges_at_latest_rally_in_native_underground_loop","outcome":"PASS","seconds":0.525021,"detail":""},
+{"module":"test_pvp_56_zombies","class":"PvP56ZombieTests","test":"test_native_healing_poison_and_chomper_for_both_new_species","outcome":"PASS","seconds":0.476726,"detail":""},
+{"module":"test_pvp_56_zombies","class":"PvP56ZombieTests","test":"test_native_status_holds_and_slows_summon_clock","outcome":"PASS","seconds":0.609831,"detail":""},
+{"module":"test_pvp_56_zombies","class":"PvP56ZombieTests","test":"test_sled_deployment_charges_once_and_creates_four_native_units","outcome":"PASS","seconds":0.122091,"detail":""}
+]

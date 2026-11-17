@@ -8,6 +8,8 @@ VCODE=$1; VNAME=$2; shift 2; ABIS=("$@")
 RUN=${PVZ_NATIVE_RUN_ID:?Set PVZ_NATIVE_RUN_ID to the explicit native build candidate}
 [[ "$RUN" =~ ^[A-Za-z0-9][A-Za-z0-9._-]*$ ]] || { echo 'Invalid native run id' >&2; exit 2; }
 SRC=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
+python3 "$SRC/tools/pvp743_network_sources.py" --check
+python3 "$SRC/tools/pvp744_feedback_sources.py" --check
 STAGING=${PVZ_ANDROID_ASSET_STAGING:-/mnt/c/Users/xiech/Downloads/PVZ-Rouge-v1.4.8/next-pvp71/dist/android-pvp71-staging}
 SDK=${PVZ_ANDROID_SDK:-$HOME/pvz-android/sdk}
 DIST=${PVZ_ANDROID_SDL_DIST:-$HOME/pvz-android/build/dists/pvzpvp}
@@ -23,7 +25,7 @@ for abi in "${ABIS[@]}"; do
   SEEN_ABIS[$abi]=1
 done
 CURRENT=$(mktemp "$NATIVE/apk-source-XXXXXXXX.sha256")
-(cd "$SRC"; find src android extract/data extract/schema tools/pvp72_sources build/typed72-integrated-v44/source/src/sim/typed build/typed72-match-v1/match_probe.cpp build/typed72-match-v1/frame_layer.inc build/typed72-match-v1/snapshot_layer.inc tools/pvp741_hooks.json -type f ! -path '*/__pycache__/*' ! -path 'src/uitools/*' ! -path 'src/cpptests/*' ! -path 'src/tools/*' ! -path 'src/sim/pvp/shim_headless/*' -print0 | sort -z | xargs -0 sha256sum) > "$CURRENT"
+(cd "$SRC"; find src android extract/data extract/schema extract/assets tools/pvp72_sources build/typed72-integrated-v44/source/src/sim/typed build/typed72-match-v1/match_probe.cpp build/typed72-match-v1/frame_layer.inc build/typed72-match-v1/snapshot_layer.inc tools/pvp741_hooks.json tools/pvp743_network_sources.py tools/pvp743_network_sources.json tools/pvp744_controls_hooks.py tools/pvp744_controls_sources.json tools/pvp744_testmode_hooks.py tools/pvp744_feedback_sources.py tools/pvp744_feedback_sources.json third_party/zlib-1.3.2-compress -type f ! -path '*/__pycache__/*' ! -path 'src/uitools/*' ! -path 'src/cpptests/*' ! -path 'src/tools/*' ! -path 'src/sim/pvp/shim_headless/*' -print0 | sort -z | xargs -0 sha256sum) > "$CURRENT"
 for abi in "${ABIS[@]}"; do
   [[ "$abi" == arm64-v8a || "$abi" == x86_64 ]] || { echo 'Unsupported ABI' >&2; exit 2; }
   [[ -f "$NATIVE/jniLibs/$abi/libmain.so" && -f "$NATIVE/jniLibs/$abi/SHA256SUMS" ]] || { echo "Missing verified native candidate for $abi" >&2; exit 2; }

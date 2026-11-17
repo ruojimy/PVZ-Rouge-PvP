@@ -1,0 +1,19 @@
+[
+{"module":"test_pvp_balance","class":"BalanceTests","test":"test_chili_launch_targets_source_hero_and_executes_original_impulse","outcome":"PASS","seconds":0.050215,"detail":""},
+{"module":"test_pvp_balance","class":"BalanceTests","test":"test_exact_costs_cooldowns_original_evidence_and_protected_lily","outcome":"PASS","seconds":0.0006006,"detail":""},
+{"module":"test_pvp_balance","class":"BalanceTests","test":"test_flag_deploy_summons_one_per_living_grave_and_charges_once","outcome":"PASS","seconds":0.0135289,"detail":""},
+{"module":"test_pvp_balance","class":"BalanceTests","test":"test_flying_thief_can_select_plant_without_grave_and_preview_agrees","outcome":"PASS","seconds":0.0743854,"detail":""},
+{"module":"test_pvp_balance","class":"BalanceTests","test":"test_gold_bloom_uses_native_half_opening_cooldown_and_full_mask","outcome":"PASS","seconds":0.0125665,"detail":""},
+{"module":"test_pvp_balance","class":"BalanceTests","test":"test_initial_and_deathmatch_boundary_formulas","outcome":"PASS","seconds":4.86e-05,"detail":""},
+{"module":"test_pvp_balance","class":"BalanceTests","test":"test_native_ashes_and_instant_kills_take_exactly_500_from_a_giant","outcome":"FAIL","seconds":0.430133,"detail":"AssertionError: 500 != 250 : plant:火爆辣椒"},
+{"module":"test_pvp_balance","class":"BalanceTests","test":"test_native_damage_has_no_twenty_to_one_divisor","outcome":"PASS","seconds":0.0128661,"detail":""},
+{"module":"test_pvp_balance","class":"BalanceTests","test":"test_native_gold_magnet_bucket_uses_pvp_250_hp","outcome":"PASS","seconds":0.0120513,"detail":""},
+{"module":"test_pvp_balance","class":"BalanceTests","test":"test_native_hardening_flat3_at_six_hp_and_scales_above","outcome":"PASS","seconds":0.017247,"detail":""},
+{"module":"test_pvp_balance","class":"BalanceTests","test":"test_native_plant_zombie_spawn_never_randomly_equips_armor","outcome":"PASS","seconds":0.0135631,"detail":""},
+{"module":"test_pvp_balance","class":"BalanceTests","test":"test_native_potato_mine_uses_the_pvp_16_second_emergence_clock","outcome":"PASS","seconds":0.0259946,"detail":""},
+{"module":"test_pvp_balance","class":"BalanceTests","test":"test_native_spike_secret_decreases_to_its_pvp_minimum","outcome":"PASS","seconds":0.016654,"detail":""},
+{"module":"test_pvp_balance","class":"BalanceTests","test":"test_opening_cooldown_mask_starts_full_not_half","outcome":"PASS","seconds":6.66e-05,"detail":""},
+{"module":"test_pvp_balance","class":"BalanceTests","test":"test_pvp_starts_both_sides_with_75_resources","outcome":"PASS","seconds":0.0124911,"detail":""},
+{"module":"test_pvp_balance","class":"BalanceTests","test":"test_real_chili_plant_and_zombie_death_launch_their_own_hero","outcome":"PASS","seconds":0.550859,"detail":""},
+{"module":"test_pvp_balance","class":"BalanceTests","test":"test_real_opening_cooldowns_and_remaining_clock_reduction","outcome":"PASS","seconds":0.147948,"detail":""}
+]

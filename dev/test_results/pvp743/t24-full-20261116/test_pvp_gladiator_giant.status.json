@@ -1,0 +1,24 @@
+{
+  "module": "test_pvp_gladiator_giant",
+  "exit": 0,
+  "seconds": 22.011,
+  "expected": 39,
+  "results": 39,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": true,
+  "accepted": true,
+  "counts": {
+    "PASS": 39,
+    "FAIL": 0,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [],
+  "unexpected_nonpass": [],
+  "resolved_waivers": []
+}

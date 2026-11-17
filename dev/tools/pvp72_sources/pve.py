@@ -464,7 +464,7 @@ def reward_pool(unlocked, coop=False):
 
 def map_for_day(day, coop=False):
     """(source, name, night) of the map a day is played on."""
-    night = day % 4 == 3
+    night = day % 4 == 3 or (coop and day in (8,16,24))
     from .team_maps import bundled_index
     index = bundled_index()
     if not index:
@@ -688,12 +688,12 @@ class Campaign:
         self.rewards = rng.sample(pool, min(3, len(pool))) if pool else []
         return self.rewards
 
-    def win(self, coins=0, coop=False, fallen=0, played_day=None):
+    def win(self, coins=0, coop=False, fallen=0, played_day=None, diamond_coins=0):
         # The host's day determines the challenge and payout. A guest keeps
         # its own reward/unlock progression, which may be on an earlier day.
         bonus_day = self.day if played_day is None else max(1, int(played_day))
         bonus = clear_bonus(bonus_day, coop, fallen)
-        earned = self._credit_pickups(coins)
+        earned = self._credit_pickups(coins, diamond_coins)
         self.coins += bonus
         self.history.append(dict(day=self.day, played_day=bonus_day, result="win", coins=earned, raw_coins=int(coins),
                                  bonus=bonus, coin_half=self.coin_half))
@@ -717,15 +717,18 @@ class Campaign:
         self.offer_rewards()
         return ""
 
-    def lose(self, coins=0):
+    def lose(self, coins=0, diamond_coins=0):
         # Coins picked up before the defeat are kept, as the original keeps money.
-        earned = self._credit_pickups(coins)
+        earned = self._credit_pickups(coins, diamond_coins)
         self.history.append(dict(day=self.day, result="lose", coins=earned, raw_coins=int(coins),
                                  coin_half=self.coin_half))
 
-    def _credit_pickups(self, raw_coins):
-        """Half the original integer pickup value without losing odd halves."""
-        earned, self.coin_half = divmod(max(0, int(raw_coins)) + self.coin_half, 2)
+    def _credit_pickups(self, raw_coins, diamond_coins=0):
+        """Keep ordinary pickup settlement; boss diamonds credit their full value."""
+        raw_coins = max(0, int(raw_coins))
+        diamonds = min(raw_coins, max(0, int(diamond_coins)))
+        earned, self.coin_half = divmod(raw_coins - diamonds + self.coin_half, 2)
+        earned += diamonds
         self.coins += earned
         return earned
 
@@ -771,4 +774,4 @@ def describe_day(day, coop=False):
     if source == "team":
         from .team_maps import bundled_index
         name = next((e["name"] for e in bundled_index() if e["id"] == name), name)
-    return "第 %d 天 · %s%s · %d 波 · 僵尸：%s" % (day, name, "（夜）" if night else "", waves_for_day(day), "、".join(tiers))
+    return "第 %d 天 · %s%s · %d 波 · 僵尸：%s" % (day, name, "（永夜 · Boss）" if coop and day in (8,16,24) else ("（夜）" if night else ""), waves_for_day(day), "、".join(tiers))

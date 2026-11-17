@@ -1,0 +1,37 @@
+{
+  "module": "test_pvp_content_acceptance",
+  "exit": 1,
+  "seconds": 6.935,
+  "expected": 18,
+  "results": 18,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": false,
+  "accepted": false,
+  "counts": {
+    "PASS": 16,
+    "FAIL": 2,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [],
+  "unexpected_nonpass": [
+    {
+      "id": "test_pvp_content_acceptance.ContentAcceptance.test_actual_native_charm_bites_and_reciprocal_damage",
+      "outcome": "FAIL",
+      "detail_sha256": "c36d163682193f2a92b1eda00781952538233a9d944f9d6bcae6012b01a28fd0",
+      "reason": "not_waived"
+    },
+    {
+      "id": "test_pvp_content_acceptance.ContentAcceptance.test_charmed_units_walk_towards_nearest_enemy_and_bite_dave",
+      "outcome": "FAIL",
+      "detail_sha256": "a26184f13409708f29ad760bb3cbc551d87b90f3d4fecb5a555993a9269881a5",
+      "reason": "not_waived"
+    }
+  ],
+  "resolved_waivers": []
+}

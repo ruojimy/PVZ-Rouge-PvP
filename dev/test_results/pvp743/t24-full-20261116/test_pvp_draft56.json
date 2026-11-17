@@ -1,0 +1,9 @@
+[
+{"module":"test_pvp_draft56","class":"Draft56","test":"test_advice_changes_for_air_and_armor_threats","outcome":"PASS","seconds":0.0099361,"detail":""},
+{"module":"test_pvp_draft56","class":"Draft56","test":"test_advice_keeps_locked_secret_and_adds_dependency","outcome":"PASS","seconds":0.0071726,"detail":""},
+{"module":"test_pvp_draft56","class":"Draft56","test":"test_advice_legal_across_maps_weather_and_bans","outcome":"PASS","seconds":0.165857,"detail":""},
+{"module":"test_pvp_draft56","class":"Draft56","test":"test_bloom_satisfies_night_secret_producer_slot","outcome":"PASS","seconds":0.0056206,"detail":""},
+{"module":"test_pvp_draft56","class":"Draft56","test":"test_day_secret_precursor_can_use_all_seven_slots_without_producer","outcome":"PASS","seconds":0.0064984,"detail":""},
+{"module":"test_pvp_draft56","class":"Draft56","test":"test_water_grave_only_opens_real_native_room_at_default_budget","outcome":"PASS","seconds":1.22333,"detail":""},
+{"module":"test_pvp_draft56","class":"Draft56","test":"test_water_grave_only_production_reaches_ready","outcome":"PASS","seconds":0.010183,"detail":""}
+]

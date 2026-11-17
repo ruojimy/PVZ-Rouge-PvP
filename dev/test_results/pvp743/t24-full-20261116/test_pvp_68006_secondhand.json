@@ -1,0 +1,8 @@
+[
+{"module":"test_pvp_68006_secondhand","class":"Secondhand","test":"test_equipment_identity_overrides_original_carrier","outcome":"PASS","seconds":0.0643689,"detail":""},
+{"module":"test_pvp_68006_secondhand","class":"Secondhand","test":"test_every_native_empty_hand_slot_accepts_each_shared_item","outcome":"PASS","seconds":0.0687764,"detail":""},
+{"module":"test_pvp_68006_secondhand","class":"Secondhand","test":"test_native_piercing_and_king_armor_follow_picked_slot","outcome":"PASS","seconds":0.95752,"detail":""},
+{"module":"test_pvp_68006_secondhand","class":"Secondhand","test":"test_occupied_missing_charmed_and_secondhand_break_are_protected","outcome":"PASS","seconds":0.0138532,"detail":""},
+{"module":"test_pvp_68006_secondhand","class":"Secondhand","test":"test_picked_art_survives_real_zombie_gate_and_restores_atlas","outcome":"PASS","seconds":0.0122977,"detail":""},
+{"module":"test_pvp_68006_secondhand","class":"Secondhand","test":"test_picked_ladder_and_conveyor_really_place_on_ordinary_body","outcome":"PASS","seconds":0.0835729,"detail":""}
+]

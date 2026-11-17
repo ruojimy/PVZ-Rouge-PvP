@@ -1,0 +1,15 @@
+[
+{"module":"test_pvp_59_stack_care","class":"CareInputTests","test":"test_mouse_sweep_refreshes_all_awake_producers_in_a_shared_cell","outcome":"PASS","seconds":0.93956,"detail":""},
+{"module":"test_pvp_59_stack_care","class":"CareInputTests","test":"test_sleep_state_is_visible_with_low_effects_and_survives_public_snapshot","outcome":"PASS","seconds":0.537761,"detail":""},
+{"module":"test_pvp_59_stack_care","class":"CareInputTests","test":"test_touch_hover_uses_the_same_care_path_without_a_tap","outcome":"PASS","seconds":0.541047,"detail":""},
+{"module":"test_pvp_59_stack_care","class":"StackCareTests","test":"test_awake_sweep_refreshes_the_whole_20_second_interval_and_preserves_ice","outcome":"PASS","seconds":2.61169,"detail":""},
+{"module":"test_pvp_59_stack_care","class":"StackCareTests","test":"test_card_descriptions_include_the_cap_and_awake_care","outcome":"PASS","seconds":0.0002071,"detail":""},
+{"module":"test_pvp_59_stack_care","class":"StackCareTests","test":"test_full_stack_coffee_wakes_all_sleepers_under_a_pumpkin","outcome":"PASS","seconds":0.0208811,"detail":""},
+{"module":"test_pvp_59_stack_care","class":"StackCareTests","test":"test_guest_preview_matches_authority_for_body_shell_and_coffee","outcome":"PASS","seconds":0.0152522,"detail":""},
+{"module":"test_pvp_59_stack_care","class":"StackCareTests","test":"test_hero_contact_refreshes_an_awake_grave_including_horizontal_wrap","outcome":"PASS","seconds":0.0203999,"detail":""},
+{"module":"test_pvp_59_stack_care","class":"StackCareTests","test":"test_pending_imitater_occupies_one_body_slot_through_transformation","outcome":"PASS","seconds":0.184627,"detail":""},
+{"module":"test_pvp_59_stack_care","class":"StackCareTests","test":"test_shovel_releases_a_body_slot_without_removing_the_shell","outcome":"PASS","seconds":0.028579,"detail":""},
+{"module":"test_pvp_59_stack_care","class":"StackCareTests","test":"test_three_bodies_plus_one_shared_shell_and_no_charge_on_rejection","outcome":"PASS","seconds":0.0527823,"detail":""},
+{"module":"test_pvp_59_stack_care","class":"StackCareTests","test":"test_three_flying_plants_and_one_vine_without_ground_support","outcome":"PASS","seconds":0.021056,"detail":""},
+{"module":"test_pvp_59_stack_care","class":"StackCareTests","test":"test_water_vine_carries_three_bodies_and_uses_only_the_shell_slot","outcome":"PASS","seconds":0.0154123,"detail":""}
+]

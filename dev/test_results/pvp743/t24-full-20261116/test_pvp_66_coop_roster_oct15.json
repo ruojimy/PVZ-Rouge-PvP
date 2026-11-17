@@ -1,0 +1,6 @@
+[
+{"module":"test_pvp_66_coop_roster_oct15","class":"CoopRosterPreparation","test":"test_kick_then_new_player_inherits_saved_seat_but_never_old_confirmation","outcome":"PASS","seconds":0.827898,"detail":""},
+{"module":"test_pvp_66_coop_roster_oct15","class":"CoopRosterPreparation","test":"test_leave_and_lobby_disconnect_keep_saved_seat_growth","outcome":"PASS","seconds":0.0195082,"detail":""},
+{"module":"test_pvp_66_coop_roster_oct15","class":"CoopRosterPreparation","test":"test_live_same_peer_reconnect_preserves_locked_deck_and_confirmations","outcome":"PASS","seconds":0.463811,"detail":""},
+{"module":"test_pvp_66_coop_roster_oct15","class":"CoopRosterPreparation","test":"test_spectator_role_round_trip_keeps_seat_save_and_clears_preparation","outcome":"PASS","seconds":0.0103751,"detail":""}
+]

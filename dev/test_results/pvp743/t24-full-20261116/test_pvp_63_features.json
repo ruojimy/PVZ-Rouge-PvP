@@ -1,0 +1,12 @@
+[
+{"module":"test_pvp_63_features","class":"CatalogTests","test":"test_prices_descriptions_and_export_are_current","outcome":"FAIL","seconds":0.00643,"detail":"AssertionError: '1.6.0.74.3-typed.20261114' != '1.6.0.71.2-pvp.71'"},
+{"module":"test_pvp_63_features","class":"RuntimeTests","test":"test_actual_plant_deployment_charges_each_new_price","outcome":"FAIL","seconds":0.0196345,"detail":"AssertionError: 60 != 100 : 萝卜伞"},
+{"module":"test_pvp_63_features","class":"RuntimeTests","test":"test_actual_zombie_deployment_charges_hp_and_cooldown","outcome":"FAIL","seconds":0.0145252,"detail":"AssertionError: 200 != 175 : 橄榄球僵尸"},
+{"module":"test_pvp_63_features","class":"RuntimeTests","test":"test_both_flyers_stun_only_after_garlic_or_fragrant_hero_bites","outcome":"PASS","seconds":0.131435,"detail":""},
+{"module":"test_pvp_63_features","class":"RuntimeTests","test":"test_crow_echo_respects_wrapped_distance_and_stable_ties","outcome":"PASS","seconds":0.01359,"detail":""},
+{"module":"test_pvp_63_features","class":"RuntimeTests","test":"test_crow_public_deploy_echoes_once_at_farthest_friendly_scarecrow","outcome":"PASS","seconds":0.0133792,"detail":""},
+{"module":"test_pvp_63_features","class":"RuntimeTests","test":"test_flyer_stun_lasts_half_a_second_then_recovers","outcome":"PASS","seconds":0.106388,"detail":""},
+{"module":"test_pvp_63_features","class":"RuntimeTests","test":"test_lantern_uses_gold_magnet_base_motion_without_enhanced_jump","outcome":"PASS","seconds":0.0797728,"detail":""},
+{"module":"test_pvp_63_features","class":"RuntimeTests","test":"test_lily_native_draw_survives_water_stacking_and_json_replay","outcome":"PASS","seconds":0.0777008,"detail":""},
+{"module":"test_pvp_63_features","class":"RuntimeTests","test":"test_puff_native_shots_hit_hero_for_2_5_with_and_without_secret","outcome":"PASS","seconds":0.0572164,"detail":""}
+]

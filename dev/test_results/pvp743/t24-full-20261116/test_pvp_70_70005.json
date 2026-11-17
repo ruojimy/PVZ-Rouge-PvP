@@ -1,0 +1,10 @@
+[
+{"module":"test_pvp_70_70005","class":"LanternPulse","test":"test_lantern_burns_on_every_pulse_even_with_nothing_to_heal","outcome":"PASS","seconds":1.96738,"detail":""},
+{"module":"test_pvp_70_70005","class":"LanternPulse","test":"test_lantern_without_secret_never_burns","outcome":"PASS","seconds":0.818182,"detail":""},
+{"module":"test_pvp_70_70005","class":"Native70005","test":"test_almanac_states_pvp_traits_of_original_plants","outcome":"PASS","seconds":0.0002237,"detail":""},
+{"module":"test_pvp_70_70005","class":"Native70005","test":"test_homing_aim_is_the_drawn_body_centre","outcome":"PASS","seconds":3.57e-05,"detail":""},
+{"module":"test_pvp_70_70005","class":"Native70005","test":"test_homing_spikes_land_on_small_units","outcome":"PASS","seconds":3.65362,"detail":""},
+{"module":"test_pvp_70_70005","class":"Native70005","test":"test_pot_and_basin_plants_are_teleport_targets","outcome":"PASS","seconds":0.0567719,"detail":""},
+{"module":"test_pvp_70_70005","class":"Native70005","test":"test_rage_shows_a_blue_petrified_torch_on_card_and_icon","outcome":"PASS","seconds":0.0016185,"detail":""},
+{"module":"test_pvp_70_70005","class":"Native70005","test":"test_tentacle_secret_adds_50_sun_to_grabber_and_is_charged","outcome":"PASS","seconds":0.0135971,"detail":""}
+]

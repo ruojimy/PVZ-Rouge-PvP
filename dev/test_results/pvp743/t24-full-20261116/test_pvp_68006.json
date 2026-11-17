@@ -1,0 +1,15 @@
+[
+{"module":"test_pvp_68006","class":"BattleBalance","test":"test_almanac_has_one_current_hero_contract","outcome":"PASS","seconds":0.0002184,"detail":""},
+{"module":"test_pvp_68006","class":"BattleBalance","test":"test_native_direct_and_splash_damage_table","outcome":"PASS","seconds":0.020447,"detail":""},
+{"module":"test_pvp_68006","class":"BattleBalance","test":"test_one_torch_cannot_thaw_and_ignite_but_second_can","outcome":"PASS","seconds":0.0296756,"detail":""},
+{"module":"test_pvp_68006","class":"BattleBalance","test":"test_pressure_and_pea_jump_combinations_use_native_keydown","outcome":"PASS","seconds":0.102324,"detail":""},
+{"module":"test_pvp_68006","class":"BattleBalance","test":"test_prices_cooldowns_and_real_shotgun_body_health","outcome":"PASS","seconds":0.0145604,"detail":""},
+{"module":"test_pvp_68006","class":"BattleBalance","test":"test_rage_blue_petrified_torch_reward_sleep_and_multiple_stumps","outcome":"PASS","seconds":0.0123479,"detail":""},
+{"module":"test_pvp_68006","class":"BattleBalance","test":"test_red_fire_tail_tracks_reverse_velocity_in_every_quadrant","outcome":"PASS","seconds":0.0128762,"detail":""},
+{"module":"test_pvp_68006","class":"BattleBalance","test":"test_room_authority_scales_only_battle_time_and_publishes_rate","outcome":"PASS","seconds":0.0318218,"detail":""},
+{"module":"test_pvp_68006","class":"BattleBalance","test":"test_splash_skips_every_direct_target","outcome":"PASS","seconds":0.0120804,"detail":""},
+{"module":"test_pvp_68006","class":"BattleBalance","test":"test_zombie_peas_keep_allegiance_and_distinguish_splash","outcome":"PASS","seconds":0.0123537,"detail":""},
+{"module":"test_pvp_68006","class":"OriginalFacing","test":"test_direction_buttons_emit_real_native_left_right_and_auto_events","outcome":"PASS","seconds":0.0008508,"detail":""},
+{"module":"test_pvp_68006","class":"PacingAndTouch","test":"test_healthy_opening_overload_and_recovery_have_hysteresis","outcome":"PASS","seconds":0.0005086,"detail":""},
+{"module":"test_pvp_68006","class":"PacingAndTouch","test":"test_original_scheduler_keeps_250_ticks_and_reduces_presents","outcome":"PASS","seconds":0.0003676,"detail":""}
+]

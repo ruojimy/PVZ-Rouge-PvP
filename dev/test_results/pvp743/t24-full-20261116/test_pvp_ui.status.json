@@ -1,0 +1,31 @@
+{
+  "module": "test_pvp_ui",
+  "exit": 1,
+  "seconds": 19.215,
+  "expected": 29,
+  "results": 29,
+  "report_error": null,
+  "hero_guard_violations": 0,
+  "success": false,
+  "accepted": false,
+  "counts": {
+    "PASS": 28,
+    "FAIL": 1,
+    "ERROR": 0,
+    "SKIP": 0
+  },
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "infrastructure_errors": [],
+  "waived": [],
+  "unexpected_nonpass": [
+    {
+      "id": "test_pvp_ui.PvpUITests.test_deck_version_and_almanac_controls",
+      "outcome": "FAIL",
+      "detail_sha256": "8063a868c0acd670ec40a86723da149be428faa5d50a326fcbbdd6ae8ea6849d",
+      "reason": "not_waived"
+    }
+  ],
+  "resolved_waivers": []
+}

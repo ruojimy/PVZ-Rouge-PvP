@@ -55,7 +55,14 @@ Point content_target_point(const CombatZombie& u,double tile,const CollisionCata
     return {u.body.motion.get().x,u.body.motion.get().y-tile};
 }
 bool flying_target_contact(const CombatZombie& u,Point start,Point delta,double tile,double width,const CollisionCatalog& catalog) {
-    const auto point=content_target_point(u,tile,catalog);const double scale=unit_scale_factor(u.source,catalog);
+    const auto point=content_target_point(u,tile,catalog);
+    if(u.terraria){
+        const double cx=wrap_delta(start.x,point.x,width),cy=point.y-start.y;
+        const double rx=u.terraria->width*tile/32.,ry=u.terraria->height*tile/32.;double enter=0.,leave=1.;
+        const auto clip=[&](double v,double low,double high){if(std::abs(v)<1e-12)return low<=0.&&high>=0.;double a=low/v,b=high/v;if(a>b)std::swap(a,b);enter=std::max(enter,a);leave=std::min(leave,b);return enter<=leave;};
+        return clip(delta.x,cx-rx,cx+rx)&&clip(delta.y,cy-ry,cy+ry);
+    }
+    const double scale=unit_scale_factor(u.source,catalog);
     if(segment_hits_ellipse({0.,start.y},{delta.x,start.y+delta.y},{{wrap_delta(start.x,point.x,width),point.y},tile*.5*scale,tile*.8*scale}))return true;
     if(auto head=plant_zombie_head(u,tile,catalog)) {head->center.x=wrap_delta(start.x,head->center.x,width);return segment_hits_ellipse({0.,start.y},{delta.x,start.y+delta.y},*head);}
     return false;
