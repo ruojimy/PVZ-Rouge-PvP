@@ -170,7 +170,7 @@ class CoopProgress:
     def skip(self, room, peer):
         """PvP73: the host pays SKIP_PRICE from its own seat; every seated player
         counts the day as cleared (reward pick, no coins), the run advances."""
-        from .pve import SKIP_PRICE
+        from .pve import skip_price
         # Unlike a purchase, a skip is offered before the host has set the day up
         # (room.pve is only filled by that setup), so only the mode is required.
         if room.mode != COOP:
@@ -188,7 +188,8 @@ class CoopProgress:
             return '请先领取本次合作的奖励卡'
         day = self.day
         before = {s: self.campaigns[s].coins for s in seated}
-        error = payer.skip_day(pay=True)
+        price = skip_price(day, True)
+        error = payer.skip_day(pay=True, price=price)
         if error:
             return error
         for seat in seated:
@@ -203,7 +204,7 @@ class CoopProgress:
         self.save()
         room.setup_changed(room.side_for(peer))
         room.revision += 1
-        room.status = '房主花费 $%d 跳过第 %d 天，请各自领取奖励卡' % (SKIP_PRICE, day)
+        room.status = '房主花费 $%d 跳过第 %d 天，请各自领取奖励卡' % (price, day)
         return ''
 
     def finish(self, room, result):

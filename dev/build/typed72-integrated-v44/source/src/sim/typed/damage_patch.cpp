@@ -1,4 +1,5 @@
 #include "sim/typed/damage_patch.h"
+#include "sim/typed/pvp75_content.h"
 #include <algorithm>
 #include <cmath>
 
@@ -77,6 +78,7 @@ HitResult DamagePatch::ash_from(const ZombieRef& unit,const NativeDamageOrigin& 
 }
 void DamagePatch::knockback(const ZombieRef& unit,double amount) {
     if(unit->terraria&&unit->terraria->type!=5)return;
+    if(pvp75::guard_active(*unit))return;
     auto& u=*unit;const double resistance=number(u.patch.knockback,0.);
     if(resistance!=0.)amount*=std::clamp(u.patch.knockback_is_boolean?(name(u.patch.plant_name)=="高坚果僵尸"?.25:.35):resistance,0.,1.);
     const auto wet=[&](){if(!u.body.in_water.present())throw std::logic_error("missing in-water field");return !u.body.in_water.is_null()&&u.body.in_water.get();};

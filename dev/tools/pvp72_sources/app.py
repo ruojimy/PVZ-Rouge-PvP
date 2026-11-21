@@ -890,7 +890,7 @@ class Application(MapEditing, ReplayUI, SpectatorUI, PveUI):
             if value.get("phase") == "loading":
                 self.loaded_ack = None
                 self.result_seen_peers.clear();self.result_ack = None
-            if value.get('phase')=='result':self.state['result_animation_pending']=True
+            if value.get('phase')=='result':self.state['result_animation_pending']=not (self.android and value.get('mode')=='coop')
             else:
                 self.result_animation.skip();self.result_outro.skip();self.state.pop('result_animation_pending',None)
                 self.state.pop('result_outro_ran',None);self.state.pop('result_curtain_pending',None)

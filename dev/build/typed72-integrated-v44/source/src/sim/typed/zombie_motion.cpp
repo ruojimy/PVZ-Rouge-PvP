@@ -198,10 +198,14 @@ void ZombieMotion::bite_hero(const ZombieRef& u){
     if(!attention_accepts(world_,u,CombatTarget::player(h.hero(target).actual_seat.value_or(target))))return;
     h.proxy(target);
     const auto damage=h.player_damage(bite_amount(u,{}));
-    if(damage.value_or(0.)!=0. && (field_is(u->source.content,"海盗鹦鹉")||field_is(u->source.content,"乌鸦"))) {
+    if(damage.value_or(0.)>0.) {
         h.proxy(target);
         const auto& secrets=h.players.at(seat_index(target)).value().secrets;
-        if(std::find(secrets.begin(),secrets.end(),"secret:体香")!=secrets.end())u->body.stun.set(std::max(value(u->body.stun),125.));
+        if(std::find(secrets.begin(),secrets.end(),"secret:体香")!=secrets.end()){
+            callbacks_.fragrance_poison(u);
+            if(field_is(u->source.content,"海盗鹦鹉")||field_is(u->source.content,"乌鸦"))
+                u->body.stun.set(std::max(value(u->body.stun),125.));
+        }
     }
 }
 void ZombieMotion::bite_write(size_t l,size_t z,double damage){
@@ -250,6 +254,11 @@ void ZombieMotion::bite_plant(ZombieMotionFrame& f,size_t z) {
     attention_damage(source_ref(u),victim,std::min(std::max(0.,hp_before),hp_before-p->hp.get()),world_.heroes.time);
     if((p->kind=="土豆地雷" && p->emerged.get()>0. && !p->dead.present()) || (p->kind=="缠绕海草"&&!p->dead.present()))
         p->dead.set(DeathMarker(0.));
+    else if(p->kind=="巴豆" && !p->sleep.present() && !p->dead.present()){
+        // PvP75: consumed like the hypno-shroom; Pvp75Content applies the effect.
+        p->dead.set(DeathMarker(0.));n.biting.set(120.);n.jump_cd.set(300.);
+        world_.pvp75.bites.push_back({u,p});
+    }
     else if(p->kind=="魅惑菇" && !p->sleep.present() &&
             (std::find(routes_.bosses.begin(),routes_.bosses.end(),b.kind)==routes_.bosses.end() || field_is(world_.heroes.globals.mode,"测试模式")) &&
             b.size.get()==2.){
@@ -261,7 +270,7 @@ void ZombieMotion::bite_plant(ZombieMotionFrame& f,size_t z) {
             callbacks_.add_entity("魅惑",fx,pos);auto e=w.entities.list()->back();e->expires.set(900.);e->rotation.set(double(w.rng.randint(0,360)));
         }
     }else if(p->hp.get()<=0. && b.kind!="巨人僵尸" && !p->dead.present()){
-        w.sound("吃掉",b.motion.get());if(p->kind=="花盆")destroy_pvp_block(world_,plants_,f.cell);else plants_.clear(f.cell);
+        w.sound("吃掉",b.motion.get());if(p->kind=="花盆")destroy_pvp_block(world_,plants_,f.cell);else p->dead.set(DeathMarker(0.));
     }else if(b.kind!="巨人僵尸"){
         if(p->kind=="仙人掌"){
             if(routes_.cactus_secret)callbacks_.ordinary(l,b.facing>=0.?1.:-1.,7.5);
@@ -298,8 +307,10 @@ void ZombieMotion::bite(ZombieMotionFrame& f){
     if(cell->plant.present()){
         target=lookup_pvp_plant(world_,f.cell,false);
         const auto& plants=*world_.plant_roster;
-        const auto p=plants.at(target.value_or(plants.size()-1));
-        if(one_of(p->kind,{"地刺","地刺王"}) || (p->kind=="海蘑菇" && secret("水兵")))target.reset();
+        if(target){
+            const auto& p=plants.at(*target);
+            if(one_of(p->kind,{"地刺","地刺王"}) || (p->kind=="海蘑菇" && secret("水兵")))target.reset();
+        }
     }
     if(target && b.kind!="雪人僵尸"){bite_plant(f,*target);return;}
     if(b.kind=="巨人僵尸" && cell->plant.present()){n.biting.set(500.);return;}
@@ -412,6 +423,25 @@ void ZombieMotion::register_stationary(size_t index) {
         if(p.hp>0.){
             world_.heroes.source_index=int64_t(index);
             register_body(player_flood_seed(xy(*p.position),world_.runtime.tile),{});
+        }
+    }else if(t.unit->terraria){
+        const auto& u=*t.unit;
+        if(u.body.hp<=0. || u.body.ash.present() || u.terraria->removed)return;
+        const double tile=world_.runtime.tile;
+        const auto& m=u.body.motion.get();
+        const double x=m.x/tile,y=m.y/tile-1.;
+        const double rx=u.terraria->width/32.,ry=u.terraria->height/32.;
+        for(int col=int(std::floor(x-rx));col<=int(std::floor(x+rx));++col){
+            const int canonical=world_.terrain.wrap(col);
+            for(int row=int(std::floor(y-ry));row<=int(std::floor(y+ry));++row){
+                const auto add=[](TargetBuckets& grid,int key,int value){
+                    auto it=bucket(grid,key);
+                    if(it==grid.end())grid.emplace_back(key,std::vector<int64_t>{value});
+                    else if(std::find(it->second.begin(),it->second.end(),value)==it->second.end())it->second.push_back(value);
+                };
+                add(*indexes_.rows,row,canonical);
+                add(*indexes_.columns,canonical,row);
+            }
         }
     }else if(t.unit->body.hp>0. && (t.unit->protection.grave || t.unit->orphan_barrel)) {
         world_.heroes.source_index=int64_t(index);

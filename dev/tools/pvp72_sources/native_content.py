@@ -159,6 +159,11 @@ class NativeContent:
         name=card.get('content')
         if not name:return
         obj['_pvp_content']=name
+        if name in ('巴豆','激光豆','盾卫僵尸','克苏鲁之仆'):
+            # PvP75 cards: rules live in the typed kernel; the V reference keeps an inert native body.
+            if card['side']=='plant':obj['植物']=name
+            else:obj['血量']=card['hp'];obj['_pvp_max_hp']=card['hp']
+            return
         if name in PLANTS:
             obj['_pvp_interval']=round(PLANTS[name][3]*250)
             obj['射cd']=0

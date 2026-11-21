@@ -76,7 +76,8 @@ void write_draw_atlas(const V& battle,const V& g,const std::string& path){
 J parsed(const V& v){std::string text=dump(v);try{return J::parse(text);}catch(...){return J(text.substr(0,200));}}
 }
 int main(int argc,char** argv) {
-    if(argc!=3&&argc!=4){std::fprintf(stderr,"usage: cold72_export scenario out [atlas]\n");return 1;}
+    const bool draw_only=argc==5&&std::string(argv[3])=="--draw-only";
+    if(argc!=3&&argc!=4&&!draw_only){std::fprintf(stderr,"usage: cold73_export scenario out [atlas | --draw-only draw.json]\n");return 1;}
     SDL_SetMainReady();SDL_setenv("SDL_VIDEODRIVER","dummy",0);SDL_setenv("SDL_AUDIODRIVER","dummy",0);
     gil::init();data::set_data_dir("extract/data");pg::install_pygame();callm(pg::pygame_module(),Sym("init"),Args{});
     std::ifstream f(u8p(argv[1]),std::ios::binary);auto sc=J::parse(f);sc.erase("setup");
@@ -114,13 +115,13 @@ int main(int argc,char** argv) {
              memo.push_back(std::move(e));}
          out["unit_card_memo"]=memo;}
         const auto rng=[&](PyRandom& r){auto s=r.state();J w=J::array();for(const auto word:s.mt)w.push_back(word);return J{{"mt",w},{"mti",s.mti}};};
-        if(argc==4){
-            write_atlas(G.find_global(V("图集"))?*G.find_global(V("图集")):V::dict(),argv[3]);
+        if(argc==4||draw_only){
+            if(!draw_only)write_atlas(G.find_global(V("图集"))?*G.find_global(V("图集")):V::dict(),argv[3]);
             // Draw atlas: the original patch replaces the plant-zombie display art lazily at its
             // first draw (__pvz_sb_draw_plant_zombie_heads). That idempotent asset step is a cold
             // path; run it here on the installed atlas and export only the draw recipes. The
             // simulation atlas above stays as the battle constructed it.
-            write_draw_atlas(b,g,std::string(argv[3])+".draw.json");
+            write_draw_atlas(b,g,draw_only?std::string(argv[4]):std::string(argv[3])+".draw.json");
         }
         out["rng_room"]=rng(*py::random_of(pvz::getattr(b,Sym("rng"))));out["rng_match"]=rng(G.rng());
         // pve.WaveDirector.__init__+bind run inside NativeBattle construction: export what they leave.

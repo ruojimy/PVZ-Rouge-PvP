@@ -189,7 +189,7 @@ V C_FeedbackCombat::m_test_new_speed_secrets_change_car_and_air_travel(const Arg
     L_NativeBattle = pm_native_battle::cls_NativeBattle();
     L_RULES = pm_catalog::RULES;
     L_wrap_delta = pm_simulation::wrap_delta;
-    L_cases = V::tuple({V::tuple({SV("雪橇车僵尸"), SV("大运！小子"), V(2.0)}), V::tuple({SV("海盗鹦鹉"), SV("海陆空"), V(1.5)}), V::tuple({SV("乌鸦"), SV("海陆空"), V(1.5)})});
+    L_cases = V::tuple({V::tuple({SV("雪橇车僵尸"), SV("大运！小子"), V(2.0)}), V::tuple({SV("海盗鹦鹉"), SV("海陆空"), V(1.25)}), V::tuple({SV("乌鸦"), SV("海陆空"), V(1.25)})});
     { V it1_ = py::iter_list(L_cases);
     for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) {
         { V ut2_ = py::as_seq(it1_.idx(int64_t(i1_))); L_name = ut2_.idx(0); L_secret = ut2_.idx(1); L_ratio = ut2_.idx(2); } 
@@ -301,7 +301,7 @@ V C_FeedbackCombat::m_test_taco_changes_actual_walking_car_and_bird_distance(con
             if ((L_buff).truthy()) {
                 (void)(m_assertEqual(Args{SV("taco"), rd(rd(pvz::getattr(pvz::getattr(L_b, SY("zsecrets")), SY("effects")), V(-1.0)), SV("kind"))}));
                 (void)(callm(L_b, SY("_sync_public"), Args{}));
-                (void)(m_assertEqual(Args{V(1.0), rd(rd(rd(pvz::getattr(L_b, SY("units")), rd(L_unit, SV("id"))), SV("secret_speed_bonuses")), SV("玉米卷"))}));
+                (void)(m_assertEqual(Args{V(0.75), rd(rd(rd(pvz::getattr(L_b, SY("units")), rd(L_unit, SV("id"))), SV("secret_speed_bonuses")), SV("玉米卷"))}));
             }
             (void)(m_retire_battle(Args{L_b}));
             L_z.del();
@@ -309,7 +309,7 @@ V C_FeedbackCombat::m_test_taco_changes_actual_walking_car_and_bird_distance(con
             (void)(py::stdlib_call(SV("gc.collect"), Args{}));
         }}
         (void)(m_assertGreater(Args{rd(L_distances, V(0.0)), V(0.1), L_name}));
-        (void)(m_assertAlmostEqual(Args({V(2.0), (rd(L_distances, V(1.0)) / rd(L_distances, V(0.0)))}, {{SY("delta"), V(0.2)}, {SY("msg"), V::tuple({L_name, L_distances})}})));
+        (void)(m_assertAlmostEqual(Args({V(1.75), (rd(L_distances, V(1.0)) / rd(L_distances, V(0.0)))}, {{SY("delta"), V(0.2)}, {SY("msg"), V::tuple({L_name, L_distances})}})));
     }}
     return V::none();
 }
@@ -331,9 +331,9 @@ V C_FeedbackCombat::m_test_taco_real_twenty_second_timer_and_no_duplicate_buff(c
     (void)(callm(L_b, SY("step"), Args{V(599.0)}));
     (void)(m_assertNotIn(Args{SV("玉米卷"), py::m_get(L_z, SV("_pvp_zs_speed"), py_dict({}))}));
     (void)(callm(L_b, SY("step"), Args{}));
-    (void)(m_assertAlmostEqual(Args{(V(2.0) * L_before), rdm(L_z, &Obj::移速, SV("移速"))}));
+    (void)(m_assertAlmostEqual(Args{(V(1.75) * L_before), rdm(L_z, &Obj::移速, SV("移速"))}));
     (void)(callm(L_b, SY("step"), Args{V(601.0)}));
-    (void)(m_assertAlmostEqual(Args{(V(2.0) * L_before), rdm(L_z, &Obj::移速, SV("移速"))}));
+    (void)(m_assertAlmostEqual(Args{(V(1.75) * L_before), rdm(L_z, &Obj::移速, SV("移速"))}));
     return V::none();
 }
 

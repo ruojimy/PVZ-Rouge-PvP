@@ -1,0 +1,213 @@
+{
+  "base_revision": "pvp744-r3",
+  "reviewed_files": {
+    "build/typed72-integrated-v44/source/src/sim/typed/fume_effects.cpp": {
+      "r3": "e01b82d49212cd64043630fd968a3c77b156443946bdff4fda3558c15943684d",
+      "r4": "d918e54be9ea82d361401ddb38c1f3279d20e264d51d2febcaeacca4783bcf7f"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/plant_lookup.cpp": {
+      "r3": "1f5f6bd0bdcd0894a194109318e367caf80269cfab5649d23308b224bdbc0d86",
+      "r4": "a987878862037abbda04f0cd48a378592fb344c9d7c7d226886968b68e370af3"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/zombie_pea.cpp": {
+      "r3": "27e163165bb58b4115408e9904435c5c76308140ea47b5a28e940ca7ab0bd8af",
+      "r4": "95e45b4c11489e068b35877c822e2b83335ff6d90b3693725bac7d0c6d4ba3ea"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/zombie_motion.cpp": {
+      "r3": "1ebc3b4bc5f465cc815c5ca8eea6efb86ba806d30fc23f5a90361517b5b56d74",
+      "r4": "45bad66ca9fbdbdbc1da6da919bc6af6e8b7cfbc7eb9d794244851571acd324d"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/zombie_motion.h": {
+      "r3": "372cf7e01daf9e487941c7e954bee8f0bc410c2e88f6a47f8690cc403151b485",
+      "r4": "8ec5699a53945faa95119fe488096531fcc76a0a02110652b5f5e7c6deba0164"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/native_tracking.cpp": {
+      "r3": "715ac5758d31ae50573c73193cf0b796ad8ee3b3e4897175f0a101453b6a777b",
+      "r4": "27aa97f0a4520abbf0cb8a3ce002391803ac8f7735dbf36c86ea186603ed5f56"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/ballistics.cpp": {
+      "r3": "9bb5bad881ab6f62c8bba7f838431c1e984459268da9cf9fbb432f08b63cc66f",
+      "r4": "d8be0f6e6b1fd94a4f059d21fdb5714585d21ed296573bfbd2bc538857b03cc4"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/plant_aim.cpp": {
+      "r3": "c7f72bea4f2d7643d6e83e10b3c610e780de8bfd7fa386b6aa5a062e0c079aed",
+      "r4": "bb4d745278a02b9a160ee0ec80e626f2114afd67efa0c7340adc567c36932c3e"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/plant_queries.cpp": {
+      "r3": "6a7b04e70cd9cdef483c1dbe20a3a3528093f338c4129105677ab02099ff8634",
+      "r4": "898ed11cbbde6eadf3c1ed6a7879b2d30ac6d4ac8964162356758bdd717ebe74"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/flying_plants.cpp": {
+      "r3": "27e142165b281913f4f04fbb593fdb9b825c63266dc2e3a8cfa02678c7ca159a",
+      "r4": "9cf6715d484f6f7759064bc5a55157691a0bd005bb2965a6e4a18b22397ad603"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/projectile_rules.cpp": {
+      "r3": "43d78cb2a404b8357695f5b252a2a6021173e61bb77659d9a41445df619e22ef",
+      "r4": "a212ef1ed2ec2a7f2cdc08951b59c5269b386be2ced9334a8c55330c02b4d342"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/projectile_rules.h": {
+      "r3": "5c6a4dfae62e74dd1b62c4b003e4a850e860fdfed37f90484e8f75ad0ff6d00d",
+      "r4": "607366c62ffad0072d22842022aa2e1de9bea26f432a827be32ad06344f52b80"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/entity_contacts.cpp": {
+      "r3": "a19e65f3538ec5af65fd66defb0ada3772e6e5d6789d3112a86de958cf7bb246",
+      "r4": "a982f9a52b49066e49579d3ee8ce90b7c430c7a25162217521368d1da7a837e1"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/targets.h": {
+      "r3": "e3caaecb9901bf48ed1d3c13f1391eb46f957a7cbb03c476f6a8d52326a79446",
+      "r4": "d4a54dd8a3624f8da5f7b443e5624181db9e4ac68f12da2e5957ae98d2212a56"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/targets.cpp": {
+      "r3": "3fe742892fc311e21cfe6ecd5d46d0b79f1c8e23a61e225db9a766e1e502461f",
+      "r4": "8e306ba4bd23ad9d1819fa86da0acc02af5cf6a737725aeab6a395ce64d460a0"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/attack_source.h": {
+      "r3": "09050d8c9bd849fa96bc73baa70e0dcc6e038bcf4f86a1dfdf018a2d1a396918",
+      "r4": "6068e710a4bd474ea110ad3a473d5d57186a6703db572da44f44ce0de449d3d4"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/projectile.cpp": {
+      "r3": "6bb290a6b8b5e6a29c25c7184ee2c6f3bd4eb498d4de615a301d32e9ab101a25",
+      "r4": "8f81c361fac84e413d53b0319f05512c4dcab80fb3c467f8dc283b8954256c91"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/cold_catalog_data.cpp": {
+      "r3": "79c468156619c3a98a5fef468a3bed509d3a334bc072dda0bf1064700a043ee9",
+      "r4": "f13b6b19a97f524f470c4877e929d6b63e0ffed725941c247ff5de8debe575be"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/cold_registration.cpp": {
+      "r3": "51d1ee796e06ea69d610e97ce5594e2cc343c7e7a1ef7108bf810d04f0d66f58",
+      "r4": "e64234947360e76a40754883e121dd6d5f7d65175cdaa6292cb8ff15fefaeb4f"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/cart_lifecycle.cpp": {
+      "r3": "1273ab03a1ec18c8fcd00ef795c11e1297ba767795f3d9eb7f17d7ec0eed3846",
+      "r4": "e9016fc4ec9af4954b8735707cdccf6515ca52d71c419cc39e2e9e2cc8a86172"
+    },
+    "CMakeLists.txt": {
+      "r3": "08b2d2b9908efefe56a6657a7f20d1b1fa1925dfc35325b1d8c0b4c5fad9da44",
+      "r4": "da08abbc0b09ca31ffa0f8cd052ba7211a31fa7228af4226ec666b0303ada8c7"
+    },
+    "build/typed72-match-v1/match_probe.cpp": {
+      "r3": "c0696e6071a39dc4ea4c8a0a0aeb48757b35ea3a9dd6c27f5287c426930115ba",
+      "r4": "52e4b88f530c3c0083f06fc67bddda189780931be475abc863817ee9dcca086c"
+    },
+    "src/sim/typed72_app/composition/match_probe.cpp": {
+      "r3": "61b9db75866df69cf2e94942b21f555b4498b8d8485cc4ab49eb61399f565529",
+      "r4": "934b42c71708b0eff4db84a38935b9a085aaacef11673d9c412f9287bc574750"
+    },
+    "src/sim/typed72_app/typed_battle.cpp": {
+      "r3": "8d81a48310aff1eaddae4b3aed6c2341b958d0325348de54ba24053ebc35fa6e",
+      "r4": "9ac327d9c1c5d32fe5e0366a6b57e4f8fb195450a0444183e585fcec02081261"
+    },
+    "src/ui/hand/pressure_pacing.cpp": {
+      "r3": "a9d27d031e8734a818905b3a700ea1172ccc634feeb2f486ff9e125c83a54c37",
+      "r4": "7e98008c67560b2748fde51bad7bfff8e45470088029efbc41610e1ce1b5ed31"
+    },
+    "tools/run_cpp_suite.py": {
+      "r3": "e6a28cf734137f733c0e3d65c2bc6d4efb9b93a4f20413a67f6c9342d323f053",
+      "r4": "8a31755b0507e59eb9eb459a68b1ab5e46ab52b5bb35f480f1a6ca01c60eb136"
+    },
+    "tools/pvp744_release_r3.py": {
+      "r3": "d041b37373e766dea6ed3c923708b0d40de79e1ce37a879532d33e2b4816ed39",
+      "r4": "7d630933f51b43b4654ce4d3219b927a8fa04dce866241035b618f40fe5ca3d1"
+    },
+    "tools/pvp744_release_r4.py": {
+      "r3": null,
+      "r4": "23157735fabb5275f94f80641a09742e60285b7683a076b6e1462710565b9876"
+    },
+    "tools/pvp744_feedback_sources.json": {
+      "r3": "b5db20fde620255733081cc46e676e3d2d63eed8ecf013a020e275691c317e95",
+      "r4": "eb9ef762c72d9c3b282291f378bfe399148028c11ec598fc982c102e940f98d4"
+    },
+    "tools/pvp743_network_sources.json": {
+      "r3": "9867515a997e2441dde61090bff74ec45d2d0e5e1cae5fe0d831b061d2d1064c",
+      "r4": "9d6d62292f18923fd7878c39b60f6d23b1305f8a1d598f7b9e585c926204ea68"
+    },
+    "src/uitools/pvp744_r4_audit.cpp": {
+      "r3": null,
+      "r4": "281737edf4fc70a9f17954d9b10ba11bf86def0cc33361a144a112d1c03fb045"
+    },
+    "src/uitools/pvp744_feedback_audit.cpp": {
+      "r3": "0e876d4a8dd28917b65ece8705a1ec88570c8389dc6ab839edc4eccc2b5a441c",
+      "r4": "c14bb1bb9afea19716a0749520c74b040478e4395caec1ee7a4d207b47458d42"
+    },
+    "extract/data/__init__.json": {
+      "r3": "4540cf7f93baf8cb696b0e6b03dd8b5da1c788a8c0b947d885821fd31142907a",
+      "r4": "8d6af4524cefa57caa011c095e1110918db0b7f1916769dc39d02e2894892059"
+    },
+    "tools/pvp72_sources/hud.py": {
+      "r3": "a1c413071b8309432fda8b143a043d16e4378fa132341e87917f0f17b9f2a496",
+      "r4": "77e70ef0fdbeca95a54220f459f0b861df6c7082b186c57d48781ff609ceb4c2"
+    },
+    "tools/pvp72_sources/app.py": {
+      "r3": "35dc6831628ceff94de0d117dd40918a96abc9fba6cbd5595e1bd160010c1e8c",
+      "r4": "e484919921498db1b6c721c613c55b45bdbfd14f246f761bb94a4704cfa41774"
+    },
+    "tools/pvp72_sources/balance.py": {
+      "r3": "2d51374a29a5b98d73229a171d98e260a39f5bd4643612069898364703a06ea1",
+      "r4": "46f79a2b9fa83c4fce713e3cff1d7e8c787f454825c8766a9bf2be004840b066"
+    },
+    "tools/pvp72_sources/catalog.py": {
+      "r3": "68344f52ba0d2055209c919f9ef900837fa4b52cb86c51dbe6a76701627e54c9",
+      "r4": "51990800f544090756797fa847e8dfdb3363ec92d86709caaad0a30fcb723807"
+    },
+    "tools/pvp72_sources/coop_progress.py": {
+      "r3": "d88bee1c719390c7229973a6c81a39de55058655cd9e1943ebe1e9e9f8123517",
+      "r4": "3ea887a5fb9fb1d546b2a69f1fee2dfc42fc17038b3c479cf07664de2d202f0f"
+    },
+    "tools/pvp72_sources/pve.py": {
+      "r3": "a7115239f6ad34a3678cf982d0e543dbdb868b20fdbeea9a5012707ea964416d",
+      "r4": "74bc4930d2d911e5b0e4603669eef909b055777fc054d8cda9b165ba18ff8bc9"
+    },
+    "tools/pvp72_sources/pve_ui.py": {
+      "r3": "3c08c499f224e9b45438c434fa020354db59810889c9b620b2d095947cfeacea",
+      "r4": "35c584ce8693a6590e830de49fd026782709727c9b2def4fd45c88532405a803"
+    },
+    "src/ui/gen/pm_hud.cpp": {
+      "r3": "2c397670eb2ca41d597f8a9a9e50ac188d359ef53d1e2fe4518095cdb3d97348",
+      "r4": "98b9a826def17f3118e6c4921cc2210fa55bfe47f4d53d54f8189f61c401f5f2"
+    },
+    "src/ui/gen/pm_app.cpp": {
+      "r3": "5f7e9f06071377693d7943a92bbc49c10f47ad20a18f2ff06ff90fa76d8ecaa8",
+      "r4": "26382f0834206163259fd482da8a545638af4bc475079033224b242669a2365f"
+    },
+    "src/ui/gen/pm_pve_ui.cpp": {
+      "r3": "9b09a212023168a5010278c3e1d8b4b20b49e29c02a9b48154d90b71c505d0c9",
+      "r4": "8492c09323d477b7ad111dde3eb27295079619d0caa4b783cf94cf3274e18017"
+    },
+    "src/sim/pvp/gen/pm_balance.cpp": {
+      "r3": "7f021097c3508e9088f232b4ce5c6a3d0385205b8217bc38fe0b125b87bd3caa",
+      "r4": "0976201898493d54b27a15fd19b79b3e49265e7c27d7ee2ef73ad28d29b338cf"
+    },
+    "src/sim/pvp/gen/pm_catalog.cpp": {
+      "r3": "99204cadef6f612f765fb3a104d6039220aa85bccbb9184f26a4b7c5b1a2fd53",
+      "r4": "97c5ffb9f73e3034f369b83a1a7fa6d0c0651aa7c70f1be0ea00240b49b5388a"
+    },
+    "src/sim/pvp/gen/pm_coop_progress.cpp": {
+      "r3": "8a5920c7583a6a52b40497236d047e1bea8e33001f5d393d2ee7a992c914dee2",
+      "r4": "1a9da5c785fd9263675183cefd4bea580956a4fa298385f062db18128e37f105"
+    },
+    "src/sim/pvp/gen/pm_pve.cpp": {
+      "r3": "603ad65fabf2d40c6926bb09eca0cb838eaef11141d44603da4e803b5194392e",
+      "r4": "cab3b491c97e234aa5252c7af0f99b2d0586f0ebfe742c2ac4d6fb732e00b3f2"
+    },
+    "src/cpptests/gen/pm_test_pvp_balance.cpp": {
+      "r3": "e56dba539dcc6927f967eb56e944f164244bc063b4471adf2a9bfdc77d8ff9c9",
+      "r4": "28c88bf408e9d740485e3156a04bea9cca5c7f031bb6451b1ef671734b5b3d7d"
+    },
+    "src/cpptests/gen/pm_test_pvp_september_rules.cpp": {
+      "r3": "84eb75b5af2b276bfd305fc91c7eff1b15a7c8f39991ae953c266be640516669",
+      "r4": "d38090bb8331d5ee08ec99ce619866d8777e6748d2a90d8899fbf1d7664dd6b4"
+    },
+    "更新说明-PvP74.4.md": {
+      "r3": "afea69870815fa0d09465d9a18bb9b7d54baea43b8e56cd010c8bd569c9b1824",
+      "r4": "eb43b7ed52b81b8aac066dd2a73d1af28866381a0bda2d1aa09d31e2be52b5ec"
+    },
+    "更新公告-PvP74.4.txt": {
+      "r3": "0a3ae739d0bde15120fdcd178658dcb1d239f48d6c9a39ea34fa96c0b63295e6",
+      "r4": "916a96e704a32785472735fa67c21e475923c4bb18b08fb48cca900c033d53a9"
+    },
+    "android/project/java/org/pvzrouge/pvzpvpnative/PvPActivity.java": {
+      "r3": "7c172468950b1a8aa6464ddd6497eb8ea516d9ee992b050e99d2c49953cdfc38",
+      "r4": "6f15d4230c752db36a8e655f866b83a073d1027e0d0fd75c07e82c18723d2f04"
+    }
+  }
+}

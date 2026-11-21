@@ -6,6 +6,7 @@
 #include "sim/typed/flying_state.h"
 #include "sim/typed/content_plant_state.h"
 #include "sim/typed/content_plant70_state.h"
+#include "sim/typed/pvp75_state.h"
 namespace pvz::typed72 {
 #define PVZ72_PLANT_NUMBERS(X) \
  X(root_animation,"根动画") X(head_animation,"头动画") X(sun,"阳光") X(burst,"爆了") \
@@ -36,6 +37,7 @@ struct CombatPlant {
     FlyingPlantState flying;
     ContentPlantState content_state;
     ContentPlant70State content70;
+    Pvp75PlantState pvp75;
     Field<double> ash,ice,butter,stun;
     Field<Point> head_point;
     Field<bool> lantern_charm_healed;

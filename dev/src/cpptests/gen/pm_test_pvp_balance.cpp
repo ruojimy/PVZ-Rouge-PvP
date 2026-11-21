@@ -182,7 +182,7 @@ V C_BalanceTests::m_test_exact_costs_cooldowns_original_evidence_and_protected_l
         L_key = it2_[i2_].first; L_value = it2_[i2_].second; 
         (void)(m_assertEqual(Args{L_value, rd(pm_catalog::f_actual_card(Args{L_key}), SV("cooldown")), L_key}));
     }}
-    L_expected_costs = py_dict({{SV("plant:火爆辣椒"), V(175.0)}, {SV("plant:仙人掌"), V(175.0)}, {SV("plant:杨桃"), V(375.0)}, {SV("zombie:路障僵尸"), V(50.0)}, {SV("zombie:潜水僵尸"), V(50.0)}, {SV("zombie:鸭子路障僵尸"), V(50.0)}, {SV("zombie:豌豆僵尸"), V(75.0)}, {SV("zombie:蹦蹦僵尸"), V(90.0)}, {SV("zombie:雪橇车僵尸"), V(350.0)}, {SV("zombie:投篮车僵尸"), V(275.0)}, {SV("zombie:高坚果僵尸"), V(325.0)}, {SV("zombie:旗帜僵尸"), V(175.0)}, {SV("zombie:气球僵尸"), V(100.0)}, {SV("zombie:矿工僵尸"), V(125.0)}});
+    L_expected_costs = py_dict({{SV("plant:火爆辣椒"), V(175.0)}, {SV("plant:仙人掌"), V(175.0)}, {SV("plant:杨桃"), V(300.0) /* PvP75 */}, {SV("zombie:路障僵尸"), V(50.0)}, {SV("zombie:潜水僵尸"), V(50.0)}, {SV("zombie:鸭子路障僵尸"), V(50.0)}, {SV("zombie:豌豆僵尸"), V(75.0)}, {SV("zombie:蹦蹦僵尸"), V(90.0)}, {SV("zombie:雪橇车僵尸"), V(350.0)}, {SV("zombie:投篮车僵尸"), V(275.0)}, {SV("zombie:高坚果僵尸"), V(325.0)}, {SV("zombie:旗帜僵尸"), V(175.0)}, {SV("zombie:气球僵尸"), V(100.0)}, {SV("zombie:矿工僵尸"), V(125.0)}});
     { auto it3_ = py::items_vec(L_expected_costs);
     for (size_t i3_ = 0; i3_ < it3_.size(); ++i3_) {
         L_key = it3_[i3_].first; L_value = it3_[i3_].second; 
@@ -197,7 +197,7 @@ V C_BalanceTests::m_test_exact_costs_cooldowns_original_evidence_and_protected_l
     (void)(m_assertEqual(Args{V(120.0), rd(pm_catalog::RULES, SV("tail_activation_seconds"))}));
     (void)(m_assertEqual(Args{V(200.0), rd(pm_catalog::f_actual_card(Args{SV("plant:火炬树桩"), V::list({SV("secret:蓝火")})}), SV("cost"))}));
     (void)(m_assertEqual(Args{V(150.0), rd(pm_catalog::f_actual_card(Args{SV("plant:大嘴花"), V::list({SV("secret:龙蒺藜")})}), SV("cost"))}));
-    (void)(m_assertEqual(Args{V(-25.0), rd(pm_catalog::f_actual_card(Args{SV("plant:石块")}), SV("cost"))}));  // PvP73 balance: 石块 -25 (was 0)
+    (void)(m_assertEqual(Args{V(0.0), rd(pm_catalog::f_actual_card(Args{SV("plant:石块")}), SV("cost"))}));  // PvP73 balance: 石块开销为0
     (void)(m_assertEqual(Args{V(20.0), rd(pm_catalog::f_actual_card(Args{SV("plant:石块")}), SV("cooldown"))}));
     { V it4_ = py::iter_list(V::tuple({SV("plant:花盆"), SV("plant:睡莲")}));
     for (size_t i4_ = 0; i4_ < it4_.len(); ++i4_) {
@@ -383,7 +383,7 @@ V C_BalanceTests::m_test_native_ashes_and_instant_kills_take_exactly_500_from_a_
                     break;
                 }
             }}
-            (void)(m_assertEqual(Args{V(500.0), rdm(L_giant, &Obj::血量, SV("血量")), L_key}));
+            (void)(m_assertEqual(Args{((L_key == SV("plant:火爆辣椒")) ? V(V(250.0)) : V(V(500.0))), rdm(L_giant, &Obj::血量, SV("血量")), L_key}));
         }
     }}
     return V::none();

@@ -141,6 +141,13 @@ if(UI_SRC)
     COMMAND "${Python3_EXECUTABLE}" -I -B "${CMAKE_SOURCE_DIR}/tools/pvp743_network_sources.py" --check
     WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}" VERBATIM)
   add_dependencies(pvzui pvp743_network_sources_check)
+  # PvP75: new-card catalog (typed cold + V runtime), art rows and 激光豆 UI hooks.
+  add_custom_target(pvp75_sources_check
+    COMMAND "${Python3_EXECUTABLE}" -I -B "${CMAKE_SOURCE_DIR}/tools/pvp75_catalog_sync.py" --check
+    COMMAND "${Python3_EXECUTABLE}" -I -B "${CMAKE_SOURCE_DIR}/tools/pvp75_assets.py" --check
+    COMMAND "${Python3_EXECUTABLE}" -I -B "${CMAKE_SOURCE_DIR}/tools/pvp75_ui_hooks.py" --check
+    WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}" VERBATIM)
+  add_dependencies(pvzui pvp75_sources_check)
   # The AISeat typed-observation bodies in src/ui/gen/pm_lobby_room.cpp are
   # generated from tools/pvp72_sources/lobby_room.py; reject a stale copy.
   add_custom_target(typed72_ai_bridge_check
@@ -160,6 +167,9 @@ if(UI_SRC)
     get_filename_component(n ${f} NAME_WE)
     add_executable(${n} ${f})
     target_link_libraries(${n} PRIVATE pvzui)
+    if(n STREQUAL "pvp744_r4_audit" OR n STREQUAL "pvp75_audit")
+      target_include_directories(${n} BEFORE PRIVATE ${PVZ_TYPED72_STAGE}/src ${PVZ_TYPED72_COMPOSITION} ${PVZ_TYPED72_COMPOSITION}/probes)
+    endif()
     if(n MATCHES "^pvp744_material_" OR n STREQUAL "pvp741_hero_texture_audit" OR n STREQUAL "pvp742_terrain_units_audit" OR n STREQUAL "pvp742_reverse_subscription_bench" OR n STREQUAL "pvp742_plant_occupancy_audit" OR n STREQUAL "pvp742_secondhand_audit" OR n STREQUAL "pvp744_state_view_audit" OR n STREQUAL "pvp744_r3_audit")
       # These verifiers construct production state (HeroState / FloodState).
       target_include_directories(${n} BEFORE PRIVATE ${PVZ_TYPED72_STAGE}/src)

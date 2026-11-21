@@ -48,6 +48,8 @@ struct RoomPlayerState {
     double immune_until=0.,collect_locked_until=0.,gift_ready_at=0.;
     double teleport_ready_at=0.;
     std::optional<Cell> cannon_aim;
+    std::optional<std::string> laser_aim; // PvP75: the 激光豆 this seat is aiming
+    bool test_zero_cooldown=false; // PvP75 local test mode: this seat's cards never cool down
     std::vector<std::pair<std::string,double>> cooldown_spans;
 };
 struct RoomSurrenderRequest {int64_t id;Seat seat;double expires;};

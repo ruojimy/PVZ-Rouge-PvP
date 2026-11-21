@@ -20,7 +20,7 @@ inline const std::vector<std::string>& neural_behaviors(){
     }();return values;
 }
 inline double bounded(double x,double scale){return std::clamp(std::isfinite(x)?x/scale:0.,-10.,10.);}
-inline NeuralFeatures neural_features(const AiPlannerInput& in,const AiPlannerMemory& m){
+inline NeuralFeatures neural_features(const AiPlannerInput& in,const AiPlannerMemory& m,int version=1){
     const auto dx=[&](double x){return pvz::typed72::ai_wrap_delta(in.me.x,x,in.width);};
     NeuralFeatures f;
     f.global={in.side==Seat::plant?1.:0.,bounded(in.time,600.),in.time>=405.?1.:0.,bounded(in.width,4000.),in.recovering?1.:0.,
@@ -40,6 +40,24 @@ inline NeuralFeatures neural_features(const AiPlannerInput& in,const AiPlannerMe
         for(const auto& b:neural_behaviors())r.push_back(u.card_info.behavior==b?1.:0.);
         (u.side==in.side?f.own:f.enemy).push_back(std::move(r));
     }
+    if(version==2){
+        // Exact state summaries, not teacher outputs. Give the small encoder direct
+        // access to counts and local pressure that sum/max embeddings must otherwise learn.
+        double prods=0.,fire7=0.,fire8=0.,fire9=0.,p350=0.,p500=0.,mine=0.,theirs=0.;
+        for(const auto& u:in.units){
+            if(!(u.hp>0.))continue;
+            const bool own=u.side==in.side;const auto& b=u.card_info.behavior;
+            const bool basic=b=="shoot"||b=="reed61"||b=="flying56";
+            if(own){prods+=u.card_info.producer;fire7+=basic;fire8+=basic||b=="mortar"||b=="spring";fire9+=basic||b=="mortar";}
+            if(!u.card_info.producer)(own?mine:theirs)+=u.card_info.cost.value_or(0.);
+            if(!own&&u.mobile){
+                const double x=std::abs(dx(u.position.x)),y=std::abs(u.position.y-in.me.y),cost=u.card_info.cost.value_or(25.);
+                if(x<350.&&y<200.)p350+=cost;
+                if(x<500.&&y<250.)p500+=cost;
+            }
+        }
+        for(double x:{prods/10.,fire7/10.,fire8/10.,fire9/10.,p350/500.,p500/500.,mine/1000.,theirs/1000.})f.global.push_back(x);
+    }else if(version!=1)throw std::invalid_argument("unsupported neural feature version");
     return f;
 }
 inline J features_json(const NeuralFeatures& f){return {{"global",f.global},{"own",f.own},{"enemy",f.enemy}};}
@@ -54,12 +72,13 @@ struct Dense {
         for(double v:b)if(!std::isfinite(v))throw std::invalid_argument("nonfinite model bias");
     }
     std::vector<double> operator()(const std::vector<double>& x,bool relu)const{
+        if(w.empty()||x.size()!=w.front().size())throw std::invalid_argument("neural feature dimension mismatch");
         auto y=b;for(size_t i=0;i<y.size();++i){for(size_t k=0;k<x.size();++k)y[i]+=w[i][k]*x[k];if(relu)y[i]=std::max(0.,y[i]);}return y;
     }
 };
 class NeuralModel {
-    Dense unit,hidden,output;size_t embedding=0;
-    std::vector<bool> enabled_heads;bool residual_=false;
+    Dense unit,hidden,output,mode_hidden_layer,mode_output_layer;size_t embedding=0;bool separate_mode_=false;
+    std::vector<bool> enabled_heads;bool residual_=false,mode_transition_=false;int feature_version_=1,policy_version_=1;
 public:
     explicit NeuralModel(const J& j){
         if(j.at("format")!="pvz-deepset-hybrid-1")throw std::invalid_argument("unknown neural model format");
@@ -75,13 +94,27 @@ public:
         // itself: goal classes mean r22 + (class - 5), the mode class means keep (0) or flip (1).
         // Zero weights with the neutral classes biased therefore reproduce r22 exactly.
         residual_=j.value("residual",false);
+        policy_version_=j.value("policy_version",1);
+        if(policy_version_!=1&&policy_version_!=2)throw std::invalid_argument("unsupported policy version");
+        mode_transition_=j.value("mode_transition",false);
+        if(mode_transition_&&(policy_version_!=2||residual_))throw std::invalid_argument("transition mode requires absolute policy v2");
+        feature_version_=j.value("feature_version",1);
+        if(feature_version_!=1&&feature_version_!=2)throw std::invalid_argument("unsupported neural feature version");
         embedding=j.at("embedding");const size_t width=j.at("hidden");
         if(embedding<1||embedding>128||width<1||width>512)throw std::invalid_argument("neural model dimensions out of bounds");
         unit=Dense(j.at("unit"),16+neural_behaviors().size(),embedding);
-        hidden=Dense(j.at("body"),20+4*embedding,width);output=Dense(j.at("heads"),width,27);
+        hidden=Dense(j.at("body"),(feature_version_==2?28:20)+4*embedding,width);output=Dense(j.at("heads"),width,policy_version_==2?28:27);
+        separate_mode_=j.contains("mode_hidden");
+        if(separate_mode_){
+            const int n=j.at("mode_hidden");if(feature_version_!=2||policy_version_!=2||n<1||n>128)throw std::invalid_argument("invalid separate mode dimensions");
+            mode_hidden_layer=Dense(j.at("mode_body"),28,n);mode_output_layer=Dense(j.at("mode_output"),n,2);
+        }
     }
     bool enabled(size_t h)const{return enabled_heads.at(h);}
     bool residual()const{return residual_;}
+    int feature_version()const{return feature_version_;}
+    int policy_version()const{return policy_version_;}
+    bool mode_transition()const{return mode_transition_;}
     std::vector<double> logits(const NeuralFeatures& f)const{
         std::vector<double> x=f.global;
         for(const auto* group:{&f.own,&f.enemy}){
@@ -89,10 +122,12 @@ public:
             for(const auto& row:*group){const auto h=unit(row,true);for(size_t i=0;i<embedding;++i){sum[i]+=h[i]/10.;maximum[i]=std::max(maximum[i],h[i]);}}
             x.insert(x.end(),sum.begin(),sum.end());x.insert(x.end(),maximum.begin(),maximum.end());
         }
-        return output(hidden(x,true),false);
+        auto result=output(hidden(x,true),false);
+        if(separate_mode_){const auto mode=mode_output_layer(mode_hidden_layer(f.global,true),false);result[12]=mode[0];result[13]=mode[1];}
+        return result;
     }
     std::array<int,4> classes(const NeuralFeatures& f)const{
-        const auto y=logits(f);std::array<int,4> result;const int offsets[]={0,11,13,24,27};
+        const auto y=logits(f);std::array<int,4> result;const std::array<int,5> offsets=policy_version_==2?std::array<int,5>{0,12,14,25,28}:std::array<int,5>{0,11,13,24,27};
         for(int h=0;h<4;++h)result[h]=int(std::max_element(y.begin()+offsets[h],y.begin()+offsets[h+1])-(y.begin()+offsets[h]));
         return result;
     }
@@ -102,16 +137,16 @@ class NeuralPlanner final:public pvz::typed72app::IPlanner {
 public:
     NeuralPlanner(Seat s,std::shared_ptr<const NeuralModel> m):base(s),model(std::move(m)){}
     AiPlanR22 plan(const AiPlannerInput& in)override{
-        const auto f=neural_features(in,base.memory());auto p=base.plan(in);const auto c=model->classes(f);
+        const auto f=neural_features(in,base.memory(),model->feature_version());auto p=base.plan(in);const auto c=model->classes(f);
         if(in.side==Seat::plant){
             if(model->residual()){
-                if(model->enabled(0)&&c[0]!=5)p.econ_goal=std::clamp(int(p.econ_goal)+c[0]-5,2,10);
+                if(model->enabled(0)&&c[0]!=5)p.econ_goal=std::clamp(int(p.econ_goal)+c[0]-5,2,model->policy_version()==2?11:10);
                 // Without a flip the plan and r22's memory are left exactly as r22 produced them.
                 if(!(model->enabled(1)&&c[1]))return p;
                 p.mode=p.mode==std::optional<std::string>("siege")?"defend":"siege";
             }else{
-                if(model->enabled(0))p.econ_goal=std::clamp(c[0],2,10);
-                if(model->enabled(1))p.mode=c[1]?"siege":"defend";
+                if(model->enabled(0))p.econ_goal=std::clamp(c[0],2,model->policy_version()==2?11:10);
+                if(model->enabled(1))p.mode=(model->mode_transition()?(bool(c[1])!=(f.global[11]>.5)):bool(c[1]))?"siege":"defend";
             }
             // Existing forced recovery behavior remains authoritative in this first candidate.
             if(in.recovering||in.me.hp<=10.)p.mode="defend";

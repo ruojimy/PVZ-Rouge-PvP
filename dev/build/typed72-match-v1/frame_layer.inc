@@ -125,6 +125,7 @@
         if(piercing)effects().draw_center(canvas.image(entity->kind),m.x,m.y,90.-std::atan2(m.vy,m.vx)*180./3.141592653589793);
         else{const auto image=canvas.image(entity->kind);canvas.display(image,{m.x-image->width/2.,m.y-image->height/2.});}
     }
+    void draw_pvp75()override{NativeFrameScope owner(canvas.frames);pvp75.draw(canvas);}
     void draw_ghost_effect(const GhostBlast& v)override{NativeFrameScope owner(canvas.frames);ContentPhaseProbe::draw_ghost_effect(v);effects().ghost_effect(v);}
     void draw_reed_effect(const ReedBolt& v)override{NativeFrameScope owner(canvas.frames);ContentPhaseProbe::draw_reed_effect(v);effects().reed_effect(v);}
     void draw_spring_effect(const SpringSwipe& v)override{NativeFrameScope owner(canvas.frames);ContentPhaseProbe::draw_spring_effect(v);effects().spring_effect(v);}

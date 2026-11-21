@@ -1,0 +1,28 @@
+{
+  "checks": [
+    {
+      "evidence": true,
+      "name": "motion_filter_calibration_orientation_and_gyro",
+      "passed": true
+    },
+    {
+      "evidence": true,
+      "name": "bounded_visual_bursts_keep_later_units",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "boss_scale": 0.4266666666666667,
+        "sounds": 6
+      },
+      "name": "original_boss_audio_loads_and_camera_is_test_only",
+      "passed": true
+    },
+    {
+      "evidence": true,
+      "name": "generated_controls_real_runtime_and_settings",
+      "passed": true
+    }
+  ],
+  "failures": 0
+}

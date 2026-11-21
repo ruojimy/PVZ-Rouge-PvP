@@ -4,6 +4,7 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from native_test_waivers import DEFAULT_POLICY, evaluate_module, load_waivers
 from native_test_scheduling import run_modules
+from native_regression_report import combat_errors, fire_errors, report_failures
 ROOT=Path(__file__).resolve().parents[1]
 REFERENCE=Path(r"C:\Users\xiech\Downloads\PVZ-Rouge-v1.4.8\next-pvp71")
 # Read-only inputs the original tests reach through ROOT=parents[1]. Reference data comes from the original
@@ -17,6 +18,7 @@ FIXTURE_COPIES=[("reference","reverse_engineered/raw/pvzrouge.pyc"),
                 ("reference","modkit/android/fonts/cjk.ttf"),
                 ("reference","modkit/pvzrouge_runtime_patch_source_20260904.py"),
                 ("reference","对战/PvP规则数据.json"),("reference","对战/PvP规则与卡池.md"),
+                ("native","extract/data/catalog.json"),("native","extract/data/__init__.json"),
                 ("reference","server/relay_server.py"),("reference","tests/fixtures"),
                 ("reference","tests/legacy_pvp_simulation.py"),
                 ("reference","tests/multiworker_fixtures.py"),
@@ -95,7 +97,9 @@ def clone_fixture(source,target):
     return target
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument("--out",required=True);ap.add_argument("--workers",type=worker_count,default=None,help="auto (default) or a positive maximum; memory admission still applies");ap.add_argument("--worker-memory-mib",type=positive_int,default=1536);ap.add_argument("--memory-reserve-mib",type=positive_int,default=1024);ap.add_argument("--timeout",type=int,default=600);ap.add_argument("--module",action="append");ap.add_argument("--reference",default=str(REFERENCE));ap.add_argument("--exe",default=None,help="cpp_tests.exe to run (default build/Release/cpp_tests.exe)");ap.add_argument("--strict",action="store_true",help="Disable the user-approved temporary exact-failure waivers");ap.add_argument("--app-run",default=str(ROOT/"build/app-typed72-v2/Release/app_run.exe"),help="app_run.exe for the PvP73 pure-typed dynamic-path gate");args=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument("--out",required=True);ap.add_argument("--workers",type=worker_count,default=None,help="auto (default) or a positive maximum; memory admission still applies");ap.add_argument("--worker-memory-mib",type=positive_int,default=1536);ap.add_argument("--memory-reserve-mib",type=positive_int,default=1024);ap.add_argument("--timeout",type=int,default=600);ap.add_argument("--module",action="append");ap.add_argument("--reference",default=str(REFERENCE));ap.add_argument("--exe",default=None,help="cpp_tests.exe to run (default cpp_tests.exe beside --app-run)");ap.add_argument("--strict",action="store_true",help="Disable the user-approved temporary exact-failure waivers");ap.add_argument("--app-run",default=str(ROOT/"build/app-typed72-v2/Release/app_run.exe"),help="app_run.exe for the PvP73 pure-typed dynamic-path gate")
+    ap.add_argument("--baseline", type=Path, help="Complete previous full-suite summary (defaults to latest release)")
+    args=ap.parse_args()
     # Both the frozen async-function ASTs and bytecode capture policy were
     # produced by CPython 3.8. sys.executable also runs the relay fixtures.
     # Refuse an incompatible interpreter before copying fixtures or testing.
@@ -110,11 +114,9 @@ def main():
     if policy_hash:(out/"waiver-policy.json").write_bytes(DEFAULT_POLICY.read_bytes())
     fixture_root=build_fixture(out,Path(args.reference))
     fingerprints=bytecode_ref_fingerprints(out,Path(args.reference),fixture_root)
-    # --exe: the cpp_tests binary under test (default: the frozen build/Release one). A new build
-    # lives in its own directory; selecting it changes no test, reference or rule.
-    exe=Path(args.exe).resolve() if args.exe else ROOT/"build/Release/cpp_tests.exe"
+    exe=Path(args.exe).resolve() if args.exe else Path(args.app_run).resolve().with_name("cpp_tests.exe")
     version_inputs={"build":json.loads((ROOT/"extract/data/__init__.json").read_text(encoding="utf-8")),
-        "reference":str(Path(args.reference).resolve()),"source_test_origin":"read-only 71 suite; 72 user-rule conformance is reported separately",
+        "reference":str(Path(args.reference).resolve()),"source_test_origin":"frozen 71 collection; project-owned current assertions in tools/native_test_contracts.py",
         "ruleset":json.loads((ROOT/"extract/data/catalog.json").read_text(encoding="utf-8")).get("RULES",{}).get("ruleset","pvp71")}
     (out/"input-versions.json").write_text(json.dumps(version_inputs,ensure_ascii=False,indent=2),encoding="utf-8")
     print("INPUT_VERSIONS",json.dumps(version_inputs,ensure_ascii=True),flush=True)
@@ -141,7 +143,18 @@ def main():
         if expected!=actual:
             collection_mismatch[mod]={"missing":sorted(expected-actual),"extra":sorted(actual-expected)}
     (out/"collection-mismatch.json").write_text(json.dumps(collection_mismatch,indent=2),encoding="utf-8")
+    baseline=args.baseline
+    if baseline is None and not args.module:
+        release=json.loads((ROOT/"dist/latest-native-release.json").read_text("utf-8"))
+        if release.get("full_regression_report"):baseline=Path(release["full_regression_report"])
+    if baseline is not None:
+        baseline=baseline.resolve()
+        if not baseline.is_file() or baseline.parent==out:raise ValueError("Missing or self-referential baseline: "+str(baseline))
     exe_hash=file_sha(exe)
+    build_dir=Path(args.app_run).resolve().parent
+    binaries={"cpp_tests":exe,"app_run":Path(args.app_run).resolve(),"audit":build_dir/"pvp744_r4_audit.exe","game":build_dir/"PvZPvPNative.exe"}
+    binaries['fire']=build_dir/'fire741_production_audit.exe'
+    binary_hashes={name:file_sha(path) for name,path in binaries.items()}
     source_files=[p for p in (ROOT/"src").rglob("*") if p.is_file() and p.suffix in (".cpp",".h",".inc",".cmake")]
     source_files+=list((ROOT/"tools").glob("*.py"))+list((ROOT/"tools").glob("*.sh"))+list((ROOT/"android").glob("*.sh"))+[ROOT/"CMakeLists.txt",ROOT/"android/CMakeLists.txt"]
     source_files+=list((ROOT/"tools/pvp72_sources").glob("*.py"))+list((ROOT/"tools/pvp72_sources").glob("*.json"))
@@ -221,10 +234,52 @@ def main():
     pure_gate["exit"]=gate_run.returncode
     accepted=accepted and bool(pure_gate.get("passed")) and gate_run.returncode==0
     execution_success=execution_success and bool(pure_gate.get("passed"))
+    combat_dir = out / "combat-r4"
+    combat_dir.mkdir()
+    combat_exe = Path(args.app_run).resolve().with_name("pvp744_r4_audit.exe")
+    combat = {"passed": False}
+    try:
+        with (combat_dir / "audit.log").open("wb") as log:
+            rc = subprocess.run([str(combat_exe), str(combat_dir)], cwd=str(ROOT),
+                                stdout=log, stderr=subprocess.STDOUT, timeout=args.timeout).returncode
+        report = json.loads((combat_dir / "results.json").read_text(encoding="utf-8"))
+        errors = combat_errors(report)
+        combat = {"passed": rc == 0 and not errors, "coverage_errors": errors,
+                  "checks": report["checks"], "exit": rc}
+    except (OSError, ValueError, KeyError, subprocess.TimeoutExpired) as error:
+        combat["error"] = str(error)
+    fire_path=combat_dir/'fire-matrix.json'
+    try:
+        with (combat_dir/'fire-matrix.log').open('wb') as log:
+            env=dict(os.environ,PVP_USERDATA=str(combat_dir/'fire-userdata'),SDL_VIDEODRIVER='dummy',SDL_AUDIODRIVER='dummy')
+            rc=subprocess.run([str(binaries['fire']),str(fire_path)],cwd=str(ROOT),env=env,
+                              stdout=log,stderr=subprocess.STDOUT,timeout=args.timeout).returncode
+        fire=fire_errors(json.loads(fire_path.read_text('utf8')))
+        fire_gate=dict(passed=rc==0 and not fire,exit=rc,coverage_errors=fire)
+    except (OSError,ValueError,subprocess.TimeoutExpired) as error:
+        fire_gate=dict(passed=False,error=str(error))
+    accepted = accepted and combat["passed"] and fire_gate["passed"]
+    execution_success = execution_success and combat["passed"] and fire_gate["passed"]
+    changed=sorted(set(changed) | {name for name,value in source_hashes.items()
+                                  if not (ROOT/name).is_file() or file_sha(ROOT/name)!=value})
+    if changed:
+        accepted=execution_success=False
     applied=[row for status in statuses for row in status["waived"]]
     waiver_report={"enabled":not args.strict,"policy":str(DEFAULT_POLICY),"policy_sha256":policy_hash,"applied":applied,"unexpected_nonpass":[row for status in statuses for row in status["unexpected_nonpass"]],"resolved":[case for status in statuses for case in status["resolved_waivers"]]}
     (out/"waivers-applied.json").write_text(json.dumps(waiver_report,ensure_ascii=False,indent=2),encoding="utf-8")
-    summary={"source_changed_during_run":changed,"fixture_changed_during_run":fixture_changed,"exe_changed_during_run":exe_changed,"collection_mismatch":collection_mismatch,"exe":str(exe),"exe_sha256":exe_hash,"seconds":round(time.time()-started,3),"modules":statuses,"counts":{k:sum(s["counts"][k] for s in statuses) for k in ("PASS","FAIL","ERROR","SKIP")},"missing":sum(len(s["missing"]) for s in statuses),"execution_success":execution_success,"success":accepted,"accepted_with_waivers":accepted and bool(applied),"waived":len(applied),"waivers":waiver_report,"scheduling":scheduling,"pure_typed_gate":pure_gate}
+    summary={"source_changed_during_run":changed,"fixture_changed_during_run":fixture_changed,"exe_changed_during_run":exe_changed,"collection_mismatch":collection_mismatch,"exe":str(exe),"exe_sha256":exe_hash,"seconds":round(time.time()-started,3),"modules":statuses,"counts":{k:sum(s["counts"][k] for s in statuses) for k in ("PASS","FAIL","ERROR","SKIP")},"missing":sum(len(s["missing"]) for s in statuses),"execution_success":execution_success,"success":accepted,"accepted_with_waivers":accepted and bool(applied),"waived":len(applied),"waivers":waiver_report,"scheduling":scheduling,"pure_typed_gate":pure_gate,"combat_r4_gate":combat}
+    summary.update(fire_gate=fire_gate,scope="subset" if args.module else "full", collected=len(ids), selected=len(selected),
+                   build_version=version_inputs["build"]["BUILD"], binary_sha256=binary_hashes)
+    changed_binaries=[name for name,path in binaries.items() if file_sha(path)!=binary_hashes[name]]
+    summary["changed_binaries"]=changed_binaries
+    if changed_binaries:summary["success"]=summary["execution_success"]=False
+    try:
+        triage=report_failures(summary,out,baseline)
+    except (ValueError,KeyError,TypeError,OSError) as error:
+        triage={"error":str(error)}
+        summary["success"]=False
+    (out/"failure-triage.json").write_text(json.dumps(triage,ensure_ascii=False,indent=2),encoding="utf-8")
+    summary["triage"]={key:value for key,value in triage.items() if key not in ("cases","previous_findings")}
     (out/"summary.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding="utf-8")
     print(json.dumps({k:v for k,v in summary.items() if k not in ("modules","collection_mismatch")},ensure_ascii=False),flush=True)
     return 0 if summary["success"] else 1

@@ -144,6 +144,13 @@
             // the key then stays in the V player dict for the rest of the match.
             if(room.players[i].collect_locked_until>0.)row["collect_locked_until"]=room.players[i].collect_locked_until;
             if(cannon_aim_written[i]){const auto& aim=room.players[i].cannon_aim;row["cannon_aim"]=aim?J::array({aim->y,aim->x}):J(nullptr);}
+            // PvP75: the aimed 激光豆 (eye point and facing feed the local range hint).
+            if(const auto& aim=room.players[i].laser_aim)if(const auto record=battle.native_objects.get(*aim))if(const auto* bean=std::get_if<PlantRef>(&*record)){
+                const auto eye=pvp75::laser_eye(**bean,battle.runtime.tile);
+                row["laser_aim"]={{"id",*aim},{"x",eye.x},{"y",eye.y},{"facing",(*bean)->facing<0.?-1:1},
+                    {"min",pvp75::kLaserMinCells},{"max",pvp75::kLaserMaxCells},{"angle",pvp75::kLaserHalfAngle}};
+            }
+            if(room.players[i].test_zero_cooldown)row["test_zero_cooldown"]=true;
             if(std::find(tick_state.present.begin(),tick_state.present.end(),seat)==tick_state.present.end())row["absent"]=true;
         }
         return out;

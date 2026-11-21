@@ -1,0 +1,580 @@
+{
+ "base_revision": "pvp744-r4",
+ "reviewed_files": {
+  "CMakeLists.txt": {
+   "r4": "da08abbc0b09ca31ffa0f8cd052ba7211a31fa7228af4226ec666b0303ada8c7",
+   "pvp75": "06c35d80144f2e1958c18fc6f246cb2d006a16ec8687196a5ad1a6b39096d61e"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/bonus_plants.cpp": {
+   "r4": "1c69bbb4695721e3e13607afcb4d39ae0cbc268286f56d0994bc36c5ae773a89",
+   "pvp75": "5f95fb7be5bb8c6ddba5e6a64761cfd5aba225c0210633f9a1dc994f7f1db9d5"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/bonus_plants.h": {
+   "r4": "4e5a9261a942c25e540cf4c310898d1d98e0e6e1a2f089c0941bdd012caa58d5",
+   "pvp75": "d788c5f93d09a8c489a1164a1d60b5162519d58bac4c61c1a4d8bcb6356d0853"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/bonus_projectiles.cpp": {
+   "r4": "1b6fe0ab62f12dce9545ac4256a9b7bcdcf5bf75dd6026d9cec8a25380bfe885",
+   "pvp75": "5e7c46f9c9a53f2f298fffacca942fc762033be1732630f74c3ea3da7b388bae"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/cold_admission.cpp": {
+   "r4": "2c5f39b9b32785e8ed27770d5d22a476ba9dbc7ea34a833d0cbeadfbc76666d0",
+   "pvp75": "8c2c4c9371bc5679fe7da785708e7ec86e6f13f3e1dee6f0b3311b4682f05fd8"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/cold_catalog_data.cpp": {
+   "r4": "f13b6b19a97f524f470c4877e929d6b63e0ffed725941c247ff5de8debe575be",
+   "pvp75": "5641c8439ffc8894da1e7512b3fd2cb058930fb0ea018ea32b03186870f68496"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/cold_placement.cpp": {
+   "r4": "4bbed01c34362985c1ac24c20c9a0ad8daa7839591eeabeb257ddc4ee9b28a53",
+   "pvp75": "f62ef34bf07028c32b38c2b24416337a3ca74000b421b50159258cc86467b263"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/cold_registration.cpp": {
+   "r4": "e64234947360e76a40754883e121dd6d5f7d65175cdaa6292cb8ff15fefaeb4f",
+   "pvp75": "cdddb251720423ab3ef9911a3ae270baf4817b5976bf6ddc4706ead09f062dfb"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/command_actions.cpp": {
+   "r4": "1c74e0aae891f72c0b7a88df615ee30f4bad9db9178788b48f92a1a032b8a157",
+   "pvp75": "aa4f7dc0cb9d598348223dc146b021bfbc8477ab18c22c56aa9a39bc65551d1a"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/command_actions.h": {
+   "r4": "bb21b89da938ecc9de511b3d2f479fd145b2935d956f8b75e5d0cd42df377357",
+   "pvp75": "c7301c4fab62282c17d645a64d4a9ced1a225959add14ff478740471889f537e"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/command_codec.cpp": {
+   "r4": "db0f878d7aa2b4c1e9011e3d9bc0debda98b24a0d73b9a4fd3953d4b2340f612",
+   "pvp75": "000b7e35d313be12bf995ed6dfbf27e7e454d0e03df9bd03ccf1a19380507cef"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/command_input.h": {
+   "r4": "c380b8ed4791369aede150a7953091700862e677089979c145d20b3db6d3bada",
+   "pvp75": "99c2e2b71168a20944fb5360c33df7dbcef6f4ef1971a3f627c4d45d957f4014"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/content_admission.cpp": {
+   "r4": "595a79b4fd42a5c33316819192cb6010589236a8b5d2b97ab7c41cdb00c58670",
+   "pvp75": "8f41a455c3d50fe67a8342bc18c3a77f4e512b7e488c514d4eb75ec1b0ce8f4d"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/content_admission.h": {
+   "r4": "14d361ffab88bcb657aa8ad2e0320b8e6fb0fe2770acfaaddb37d7208535ed62",
+   "pvp75": "1506b13791deaaa2c06c599caa30e680e8c45ca5557c11feeef88cedbff1568f"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/content_damage.cpp": {
+   "r4": "1ca5e8188409e452c685b6d260792ac556897342717c64967a1cb5684bed505f",
+   "pvp75": "db1a8d3ed8d6b051a890fb5db11ba6b665debd511b790937527cd4ec83cc345a"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/content_target.cpp": {
+   "r4": "e1bca00117b3d1ca5698431910f3fe5f34d754ef56e3580c852af0bb5a23385c",
+   "pvp75": "8b3edf9a146f8746ae107a961117ce6da44bcf44320c2a94056110079755bf66"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/content_zombies56.cpp": {
+   "r4": "d8c489d59257ccd2ea9408d9dd0bd918252b09b869b4f0fbabff21fc138e9cd8",
+   "pvp75": "3c960e6ea7f34b5575a60aff1b02e97712bcfc11f54f7234194c592d6d4c52db"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/content_zombies56.h": {
+   "r4": "adb38e52cc0aafe35f2c6bd2382f56d951f9d74d18c1769f319d040935970ba0",
+   "pvp75": "f30b68f565002de30d5d3454248afd152e6cdafb61c6eb54be08e8b4fe754592"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/damage_patch.cpp": {
+   "r4": "519c7e7813756d4bb36cf5a3da7ea79120685c669a2871c1768d388e017cf23c",
+   "pvp75": "0ee04bee6cf11ac0295fc7d85c2f0f1b92fdd4e76c6151c52b35321638799053"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/economy.cpp": {
+   "r4": "e2d5bce304e4eae3db6b76eb46374b36b5f5c4b86aeaf70ed809a9442618b821",
+   "pvp75": "e7b8ceb45991b126a3e4d2999aa041a43e23d8b25712d1436a6f2c6528f15cd7"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/economy.h": {
+   "r4": "ce57e52aab255205e9ef77cf9c7af7d69d636373b6c1b2bed9d7d1ffd1df5f14",
+   "pvp75": "c42d5695822fbd979b6df380fd62e45363d41a34f0c13c8be3bd5a81abfd23f0"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/entity_phase.cpp": {
+   "r4": "4be993790764107531b49fe7cc8afd2a51fb04a3d33eb911a7d99bcfa2666259",
+   "pvp75": "79dd0fb4ceb1c86845c47aeaad4bd2777a8a0741f554e8a840b8ec210498872e"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/expansion_combat.cpp": {
+   "r4": "dca9ac72dc0d7bb8d4525aba7bbc24cd10b1bd886a2ed412ccce9deb1af33fe3",
+   "pvp75": "2d590fb83f14e66145eb4332ccd1871ab8294d010f6700471b84fe65b3a07c82"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/native_content_draw.cpp": {
+   "r4": "cbc63359b7453ea482da1355c2fe2cff4b9c47cb464025cac31a7a968c2c5d3b",
+   "pvp75": "32bc423f52a5b1882cb669f8f75c017ca4930556ec1488b3cc7cbb016b70fedd"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/native_content_phase.cpp": {
+   "r4": "0320c168f9172b7921056e3b78ea6b3ffc36e1553e5fa68b412c612202b0e5d5",
+   "pvp75": "900b04f9c1b698b0394f97a2ce0f1702bd95c027314f8377764798c68bc6f935"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/native_content_phase.h": {
+   "r4": "5458a5a4622a85169a7e7ba91e5a8df341c459fa2c1c9f6a314011715c3312a2",
+   "pvp75": "55ac157499e8f43833e71730a406c87d519a2e316d2aa8e6cb513d893b22c3c2"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/phase_context.cpp": {
+   "r4": "6a909e43e081167e3c3036d0da0f778a152b283795bd96f33a864b48e4064378",
+   "pvp75": "057011bd241882aa6a993392af9996fd13a5f47e4858927e8baaeaf182e082c4"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/plant.h": {
+   "r4": "4405bbc5779b12298dcb73533fcdc860be745c2dca83e6c4c9f35ccd225d653a",
+   "pvp75": "7392ac0a21463316e0d900842842b816f2205163f856efdc433d04d155c49605"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/plant_lookup.cpp": {
+   "r4": "a987878862037abbda04f0cd48a378592fb344c9d7c7d226886968b68e370af3",
+   "pvp75": "8fd25bd4461254c4fc4fadcc23c2fcb94395b84b805192aa14eab9c3a18f6d87"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/plant_lookup.h": {
+   "r4": "c8f4bce8ab34ffd0056c0bf34a1aa6ab34b9d7c5251e634a213404c30c464ecd",
+   "pvp75": "5826871184c7729277493894619f15bc4db7edfb76a969bf29bf556c20261250"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/plant_queries.cpp": {
+   "r4": "898ed11cbbde6eadf3c1ed6a7879b2d30ac6d4ac8964162356758bdd717ebe74",
+   "pvp75": "88547e16edcbed1906f202d471137364f621cd963691872911e72cb1ab1250ef"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/pve_director.cpp": {
+   "r4": "ea002ee84fb3f9fa5c5f5df64189624dc0aef287b194657a1e22023151f75bf6",
+   "pvp75": "adfe4f3bbef8c1b9073b0c2db9a9549d50a0cd177af077affd55677094996ac6"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/room_state.h": {
+   "r4": "77f05458aa356199f93a4ae613e40934e86b51210303e181a3da70df2b20442a",
+   "pvp75": "216e5d692eab737fba82a50ea69efbfdb86584e08612fcc96f379ed56bd9764d"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/targets.h": {
+   "r4": "d4a54dd8a3624f8da5f7b443e5624181db9e4ac68f12da2e5957ae98d2212a56",
+   "pvp75": "5fce44cf9a83564e96020fd8b629164b26ede9c207a1af635012b7528e3f00be"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/terraria_bosses.cpp": {
+   "r4": "d7d77f52a32cae9b27be7d4825e67e45f9333afa33b8f6fe5bb6c01f3c5e13fe",
+   "pvp75": "85bf8277576e2b2e4ff24ae0b8680516e8e150d4c7efd55adb80bd46cb6de9c5"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/terraria_bosses.h": {
+   "r4": "e38e85853efbed0c414315b5b2280de068c81de17500171674e7065ff19e9171",
+   "pvp75": "5cb629e11eaa4376285fcb4093383368b9aa31c133a8f0179459beb813690126"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/zombie_actions.cpp": {
+   "r4": "26500783f3e0a40a76f8be9089b63342815f73a8af3fd8dd98e4e6345f01da68",
+   "pvp75": "70cbb655282a7451fd22086c37373e12c66f2f7b8e008b15fc0d593c56dd0079"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/zombie_motion.cpp": {
+   "r4": "45bad66ca9fbdbdbc1da6da919bc6af6e8b7cfbc7eb9d794244851571acd324d",
+   "pvp75": "d4bba7100d93bf277757567a8da2fbe9413dfe774cfa802b55899ccd7df3c830"
+  },
+  "build/typed72-match-v1/frame_layer.inc": {
+   "r4": "4cb175bd7502ff04826b63eccb715ab81fac451e8dfcf137b36b57c334a106fe",
+   "pvp75": "ca17efa299baa5f1d41d430bb7b0993926d431080c653791c0ed426b2be1a9d0"
+  },
+  "build/typed72-match-v1/match_probe.cpp": {
+   "r4": "52e4b88f530c3c0083f06fc67bddda189780931be475abc863817ee9dcca086c",
+   "pvp75": "9a17c126d14dd167c4af0758c485fa216cfceef7701f47372bffcf994982eb10"
+  },
+  "build/typed72-match-v1/probes/content_phase_probe.cpp": {
+   "r4": "a5db9e47494d0f2f17702a570e78a3ee6bf3876d484037ee6108b4a1bf2ddb60",
+   "pvp75": "1a6654143458548e624e0f025323ca434275090867890824f5b2dfaf2b338377"
+  },
+  "build/typed72-match-v1/snapshot_layer.inc": {
+   "r4": "933e8ff1fbd3814b29d40988f3c43032b3f551a8b1990676e96148b6993cae14",
+   "pvp75": "df33c186053078a4a16cecce98ea892aed25954b52854520b9b70b73ee148b3d"
+  },
+  "extract/data/__init__.json": {
+   "r4": "8d6af4524cefa57caa011c095e1110918db0b7f1916769dc39d02e2894892059",
+   "pvp75": "e8683f5699d8a47d00ccf1b07d5831773b22fab96b7640ec3b7ae7a8e68d9427"
+  },
+  "extract/data/catalog.json": {
+   "r4": "5b63f4a70eb6dd56c6d8b1a881718b8a3dd7a1a3b9b2ad9ac7e2f1a11a5d9cc0",
+   "pvp75": "8a8000179e5d27de25929821fa003ee4e00b546668ab2be247d6ff77cbbe4d5c"
+  },
+  "src/cpptests/gen/pm_test_pvp_57_producer_protection.cpp": {
+   "r4": "be4fdab192d14861ded3ef08d61b7e1c5a9cc0cbac59e40afbd8cf58e7f788da",
+   "pvp75": "7b0eda6e28c6fdee7ca1c3d236c269ce7d007d72b25a8a4ee7f8eda74a8a8124"
+  },
+  "src/cpptests/gen/pm_test_pvp_59_features.cpp": {
+   "r4": "d15a3385323bd8649d5bc7975cf1010759dda8a3ce32a386788ee0a9ae5ef289",
+   "pvp75": "8abfac768afc38655c368c9f38672c6d7f998db2fa75f5fab2b16865358ae766"
+  },
+  "src/cpptests/gen/pm_test_pvp_60_features.cpp": {
+   "r4": "f5471109eab46a15b6488b12c9c45fdd99e22b9e968513e2d3e6088d11ccc6d3",
+   "pvp75": "a04c140b199f54cbc0a819c0b78a061e14746a9d85c0fda5cebb16cb520e204e"
+  },
+  "src/cpptests/gen/pm_test_pvp_61_features.cpp": {
+   "r4": "c1f87463a28b667700420f8fcdefcea33be239a6bee1cdcd0d778e78f81251bb",
+   "pvp75": "4a1aa6a07e080f014023fe79b8aeed0aa15e999ceb75fd4b8354b77d3b9558ce"
+  },
+  "src/cpptests/gen/pm_test_pvp_62_features.cpp": {
+   "r4": "c1ee0f878951767ad2e458b2897fcdf6e70a512e9ea89c8a2e7e26472cce4be9",
+   "pvp75": "89f03c7c4dd5714e7aabb76fdf4aa4339c7d252d424b3590d48a9df4844bb43b"
+  },
+  "src/cpptests/gen/pm_test_pvp_63_features.cpp": {
+   "r4": "369f2cdf6b892363053857a12df2a731ef4839cea27b454137dd3415014916de",
+   "pvp75": "6470bcbd294e521ebc2a383c404a8a789193a60f478291246dc66351e4d56ffd"
+  },
+  "src/cpptests/gen/pm_test_pvp_66_ai_maps_gift_oct16.cpp": {
+   "r4": "c9a924709a7f310693836d859447c27a0d5ba63f218e60cdff8aa233e0c52e39",
+   "pvp75": "af72bfdc39f8a2d769b594617d961f452a9d7a82704c6b84d1121ac385421225"
+  },
+  "src/cpptests/gen/pm_test_pvp_66_coop_roster_oct15.cpp": {
+   "r4": "20da1a648c2db14e670dd723b77b9db843df387bb91b94fa3a50d05e30646d8d",
+   "pvp75": "23c5d2a74a7e8cece61db746f174406083d7ed5d2a568f9c260cd95165db55f7"
+  },
+  "src/cpptests/gen/pm_test_pvp_66_features.cpp": {
+   "r4": "207a62b138fbeb84bbd46d84a9d488b58bb6c4594c23c092c55b2cde7557228a",
+   "pvp75": "8afab129f480eb5611d70da6b9487a37e367891dc4ae630ba140ceefd1994283"
+  },
+  "src/cpptests/gen/pm_test_pvp_66_feedback.cpp": {
+   "r4": "fc1d3a44794ec78f7b54698a3a6a720eb89260fea3ff0006186f67e687e16506",
+   "pvp75": "361ac8848bab50ed6fe0899f08ee150850376d1aefa98a6a31e52f791a550e00"
+  },
+  "src/cpptests/gen/pm_test_pvp_66_feedback_pve_oct15.cpp": {
+   "r4": "42f6cb67d7db463b4dacff44631c66061a971c195c8776b94ff5d338fe095499",
+   "pvp75": "ae4a75f1281acea56da46c31cdb12f3bf3ab157d8702c124a17223333c7c5df0"
+  },
+  "src/cpptests/gen/pm_test_pvp_66_feedback_runtime_oct15.cpp": {
+   "r4": "9daa0e1e51b3727641e094af07edcb5265e2a8612592cfe23b2fb317d31f4e31",
+   "pvp75": "3e451d7e1a292359314f77245775908631f0f564c9cdbc826869922c0ab55cdb"
+  },
+  "src/cpptests/gen/pm_test_pvp_66_material_maps_oct16.cpp": {
+   "r4": "9fc825a6fef1322d18e031a4e3498d0cd47a9ba2af08c8a79652cba35ac2e1d7",
+   "pvp75": "cedb192368242d9243b37460110762bf806f69f5f3baa3fa46e869b7480017a5"
+  },
+  "src/cpptests/gen/pm_test_pvp_66_zombie_secrets.cpp": {
+   "r4": "9d08814cd17888dd18fb31b8ee2eaa251eff34b3cd2ab51a9376733fc3d798d8",
+   "pvp75": "adccc53fd684dfed1a23de24200fbbe0bd61ec7f5dd04f2556d9ec13c607504c"
+  },
+  "src/cpptests/gen/pm_test_pvp_67_author_maps.cpp": {
+   "r4": "5801c558e3308a856e29c3f18fcec0be119cf0ea00edf8d58cc8c76b43c51810",
+   "pvp75": "d5b8209d500d904d71a8a2f78179567d0377dad378b0464bd7664c2bd0ac5d8e"
+  },
+  "src/cpptests/gen/pm_test_pvp_68003_balance.cpp": {
+   "r4": "5e7e5a4a754c1974bfaf3ab995baf92e25bc38ebb2a77c4a1632e7a69f3c3f7a",
+   "pvp75": "62afd4a23fe7a993654c4fa5e1e993add8052f0114e009ad93ccebcb182ad223"
+  },
+  "src/cpptests/gen/pm_test_pvp_69002_balance.cpp": {
+   "r4": "4b9b14759e961498ca60f69003961c8a7fdde345099bba868a5e6ada22b71911",
+   "pvp75": "9bbe6acaf3ec3d3b232a8e3c5873108af8d641e95f3cf5d03c28805c77e4f737"
+  },
+  "src/cpptests/gen/pm_test_pvp_balance.cpp": {
+   "r4": "28c88bf408e9d740485e3156a04bea9cca5c7f031bb6451b1ef671734b5b3d7d",
+   "pvp75": "8644454989373d59b337bc71e08e34004ec761cddb0e2c7dea6653b16eca98d5"
+  },
+  "src/cpptests/gen/pm_test_pvp_balance50.cpp": {
+   "r4": "4a1cb234f1856a2b80c02b5e9940f54cdd68f1e6953b8963e8e91a972ac89cfd",
+   "pvp75": "1c306898c5d3c4cad457ec85f95be7b25afdff0a632013178f16aa0facb228cb"
+  },
+  "src/cpptests/gen/pm_test_pvp_chili_zombie_fire.cpp": {
+   "r4": "10442c16e91a18e0fb594287c6bb071a0553d4f2dbac6fc5440e90181f846555",
+   "pvp75": "5ddb1b8b39cf59bcfec235976c90a4d7747d8a4f1ae969996ef3648a45be88b1"
+  },
+  "src/cpptests/gen/pm_test_pvp_content_acceptance.cpp": {
+   "r4": "60e523a136cb2914c202dd3103b45a58585f11fae27db53c0b767ea73360207e",
+   "pvp75": "a7e9eb69fa0803d90c5564f366f4f84354c208a7a8355cf9e02f6a5a233c46e5"
+  },
+  "src/cpptests/gen/pm_test_pvp_hardening_copy.cpp": {
+   "r4": "36f3b2f05d07ab5f0d1ec238b9653e23bb26d5553253d7728972f37e4752c53b",
+   "pvp75": "22289459dee23c8683f4eb999865c1332c09cb961bc3dae08262935fa3e2d898"
+  },
+  "src/cpptests/gen/pm_test_pvp_hero_damage_balance.cpp": {
+   "r4": "a2127f0637b81e265c7186016bbc8910f964f6c256b5e76257beb4050bb9b3c9",
+   "pvp75": "8132ed6babffcadc11ebb6970e845f5d3b1e0c5e09a1d4127540ecd71710294f"
+  },
+  "src/cpptests/gen/pm_test_pvp_native_draft_display.cpp": {
+   "r4": "537f72d86fb8072f00ea17653bd90d98e2c2112b21e3d2d6d477e2687866b018",
+   "pvp75": "0e43d3a990c0748b31d5aa0c7ca696d393e3baee92fea258f84de79042055899"
+  },
+  "src/cpptests/gen/pm_test_pvp_plant_zombie_allegiance.cpp": {
+   "r4": "140d481e4ac225e34b8f66f1a4ee2815a9391fc8dad9a7c74c9573bad34a52dd",
+   "pvp75": "4df94113dcbac6b5d93642b08a67a3ea6f5de791029ca29212c1f6793b874f55"
+  },
+  "src/cpptests/gen/pm_test_pvp_review_followup.cpp": {
+   "r4": "0b9224c61d2720e2cb9e73a7cf5a0f41d14b6b3814f8eaf8275dc308eeff2410",
+   "pvp75": "291b88854cea947f111d3a72026296b5d0ae84e640f56b60917237ed1b6a634e"
+  },
+  "src/cpptests/gen/pm_test_pvp_september_rules.cpp": {
+   "r4": "d38090bb8331d5ee08ec99ce619866d8777e6748d2a90d8899fbf1d7664dd6b4",
+   "pvp75": "5be0075b806856acc8a18ac2b7566e3cd8cbbd9e8ab6a95d778e4a1b02439ca1"
+  },
+  "src/cpptests/gen/pm_test_pvp_touch.cpp": {
+   "r4": "0318b4da0ea618e7e03a31e0ec4dcc67575e716ca34d7cf52b8fe798e68e25dd",
+   "pvp75": "9a7c4173a4d0f709062e463e10e344e75fc4cb455e30150e6111b8beed0bbed4"
+  },
+  "src/cpptests/gen/pm_test_pvp_ui.cpp": {
+   "r4": "d2569313ef232acb9dc9709fba130cc3d6e2fd4a805a48ae3c5589b456884455",
+   "pvp75": "df6a4da0cbbfa3cfa1431771707b7ed811156551b61b64bf89140505ff14ab3e"
+  },
+  "src/sim/pvp/gen/pm_catalog.cpp": {
+   "r4": "97c5ffb9f73e3034f369b83a1a7fa6d0c0651aa7c70f1be0ea00240b49b5388a",
+   "pvp75": "222241752f73d572562233b344bb8d980419d82aa37b1fae3c18be20ec746ed0"
+  },
+  "src/sim/pvp/gen/pm_native_content.cpp": {
+   "r4": "aee6e52689cbf49e2369e0ea0097d3e7828e79561c4480d3bfc13dd73477760c",
+   "pvp75": "a1f55e3f96adf408655d741ed9b8bf9d46b7b1c5ebffef6a9977489836636142"
+  },
+  "src/sim/pvp/gen/pm_pve.cpp": {
+   "r4": "cab3b491c97e234aa5252c7af0f99b2d0586f0ebfe742c2ac4d6fb732e00b3f2",
+   "pvp75": "0c587c2b1159f9c316a443044eedcf6c89e73a1ea92ab799d2e506da82acb308"
+  },
+  "src/sim/pvp/gen/pm_pvp58_vines.cpp": {
+   "r4": "5055dd02eb77617319b058382268889ad8860e86d94aa0c0350a62e21a9be6fa",
+   "pvp75": "9f23510dce0d6ae8090fa44206f0eeb823d2006fd7e61cfbb3f04712d827bbd8"
+  },
+  "src/sim/typed72_app/composition/MANIFEST.json": {
+   "r4": "ab1e92749844dceb86044ca78fb5314245596b73faa20450f3c7acf8300f1f6c",
+   "pvp75": "039a9e4d8fe26206ae666965fee1081093301cb059faf079f8db8438a69ab692"
+  },
+  "src/sim/typed72_app/composition/frame_layer.inc": {
+   "r4": "60edfdf4854a18559b5816ee9292cef2de24b6cbad26e2b56c7f75d246dc49ea",
+   "pvp75": "d1fa5103733d734e16baeb2997fecdc7e25cb8398f22a387cbdce44e0a6bc120"
+  },
+  "src/sim/typed72_app/composition/match_probe.cpp": {
+   "r4": "934b42c71708b0eff4db84a38935b9a085aaacef11673d9c412f9287bc574750",
+   "pvp75": "2cfe6c8c81c473a5987465ba3b4a99b7706f2be9775aaaa4ea98557667ed7e70"
+  },
+  "src/sim/typed72_app/composition/probes/content_phase_probe.cpp": {
+   "r4": "54c2a1017547eefd5db2f349180ab0505b6e69421d4ea0718b5dcf258494fac6",
+   "pvp75": "29655c464bf9593efdd593e06cefee452c1df4621eb748f7cfcecd4662287247"
+  },
+  "src/sim/typed72_app/composition/snapshot_layer.inc": {
+   "r4": "933e8ff1fbd3814b29d40988f3c43032b3f551a8b1990676e96148b6993cae14",
+   "pvp75": "df33c186053078a4a16cecce98ea892aed25954b52854520b9b70b73ee148b3d"
+  },
+  "src/ui/gen/pm_app.cpp": {
+   "r4": "26382f0834206163259fd482da8a545638af4bc475079033224b242669a2365f",
+   "pvp75": "577a3d40459218cb0229394c1e9b9c142d1eb6117b7f10800e5cce93210e897a"
+  },
+  "src/ui/gen/pm_battle_view.cpp": {
+   "r4": "d78e791587ae403397b0ff504331f5116de8881ecce3f151bdeb8f05b9c2a3bf",
+   "pvp75": "59b3bdc1748f646fd34a8a45de69345783dc1f178179bc23dac6d838e31aad0d"
+  },
+  "src/ui/gen/pm_room.cpp": {
+   "r4": "bb432d757f76391d1908aa305d03908bc6fc63a7993b318f89f21c12e43bd334",
+   "pvp75": "71aa8fed5da0d169d01f075d65c2b7064df1cf535c1e25c923ec033c8ca1383a"
+  },
+  "src/ui/gen/pm_touch.cpp": {
+   "r4": "378298f8b783ab95cb6fd65e9da0fb5241b42cce57b39a521b68d92d184900bd",
+   "pvp75": "c3e9d5e926c52dd1a3921b3d565609eb83448f25d16a425d6b42d99744fe727d"
+  },
+  "src/ui/hand/test_mode74.cpp": {
+   "r4": "01b361d0690639e6d62e46d14f02db6df13b3f7e45439553fe22e51be8922258",
+   "pvp75": "1bce8e2e56e90d7beea8f7ccb68087bb61d943aaf1208cff547ddfdddb1d0786"
+  },
+  "src/uitools/pvp744_r4_audit.cpp": {
+   "r4": "281737edf4fc70a9f17954d9b10ba11bf86def0cc33361a144a112d1c03fb045",
+   "pvp75": "b29f5fb779dbe4e5008e6a2ace316a778f01d638c067bcfe2b993cbf5320d7ea"
+  },
+  "src/uitools/pvp744_testmode_audit.cpp": {
+   "r4": "707e7366af7fa0602c24c1b3d3b4c4ef7d6a5f25aa592c26c17fbbb23300aee8",
+   "pvp75": "165f8b9aea60fbb7ac2fdbddb80d02dc3edf9cdb40ba226332db2aeabd7cf1db"
+  },
+  "tools/full_test.sh": {
+   "r4": "0ec5b69c7a7387fa2259be181fc9e8c8b2487fbaeb06b886eebc18e7008a2cd3",
+   "pvp75": "00c62188024582ec1a8a0247e7a5cad2542606e348849b0b4a1022561489c73f"
+  },
+  "tools/pvp2cpp.py": {
+   "r4": "a28fa6cdf66ca6219fa2062cba2df8f5b905cd2c602268fb5a4ebcb49b5a4d6a",
+   "pvp75": "f1a31f9105e28d1d07e15f2b7c0144d94090c3d4aeae0e7bf5128dc0dc0b90f3"
+  },
+  "tools/pvp72_sources/catalog.py": {
+   "r4": "51990800f544090756797fa847e8dfdb3363ec92d86709caaad0a30fcb723807",
+   "pvp75": "a30ce03fc8e8dacd4d881d4c3df8a6307a0f023550f45762e2d84cc1a7dd9f37"
+  },
+  "tools/pvp72_sources/native_content.py": {
+   "r4": "d54c2454860b9dfab32394392c2ed024b2c2b54af2ef5c9aeb2835a0fffc39be",
+   "pvp75": "650c6c81040632f88c28526e2d5db85b611339e3d94ce9fc17b8d24e0e9e953b"
+  },
+  "tools/pvp72_sources/pve.py": {
+   "r4": "74bc4930d2d911e5b0e4603669eef909b055777fc054d8cda9b165ba18ff8bc9",
+   "pvp75": "f807c9fc26bb49abdfca0bc9e4870e9c991b52b0e0ec88dfa733a2b68daf6b7e"
+  },
+  "tools/pvp72_sources/pvp58_catalog.py": {
+   "r4": "401307cdbf46878a502f4eccb2beaa84aac70c9db8b93df49783e235e1f8d152",
+   "pvp75": "90349e5eacc6bed89261f700824f37fa6af9623b85412b671de407cdec3222cc"
+  },
+  "tools/pvp72_sources/pvp58_vines.py": {
+   "r4": "aad81c65bed71ba32dbcd413bc0e9208ef54528ad3c82941a006923b63fb5e82",
+   "pvp75": "470838d85b5b97e0779729d5b422f437f00886dd8f5023c5ed4f5f9fa36b7fee"
+  },
+  "tools/pvp72_sources/pvp66_secrets.py": {
+   "r4": "b86332f3f9792aeaada6d1f8a907e5e9fa5b818da295b148f2163dac2d8c38ff",
+   "pvp75": "3e1066388e3f328aa1e049bf605ad6356c1792534a65ec1d7bd91a25823f6cda"
+  },
+  "tools/pvp72_sources/room.py": {
+   "r4": "b76dfb3252f91c971f3cf37b7b59c79bffa614d4500aa2b3c54e470bfc678a9a",
+   "pvp75": "dace4611edb5cc679d83a7ae08a50d0a00dbe193dc0b89f6f56e132d0a3baa5f"
+  },
+  "tools/pvp72_sources/touch.py": {
+   "r4": "899886b28a61ce764ed248dcabc8def755dc383a6583fd579bf5af753c9647db",
+   "pvp75": "09f26f91464a9f0006fe51a7d37e7f7a95d0fbc1c8902d500fb4eb0ddf82e159"
+  },
+  "tools/pvp72_sources/zombie_secret_catalog.py": {
+   "r4": "fcb58854f2587af2bf27644803f5db1fcbf5a6882f4aedf7eff1b76d07bce3ac",
+   "pvp75": "267f722210afc4da33c1456c5b62e12b83f23cf8803eb7e29b7e050cfd691da3"
+  },
+  "tools/pvp72_sources/zombie_secrets.py": {
+   "r4": "7ec8f840ab38a0b7bdf81f6fcc5a6f31c8f10bf33a505ef9d304ea9c039370b7",
+   "pvp75": "653b452de0982f58a032cda43f2a95f9964feec28898815483cc3eded8bcb196"
+  },
+  "tools/pvp744_controls_sources.json": {
+   "r4": "2cd6c9be712022ebcfb7fbad67538f995114f45160fac2f0bef47da9d9833f57",
+   "pvp75": "c95de75ee21b33185c5c170764f84ac53b7315c03ece7ba58afc00320bf306f5"
+  },
+  "tools/pvp744_feedback_sources.json": {
+   "r4": "eb9ef762c72d9c3b282291f378bfe399148028c11ec598fc982c102e940f98d4",
+   "pvp75": "9eca7a643fc8b786db4cd370de42c5fc29a575ce643e87fe76578f8e72ddc7b0"
+  },
+  "tools/pvp744_release_r3.py": {
+   "r4": "7d630933f51b43b4654ce4d3219b927a8fa04dce866241035b618f40fe5ca3d1",
+   "pvp75": "f4bd48996a95dd271bfed06f36fc09e49b86c8b172fc20e6647ff7b357dc3da6"
+  },
+  "tools/run_cpp_suite.py": {
+   "r4": "8a31755b0507e59eb9eb459a68b1ab5e46ab52b5bb35f480f1a6ca01c60eb136",
+   "pvp75": "089467f727e60877fa574fcaeff39924f442cb99884bf6c9ab6110dde4e09435"
+  },
+  "tools/test_native_suite_policy.py": {
+   "r4": "a4818a326b614906b1ea32db37cd4ca97158fde3f0943832fe7c245ebddeff82",
+   "pvp75": "108e67513fdb6f5d83823d067e738930b73becf8cc12b776a8f547c8aebeab1f"
+  }
+ },
+ "added_files": [
+  "assets/pvp75_newcards/INTEGRATION.md",
+  "assets/pvp75_newcards/README.md",
+  "assets/pvp75_newcards/REVISION_2.md",
+  "assets/pvp75_newcards/SHA256SUMS.txt",
+  "assets/pvp75_newcards/animations.json",
+  "assets/pvp75_newcards/icons/巴豆.png",
+  "assets/pvp75_newcards/icons/激光豆.png",
+  "assets/pvp75_newcards/icons/盾卫僵尸.png",
+  "assets/pvp75_newcards/native/巴豆/巴豆-压扁.png",
+  "assets/pvp75_newcards/native/巴豆/巴豆-压扁0.png",
+  "assets/pvp75_newcards/native/巴豆/巴豆-压扁1.png",
+  "assets/pvp75_newcards/native/巴豆/巴豆-睡眠.png",
+  "assets/pvp75_newcards/native/巴豆/巴豆-睡眠0.png",
+  "assets/pvp75_newcards/native/巴豆/巴豆-睡眠1.png",
+  "assets/pvp75_newcards/native/巴豆/巴豆-睡觉.png",
+  "assets/pvp75_newcards/native/巴豆/巴豆.png",
+  "assets/pvp75_newcards/native/激光豆/激光豆-压扁.png",
+  "assets/pvp75_newcards/native/激光豆/激光豆-发射0.png",
+  "assets/pvp75_newcards/native/激光豆/激光豆-发射1.png",
+  "assets/pvp75_newcards/native/激光豆/激光豆-发射准备.png",
+  "assets/pvp75_newcards/native/激光豆/激光豆-睡眠.png",
+  "assets/pvp75_newcards/native/激光豆/激光豆-睡眠0.png",
+  "assets/pvp75_newcards/native/激光豆/激光豆-睡觉.png",
+  "assets/pvp75_newcards/native/激光豆/激光豆-瞄准.png",
+  "assets/pvp75_newcards/native/激光豆/激光豆.png",
+  "assets/pvp75_newcards/native/特效/巴豆毒气-原图.png",
+  "assets/pvp75_newcards/native/特效/巴豆毒气-帧0.png",
+  "assets/pvp75_newcards/native/特效/巴豆毒气-帧1.png",
+  "assets/pvp75_newcards/native/特效/巴豆毒气-帧2.png",
+  "assets/pvp75_newcards/native/特效/巴豆毒气-帧3.png",
+  "assets/pvp75_newcards/native/特效/巴豆毒气-帧4.png",
+  "assets/pvp75_newcards/native/特效/巴豆毒气-帧5.png",
+  "assets/pvp75_newcards/native/特效/巴豆毒气-帧6.png",
+  "assets/pvp75_newcards/native/特效/巴豆毒气-帧7.png",
+  "assets/pvp75_newcards/native/特效/巴豆毒气-消失.png",
+  "assets/pvp75_newcards/native/特效/激光豆激光-束0.png",
+  "assets/pvp75_newcards/native/特效/激光豆激光-束1.png",
+  "assets/pvp75_newcards/native/特效/激光豆激光-束2.png",
+  "assets/pvp75_newcards/native/特效/激光豆激光-束3.png",
+  "assets/pvp75_newcards/native/特效/激光豆激光-终点0.png",
+  "assets/pvp75_newcards/native/特效/激光豆激光-终点1.png",
+  "assets/pvp75_newcards/native/特效/激光豆激光-起点0.png",
+  "assets/pvp75_newcards/native/特效/激光豆激光-起点1.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/木盾牌-侧面.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/木盾牌-正面.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/木盾牌.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/盾卫僵尸-举盾0-盾.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/盾卫僵尸-举盾0-身.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/盾卫僵尸-举盾0-身含盾.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/盾卫僵尸-举盾0-首.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/盾卫僵尸-举盾0.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/盾卫僵尸-举盾1-盾.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/盾卫僵尸-举盾1-身.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/盾卫僵尸-举盾1-身含盾.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/盾卫僵尸-举盾1-首.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/盾卫僵尸-举盾1.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/盾卫僵尸-举盾2-盾.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/盾卫僵尸-举盾2-身.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/盾卫僵尸-举盾2-身含盾.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/盾卫僵尸-举盾2-首.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/盾卫僵尸-举盾2.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/盾卫僵尸-举盾3-盾.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/盾卫僵尸-举盾3-身.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/盾卫僵尸-举盾3-身含盾.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/盾卫僵尸-举盾3-首.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/盾卫僵尸-举盾3.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/盾卫僵尸-盾.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/盾卫僵尸-身.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/盾卫僵尸-身含盾.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/盾卫僵尸-首.png",
+  "assets/pvp75_newcards/native/盾卫僵尸/盾卫僵尸.png",
+  "assets/pvp75_newcards/runtime/巴豆/巴豆-压扁.png",
+  "assets/pvp75_newcards/runtime/巴豆/巴豆-压扁0.png",
+  "assets/pvp75_newcards/runtime/巴豆/巴豆-压扁1.png",
+  "assets/pvp75_newcards/runtime/巴豆/巴豆-睡眠.png",
+  "assets/pvp75_newcards/runtime/巴豆/巴豆-睡眠0.png",
+  "assets/pvp75_newcards/runtime/巴豆/巴豆-睡眠1.png",
+  "assets/pvp75_newcards/runtime/巴豆/巴豆-睡觉.png",
+  "assets/pvp75_newcards/runtime/巴豆/巴豆.png",
+  "assets/pvp75_newcards/runtime/激光豆/激光豆-压扁.png",
+  "assets/pvp75_newcards/runtime/激光豆/激光豆-发射0.png",
+  "assets/pvp75_newcards/runtime/激光豆/激光豆-发射1.png",
+  "assets/pvp75_newcards/runtime/激光豆/激光豆-发射准备.png",
+  "assets/pvp75_newcards/runtime/激光豆/激光豆-睡眠.png",
+  "assets/pvp75_newcards/runtime/激光豆/激光豆-睡眠0.png",
+  "assets/pvp75_newcards/runtime/激光豆/激光豆-睡觉.png",
+  "assets/pvp75_newcards/runtime/激光豆/激光豆-瞄准.png",
+  "assets/pvp75_newcards/runtime/激光豆/激光豆.png",
+  "assets/pvp75_newcards/runtime/特效/巴豆毒气-原图.png",
+  "assets/pvp75_newcards/runtime/特效/巴豆毒气-帧0.png",
+  "assets/pvp75_newcards/runtime/特效/巴豆毒气-帧1.png",
+  "assets/pvp75_newcards/runtime/特效/巴豆毒气-帧2.png",
+  "assets/pvp75_newcards/runtime/特效/巴豆毒气-帧3.png",
+  "assets/pvp75_newcards/runtime/特效/巴豆毒气-帧4.png",
+  "assets/pvp75_newcards/runtime/特效/巴豆毒气-帧5.png",
+  "assets/pvp75_newcards/runtime/特效/巴豆毒气-帧6.png",
+  "assets/pvp75_newcards/runtime/特效/巴豆毒气-帧7.png",
+  "assets/pvp75_newcards/runtime/特效/巴豆毒气-消失.png",
+  "assets/pvp75_newcards/runtime/特效/激光豆激光-束0.png",
+  "assets/pvp75_newcards/runtime/特效/激光豆激光-束1.png",
+  "assets/pvp75_newcards/runtime/特效/激光豆激光-束2.png",
+  "assets/pvp75_newcards/runtime/特效/激光豆激光-束3.png",
+  "assets/pvp75_newcards/runtime/特效/激光豆激光-终点0.png",
+  "assets/pvp75_newcards/runtime/特效/激光豆激光-终点1.png",
+  "assets/pvp75_newcards/runtime/特效/激光豆激光-起点0.png",
+  "assets/pvp75_newcards/runtime/特效/激光豆激光-起点1.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/木盾牌-侧面.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/木盾牌-正面.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/木盾牌.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/盾卫僵尸-举盾0-盾.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/盾卫僵尸-举盾0-身.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/盾卫僵尸-举盾0-身含盾.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/盾卫僵尸-举盾0-首.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/盾卫僵尸-举盾0.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/盾卫僵尸-举盾1-盾.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/盾卫僵尸-举盾1-身.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/盾卫僵尸-举盾1-身含盾.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/盾卫僵尸-举盾1-首.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/盾卫僵尸-举盾1.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/盾卫僵尸-举盾2-盾.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/盾卫僵尸-举盾2-身.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/盾卫僵尸-举盾2-身含盾.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/盾卫僵尸-举盾2-首.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/盾卫僵尸-举盾2.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/盾卫僵尸-举盾3-盾.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/盾卫僵尸-举盾3-身.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/盾卫僵尸-举盾3-身含盾.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/盾卫僵尸-举盾3-首.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/盾卫僵尸-举盾3.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/盾卫僵尸-盾.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/盾卫僵尸-身.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/盾卫僵尸-身含盾.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/盾卫僵尸-首.png",
+  "assets/pvp75_newcards/runtime/盾卫僵尸/盾卫僵尸.png",
+  "build/typed72-integrated-v44/source/src/sim/typed/pvp75_content.cpp",
+  "build/typed72-integrated-v44/source/src/sim/typed/pvp75_content.h",
+  "build/typed72-integrated-v44/source/src/sim/typed/pvp75_state.h",
+  "src/ui/hand/pvp75_ui.cpp",
+  "src/ui/hand/pvp75_ui.h",
+  "src/uitools/pvp75_audit.cpp",
+  "src/uitools/pvp75_ui_audit.cpp",
+  "tools/pvp75_assets.json",
+  "tools/pvp75_assets.py",
+  "tools/pvp75_build.ps1",
+  "tools/pvp75_catalog_sync.py",
+  "tools/pvp75_export_data.py",
+  "tools/pvp75_release.py",
+  "tools/pvp75_ui_hooks.py"
+ ],
+ "note": "PvP75 source changes relative to the 74.4 r4 developer package; reviewed with PvP75_进度.md and the PvP75 audits."
+}

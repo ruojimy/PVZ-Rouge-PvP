@@ -15,6 +15,8 @@ import sys
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/'tools'))
+from native_regression_report import combat_errors, digest, fire_errors, full_inventory, compare
 OUT = ROOT / 'test_results/pvp744/r3-feedback-20261117'
 STAGE = ROOT / 'dist/PvZ-PvP-Native-20261117-pvp744-r3'
 BUILD = ROOT / 'build/app-typed72-v2/Release'
@@ -34,6 +36,43 @@ helpers = module('r4_release_helpers', ROOT / 'tools/pvp743_release_r4.py')
 sha, read, dump, tree, users, archive = (getattr(helpers, n) for n in ('sha','read','dump','tree','users','archive'))
 helpers.VERSION, helpers.OUT, helpers.STAGE = VERSION, OUT, STAGE
 
+PREVIOUS_REV = 'pvp744-r2'
+APK_DIR = ROOT/'dist/apk-pvp744-r3-20261117'
+EXTRA_AUDITS = []
+
+def regression_status():
+    summary=OUT/'full-suite/summary.json'
+    result=read(summary)
+    ids=full_inventory(result,summary.parent)
+    if result.get('scope')!='full' or result.get('build_version')!=VERSION:
+        raise ValueError('Release requires a current full-suite report for '+VERSION)
+    binaries={'game':'PvZPvPNative.exe','cpp_tests':'cpp_tests.exe','app_run':'app_run.exe','audit':'pvp744_r4_audit.exe',
+              'fire':'fire741_production_audit.exe'}
+    if (result.get('changed_binaries')!=[] or result['source_changed_during_run'] or result['fixture_changed_during_run']
+            or result['exe_changed_during_run'] or result['binary_sha256']!={k:digest(BUILD/v) for k,v in binaries.items()}
+            or digest(STAGE/'PvZPvPNative.exe')!=result['binary_sha256']['game']):
+        raise ValueError('Release binaries or test inputs differ from full-suite evidence')
+    for name,expected in read(summary.parent/'source-hashes.json').items():
+        if digest(ROOT/name)!=expected: raise ValueError('Source changed after full-suite run: '+name)
+    if (not result['pure_typed_gate']['passed'] or result['pure_typed_gate']['exit']!=0
+            or not result['combat_r4_gate']['passed'] or result['combat_r4_gate']['exit']!=0
+            or combat_errors(read(summary.parent/'combat-r4/results.json')) or not result['fire_gate']['passed']
+            or fire_errors(read(summary.parent/'combat-r4/fire-matrix.json'))):
+        raise ValueError('Required production gates missing or failed')
+    comparison=result['triage']
+    baseline=Path(comparison['baseline'])
+    last=read(OUT/'promotion-before.json')['previous'].get('full_regression_report')
+    if (baseline.resolve()==summary.resolve() or (last and Path(last).resolve()!=baseline.resolve())
+            or digest(baseline)!=comparison['baseline_sha256']):
+        raise ValueError('Previous full-suite baseline missing or changed')
+    previous=read(baseline)
+    delta=compare(result,previous,ids,full_inventory(previous,baseline.parent))
+    if comparison['comparison']!=delta: raise ValueError('Full-suite comparison differs from raw evidence')
+    return dict(full_regression_rerun=True, full_regression_passed=result['success'],
+                full_regression_counts=result['counts'], full_regression_report=str(summary),
+                full_regression_baseline=str(baseline),full_regression_diff={k:len(v) for k,v in delta.items()},
+                unwaived=len(result['waivers']['unexpected_nonpass']))
+
 def prepare():
     before=read(OUT/'before.json'); previous=read(ROOT/'dist/latest-native-release.json')
     current=users()
@@ -42,21 +81,22 @@ def prepare():
         old=before['users'].get(folder) or {}; new=current.get(folder) or {}
         for name in sorted(set(old)|set(new)):
             if old.get(name)!=new.get(name): differences.append(dict(folder=folder,path=name,before=old.get(name),after=new.get(name)))
-    dump(OUT/'userdata-drift-before-release.json',dict(changes=differences,note='Preserve current files. Upgrade markers and one received pack changed before release preparation; no user data is restored or overwritten.'))
+    dump(OUT/'userdata-drift-before-release.json',dict(changes=differences,note='Current user files are preserved at promotion.'))
     dump(OUT/'promotion-before.json',dict(before,users=current,work_baseline=str(OUT/'before.json')))
     before=read(OUT/'promotion-before.json')
-    assert previous==before['previous'] and previous['revision']=='pvp744-r2'
+    assert previous==before['previous'] and previous['revision']==PREVIOUS_REV
     assert sha(Path(previous['target']))==previous['exe_sha256'] and users()==before['users']
     for name,key in [('previous-release.zip','pc_zip_sha256'),('previous-source.zip','developer_sha256'),('previous-android.apk','apk_sha256')]:
         assert sha(ROOT/'backup-latest'/name)==previous[key]
     assert all(sha(Path(p))==h for p,h in before['launchers'].items())
     dump(OUT/'backup-verification.json',dict(passed=True,revision=previous['revision'],latest_group_only=True))
-    dump(ROOT/'extract/data/__init__.json',{'BUILD':VERSION,'PROTOCOL':1})
-    print('r2 backup and user files verified; r3 version prepared',flush=True)
+    init=ROOT/'extract/data/__init__.json'
+    if read(init).get('BUILD')!=VERSION: dump(init,{'BUILD':VERSION,'PROTOCOL':1})
+    print(PREVIOUS_REV, 'backup verified for', REV, flush=True)
 
 
 def stage():
-    assert read(ROOT/'dist/latest-native-release.json')['revision']=='pvp744-r2'
+    assert read(ROOT/'dist/latest-native-release.json')['revision']==PREVIOUS_REV
     if STAGE.exists(): assert read(STAGE/'release-revision.json')['delivery_revision']==REV
     assert read(ROOT/'extract/data/__init__.json')['BUILD'] == VERSION
     STAGE.mkdir(exist_ok=True); (STAGE/'extract').mkdir(exist_ok=True)
@@ -66,7 +106,7 @@ def stage():
     for name in ['extract/data','extract/assets','fonts']: shutil.copytree(ROOT/name, STAGE/name,dirs_exist_ok=True)
     for name in ['更新说明-PvP74.4.md','更新公告-PvP74.4.txt']: shutil.copy2(ROOT/name, STAGE/name)
     (STAGE/'启动PvP.cmd').write_bytes(b'@echo off\r\nsetlocal\r\ncd /d "%~dp0"\r\n"%~dp0PvZPvPNative.exe" %*\r\nexit /b %errorlevel%\r\n')
-    (STAGE/'启动说明.txt').write_text('PvP74.4 正式版\n\n完整解压后双击 启动PvP.cmd 或 PvZPvPNative.exe，无需 Python。\n默认存档与设置：%APPDATA%\\PVZ-PvP-Native\\pvp_userdata。\n保持 extract、图片、音乐、音效、fonts、relay.json 和 DLL 与 EXE 同目录。\n本地演练 → 测试模式 可体验三个 Boss 和作弊器；合作第 8/16/24 关新增 Boss。\n联机请双方使用本次 74.4 r3。详细功能与验证范围见 更新说明-PvP74.4.md。\n异常退出请保留 crash-native.txt 和 reports 反馈。\n', 'utf-8-sig')
+    (STAGE/'启动说明.txt').write_text('PvP74.4 正式版\n\n完整解压后双击 启动PvP.cmd 或 PvZPvPNative.exe，无需 Python。\n默认存档与设置：%APPDATA%\\PVZ-PvP-Native\\pvp_userdata。\n保持 extract、图片、音乐、音效、fonts、relay.json 和 DLL 与 EXE 同目录。\n本地演练 → 测试模式 可体验三个 Boss 和作弊器；合作第 8/16/24 关新增 Boss。\n联机请双方使用本次 '+REV+'。详细功能与验证范围见 更新说明-PvP74.4.md。\n异常退出请保留 crash-native.txt 和 reports 反馈。\n', 'utf-8-sig')
     dump(STAGE/'release-revision.json', dict(compatibility_build=VERSION, delivery_revision=REV,
          formal_release=True, release_authorized_by_user=True, android_real_device_verified=False,
          default_performance_options={**{k:1 for k in helpers.FLAGS}, 'PVP744_STEP_BUDGET_MS':8}))
@@ -81,7 +121,7 @@ def smoke():
     shutil.copy2(diagnostic_folder/'pc-smoke-verification.json',OUT/'pc-smoke-verification.json')
     # Exercise the current production-linked UI audit against the staged resources.
     cases = [('pvp744_testmode_audit','boss'), ('pvp744_controls_audit','controls'),
-             ('pvp744_sky_weather_audit','weather'), ('pvp744_material_pixels_audit','material'), ('pvp744_feedback_audit','feedback'), ('pvp744_r3_audit','r3')]
+             ('pvp744_sky_weather_audit','weather'), ('pvp744_material_pixels_audit','material'), ('pvp744_feedback_audit','feedback'), ('pvp744_r3_audit','r3')] + EXTRA_AUDITS
     results = []
     for name, label in cases:
         folder = OUT/('packaged-gift-'+label); assert not folder.exists(); folder.mkdir()
@@ -105,7 +145,7 @@ def apk():
     assemblies = list(native.glob('apk-'+str(CODE)+'-*')); assert len(assemblies) == 1
     assembly = assemblies[0]
     source = WSL/'out'/f'PvZ-PvP-Native-{VERSION}-{CODE}-{NATIVE_RUN}.apk'
-    folder = ROOT/'dist/apk-pvp744-r3-20261117'; folder.mkdir(exist_ok=True)
+    folder = APK_DIR; folder.mkdir(exist_ok=True)
     dest = folder/source.name
     if not dest.exists(): shutil.copy2(source,dest)
     assert sha(dest) == sha(source)
@@ -147,6 +187,7 @@ def apk():
     print('Signed APK identity, upgrade continuity, libraries and all assets verified', flush=True)
 
 def packages():
+    regression=regression_status()
     for filename in ['pc-smoke-verification.json','packaged-feature-verification.json','android-package-verification.json']:
         assert read(OUT/filename)['passed']
     files={p.relative_to(STAGE).as_posix():p for p in STAGE.rglob('*') if p.is_file() and p.name!='SHA256SUMS'}
@@ -182,7 +223,7 @@ def packages():
     entries['README.md']=('# PvP74.4 开发者包\n\n完整生产源码、生成器、冻结内核/组合层与资源；新增功能及验证边界见更新说明-PvP74.4.md。\n构建步骤见 build/pvp743-tools/README-PvP74.3-dev.md 与 AGENTS.md；旧版本说明/证据按历史保留。\nAndroid 构建使用独立本机 SDK/SDL/签名依赖，签名私钥不包含在开发者包中。\n').encode('utf8')
     status=dict(revision=REV,compatibility_build=VERSION,formal_release=True,
                 release_authorized_by_user=True,pc_package_verified=True,android_package_verified=True,
-                android_real_device_verified=False,full_regression_rerun=False,product_acceptance_passed=False)
+                android_real_device_verified=False,**regression,product_acceptance_passed=False)
     entries['STAGING_STATUS.json']=json.dumps(status,ensure_ascii=False,indent=2).encode('utf8')
     for n,p in entries.items():
         if Path(n).suffix in dev.TEXT_SUFFIXES:
@@ -198,6 +239,9 @@ def packages():
     print('PC and developer ZIP CRC and every payload hash verified',flush=True)
 
 def promote():
+    regression=regression_status()
+    if not regression['full_regression_passed']:
+        raise ValueError('Full regression has unresolved failures; see '+regression['full_regression_report'])
     import psutil
     pc=read(OUT/'pc-package-verification.json'); source=read(OUT/'source-package-verification.json'); apk=read(OUT/'android-package-verification.json')
     assert tree(STAGE)==pc['payload'] and all(x['passed'] for x in [pc,source,apk])
@@ -231,11 +275,11 @@ def promote():
         shipped_files_verified=len(pc['payload']),changed_managed_files=changed,launcher_files_preserved=True,
         root_launcher_executed=True,pc_packaged_exe_run=True,defaults_verified=True,release_authorized_by_user=True,
         backup_revisions=[previous['revision']],backup_folder=str(ROOT/'backup-latest'),
-        full_regression_rerun=False,historical_unwaived=27,product_acceptance_passed=False,
+        **regression,product_acceptance_passed=False,
         github='not_published_this_revision',release_notes=str(ROOT/'更新说明-PvP74.4.md'),
         verification=str(OUT/'local-delivery-verification.json'))
     dump(OUT/'local-delivery-verification.json',result); dump(ROOT/'dist/latest-native-release.json',result)
-    dump(ROOT/'dist/PvP74.4-r3-发行清单.json',result)
+    dump(ROOT/('dist/PvP74.4-'+REV.split('-')[-1]+'-发行清单.json'),result)
     print(json.dumps({k:result[k] for k in ['passed','revision','exe_sha256','userdata_files_verified','shipped_files_verified','root_launcher_executed']}),flush=True)
 
 if __name__=='__main__':

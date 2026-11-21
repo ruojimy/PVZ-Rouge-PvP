@@ -41,6 +41,8 @@ private:
     std::string turn(Seat,const NativeCommand&);
     std::string teleport(Seat,const NativeCommand&);
     std::string cannon(Seat,const NativeCommand&);
+    std::string laser(Seat,const NativeCommand&);
+    void clear_laser_aim(Seat);
     std::string shovel(Seat,const NativeCommand&);
     std::string detonate(Seat,const NativeCommand&);
     std::string select_grave(Seat,const NativeCommand&);

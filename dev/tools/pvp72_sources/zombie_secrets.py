@@ -21,6 +21,8 @@ from .native_expansion import (IMP_ARMOR, IMP_ARMOR_HP, IMP_BLACK_ARMOR,
                                CARRIER_BODY_MARK, worn_black_armor)
 
 TILE_HZ = 250
+SUBSIDY_BONUS = 15          # PvP75 补贴
+SUBSIDY_DELAY_TICKS = 6 * 250
 
 SPRINT = ("zombie:雪橇车僵尸", "zombie:滚桶僵尸")
 ATHLETES = ("zombie:撑杆跳僵尸", "zombie:橄榄球僵尸", "zombie:黑撑杆僵尸", "zombie:黑橄榄僵尸")
@@ -119,6 +121,7 @@ class ZombieSecrets(object):
         self.enabled = bool(self.team)
         self.clock = {}
         self.subsidy_phase = 0
+        self.subsidy_due = []       # PvP75 补贴: native ticks of pending +15 brain payments
         self.converts = []          # 植物僵尸: queued (plant name, x, y, facing, seat)
         self.last_stand = {}        # seat -> end time (最后攻势)
         self.last_stand_used = set()
@@ -880,13 +883,21 @@ class ZombieSecrets(object):
 
     # ------------------------------------------------------------ economy
     def day_income_count(self, previous, now, interval):
-        """补贴: number of day brain payments between two native ticks."""
+        """补贴 (PvP75): day payments keep the plain clock. A payment made while no
+        own zombie is on the field adds 15 brains six seconds (1500 ticks) later."""
         if not self.has("补贴"):
             return None
+        due = [t for t in self.subsidy_due if t <= now]
+        self.subsidy_due = [t for t in self.subsidy_due if t > now]
+        for _ in due:
+            for seat in self.b.team_seats("zombie"):
+                player = self.b.players[seat]
+                self.pay(seat, SUBSIDY_BONUS, player["x"], player["y"], "zsecret_subsidy")
+        count = int(now // interval - previous // interval)
         empty = not any(self._zombie(z) and self._own(z) for z in self.g["僵尸"])
-        self.subsidy_phase += (now - previous) * (2 if empty else 1)
-        count, self.subsidy_phase = divmod(self.subsidy_phase, interval)
-        return int(count)
+        if count and empty:
+            self.subsidy_due.extend([now + SUBSIDY_DELAY_TICKS] * count)
+        return count
 
     def pay(self, seat, amount, x, y, reason):
         rid = self.b.resource(seat, amount, x, y, reason)

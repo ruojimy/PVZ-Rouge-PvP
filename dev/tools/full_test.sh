@@ -17,11 +17,11 @@ mkdir -p "$OUT"; OUT=$(cd "$OUT" && pwd); OW=$(cygpath -w "$OUT")
 echo "== build" | tee "$OUT/report.txt"
 export _CL_="${_CL_:-} /MP1 /FS"
 export CMAKE_BUILD_PARALLEL_LEVEL=1
-if ! "$CM" --build build --config Release --parallel 1 > "$OUT/build.log" 2>&1; then
+if ! "$CM" --build build/app-typed72-v2 --target cpp_tests app_run pvp744_r4_audit fire741_production_audit PvZPvPNative --config Release --parallel 1 > "$OUT/build.log" 2>&1; then
   echo "FAIL build (see build.log)" | tee -a "$OUT/report.txt"
   exit 1
 fi
-APP=./build/Release/app_run.exe
+APP=./build/app-typed72-v2/Release/app_run.exe
 
 ud() { mkdir -p "$OUT/ud/$1"; echo "$OW\\ud\\$1"; }
 run() {   # run <name> <timeout> <pass-grep> cmd...

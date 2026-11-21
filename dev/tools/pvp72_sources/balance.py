@@ -121,9 +121,9 @@ HEALTH.update({'plant:原始土豆地雷':18., 'plant:萝卜伞':36.,
                'zombie:墓碑吞噬者僵尸':300.})
 ZOMBIE_COOLDOWNS.update({'zombie:毁灭菇僵尸':60., 'zombie:辣椒僵尸':48.})
 
-# PvP73 decisions. 石块 costs -25: planting one pays 25 sun. 草坪 is installed by a
+# PvP73 decisions. 石块 is free. 草坪 is installed by a
 # later content module, so its cooldown is applied by catalog.py (PVP73_PLANT_COOLDOWNS).
-COSTS.update({'plant:草坪':25, 'plant:石块':-25,
+COSTS.update({'plant:草坪':25, 'plant:石块':0,
               'zombie:小鬼炮':275, 'zombie:报纸僵尸':275,
               'zombie:滚桶僵尸':225, 'zombie:海盗船长':250})
 ZOMBIE_COOLDOWNS.update({'zombie:石化火炬':48.})

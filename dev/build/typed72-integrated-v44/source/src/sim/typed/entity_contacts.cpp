@@ -200,7 +200,7 @@ void EntityContacts::home(size_t l,std::optional<size_t> nearest) {
     const auto& source=t.is_hero()?world_.heroes.cached_proxy(t.hero).source:t.unit->source;
     const auto found=rules_.homing_height.find(unit_root(source,body(t)));
     const double height=found==rules_.homing_height.end()?2.:found->second;
-    const double y=m.y-world_.runtime.tile*std::min(1.,height/2.)-p.y;
+    const double y=m.y-world_.runtime.tile*aim_height(t,std::min(1.,height/2.))-p.y;
     if(x==0.&&y==0.)return;
     e.rotation.set(std::atan2(y,x)*(180./pi));
     const double angle=pi*2.*(-e.rotation.get()/360.);

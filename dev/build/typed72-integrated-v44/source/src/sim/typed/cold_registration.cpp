@@ -17,11 +17,19 @@ void ColdRegistration::register_unit(const NativeObject& object,const ColdCard& 
     const auto identity=source(object);
     if(const auto* zombie=std::get_if<ZombieRef>(&object)){
         auto& z=**zombie;
+        if(card.name=="小鬼僵尸" || card.name=="海盗鹦鹉" || card.name=="小型史莱姆")z.aim_center_tiles=.5;
+        else if(card.name=="中型史莱姆")z.aim_center_tiles=.75;
         if(card.defense.present())z.body.defense=card.defense;
         z.attention.hits=int(card.attention_hits.or_missing(0.));z.attention.seconds=card.attention_seconds.or_missing(0.);
         if(z.attention.enabled())z.source.attention_origin=*zombie;
         if(card.base_id=="zombie:墓碑吞噬者僵尸"&&!yes(z.registration.health72)){
             z.body.hp=300.;z.registration.health72.set(true);z.patch.observed_max_hp.set(300.);
+        }
+        // PvP75: the basketball cart is deployed with its PvP health (120), once.
+        if(card.base_id=="zombie:投篮车僵尸"&&!yes(z.registration.health72)){
+            if(const auto found=catalog_.data().health.find(card.base_id);found!=catalog_.data().health.end()){
+                z.body.hp=found->second;z.registration.health72.set(true);z.patch.observed_max_hp.set(found->second);
+            }
         }
         if(side==Seat::zombie&&card.base_id=="zombie:伴舞僵尸")z.native.move_speed.set(60.);
     }

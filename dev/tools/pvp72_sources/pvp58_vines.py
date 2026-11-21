@@ -47,12 +47,8 @@ class Vines:
     def lookup(self, row, col, skip_shell=False):
         """Original pumpkin-first order; with 密植 the latest plant is on top.
 
-        Without the secret this is the original loop: the first shell in the
-        cell wins, otherwise the last plant listed there. With 密植 the latest
-        plant is on top for the shovel and every other plant-side caller, but
-        attacking zombies (PvP62) go for the shell first: the topmost pumpkin
-        or vine, else the topmost plant. Zombie-owned combat phases never see
-        the untargetable haunting pepper.
+        Without the secret the first shell keeps its original contact priority.
+        With 密植 an attacking zombie contacts the newest living, targetable plant.
         """
         active = self.b.targets.active
         hide = bool(active) and active['owner'] == 'zombie' and active['phase'] in ('zombies', 'entities')
@@ -62,17 +58,14 @@ class Vines:
             cell = plant.get('坐标')
             if not cell or cell[0] != row or cell[1] != col:
                 continue
-            # A shell remains the cell's contact layer until maintenance
-            # removes it. Repeated crush queries must not consume the body
-            # immediately after killing the shell in the same native tick.
+            if dense and hide and (plant.get('植物血', 1) <= 0 or '死' in plant):
+                continue
             if hide and not self._targetable(plant) and not is_shell(plant):
                 continue
             if is_shell(plant):
                 if skip_shell:
                     continue
                 if not dense and shell < 0:
-                    shell = index
-                elif dense and hide:
                     shell = index
             found = index
         return shell if shell >= 0 else found

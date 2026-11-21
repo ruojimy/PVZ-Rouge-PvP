@@ -17,7 +17,7 @@ MASOCHIST_EARLY_SUN = 15
 MASOCHIST_LATE_SUN = 25
 MASOCHIST_COOLDOWN = 3.
 # Native Dave stands up once 玩家恢复 passes 2000 frames (8 s at 250 Hz);
-# with 抖M the knocked-down Dave starts rising after 3 s.
+# With 抖M the knocked-down Dave starts rising after 4 s.
 NATIVE_RISE_FRAMES = 2000
 MASOCHIST_RISE_FRAMES = 1000
 

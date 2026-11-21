@@ -1,5 +1,7 @@
 #pragma once
 #include "sim/typed72_app/snapshot_sink.h"
+#include "sim/typed/pvp75_content.h"
+#include <nlohmann/json.hpp>
 namespace pvz::typed72app {
 // Projection only; mirrors the unchanged reference snapshot's field presence,
 // nulls and order. Differential checks compare complete output in real modes.
@@ -43,6 +45,13 @@ template<class M> void project_metadata(M& m,SnapshotSink& w){
         if(rp.teleport_ready_at>0.)w.put("teleport_ready_at",rp.teleport_ready_at);
         if(rp.collect_locked_until>0.)w.put("collect_locked_until",rp.collect_locked_until);
         if(m.cannon_aim_written[i]){if(rp.cannon_aim){w.array("cannon_aim");w.put("",rp.cannon_aim->y);w.put("",rp.cannon_aim->x);w.end();}else w.null("cannon_aim");}
+        // PvP75: same fields as snapshot_layer.inc (the metadata view builds player rows here).
+        if(const auto& aim=rp.laser_aim)if(const auto record=m.battle.native_objects.get(*aim))if(const auto* bean=std::get_if<PlantRef>(&*record)){
+            const auto eye=pvp75::laser_eye(**bean,m.battle.runtime.tile);
+            w.json("laser_aim",nlohmann::json{{"id",*aim},{"x",eye.x},{"y",eye.y},{"facing",(*bean)->facing<0.?-1:1},
+                {"min",pvp75::kLaserMinCells},{"max",pvp75::kLaserMaxCells},{"angle",pvp75::kLaserHalfAngle}});
+        }
+        if(rp.test_zero_cooldown)w.put("test_zero_cooldown",true);
         if(std::find(m.tick_state.present.begin(),m.tick_state.present.end(),seat)==m.tick_state.present.end())w.put("absent",true);
         w.end();
     }

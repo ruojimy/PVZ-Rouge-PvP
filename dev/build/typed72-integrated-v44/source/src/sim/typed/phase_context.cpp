@@ -22,13 +22,9 @@ HiddenGhostCells::HiddenGhostCells(TypedBattleState& world,bool hide) {
     for(const auto& plant:*roster)
         if(september_targetable(*plant))occupied.emplace(plant->cell.y,plant->cell.x);
     saved_.reserve(roster->size());
-    const auto equals=[](const Field<std::string>& field,std::string_view value) {
-        return field.present() && !field.is_null() && field.get()==value;
-    };
     for(const auto& plant:*roster) {
         if(occupied.contains({plant->cell.y,plant->cell.x}))continue;
-        if(!equals(plant->source.content,"幽灵辣椒") &&
-           !(plant->kind=="模仿者" && equals(plant->copy_card,"plant:幽灵辣椒")))continue;
+        if(!untargetable_plant(*plant))continue;
         const auto cell=world.terrain.at(plant->cell.y,world.terrain.wrap(plant->cell.x));
         if(cell && cell->plant.present()) {
             saved_.emplace_back(cell,cell->plant);

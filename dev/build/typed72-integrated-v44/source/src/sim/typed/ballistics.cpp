@@ -1,4 +1,5 @@
 #include "sim/typed/ballistics.h"
+#include "sim/typed/projectile_rules.h"
 #include <cmath>
 namespace pvz::typed72 {
 namespace {
@@ -68,20 +69,20 @@ BallisticAim NativeBallistics::pick(const EntityRef& e,bool squash) {
         const double ahead=(z.x-p.x)*direction,lane=std::abs(z.y-p.y);
         if(squash?(ahead<-tile*.10||ahead>tile*2.35||lane>tile*std::max(.90,.38*size)):(ahead<-tile*1.5))continue;
         const double score=squash?std::max(0.,ahead)+lane*3.:lane*2.5+std::max(0.,ahead)*.12;
-        if(!best_score||score<*best_score){best_score=score;best_unit=t;result.target=BallisticTarget{int64_t(i),identity(t),{z.x,z.y-tile*(squash?.12:.35)*size},direction};}
+        if(!best_score||score<*best_score){best_score=score;best_unit=t;result.target=BallisticTarget{int64_t(i),identity(t),{z.x,z.y-tile*aim_height(t,(squash?.12:.35)*size)},direction};}
     }catch(const std::exception&){}
     if(best_unit)result.velocity=velocity(*best_unit,direction);return result;
 }
 BallisticAim NativeBallistics::current(const EntityRef& e,int64_t index) {
     if(index<0||uint64_t(index)>=world_.targets->size())return {};
-    try{const auto t=world_.targets->at(size_t(index));const auto& p=motion(t);return {BallisticTarget{index,identity(t),{p.x,p.y-world_.runtime.tile*.35*number(body(t).size,2.)},e->facing},velocity(t,e->facing)};}catch(const std::exception&){return {};}
+    try{const auto t=world_.targets->at(size_t(index));const auto& p=motion(t);return {BallisticTarget{index,identity(t),{p.x,p.y-world_.runtime.tile*aim_height(t,.35*number(body(t).size,2.))},e->facing},velocity(t,e->facing)};}catch(const std::exception&){return {};}
 }
 BallisticAim NativeBallistics::squash_locked(const EntityRef& e,const SquashLock& lock) {
     const auto index=lock.target_index.present()&&!lock.target_index.is_null()?lock.target_index.get():-1;
     if(index<0||uint64_t(index)>=world_.targets->size())return {};
     try{const auto t=world_.targets->at(size_t(index));if(lock.target_id.present()&&!lock.target_id.is_null()&&identity(t)!=lock.target_id.get())return {};
         if(body(t).hp<=0.)return {};const auto& p=motion(t);const double direction=sign(e->facing),size=std::max(.8,number(body(t).size,2.));
-        return {BallisticTarget{index,identity(t),{p.x,p.y-world_.runtime.tile*.12*size},direction},velocity(t,direction)};
+        return {BallisticTarget{index,identity(t),{p.x,p.y-world_.runtime.tile*aim_height(t,.12*size)},direction},velocity(t,direction)};
     }catch(const std::exception&){return {};}
 }
 } // namespace pvz::typed72

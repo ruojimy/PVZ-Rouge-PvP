@@ -332,7 +332,7 @@ V C_HeroDamageBalanceTests::m_test_bite_damage_by_zombie_kind(const Args& A) {
     V L_hits;
     V L_key;
     V L_want;
-    L_expected = py_dict({{SV("zombie:普通僵尸"), V(1.0)}, {SV("zombie:黑普通僵尸"), V(3.0)}, {SV("zombie:墓碑吞噬者僵尸"), V(6.0)}});
+    L_expected = py_dict({{SV("zombie:普通僵尸"), V(1.0)}, {SV("zombie:黑普通僵尸"), V(3.0)}, {SV("zombie:墓碑吞噬者僵尸"), V(3.0)}});
     { auto it1_ = py::items_vec(L_expected);
     for (size_t i1_ = 0; i1_ < it1_.size(); ++i1_) {
         L_key = it1_[i1_].first; L_want = it1_[i1_].second; 

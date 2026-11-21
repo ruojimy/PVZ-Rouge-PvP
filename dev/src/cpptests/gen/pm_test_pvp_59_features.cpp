@@ -240,8 +240,9 @@ V C_PvP59Tests::m_test_masochist_dave_rises_after_3_seconds_instead_of_8(const A
     L_plain = m_rise_frame(Args{V::list({SV("plant:豌豆射手")})});
     L_quick = m_rise_frame(Args{V::list({SV("plant:豌豆射手"), SV("secret:抖M")})});
     (void)(m_assertAlmostEqual(Args({(pm_pvp58_catalog::NATIVE_RISE_FRAMES - pm_pvp58_catalog::MASOCHIST_RISE_FRAMES), (L_plain - L_quick)}, {{SY("delta"), V(2.0)}})));
-    (void)(m_assertLess(Args{L_quick, ((V(3.0) * V(250.0)) + V(100.0))}));
-    (void)(m_assertIn(Args{SV("3秒"), pm_catalog::f_describe(Args{SV("secret:抖M")})}));
+    (void)(m_assertGreaterEqual(Args{L_quick, (V(4.0) * V(250.0))}));
+    (void)(m_assertLess(Args{L_quick, ((V(4.0) * V(250.0)) + V(100.0))}));
+    (void)(m_assertIn(Args{SV("4秒即开始起身"), pm_catalog::f_describe(Args{SV("secret:抖M")})}));
     return V::none();
 }
 

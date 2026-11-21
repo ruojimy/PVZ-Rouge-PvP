@@ -1,37 +1,37 @@
 # PVZ-Rouge · 对战模式（PvP）
 
-中文版最新正式版为 **PvP74.4 r3**（`1.6.0.74.4-typed.20261117-r3`，C++ 原生版，无需 Python），Android versionCode **1117003**。英文版仍为 PvP64，不可混用联机。
+中文版最新正式版为 **PvP75 r2**（`1.6.0.75-typed.20261121-r2`，C++ 原生版，无需 Python），Android versionCode **1121077**。英文版仍为 PvP64，不可混用联机。
 
 ## 下载
 
-[74.4 r3 正式发布页](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/tag/v1.6.0.74.4-pvp744-r3) · [历史版本](https://github.com/ruojimy/PVZ-Rouge-PvP/releases)
+[PvP75 r2 正式发布页](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/tag/v1.6.0.75-pvp75-r2) · [历史版本](https://github.com/ruojimy/PVZ-Rouge-PvP/releases)
 
 | 附件 | 用途 |
 | --- | --- |
-| [Windows 玩家包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.74.4-pvp744-r3/PvZ-PvP-Native-20261117-pvp744-r3.zip) | 解压后运行“启动PvP.cmd”；默认使用独立用户数据目录 |
-| [Android ARM64](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.74.4-pvp744-r3/PvZ-PvP-Native-1.6.0.74.4-typed.20261117-r3-1117003-pvp744-release-20261117-r3-gift-final.apk) | 同包名、同签名覆盖升级，versionCode 1117003 |
-| [完整开发者包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.74.4-pvp744-r3/PvZ-PvP-Native-20261117-pvp744-r3-Developer-Package.zip) | 74.4 r3 正式源码、生成器、冻结生产阶段和配套验证 |
-| [SHA-256 清单](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.74.4-pvp744-r3/zh-SHA256SUMS.txt) | 核对三个正式包 |
+| [Windows 玩家包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.75-pvp75-r2/PvZ-PvP-Native-20261121-pvp75-r2.zip) | 解压后运行“启动PvP.cmd”；默认使用独立用户数据目录 |
+| [Android ARM64](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.75-pvp75-r2/PvZ-PvP-Native-1.6.0.75-typed.20261121-r2-1121077-pvp75-r2-20261121.apk) | 同包名、同签名覆盖升级，versionCode 1121077 |
+| [完整开发者包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.75-pvp75-r2/PvZ-PvP-Native-20261121-pvp75-r2-Developer-Package.zip) | PvP75 r2 正式源码、生成器、冻结生产阶段和配套验证 |
+| [SHA-256 清单](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.75-pvp75-r2/zh-SHA256SUMS.txt) | 核对三个正式包 |
 
-## 74.4 r3 更新与验证
+## PvP75 更新
 
-合作第 8、16、24 关加入泰拉瑞亚 Boss 与钻石奖励；新增合作赠送金币、AI 资源支援及 Boss 注意力选敌。改进合作结算、手机布局和陀螺仪，Boss 资源加入材质工坊；修复磁力菇崩溃、戴夫材质变白和电疗眩晕问题。此前的测试模式、材质与天气修复也包含在内。[完整更新说明](dev/更新说明-PvP74.4.md) · [公开验证摘要](docs/pvp744-r3-validation.json)。
+新卡：巴豆、激光豆、盾卫僵尸、克苏鲁之仆（新贴图与动画，全部收入材质工坊，并接入合作模式）。平衡：小鬼、黑普通、撑杆 50 脑光，海豚 40；投篮车与小鬼炮 120 血；雪橇车小队逐秒出场；三叶草改为不可选中的飞行植物；杨桃 300 阳光、星星穿透 3 个单位，大帝改为穿透 +1；加农炮 32 秒装填；补贴秘籍改为无僵尸时周期补给 6 秒后再给 15 脑光；Boss 的冰冻、黄油、眩晕改为同时长减速。
 
-联机双方应统一使用 74.4 r3。本次完成生产内核、UI、资源、Boss、结算定向检查及发行包校验；**完整产品回归未重跑，Android 实机触控、陀螺仪手感和长时压力尚未验收**。历史 27 项未豁免问题保留，不能据此宣称全产品通过。
+r2 修正：激光豆在正式版中无法瞄准发射的问题；范围提示改为面朝方向 ±80° 扇形；激光豆、巴豆静置动画；盾卫僵尸中毒变色；克苏鲁之仆冷却 20 秒；测试模式“该方0冷却”开关；材质工坊卡面图标修正。性能：激光光束分段绘制，单位旋转与受伤闪烁的绘制缓存改进，身首分开画的僵尸与带防具僵尸在持续受击时明显减少卡顿。[完整更新说明](dev/更新说明-PvP75.md) · [公开验证摘要](docs/pvp75-r2-validation.json)。
+
+联机双方应统一使用 PvP75 r2（与 r1、74.4 不兼容）。本次完整产品回归已重跑：2351 通过、3 失败、12 错误、0 缺失，其余 15 项均为既有已豁免问题，相对 r1 无新增。Android 已在一台实机（vivo V2456A）上完成覆盖安装与性能诊断场景实测；**实机触控手感、双机联机与长时压力尚未正式验收**。
 
 ## 神经网络 AI 研究
 
-新增独立的[神经网络AI板块](ai-nn/README.md)：提供Windows即用研究包、模型/checkpoint、当前216组语料、训练工具、完整源码及验证报告。[研究下载](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/tag/ai-nn-20261114-r1)。
-
-模型实际接管经济、植物进攻模式和墓碑目标数。648局基线无崩溃/AI异常；54组留出对照每阵营各多胜3局，统计尚不显著，继续作为研究候选。正式游戏默认AI仍为r22，74.4 r3 玩家包的交付及默认行为以本次发行说明为准。
+独立的[神经网络AI板块](ai-nn/README.md)：提供Windows即用研究包、模型/checkpoint、216组语料、训练工具、完整源码及验证报告。[研究下载](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/tag/ai-nn-20261114-r1)。该研究包为 11-14 冻结版本；正式游戏默认 AI 及行为以当前发行说明为准。
 
 ## 历史待办
 
-[旧待办清单](待办清单.md) 是 74.3 r2 时的快照，尚未逐项更新至 74.4 r3；不要把其条目状态视为当前验收结果。
+[旧待办清单](待办清单.md) 是 74.3 r2 时的快照，未逐项更新；不要把其条目状态视为当前验收结果。
 
 ## 源码与升级
 
-`dev/` 以 74.4 r3 开发者包为基础更新，并保留仓库原有的历史/AI 研究证据；因此 `dev/` 含少量旧文件，不应把整个目录当成与 ZIP 完全相同的文件集合。正式包清单及逐文件哈希见 `dev/MANIFEST-PvP74.4.json` 和 `dev/SHA256SUMS.txt`。AI 研究的冻结版本仍见上述研究发布页。
+`dev/` 与 PvP75 r2 开发者包逐文件一致（仅 `.gitignore` 排除的 AI 研究语料目录不上传，见上方研究发布页）。正式包清单及逐文件哈希见 `dev/MANIFEST-PvP75.json` 和 `dev/SHA256SUMS.txt`。
 
 生产内核位于 `dev/build/typed72-integrated-v44/source/src/sim/typed/`，组合层拥有源位于 `dev/build/typed72-match-v1/`。Windows 默认使用 `%APPDATA%/PVZ-PvP-Native/pvp_userdata`；Android 同包名同签名覆盖升级。发行包不含个人存档和签名私钥。
 

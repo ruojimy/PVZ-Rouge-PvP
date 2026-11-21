@@ -8,7 +8,7 @@ set(CMAKE_MSVC_RUNTIME_LIBRARY MultiThreaded)
 set(LIBS "${LIBDIR}/pvzui.lib" "${LIBDIR}/pvztyped72app.lib" "${LIBDIR}/pvztyped72kernel.lib" "${LIBDIR}/pvzcore.lib" "${LIBDIR}/pvzsnapshot_zlib.lib"
     "${ROOT}/third_party/SDL2-2.30.9/lib/x64/SDL2.lib" "${ROOT}/third_party/SDL2_image-2.8.2/lib/x64/SDL2_image.lib"
     "${ROOT}/third_party/SDL2_ttf-2.22.0/lib/x64/SDL2_ttf.lib" "${ROOT}/third_party/SDL2_mixer-2.8.0/lib/x64/SDL2_mixer.lib" ws2_32)
-foreach(n ref73_record cold73_export v_cold_catalog_probe deck73_corpus)
+foreach(n ref73_record cold73_export v_cold_catalog_probe deck73_corpus ranked_draft_room ranked_secret_effects)
   add_executable(${n} ${n}.cpp)
   target_compile_features(${n} PRIVATE cxx_std_20)
   target_compile_options(${n} PRIVATE /utf-8 /fp:precise /MP1 /FS /bigobj)

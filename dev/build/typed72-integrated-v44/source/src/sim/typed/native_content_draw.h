@@ -25,7 +25,8 @@ public:
     void draw_barrel(Point feet,double angle);
     void draw_center(const NativeArt&,double x,double y,double angle);
     // native_content.draw_custom_plant: content plant art with status flags.
-    void draw_custom_plant(const CombatPlant&,std::string key,double x,double y,bool bottom=false,double angle=0.);
+    // stretch>0 (PvP75 idle): bottom-anchored breathing, height ×(1+stretch), width ×(1-stretch/2).
+    void draw_custom_plant(const CombatPlant&,std::string key,double x,double y,bool bottom=false,double angle=0.,double stretch=0.);
     // Content plants with their own drawer (pvp64/pvp61/september/vines/pvp70): true if drawn here.
     bool draw_plant(const CombatPlant&);
     std::map<std::string,double> pvp64_sinks;  // pvp64 plant_sink (cold)

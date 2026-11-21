@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "apk_sha256": "40d3ae900052db8b1a2a876346b73aca4ad0c7dc59bf0af575da3163c102eb59",
+  "android": "15",
+  "serial": "emulator-5588",
+  "physical_device": false,
+  "launch": "Starting: Intent { cmp=org.pvzrouge.pvzpvpnative/.PvPActivity }\r\nStatus: ok\r\nLaunchState: COLD\r\nActivity: org.pvzrouge.pvzpvpnative/.PvPActivity\r\nTotalTime: 1548\r\nWaitTime: 1555\r\nComplete\r\n",
+  "pid": "4710",
+  "menu_screenshot": "android15-final-home.png",
+  "touch_screenshot": "android15-final-tap.png",
+  "installed_version": [
+    "versionCode=1119004 minSdk=23 targetSdk=35",
+    "versionName=1.6.0.74.4-typed.20261119-r4"
+  ],
+  "battle_completed": true,
+  "battle_report": "android15-final-battle/ordinary/report.json",
+  "diagnostic_original_userdata_preserved": true,
+  "backend": "typed72",
+  "battle_report_sha256": "63f63700cadbc4d5c7dffc4c827118896cdf0abdbadd365876c9768f6a7c41b9"
+}

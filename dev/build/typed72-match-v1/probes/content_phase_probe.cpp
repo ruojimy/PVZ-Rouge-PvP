@@ -7,6 +7,7 @@
 #include "sim/typed/content_ballistics.h"
 #include "sim/typed/content_particles.h"
 #include "sim/typed/content_admission.h"
+#include "sim/typed/pvp75_content.h"
 namespace {
 struct ContentPhaseProbe : ContentControllersProbe,ContentPlant70Services,ContentLanternEvents,DartPresentation,
         ContentPhasePresentation,BarrelProjectileServices,SeptemberPlantServices,ReedPlantServices,MortarPlantServices,BonusPlantServices {
@@ -49,8 +50,10 @@ struct ContentPhaseProbe : ContentControllersProbe,ContentPlant70Services,Conten
     SeptemberPlants september_plants{battle,world_region,queries,target_dispatch,collision,*this};
     BarrelProjectiles barrel_shots{battle,combat_state,flight,*this};
     NativeBarrelCrush barrel_crush{battle,zombies,static_cast<ZombieActionServices&>(static_cast<WorldRulesProbe&>(*this))};
+    // PvP75: 巴豆, 激光豆, 盾卫僵尸 and the Boss control conversion.
+    Pvp75Content pvp75{battle,queries,target_dispatch,poison,plant_rules.bosses};
     NativeContentPhases phases{battle,{target_dispatch,plants70,mortars,content64,zombies56,zombies70,flying,barrels,barrel_shots,darts,
-        grenadiers,sea,frost,content_lantern,vines,september_plants,reeds},custom_plants,tick_state.drawing,*this};
+        grenadiers,sea,frost,content_lantern,vines,september_plants,reeds,pvp75},custom_plants,tick_state.drawing,*this};
     struct ObservedGate final : EntityContentGate {
         ContentPhaseProbe& probe;
         explicit ObservedGate(ContentPhaseProbe& value):probe(value){}
@@ -70,7 +73,7 @@ struct ContentPhaseProbe : ContentControllersProbe,ContentPlant70Services,Conten
     BonusProjectiles bonus_projectiles{battle,content_damage,collision,rules};
     BonusPlants bonus_plants{battle,chart,squash,content_damage,*this};
     BonusScan bonus_scan{battle,{bonus_plants,bonus_projectiles,chain,shooting,lantern,peas,fume,squash}};
-    ContentAdmission admission{battle,{carts,plants70,zombies70,mortars,content64,taunts,reeds,scarecrows,vines,zombies56,flying,september_plants,barrels},combat_rules.black_variants};
+    ContentAdmission admission{battle,{carts,plants70,zombies70,mortars,content64,taunts,reeds,scarecrows,vines,zombies56,flying,september_plants,barrels,pvp75},combat_rules.black_variants};
     J phase_events=J::array(),phase_draws=J::array();
     bool phase_seen=false;
     explicit ContentPhaseProbe(int64_t seed,double width,double splash):ContentControllersProbe(seed,width,splash){}

@@ -283,10 +283,10 @@ V C_NativeMaterials::m_test_taco_effect_survives_snapshot_and_does_not_delay_or_
     (void)(callm(pvz::getattr(L_b, SY("zsecrets")), SY("_taco"), Args{SV("zombie")}));
     (void)(callm(L_b, SY("_sync_public"), Args{}));
     L_snap = py::stdlib_call(SV("json.loads"), Args{py::stdlib_call(SV("json.dumps"), Args({callm(L_b, SY("snapshot"), Args({}, {{SY("include_map"), V(true)}}))}, {{SY("ensure_ascii"), V(false)}}))});
-    (void)(m_assertEqual(Args{(V(2.0) * L_speed), rdm(L_body, &Obj::移速, SV("移速"))}));
+    (void)(m_assertEqual(Args{(V(1.75) * L_speed), rdm(L_body, &Obj::移速, SV("移速"))}));
     (void)(m_assertEqual(Args{SV("taco"), rd(rd(rd(rd(L_snap, SV("zsecrets")), SV("effects")), V(0.0)), SV("kind"))}));
     (void)(callm(pvz::getattr(L_b, SY("zsecrets")), SY("_taco"), Args{SV("zombie")}));
-    (void)(m_assertEqual(Args{(V(2.0) * L_speed), rdm(L_body, &Obj::移速, SV("移速"))}));
+    (void)(m_assertEqual(Args{(V(1.75) * L_speed), rdm(L_body, &Obj::移速, SV("移速"))}));
     (void)(m_assertEqual(Args{V(1.0), py::len(pvz::getattr(pvz::getattr(L_b, SY("zsecrets")), SY("effects")))}));
     (void)(m_assertIsNotNone(Args{callm(pm_native_style::new_NativeArt(Args({a_pg}, {{SY("asset_dir"), (pm_test_pvp_66_material_maps_oct16::ROOT / SV("PVZ-Rouge-v1.4.8/图片"))}})), SY("raw"), Args{SV("玉米卷")})}));
     return V::none();

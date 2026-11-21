@@ -339,8 +339,9 @@ V C_CoopProgress::m_skip(const Args& A) {
         return SV("请先领取本次合作的奖励卡");
     }
     L_day = a_day;
+    L_SKIP_PRICE=pm_pve::f_skip_price(Args{L_day,V(true)});
     L_before = [&]() -> V { V out_ = V::dict(); V L_s; { V it4_ = py::iter_list(L_seated); for (size_t i4_ = 0; i4_ < it4_.len(); ++i4_) { L_s = it4_.idx(int64_t(i4_)); out_.at(L_s) = pvz::getattr(rd(a_campaigns, L_s), SY("coins")); }}return out_; }();
-    L_error = callm(L_payer, SY("skip_day"), Args({}, {{SY("pay"), V(true)}}));
+    L_error = callm(L_payer, SY("skip_day"), Args{V(true),L_SKIP_PRICE});
     if ((L_error).truthy()) {
         return L_error;
     }

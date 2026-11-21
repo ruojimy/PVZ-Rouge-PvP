@@ -26,7 +26,8 @@ TIERS = {
     0: ("普通僵尸", "路障僵尸", "铁桶僵尸", "撑杆跳僵尸", "小鬼僵尸", "垃圾桶僵尸", "伴舞僵尸",
         "稻草人", "豌豆僵尸", "坚果僵尸", "黑普通僵尸"),
     1: ("小丑僵尸", "气球僵尸", "蹦蹦僵尸", "钢门普通僵尸", "毁灭菇僵尸", "三叶草僵尸", "萝卜伞僵尸",
-        "掷弹兵僵尸", "倭瓜僵尸", "海盗鹦鹉", "黑路障僵尸", "雪人僵尸", "钩索僵尸"),
+        "掷弹兵僵尸", "倭瓜僵尸", "海盗鹦鹉", "黑路障僵尸", "雪人僵尸", "钩索僵尸",
+        "盾卫僵尸", "克苏鲁之仆"),
     2: ("铁桶钢门僵尸", "橄榄球僵尸", "矿工僵尸", "投篮车僵尸", "梯子僵尸", "辣椒僵尸", "路灯花僵尸",
         "吸金磁僵尸", "史莱姆僵尸", "传送带僵尸", "滚桶僵尸", "乌鸦", "舞王僵尸", "海盗船长",
         "黑铁桶僵尸", "黑撑杆僵尸", "大喷菇僵尸", "雪橇车小队", "死神僵尸"),
@@ -219,6 +220,11 @@ class WaveDirector:
             self.cycle = CoopCycle(self, battle)
 
     # --------------------------------------------------------------- run
+    @staticmethod
+    def wave_cost(key):
+        """PvP75: zero-price cards (克苏鲁之仆) still spend 50 wave budget."""
+        return CARDS[key]["cost"] if CARDS[key]["cost"] > 0 else 50
+
     def _compose(self, budget, flag):
         chosen = []
         if flag and FLAG_ZOMBIE in CARDS:
@@ -226,7 +232,7 @@ class WaveDirector:
             budget -= CARDS[FLAG_ZOMBIE]["cost"]
         pool = [(key, weight) for key, tier, weight in self.pool if weight > 0]
         while pool:
-            affordable = [(key, weight) for key, weight in pool if CARDS[key]["cost"] <= budget]
+            affordable = [(key, weight) for key, weight in pool if self.wave_cost(key) <= budget]
             if not affordable:
                 break
             total = sum(weight for key, weight in affordable)
@@ -236,7 +242,7 @@ class WaveDirector:
                 if pick <= 0:
                     break
             chosen.append(key)
-            budget -= CARDS[key]["cost"]
+            budget -= self.wave_cost(key)
         return chosen
 
     def step(self, battle):
@@ -483,6 +489,10 @@ MAX_EXTRA_SLOTS = 3
 MAX_SUN_UPGRADES = 6
 
 
+def skip_price(day, coop=False):
+    return 50000 if coop and day in (8, 16, 24) else SKIP_PRICE
+
+
 def shop_price(base, day):
     """Co-op prices grow 10% of the base per day, rounded up to 5 coins."""
     return ((int(base)*(10+max(0,int(day)-1))+49)//50)*5
@@ -701,16 +711,16 @@ class Campaign:
         self.offer_rewards()
         return bonus
 
-    def skip_day(self, pay=True):
+    def skip_day(self, pay=True, price=SKIP_PRICE):
         """PvP73: pay SKIP_PRICE coins to count today as cleared. No pickups and
         no clear bonus, but the usual reward pick (taking it advances the day
         and restocks the shop, exactly like a won day)."""
         if self.rewards:
             return "请先领取通关奖励"
         if pay:
-            if self.coins < SKIP_PRICE:
-                return "金币不足：跳关需要 $%d（还差 %d）" % (SKIP_PRICE, SKIP_PRICE - self.coins)
-            self.coins -= SKIP_PRICE
+            if self.coins < price:
+                return "金币不足：跳关需要 $%d（还差 %d）" % (price, price - self.coins)
+            self.coins -= price
         self.history.append(dict(day=self.day, played_day=self.day, result="win", coins=0, raw_coins=0,
                                  bonus=0, coin_half=self.coin_half, skipped=True))
         self.best_day = max(self.best_day, self.day)

@@ -1,0 +1,146 @@
+{
+ "base_revision": "pvp75-r1",
+ "reviewed_files": {
+  "build/typed72-integrated-v44/source/src/sim/typed/cold_catalog_data.cpp": {
+   "r1": "5641c8439ffc8894da1e7512b3fd2cb058930fb0ea018ea32b03186870f68496",
+   "r2": "a0a40b3936100a759f3169fea9fda6d588adfc55ccb97b5e2562222d952b9d0b"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/cold_deployment.cpp": {
+   "r1": "d2d79d651b46e698f69bb02c0b927cd4d10ab7c061723d51b099a9a1df3fbcb4",
+   "r2": "5829883b8ad7807f34ba659f7254a265521f77cf3d5f6bbb139c81f0dff098e6"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/command_actions.cpp": {
+   "r1": "aa4f7dc0cb9d598348223dc146b021bfbc8477ab18c22c56aa9a39bc65551d1a",
+   "r2": "388196fa7aa34a4e13b5573428b283a7d1a979910f0fec82b5869b28d6d9d1d0"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/native_content_draw.cpp": {
+   "r1": "32bc423f52a5b1882cb669f8f75c017ca4930556ec1488b3cc7cbb016b70fedd",
+   "r2": "d35014231bcff8d93422de6f1b6fa3607d4b08e900e0b220200835ec1d3581d1"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/native_content_draw.h": {
+   "r1": "bd4378625576eb357c2a8625c4648f824c66d2edc9a284d8e1e783db792f55a5",
+   "r2": "96745b3426bf23422935740684516f608007a70f041111956c37cf000d71ed95"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/pvp75_content.cpp": {
+   "r1": "0f5a5d71d33e0acbc2ccd06a11d53258ba6b14c03ac56ca75529c2888590f341",
+   "r2": "0fa5f9d4bedf6bbeb91fb95857c7221589bbc770780057fda98283a6c515ca2d"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/room_state.h": {
+   "r1": "216e5d692eab737fba82a50ea69efbfdb86584e08612fcc96f379ed56bd9764d",
+   "r2": "6e67995a4951e3646dafd35abdb6dc904603df9729fd9d8d8a1b2d17ff17fecd"
+  },
+  "build/typed72-match-v1/match_probe.cpp": {
+   "r1": "9a17c126d14dd167c4af0758c485fa216cfceef7701f47372bffcf994982eb10",
+   "r2": "0095d851291c6903bfe771ea7c866e7ab52f291bd6cacfd8575fc25095f28144"
+  },
+  "build/typed72-match-v1/snapshot_layer.inc": {
+   "r1": "df33c186053078a4a16cecce98ea892aed25954b52854520b9b70b73ee148b3d",
+   "r2": "a14de187c6209661ccb03f72f006b9371232a758d62523af2a3d144447096748"
+  },
+  "extract/data/__init__.json": {
+   "r1": "e8683f5699d8a47d00ccf1b07d5831773b22fab96b7640ec3b7ae7a8e68d9427",
+   "r2": "74a89a2f8e943fab280457887dc5693e57821ccd68b615e972298d1c853cbcc1"
+  },
+  "extract/data/catalog.json": {
+   "r1": "8a8000179e5d27de25929821fa003ee4e00b546668ab2be247d6ff77cbbe4d5c",
+   "r2": "e83c75355a7e00abfbcddf8422477081da89915b413c392ef34d9fa5c096f00d"
+  },
+  "extract/data/texture_card_icons74.json": {
+   "r1": "914305d6aa8c23d3b2bb04336cc29f29f5209df785d61ec97cb17be644d6027b",
+   "r2": "de3468c533d860d0b8494670cc4b5d89a1f87fcd504769615abf1cd4b7d2b984"
+  },
+  "extract/data/texture_resources74.json": {
+   "r1": "683edec05566f8f7f56b9bc7f909c2a0b99bbf7084d4269bf86e12a247507dd5",
+   "r2": "785158211c5ff0b5dcb7669f2e85f1434235af4a8016e62a8940f7626108fb16"
+  },
+  "src/app/diagnostic72.cpp": {
+   "r1": "af6fc78583338f9ace79f0cd57e7dd364fab0abe6409863abffd4aa7801b4c38",
+   "r2": "d27253d0dd384a856e8f801fe9187a9b95872c6c143256510db28471d23a473b"
+  },
+  "src/core/render_cache.cpp": {
+   "r1": "24d3b4aef9eb2ac19e314f68aecbd6d56fb4c1e53703d07bb104eed0bb021dab",
+   "r2": "4d134434c1ef5a2c787a5100667376ee20ec717ca779f7536f1420e263fef30c"
+  },
+  "src/core/render_cache.h": {
+   "r1": "ab1fc8d5ac2a0b259c71a9c38860833f04b56d407e69e4b8461afa46ece1a918",
+   "r2": "c3ffc75e8a38d05b6d4ea99ea7e3fbc0231b8f8b87bc12bc5235e18a3f7097e0"
+  },
+  "src/cpptests/gen/pm_test_pvp_native_animation.cpp": {
+   "r1": "25f47682b204387d74cc3d2b15d2109a3d2b24403441f03d5485bcd8d1ec992b",
+   "r2": "f32cebd0701bd1e95c093a5af50c640c660b8cec0a9572b6353f5af55d67c93b"
+  },
+  "src/cpptests/gen/pm_test_pvp_native_units.cpp": {
+   "r1": "86aa7157c47b9bacd9b9b7ecf480e601749fc8833107db8f69bf83cc8e021a66",
+   "r2": "4dfb291f455e8ac5359bd46b56b967025b2fc87026773c045c56fed54879a54e"
+  },
+  "src/sim/pvp/gen/pm_catalog.cpp": {
+   "r1": "222241752f73d572562233b344bb8d980419d82aa37b1fae3c18be20ec746ed0",
+   "r2": "81edb221002dd8e342d2cca1119ed465fc36d798fafa8f20a59b9096729044dd"
+  },
+  "src/sim/pvp/gen/pm_native_animation.cpp": {
+   "r1": "565fcda3856735bb63d2476f8587d61c26fadae38f5a3fbcf946f9c31f269815",
+   "r2": "6093cdcf60ef349808092e7a8a1d0caa60843bf8c30d42006c8a7459ed91cbd3"
+  },
+  "src/sim/typed72_app/composition/MANIFEST.json": {
+   "r1": "039a9e4d8fe26206ae666965fee1081093301cb059faf079f8db8438a69ab692",
+   "r2": "347fa99247f1eb5546e3c85e0a40bca6e8713f0221c119c1a45f2b1291f0788b"
+  },
+  "src/sim/typed72_app/composition/match_probe.cpp": {
+   "r1": "2cfe6c8c81c473a5987465ba3b4a99b7706f2be9775aaaa4ea98557667ed7e70",
+   "r2": "47b2ba6cf00b96b246a1999f55c5facc16cda336bb2fca1475ae12573ae960ff"
+  },
+  "src/sim/typed72_app/composition/snapshot_layer.inc": {
+   "r1": "df33c186053078a4a16cecce98ea892aed25954b52854520b9b70b73ee148b3d",
+   "r2": "a14de187c6209661ccb03f72f006b9371232a758d62523af2a3d144447096748"
+  },
+  "src/sim/typed72_app/metadata_projection.h": {
+   "r1": "1d9c90fe7e2c9f8e25539efff3d5814a05d214871ed50598580a936039f7b5a9",
+   "r2": "731e59d6cd371a378ddd15959eab33ec39c94b8916788a7ce0b046e180f6fe00"
+  },
+  "src/ui/gen/pm_performance_probe.cpp": {
+   "r1": "94d5191de5e6bed486e5a63364ebad51f9408c4de8c211e242efba2b3eb0998e",
+   "r2": "2ce1f1f78dae60ccd395610f6e6926d028ca3691db5d9769ff2b4f54a518d8e7"
+  },
+  "src/ui/hand/pvp75_ui.cpp": {
+   "r1": "2f4a1d047bf7ce474e2500428dca859136021397c19dc6adb37d668daed1b4ef",
+   "r2": "b609a3bc83269d96ad625dcd9bc44d5744471dae655a48171b198eb58bce2a85"
+  },
+  "src/ui/hand/pvp75_ui.h": {
+   "r1": "ed259ba74b053071e7f61e75af9068252e3c2f546b8019120ad4fac36d5aeee7",
+   "r2": "07a14b296e7dcb23ae111d37f7d815dbcb7bb1043a51c4905aa43723bd61f720"
+  },
+  "src/ui/hand/test_mode74.cpp": {
+   "r1": "1bce8e2e56e90d7beea8f7ccb68087bb61d943aaf1208cff547ddfdddb1d0786",
+   "r2": "e32b061d553f1809bb1d4d7d97d8e2047ba90a7e27a7f88328dd290e8db3e630"
+  },
+  "src/uitools/pvp74_texture_audit.cpp": {
+   "r1": "81105e3c9deb4ce69d90e06ef90658e43ff3749f7d406c0f49caf6e0043d6f32",
+   "r2": "be09133ff9fbcf50930a94a5c7965faf44b28879ea6f05055b05e6a49563511a"
+  },
+  "src/uitools/pvp75_audit.cpp": {
+   "r1": "09e4c718f1ce4f18bdf3415935f16691b911544fd50401d4fdc44df635d0a8ed",
+   "r2": "82d8bc7f8a0592a14209ffc4a0485f6d2fa1d7996c91f6dde0ce2969e11710cb"
+  },
+  "src/uitools/pvp75_ui_audit.cpp": {
+   "r1": "337b33e6727e33e4959ad5c3d5fb59ca05313ea9db27dc23119f690f771c3bc4",
+   "r2": "9fd245512eabbf9ce57c16954f21ea2da33314fe690dc351680aa615c08ad885"
+  },
+  "tools/pvp72_sources/catalog.py": {
+   "r1": "a30ce03fc8e8dacd4d881d4c3df8a6307a0f023550f45762e2d84cc1a7dd9f37",
+   "r2": "8ad95a54270095a5dcce5c2a097ab7a5074bada43eb1492b7708ab1b484cbd93"
+  },
+  "tools/pvp75_release.py": {
+   "r1": "014e52ba3302ddc6e1b7f041c70d2c1bb16de04e6fae71408dbca6c6161b110d",
+   "r2": "507abafb3fe6a68aa5f51b8a82a0b549c1b33c5081301ac85343433af4ca552f"
+  },
+  "tools/pvp75_ui_hooks.py": {
+   "r1": "199f017f709cac920fab4293b8be64be913bbe4953ca91f890205b9324ab1bf1",
+   "r2": "1814c077d4d49d8e609b7826364d98045fe76068042b18e5acde6af6cbf5ff7f"
+  }
+ },
+ "added_files": [
+  "tools/pvp75_laser_bench.py",
+  "tools/pvp75_testbuild.py"
+ ],
+ "note": "PvP75 r2 changes relative to the r1 developer package: laser UI/metadata projection fixes, tiled beam, replay cache normalisation, guard poison tint, servant cooldown, idle animations, test-mode zero cooldown, workshop icon bake; reviewed with PvP75_进度.md, the PvP75 audits and the r2 full suite."
+}

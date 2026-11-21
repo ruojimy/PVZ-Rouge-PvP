@@ -24,6 +24,14 @@ torch.set_num_threads(4)
 checkpoint = torch.load(args.checkpoint, weights_only=True, map_location='cpu')
 meta = json.loads(args.model.read_text('utf-8'))
 model = DeepSet(16 + len(meta['behaviors']), meta['embedding'], meta['hidden']).double()
+if meta.get('mode_hidden'):
+    from overnight_train import PolicyNetwork
+    model=PolicyNetwork(16+len(meta['behaviors']),meta['mode_hidden']).double()
+if meta.get('feature_version',1)==2:
+    model.body=torch.nn.Linear(28+4*meta['embedding'],meta['hidden']).double()
+if meta.get('policy_version',1)==2:
+    model.heads=torch.nn.Linear(meta['hidden'],28).double()
+    OFFSETS=(0,12,14,25,28)
 model.load_state_dict(checkpoint['state_dict']);model.eval()
 rows = []
 with cpp_file.open(encoding='utf-8') as f:
@@ -51,7 +59,7 @@ with torch.no_grad():
             mismatches += int((classes != torch.tensor([r['classes'][h] for r in part])).sum())
 negative = []
 for field, value in (('sim_fingerprint', 'wrong-source'), ('catalog_hash', 'wrong-catalog'),
-                     ('enabled_heads', [True]), ('format', 'unsupported-format')):
+                     ('enabled_heads', [True]), ('format', 'unsupported-format'), ('feature_version',99), ('policy_version',99)):
     bad = dict(meta);bad[field] = value
     path = args.out / ('invalid-' + field + '.json')
     path.write_text(json.dumps(bad), 'utf-8')

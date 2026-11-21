@@ -86,6 +86,13 @@ void ContentZombies56::anchor(const ZombieRef& child,const ZombieRef& unit,bool 
 void ContentZombies56::before_tick() {
     for(const auto& target:*world_.targets)if(target.unit && text(target.unit->content56.dance_owner))
         if(const auto unit=leader_for(target.unit))anchor(target.unit,unit);
+    if(pending_sleds.empty())return;
+    std::vector<PendingSled> due;
+    std::erase_if(pending_sleds,[&](const PendingSled& p){if(p.due>world_.heroes.tick)return false;due.push_back(p);return true;});
+    for(const auto& p:due){
+        if(!budget_.can_spawn(1,p.origin.source)){budget_.defer(p.origin.source,"sled_squad",p.slot,[this,origin=p.origin,slot=p.slot]{return deferred_sled(origin,slot);});continue;}
+        deferred_sled(p.origin,p.slot);
+    }
 }
 void ContentZombies56::gate(const ZombieRef& unit) {
     auto& state=unit->content56;
@@ -165,24 +172,19 @@ bool ContentZombies56::deferred_dancer(const ScriptedSpawnOrigin& source,double 
     summoned(source.source->id,child,owner,free?std::nullopt:std::optional<double>(slot));return true;
 }
 void ContentZombies56::spawn_squad(const ZombieRef& first) {
-    const auto start=first->body.motion.get();const double tile=world_.runtime.tile,width=world_.world_width.get();
-    first->body.motion.get().x=py::mod(start.x-.975*tile,width);first->content56.squad_owner=first->source.id;
-    for(int slot=1;slot<4;++slot) {
-        if(!budget_.can_spawn(1,source_ref(first))) {
-            auto saved=scripted_spawn_origin(first);saved.position.get().x=start.x;saved.position.get().y=start.y;
-            budget_.defer(source_ref(first),"sled_squad",slot,[this,saved,slot]{return deferred_sled(saved,slot);});continue;
-        }
-        ZombieRef child;
-        {Exemption exemption(world_.spawn_ban_exempt);child=services_.spawn_zombie56("zombie:雪橇车小队僵尸",
-            {py::mod(start.x+(slot-1.5)*.65*tile,width),start.y},first->body.facing,public_parent(first->source.id));}
-        if(child)child->content56.squad_owner=first->source.id;
+    const auto start=first->body.motion.get();
+    first->content56.squad_owner=first->source.id;
+    // PvP75: one member per second from the deploy point, in squad order.
+    for(int slot=1;slot<4;++slot){
+        auto saved=scripted_spawn_origin(first);saved.position.get().x=start.x;saved.position.get().y=start.y;
+        pending_sleds.push_back({saved,double(slot),world_.heroes.tick+int64_t(slot)*250});
     }
 }
 bool ContentZombies56::deferred_sled(const ScriptedSpawnOrigin& source,double slot) {
-    const auto start=source.position.get();ZombieRef child;
+    const auto start=source.position.get();ZombieRef child;(void)slot;
     {HeroContext scope(world_.heroes,{Seat::zombie,world_.heroes.owner(source.source).value(),CombatPhase::summon,source.source,{}});
      Exemption exemption(world_.spawn_ban_exempt);child=services_.spawn_zombie56("zombie:雪橇车小队僵尸",
-         {py::mod(start.x+(slot-1.5)*.65*world_.runtime.tile,world_.world_width.get()),start.y},source.facing.get(),source);}
+         {py::mod(start.x,world_.world_width.get()),start.y},source.facing.get(),source);}
     if(!child)return false;child->content56.squad_owner=source.source->id;
     if(source.source->charmed.present())child->source.charmed.set(200.);return true;
 }

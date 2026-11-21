@@ -15,6 +15,7 @@ import ast, sys, json, re, os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
 PVP = Path(r"C:\Users\xiech\Downloads\PVZ-Rouge-v1.4.8\next-pvp71\modkit\pvp")
 TESTS = Path(r"C:\Users\xiech\Downloads\PVZ-Rouge-v1.4.8\next-pvp71\tests")
 SHIM = Path(__file__).resolve().parent / "testshim"
@@ -479,6 +480,9 @@ def load(name):
             if old not in text:
                 raise SystemExit("source patch no longer matches %s: %r" % (name, old[:80]))
             text = text.replace(old, new, 1)
+        if name.startswith("test_pvp_"):
+            from native_test_contracts import current_test_source
+            text = current_test_source(name, text)
         tree = ast.parse(text)
         tree = NormalizeImports().visit(tree)
         if name == "test_pvp_flag_performance":

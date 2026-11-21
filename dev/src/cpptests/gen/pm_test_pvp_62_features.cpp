@@ -547,7 +547,7 @@ bool C_RuleTests::call_method(Sym name, const Args& A, V& out) {
     return false;
 }
 V C_RuleTests::m_test_pole_vaulter_costs_60_brains(const Args& A) {
-    (void)(m_assertEqual(Args{V(60.0), rd(rd(pm_catalog::CARDS, SV("zombie:撑杆跳僵尸")), SV("cost"))}));
+    (void)(m_assertEqual(Args{V(50.0), rd(rd(pm_catalog::CARDS, SV("zombie:撑杆跳僵尸")), SV("cost"))})); // PvP75: 撑杆跳僵尸 50
     return V::none();
 }
 
@@ -807,9 +807,9 @@ V C_BattleTests::m_test_dense_zombies_bite_the_shell_first(const Args& A) {
       pvz::setattr(pvz::getattr(L_b, SY("targets")), SY("active"), V::none());
       (void)(m_assertEqual(Args{V(2.0), callm(L_vines, SY("lookup"), Args{V(3.0), V(4.0)})}));
       pvz::setattr(pvz::getattr(L_b, SY("targets")), SY("active"), py_dict({{SV("owner"), SV("zombie")}, {SV("phase"), SV("zombies")}, {SV("target"), SV("plant")}, {SV("source"), V::none()}, {SV("attack_id"), V::none()}}));
-      (void)(m_assertEqual(Args{V(1.0), callm(L_vines, SY("lookup"), Args{V(3.0), V(4.0)})}));
-      setm(rd(rdm(pvz::getattr(L_b, SY("g")), &Obj::植物, SV("植物")), V(1.0)), &Obj::植物血, SV("植物血"), V(0.0));
       (void)(m_assertEqual(Args{V(2.0), callm(L_vines, SY("lookup"), Args{V(3.0), V(4.0)})}));
+      setm(rd(rdm(pvz::getattr(L_b, SY("g")), &Obj::植物, SV("植物")), V(2.0)), &Obj::植物血, SV("植物血"), V(0.0));
+      (void)(m_assertEqual(Args{V(1.0), callm(L_vines, SY("lookup"), Args{V(3.0), V(4.0)})}));
     }
     return V::none();
 }

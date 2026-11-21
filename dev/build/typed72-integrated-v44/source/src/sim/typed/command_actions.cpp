@@ -1,4 +1,5 @@
 #include "sim/typed/command_actions.h"
+#include "sim/typed/pvp75_content.h"
 #include "core/pymath.h"
 #include <cstdio>
 
@@ -112,6 +113,41 @@ std::string NativeRoomCommands::cannon(Seat seat,const NativeCommand& c){
     }
     aim=plants_.selected_cannon;return {};
 }
+void NativeRoomCommands::clear_laser_aim(Seat seat){
+    auto& aim=state_.players[seat_index(seat)].laser_aim;if(!aim)return;
+    if(const auto record=world_.native_objects.get(*aim))if(const auto* p=std::get_if<PlantRef>(&*record))(*p)->pvp75.aimed=false;
+    aim.reset();
+}
+// PvP75 激光豆: click a bean to aim (or to stop its beam), then click a point.
+std::string NativeRoomCommands::laser(Seat seat,const NativeCommand& c){
+    if(team_of(seat)!=Seat::plant)return "只有植物方可操作激光豆";
+    if(c.kind==NativeCommandKind::laser_cancel){clear_laser_aim(seat);return {};}
+    if(!coordinates(c))return "激光坐标无效";
+    const double tile=world_.runtime.tile;const Cell cell{int(py::floordiv(c.y.value,tile)),int64_t(py::floordiv(c.x.value,tile))};
+    const auto live=[](const PlantRef& p){return p&&p->kind=="激光豆"&&p->hp.or_missing(0.)>0.&&!p->dead.present();};
+    PlantRef clicked;
+    // The UI names the bean it hit (its sprite reaches above its own cell); otherwise the clicked cell decides.
+    if(c.target.valid()){
+        if(const auto record=world_.native_objects.get(c.target.value))if(const auto* p=std::get_if<PlantRef>(&*record))if(live(*p)&&text((*p)->source.owner,"plant"))clicked=*p;
+        if(!clicked){clear_laser_aim(seat);return "激光豆已失效";}
+    }else for(const auto& p:*world_.plant_roster)if(p->cell==cell&&live(p)&&text(p->source.owner,"plant"))clicked=p;
+    if(clicked){
+        if(clicked->pvp75.firing){clicked->pvp75=Pvp75PlantState{};clear_laser_aim(seat);return {};}
+        if(clicked->sleep.present()){clear_laser_aim(seat);return "激光豆正在睡眠";}
+        clear_laser_aim(seat);clicked->pvp75.aimed=true;
+        state_.players[seat_index(seat)].laser_aim=clicked->source.id.or_missing(std::string{});return {};
+    }
+    auto& aim=state_.players[seat_index(seat)].laser_aim;
+    if(!aim)return "此处没有激光豆";
+    PlantRef bean;if(const auto record=world_.native_objects.get(*aim))if(const auto* p=std::get_if<PlantRef>(&*record))bean=*p;
+    if(!live(bean)||bean->sleep.present()){clear_laser_aim(seat);return "激光豆已失效";}
+    const Point target{c.x.value,c.y.value};
+    const auto error=pvp75::laser_target_error(*bean,target,tile,world_.world_width.get());
+    clear_laser_aim(seat);
+    if(!error.empty())return error;
+    bean->pvp75.firing=true;bean->pvp75.target=target;bean->pvp75.clock=0.;bean->pvp75.started=world_.heroes.tick;
+    return {};
+}
 std::string NativeRoomCommands::shovel(Seat seat,const NativeCommand& c){
     if(team_of(seat)!=Seat::plant)return "只有植物方可使用铲子";
     if(!coordinates(c)||(!c.right.absent()&&!c.right.valid()))return "铲除坐标无效";
@@ -142,6 +178,7 @@ std::string NativeRoomCommands::apply(Seat seat,const NativeCommand& c){
     case NativeCommandKind::teleport:return teleport(seat,c);
     case NativeCommandKind::cannon:case NativeCommandKind::cannon_cancel:return cannon(seat,c);
     case NativeCommandKind::shovel:return shovel(seat,c);
+    case NativeCommandKind::laser:case NativeCommandKind::laser_cancel:return laser(seat,c);
     case NativeCommandKind::deploy:return services_.deploy(seat,c);
     case NativeCommandKind::wake:
         switch(graves_.wake_input(seat,c.grave.valid()?std::optional<std::string>(c.grave.value):std::nullopt)){

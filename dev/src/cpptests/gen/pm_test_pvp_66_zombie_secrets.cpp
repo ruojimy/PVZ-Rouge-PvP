@@ -1233,9 +1233,9 @@ V C_EconomyAndAuraTests::m_test_heal_and_taco_from_the_holder_dave(const Args& A
     (void)(callm(pvz::getattr(L_b, SY("zsecrets")), SY("step"), Args{V(12.0)}));
     (void)(m_assertGreater(Args{rdm(L_z, &Obj::血量, SV("血量")), V(10.0)}));
     (void)(callm(pvz::getattr(L_b, SY("zsecrets")), SY("step"), Args{V(8.0)}));
-    (void)(m_assertAlmostEqual(Args{(L_speed * V(2.0)), rdm(L_z, &Obj::移速, SV("移速"))}));
+    (void)(m_assertAlmostEqual(Args{(L_speed * V(1.75)), rdm(L_z, &Obj::移速, SV("移速"))}));
     (void)(callm(pvz::getattr(L_b, SY("zsecrets")), SY("step"), Args{V(20.0)}));
-    (void)(m_assertAlmostEqual(Args{(L_speed * V(2.0)), rdm(L_z, &Obj::移速, SV("移速"))}));
+    (void)(m_assertAlmostEqual(Args{(L_speed * V(1.75)), rdm(L_z, &Obj::移速, SV("移速"))}));
     return V::none();
 }
 
@@ -2466,7 +2466,7 @@ V C_MoreSecretTests::m_test_trinity_needs_land_water_air_in_own_deck(const Args&
     L_native = py_dict({{SV("血量"), V(50.0)}, {SV("_pvp_max_hp"), V(50.0)}, {SV("移速"), V(1.0)}, {SV("_pvp_seat"), SV("zombie")}});
     (void)(callm(pvz::getattr(L_good, SY("zsecrets")), SY("on_spawn"), Args{L_native, py_dict({{SV("side"), SV("zombie")}, {SV("base_id"), SV("zombie:海盗鹦鹉")}, {SV("id"), SV("zombie:海盗鹦鹉")}})}));
     (void)(m_assertAlmostEqual(Args{V(75.0), rdm(L_native, &Obj::血量, SV("血量"))}));
-    (void)(m_assertAlmostEqual(Args{V(1.5), rdm(L_native, &Obj::移速, SV("移速"))}));
+    (void)(m_assertAlmostEqual(Args{V(1.25), rdm(L_native, &Obj::移速, SV("移速"))}));
     return V::none();
 }
 

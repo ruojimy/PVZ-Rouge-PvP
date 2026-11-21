@@ -9,6 +9,7 @@
 namespace pvz::typed72 {
 struct AttackSource {
     std::weak_ptr<CombatZombie> attention_origin; // attribution survives projectile metadata copies
+    bool zombie_projectile=false;
     EntitySourceLink entity;
     ZombieSourceLink unit;
     Field<std::string> projectile, plant, zombie, plant_kind, content, variant;

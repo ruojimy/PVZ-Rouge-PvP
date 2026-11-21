@@ -59,6 +59,9 @@ void ContentTargets::damage(const std::shared_ptr<AttackSource>& source,const Co
         auto& plant=**p;
         const auto attacking_unit=source->unit.lock();
         if(plant.kind=="魅惑菇"&&!source->charmed.present()&&!(attacking_unit&&attacking_unit->terraria))source->charmed.set(0.);
+        if(plant.kind=="巴豆"&&attacking_unit&&source.get()==&attacking_unit->source&&!plant.sleep.present()&&!plant.dead.present()&&plant.hp.get()>0.){
+            plant.hurt.set(1.);plant.dead.set(DeathMarker(0.));world_.pvp75.bites.push_back({attacking_unit,*p});return;
+        }
         const double old=plant.hp.get();
         static const std::string no_hand;
         const auto loss=world_.protection.amount({plant.hp.get(),no_hand,plant.source,plant.protection},amount);

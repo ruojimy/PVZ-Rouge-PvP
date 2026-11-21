@@ -158,8 +158,8 @@ V C_SeptemberRules::m_test_prices_cooldowns_and_charm_stack(const Args& A) {
     V L_describe_reference;
     V L_key;
     V L_text;
-    // PvP73 balance (user request 11-11): 草坪 25 sun / 16 s (was 40 / 8), 石块 -25 sun (was 0).
-    { V it1_ = py::iter_list(V::list({V::tuple({SV("zombie:鸭子铁桶僵尸"), V(100.0), V(16.0)}), V::tuple({SV("zombie:小鬼僵尸"), V(40.0), V(6.0)}), V::tuple({SV("plant:草坪"), V(25.0), V(16.0)}), V::tuple({SV("plant:石块"), V(-25.0), V(20.0)})}));
+    // PvP73 balance (user request 11-11): 草坪 25 sun / 16 s (was 40 / 8), 石块 0 sun.
+    { V it1_ = py::iter_list(V::list({V::tuple({SV("zombie:鸭子铁桶僵尸"), V(100.0), V(16.0)}), V::tuple({SV("zombie:小鬼僵尸"), V(50.0), V(8.0)}) /* PvP75: 小鬼 50 / 8 s */, V::tuple({SV("plant:草坪"), V(25.0), V(16.0)}), V::tuple({SV("plant:石块"), V(0.0), V(20.0)})}));
     for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) {
         { V ut2_ = py::as_seq(it1_.idx(int64_t(i1_))); L_key = ut2_.idx(0); L_cost = ut2_.idx(1); L_cd = ut2_.idx(2); } 
         L_card = pm_catalog::f_actual_card(Args{L_key});

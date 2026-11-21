@@ -104,7 +104,7 @@ ColdPlacementResult ColdPlacement::thief(Seat seat,const std::string& key,Point 
     if(published_.units.size()>=700)return "战场单位达到上限";
     const double tile=world_.runtime.tile;const auto row=std::floor(p.y/tile),col=std::floor(p.x/tile);
     const RoomPublishedUnit* target=nullptr;
-    for(const auto& u:published_.units)if(u.side==Seat::plant&&u.hp>0.&&u.card->id!="plant:幽灵辣椒"&&u.copy_card!="plant:幽灵辣椒"&&u.card->id!="plant:抓人草触手"&&
+    for(const auto& u:published_.units)if(u.side==Seat::plant&&u.hp>0.&&u.card->id!="plant:幽灵辣椒"&&u.copy_card!="plant:幽灵辣椒"&&u.card->id!="plant:三叶草"&&u.copy_card!="plant:三叶草"&&u.card->id!="plant:抓人草触手"&&
         std::floor(u.position.x/tile)==col&&py::round0(u.position.y/tile)-1.==row&&(!target||u.id<target->id))target=&u;
     if(!target)return "请选择存活的敌方植物";
     ColdPlacementPlan plan;plan.charge=card.cost;plan.card=std::move(card);plan.position=target->position;plan.slot=key;plan.thief_target=target->id;return plan;
@@ -180,6 +180,12 @@ ColdPlacementResult ColdPlacement::zombie(Seat seat,const std::string& key,Point
         if(!world_.local_test_mode||team!=Seat::zombie||!terraria_summon(terraria_type(key)))return "仅本地测试模式可召唤";
         const size_t count=terraria_type(key)==13?67:terraria_type(key)==35?3:1;
         if(world_.native_objects.size()+count>700)return "战场单位达到上限";
+        plan.position={mod(p.x,width()),p.y};return plan;
+    }
+    if(card.behavior=="servant"){
+        // PvP75 克苏鲁之仆: no grave; any point on the map (it flies).
+        if(team!=Seat::zombie)return "只有僵尸方可召唤克苏鲁之仆";
+        if(p.x<0.||p.x>=width()||p.y<0.||p.y>=height())return "放置坐标无效";
         plan.position={mod(p.x,width()),p.y};return plan;
     }
     if(team==Seat::zombie&&card.behavior!="grave"){

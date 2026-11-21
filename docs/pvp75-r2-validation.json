@@ -1,0 +1,61 @@
+{
+ "release": "PvP75 r2",
+ "version": "1.6.0.75-typed.20261121-r2",
+ "revision": "pvp75-r2",
+ "android_version_code": 1121077,
+ "sha256": {
+  "PvZ-PvP-Native-20261121-pvp75-r2.zip": "ded0c8c3c63d843b5b87fd07de84f3b976934f0c6bb98342aa49bbf7fdd2899c",
+  "PvZ-PvP-Native-1.6.0.75-typed.20261121-r2-1121077-pvp75-r2-20261121.apk": "a3f79d05bbd599f5f6e433862165420b6381f0784cb98f7cd79d777cee9d019b",
+  "PvZ-PvP-Native-20261121-pvp75-r2-Developer-Package.zip": "018518157ea90838c99c8b26c48e98cd5ef85fff17b2606a2bb68d32fd18d757"
+ },
+ "full_regression": {
+  "counts": {
+   "PASS": 2351,
+   "FAIL": 3,
+   "ERROR": 12,
+   "SKIP": 0
+  },
+  "missing": 0,
+  "unwaived": 0,
+  "waived_known": 15,
+  "new_versus_pvp75_r1": 0,
+  "pure_typed_gate": true,
+  "combat_gate": true,
+  "workers": 8
+ },
+ "packaged_audits": [
+  "74.4 testmode/controls/sky-weather/material/feedback/r3",
+  "74.4 r4",
+  "pvp75 kernel (new cards, laser, guard poison tint, boss control, servant, balance)",
+  "pvp75 UI (real pointer laser path, zero-cooldown toggle, replay normalisation pixel equality, croton gas)"
+ ],
+ "replay_cache_change": "Pure transform chains (asset/crop/flip/scale/rotate) are cached without alpha (applied at blit, pixel-identical) and with rotations rounded to 0.25 degrees; recipe cache 64 MiB / 1536 entries. Two pixel-exact replay parity tests run with exact angles.",
+ "android_device": {
+  "model": "vivo V2456A (Android 16)",
+  "install": "same-signature upgrade to 1121077, data kept",
+  "laser_scene_fps_by_replay_rules": {
+   "old-plain": {
+    "tiles-0": 26.4,
+    "tiles-10": 13.6
+   },
+   "old-armor": {
+    "tiles-0": 13.5,
+    "tiles-10": 7.9
+   },
+   "new-plain": {
+    "tiles-0": 34.6,
+    "tiles-10": 18.7
+   },
+   "new-armor": {
+    "tiles-0": 20.4,
+    "tiles-10": 10.1
+   }
+  },
+  "note": "diagnostic scene: 20 durable ordinary zombies (+20 armoured in \"armor\"), 0 or 10 firing 激光豆; old = previous replay cache rules toggled off in the same APK"
+ },
+ "not_verified": [
+  "real-device touch feel",
+  "two-machine online play",
+  "long-session stress"
+ ]
+}

@@ -133,10 +133,10 @@ V C_CatalogTests::m_test_prices_descriptions_and_export_are_current(const Args& 
     V L_name;
     V L_side;
     V L_values;
-    L_data = py::stdlib_call(SV("json.loads"), Args{callm((pm_test_pvp_63_features::ROOT / SV("对战/PvP规则数据.json")), SY("read_text"), Args{SV("utf8")})});
-    (void)(m_assertEqual(Args{py::data_value("__init__", "BUILD"), rd(L_data, SV("build"))}));
-    (void)(m_assertEqual(Args{pm_catalog::f_catalog_hash(Args{}), rd(L_data, SV("catalog_hash"))}));
-    L_exported = rd(L_data, SV("cards"));
+    L_data = py::stdlib_call(SV("json.loads"), Args{callm((pm_test_pvp_63_features::ROOT / SV("extract/data/catalog.json")), SY("read_text"), Args{SV("utf8")})});
+    (void)(m_assertEqual(Args{py::data_value("__init__", "BUILD"), rd(py::stdlib_call(SV("json.loads"), Args{callm((pm_test_pvp_63_features::ROOT / SV("extract/data/__init__.json")), SY("read_text"), Args{SV("utf8")})}), SV("BUILD"))}));
+    (void)(m_assertEqual(Args{pm_catalog::f_catalog_hash(Args{}), pm_catalog::f_digest(Args{rd(L_data, SV("CARDS"))})}));
+    L_exported = rd(L_data, SV("CARDS"));
     { V it1_ = py::iter_list(V::tuple({V::tuple({SV("plant"), pm_test_pvp_63_features::PLANT_COSTS}), V::tuple({SV("zombie"), pm_test_pvp_63_features::ZOMBIE_COSTS})}));
     for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) {
         { V ut2_ = py::as_seq(it1_.idx(int64_t(i1_))); L_side = ut2_.idx(0); L_values = ut2_.idx(1); } 
@@ -712,8 +712,8 @@ void init() {
     py::note_module_loaded("pvp.test_pvp_63_features");
     py::init_deps_test_pvp_63_features();
     pm_test_pvp_63_features::ROOT = rd(pvz::getattr(callm(py::stdlib_call(SV("pathlib.Path"), Args{py::module_file(SV("test_pvp_63_features"))}), SY("resolve"), Args{}), SY("parents")), V(1.0));
-    pm_test_pvp_63_features::PLANT_COSTS = py_dict({{SV("萝卜伞"), V(60.0)}, {SV("路灯花"), V(40.0)}, {SV("三叶草"), V(0.0)}, {SV("大嘴花"), V(100.0)}, {SV("金盏花"), V(100.0)}, {SV("磁力菇"), V(25.0)}, {SV("吸金磁"), V(100.0)}, {SV("玉米加农炮"), V(250.0)}});
-    pm_test_pvp_63_features::ZOMBIE_COSTS = py_dict({{SV("稻草人"), V(40.0)}, {SV("撑杆跳僵尸"), V(60.0)}, {SV("黑撑杆僵尸"), V(175.0)}, {SV("铁桶钢门僵尸"), V(175.0)}, {SV("黑铁桶僵尸"), V(175.0)}, {SV("橄榄球僵尸"), V(200.0)}, {SV("报纸僵尸"), V(250.0)}, {SV("墓碑吞噬者僵尸"), V(300.0)}, {SV("黑橄榄僵尸"), V(350.0)}, {SV("飞贼僵尸"), V(75.0)}, {SV("蹦蹦僵尸"), V(90.0)}, {SV("气球僵尸"), V(100.0)}, {SV("矿工僵尸"), V(125.0)}, {SV("高坚果僵尸"), V(325.0)}, {SV("巨人僵尸"), V(300.0)}, {SV("角斗士巨人"), V(450.0)}});
+    pm_test_pvp_63_features::PLANT_COSTS = py_dict({{SV("萝卜伞"), V(100.0)}, {SV("路灯花"), V(40.0)}, {SV("三叶草"), V(0.0)}, {SV("大嘴花"), V(100.0)}, {SV("金盏花"), V(100.0)}, {SV("磁力菇"), V(25.0)}, {SV("吸金磁"), V(100.0)}, {SV("玉米加农炮"), V(250.0)}});
+    pm_test_pvp_63_features::ZOMBIE_COSTS = py_dict({{SV("稻草人"), V(40.0)}, {SV("撑杆跳僵尸"), V(50.0) /* PvP75 */}, {SV("黑撑杆僵尸"), V(175.0)}, {SV("铁桶钢门僵尸"), V(175.0)}, {SV("黑铁桶僵尸"), V(175.0)}, {SV("橄榄球僵尸"), V(175.0)}, {SV("报纸僵尸"), V(275.0)}, {SV("墓碑吞噬者僵尸"), V(225.0)}, {SV("黑橄榄僵尸"), V(350.0)}, {SV("飞贼僵尸"), V(75.0)}, {SV("蹦蹦僵尸"), V(90.0)}, {SV("气球僵尸"), V(100.0)}, {SV("矿工僵尸"), V(125.0)}, {SV("高坚果僵尸"), V(325.0)}, {SV("巨人僵尸"), V(300.0)}, {SV("角斗士巨人"), V(450.0)}});
     if ((SV("pvp.test_pvp_63_features") == SV("__main__"))) {
         (void)(pm_pvzunit::f_main(Args{}));
     }

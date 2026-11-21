@@ -38,7 +38,7 @@ nlohmann::json encode_generated_command(int64_t sequence,const CommandPayload& p
     else if constexpr(std::is_same_v<T,MarkCommand>)out["type"]="mark";
     else if constexpr(std::is_same_v<T,GiftCommand>){out["type"]="gift";write_field(out,"amount",c.amount);}
     else if constexpr(std::is_same_v<T,SurrenderCommand>){out["type"]=c.action==SurrenderAction::request?"surrender":c.action==SurrenderAction::accept?"surrender_accept":c.action==SurrenderAction::decline?"surrender_decline":"surrender_cancel";write_field(out,"request",c.request);}
-    else if constexpr(std::is_same_v<T,NativeCommand>){static constexpr const char* names[]={"turn","detonate","select_grave","wake","teleport","deploy","cannon","cannon_cancel","shovel"};out["type"]=names[static_cast<size_t>(c.kind)];write_field(out,"card",c.card);write_field(out,"target",c.target);write_field(out,"grave",c.grave);write_field(out,"copy",c.copy);write_field(out,"x",c.x);write_field(out,"y",c.y);write_field(out,"facing",c.facing);write_field(out,"right",c.right);}
+    else if constexpr(std::is_same_v<T,NativeCommand>){static constexpr const char* names[]={"turn","detonate","select_grave","wake","teleport","deploy","cannon","cannon_cancel","shovel","laser","laser_cancel"};out["type"]=names[static_cast<size_t>(c.kind)];write_field(out,"card",c.card);write_field(out,"target",c.target);write_field(out,"grave",c.grave);write_field(out,"copy",c.copy);write_field(out,"x",c.x);write_field(out,"y",c.y);write_field(out,"facing",c.facing);write_field(out,"right",c.right);}
 },payload);return out;}
 CommandAttempt decode_command(const nlohmann::json& j){
     CommandAttempt a;a.dictionary=j.is_object();if(!a.dictionary)return a;
@@ -61,6 +61,7 @@ CommandAttempt decode_command(const nlohmann::json& j){
         else if(name=="teleport")k=NativeCommandKind::teleport;else if(name=="deploy")k=NativeCommandKind::deploy;
         else if(name=="cannon")k=NativeCommandKind::cannon;else if(name=="cannon_cancel")k=NativeCommandKind::cannon_cancel;
         else if(name=="shovel")k=NativeCommandKind::shovel;
+        else if(name=="laser")k=NativeCommandKind::laser;else if(name=="laser_cancel")k=NativeCommandKind::laser_cancel;
         if(k)a.payload=NativeCommand{*k,field<std::string>(j,"card"),field<std::string>(j,"target"),field<std::string>(j,"grave"),field<std::string>(j,"copy"),field<double>(j,"x"),field<double>(j,"y"),field<int64_t>(j,"facing"),field<bool>(j,"right")};
     }
     return a;

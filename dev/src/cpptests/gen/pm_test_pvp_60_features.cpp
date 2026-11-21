@@ -165,8 +165,8 @@ V C_PvP60Tests::m_test_catalog_hud_almanac_and_export_share_prices(const Args& A
     V L_data;
     V L_key;
     V L_price;
-    L_data = py::stdlib_call(SV("json.loads"), Args{callm((pm_test_pvp_60_features::ROOT / SV("对战/PvP规则数据.json")), SY("read_text"), Args{SV("utf8")})});
-    (void)(m_assertEqual(Args{pm_catalog::f_catalog_hash(Args{}), rd(L_data, SV("catalog_hash"))}));
+    L_data = py::stdlib_call(SV("json.loads"), Args{callm((pm_test_pvp_60_features::ROOT / SV("extract/data/catalog.json")), SY("read_text"), Args{SV("utf8")})});
+    (void)(m_assertEqual(Args{pm_catalog::f_catalog_hash(Args{}), pm_catalog::f_digest(Args{rd(L_data, SV("CARDS"))})}));
     { auto it1_ = py::items_vec(pm_test_pvp_60_features::PRICES);
     for (size_t i1_ = 0; i1_ < it1_.size(); ++i1_) {
         L_key = it1_[i1_].first; L_price = it1_[i1_].second; 

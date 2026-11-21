@@ -67,6 +67,8 @@ public class PvPActivity extends SDLActivity {
     }
     @Override
     protected String[] getArguments() {
+        // Native replay transfers and diagnostics create temporary directories.
+        SDLActivity.nativeSetenv("TMPDIR", getCacheDir().getAbsolutePath());
         if(getIntent().getBooleanExtra("pvp72_trace_ui",false))
             SDLActivity.nativeSetenv("PVZ72_TRACE_UI","1");
         String encoded=getIntent().getStringExtra("pvp72_diagnostic_b64");

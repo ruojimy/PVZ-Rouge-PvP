@@ -60,7 +60,15 @@ HitResult TargetDamage::unit_damage(Callback callback,const ZombieRef& target,do
     const auto attacker=heroes_.source();const double body_hp=std::max(0.,target->body.hp);
     const double head_hp=target->body.armor_hp,hand_hp=target->body.hand_hp;
     HitResult result;std::exception_ptr failure;
+    // Scale the flat reduction in the same units as zombie-versus-zombie damage.
+    // Scope it to the outer packet so shield fallback and nested raw hits apply it once.
+    auto& defense=target->body.defense;
+    const bool scaled=attacker && (attacker->has_zombie_name()||attacker->zombie_projectile)
+        && defense.present() && !defense.is_null() && heroes_.owner(attacker)!=heroes_.owner(source_ref(target));
+    const double original=scaled?defense.get():0.;
+    if(scaled)defense.set(original*10.);
     try{result=shielded(callback,target,facing,amount);}catch(...){failure=std::current_exception();}
+    if(scaled)defense.set(original);
     if(watch_armor) {
         if(!head.empty()&&head_hp>0&&target->body.armor_hp<=0)raw_.armor_broken(target,ArmorSlot::head,head,positive_or(target->armor_max,head_hp));
         if(!hand.empty()&&hand_hp>0&&target->body.hand_hp<=0)raw_.armor_broken(target,ArmorSlot::hand,hand,positive_or(target->hand_max,hand_hp));

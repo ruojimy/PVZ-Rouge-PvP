@@ -4,6 +4,7 @@
 namespace pvz::typed72 {
 bool pvp_shell(const CombatPlant&);
 bool september_targetable(const CombatPlant&);
+bool untargetable_plant(const CombatPlant&);
 std::optional<size_t> lookup_pvp_plant(const TypedBattleState&,Cell,bool skip_shell);
 bool clear_pvp_plant(TypedBattleState&,Cell);
 std::optional<Point> patch_plant_point(const TypedBattleState&,const CombatPlant&);

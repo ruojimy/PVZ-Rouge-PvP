@@ -321,14 +321,14 @@ V C_Balance::m_test_all_mobile_cards_keep_charm_and_reciprocal_native_bite_value
             (void)(m_assertEqual(Args{SV("zombie"), callm(pvz::getattr(L_b, SY("targets")), SY("owner"), Args{L_target})}));
             L_name = rd(callm(L_key, SY("split"), Args{SV(":"), V(1.0)}), V(1.0));
             if (!py::in(L_name, L_interrupted)) {
-                L_damage = ((py::in(L_name, L_BLACK_ZOMBIES) || (L_name == SV("乌鸦"))) ? V(V(30.0)) : V(((L_name == SV("海盗船长")) ? V(V(40.0)) : V(((L_name == SV("墓碑吞噬者僵尸")) ? V(V(60.0)) : V((py::in(L_name, V::tuple({SV("巨人僵尸"), SV("红眼巨人"), SV("角斗士巨人")})) ? V(V(100.0)) : V(((L_name == SV("稻草人")) ? V(V(0.0)) : V(V(10.0)))))))))));
+                L_damage = ((py::in(L_name, L_BLACK_ZOMBIES) || (L_name == SV("乌鸦"))) ? V(V(30.0)) : V(((L_name == SV("海盗船长")) ? V(V(40.0)) : V(((L_name == SV("墓碑吞噬者僵尸")) ? V(V(30.0)) : V((py::in(L_name, V::tuple({SV("巨人僵尸"), SV("红眼巨人"), SV("角斗士巨人")})) ? V(V(100.0)) : V(((L_name == SV("稻草人")) ? V(V(0.0)) : V(V(10.0)))))))))));
                 (void)(m_assertEqual(Args{(V(10000.0) - L_damage), rdm(L_target, &Obj::血量, SV("血量"))}));
                 (void)(m_assertEqual(Args{V(9990.0), rdm(L_a, &Obj::血量, SV("血量"))}));
             }
             (void)(py::m_append(L_checked, L_key));
         }
     }}
-    (void)(m_assertEqual(Args{V(64.0), py::len(L_checked)}));
+    (void)(m_assertEqual(Args{V(66.0), py::len(L_checked)})); // PvP75: +盾卫僵尸, +克苏鲁之仆
     (void)(m_assertIn(Args{SV("zombie:钩索僵尸"), L_checked}));
     (void)(m_assertIn(Args{SV("zombie:死神僵尸"), L_checked}));
     return V::none();
@@ -704,7 +704,7 @@ void init() {
     inited_ = true;
     py::note_module_loaded("pvp.test_pvp_69002_balance");
     py::init_deps_test_pvp_69002_balance();
-    pm_test_pvp_69002_balance::PRICES = py_dict({{SV("黑撑杆僵尸"), V(175.0)}, {SV("报纸僵尸"), V(250.0)}, {SV("墓碑吞噬者僵尸"), V(300.0)}, {SV("巨人僵尸"), V(300.0)}, {SV("角斗士巨人"), V(450.0)}, {SV("红眼巨人"), V(500.0)}, {SV("高坚果僵尸"), V(325.0)}, {SV("路灯花僵尸"), V(175.0)}, {SV("吸金磁僵尸"), V(325.0)}, {SV("黑橄榄僵尸"), V(350.0)}, {SV("滚桶僵尸"), V(200.0)}, {SV("海盗船长"), V(225.0)}, {SV("舞王僵尸"), V(225.0)}, {SV("大喷菇僵尸"), V(200.0)}, {SV("气球僵尸"), V(100.0)}, {SV("矿工僵尸"), V(125.0)}});
+    pm_test_pvp_69002_balance::PRICES = py_dict({{SV("黑撑杆僵尸"), V(175.0)}, {SV("报纸僵尸"), V(275.0)}, {SV("墓碑吞噬者僵尸"), V(225.0)}, {SV("巨人僵尸"), V(300.0)}, {SV("角斗士巨人"), V(450.0)}, {SV("红眼巨人"), V(500.0)}, {SV("高坚果僵尸"), V(325.0)}, {SV("路灯花僵尸"), V(175.0)}, {SV("吸金磁僵尸"), V(325.0)}, {SV("黑橄榄僵尸"), V(350.0)}, {SV("滚桶僵尸"), V(225.0)}, {SV("海盗船长"), V(250.0)}, {SV("舞王僵尸"), V(225.0)}, {SV("大喷菇僵尸"), V(200.0)}, {SV("气球僵尸"), V(100.0)}, {SV("矿工僵尸"), V(125.0)}});
     if ((SV("pvp.test_pvp_69002_balance") == SV("__main__"))) {
         (void)(pm_pvzunit::f_main(Args({}, {{SY("verbosity"), V(2.0)}})));
     }

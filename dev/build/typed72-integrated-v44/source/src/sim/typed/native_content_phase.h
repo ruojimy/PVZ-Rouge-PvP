@@ -12,6 +12,7 @@
 #include "sim/typed/flying_plants.h"
 #include "sim/typed/sea_shroom.h"
 #include "sim/typed/entity_phase.h"
+#include "sim/typed/pvp75_content.h"
 #include <type_traits>
 namespace pvz::typed72 {
 class ContentPhasePresentation {
@@ -29,6 +30,8 @@ public:
     virtual void restore_content_art()=0;
     virtual void alias_content_art(const std::string&,const std::string&)=0;
     virtual bool has_content_sprite(const std::string&)const=0;
+    // PvP75 gas clouds and laser beams (drawing ticks only).
+    virtual void draw_pvp75(){}
 };
 struct NativeContentPhaseSystems {
     ContentTargets& targets;
@@ -48,6 +51,7 @@ struct NativeContentPhaseSystems {
     ContentVines& vines;
     SeptemberPlants& september;
     ReedPlants& reeds;
+    Pvp75Content& pvp75;
 };
 // This owns the actual NativeContent phase ordering. It uses the same world,
 // rosters and concrete controllers as the native regions and PvP wrappers.

@@ -28,7 +28,8 @@ void PveDirector::bind(const PveDirectorCold& c){
     ladders_.director_available=true;bound_=true;
 }
 double PveDirector::now()const{return world_.heroes.time;}
-double PveDirector::cost(const std::string& key)const{const auto* card=catalog_.find(key);if(!card)throw std::out_of_range("pve card "+key);return card->cost;}
+// PvP75: a zero-price card (克苏鲁之仆) still spends 50 wave budget, or a wave would never fill.
+double PveDirector::cost(const std::string& key)const{const auto* card=catalog_.find(key);if(!card)throw std::out_of_range("pve card "+key);return card->cost>0.?card->cost:50.;}
 // _compose (pve.py:222)
 std::vector<std::string> PveDirector::compose(double budget,bool flag){
     std::vector<std::string> chosen;

@@ -775,7 +775,7 @@ class TouchControls:
         screen = self.app.renderer.screen
         box = pg.Rect(rect)
         overlay = pg.Surface(box.size, pg.SRCALPHA)
-        circle = control_options(self.app.state.get('touch_options'))['shapes'].get(slot) == 'circle'
+        circle = bool(slot) and control_options(self.app.state.get('touch_options'))['shapes'].get(slot) == 'circle'
         if circle:pg.draw.ellipse(overlay, (20, 16, 12, 165 if held else 96), (0,0,box.w,box.h))
         else:overlay.fill((20, 16, 12, 165 if held else 96))
         screen.blit(overlay, box.topleft)

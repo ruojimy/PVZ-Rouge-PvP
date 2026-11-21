@@ -35,6 +35,9 @@ public:
     bool deferred_dancer(const ScriptedSpawnOrigin&,double slot,bool wild);
     bool deferred_sled(const ScriptedSpawnOrigin&,double slot);
     static bool alive(const ZombieRef&);
+    // PvP75: the other three squad members leave the deploy point one second apart.
+    struct PendingSled {ScriptedSpawnOrigin origin;double slot=0.;int64_t due=0;};
+    std::vector<PendingSled> pending_sleds;
 private:
     TypedBattleState& world_;
     ScriptedSpawnBudget& budget_;

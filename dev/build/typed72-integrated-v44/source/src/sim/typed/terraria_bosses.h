@@ -16,6 +16,8 @@ public:
     using Factory=std::function<ZombieRef(int,Point,const ZombieRef&)>;
     TerrariaBosses(TypedBattleState& world,ContentTargets& hits,Factory factory):world_(world),hits_(hits),factory_(std::move(factory)){}
     ZombieRef summon(int type,Point center);
+    // PvP75: the 克苏鲁之仆 card, in every mode; facing gives its first drift.
+    ZombieRef summon_servant(Point center,double facing);
     void advance();
     void draw(NativeCanvas&);
     int accumulator()const{return accumulator_;}

@@ -32,6 +32,7 @@ public:
     virtual ~ZombieMotionServices()=default;
     virtual void ordinary(size_t,double,double)=0;
     virtual void surface(size_t,double,double)=0;
+    virtual void fragrance_poison(const ZombieRef&){}
     virtual void request_ladder(const ZombieRef&)=0;
     virtual std::optional<Point> rally_destination(const ZombieRef&)=0;
 };

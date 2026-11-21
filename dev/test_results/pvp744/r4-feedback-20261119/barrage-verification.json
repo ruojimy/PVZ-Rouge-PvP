@@ -1,0 +1,54 @@
+{
+  "rows": [
+    {
+      "revision": "1.6.0.74.4-typed.20261117-r3",
+      "cattails": 12,
+      "units": 72,
+      "room_ticks": 210,
+      "fps": 21.378785493125193,
+      "simulation_wall_ratio": 0.9854128569156775,
+      "nearest_queries": 75071,
+      "nearest_candidates": 563996,
+      "collision_candidates": 32923,
+      "report": "test_results\\pvp744\\r4-feedback-20261119\\barrage-0\\report.json"
+    },
+    {
+      "revision": "1.6.0.74.4-typed.20261119-r4",
+      "cattails": 12,
+      "units": 72,
+      "room_ticks": 210,
+      "fps": 24.433527367275314,
+      "simulation_wall_ratio": 0.9883112498355036,
+      "nearest_queries": 75069,
+      "nearest_candidates": 414732,
+      "collision_candidates": 31817,
+      "report": "test_results\\pvp744\\r4-feedback-20261119\\barrage-1\\report.json"
+    },
+    {
+      "revision": "1.6.0.74.4-typed.20261119-r4",
+      "cattails": 12,
+      "units": 72,
+      "room_ticks": 210,
+      "fps": 24.809887415087662,
+      "simulation_wall_ratio": 0.9834639371340749,
+      "nearest_queries": 75069,
+      "nearest_candidates": 414732,
+      "collision_candidates": 31817,
+      "report": "test_results\\pvp744\\r4-feedback-20261119\\barrage-2\\report.json"
+    },
+    {
+      "revision": "1.6.0.74.4-typed.20261117-r3",
+      "cattails": 12,
+      "units": 72,
+      "room_ticks": 210,
+      "fps": 23.693368111641057,
+      "simulation_wall_ratio": 0.9806560359470803,
+      "nearest_queries": 75071,
+      "nearest_candidates": 563996,
+      "collision_candidates": 32923,
+      "report": "test_results\\pvp744\\r4-feedback-20261119\\barrage-3\\report.json"
+    }
+  ],
+  "display": "SDL dummy Windows, normal release executable",
+  "passed": true
+}

@@ -644,7 +644,7 @@ V C_PlantSecretEnhancementTests::m_test_catalog_numbers_and_new_noon_secret(cons
     L_actual_card = V::func(pm_catalog::f_actual_card);
     (void)(m_assertEqual(Args{V(100.0), rd((L_actual_card).call(Args{SV("plant:大喷菇"), V::list({SV("secret:雷霆")})}), SV("cost"))}));
     (void)(m_assertEqual(Args{V(300.0), rd((L_actual_card).call(Args{SV("plant:杨桃"), V::list({SV("secret:大帝")})}), SV("cost"))}));
-    (void)(m_assertEqual(Args{V(375.0), rd((L_actual_card).call(Args{SV("plant:杨桃")}), SV("cost"))}));
+    (void)(m_assertEqual(Args{V(300.0), rd((L_actual_card).call(Args{SV("plant:杨桃")}), SV("cost"))})); // PvP75: 杨桃 300, 大帝 keeps the price
     (void)(m_assertEqual(Args{V(18.0), rd((L_actual_card).call(Args{SV("plant:大嘴花"), V::list({SV("secret:龙蒺藜")})}), SV("hp"))}));
     (void)(m_assertTrue(Args{py::m_get((L_actual_card).call(Args{SV("plant:海蘑菇"), V::list({SV("secret:水兵")})}), SV("allow_air"))}));
     (void)(m_assertFalse(Args{py::m_get((L_actual_card).call(Args{SV("plant:海蘑菇")}), SV("allow_air"))}));

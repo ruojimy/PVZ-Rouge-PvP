@@ -13,6 +13,11 @@ std::string_view name(const Field<std::string>& f){return f.present()&&!f.is_nul
 std::optional<std::string> optional_name(const Field<std::string>& f){return f.present()&&!f.is_null()?std::optional<std::string>(f.get()):std::nullopt;}
 double number(const Field<double>& f,double fallback){return f.present()&&!f.is_null()?f.get():fallback;}
 }
+double aim_height(const CombatTarget& target,double fallback_tiles){
+    if(target.is_hero())return fallback_tiles;
+    if(target.unit->terraria)return 1.;
+    return target.unit->aim_center_tiles.value_or(fallback_tiles);
+}
 double unit_scale_factor(const AttackSource& source,const CollisionCatalog& catalog) {
     const auto content=name(source.content),variant=name(source.variant);
     const auto root=!content.empty()?content:!variant.empty()?variant:source.zombie_name();
@@ -48,6 +53,7 @@ Point native_plant_zombie_head_center(const CombatZombie& u,double tile,const Co
 }
 Point content_target_point(const CombatZombie& u,double tile,const CollisionCatalog& catalog) {
     const auto content=name(u.source.content);if(content=="抓人草触手")return u.head_point.get();
+    if(u.aim_center_tiles)return {u.body.motion.get().x,u.body.motion.get().y-tile * *u.aim_center_tiles};
     if(content=="海盗鹦鹉"||content=="乌鸦") {
         const auto image=catalog.flyer_image_height.find(std::string(content));
         return {u.body.motion.get().x,u.body.motion.get().y-(image==catalog.flyer_image_height.end()?tile*.4:image->second/2.)};

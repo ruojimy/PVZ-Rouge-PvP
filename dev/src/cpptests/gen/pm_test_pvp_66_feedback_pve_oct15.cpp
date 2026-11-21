@@ -912,7 +912,7 @@ V C_PveResetAndRoomFeedback::m_test_tcp_guest_restart_cannot_reset_host_progress
     (void)(m_assertEqual(Args{V::tuple({V(6.0), V(777.0), V(999.0), V(1.0)}), V::tuple({pvz::getattr(pvz::getattr(L_guest, SY("campaign")), SY("day")), pvz::getattr(pvz::getattr(L_guest, SY("campaign")), SY("seed")), pvz::getattr(pvz::getattr(L_guest, SY("campaign")), SY("coins")), pvz::getattr(pvz::getattr(L_guest, SY("campaign")), SY("coin_half"))})}));
     (void)(m_assertIn(Args{SV("plant:寒冰射手"), pvz::getattr(pvz::getattr(L_guest, SY("campaign")), SY("unlocked"))}));
     (void)(m_assertEqual(Args{pvz::getattr(pm_pve::new_Campaign(Args({}, {{SY("seed"), V(1.0)}})), SY("deck")), py::slice(rd(rd(pvz::getattr(pvz::getattr(L_host, SY("room")), SY("pve")), SV("decks")), SV("plant2")), V::none(), V(5.0))}));
-    (void)(m_assertFalse(Args{py::any(callm(pvz::getattr(pvz::getattr(L_host, SY("room")), SY("confirmed")), SY("values"), Args{}))}));
+    (void)(m_assertEqual(Args{py_dict({{SV("plant"), V(true)}, {SV("plant2"), V(false)}}), pvz::getattr(pvz::getattr(L_host, SY("room")), SY("confirmed"))}));
     return V::none();
 }
 

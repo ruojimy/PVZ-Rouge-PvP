@@ -8,6 +8,7 @@
 #include "sim/pvp/gen/pm_native_physics.h"
 #include "sim/pvp/gen/pm_native_runtime.h"
 #include "cpptests/gen/pm_pvzunit.h"
+#include "core/render_cache.h" // PvP75 exact-angle parity scope
 namespace pvz { namespace py { inline void init_deps_test_pvp_native_animation() { pm_app::init(); pm_native_animation::init(); pm_native_assets::init(); pm_native_bridge::init(); pm_native_physics::init(); pm_native_runtime::init(); pm_pvzunit::init(); } } }
 namespace pvz { namespace pm_test_pvp_native_animation {
 V ROOT;
@@ -273,6 +274,9 @@ V C_NativeAnimation::m_pixels(const Args& A) {
 }
 
 V C_NativeAnimation::m_test_original_plant_function_record_replay_matches_actual_pygame_for_native_phases(const Args& A) {
+    // PvP75: production replay rounds rotations to 1/4 degree (render_cache native_replay_normalize);
+    // this pixel-exact parity check runs the same replay path with exact angles.
+    pvz::ReplayExactAngles pvp75_exact_angles;
     V L_actual;
     V L_cases;
     V L_contact;

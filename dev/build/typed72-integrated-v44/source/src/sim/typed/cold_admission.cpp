@@ -84,6 +84,8 @@ std::optional<ExpansionVariantSetup> ColdAdmission::expansion_setup(const ColdCa
     return setup;
 }
 std::optional<std::string> ColdAdmission::spawn(const std::string& key,Seat side,Point position,double facing,bool temporary,const ColdParent* parent,std::optional<AttackIdentity> attack){
+    // PvP75 克苏鲁之仆: an ordinary zombie card in every mode, summoned where it was placed.
+    if(key=="zombie:克苏鲁之仆"){if(team_of(side)!=Seat::zombie)return {};return services_.spawn_terraria(key,position,facing);}
     if(terraria_type(key)){if(!world_.local_test_mode||side!=Seat::zombie||!terraria_summon(terraria_type(key)))return {};return services_.spawn_terraria(key,position,facing);}
     if(key=="plant:抓人草触手")throw std::invalid_argument("抓人草触手只能由存活本体生成");
     auto card=world_.spawn_ban_exempt?placement_.unit_card(side,key):placement_.player_card(side,key);

@@ -452,6 +452,12 @@ V C_NativeContent::m_configure(const Args& A) {
         return V::none();
     }
     setm(L_obj, &Obj::_pvp_content, SV("_pvp_content"), L_name);
+    // PvP75 cards: rules live in the typed kernel; the V reference keeps an inert native body.
+    if (py::in(L_name, V::tuple({SV("巴豆"), SV("激光豆"), SV("盾卫僵尸"), SV("克苏鲁之仆")}))) {
+        if (rd(L_card, SV("side")) == SV("plant")) { pvz::setitem(L_obj, SV("植物"), L_name); }
+        else { setm(L_obj, &Obj::血量, SV("血量"), rd(L_card, SV("hp"))); setm(L_obj, &Obj::_pvp_max_hp, SV("_pvp_max_hp"), rd(L_card, SV("hp"))); }
+        return V::none();
+    }
     if (py::in(L_name, pm_content_catalog::PLANTS)) {
         setm(L_obj, &Obj::_pvp_interval, SV("_pvp_interval"), py::round((rd(rd(pm_content_catalog::PLANTS, L_name), V(3.0)) * V(250.0))));
         setm(L_obj, &Obj::射cd, SV("射cd"), V(0.0));

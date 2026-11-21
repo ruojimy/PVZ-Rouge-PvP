@@ -1,0 +1,481 @@
+{
+  "checks": [
+    {
+      "evidence": true,
+      "name": "attention_consecutive_real_damage_expiry_and_all_marked_fallback",
+      "passed": true
+    },
+    {
+      "evidence": true,
+      "name": "worm_chain_owner_split_and_skeleton_independence",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "consecutive": 0,
+        "hits": 3,
+        "last": "",
+        "marked": {
+          "u1": 7.366666666666667
+        },
+        "seconds": 6.0
+      },
+      "name": "eye_contacts_mark_and_retarget_in_production",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "_pvp_armor_max": 0.0,
+        "_pvp_born": 0.0,
+        "_pvp_card": "plant:磁力菇",
+        "_pvp_id": "u1",
+        "_pvp_max_hp": 6.0,
+        "_pvp_owner": "plant",
+        "_pvp_temporary": false,
+        "受伤": 0.0,
+        "吸": 500.0,
+        "坐标": [
+          19,
+          44
+        ],
+        "头动画": 0.0,
+        "方向": 1.0,
+        "根动画": 0.0,
+        "植物": "磁力菇",
+        "植物血": 6.0,
+        "植物血上限": 6.0,
+        "睡觉": 50.0
+      },
+      "name": "magnet_sleep_absorption_and_day_transition",
+      "passed": true
+    },
+    {
+      "evidence": 1003,
+      "name": "boss_diamonds_full_credit_and_odd_coin_carry",
+      "passed": true
+    },
+    {
+      "evidence": true,
+      "name": "only_three_coop_days_project_red_sky_and_awake_mushrooms",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "coop": {
+          "drops": 105,
+          "kills": 198
+        },
+        "pve": {
+          "drops": 198,
+          "kills": 198
+        }
+      },
+      "name": "coop_coin_drop_probability_halved_amounts_unchanged",
+      "passed": true
+    },
+    {
+      "evidence": [
+        {
+          "holder": "",
+          "mode": "duel",
+          "reed": "闪电芦苇",
+          "stun": 0.0
+        },
+        {
+          "holder": "plant",
+          "mode": "duel",
+          "reed": "闪电芦苇",
+          "stun": 180.0
+        },
+        {
+          "holder": "",
+          "mode": "duel",
+          "reed": "超载芦苇",
+          "stun": 0.0
+        },
+        {
+          "holder": "plant",
+          "mode": "duel",
+          "reed": "超载芦苇",
+          "stun": 180.0
+        },
+        {
+          "holder": "",
+          "mode": "duo",
+          "reed": "闪电芦苇",
+          "stun": 0.0
+        },
+        {
+          "holder": "plant",
+          "mode": "duo",
+          "reed": "闪电芦苇",
+          "stun": 180.0
+        },
+        {
+          "holder": "plant2",
+          "mode": "duo",
+          "reed": "闪电芦苇",
+          "stun": 180.0
+        },
+        {
+          "holder": "",
+          "mode": "duo",
+          "reed": "超载芦苇",
+          "stun": 0.0
+        },
+        {
+          "holder": "plant",
+          "mode": "duo",
+          "reed": "超载芦苇",
+          "stun": 180.0
+        },
+        {
+          "holder": "plant2",
+          "mode": "duo",
+          "reed": "超载芦苇",
+          "stun": 180.0
+        },
+        {
+          "holder": "",
+          "mode": "pve",
+          "reed": "闪电芦苇",
+          "stun": 0.0
+        },
+        {
+          "holder": "plant",
+          "mode": "pve",
+          "reed": "闪电芦苇",
+          "stun": 180.0
+        },
+        {
+          "holder": "",
+          "mode": "pve",
+          "reed": "超载芦苇",
+          "stun": 0.0
+        },
+        {
+          "holder": "plant",
+          "mode": "pve",
+          "reed": "超载芦苇",
+          "stun": 180.0
+        },
+        {
+          "holder": "",
+          "mode": "coop",
+          "reed": "闪电芦苇",
+          "stun": 0.0
+        },
+        {
+          "holder": "plant",
+          "mode": "coop",
+          "reed": "闪电芦苇",
+          "stun": 180.0
+        },
+        {
+          "holder": "plant2",
+          "mode": "coop",
+          "reed": "闪电芦苇",
+          "stun": 180.0
+        },
+        {
+          "holder": "",
+          "mode": "coop",
+          "reed": "超载芦苇",
+          "stun": 0.0
+        },
+        {
+          "holder": "plant",
+          "mode": "coop",
+          "reed": "超载芦苇",
+          "stun": 180.0
+        },
+        {
+          "holder": "plant2",
+          "mode": "coop",
+          "reed": "超载芦苇",
+          "stun": 180.0
+        }
+      ],
+      "name": "electrotherapy_actual_attacks_all_modes_direct_only_team_shared",
+      "passed": true
+    },
+    {
+      "evidence": [
+        {
+          "gift": 0,
+          "mate": 100.0,
+          "mine": 119.0,
+          "mode": "coop",
+          "seat": "plant"
+        },
+        {
+          "gift": 10,
+          "mate": 100.0,
+          "mine": 120.0,
+          "mode": "coop",
+          "seat": "plant"
+        },
+        {
+          "gift": 75,
+          "mate": 0.0,
+          "mine": 150.0,
+          "mode": "coop",
+          "seat": "plant"
+        },
+        {
+          "gift": 0,
+          "mate": 0.0,
+          "mine": 0.0,
+          "mode": "coop",
+          "seat": "plant"
+        },
+        {
+          "gift": 100,
+          "mate": 100.0,
+          "mine": 1000.0,
+          "mode": "coop",
+          "seat": "plant"
+        },
+        {
+          "gift": 0,
+          "mate": 100.0,
+          "mine": 119.0,
+          "mode": "duo",
+          "seat": "plant"
+        },
+        {
+          "gift": 10,
+          "mate": 100.0,
+          "mine": 120.0,
+          "mode": "duo",
+          "seat": "plant"
+        },
+        {
+          "gift": 75,
+          "mate": 0.0,
+          "mine": 150.0,
+          "mode": "duo",
+          "seat": "plant"
+        },
+        {
+          "gift": 0,
+          "mate": 0.0,
+          "mine": 0.0,
+          "mode": "duo",
+          "seat": "plant"
+        },
+        {
+          "gift": 100,
+          "mate": 100.0,
+          "mine": 1000.0,
+          "mode": "duo",
+          "seat": "plant"
+        },
+        {
+          "gift": 0,
+          "mate": 100.0,
+          "mine": 119.0,
+          "mode": "duo",
+          "seat": "plant2"
+        },
+        {
+          "gift": 10,
+          "mate": 100.0,
+          "mine": 120.0,
+          "mode": "duo",
+          "seat": "plant2"
+        },
+        {
+          "gift": 75,
+          "mate": 0.0,
+          "mine": 150.0,
+          "mode": "duo",
+          "seat": "plant2"
+        },
+        {
+          "gift": 0,
+          "mate": 0.0,
+          "mine": 0.0,
+          "mode": "duo",
+          "seat": "plant2"
+        },
+        {
+          "gift": 100,
+          "mate": 100.0,
+          "mine": 1000.0,
+          "mode": "duo",
+          "seat": "plant2"
+        },
+        {
+          "gift": 0,
+          "mate": 100.0,
+          "mine": 119.0,
+          "mode": "duo",
+          "seat": "zombie"
+        },
+        {
+          "gift": 10,
+          "mate": 100.0,
+          "mine": 120.0,
+          "mode": "duo",
+          "seat": "zombie"
+        },
+        {
+          "gift": 75,
+          "mate": 0.0,
+          "mine": 150.0,
+          "mode": "duo",
+          "seat": "zombie"
+        },
+        {
+          "gift": 0,
+          "mate": 0.0,
+          "mine": 0.0,
+          "mode": "duo",
+          "seat": "zombie"
+        },
+        {
+          "gift": 100,
+          "mate": 100.0,
+          "mine": 1000.0,
+          "mode": "duo",
+          "seat": "zombie"
+        },
+        {
+          "gift": 0,
+          "mate": 100.0,
+          "mine": 119.0,
+          "mode": "duo",
+          "seat": "zombie2"
+        },
+        {
+          "gift": 10,
+          "mate": 100.0,
+          "mine": 120.0,
+          "mode": "duo",
+          "seat": "zombie2"
+        },
+        {
+          "gift": 75,
+          "mate": 0.0,
+          "mine": 150.0,
+          "mode": "duo",
+          "seat": "zombie2"
+        },
+        {
+          "gift": 0,
+          "mate": 0.0,
+          "mine": 0.0,
+          "mode": "duo",
+          "seat": "zombie2"
+        },
+        {
+          "gift": 100,
+          "mate": 100.0,
+          "mine": 1000.0,
+          "mode": "duo",
+          "seat": "zombie2"
+        },
+        {
+          "gift": 0,
+          "mate": 100.0,
+          "mine": 119.0,
+          "mode": "duel",
+          "seat": "plant"
+        },
+        {
+          "gift": 0,
+          "mate": 100.0,
+          "mine": 120.0,
+          "mode": "duel",
+          "seat": "plant"
+        },
+        {
+          "gift": 0,
+          "mate": 0.0,
+          "mine": 150.0,
+          "mode": "duel",
+          "seat": "plant"
+        },
+        {
+          "gift": 0,
+          "mate": 0.0,
+          "mine": 0.0,
+          "mode": "duel",
+          "seat": "plant"
+        },
+        {
+          "gift": 0,
+          "mate": 100.0,
+          "mine": 1000.0,
+          "mode": "duel",
+          "seat": "plant"
+        }
+      ],
+      "name": "team_ai_gifts_twenty_percent_threshold_and_no_pingpong",
+      "passed": true
+    },
+    {
+      "evidence": true,
+      "name": "material_derived_status_never_mutates_dave_base",
+      "passed": true
+    },
+    {
+      "evidence": 24,
+      "name": "workshop_includes_all_24_terraria_sheets_and_can_edit",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "battle_menu": [
+          0.1171875,
+          0.3611111111111111,
+          0.8
+        ],
+        "mate_bank": [
+          0.1171875,
+          0.3611111111111111,
+          0.8
+        ],
+        "minimap": [
+          0.1171875,
+          0.3611111111111111,
+          0.8
+        ],
+        "own_bank": [
+          0.1171875,
+          0.3611111111111111,
+          0.8
+        ],
+        "stage_info": [
+          0.1171875,
+          0.3611111111111111,
+          0.8
+        ],
+        "team_info": [
+          0.1171875,
+          0.3611111111111111,
+          0.8
+        ],
+        "timer": [
+          0.1171875,
+          0.3611111111111111,
+          0.8
+        ]
+      },
+      "name": "hud_slots_are_movable_scaled_clickable_and_persistent",
+      "passed": true
+    },
+    {
+      "evidence": true,
+      "name": "gyro_sensitivity_increases_as_threshold_decreases",
+      "passed": true
+    },
+    {
+      "evidence": true,
+      "name": "mobile_coop_wave_hud_survives_messages_and_moved_bank_hitboxes",
+      "passed": true
+    }
+  ],
+  "failures": 0
+}

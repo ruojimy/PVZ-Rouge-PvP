@@ -29,7 +29,7 @@ void ContentAdmission::configure(const PlantRef& plant,const ColdCard& card) {
         systems_.sweet.mark_dirty();const double hp=card.hp.get();plant->hp.set(hp);plant->max_hp.set(hp);plant->content_state.maximum_hp.set(hp);return;
     }
     if(systems_.mortar.configure(plant,content)||systems_.reeds.configure(plant,content)||systems_.vines.configure(plant,content)||
-       systems_.flying.configure(plant,content)||systems_.september.configure(plant,content))return;
+       systems_.flying.configure(plant,content)||systems_.september.configure(plant,content)||systems_.pvp75.configure(plant,content))return;
     if(content.empty())return;
     plant->source.content.set(std::string(content));
     double interval;
@@ -47,6 +47,10 @@ void ContentAdmission::configure(const ZombieRef& unit,const ColdCard& card) {
         if(!systems_.zombies64.configure(unit,content,card.hp.get(),true))throw std::logic_error("zombie64 catalog/controller mismatch");return;
     }
     if(content=="稻草人"||content=="乌鸦"){systems_.scarecrows.configure(unit,content,card.hp.get());return;}
+    if(content=="盾卫僵尸"){
+        unit->body.hp=card.native_hp.get();unit->max_hp.set(unit->body.hp);unit->patch.observed_max_hp.set(unit->body.hp);
+        systems_.pvp75.configure(unit,content);return;
+    }
     if(one(content,{"舞王僵尸","雪橇车小队","雪橇车小队僵尸"})) {systems_.zombies56.configure(unit,content,card.native_hp.get(),true);return;}
     if(content=="雪人僵尸"||content=="垃圾桶僵尸") {
         unit->source.content.set(std::string(content));unit->body.hp=card.native_hp.get();unit->max_hp.set(unit->body.hp);unit->patch.observed_max_hp.set(unit->body.hp);
@@ -58,7 +62,7 @@ void ContentAdmission::configure(const ZombieRef& unit,const ColdCard& card) {
     if(std::find(black_variants_.begin(),black_variants_.end(),variant)!=black_variants_.end())unit->patch.bite_plant.set(3.);
     if(content.empty())return;
     unit->source.content.set(std::string(content));
-    if(content=="滚桶僵尸")unit->body.hp=75.;else if(content=="小鬼炮")unit->body.hp=150.;
+    if(content=="滚桶僵尸")unit->body.hp=75.;else if(content=="小鬼炮")unit->body.hp=120.; // PvP75
     else if(content=="海盗船长")unit->body.hp=160.;else if(content=="海盗鹦鹉")unit->body.hp=30.;
     else throw std::out_of_range("unconfigured NativeContent zombie");
     unit->max_hp.set(unit->body.hp);

@@ -44,7 +44,7 @@ std::vector<std::optional<PlantAimTarget>> pick_tripea_targets(TypedBattleState&
         if(body.hp<=0. || source.charmed.present() || body.ash.present())continue;
         const auto& point=target.is_hero()?*world.heroes.cached_proxy(target.hero).position:target.unit->body.motion.get();
         const auto size=body.size.present()&&!body.size.is_null()?body.size.get():2.;
-        alive.push_back({index,target,{point.x,point.y-world.runtime.tile*.42*std::max(.8,size)}});
+        alive.push_back({index,target,{point.x,point.y-world.runtime.tile*aim_height(target,.42*std::max(.8,size))}});
     }
     std::vector<std::optional<PlantAimTarget>> targets;
     targets.reserve(centers.size());

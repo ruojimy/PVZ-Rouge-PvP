@@ -471,14 +471,17 @@ class PveUI:
                 self.state.update(screen=target, focus=None)
         elif kind == "pve_skip":
             # PvP73: pay $10000 to count the current day as cleared (reward pick, no coins).
-            from .pve import SKIP_PRICE
+            from .pve import skip_price
+            coop_room = self.room and self.room.mode == COOP
+            skip_day = self.room.coop_progress.day if coop_room else campaign.day
+            SKIP_PRICE = skip_price(skip_day, coop_room)
             if self.mode == "guest":
                 self.message("只有房主可以花金币跳关")
                 return True
             now = time.monotonic()
             if now - self.state.get("pve_skip_armed", -10.) > 4.:
                 self.state["pve_skip_armed"] = now
-                self.message("再点一次确认：花费 $%d 跳过第 %d 天（视为通关，可领取奖励卡，不发通关金币）" % (SKIP_PRICE, campaign.day))
+                self.message("再点一次确认：花费 $%d 跳过第 %d 天（视为通关，可领取奖励卡，不发通关金币）" % (SKIP_PRICE, skip_day))
                 return True
             self.state.pop("pve_skip_armed", None)
             if self.room and self.room.mode == COOP:
@@ -845,7 +848,8 @@ class PveUI:
         r.button(reset_label, st.rect(17.0, 1.75, 2.6, .8), ("pve_reset",),
                  selected=bool(state.get("pve_reset")), size=max(11, fs - 2))
         if not guest and not campaign.rewards:
-            from .pve import SKIP_PRICE
+            from .pve import skip_price
+            SKIP_PRICE = skip_price(shown_day, coop)
             armed = time.monotonic() - state.get("pve_skip_armed", -10.) <= 4.
             r.button(("确认跳关" if armed else "$%d 跳关" % SKIP_PRICE), st.rect(14.2, 1.75, 2.6, .8), ("pve_skip",),
                      selected=armed, size=max(11, fs - 2))

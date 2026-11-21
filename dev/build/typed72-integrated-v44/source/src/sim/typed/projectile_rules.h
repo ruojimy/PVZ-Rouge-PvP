@@ -14,6 +14,7 @@ struct CollisionCatalog {
     std::unordered_map<std::string,PlantHeadGeometry> plant_heads;
     double default_fire_frames=24.;
 };
+double aim_height(const CombatTarget&,double fallback_tiles);
 double unit_scale_factor(const AttackSource&,const CollisionCatalog&);
 double wrap_delta(double from,double to,double width);
 bool segment_hits_ellipse(Point a,Point b,const Ellipse&);

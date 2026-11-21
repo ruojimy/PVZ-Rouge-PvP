@@ -188,7 +188,7 @@ void BonusProjectiles::mark_reloading(const EntityRef& entity) {
     }
     if (!best) return;
     best->bonus.cannon_reloading.set(true);
-    if (number(best->cannon_cd) > 7200.) best->cannon_cd.set(7200.);
+    if (number(best->cannon_cd) > 8000.) best->cannon_cd.set(8000.);
 }
 void BonusProjectiles::patch_cannons() {
     const auto plants = *world_.plant_roster;
@@ -196,9 +196,9 @@ void BonusProjectiles::patch_cannons() {
         if (plant->kind != "玉米加农炮") continue;
         plant->monochrome.erase();
         double cooldown = number(plant->cannon_cd);
-        if (cooldown > 7200.) {
-            plant->cannon_cd.set(7200.);
-            cooldown = 7200.;
+        if (cooldown > 8000.) {
+            plant->cannon_cd.set(8000.);   // PvP75: 32 s reload
+            cooldown = 8000.;
             ++cannon_patches;
         }
         if (!yes(plant->bonus.cannon_reloading) || plant->shovel_dead.present()) continue;

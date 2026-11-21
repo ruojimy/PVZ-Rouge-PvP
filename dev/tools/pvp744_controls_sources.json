@@ -1,5 +1,5 @@
 {
-  "tools/pvp72_sources/touch.py": "899886b28a61ce764ed248dcabc8def755dc383a6583fd579bf5af753c9647db",
-  "src/ui/gen/pm_touch.cpp": "378298f8b783ab95cb6fd65e9da0fb5241b42cce57b39a521b68d92d184900bd",
+  "tools/pvp72_sources/touch.py": "09f26f91464a9f0006fe51a7d37e7f7a95d0fbc1c8902d500fb4eb0ddf82e159",
+  "src/ui/gen/pm_touch.cpp": "c3e9d5e926c52dd1a3921b3d565609eb83448f25d16a425d6b42d99744fe727d",
   "src/ui/gen/pm_touch.h": "09b203012e6972028ebec004b125652c9d052812c409f9210f733d0b7706f4c3"
 }

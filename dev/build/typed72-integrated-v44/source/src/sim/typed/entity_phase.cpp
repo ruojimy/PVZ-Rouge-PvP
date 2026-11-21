@@ -16,9 +16,7 @@ public:
         saved_.reserve(roster.size());
         for(const auto& p:roster) {
             if(occupied.contains({p->cell.y,p->cell.x}))continue;
-            const auto equals=[](const Field<std::string>& f,std::string_view v){return f.present()&&!f.is_null()&&f.get()==v;};
-            if(!equals(p->source.content,"幽灵辣椒") &&
-               !(p->kind=="模仿者" && equals(p->copy_card,"plant:幽灵辣椒")))continue;
+            if(!untargetable_plant(*p))continue;
             const auto cell=world.terrain.at(p->cell.y,world.terrain.wrap(p->cell.x));
             if(cell && cell->plant.present()){saved_.emplace_back(cell,cell->plant);cell->plant.erase();}
         }

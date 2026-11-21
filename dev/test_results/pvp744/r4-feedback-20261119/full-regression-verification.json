@@ -1,0 +1,44 @@
+{
+  "full_suite_passed": false,
+  "module_count": 204,
+  "collected": 2366,
+  "counts": {
+    "PASS": 2308,
+    "FAIL": 42,
+    "ERROR": 16,
+    "SKIP": 0
+  },
+  "missing": 0,
+  "waived": 15,
+  "unexpected_nonpass": 43,
+  "previously_nonpassing_in_742": 42,
+  "nonpassing_only_in_this_comparison": [
+    "test_pvp_66_ai_maps_gift_oct16.TeamMapsAndHUD.test_all_bundled_maps_select_in_duo_and_rotate_in_coop",
+    "test_pvp_66_coop_own_deck_oct16.CoopOwnDeck.test_unchanged_selection_back_then_immediate_ready_uses_own_cards",
+    "test_pvp_66_coop_roster_oct15.CoopRosterPreparation.test_kick_then_new_player_inherits_saved_seat_but_never_old_confirmation",
+    "test_pvp_66_feedback_pve_oct15.PveResetAndRoomFeedback.test_tcp_guest_restart_cannot_reset_host_progress_and_does_replace_guest_old_deck",
+    "test_pvp_66_feedback_pve_oct15.PveResetAndRoomFeedback.test_tcp_guest_selection_and_both_confirmation_orders_use_separate_decks",
+    "test_pvp_67_author_maps.AuthorMaps67.test_two_complete_map_cycles_are_sequential_for_solo_and_coop",
+    "test_pvp_67_coop_pool.CoopPool67.test_guest_buys_its_own_cards_and_slots_without_changing_host_or_private_save",
+    "test_pvp_67_coop_pool.CoopPool67.test_old_private_unlocks_and_upgrades_do_not_enter_a_new_coop_run",
+    "test_pvp_67_original_touch.OriginalTouch18.test_original_controls_use_pvp_button_painter_and_pressed_pixels",
+    "test_pvp_68003_balance.CoopConfirmTests.test_human_seat_deck_change_still_asks_everyone_to_confirm_again",
+    "test_pvp_68004_minor.OriginalModes.test_catch_up_presents_do_not_stack_translucent_buttons",
+    "test_pvp_68004_minor.OriginalModes.test_installed_present_restores_the_native_canvas",
+    "test_pvp_68004_minor.OriginalModes.test_original_controls_use_pvp_button_painter_and_pressed_pixels",
+    "test_pvp_native_draft_display.NativeDraftDisplayTests.test_locked_secrets_resolve_bank_grid_and_detail_without_changing_bp_identity",
+    "test_pvp_touch.LayoutEditorTests.test_scale_and_reset_actions",
+    "test_pvp_touch.LayoutOverrideTests.test_layout_persists_round_trip"
+  ],
+  "passed_since_742": [],
+  "pure_typed": true,
+  "focus_gate": true,
+  "freeze_consistent": true,
+  "full_summary": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp744\\r4-feedback-20261119\\full-suite\\summary.json",
+  "sha256": "712faf2a2dc3daf0a1ecf69b1d125e171e91097e1a7561200b7184e4f0853653",
+  "resume": [
+    "checkpoint-1795098084.jsonl",
+    "checkpoint-1795098119.jsonl"
+  ],
+  "native_test_sha256": "c6071002bd41b742fee5dbbc1746b71b3fdc620730eb6edb485acf58e175d732"
+}

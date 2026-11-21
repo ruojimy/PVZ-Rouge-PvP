@@ -1,0 +1,248 @@
+{
+  "checks": [
+    {
+      "evidence": true,
+      "name": "gyro_no_startup_bias_symmetric_all_orientations",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "boss_active": true,
+        "boss_card": "zombie:克苏鲁之眼",
+        "boss_id": "u17",
+        "boss_spawned": true,
+        "clear_percent": 80,
+        "clear_required": 80,
+        "day": 8,
+        "engine_load": 0.01,
+        "max_zombies": 40,
+        "next_flag": false,
+        "next_in": null,
+        "paced": 0,
+        "pending_summons": 0,
+        "remaining": 3,
+        "spawn_queued": 0,
+        "waiting_for_clear": false,
+        "wave": 1,
+        "wave_remaining": 2,
+        "waves": 1
+      },
+      "name": "coop_boss_day_8",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "boss_active": true,
+        "boss_card": "zombie:世界吞噬者",
+        "boss_id": "u16",
+        "boss_spawned": true,
+        "clear_percent": 80,
+        "clear_required": 80,
+        "day": 16,
+        "engine_load": 0.01,
+        "max_zombies": 40,
+        "next_flag": false,
+        "next_in": null,
+        "paced": 0,
+        "pending_summons": 0,
+        "remaining": 69,
+        "spawn_queued": 0,
+        "waiting_for_clear": false,
+        "wave": 1,
+        "wave_remaining": 2,
+        "waves": 1
+      },
+      "name": "coop_boss_day_16",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "boss_active": true,
+        "boss_card": "zombie:骷髅王",
+        "boss_id": "u16",
+        "boss_spawned": true,
+        "clear_percent": 80,
+        "clear_required": 80,
+        "day": 24,
+        "engine_load": 0.01,
+        "max_zombies": 40,
+        "next_flag": false,
+        "next_in": null,
+        "paced": 0,
+        "pending_summons": 0,
+        "remaining": 5,
+        "spawn_queued": 0,
+        "waiting_for_clear": false,
+        "wave": 1,
+        "wave_remaining": 2,
+        "waves": 1
+      },
+      "name": "coop_boss_day_24",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "boss_active": false,
+        "boss_card": "zombie:克苏鲁之眼",
+        "boss_id": "",
+        "boss_spawned": false,
+        "clear_percent": 50,
+        "clear_required": 80,
+        "day": 8,
+        "engine_load": 0.0,
+        "max_zombies": 2,
+        "next_flag": false,
+        "next_in": null,
+        "paced": 0,
+        "pending_summons": 0,
+        "remaining": 2,
+        "spawn_queued": 6,
+        "waiting_for_clear": false,
+        "wave": 1,
+        "wave_remaining": 2,
+        "waves": 1
+      },
+      "name": "boss_waits_for_final_wave_queue",
+      "passed": true
+    },
+    {
+      "evidence": true,
+      "name": "ordinary_days_and_single_pve_keep_original_rules",
+      "passed": true
+    },
+    {
+      "evidence": [
+        {
+          "day": 8,
+          "night": true,
+          "tick": 1
+        },
+        {
+          "day": 8,
+          "night": true,
+          "tick": 3602
+        },
+        {
+          "day": 8,
+          "night": true,
+          "tick": 7202
+        },
+        {
+          "day": 16,
+          "night": true,
+          "tick": 1
+        },
+        {
+          "day": 16,
+          "night": true,
+          "tick": 3602
+        },
+        {
+          "day": 16,
+          "night": true,
+          "tick": 7202
+        },
+        {
+          "day": 24,
+          "night": true,
+          "tick": 1
+        },
+        {
+          "day": 24,
+          "night": true,
+          "tick": 3602
+        },
+        {
+          "day": 24,
+          "night": true,
+          "tick": 7202
+        }
+      ],
+      "name": "permanent_night_survives_two_phase_boundaries",
+      "passed": true
+    },
+    {
+      "evidence": true,
+      "name": "touch_editor_modes_clickable_and_hidden_keys_restorable",
+      "passed": true
+    },
+    {
+      "evidence": true,
+      "name": "replay_delete_confirmation_and_file_scope",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "saved_for_room_test": "pack-d73fe6ab55876e90"
+      },
+      "name": "texture_manual_save_overwrite_and_confirmed_delete",
+      "passed": true
+    },
+    {
+      "evidence": true,
+      "name": "local_test_button_visible_and_room_texture_all_modes",
+      "passed": true
+    },
+    {
+      "evidence": true,
+      "name": "coop_private_readiness_and_guest_summary_before_rewards",
+      "passed": true
+    },
+    {
+      "evidence": [
+        {
+          "order": "outro > curtain > summary",
+          "role": "host",
+          "winner": "plant"
+        },
+        {
+          "android_summary": true,
+          "role": "host",
+          "winner": "plant"
+        },
+        {
+          "order": "outro > curtain > summary",
+          "role": "host",
+          "winner": "zombie"
+        },
+        {
+          "android_summary": true,
+          "role": "host",
+          "winner": "zombie"
+        },
+        {
+          "order": "outro > curtain > summary",
+          "role": "guest",
+          "winner": "plant"
+        },
+        {
+          "android_summary": true,
+          "role": "guest",
+          "winner": "plant"
+        },
+        {
+          "order": "outro > curtain > summary",
+          "role": "guest",
+          "winner": "zombie"
+        },
+        {
+          "android_summary": true,
+          "role": "guest",
+          "winner": "zombie"
+        }
+      ],
+      "name": "coop_host_guest_win_loss_outro_curtain_then_summary",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "guest": 490,
+        "host": 4710,
+        "total": 5200
+      },
+      "name": "coop_shop_gold_gifts_ui_authority_validation_and_persistence",
+      "passed": true
+    }
+  ],
+  "failures": 0
+}

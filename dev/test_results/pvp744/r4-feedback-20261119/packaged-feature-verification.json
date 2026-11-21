@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": "boss",
+      "checks": 31,
+      "passed": true,
+      "executable_sha256": "ddac28245184fa9f639f5ad441cd43952c6e5808b8e7e5bcd8dd1b150587d6be",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp744\\r4-feedback-20261119\\packaged-gift-boss\\results.json"
+    },
+    {
+      "case": "controls",
+      "checks": 4,
+      "passed": true,
+      "executable_sha256": "30507c4e66c03ed3e791baf9889b0203eeb0d8e53a33d643eb4bc87eb2bf8e71",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp744\\r4-feedback-20261119\\packaged-gift-controls\\results.json"
+    },
+    {
+      "case": "weather",
+      "checks": 25,
+      "passed": true,
+      "executable_sha256": "05ea1ab731e09199a6699535a48c683ba38afb2a250706ccb807e8c39d3c8895",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp744\\r4-feedback-20261119\\packaged-gift-weather\\results.json"
+    },
+    {
+      "case": "material",
+      "checks": 88,
+      "passed": true,
+      "executable_sha256": "3e333fe0668df86640db0dabbbfe32bf753b60386ce8d728b0d61b64f797b4f2",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp744\\r4-feedback-20261119\\packaged-gift-material\\results.json"
+    },
+    {
+      "case": "feedback",
+      "checks": 14,
+      "passed": true,
+      "executable_sha256": "47f0d4001ba7e4358cdcd4ce8e63b7e8e81746da69bd3bc003438f713782c345",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp744\\r4-feedback-20261119\\packaged-gift-feedback\\results.json"
+    },
+    {
+      "case": "r3",
+      "checks": 14,
+      "passed": true,
+      "executable_sha256": "2fd40a4131c48f72ff08d615018265d79cbe04842836d244acc14fd222952379",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp744\\r4-feedback-20261119\\packaged-gift-r3\\results.json"
+    },
+    {
+      "case": "r4",
+      "checks": 8,
+      "passed": true,
+      "executable_sha256": "4ae716e74f0a72f2738c7b17f90d39225fab24309bb12946b8931ca312658d1f",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp744\\r4-feedback-20261119\\packaged-r4-impact\\results.json"
+    }
+  ]
+}

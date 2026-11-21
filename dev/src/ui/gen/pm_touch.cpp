@@ -1377,7 +1377,7 @@ V C_TouchControls::m__paint_button(const Args& A) {
     L_screen = pvz::getattr(pvz::getattr(a_app, SY("renderer")), SY("screen"));
     L_box = callm(L_pg, SY("Rect"), Args{L_rect});
     L_overlay = callm(L_pg, SY("Surface"), Args{pvz::getattr(L_box, SY("size")), pvz::getattr(L_pg, SY("SRCALPHA"))});
-    L_circle = V((py::m_get(rd(callm(pm_touch::module_ns(), SY("control_options"), Args{py::m_get(pvz::getattr(a_app, SY("state")), SV("touch_options"))}), SV("shapes")), L_slot) == SV("circle")));
+    L_circle = py_and(py::bool_(L_slot), [&]() -> V { return V((py::m_get(rd(callm(pm_touch::module_ns(), SY("control_options"), Args{py::m_get(pvz::getattr(a_app, SY("state")), SV("touch_options"))}), SV("shapes")), L_slot) == SV("circle"))); });
     if ((L_circle).truthy()) {
         (void)(callm(pvz::getattr(L_pg, SY("draw")), SY("ellipse"), Args{L_overlay, V::tuple({V(20.0), V(16.0), V(12.0), ((L_held).truthy() ? V(V(165.0)) : V(V(96.0)))}), V::tuple({V(0.0), V(0.0), pvz::getattr(L_box, SY("w")), pvz::getattr(L_box, SY("h"))})}));
     } else {

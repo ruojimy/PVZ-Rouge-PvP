@@ -677,7 +677,7 @@ V C_TeamMapsAndHUD::m_test_all_bundled_maps_select_in_duo_and_rotate_in_coop(con
         }}
         (void)(m_assertNotEqual(Args{rd(pvz::getattr(L_snapshot, SY("spawns")), SV("plant")), rd(pvz::getattr(L_snapshot, SY("spawns")), SV("plant2"))}));
         (void)(m_assertNotEqual(Args{rd(pvz::getattr(L_snapshot, SY("spawns")), SV("zombie")), rd(pvz::getattr(L_snapshot, SY("spawns")), SV("zombie2"))}));
-        (void)(m_assertEqual(Args{V::tuple({SV("team"), L_identifier, V(((L_day % V(4.0)) == V(3.0)))}), pm_pve::f_map_for_day(Args{L_day, V(true)})}));
+        (void)(m_assertEqual(Args{V::tuple({SV("team"), L_identifier, py_or(V(((L_day % V(4.0)) == V(3.0))), [&]() -> V { return V(py::in(L_day, V::tuple({V(8.0), V(16.0), V(24.0)}))); })}), pm_pve::f_map_for_day(Args{L_day, V(true)})}));
     }}
     (void)(m_assertEqual(Args{rd(rd(L_entries, V(0.0)), SV("id")), rd(pm_pve::f_map_for_day(Args{(py::len(L_entries) + V(1.0)), V(true)}), V(1.0))}));
     (void)(callm(L_app, SY("action"), Args{V::tuple({SV("room_mode"), pm_teams::COOP})}));

@@ -331,7 +331,7 @@ NATIVE_DESCRIPTIONS = {'花盆': '要是没有花盆，我只能老老实实地�
  '南瓜头': '保护同格植物，可与输出植物叠种；南瓜头害怕机枪僵尸。',
  '辣椒僵尸': '死亡时按新版火爆辣椒生成贴地火焰，敌方自爆只改伤害对象：植物、戴夫与魅惑僵尸。被魅惑后完全套用新版火爆辣椒打僵尸。',
  '三向射手': '三个豌豆头各自瞄准僵尸，优先攻击不同目标，并沿头部方向直射。',
- '石块': '放置一块原生石头，不会自然消失。八邻域需有实体方块；可被炸毁。上方可放花盆。费用为-25：每放置一块获得25阳光。',
+ '石块': '放置一块原生石头，不会自然消失。八邻域需有实体方块；可被炸毁。上方可放花盆。放置费用为0。',
  '倭瓜僵尸': '两格内有目标时抛出头顶倭瓜，砸向面朝方向的植物、魅惑僵尸或戴夫。投出后本体死亡；魅惑后按原倭瓜攻击僵尸。',
  '毁灭菇僵尸': '死亡时触发毁灭菇爆炸，基础生命150，移速与跳跃高度跟三叶草僵尸一致。魅惑后只改变阵营，死亡爆炸不改变。',
  '三叶草僵尸': '每隔较长时间旋转三叶草，按原版三叶草吹飞前方僵尸、气球和雨。魅惑后只改变阵营，吹风机制不改变。',
@@ -517,7 +517,7 @@ for _field in ('description','native_description'):
     CARDS['zombie:投篮车僵尸'][_field] = NATIVE_DESCRIPTIONS['投篮车僵尸']
     CARDS['zombie:路灯花僵尸'][_field] += '移速与吸金磁僵尸相同，不再增强移速与跳跃。'
     CARDS['zombie:海盗鹦鹉'][_field] += '啃咬大蒜或携带体香秘籍的戴夫后眩晕0.5秒。'
-    CARDS['secret:体香'][_field] += '海盗鹦鹉与乌鸦啃咬携带者后眩晕0.5秒。'
+    CARDS['secret:体香'][_field] += '僵尸啃咬携带者后受到2秒一级中毒。海盗鹦鹉与乌鸦另眩晕0.5秒。'
     CARDS['plant:香蒲'][_field] = '优先追踪最近的敌方目标；僵尸戴夫需已被标记、处于锁定范围且可见，每发2伤害，命中不刷新英雄标记。'
     for _name in ('闪电芦苇','超载芦苇','回旋镖射手','毒镖射手'):
         CARDS['plant:'+_name][_field] += '伤害穿透二类防具，但僵王出品可抵消穿透；中毒效果不可阻挡。'
@@ -589,6 +589,85 @@ for _key, _note in {
 for _field in ('description','native_description'):
     CARDS['secret:抖M'][_field] = CARDS['secret:抖M'][_field].replace('（原为8秒）','')
     CARDS['plant:草坪'][_field] = CARDS['plant:草坪'][_field].replace('40阳光，8秒冷却。','25阳光，16秒冷却。')
+
+# PvP75 (2026-11-20): four new cards. Each one is an isolated content record on
+# an inert native template; its behaviour and numbers (defense 6, laser 8-20
+# cells, gas 6 cells, star pierce 3) live in the typed kernel.
+PVP75_TEXT = {
+    'plant:巴豆': ('巴豆被僵尸啃咬时立即消失并生效：啃咬者受到150伤害、6秒眩晕与6秒二级中毒，'
+                 '并向其面朝方向的反方向喷出长6格的绿色毒气；接触毒气的其他敌方僵尸受到3秒眩晕与3秒一级中毒。毒气约2秒后消散。'),
+    'plant:激光豆': ('点击激光豆进入发射状态（各发射植物状态独立；手持卡牌时点击它会取消选卡并进入发射状态），'
+                  '在其面朝方向±80°、8到20格范围内选择目标点：内圈红色为过近区域，外圈绿色为可选区域，超出范围自动取消；左键发射、右键取消。'
+                  '激光从眼睛射向目标点并持续，直到再次点击这株激光豆。光束每0.4秒对触及的每个敌方单位造成30÷激光长度（格）的伤害；'
+                  '对僵尸戴夫固定1点且不会将其击倒。睡眠、被压扁或死亡时停止发射。'),
+    'zombie:盾卫僵尸': ('防御力6。受到伤害时举起木盾（0.6秒，期间技能尚未生效），随后进入6秒防御姿态：移速降低75%，'
+                     '防御力提高至60，免疫击退。放下盾牌后技能冷却6秒。'),
+    'zombie:克苏鲁之仆': ('召唤一只克苏鲁之仆（泰拉瑞亚普通模式数值：8生命、接触伤害12，对植物与戴夫伤害÷10）。'
+                      '无需墓碑，可在场上任意位置释放；自行追踪最近的敌人，不服从跟随／进攻指挥与召集旗帜，初始朝向由部署时的朝向决定。'),
+}
+def _pvp75_card(key, template, **values):
+    card = deepcopy(CARDS[template])
+    name = key.split(':', 1)[1]
+    card.update(id=key, base_id=key, resolved_id=key, family=key, name=name, asset=name,
+                native_name=name, content=name, pvp_added=True, selectable=True,
+                native_source='PvP75 rule; isolated native template', native_cost=values.get('cost', card['cost']),
+                description=PVP75_TEXT[key], native_description=PVP75_TEXT[key])
+    card.pop('content_art', None)
+    for field in ('ghost_duration', 'ghost_range', 'explosion_damage', 'explosion_size', 'allow_air', 'expansion'):
+        card.pop(field, None)
+    card.update(values)
+    CARDS[key] = card
+    return card
+_pvp75_card('plant:巴豆', 'plant:幽灵辣椒', cost=40, cooldown=36., hp=6, native_hp=6, damage=150., behavior='croton',
+            range=55, native_cd=9000, native_deploy_cd=9000)
+_pvp75_card('plant:激光豆', 'plant:幽灵辣椒', cost=200, cooldown=36., hp=6, native_hp=6, damage=30., interval=.4,
+            behavior='laser', range=960, native_cd=9000, native_deploy_cd=9000)
+_pvp75_card('zombie:盾卫僵尸', 'zombie:垃圾桶僵尸', cost=150, cooldown=12., hp=150, native_hp=150, damage=35,
+            speed=28, native_speed=40, armor=0., metal=False, native_handheld_hp=0., native_armor_hp=0.,
+            native_izombie_handheld_hp=0, native_hard_handheld_hp=0, native_input_name='普通僵尸',
+            native_cd=3000, native_deploy_cd=3000)
+_pvp75_card('zombie:克苏鲁之仆', 'zombie:普通僵尸', cost=0, cooldown=20., hp=8, native_hp=8, damage=12,
+            speed=0, behavior='servant', native_cd=5000, native_deploy_cd=5000, ignores_command=True,
+            pvp_regular_unit=True, native_input_name='普通僵尸')
+CARDS['zombie:克苏鲁之仆']['asset'] = '克苏鲁之仆'
+for _key, _seconds in {'zombie:盾卫僵尸': 12., 'zombie:克苏鲁之仆': 20.}.items():
+    ZOMBIE_COOLDOWNS[_key] = _seconds
+for _key in ('plant:巴豆', 'plant:激光豆'):
+    PLANT_COOLDOWNS[_key] = 36.
+COSTS.update({'plant:巴豆': 40, 'plant:激光豆': 200, 'zombie:盾卫僵尸': 150, 'zombie:克苏鲁之仆': 0})
+
+# PvP75 balance. Costs and cooldowns are written after every installer above.
+for _key, _cost in {'zombie:小鬼僵尸': 50, 'zombie:黑普通僵尸': 50, 'zombie:海豚僵尸': 40,
+                    'zombie:撑杆跳僵尸': 50, 'plant:杨桃': 300}.items():
+    COSTS[_key] = _cost
+    CARDS[_key]['cost'] = _cost
+ZOMBIE_COOLDOWNS['zombie:小鬼僵尸'] = 8.
+CARDS['zombie:小鬼僵尸']['cooldown'] = 8.
+CARDS['plant:三叶草']['allow_air'] = True
+# 11-21: both carts 120 HP (applied to the deployed body like other PvP health changes).
+for _key in ('zombie:投篮车僵尸', 'zombie:小鬼炮'):
+    HEALTH[_key] = 120.
+    CARDS[_key]['hp'] = 120.
+for _field in ('description', 'native_description'):
+    CARDS['zombie:小鬼炮'][_field] = CARDS['zombie:小鬼炮'][_field].replace('150生命', '120生命')
+_PVP75_NOTES = {
+    'plant:杨桃': '每颗星星穿透3个单位后清除（大帝秘籍+1）。',
+    'plant:三叶草': '三叶草是无法被僵尸方选中的飞行植物，可放在任意闲置空格（包括空气）。',
+    'plant:玉米加农炮': '发射后32秒完成装填。',
+    'zombie:雪橇车小队': '四只雪橇车小队僵尸每隔1秒依次出场。',
+    'zombie:投篮车僵尸': '120生命。跟随戴夫或前往召集旗帜时只移动，不投篮；进攻指挥下才投篮。',
+    'zombie:小鬼炮': '跟随戴夫或前往召集旗帜时只移动，不发射小鬼。',
+}
+for _key, _note in _PVP75_NOTES.items():
+    _base = CARDS[_key].get('native_description', '')
+    for _field in ('description', 'native_description'):
+        _text = CARDS[_key].get(_field) or _base
+        CARDS[_key][_field] = _text + ('' if not _text or _text[-1] in '。；！？.!?' else '。') + _note
+for _field in ('description', 'native_description'):
+    CARDS['secret:大帝'][_field] = CARDS['secret:大帝'][_field].replace('杨桃费用变为 300 阳光。', '杨桃星星可多穿透 1 个单位。')
+RULES['ruleset'] = 'pvp75'
+RULES['mechanics75'] = dict(star_pierce=3, emperor_pierce=1, cannon_reload_ticks=8000, sled_squad_interval_ticks=250,
+    boss_control_to_slow=True, speed_bonus_additive=True, speed_penalty_multiplicative=True, blover_untargetable_air=True)
 
 
 def digest(value):
@@ -921,6 +1000,11 @@ def describe(card_id, secrets=(), night=False, detailed=True):
     if c.get("required_secret"):
         lines.append("由本方秘籍替换基础卡；复制、召唤同样需要该秘籍并继承前体禁选。")
     elif c.get("spawn_only"):lines.append("战斗派生实体，不可作为独立卡槽选择。")
+    defense = {"zombie:黑普通僵尸":1, "zombie:黑路障僵尸":1, "zombie:黑铁桶僵尸":1, "zombie:黑橄榄僵尸":4, "zombie:橄榄球僵尸":4}.get(c["base_id"])
+    if defense:
+        lines.append("防御力 %d。魅惑双方交战时，防御抵消量随对僵尸伤害放大10倍。" % defense)
+    if c["base_id"]=="zombie:雪橇车僵尸":
+        lines.append("出场80秒后自爆。")
     if c["side"]=="zombie" and c["behavior"]!="grave":
         lines.append("与敌对僵尸互相攻击时，普通数值伤害为对应植物伤害的10倍，魅惑前后对称；吞噬、碾压和灰烬等特殊消灭沿用各自机制。")
         if c["base_id"] in ("zombie:豌豆僵尸","zombie:机枪僵尸"):
@@ -929,6 +1013,12 @@ def describe(card_id, secrets=(), night=False, detailed=True):
             lines.append("篮球对植物2伤害，对敌对僵尸20伤害；魅惑后也可命中敌方僵尸，不伤害己方植物。")
         if c["base_id"]=="zombie:飞贼僵尸":
             lines.append("选择存活的敌方植物召唤，不要求先选择墓碑；保留原下降与偷取行为。")
+        elif c["base_id"]=="zombie:克苏鲁之仆":
+            lines.append("无需墓碑，可在任意位置召唤；不服从跟随 / 进攻指挥与召集旗帜。")
+        elif c["base_id"]=="zombie:雪橇车僵尸":
+            lines.append("从己方存活墓碑出场；不服从跟随 / 进攻指挥与召集旗帜，只按部署时的朝向（左键朝左、右键朝右）前进。")
+        elif c["base_id"]=="zombie:滚桶僵尸":
+            lines.append("从己方存活墓碑出场；推桶期间不服从跟随 / 进攻指挥与召集旗帜，只按部署时的朝向前进，木桶脱落后恢复服从。")
         else:lines.append("从己方存活墓碑出场，服从跟随 / 进攻指挥。")
         if c["base_id"]=="zombie:旗帜僵尸":
             lines.append("部署后每座存活、出口可用的己方墓碑额外召唤一只普通僵尸；不额外扣费，召唤不受禁选影响，仍遵守单位上限。")

@@ -422,6 +422,13 @@ struct TypedBattle:PyObj {
         const std::string& n=name.str();found=true;
         if(tracing())std::fprintf(stderr,"[typed72] attr %s\n",n.c_str());
         if(own_method(n))return bound(name);
+        if(n=="live_mobile_zombies"){
+            if(!session)return V(-1);
+            int count=0;
+            for(const auto& unit:session->published_units())
+                if(unit.mobile && unit.original_owner==typed72::Seat::zombie && unit.hp>0.)++count;
+            return V(count);
+        }
         if(n=="scheduler_sim_seconds")return V(scheduler_sim_seconds);
         // Capability lookup/reset during cold drafting must not start a battle.
         if(n=="typed_ai_observation"||n=="typed_ai_plan")return V(true);

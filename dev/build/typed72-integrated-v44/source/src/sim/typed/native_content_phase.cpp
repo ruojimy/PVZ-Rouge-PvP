@@ -12,7 +12,7 @@ bool NativeContentPhases::custom(const Field<std::string>& name)const {
 void NativeContentPhases::before_tick() {
     systems_.plants70.before_tick();systems_.mortar.before_entities();systems_.zombies64.landed();
     systems_.zombies56.before_tick();systems_.flying.before_tick();systems_.barrels.tick();
-    systems_.barrel_projectiles.step();systems_.darts.separate();
+    systems_.barrel_projectiles.step();systems_.darts.separate();systems_.pvp75.before_tick();
 }
 void NativeContentPhases::projectiles() {
     const auto grenades=systems_.grenadiers.grenades;
@@ -26,7 +26,7 @@ void NativeContentPhases::plant_gate(PlantRef plant) {
     if(custom(plant->source.content)){plant->content_state.before_shot.set(plant->shooting.or_missing(0.));plant->content_state.before_cd.set(plant->shoot_cd.or_missing(0.));}
 }
 void NativeContentPhases::after_plants() {
-    systems_.lantern.pulses();systems_.vines.tick();systems_.frost.apply();draw_effects();systems_.darts.clover_blow();
+    systems_.lantern.pulses();systems_.vines.tick();systems_.frost.apply();systems_.pvp75.after_plants();draw_effects();systems_.darts.clover_blow();
     const auto plants=world_.plant_roster;for(size_t i=0;i<plants->size();++i) {
         const auto plant=plants->at(i);if(!custom(plant->source.content))continue;
         if(plant->shoot_cd.or_missing(0.)>plant->content_state.before_cd.or_missing(0.)+2.)plant->shoot_cd.set(std::max(0.,plant->content_state.interval.get()-1.));
@@ -90,6 +90,7 @@ void NativeContentPhases::draw_effects() {
     if(drawing_)for(const auto& effect:systems_.reeds.bolts)presentation_.draw_reed_effect(effect);
     std::erase_if(systems_.mortar.swipes,[&](const auto& effect){return tick-effect.tick>=60;});
     std::erase_if(systems_.grenadiers.blasts,[&](const auto& effect){return tick-effect.tick>=45;});
+    if(drawing_)presentation_.draw_pvp75();
     if(drawing_){
         for(const auto& effect:systems_.mortar.swipes)presentation_.draw_spring_effect(effect);
         for(const auto& effect:systems_.grenadiers.blasts)presentation_.draw_grenade_effect(effect);

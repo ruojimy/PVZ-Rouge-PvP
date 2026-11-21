@@ -714,21 +714,12 @@ V C_PvpUITests::m_test_deck_version_and_almanac_controls(const Args& A) {
         L_value = py_dict({{SV("plant"), V::list({SV("plant:花盆"), SV("plant:咖啡豆"), SV("plant:豌豆射手")})}, {SV("zombie"), V::list({SV("zombie:脑光墓碑"), SV("zombie:普通僵尸")})}});
         (void)(pm_ui_data::f_save_decks(Args{L_path, L_value}));
         (void)(m_assertEqual(Args{pm_ui_data::f_load_decks(Args{L_path}), L_value}));
-        {
-          V raises_mgr2_ = m_assertRaises(Args{py::exc_type(SV("ValueError"))});
-          V raises_value2_ = callm(raises_mgr2_, SY("__enter__"), Args{});
-          bool raises_caught2_ = false;
-          try {
-            (void)(pm_ui_data::f_load_decks(Args{L_path, V::list({SV("plant:豌豆射手")})}));
-          } catch (const PyError& e) {
-            raises_caught2_ = true;
-            std::string message = e.what(); size_t colon = message.find(": "); if (colon != std::string::npos) message = message.substr(colon + 2);
-            if (!callm(raises_mgr2_, SY("__exit__"), Args{py::exc_type(V(e.kind)), py::make_exc(V(e.kind), Args{V(message)}, ""), V::none()}).truthy()) throw;
-          }
-          if (!raises_caught2_) callm(raises_mgr2_, SY("__exit__"), Args{V::none(), V::none(), V::none()});
-        }
+        (void)(m_assertEqual(Args{py_dict({{SV("plant"), V::list({SV("plant:花盆"), SV("plant:咖啡豆")})}, {SV("zombie"), rd(L_value,SV("zombie"))}}), pm_ui_data::f_load_decks(Args{L_path, V::list({SV("plant:豌豆射手")})})}));
         L_bad = py::stdlib_call(SV("json.loads"), Args{callm(L_path, SY("read_text"), Args({}, {{SY("encoding"), SV("utf-8")}}))});
         pvz::setitem(L_bad, SV("rules_hash"), SV("old"));
+        (void)(callm(L_path, SY("write_text"), Args({py::stdlib_call(SV("json.dumps"), Args{L_bad})}, {{SY("encoding"), SV("utf-8")}})));
+        (void)(m_assertEqual(Args{L_value, pm_ui_data::f_load_decks(Args{L_path})}));
+        pvz::setitem(L_bad, SV("format"), SV("unsupported"));
         (void)(callm(L_path, SY("write_text"), Args({py::stdlib_call(SV("json.dumps"), Args{L_bad})}, {{SY("encoding"), SV("utf-8")}})));
         {
           V raises_mgr3_ = m_assertRaises(Args{py::exc_type(SV("ValueError"))});

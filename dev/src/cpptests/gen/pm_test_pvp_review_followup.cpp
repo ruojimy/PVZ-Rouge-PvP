@@ -263,7 +263,7 @@ V C_ReviewFollowupTests::m_test_chili_giant_survives_entire_first_fire_but_secon
     setm(L_native, &Obj::出场, SV("出场"), V(500.0));
     (void)(m_deploy(Args{L_b, SV("plant"), SV("plant:火爆辣椒"), V(8.0)}));
     (void)(callm(L_b, SY("step"), Args{V(150.0)}));
-    (void)(m_assertEqual(Args{V(500.0), rdm(L_native, &Obj::血量, SV("血量"))}));
+    (void)(m_assertEqual(Args{V(250.0), rdm(L_native, &Obj::血量, SV("血量"))}));
     (void)(m_assertNotIn(Args{SV("灰烬"), L_native}));
     (void)(callm(rd(rd(pvz::getattr(L_b, SY("players")), SV("plant")), SV("cooldowns")), SY("clear"), Args{}));
     py::set_slice(rdm(L_native, &Obj::位置, SV("位置")), V::none(), V::none(), V::list({V(650.0), V(480.0), V(0.0), V(0.0)}));

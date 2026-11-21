@@ -1670,7 +1670,12 @@ V C_Room::m__command(const Args& A) {
         return SV("");
     }
     if ((py::m_get(L_payload, SV("revision")) != a_revision)) {
-        return SV("配置已变化，请使用最新房间状态");
+        const auto edit=V::tuple({L_peer_id,L_side,py::m_get(L_payload,SV("revision")),a_revision});
+        const auto commands=V::tuple({SV("pve_deck"),SV("coop_buy"),SV("coop_reward"),SV("coop_reset_deck"),SV("coop_gift"),SV("confirm_map")});
+        if(a_mode!=SV("coop") || a_phase!=SV("config") || !py::in(L_kind,commands) ||
+           pvz::getattr(self_v(),SY("_pve_edit_ack"),V::none())!=edit)
+            return SV("配置已变化，请使用最新房间状态");
+        pvz::setattr(self_v(),SY("_pve_edit_ack"),V::none());
     }
     if ((L_kind == SV("map"))) {
         if ((L_peer_id != SV("host"))) {
@@ -1733,8 +1738,11 @@ V C_Room::m__command(const Args& A) {
         if (((a_mode != SV("coop")) || (a_phase != SV("config")) || (callm(pm_room::module_ns(), SY("team_of"), Args{L_side}) != SV("plant")))) {
             return SV("请在合作准备阶段调整选卡");
         }
+        if(!py::m_get(a_confirmed,L_side).truthy())return SV("");
+        const auto before=a_revision;
         pvz::setitem(a_confirmed, L_side, V(false));
         a_revision = py::iadd(a_revision, V(1.0));
+        pvz::setattr(self_v(),SY("_pve_edit_ack"),V::tuple({L_peer_id,L_side,before,a_revision}));
         a_status = SV("玩家正在调整选卡，请重新准备");
         return SV("");
     }

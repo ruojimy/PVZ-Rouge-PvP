@@ -243,7 +243,7 @@ V C_HardeningCopyTests::m_test_hardening_reaches_the_pvp_health_override_in_cata
     V L_key;
     V L_native;
     V L_want;
-    { V it1_ = py::iter_list(V::tuple({V::tuple({SV("plant:路灯花"), V(18.0), V(22.5)}), V::tuple({SV("plant:萝卜伞"), V(18.0), V(22.5)}), V::tuple({SV("plant:大蒜"), V(36.0), V(45.0)}), V::tuple({SV("plant:仙人掌"), V(54.0), V(67.5)}), V::tuple({SV("plant:南瓜头"), V(108.0), V(135.0)})}));
+    { V it1_ = py::iter_list(V::tuple({V::tuple({SV("plant:路灯花"), V(18.0), V(22.5)}), V::tuple({SV("plant:萝卜伞"), V(36.0), V(45.0)}), V::tuple({SV("plant:大蒜"), V(36.0), V(45.0)}), V::tuple({SV("plant:仙人掌"), V(54.0), V(67.5)}), V::tuple({SV("plant:南瓜头"), V(108.0), V(135.0)})}));
     for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) {
         { V ut2_ = py::as_seq(it1_.idx(int64_t(i1_))); L_key = ut2_.idx(0); L_base = ut2_.idx(1); L_hardened = ut2_.idx(2); } 
         {

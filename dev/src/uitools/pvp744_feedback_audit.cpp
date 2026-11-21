@@ -122,6 +122,11 @@ int main(int argc,char** argv){
    setattr(outro,SY("started"),getattr(outro,SY("started"))-V(3.));callm(app,SY("render"),Args{});need(!getattr(outro,SY("active")).truthy()&&getattr(curtain,SY("active")).truthy(),"outro did not transition to curtain");
    setattr(curtain,SY("started"),getattr(curtain,SY("started"))-V(5.));callm(app,SY("render"),Args{});need(!getattr(curtain,SY("active")).truthy(),"curtain did not finish");hitpoint(renderer,tuple({V("pve_open")}));
    callm(pg::image_module(),SY("save"),Args{getattr(renderer,SY("screen")),V(p8(output/(std::string(role)+"-"+winner+"-summary.png")))});setattr(app,SY("room"),room);evidence.push_back({{"role",role},{"winner",winner},{"order","outro > curtain > summary"}});
+   setattr(app,SY("android"),V(true));setattr(app,SY("view"),old);if(guest)setattr(app,SY("room"),V::none());
+   callm(app,SY("merge_view"),Args{view});callm(app,SY("render"),Args{});
+   need(!getattr(outro,SY("active")).truthy()&&!getattr(curtain,SY("active")).truthy(),"mobile settlement retained battle animations");
+   hitpoint(renderer,tuple({V("pve_open")}));evidence.push_back({{"role",role},{"winner",winner},{"android_summary",true}});
+   setattr(app,SY("android"),V(false));setattr(app,SY("room"),room);
   }return evidence;
  });
  check("coop_shop_gold_gifts_ui_authority_validation_and_persistence",[&]()->J{

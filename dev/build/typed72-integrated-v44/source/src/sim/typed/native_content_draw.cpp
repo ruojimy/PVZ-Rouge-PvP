@@ -38,7 +38,7 @@ private:
     const NativeArt& at(CartImage i)const{return images_.at(size_t(i));}
 };
 }
-void NativeContentDraw::draw_custom_plant(const CombatPlant& p,std::string key,double x,double y,bool bottom,double angle){
+void NativeContentDraw::draw_custom_plant(const CombatPlant& p,std::string key,double x,double y,bool bottom,double angle,double stretch){
     if(!canvas_.drawing())return;
     const double tile=world_.runtime.tile,now=double(native_tick);
     const auto base_key=key;
@@ -61,6 +61,7 @@ void NativeContentDraw::draw_custom_plant(const CombatPlant& p,std::string key,d
             canvas_.fill(image,NativeCanvas::Json::array({180,190,210}),nullptr,3);
             angle=p.facing*(8.+std::sin(now/85.)*2.);
         }else if(hurt>0.)angle+=p.facing*std::sin(hurt/5.)*3.;
+        if(stretch!=0.&&!sleeping)image=NativeArtStore::scale(image,std::max(1,int(std::nearbyint(image->width*(1.-stretch/2.)))),std::max(1,int(std::nearbyint(image->height*(1.+stretch)))));
         if(angle!=0.)image=NativeArtStore::rotate(image,angle);
     }
     const double w=double(image->width),h=double(image->height);
@@ -97,6 +98,22 @@ bool NativeContentDraw::draw_plant(const CombatPlant& p){
         const std::string state=p.sleep.present()?"睡眠":elapsed<80.?"攻击":"帧";
         const double frame=state=="攻击"?std::min(3.,py::floordiv(std::max(0.,elapsed),20.)):py::mod(py::floordiv(now,45.),4.);
         draw_custom_plant(p,name+"-"+state+itext(frame),(col+.5)*tile,(row+1.)*tile,true);return true;
+    }
+    if(name=="巴豆"||name=="激光豆"){
+        // PvP75: sleeping, aiming and firing poses; death/crush use the shared paths.
+        if(!canvas_.drawing())return true;
+        std::string key=name;
+        if(p.sleep.present())key+=name=="巴豆"?"-睡眠"+itext(py::mod(py::floordiv(now,150.),2.)):std::string("-睡眠");
+        else if(name=="激光豆"&&p.pvp75.firing)key+="-发射"+itext(py::mod(py::floordiv(now,20.),2.));
+        else if(name=="激光豆"&&p.pvp75.aimed)key+="-瞄准";
+        if(!canvas_.has(key))key=name;
+        // Idle (awake, not aiming or firing): a slow breathing and sway, 16 cached steps over 1.6 s.
+        double sway=0.,stretch=0.;
+        if(key==name&&!p.sleep.present()){
+            const double phase=py::mod(py::floordiv(now+double(p.cell.x*37+p.cell.y*11),25.),16.)/16.*2.*kpi;
+            stretch=.035*std::sin(phase);sway=p.facing*1.5*std::sin(phase+kpi/2.);
+        }
+        draw_custom_plant(p,key,(col+.5)*tile,(row+1.)*tile,true,sway,stretch);return true;
     }
     if(name=="幽灵辣椒"||name=="黄金蓓蕾"){
         if(!canvas_.drawing())return true;

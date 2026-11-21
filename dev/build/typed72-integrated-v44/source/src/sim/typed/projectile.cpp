@@ -26,6 +26,7 @@ void HeroCombat::tag_entity(const std::shared_ptr<AttackSource>& entity,const Mo
                            std::optional<Seat> explicit_owner,const std::shared_ptr<AttackSource>& explicit_source) {
     if(!entity)throw std::invalid_argument("null typed entity");
     const auto parent=explicit_source?explicit_source:source();
+    if(parent)entity->zombie_projectile=parent->has_zombie_name()||parent->zombie_projectile;
     const auto allegiance=explicit_owner?explicit_owner:owner(parent);
     if(!allegiance||!contains(*allegiance))throw std::invalid_argument("native entity has no explicit source allegiance");
     source_id(entity);set_default(entity->owner,std::string(seat_name(*allegiance)));

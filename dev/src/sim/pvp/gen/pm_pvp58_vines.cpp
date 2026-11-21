@@ -129,6 +129,9 @@ V C_Vines::m_lookup(const Args& A) {
         if ((!(L_cell).truthy() || (rd(L_cell, V(0.0)) != L_row) || (rd(L_cell, V(1.0)) != L_col))) {
             continue;
         }
+        if (L_dense.truthy() && L_hide.truthy() && (py::m_get_slot(L_plant, &Obj::植物血, SV("植物血"), V(1.0)) <= V(0.0) || py::in(SV("死"),L_plant))) {
+            continue;
+        }
         if (((L_hide).truthy() && !(a__targetable.call(Args{L_plant})).truthy() && !(pm_pvp58_vines::f_is_shell(Args{L_plant})).truthy())) {
             continue;
         }
@@ -137,8 +140,6 @@ V C_Vines::m_lookup(const Args& A) {
                 continue;
             }
             if ((!(L_dense).truthy() && (L_shell < V(0.0)))) {
-                L_shell = L_index;
-            } else if (((L_dense).truthy() && (L_hide).truthy())) {
                 L_shell = L_index;
             }
         }

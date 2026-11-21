@@ -9,6 +9,7 @@
 #include "sim/pvp/gen/pm_native_patch.h"
 #include "sim/pvp/gen/pm_native_runtime.h"
 #include "cpptests/gen/pm_pvzunit.h"
+#include "core/render_cache.h" // PvP75 exact-angle parity scope
 namespace pvz { namespace py { inline void init_deps_test_pvp_native_units() { pm_app::init(); pm_maps::init(); pm_native_animation::init(); pm_native_assets::init(); pm_native_bridge::init(); pm_native_patch::init(); pm_native_runtime::init(); pm_pvzunit::init(); } } }
 namespace pvz { namespace pm_test_pvp_native_units {
 V ROOT;
@@ -539,6 +540,9 @@ V C_NativeUnits::m_test_native_units_advance_on_all_twelve_actual_original_maps(
 }
 
 V C_NativeUnits::m_test_complete_native_zombie_loop_draw_matches_direct_pygame_at_real_ticks(const Args& A) {
+    // PvP75: production replay rounds rotations to 1/4 degree (render_cache native_replay_normalize);
+    // this pixel-exact parity check runs the same replay path with exact angles.
+    pvz::ReplayExactAngles pvp75_exact_angles;
     V L_authority;
     V L_block;
     V L_col;

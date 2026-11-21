@@ -1,0 +1,200 @@
+{
+  "checks": [
+    {
+      "evidence": {
+        "guard": "u5",
+        "laser": "u3"
+      },
+      "name": "deploy_new_cards",
+      "passed": true
+    },
+    {
+      "evidence": [
+        [
+          -18.0,
+          -44.0,
+          true
+        ],
+        [
+          0.0,
+          -44.0,
+          true
+        ],
+        [
+          18.0,
+          -44.0,
+          true
+        ],
+        [
+          -18.0,
+          -36.0,
+          true
+        ],
+        [
+          0.0,
+          -36.0,
+          true
+        ],
+        [
+          18.0,
+          -36.0,
+          true
+        ],
+        [
+          -18.0,
+          -28.0,
+          true
+        ],
+        [
+          0.0,
+          -28.0,
+          true
+        ],
+        [
+          18.0,
+          -28.0,
+          true
+        ],
+        [
+          -18.0,
+          -20.0,
+          true
+        ],
+        [
+          0.0,
+          -20.0,
+          true
+        ],
+        [
+          18.0,
+          -20.0,
+          true
+        ],
+        [
+          -18.0,
+          -12.0,
+          true
+        ],
+        [
+          0.0,
+          -12.0,
+          true
+        ],
+        [
+          18.0,
+          -12.0,
+          true
+        ],
+        [
+          -18.0,
+          -4.0,
+          true
+        ],
+        [
+          0.0,
+          -4.0,
+          true
+        ],
+        [
+          18.0,
+          -4.0,
+          true
+        ],
+        [
+          -18.0,
+          4.0,
+          true
+        ],
+        [
+          0.0,
+          4.0,
+          true
+        ],
+        [
+          18.0,
+          4.0,
+          true
+        ],
+        [
+          -18.0,
+          12.0,
+          true
+        ],
+        [
+          0.0,
+          12.0,
+          true
+        ],
+        [
+          18.0,
+          12.0,
+          true
+        ]
+      ],
+      "name": "laser_real_pointer_hits_whole_sprite",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "aim": {
+          "angle": 80,
+          "facing": 1,
+          "id": "u3",
+          "max": 20,
+          "min": 8,
+          "x": 1471,
+          "y": 212.5
+        },
+        "guard_after": 150,
+        "guard_before": 150
+      },
+      "name": "laser_aim_ring_fire_stop",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "cooldown_after_off": 19.966666666666672
+      },
+      "name": "test_zero_cooldown_toggle",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "compared": 24,
+        "quantised": 6
+      },
+      "name": "replay_normalize_same_pixels",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "bitten": true,
+        "positions": {
+          "plant:巴豆": [
+            2961.1008000001007,
+            788.0906111999999
+          ],
+          "plant:激光豆": [
+            1464.0,
+            225.58080000000007
+          ],
+          "teleport": "",
+          "zombie:盾卫僵尸": [
+            2328.0,
+            -110.41919999999993
+          ],
+          "zombie:脑光墓碑": [
+            2328.0,
+            753.5808000000001
+          ]
+        }
+      },
+      "name": "croton_gas",
+      "passed": true
+    }
+  ],
+  "driver_ran": 1,
+  "failures": 0,
+  "positions": null,
+  "setup_error": ""
+}

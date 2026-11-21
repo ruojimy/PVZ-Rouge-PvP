@@ -1,4 +1,5 @@
 #include "sim/typed/bonus_plants.h"
+#include "sim/typed/pvp75_content.h"
 #include "sim/typed/plant_zombie_shooting.h"
 #include "core/pymath.h"
 #include <cmath>
@@ -146,6 +147,13 @@ void BonusPlants::starfruit() {
         }
     } catch (const std::exception&) {}
 }
+int BonusPlants::star_pierce(const EntityRef& entity) const {
+    // PvP75: 3 units per star; the plant owner's 大帝 adds one.
+    const auto owner = entity->source.seat ? entity->source.seat : world_.heroes.owner(source_ref(entity));
+    if (!owner || !world_.heroes.players.at(seat_index(*owner))) return pvp75::kStarPierce;
+    const auto& secrets = world_.heroes.players.at(seat_index(*owner))->secrets;
+    return pvp75::kStarPierce + (std::find(secrets.begin(), secrets.end(), "secret:大帝") != secrets.end() ? 1 : 0);
+}
 void BonusPlants::star_damage() {
     const auto zombies = world_.targets;
     const auto entities = *world_.runtime.entities.list();
@@ -172,6 +180,7 @@ void BonusPlants::star_damage() {
                 impacts_.bonus_damage(index, entity->facing, 10.);
             }
             hits.push_back(id);
+            if (int(hits.size()) >= star_pierce(entity)) { entity->expires.set(1024.); break; }
         }
     } catch (const std::exception&) {}
 }

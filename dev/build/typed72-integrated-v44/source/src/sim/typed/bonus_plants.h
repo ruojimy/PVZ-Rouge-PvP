@@ -36,6 +36,7 @@ public:
     size_t spawn_stars(Point origin, double speed, double facing);
     bool star_target(Point origin, double facing);
     void starfruit();
+    int star_pierce(const EntityRef&) const;
     void star_damage();
     void tripea();
     void cleanup_stones();

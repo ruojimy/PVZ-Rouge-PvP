@@ -81,6 +81,7 @@ std::vector<std::vector<uint8_t>> block_mask(const J& grid,const std::vector<std
 struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTickObserver,ExpansionCombatServices,ColdSpawnEvents,ColdZombieSecretServices,ColdAdmissionServices,RoomPublicServices,ColdDeploymentServices,NativeCommandServices,ZombieSecretRuntimeServices,PveDirectorServices {
 #include "frame_layer.inc"
 #include "snapshot_layer.inc"
+    void fragrance_poison(const ZombieRef& attacker)override{poison.apply(CombatTarget::zombie(attacker),1,2.,Seat::plant);}
     RoomState room;
     RoomRules room_rules;
     RoomScheduler scheduler{battle,room,room_rules,tick_state,driver,recovery,economy,resources,*this};
@@ -102,7 +103,7 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
     ColdPlacement placement_view{battle,catalog,deployment,room,published,resources,economy_state,zsecrets};
     TerrariaBosses terraria{battle,PlantProbe::content,[this](int type,Point p,const ZombieRef& parent){return make_terraria(type,p,parent);}};
     ZombieRef make_terraria(int type,Point p,const ZombieRef& parent){
-        if((!battle.local_test_mode&&!battle.scripted_terraria_boss)||battle.native_objects.size()>=700)return {};
+        if(((!battle.local_test_mode&&!battle.scripted_terraria_boss)&&type!=5)||battle.native_objects.size()>=700)return {};
         const auto& def=terraria_definition(type);Motion motion{p.x,p.y+battle.runtime.tile,0.,0.};
         auto u=factory.zombie("普通僵尸",motion,1.);if(!u)return {};
         u->terraria=std::make_shared<TerrariaNpcState>();auto& n=*u->terraria;n.type=type;n.width=def.width;n.height=def.height;n.damage=def.damage;n.alpha=(type>=13&&type<=15)?255.:0.;
@@ -111,7 +112,7 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
         const auto& card=catalog.at(std::string("zombie:")+def.name);ColdParent cp;if(parent)cp.id=parent->source.id.get();
         cold_registration.register_unit(u,card,Seat::zombie,false,cold_admission.context(),parent?&cp:nullptr);return u;
     }
-    std::optional<std::string> spawn_terraria(const std::string& key,Point p,double)override{auto u=terraria.summon(terraria_type(key),p);return u?std::optional<std::string>(u->source.id.get()):std::nullopt;}
+    std::optional<std::string> spawn_terraria(const std::string& key,Point p,double facing)override{auto u=key=="zombie:克苏鲁之仆"?terraria.summon_servant(p,facing):terraria.summon(terraria_type(key),p);return u?std::optional<std::string>(u->source.id.get()):std::nullopt;}
     void before_native_tick(double now)override{ContentPhaseProbe::before_native_tick(now);terraria.advance();}
     PeaHybrid hybrid{battle,chart,indexes};
     ExpansionCombat expansion{battle,sight,hybrid,action_state.drawing,*this};
@@ -381,6 +382,14 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
         if(installed)controller.finish();NativeTickProbe::zombie_gate(i);
         expansion.zombie_gate(battle.targets->at(i).unit);
         if(installed)controller.gate(i);
+        // PvP75: Boss control conversion and the 盾卫僵尸 pose aliases (restored by the next gate).
+        if(const auto& unit=battle.targets->at(i).unit){
+            bool aliased=false;pvp75.zombie_gate(unit,[&](const std::string& from,const std::string& to){if(canvas.has(to)){alias_art(from,to);aliased=true;}});
+            // The content gate tinted the 普通僵尸 art before the aliases replaced it: re-tint the 盾卫 poses.
+            const auto& poison=unit->poison.poison;
+            if(aliased&&poison.present()&&!poison.is_null()&&poison.get()&&!poison.get()->empty()&&poison.get()->level.present()&&!poison.get()->level.is_null())
+                canvas.tint_roots({unit->body.kind+"-身",unit->body.kind+"-首"},poison.get()->level.get());
+        }
         gate_rng("zombie",i);
     }
     HitResult content_lower_hit(size_t i,double facing,double amount)override{return expansion.ordinary(i,facing,amount);}
@@ -848,6 +857,7 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
         else if(kind=="mark")row["target"]="zombie";
         // simulation.command_input: only these accepted, validated fields enter the audit log; gift and others carry none.
         else if(kind=="cannon"){row["x"]=payload.value("x",J(nullptr));row["y"]=payload.value("y",J(nullptr));}
+        else if(kind=="laser"){row["x"]=payload.value("x",J(nullptr));row["y"]=payload.value("y",J(nullptr));if(payload.contains("target"))row["target"]=payload.at("target");}
         else if(kind=="shovel"){row["x"]=payload.at("x");row["y"]=payload.at("y");row["right"]=payload.value("right",false);}
         else if(kind=="teleport"||kind=="detonate")row["target"]=payload.at("target");
         else if(kind=="wake"||kind=="select_grave")row["grave"]=payload.at("grave");
@@ -1131,6 +1141,7 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
         garden.configure_locked_secrets();expansion.configure_locked_secrets();zsecrets.configure_locked();
         // Lock-time secret switches, each from the same team set the source reads.
         const auto plant_has=[&](const char* key){return std::find(plant_team.begin(),plant_team.end(),std::string(key))!=plant_team.end();};
+        battle.dense_planting=plant_has("secret:密植");
         gas_secret=plant_has("secret:毒气");hardening=plant_has("secret:硬化");phototherapy=plant_has("secret:光疗");
         reeds.electrotherapy=plant_has("secret:电疗");
         plant_rules.lantern_secret=phototherapy;navigation.cactus_secret=plant_has("secret:尖刺");navigation.charm_secret=plant_has("secret:魅惑");
@@ -1195,6 +1206,10 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
                 const double hp=numeric("value",0.,1000000000.);const double maximum=command.contains("max")?numeric("max",1.,1000000000.):std::max(hero.max_hp.get(),std::max(1.,hp));
                 if(hp>maximum)return "血量不能大于最大血量";hero.max_hp.set(maximum);hero.frame.hp.set(hp);hero.previous_hp.set(hp);player.hp=hp;player.max_hp=maximum;
             }else if(op=="cooldowns"){player.cooldowns.clear();room.players[seat_index(seat)].cooldown_spans.clear();}
+            else if(op=="zero_cooldown"){
+                // PvP75: toggles 0 cooldown for this seat only; switching it off restores normal cooldowns on the next deploy.
+                auto& rp=room.players[seat_index(seat)];rp.test_zero_cooldown=!rp.test_zero_cooldown;player.cooldowns.clear();rp.cooldown_spans.clear();
+            }
             else if(op=="daylight"){set_daylight(!command.at("night").get<bool>()?false:true);}
             else if(op=="clear"){
                 const std::string what=command.at("what");if(what!="plants"&&what!="zombies"&&what!="all")return "未知清理范围";

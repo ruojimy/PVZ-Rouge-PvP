@@ -422,8 +422,8 @@ V C_BalanceAndCatalogTests::m_test_card_numbers_almanac_and_export(const Args& A
     V L_data;
     V L_expected;
     V L_key;
-    L_data = py::stdlib_call(SV("json.loads"), Args{callm((pm_test_pvp_61_features::ROOT / SV("对战/PvP规则数据.json")), SY("read_text"), Args{SV("utf8")})});
-    (void)(m_assertEqual(Args{pm_catalog::f_catalog_hash(Args{}), rd(L_data, SV("catalog_hash"))}));
+    L_data = py::stdlib_call(SV("json.loads"), Args{callm((pm_test_pvp_61_features::ROOT / SV("extract/data/catalog.json")), SY("read_text"), Args{SV("utf8")})});
+    (void)(m_assertEqual(Args{pm_catalog::f_catalog_hash(Args{}), pm_catalog::f_digest(Args{rd(L_data, SV("CARDS"))})}));
     L_expected = py_dict({{SV("plant:机枪射手"), V::tuple({V(175.0), V::none()})}, {SV("zombie:海盗鹦鹉"), V::tuple({V(75.0), V(16.0)})}, {SV("plant:闪电芦苇"), V::tuple({V(125.0), V(12.0)})}, {SV("plant:超载芦苇"), V::tuple({V(175.0), V(20.0)})}, {SV("zombie:稻草人"), V::tuple({V(40.0), V(12.0)})}, {SV("zombie:乌鸦"), V::tuple({V(150.0), V(24.0)})}});
     { auto it1_ = py::items_vec(L_expected);
     for (size_t i1_ = 0; i1_ < it1_.size(); ++i1_) {

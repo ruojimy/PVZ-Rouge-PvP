@@ -92,6 +92,8 @@ void NativeTracking::begin(const TrackingSource& s) {
         // the complete zombie roster for each projectile / plant source.
         for(const auto i:hero_indices_){const auto& target=world_.targets->at(i);const auto p=position(target);shift({p->x,target,p});}
     }else for(const auto& target:*world_.targets){const auto p=position(target);shift({p->x,target,p});}
+    // Homing spikes read live targets and the contact grid, never the plant row/column banks.
+    if(truth(s.record->cattail) && named(s.record->projectile,"尖刺"))return;
     const int64_t count=int64_t(width/tile);
     const double origin=x/tile;
     const auto column=[&](int64_t col){
@@ -157,6 +159,9 @@ bool NativeTracking::hero_lock(const TrackingSource& source,Seat side)const {
         else if(source.position)origin={source.position->x,source.position->y-tile/2.};
     }
     const auto point=player_center(target);
+    // A source outside lock range cannot acquire the hero, regardless of marks.
+    const double hx=wrap_delta(origin.x,point.x,world_.world_width.get()),hy=origin.y-point.y;
+    if(hx*hx+hy*hy>sight_.hero_lock_range*sight_.hero_lock_range)return false;
     bool marked=heroes.time<target.marked_until;
     if(!marked)for(const auto& p:*world_.plant_roster) {
         if(p->kind=="路灯花" && p->hp.present() && !p->hp.is_null() && p->hp.get()>0. &&
@@ -186,6 +191,7 @@ void NativeTracking::target_index(const TrackingSource& s) {
     const auto source=[&](const CombatTarget& t){return t.is_hero()?heroes.proxy_source(t.hero):source_ref(t.unit);};
     const auto eligible=[&](const CombatTarget& t){
         const auto& n=native(t);const auto& b=get_body(t);
+        if(t.unit && t.unit->terraria)return b.hp>0. && !b.ash.present() && !t.unit->terraria->removed;
         return b.hp>0. && !b.ash.present() && !n.emerged.present() && n.entry.present() &&
                !n.entry.is_null() && n.entry.get()==500. && !(t.is_hero()&&hidden[seat_index(t.hero)]);
     };
@@ -198,7 +204,7 @@ void NativeTracking::target_index(const TrackingSource& s) {
     if(spatial741_enabled() && homing){
         const auto& fallback=heroes.globals.position;
         const Point origin=s.plant_cell?Point{(s.plant_cell->x+.5)*tile,(s.plant_cell->y+.5)*tile}:
-            s.position?Point{s.position->x,s.position->y-tile}:Point{fallback.get()->x,fallback.get()->y-tile};
+            s.position?Point{s.position->x,s.position->y-(truth(s.record->cattail)?0.:tile)}:Point{fallback.get()->x,fallback.get()->y-tile};
         const double width=world_.terrain.cols()*tile;
         const auto owner=heroes.owner(s.record);
         // begin() validated the canonical x ordering immediately before this
@@ -237,7 +243,7 @@ void NativeTracking::target_index(const TrackingSource& s) {
                 const auto& t=world_.targets->at(i);++nearest_candidates;if(!eligible(t))return;
                 const auto target=source(t);if(heroes.owner(target)==owner)return;
                 const auto& id=target->id;if(!id.present()||id.is_null()||id.get().empty()){complete=false;return;}
-                const auto p=position(t);const double dx=wrap_delta(origin.x,p->x,width),dy=p->y-tile-origin.y,d=dx*dx+dy*dy;const std::string_view key=id.get();
+                const auto p=position(t);const double dx=wrap_delta(origin.x,p->x,width),dy=p->y-tile*aim_height(t,1.)-origin.y,d=dx*dx+dy*dy;const std::string_view key=id.get();
                 if(!best||d<best_distance||(d==best_distance&&(key<best_id||(key==best_id&&i<*best)))){best=i;best_distance=d;best_id=key;}
             };
             for(const auto i:hero_indices_){horizontal_test(i);homing_test(i);}
@@ -263,7 +269,7 @@ void NativeTracking::target_index(const TrackingSource& s) {
             if(heroes.owner(target)==owner)continue;
             const auto& target_id=target->id;
             if(!target_id.present()||target_id.is_null()||target_id.get().empty()){complete=false;break;}
-            const double dx=wrap_delta(origin.x,p->x,width),dy=p->y-tile-origin.y,distance=dx*dx+dy*dy;
+            const double dx=wrap_delta(origin.x,p->x,width),dy=p->y-tile*aim_height(t,1.)-origin.y,distance=dx*dx+dy*dy;
             const std::string_view key=target_id.get();
             if(!best || distance<best_distance || (distance==best_distance && (key<best_id || (key==best_id && i<*best)))){
                 best=i;best_distance=distance;best_id=key;
@@ -286,13 +292,13 @@ void NativeTracking::target_index(const TrackingSource& s) {
     if(!named(s.record->plant,"香蒲") && !truth(s.record->cattail) && !(id.present()&&!id.is_null()&&id.get().starts_with("hero:plant")))return;
     const auto& fallback=heroes.globals.position;
     const Point origin=s.plant_cell?Point{(s.plant_cell->x+.5)*tile,(s.plant_cell->y+.5)*tile}:
-        s.position?Point{s.position->x,s.position->y-tile}:Point{fallback.get()->x,fallback.get()->y-tile};
+        s.position?Point{s.position->x,s.position->y-(truth(s.record->cattail)?0.:tile)}:Point{fallback.get()->x,fallback.get()->y-tile};
     const double width=world_.terrain.cols()*tile;
     std::optional<std::tuple<double,std::string,size_t>> best;
     for(size_t i=0;i<world_.targets->size();++i) {
         const auto& t=world_.targets->at(i);const auto target=source(t);
         if(!eligible(t) || heroes.owner(target)==heroes.owner(s.record))continue;
-        const auto p=position(t);const double dx=wrap_delta(origin.x,p->x,width),dy=p->y-tile-origin.y;
+        const auto p=position(t);const double dx=wrap_delta(origin.x,p->x,width),dy=p->y-tile*aim_height(t,1.)-origin.y;
         auto key=std::tuple{dx*dx+dy*dy,heroes.source_id(target),i};
         if(!best||key<*best)best=std::move(key);
     }

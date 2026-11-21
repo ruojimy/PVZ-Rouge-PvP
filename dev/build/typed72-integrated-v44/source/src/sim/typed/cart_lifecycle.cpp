@@ -10,7 +10,7 @@ double CartLifecycle::action_rate(const CombatZombie& unit) {
     return body.ice.or_missing(0.)>0.?.5:1.;
 }
 void CartLifecycle::configure(const ZombieRef& unit,std::string_view card) {
-    if(card!="zombie:投篮车僵尸" && card!="zombie:小鬼炮")return;
+    if(card!="zombie:投篮车僵尸" && card!="zombie:小鬼炮" && card!="zombie:雪橇车僵尸")return;
     auto& state=unit->content;
     state.cart_deadline.set(double(world_.heroes.tick)+20000.);
     if(card=="zombie:小鬼炮") {

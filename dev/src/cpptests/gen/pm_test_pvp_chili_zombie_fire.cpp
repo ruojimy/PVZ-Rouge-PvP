@@ -294,7 +294,7 @@ V C_ChiliZombieFireTests::m_test_ash_marked_grave_burns_out(const Args& A) {
     }}
     (void)(m_assertNotIn(Args{L_grave, rdm(pvz::getattr(L_b, SY("g")), &Obj::僵尸, SV("僵尸"))}));
     (void)(m_assertIn(Args{L_tough, rdm(pvz::getattr(L_b, SY("g")), &Obj::僵尸, SV("僵尸"))}));
-    (void)(m_assertEqual(Args{V(775.0), rdm(L_tough, &Obj::血量, SV("血量"))}));
+    (void)(m_assertEqual(Args{V(712.5), rdm(L_tough, &Obj::血量, SV("血量"))}));
     return V::none();
 }
 

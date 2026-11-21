@@ -50,7 +50,8 @@ NativeAim FumeEffects::pick(const ZombieRef& source,const PlantZombieConfig& c)c
 bool FumeEffects::damage_plant(const PlantRef& p,double amount) {
     p->hurt.set(1.);double hp=number(p->hp);static const std::string no_hand;
     hp-=world_.protection.amount({hp,no_hand,p->source,p->protection},amount);p->hp.set(hp);
-    if(hp<=0.)try{callbacks_.clear_plant(p->cell);}catch(const std::exception&){}return true;
+    if(hp<=0.)p->dead.set(DeathMarker(0.));
+    return true;
 }
 bool FumeEffects::damage_player(double direction) {
     if(i_zombie())return false;auto& g=world_.heroes.globals;const auto before=g.hp;
@@ -94,7 +95,9 @@ int64_t FumeEffects::shoot_tick(const ZombieRef& u,const PlantZombieConfig& c)co
 size_t FumeEffects::raw_line(const ZombieRef& source,Point center,double angle,const PlantZombieConfig& c) {
     const bool friendly=source->source.charmed.present(),electric=thunder(source),legacy_view=i_zombie();
     const auto view_targets=world_.targets;const double length=number(c.attack_length,6.),scale=std::max(1.,world_.runtime.tile),direction=std::cos(angle*(pi/180.))>=0.?1.:-1.;size_t hits=0;
-    if(!friendly){const auto plants=*world_.plant_roster;for(const auto& p:plants)try {
+    if(!friendly){auto plants=*world_.plant_roster;
+        if(world_.dense_planting)std::reverse(plants.begin(),plants.end());
+        for(const auto& p:plants)try {
         if(p->dead.present()||p->shovel_dead.present()||number(p->hp,1.)<=0.)continue;
         const auto visible=patch_plant_point(world_,*p);if(!visible)continue;const auto point=*visible;
         if(ray(center,angle,point,scale*.56,length)&&damage_plant(p,1.)){++hits;splat(point);}

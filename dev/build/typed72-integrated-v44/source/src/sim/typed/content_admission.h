@@ -12,6 +12,7 @@
 #include "sim/typed/flying_plants.h"
 #include "sim/typed/september_plants.h"
 #include "sim/typed/native_barrels.h"
+#include "sim/typed/pvp75_content.h"
 namespace pvz::typed72 {
 struct ContentAdmissionSystems {
     CartLifecycle& carts;
@@ -27,6 +28,7 @@ struct ContentAdmissionSystems {
     FlyingPlants& flying;
     SeptemberPlants& september;
     NativeBarrels& barrels;
+    Pvp75Content& pvp75;
 };
 // Called after the native body and registration metadata are present. The
 // actual resolved ColdCard is the one catalog record; no second card schema.

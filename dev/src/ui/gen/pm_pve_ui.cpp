@@ -1111,7 +1111,10 @@ V C_PveUI::m_pve_action(const Args& A) {
             (void)(callm(pvz::getattr(self_v(), SY("state")), SY("update"), Args({}, {{SY("screen"), L_target}, {SY("focus"), V::none()}})));
         }
     } else if ((L_kind == SV("pve_skip"))) {
-        L_SKIP_PRICE = pvz::getattr(pm_pve::module_ns(), SY("SKIP_PRICE"));
+        const V room=pvz::getattr(self_v(),SY("room"));
+        const bool coopRoom=room.truthy() && pvz::getattr(room,SY("mode"))==pm_teams::COOP;
+        const V day=coopRoom?pvz::getattr(pvz::getattr(room,SY("coop_progress")),SY("day")):pvz::getattr(L_campaign,SY("day"));
+        L_SKIP_PRICE=pm_pve::f_skip_price(Args{day,V(coopRoom)});
         if ((pvz::getattr(self_v(), SY("mode")) == SV("guest"))) {
             (void)(callm(self_v(), SY("message"), Args{SV("只有房主可以花金币跳关")}));
             return V(true);
@@ -1119,7 +1122,7 @@ V C_PveUI::m_pve_action(const Args& A) {
         L_now = py::stdlib_call(SV("time.monotonic"), Args{});
         if (((L_now - py::m_get(pvz::getattr(self_v(), SY("state")), SV("pve_skip_armed"), V(-10.0))) > V(4.0))) {
             pvz::setitem(pvz::getattr(self_v(), SY("state")), SV("pve_skip_armed"), L_now);
-            (void)(callm(self_v(), SY("message"), Args{py::percent(SV("再点一次确认：花费 $%d 跳过第 %d 天（视为通关，可领取奖励卡，不发通关金币）"), V::tuple({L_SKIP_PRICE, pvz::getattr(L_campaign, SY("day"))}))}));
+            (void)(callm(self_v(), SY("message"), Args{py::percent(SV("再点一次确认：花费 $%d 跳过第 %d 天（视为通关，可领取奖励卡，不发通关金币）"), V::tuple({L_SKIP_PRICE, day}))}));
             return V(true);
         }
         (void)(callm(pvz::getattr(self_v(), SY("state")), SY("pop"), Args{SV("pve_skip_armed"), V::none()}));
@@ -1641,7 +1644,7 @@ V C_PveUI::m_draw_pve(const Args& A) {
     }
     (void)(callm(L_r, SY("button"), Args({L_reset_label, callm(L_st, SY("rect"), Args{V(17.0), V(1.75), V(2.6), V(0.8)}), V::tuple({SV("pve_reset")})}, {{SY("selected"), py::bool_(py::m_get(L_state, SV("pve_reset")))}, {SY("size"), py::max_it(V::list({V(11.0), (L_fs - V(2.0))}), py::Key(), V())}})));
     if ((!(L_guest).truthy() && !(pvz::getattr(L_campaign, SY("rewards"))).truthy())) {
-        L_SKIP_PRICE = pvz::getattr(pm_pve::module_ns(), SY("SKIP_PRICE"));
+        L_SKIP_PRICE=pm_pve::f_skip_price(Args{L_shown_day,L_coop});
         L_armed = V(((py::stdlib_call(SV("time.monotonic"), Args{}) - py::m_get(L_state, SV("pve_skip_armed"), V(-10.0))) <= V(4.0)));
         (void)(callm(L_r, SY("button"), Args({((L_armed).truthy() ? V(SV("确认跳关")) : V(py::percent(SV("$%d 跳关"), L_SKIP_PRICE))), callm(L_st, SY("rect"), Args{V(14.2), V(1.75), V(2.6), V(0.8)}), V::tuple({SV("pve_skip")})}, {{SY("selected"), L_armed}, {SY("size"), py::max_it(V::list({V(11.0), (L_fs - V(2.0))}), py::Key(), V())}})));
     }

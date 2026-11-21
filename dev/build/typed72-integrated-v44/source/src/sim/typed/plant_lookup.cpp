@@ -12,15 +12,25 @@ bool pvp_shell(const CombatPlant& plant) {
     return plant.kind=="南瓜头" || equals(tag,"阳光藤蔓") || equals(tag,"忧郁藤蔓") ||
            equals(tag,"抓人草") || (plant.kind=="模仿者" && equals(plant.copy_card,"plant:抓人草"));
 }
+bool untargetable_plant(const CombatPlant& plant) {
+    // 幽灵辣椒 and (PvP75) 三叶草 are never selected or shot by the zombie side.
+    return equals(plant.source.content,"幽灵辣椒") || plant.kind=="三叶草" ||
+           (plant.kind=="模仿者" && (equals(plant.copy_card,"plant:幽灵辣椒") || equals(plant.copy_card,"plant:三叶草")));
+}
 bool september_targetable(const CombatPlant& plant) {
-    return plant.hp.or_missing(0.)>0. && !plant.dead.present() &&
-           !equals(plant.source.content,"幽灵辣椒") &&
-           !(plant.kind=="模仿者" && equals(plant.copy_card,"plant:幽灵辣椒"));
+    return plant.hp.or_missing(0.)>0. && !plant.dead.present() && !untargetable_plant(plant);
 }
 std::optional<size_t> lookup_pvp_plant(const TypedBattleState& world,Cell cell,bool skip_shell) {
     const auto& active=world.heroes.active;
     const bool hide=active && active->owner==Seat::zombie &&
         (active->phase==CombatPhase::zombies || active->phase==CombatPhase::entities);
+    if(world.dense_planting && hide){
+        for(size_t i=world.plant_roster->size();i-->0;){
+            const auto& p=*world.plant_roster->at(i);
+            if(p.cell==cell && september_targetable(p) && !(skip_shell && pvp_shell(p)))return i;
+        }
+        return {};
+    }
     std::optional<size_t> shell,found;
     for(size_t i=0;i<world.plant_roster->size();++i) {
         const auto& p=*world.plant_roster->at(i);

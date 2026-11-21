@@ -131,7 +131,7 @@ V C_DrawReplay::m___init__(const Args& A) {
     L_OrderedDict = py::stdlib(SV("collections.OrderedDict"));
     a_cache = pvz::native_render_cache();
     a_cache_bytes = V(0.0);
-    a_cache_limit = ((V(32.0) * V(1024.0)) * V(1024.0));
+    a_cache_limit = V(pvz::native_replay_cache_bytes()); // PvP75 cache bytes
     a__key_frame = V::none();
     a__frame_keys = py_dict({});
     a__frame_key_bytes = V(0.0);
@@ -458,10 +458,12 @@ V C_DrawReplay::m_render(const Args& A) {
                   (void)(callm(L_screen, SY("blit"), Args({L_scaled, L_pos}, {{SY("special_flags"), py::m_get(L_command, SV("flags"), V(0.0))}})));
                   continue;
               }
+              V pvp75_alpha;bool pvp75_alpha_set=false;const V pvp75_norm=pvz::native_replay_normalize(L_description,pvp75_alpha,pvp75_alpha_set); // PvP75 replay normalize
               L_json = py::stdlib_module(SV("json"));
               L_key = V::none();
               if ((a_cache_limit).truthy()) {
                   L_identity = V::tuple({py::id(L_description), (!py_is(L_area, V::none()) ? V(py::tuple_it(L_area)) : V(V::none())), L_scale});
+                  L_description=pvp75_norm; // PvP75 normalized description
                   L_key = py::m_get(a__frame_keys, L_identity);
                   if (py_is(L_key, V::none())) {
                       L_key=pvz::native_recipe_key(L_description,L_area,L_scale);
@@ -493,7 +495,7 @@ V C_DrawReplay::m_render(const Args& A) {
                   }
                   L_size_bytes = (((callm(L_surface, SY("get_width"), Args{}) * callm(L_surface, SY("get_height"), Args{})) * V(4.0)) + (!py_is(L_key, V::none()) ? V((py::len(L_key) * V(2.0))) : V(V(0.0))));
                   if ((!py_is(L_key, V::none()) && (L_size_bytes <= a_cache_limit))) {
-                      while (((a_cache).truthy() && (((a_cache_bytes + L_size_bytes) > a_cache_limit) || (py::len(a_cache) >= V(512.0))))) {
+                      while (((a_cache).truthy() && (((a_cache_bytes + L_size_bytes) > a_cache_limit) || (py::len(a_cache) >= V(pvz::native_replay_cache_entries()) /* PvP75 cache entries */)))) {
                           { V ut3_ = py::as_seq(callm(a_cache, SY("popitem"), Args({}, {{SY("last"), V(false)}}))); L_old_key = ut3_.idx(0); L_old = ut3_.idx(1); } 
                           a_cache_bytes = (a_cache_bytes - (((callm(L_old, SY("get_width"), Args{}) * callm(L_old, SY("get_height"), Args{})) * V(4.0)) + (py::len(L_old_key) * V(2.0))));
                           a_evictions = py::iadd(a_evictions, V(1.0));
@@ -505,6 +507,7 @@ V C_DrawReplay::m_render(const Args& A) {
                   a_hits = py::iadd(a_hits, V(1.0));
                   (void)(callm(a_cache, SY("move_to_end"), Args{L_key}));
               }
+              if(pvp75_alpha_set)(void)callm(L_surface,SY("set_alpha"),Args{pvp75_alpha}); // PvP75 blit alpha
               (void)(callm(L_screen, SY("blit"), Args({L_surface, L_pos}, {{SY("special_flags"), py::m_get(L_command, SV("flags"), V(0.0))}})));
           } else if (((L_op == SV("primitive")) && py::in(rd(L_command, SV("primitive")), pvz::getattr(pm_native_animation::cls__Draw(), SY("ALLOWED"))))) {
               (void)(callm(self(), SY("_primitive"), Args{L_screen, L_command, L_command_point, L_scale}));

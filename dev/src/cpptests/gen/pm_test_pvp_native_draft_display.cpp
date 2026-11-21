@@ -157,6 +157,7 @@ V C_NativeDraftDisplayTests::m_test_locked_secrets_resolve_bank_grid_and_detail_
     V L_candidates;
     V L_card;
     V L_cases;
+    V L_boss_cards;
     V L_catalog_before;
     V L_choice;
     V L_cost;
@@ -251,7 +252,23 @@ V C_NativeDraftDisplayTests::m_test_locked_secrets_resolve_bank_grid_and_detail_
             }
         }
     }}
-    (void)(m_assertEqual(Args{pm_catalog::CARDS, L_catalog_before}));
+    L_boss_cards = [&]() -> V { V out_ = V::set(); V L_name; { V it18_ = py::iter_list(V::tuple({SV("克苏鲁之眼"), /* PvP75: 克苏鲁之仆 is a regular card */ SV("世界吞噬者"), SV("世界吞噬者体节"), SV("世界吞噬者尾节"), SV("骷髅王"), SV("骷髅王之手")})); for (size_t i18_ = 0; i18_ < it18_.len(); ++i18_) { L_name = it18_.idx(int64_t(i18_)); py::set_add(out_, (SV("zombie:") + L_name)); }}return out_; }();
+    { V it19_ = py::iter_list(pm_catalog::CARDS);
+    for (size_t i19_ = 0; i19_ < it19_.len(); ++i19_) {
+        L_key = it19_.idx(int64_t(i19_)); 
+        (void)(m_assertTrue(Args{py_or(V(py::in(L_key, L_catalog_before)), [&]() -> V { return V(py::in(L_key, L_boss_cards)); }), L_key}));
+    }}
+    { V it20_ = py::iter_list(L_catalog_before);
+    for (size_t i20_ = 0; i20_ < it20_.len(); ++i20_) {
+        L_key = it20_.idx(int64_t(i20_)); 
+        (void)(m_assertEqual(Args{rd(L_catalog_before, L_key), rd(pm_catalog::CARDS, L_key), L_key}));
+    }}
+    { V it21_ = py::iter_list(L_boss_cards);
+    for (size_t i21_ = 0; i21_ < it21_.len(); ++i21_) {
+        L_key = it21_.idx(int64_t(i21_)); 
+        (void)(m_assertTrue(Args{rd(rd(pm_catalog::CARDS, L_key), SV("spawn_only")), L_key}));
+        (void)(m_assertFalse(Args{rd(rd(pm_catalog::CARDS, L_key), SV("selectable")), L_key}));
+    }}
     return V::none();
 }
 

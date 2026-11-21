@@ -62,16 +62,20 @@ int run_diagnostic72(const std::string& raw) {
     // Explicit per-process diagnostic controls, shared by PC and Android.
     if(config.value("function_profile",false))diagnostic_env("PVP741_PROFILE","1");
     if(config.contains("engine_options"))for(const auto& [name,value]:config["engine_options"].items()){
+        if(name=="PVP75_REPLAY_CACHE_MB"){
+            if(!value.is_number()||!std::isfinite(value.get<double>())||value.get<double>()<8.||value.get<double>()>1024.)throw std::runtime_error("Invalid replay cache size");
+            const std::string text=std::to_string(value.get<double>());diagnostic_env(name.c_str(),text.c_str());continue;
+        }
         if(name=="PVP744_STEP_BUDGET_MS"){
             if(!value.is_number()||!std::isfinite(value.get<double>())||value.get<double>()<0.||value.get<double>()>50.)throw std::runtime_error("Invalid step budget");
             const std::string text=std::to_string(value.get<double>());diagnostic_env(name.c_str(),text.c_str());continue;
         }
-        if(name!="PVP742_FRAME"&&name!="PVP742_RECIPE_KEY"&&name!="PVP742_WALL_CLOCK"&&name!="PVP742_LAZY_CANVAS"&&name!="PVP742_INPUT_REFRESH"&&name!="PVP742_TARGETING"&&name!="PVP744_PACING"&&name!="PVP744_VIEW_REUSE"&&name!="PVP744_LOCAL_FRAME"&&name!="PVP744_STATE_VIEW"&&name!="PVP744_METADATA_VIEW")throw std::runtime_error("Unknown diagnostic engine option");
+        if(name!="PVP742_FRAME"&&name!="PVP75_LASER_TILES"&&name!="PVP75_REPLAY_NORMALIZE"&&name!="PVP742_RECIPE_KEY"&&name!="PVP742_WALL_CLOCK"&&name!="PVP742_LAZY_CANVAS"&&name!="PVP742_INPUT_REFRESH"&&name!="PVP742_TARGETING"&&name!="PVP744_PACING"&&name!="PVP744_VIEW_REUSE"&&name!="PVP744_LOCAL_FRAME"&&name!="PVP744_STATE_VIEW"&&name!="PVP744_METADATA_VIEW")throw std::runtime_error("Unknown diagnostic engine option");
         if(!value.is_boolean())throw std::runtime_error("Diagnostic engine option must be boolean");
         diagnostic_env(name.c_str(),value.get<bool>()?"1":"0");
     }
     auto scenario=config.value("scenario",std::string("ordinary"));
-    if(scenario!="ordinary" && scenario!="mixed" && scenario!="barrage" && scenario!="grabber")throw std::runtime_error("Unknown diagnostic scene");
+    if(scenario!="ordinary" && scenario!="mixed" && scenario!="barrage" && scenario!="grabber" && scenario!="laser")throw std::runtime_error("Unknown diagnostic scene");
     int units=config.value("units",20);double warm=config.value("warmup_seconds",5.),seconds=config.value("seconds",30.);
     if(units<1 || units>300 || !std::isfinite(warm) || !std::isfinite(seconds) || warm<0 || warm>60 || seconds<1 || seconds>600)
         throw std::runtime_error("Diagnostic bounds invalid");

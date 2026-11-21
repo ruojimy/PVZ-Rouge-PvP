@@ -168,7 +168,9 @@ void ExpansionCombat::charge(const ZombieRef& unit) {
     if(!active&&!blocked&&unit->body.stun.or_missing(0.)<=0.&&unit->body.hp>0.&&unit->native.entry.or_missing(0.)>=500.&&tick>=state.charge_ready.or_missing(0.)) {
         state.charge_until.set(tick+1500.);active=true;
     }
-    state.charging.set(active);unit->native.move_speed.set(unit->base_speed.get()*(active?2.:1.));
+    // PvP75: speed bonuses add up; the charge is +100% on top of the other bonuses.
+    double bonus=0.;for(const auto& [tag,value]:unit->patch.speed_factors)bonus+=value;const double factor=std::max(1e-9,1.+bonus);
+    state.charging.set(active);unit->native.move_speed.set(unit->base_speed.get()*(active?(factor+1.)/factor:1.));
     if(!active||unit->body.ice.or_missing(0.)>1000.||unit->body.butter.or_missing(0.)>0.)return;
     const auto targets=world_.targets;
     for(size_t i=0;i<targets->size();++i) {

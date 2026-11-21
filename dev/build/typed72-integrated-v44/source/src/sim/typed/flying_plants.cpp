@@ -61,7 +61,7 @@ std::optional<ContentTarget> FlyingPlants::turnip_target(const PlantRef& plant) 
         if(const auto* body=std::get_if<CombatTarget>(&target)) {
             const auto& position=body->is_hero()?*world_.heroes.cached_proxy(body->hero).position:body->unit->body.motion.get();
             size=body->is_hero()?world_.heroes.cached_proxy(body->hero).size.or_missing(2.):body->unit->body.size.or_missing(2.);
-            point={position.x,position.y-tile*.35*size};
+            point={position.x,position.y-tile*aim_height(*body,.35*size)};
         }
         const double dx=wrap_delta(origin.x,point.x,width),dy=point.y-origin.y;
         const double limit=ray_width+tile*std::max(.22,.18*size)*unit_scale_factor(*queries_.source(target),collision_);

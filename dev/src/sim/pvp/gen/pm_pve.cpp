@@ -8,6 +8,8 @@
 #include "sim/pvp/gen/pm_native_bridge.h"
 namespace pvz { namespace py { inline void init_deps_pve() { pm_catalog::init(); pm_coop_cycle::init(); pm_maps::init(); pm_scripted_spawn_budget::init(); pm_team_maps::init(); } } }
 namespace pvz { namespace pm_pve {
+// PvP75: a wave spends at least 50 budget per zombie, so zero-price cards (克苏鲁之仆) cannot fill a wave forever.
+static V pvp75_wave_cost(const V& key) { const V cost = rd(rd(pm_catalog::CARDS, key), SV("cost")); return cost > V(0.0) ? cost : V(50.0); }
 V TIERS;
 V TIER_NAMES;
 V TIER_UNLOCK_DAY;
@@ -259,6 +261,10 @@ V f_map_for_day(const Args& A) {
     return V::none();
 }
 
+V f_skip_price(const Args& A) {
+    const V day=A.get(0,SY("day"),nullptr,"skip_price");
+    return A.size()>1 && A.get(1,SY("coop"),nullptr).truthy() && (day==V(8)||day==V(16)||day==V(24)) ? V(50000) : SKIP_PRICE;
+}
 V f_shop_price(const Args& A) {
     V L_base = A.get(0, SY("base"), nullptr, "shop_price");
     V L_day = A.get(1, SY("day"), nullptr, "shop_price");
@@ -470,7 +476,7 @@ V C_WaveDirector::m__compose(const Args& A) {
     }
     L_pool = [&]() -> V { V out_ = V::list(); V L_key; V L_tier; V L_weight; { V it1_ = py::iter_list(a_pool); for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) { { V ut2_ = py::as_seq(it1_.idx(int64_t(i1_))); L_key = ut2_.idx(0); L_tier = ut2_.idx(1); L_weight = ut2_.idx(2); } if (!((L_weight > V(0.0)))) continue; out_.append(V::tuple({L_key, L_weight})); }}return out_; }();
     while ((L_pool).truthy()) {
-        L_affordable = [&]() -> V { V out_ = V::list(); V L_key; V L_weight; { V it3_ = py::iter_list(L_pool); for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) { { V ut4_ = py::as_seq(it3_.idx(int64_t(i3_))); L_key = ut4_.idx(0); L_weight = ut4_.idx(1); } if (!((rd(rd(pm_catalog::CARDS, L_key), SV("cost")) <= L_budget))) continue; out_.append(V::tuple({L_key, L_weight})); }}return out_; }();
+        L_affordable = [&]() -> V { V out_ = V::list(); V L_key; V L_weight; { V it3_ = py::iter_list(L_pool); for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) { { V ut4_ = py::as_seq(it3_.idx(int64_t(i3_))); L_key = ut4_.idx(0); L_weight = ut4_.idx(1); } if (!((pvp75_wave_cost(L_key) <= L_budget))) continue; out_.append(V::tuple({L_key, L_weight})); }}return out_; }();
         if (!(L_affordable).truthy()) {
             break;
         }
@@ -485,7 +491,7 @@ V C_WaveDirector::m__compose(const Args& A) {
             }
         }}
         (void)(py::m_append(L_chosen, L_key));
-        L_budget = (L_budget - rd(rd(pm_catalog::CARDS, L_key), SV("cost")));
+        L_budget = (L_budget - pvp75_wave_cost(L_key));
     }
     return L_chosen;
     return V::none();
@@ -1201,14 +1207,15 @@ V C_Campaign::m_win(const Args& A) {
 
 V C_Campaign::m_skip_day(const Args& A) {
     V L_pay = (A.size() > 0 || A.has_kw(SY("pay"))) ? A.get(0, SY("pay"), nullptr) : V(V(true));
+    const V price=(A.size()>1||A.has_kw(SY("price")))?A.get(1,SY("price"),nullptr):pm_pve::SKIP_PRICE;
     if ((a_rewards).truthy()) {
         return SV("请先领取通关奖励");
     }
     if ((L_pay).truthy()) {
-        if ((a_coins < pm_pve::SKIP_PRICE)) {
-            return py::percent(SV("金币不足：跳关需要 $%d（还差 %d）"), V::tuple({pm_pve::SKIP_PRICE, (pm_pve::SKIP_PRICE - a_coins)}));
+        if ((a_coins < price)) {
+            return py::percent(SV("金币不足：跳关需要 $%d（还差 %d）"), V::tuple({price, (price - a_coins)}));
         }
-        a_coins = (a_coins - pm_pve::SKIP_PRICE);
+        a_coins = (a_coins - price);
     }
     (void)(py::m_append(a_history, py_dict({{SV("day"), a_day}, {SV("played_day"), a_day}, {SV("result"), SV("win")}, {SV("coins"), V(0.0)}, {SV("raw_coins"), V(0.0)}, {SV("bonus"), V(0.0)}, {SV("coin_half"), a_coin_half}, {SV("skipped"), V(true)}})));
     a_best_day = py::max_it(V::list({a_best_day, a_day}), py::Key(), V());
@@ -1289,7 +1296,7 @@ void init() {
     inited_ = true;
     py::note_module_loaded("pvp.pve");
     py::init_deps_pve();
-    pm_pve::TIERS = py_dict({{V(0.0), V::tuple({SV("普通僵尸"), SV("路障僵尸"), SV("铁桶僵尸"), SV("撑杆跳僵尸"), SV("小鬼僵尸"), SV("垃圾桶僵尸"), SV("伴舞僵尸"), SV("稻草人"), SV("豌豆僵尸"), SV("坚果僵尸"), SV("黑普通僵尸")})}, {V(1.0), V::tuple({SV("小丑僵尸"), SV("气球僵尸"), SV("蹦蹦僵尸"), SV("钢门普通僵尸"), SV("毁灭菇僵尸"), SV("三叶草僵尸"), SV("萝卜伞僵尸"), SV("掷弹兵僵尸"), SV("倭瓜僵尸"), SV("海盗鹦鹉"), SV("黑路障僵尸"), SV("雪人僵尸"), SV("钩索僵尸")})}, {V(2.0), V::tuple({SV("铁桶钢门僵尸"), SV("橄榄球僵尸"), SV("矿工僵尸"), SV("投篮车僵尸"), SV("梯子僵尸"), SV("辣椒僵尸"), SV("路灯花僵尸"), SV("吸金磁僵尸"), SV("史莱姆僵尸"), SV("传送带僵尸"), SV("滚桶僵尸"), SV("乌鸦"), SV("舞王僵尸"), SV("海盗船长"), SV("黑铁桶僵尸"), SV("黑撑杆僵尸"), SV("大喷菇僵尸"), SV("雪橇车小队"), SV("死神僵尸")})}, {V(3.0), V::tuple({SV("报纸僵尸"), SV("巨人僵尸"), SV("雪橇车僵尸"), SV("高坚果僵尸"), SV("墓碑吞噬者僵尸"), SV("机枪僵尸"), SV("红眼巨人"), SV("角斗士巨人"), SV("小鬼炮"), SV("黑橄榄僵尸")})}});
+    pm_pve::TIERS = py_dict({{V(0.0), V::tuple({SV("普通僵尸"), SV("路障僵尸"), SV("铁桶僵尸"), SV("撑杆跳僵尸"), SV("小鬼僵尸"), SV("垃圾桶僵尸"), SV("伴舞僵尸"), SV("稻草人"), SV("豌豆僵尸"), SV("坚果僵尸"), SV("黑普通僵尸")})}, {V(1.0), V::tuple({SV("小丑僵尸"), SV("气球僵尸"), SV("蹦蹦僵尸"), SV("钢门普通僵尸"), SV("毁灭菇僵尸"), SV("三叶草僵尸"), SV("萝卜伞僵尸"), SV("掷弹兵僵尸"), SV("倭瓜僵尸"), SV("海盗鹦鹉"), SV("黑路障僵尸"), SV("雪人僵尸"), SV("钩索僵尸"), SV("盾卫僵尸"), SV("克苏鲁之仆")})}, {V(2.0), V::tuple({SV("铁桶钢门僵尸"), SV("橄榄球僵尸"), SV("矿工僵尸"), SV("投篮车僵尸"), SV("梯子僵尸"), SV("辣椒僵尸"), SV("路灯花僵尸"), SV("吸金磁僵尸"), SV("史莱姆僵尸"), SV("传送带僵尸"), SV("滚桶僵尸"), SV("乌鸦"), SV("舞王僵尸"), SV("海盗船长"), SV("黑铁桶僵尸"), SV("黑撑杆僵尸"), SV("大喷菇僵尸"), SV("雪橇车小队"), SV("死神僵尸")})}, {V(3.0), V::tuple({SV("报纸僵尸"), SV("巨人僵尸"), SV("雪橇车僵尸"), SV("高坚果僵尸"), SV("墓碑吞噬者僵尸"), SV("机枪僵尸"), SV("红眼巨人"), SV("角斗士巨人"), SV("小鬼炮"), SV("黑橄榄僵尸")})}});
     pm_pve::TIER_NAMES = py_dict({{V(0.0), SV("普通")}, {V(1.0), SV("C 档")}, {V(2.0), SV("B 档")}, {V(3.0), SV("A 档")}});
     pm_pve::TIER_UNLOCK_DAY = py_dict({{V(0.0), V(1.0)}, {V(1.0), V(4.0)}, {V(2.0), V(6.0)}, {V(3.0), V(8.0)}});
     pm_pve::COOP_TIER_UNLOCK_DAY = py_dict({{V(0.0), V(1.0)}, {V(1.0), V(6.0)}, {V(2.0), V(10.0)}, {V(3.0), V(14.0)}});
@@ -1362,6 +1369,7 @@ static V modattr_(Sym n) {
     if (s == "health_scale") return V::func(f_health_scale);
     if (s == "reward_pool") return V::func(f_reward_pool);
     if (s == "map_for_day") return V::func(f_map_for_day);
+    if (s == "skip_price") return V::func(f_skip_price);
     if (s == "shop_price") return V::func(f_shop_price);
     if (s == "plant_price") return V::func(f_plant_price);
     if (s == "clear_bonus") return V::func(f_clear_bonus);

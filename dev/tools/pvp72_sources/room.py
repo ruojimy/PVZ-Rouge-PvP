@@ -722,7 +722,15 @@ class Room:
             self.status=('全体玩家已同意暂停' if self.paused else
                          '已请求暂停 %d/%d，等待其他玩家确认'%(len(self.pause_votes),len(self.seat_list())) if self.pause_votes else '对局继续')
             self.revision+=1;return ''
-        if payload.get("revision")!=self.revision:return "配置已变化，请使用最新房间状态"
+        if payload.get("revision")!=self.revision:
+            # A guest can edit immediately after opening selection, before its
+            # own unready acknowledgment arrives. Any other revision invalidates it.
+            edit=(peer_id,side,payload.get("revision"),self.revision)
+            if (self.mode!='coop' or self.phase!='config'
+                    or kind not in ('pve_deck','coop_buy','coop_reward','coop_reset_deck','coop_gift','confirm_map')
+                    or getattr(self,'_pve_edit_ack',None)!=edit):
+                return "配置已变化，请使用最新房间状态"
+            self._pve_edit_ack=None
         if kind=="map":
             if peer_id!="host":return "只有房主可提出地图"
             if self.phase in ("loading","battle","result"):return "请在房间中修改地图"
@@ -752,8 +760,11 @@ class Room:
             return self._record("swap",members=deepcopy(self.members))
         if kind=='pve_unready':
             if self.mode!='coop' or self.phase!='config' or team_of(side)!='plant':return '请在合作准备阶段调整选卡'
+            if not self.confirmed.get(side):return ''
+            before=self.revision
             self.confirmed[side]=False
             self.revision+=1
+            self._pve_edit_ack=(peer_id,side,before,self.revision)
             self.status='玩家正在调整选卡，请重新准备'
             return ''
         if kind=="confirm_map":

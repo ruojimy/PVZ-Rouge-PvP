@@ -14,7 +14,7 @@ def bank_page_size(rules, side, slots=None, scripted_waves=False):
     hiding cards behind a second page.
     """
     base = 8 if (rules or {}).get("extra_slot") else 7
-    if not scripted_waves:
+    if not scripted_waves and not (rules or {}).get("local_test_mode"):
         return base
     try:
         owned = int(slots or 0)

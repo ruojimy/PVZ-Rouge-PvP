@@ -20,7 +20,9 @@ V v(const J& j){return py::json_loads(V(j.dump()));}
 J j(const V& v){return J::parse(dump(v));}
 int main(int argc,char** argv){if(argc<2)return 2;const auto out=std::filesystem::absolute(u8p(argv[1]));std::filesystem::create_directories(out);env_set_u8("PVP_USERDATA",p8(out/"userdata"));SDL_SetMainReady();gil::init();data::set_data_dir("extract/data");pg::install_pygame();init_pvp_modules();V pg=pg::pygame_module();V screen=callm(pg::display_module(),Sym("set_mode"),Args{V::tuple({V(1280),V(720)})});auto h=battle_from_scenario({{"seed",74}});
  if(argc>2&&std::string(argv[2])=="bake"){
-  V renderer=pm_rendering::new_Renderer(Args{pg,screen,h.bridge});const auto cards=data::module("catalog").at("CARDS");J list=J::array();std::set<std::string> seen;
+  // PvP75: the game's own 图片 folder (beside the exe), so the icons match the in-game card art.
+  const auto images=std::filesystem::absolute(u8p(argv[0])).parent_path()/u8p("图片");if(!std::filesystem::is_directory(images))throw std::runtime_error("图片 folder missing beside the baker");
+  V renderer=pm_rendering::new_Renderer(Args{pg,screen,h.bridge,V(p8(images))});const auto cards=data::module("catalog").at("CARDS");J list=J::array();std::set<std::string> seen;
   for(const auto& [id,c]:cards.items()){auto asset=c.value("asset",c.at("name").get<std::string>());if(!seen.insert(asset).second)continue;V image=pg::new_surface(128,128,true);setattr(renderer,Sym("screen"),image);callm(renderer,Sym("icon"),Args{V(asset),V::tuple({V(0),V(0),V(128),V(128)})});const auto file="extract/assets/_png/pvp74-icon-"+tx::digest(asset).substr(0,16)+".png";
    callm(pg::image_module(),Sym("save"),Args{image,V(file)});list.push_back({{"key","icon:"+asset},{"name",asset+" · 完整卡面图标"},{"file",file},{"width",128},{"height",128},{"scope","icon"},{"category",c.at("side")=="plant"?"植物":"僵尸"},{"cards",J::array()},{"projectile",false}});
   }

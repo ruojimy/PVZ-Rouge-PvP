@@ -2248,7 +2248,7 @@ V C_LayoutOverrideTests::m_test_layout_persists_round_trip(const Args& A) {
     pvz::setitem(pvz::getattr(L_app, SY("state")), SV("touch_layout"), py_dict({{SV("jump"), V::list({V(0.5), V(0.1), V(99.0)})}}));
     (void)(callm(L_app, SY("save_settings"), Args{}));
     (void)(callm(L_app, SY("load_settings"), Args{}));
-    (void)(callm(self(), SY("assertAlmostEqual"), Args{rd(rd(rd(pvz::getattr(L_app, SY("state")), SV("touch_layout")), SV("jump")), V(2.0)), V(1.6)}));
+    (void)(callm(self(), SY("assertAlmostEqual"), Args{rd(rd(rd(pvz::getattr(L_app, SY("state")), SV("touch_layout")), SV("jump")), V(2.0)), V(2.0)}));
     return V::none();
 }
 
@@ -2510,7 +2510,7 @@ V C_LayoutEditorTests::m_test_scale_and_reset_actions(const Args& A) {
         L__ = V(double(i1_)); 
         (void)(callm(L_app, SY("action"), Args{V::tuple({SV("layout_scale"), V(1.0)})}));
     }}
-    (void)(callm(self(), SY("assertAlmostEqual"), Args{rd(rd(rd(pvz::getattr(L_app, SY("state")), SV("touch_layout")), SV("teleport")), V(2.0)), V(1.6)}));
+    (void)(callm(self(), SY("assertAlmostEqual"), Args{rd(rd(rd(pvz::getattr(L_app, SY("state")), SV("touch_layout")), SV("teleport")), V(2.0)), V(2.0)}));
     (void)(callm(L_app, SY("action"), Args{V::tuple({SV("layout_reset")})}));
     (void)(callm(self(), SY("assertEqual"), Args{rd(pvz::getattr(L_app, SY("state")), SV("touch_layout")), py_dict({})}));
     (void)(callm(self(), SY("assertIsNone"), Args{pvz::getattr(pvz::getattr(L_app, SY("touch")), SY("editor_selected"))}));

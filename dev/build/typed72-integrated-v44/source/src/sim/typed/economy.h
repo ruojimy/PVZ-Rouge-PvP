@@ -18,6 +18,7 @@ struct EconomyState {
     bool rain=false;
     std::vector<Point> death_points;
     std::unordered_map<std::string,double> grave_progress;
+    std::vector<int64_t> subsidy_due; // PvP75 补贴: ticks of pending +15 brain payments
 };
 class Economy {
 public:

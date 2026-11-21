@@ -71,7 +71,7 @@ bool ZombiePeas::damage_charmed(size_t index,CombatTarget target,const EntityRef
 void ZombiePeas::plant_damage(const PlantRef& p,double amount) {
     if(torches_)torches_->invalidate_pea_batch();
     p->hurt.set(1.);double hp=number(p->hp);static const std::string no_hand;hp-=world_.protection.amount({hp,no_hand,p->source,p->protection},amount);p->hp.set(hp);
-    if(hp<=0.){plant_tick_=-1;try{callbacks_.clear_plant(p->cell);}catch(const std::exception&){}}
+    if(hp<=0.){plant_tick_=-1;p->dead.set(DeathMarker(0.));}
 }
 namespace {
 void seam(TypedBattleState& world,const EntityRef& e){
@@ -123,13 +123,19 @@ bool ZombiePeas::raw_hit(const EntityRef& e) {
     std::optional<LegacyView> retained;if(i_zombie())retained=LegacyView{world_.targets,world_.plant_roster};const auto* view=retained?&*retained:nullptr;
     const double scale=world_.runtime.tile;const auto end=xy(e);const Point start{number(e->pea.previous_x,e->pea.previous_x.present()?end.x:number(e->pea.x,end.x)),number(e->pea.previous_y,e->pea.previous_y.present()?end.y:number(e->pea.y,end.y))};
     const auto plants=sweep_plants(view?view->plants:world_.plant_roster,start,end);
-    for(const auto& p:plants.values)try{if(!live(p)||p->kind=="火炬树桩")continue;const auto center=patch_plant_point(world_,*p);if(!center)continue;++exact_tests;if(!segment_hits(start,end,*center,{scale*.55,scale*.65}))continue;
-        if(p->kind=="地刺"||p->kind=="地刺王"){splat(end);return true;}plant_damage(p,2.*fire_multiplier(e));splash(e,end,p,{},false,view);splat(end);return true;
+    for(const auto& p:plants.values)try{if(!live(p)||p->kind=="火炬树桩"||(world_.dense_planting&&!september_targetable(*p)))continue;const auto center=patch_plant_point(world_,*p);if(!center)continue;++exact_tests;if(!segment_hits(start,end,*center,{scale*.55,scale*.65}))continue;
+        PlantRef direct=p;
+        if(world_.dense_planting){
+            // Preserve which cell the sweep reaches first. Within that cell the newest living packet is exposed.
+            for(auto it=plants.values.rbegin();it!=plants.values.rend();++it)
+                if((*it)->cell==p->cell && live(*it) && september_targetable(**it) && (*it)->kind!="火炬树桩"){direct=*it;break;}
+        }
+        if(direct->kind=="地刺"||direct->kind=="地刺王"){splat(end);return true;}plant_damage(direct,2.*fire_multiplier(e));splash(e,end,direct,{},false,view);splat(end);return true;
     }catch(const std::exception&){}
     if(hit_charmed(e,start,end,scale,view))return true;const auto& player=world_.heroes.globals.position;
     if(!view&&player.present()&&!player.is_null()&&segment_hits(start,end,{player.get()->x,player.get()->y-scale},{scale*.40,scale*.80})){damage_player(e->facing);splash(e,end,{},std::nullopt,true,view);splat(end);return true;}return false;
 }
-bool ZombiePeas::hit(const EntityRef& e){seam(world_,e);PeaShellScope shells(world_);SourcedContext scope(world_,source_ref(e),CombatPhase::entities);const auto result=raw_hit(e);scope.finish();return result;}
+bool ZombiePeas::hit(const EntityRef& e){seam(world_,e);SourcedContext scope(world_,source_ref(e),CombatPhase::entities);const auto result=raw_hit(e);scope.finish();return result;}
 bool ZombiePeas::raw_update_one(const EntityRef& e,double scale,double width,double height) {
     auto& p=e->motion.get();auto& pea=e->pea;const double old_x=number(pea.x,p.x),old_y=number(pea.y,p.y);
     if(!truth(pea.native_move)){p.x+=number(pea.vx);p.y+=number(pea.vy);p.vx=0.;p.vy=0.;}

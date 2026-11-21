@@ -44,14 +44,14 @@ using pvz::typed72::Seat;
 using ainn::J;
 
 struct Options {
-    std::string corpus,out,planner="r22",model,nn_seat="both";
+    std::string corpus,out,planner="r22",model,zombie_model,nn_seat="both";
     std::vector<std::string> ids;
     double control_hz=15.,limit_seconds=1800.;
     bool ai=true;
     int digest_every=1;
     int64_t seq_base=1;                    // AISeat's first seq is 1; typed72_match_gate numbers from 0
     std::string dump_inputs,inputs,log,final_snapshot;
-    bool records=true;
+    bool records=true,telemetry=false;
     std::vector<std::string> seat_order{"plant","zombie"};
 };
 
@@ -93,9 +93,10 @@ MatchResult run_match(const Options& o,const CorpusEntry& entry,const std::strin
     auto session=Session::create(load_corpus_entry(entry),entry.map);
     if(o.planner=="nn"){
         const auto model=std::make_shared<ainn::NeuralModel>(J::parse(read_file_maybe_gz(o.model)));
-        session->set_ai_planner_factory([&,model](Seat,Seat side)->std::unique_ptr<IPlanner>{
+        const auto zombie_model=o.zombie_model.empty()?model:std::make_shared<ainn::NeuralModel>(J::parse(read_file_maybe_gz(o.zombie_model)));
+        session->set_ai_planner_factory([&,model,zombie_model](Seat,Seat side)->std::unique_ptr<IPlanner>{
             if(o.nn_seat!="both"&&o.nn_seat!=ainn::seat_text(side))return {};
-            return std::make_unique<ainn::NeuralPlanner>(side,model);
+            return std::make_unique<ainn::NeuralPlanner>(side,side==Seat::zombie?zombie_model:model);
         });
     }
     std::ofstream out(out_path,std::ios::binary);
@@ -111,6 +112,7 @@ MatchResult run_match(const Options& o,const CorpusEntry& entry,const std::strin
         header["model_sha256"]=sha.hex();header["hybrid_heads"]=J::array();
         const auto meta=J::parse(bytes);const std::array<const char*,4> names{"econ_goal","plant_mode","grave_goal","zombie_save"};
         for(size_t h=0;h<names.size();++h)if(meta.at("enabled_heads").at(h).get<bool>())header["hybrid_heads"].push_back(names[h]);
+        if(!o.zombie_model.empty()){ainn::Sha256 zsha;zsha.update(read_file_maybe_gz(o.zombie_model));header["zombie_model_sha256"]=zsha.hex();}
     }
     std::vector<SeatAi> seats;
     J external=nullptr;J dumped=J::object();
@@ -127,7 +129,7 @@ MatchResult run_match(const Options& o,const CorpusEntry& entry,const std::strin
     uint64_t external_sent=0,external_errors=0;
     header["seq_base"]=o.seq_base;
     out<<header.dump()<<'\n';
-    ainn::Sha256 digest;size_t log_read=0;
+    ainn::Sha256 digest;size_t log_read=0;J activity=J::array();
     std::ofstream log_out;
     if(!o.log.empty()){
         std::string path=o.log;if(const auto at=path.find("{id}");at!=std::string::npos)path.replace(at,4,entry.id);
@@ -135,7 +137,9 @@ MatchResult run_match(const Options& o,const CorpusEntry& entry,const std::strin
     }
     const auto absorb=[&](bool with_rng){
         for(;log_read<session->log_size();++log_read){
-            const std::string line=session->log_entry(log_read).dump(-1,' ',false,J::error_handler_t::replace);
+            const auto event=session->log_entry(log_read);
+            if(o.telemetry&&event.value("event",std::string())=="deploy")activity.push_back(J{{"kind","deploy"},{"time",event.at("time")},{"side",event.at("side")},{"charge",event.at("charge")},{"card",event.at("card")}});
+            const std::string line=event.dump(-1,' ',false,J::error_handler_t::replace);
             digest.update(line);digest.update("\n",1);
             if(log_out.is_open())log_out<<line<<'\n';
         }
@@ -143,7 +147,9 @@ MatchResult run_match(const Options& o,const CorpusEntry& entry,const std::strin
     };
     // Plan recorder: Session calls this after every ai_plan (set_ai_plan_observer).
     uint64_t plan_records=0;
-    if(o.ai&&external.is_null()&&o.records)session->set_ai_plan_observer([&](Seat owner,const AiPlannerInput& in,const AiPlannerMemory& before,const AiPlanR22& plan){
+    if(o.ai&&external.is_null()&&(o.records||o.telemetry))session->set_ai_plan_observer([&](Seat owner,const AiPlannerInput& in,const AiPlannerMemory& before,const AiPlanR22& plan){
+        if(o.telemetry)activity.push_back(J{{"kind","plan"},{"time",in.time},{"side",ainn::seat_text(owner)},{"resource",in.me.resource},{"hp",in.me.hp},{"recovering",in.recovering},{"mode",plan.mode?J(*plan.mode):J(nullptr)}});
+        if(!o.records)return;
         const auto view=session->ai_control_view(owner);const std::string seat=ainn::seat_text(owner);
         J cooldowns=J::array(),secrets=J::array();
         if(const auto* me=view.player(seat)){for(const auto& [k,t]:me->cooldowns)cooldowns.push_back(J::array({k,ainn::num(t)}));secrets=me->secrets;}
@@ -209,6 +215,7 @@ MatchResult run_match(const Options& o,const CorpusEntry& entry,const std::strin
     J ai=J::object();
     for(const auto& s:seats)ai[s.name]={{"control_ticks",s.control_ticks},{"plans",s.plans},{"plan_rejections",s.plan_rejections},{"sends",s.sends},{"send_errors",s.send_errors}};
     footer["ai"]=ai;footer["fixture_retention"]=session->fixture_retention();
+    if(o.telemetry)footer["activity"]=std::move(activity);
     if(!o.final_snapshot.empty()){
         std::string path=o.final_snapshot;if(const auto at=path.find("{id}");at!=std::string::npos)path.replace(at,4,entry.id);
         std::ofstream(path,std::ios::binary)<<J{{"snapshot",session->snapshot()},{"native_view",session->native_view()}}.dump(-1,' ',false,J::error_handler_t::replace);
@@ -233,6 +240,7 @@ Options parse(int argc,char** argv){
         else if(a=="--out")o.out=value();
         else if(a=="--planner")o.planner=value();
         else if(a=="--model")o.model=value();
+        else if(a=="--zombie-model")o.zombie_model=value();
         else if(a=="--nn-seat")o.nn_seat=value();
         else if(a=="--control-hz")o.control_hz=std::stod(value());
         else if(a=="--limit-seconds")o.limit_seconds=std::stod(value());
@@ -244,6 +252,7 @@ Options parse(int argc,char** argv){
         else if(a=="--log")o.log=value();
         else if(a=="--final-snapshot")o.final_snapshot=value();
         else if(a=="--no-records")o.records=false;
+        else if(a=="--telemetry")o.telemetry=true;
         else if(a=="--seat-order"){
             o.seat_order.clear();std::stringstream ss(value());std::string name;while(std::getline(ss,name,','))o.seat_order.push_back(name);
             if(!(o.seat_order==std::vector<std::string>{"plant","zombie"}||o.seat_order==std::vector<std::string>{"zombie","plant"}))throw std::invalid_argument("--seat-order is plant,zombie or zombie,plant");

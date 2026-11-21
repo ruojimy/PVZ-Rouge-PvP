@@ -1,0 +1,59 @@
+{
+  "checks": [
+    {
+      "evidence": {
+        "guard": "u5",
+        "laser": "u3"
+      },
+      "name": "deploy_new_cards",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "aim": {
+          "angle": 80,
+          "facing": 1,
+          "id": "u3",
+          "max": 20,
+          "min": 8,
+          "x": 1471,
+          "y": 212.5
+        },
+        "guard_after": 150,
+        "guard_before": 150
+      },
+      "name": "laser_aim_ring_fire_stop",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "bitten": true,
+        "positions": {
+          "plant:巴豆": [
+            2694.427200000061,
+            783.7130111999999
+          ],
+          "plant:激光豆": [
+            1464.0,
+            225.58080000000007
+          ],
+          "teleport": "",
+          "zombie:盾卫僵尸": [
+            2328.0,
+            -110.41919999999993
+          ],
+          "zombie:脑光墓碑": [
+            2328.0,
+            753.5808000000001
+          ]
+        }
+      },
+      "name": "croton_gas",
+      "passed": true
+    }
+  ],
+  "driver_ran": 1,
+  "failures": 0,
+  "positions": null,
+  "setup_error": ""
+}

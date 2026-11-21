@@ -211,7 +211,7 @@ V C_AuthorMaps67::m_test_two_complete_map_cycles_are_sequential_for_solo_and_coo
         for (int64_t i4_ = b4_; s4_ > 0 ? i4_ < e4_ : i4_ > e4_; i4_ += s4_) {
             L_offset = V(double(i4_)); 
             L_day = (L_first + L_offset);
-            (void)(m_assertEqual(Args{V::tuple({SV("team"), rd(L_ids, (L_offset % py::len(L_ids))), V(((L_day % V(4.0)) == V(3.0)))}), pm_pve::f_map_for_day(Args{L_day, L_coop})}));
+            (void)(m_assertEqual(Args{V::tuple({SV("team"), rd(L_ids, (L_offset % py::len(L_ids))), py_or(V(((L_day % V(4.0)) == V(3.0))), [&]() -> V { return py_and(L_coop, [&]() -> V { return V(py::in(L_day, V::tuple({V(8.0), V(16.0), V(24.0)}))); }); })}), pm_pve::f_map_for_day(Args{L_day, L_coop})}));
         }}
     }}
     (void)(m_assertTrue(Args{[&]() -> V { V L_day; { V it6_ = py::iter_list(V::tuple({V(1.0), V(2.0), V(3.0)})); for (size_t i6_ = 0; i6_ < it6_.len(); ++i6_) { L_day = it6_.idx(int64_t(i6_)); if (!((rd(pm_pve::f_map_for_day(Args{L_day}), V(0.0)) == SV("team")))) return V(false); }}return V(true); }()}));

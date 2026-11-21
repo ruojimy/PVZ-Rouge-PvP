@@ -5,6 +5,57 @@ sys.path.insert(0,str(Path(__file__).resolve().parent))
 from native_test_waivers import detail_sha256,evaluate_module,load_waivers
 from native_test_scheduling import MIB,can_start,memory_snapshot,run_modules
 from run_cpp_suite import clone_fixture
+from native_regression_report import classify, compare, combat_errors, fire_errors, full_inventory
+from native_regression_report import DENSE, DENSE_IDS, BOSSES, BOSS_TYPES
+
+
+class RegressionReportTests(unittest.TestCase):
+    @staticmethod
+    def summary(failures):
+        rows=[dict(id=k,outcome='FAIL',detail_sha256=v) for k,v in failures.items()]
+        return dict(counts=dict(FAIL=len(rows),ERROR=0,SKIP=0),
+                    waivers=dict(applied=[],unexpected_nonpass=rows))
+
+    def test_changes_and_removed_tests_remain_distinct(self):
+        old=self.summary(dict(unchanged='1',changed='1',fixed='1',removed='1'))
+        new=self.summary(dict(unchanged='1',changed='2',added='1',newly_failed='1'))
+        old_ids=set('unchanged changed fixed removed newly_failed'.split())
+        new_ids=set('unchanged changed fixed newly_failed added'.split())
+        self.assertEqual(compare(new,old,new_ids,old_ids),dict(new=['added','newly_failed'],same=['unchanged'],
+            changed=['changed'],resolved=['fixed'],added_cases=['added'],retired_cases=['removed']))
+
+    def test_triage_never_carries_an_old_explanation_to_a_new_signature(self):
+        rules={'case':dict(outcome='FAIL',detail_sha256='before',category='product',reason='reason',evidence='test')}
+        self.assertEqual(classify('case',('FAIL','before'),rules)['category'],'product')
+        self.assertEqual(classify('case',('FAIL','after'),rules)['category'],'investigate')
+        self.assertEqual(classify('case',('ERROR','before'),rules)['category'],'investigate')
+        self.assertNotIn('waived',classify('case',('FAIL','before'),rules))
+
+    def test_truncated_or_duplicate_combat_coverage_cannot_pass(self):
+        single={'name':'合作_取消确认与过期配置','passed':True,'evidence':True}
+        for checks in ([],[single],[single,single]):
+            self.assertTrue(combat_errors({'failures':0,'checks':checks}))
+
+    def test_subset_cannot_serve_as_a_full_baseline(self):
+        with tempfile.TemporaryDirectory() as td:
+            folder=Path(td)
+            (folder/'collection.json').write_text('{"a":["a.C.test"]}',encoding='utf8')
+            with self.assertRaises(ValueError):
+                full_inventory(dict(scope='subset',collection_mismatch={},modules=[]),folder)
+
+    def test_fire_matrix_rejects_an_empty_pass(self):
+        self.assertTrue(fire_errors(dict(passed=True,failures=0,cases=[])))
+
+    def test_dense_duplicate_and_boss_zero_damage_are_independently_reported(self):
+        dense=[dict(id=i,passed=True) for i in sorted(DENSE_IDS)]
+        dense[-1]=dense[0]
+        bosses=[dict(id=i,type=v,passed=True,fired=True,hp_lost=1,room_steps=1) for i,v in BOSS_TYPES.items()]
+        bosses[-1]['hp_lost']=0
+        report=dict(failures=0,checks=[dict(name=DENSE,passed=True,evidence=dense),
+                                      dict(name=BOSSES,passed=True,evidence=bosses)])
+        errors=combat_errors(report)
+        self.assertTrue(any(e.startswith(DENSE+' missing') for e in errors))
+        self.assertIn(BOSSES+' failed: '+bosses[-1]['id'],errors)
 
 
 class WaiverPolicyTests(unittest.TestCase):

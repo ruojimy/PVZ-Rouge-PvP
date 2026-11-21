@@ -177,9 +177,9 @@ V C_CoopRosterPreparation::m_test_kick_then_new_player_inherits_saved_seat_but_n
     (void)(m_assertEqual(Args{SV("config"), pvz::getattr(L_r, SY("phase"))}));
     (void)(m_assertFalse(Args{rd(pvz::getattr(L_r, SY("confirmed")), SV("plant2"))}));
     (void)(m_assertEqual(Args{SV(""), callm(L_r, SY("command"), Args{SV("new"), py_dict({{SV("type"), SV("pve_deck")}, {SV("revision"), pvz::getattr(L_r, SY("revision"))}, {SV("deck"), V::list({SV("plant:花盆"), SV("plant:坚果")})}})})}));
+    (void)(m_assertTrue(Args{rd(pvz::getattr(L_r, SY("confirmed")), SV("plant"))}));
+    (void)(m_assertFalse(Args{rd(pvz::getattr(L_r, SY("confirmed")), SV("plant2"))}));
     (void)(m_assertEqual(Args{SV(""), m_confirm(Args{L_r, SV("new")})}));
-    (void)(m_assertEqual(Args{SV("config"), pvz::getattr(L_r, SY("phase"))}));
-    (void)(m_assertEqual(Args{SV(""), m_confirm(Args{L_r, SV("host")})}));
     (void)(m_assertEqual(Args{SV("loading"), pvz::getattr(L_r, SY("phase"))}));
     (void)(m_assertEqual(Args{V::list({SV("plant:花盆"), SV("plant:坚果")}), rd(rd(pvz::getattr(pvz::getattr(L_r, SY("battle")), SY("players")), SV("plant2")), SV("deck"))}));
     return V::none();

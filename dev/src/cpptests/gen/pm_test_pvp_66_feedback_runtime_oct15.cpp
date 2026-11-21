@@ -170,9 +170,9 @@ V C_RuntimeFeedback::m_test_dolphin_actual_deployment_charges_sixty(const Args& 
     (void)(m_park_heroes(Args{L_b}));
     L_grave = callm(L_b, SY("spawn"), Args{SV("zombie:水上脑光墓碑"), SV("zombie"), (V(20.0) * pvz::getattr(L_b, SY("tile"))), (V(7.0) * pvz::getattr(L_b, SY("tile"))), V(1.0)});
     L_before = rd(rd(pvz::getattr(L_b, SY("players")), SV("zombie")), SV("resource"));
-    (void)(m_assertEqual(Args{V(60.0), rd(pm_catalog::f_actual_card(Args{SV("zombie:海豚僵尸")}), SV("cost"))}));
+    (void)(m_assertEqual(Args{V(40.0), rd(pm_catalog::f_actual_card(Args{SV("zombie:海豚僵尸")}), SV("cost"))})); // PvP75: 海豚僵尸 40
     (void)(m_assertEqual(Args{SV(""), m_cmd(Args({L_b, SV("zombie"), SV("deploy")}, {{SY("card"), SV("zombie:海豚僵尸")}, {SY("x"), (V(20.5) * pvz::getattr(L_b, SY("tile")))}, {SY("y"), (V(9.5) * pvz::getattr(L_b, SY("tile")))}, {SY("grave"), rd(L_grave, SV("id"))}}))}));
-    (void)(m_assertEqual(Args{V(60.0), (L_before - rd(rd(pvz::getattr(L_b, SY("players")), SV("zombie")), SV("resource")))}));
+    (void)(m_assertEqual(Args{V(40.0), (L_before - rd(rd(pvz::getattr(L_b, SY("players")), SV("zombie")), SV("resource")))})); // PvP75
     return V::none();
 }
 

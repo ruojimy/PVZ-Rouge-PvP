@@ -18,7 +18,7 @@ V f_bank_page_size(const Args& A) {
     V L_base;
     V L_owned;
     L_base = ((py::m_get(py_or(L_rules, [&]() -> V { return py_dict({}); }), SV("extra_slot"))).truthy() ? V(V(8.0)) : V(V(7.0)));
-    if (!(L_scripted_waves).truthy()) {
+    if (!L_scripted_waves.truthy() && !py::m_get(L_rules, SV("local_test_mode"), V(false)).truthy()) {
         return L_base;
     }
     try {

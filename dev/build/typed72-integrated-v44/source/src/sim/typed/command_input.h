@@ -18,7 +18,7 @@ struct MarkCommand {};
 struct GiftCommand {InputField<int64_t> amount;};
 enum class SurrenderAction {request,accept,decline,cancel};
 struct SurrenderCommand {SurrenderAction action;InputField<double> request;};
-enum class NativeCommandKind {turn,detonate,select_grave,wake,teleport,deploy,cannon,cannon_cancel,shovel};
+enum class NativeCommandKind {turn,detonate,select_grave,wake,teleport,deploy,cannon,cannon_cancel,shovel,laser,laser_cancel};
 struct NativeCommand {
     NativeCommandKind kind;
     InputField<std::string> card,target,grave,copy;

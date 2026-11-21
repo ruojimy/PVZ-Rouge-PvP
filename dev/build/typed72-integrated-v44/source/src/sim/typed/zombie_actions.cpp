@@ -123,7 +123,7 @@ bool ZombieActions::crush(Cell c){
     if(p->kind=="香蒲")y-=w.tile*.9;
     move_.add_entity(p->kind,p->facing,{c.x*w.tile+w.tile*.8,c.y*w.tile+w.tile*.1+y,0.,0.});
     const auto e=w.entities.list()->back();
-    const auto sprite=p->kind+(p->monochrome.present()?"-黑白":"");
+    const auto sprite=p->kind+(p->monochrome.present()?"-黑白":(p->kind=="巴豆"||p->kind=="激光豆")?"-压扁":""); // PvP75 crush art
     e->flat_sprite.set(actions_.flat_sprite(w.presentation.sprite_name(sprite),{w.tile*1.4,w.tile*.3},get()->facing==-1.));
     e->expires.set(800.);return true;
 }

@@ -59,7 +59,7 @@ std::string ColdDeployment::perform(Seat seat,const std::string& key,Point point
     resources_.accounts[index].balance-=plan.charge;state_.players[index].spent+=plan.charge;
     if(side==Seat::plant&&entity&&card.category!="tool"&&card.category!="secret"&&card.behavior!="gravebuster"&&card.behavior!="copy")state_.players[index].last_copy_card=key;
     if(side==Seat::plant&&entity&&card.base_id=="plant:地刺"&&card.native_secret_names.present()&&!card.native_secret_names.is_null()&&std::find(card.native_secret_names.get().begin(),card.native_secret_names.get().end(),"地刺")!=card.native_secret_names.get().end())state_.spike_cost.set(std::max(15.,state_.spike_cost.or_missing(plan.charge)-10.));
-    const auto current=placement_.player_card(seat,key);const double cooldown=ColdCatalog::deployment_cooldown(current.cooldown,room_.deathmatch||(side==Seat::zombie&&secrets_.last_stand()));const double ready=world_.heroes.time+cooldown;
+    const auto current=placement_.player_card(seat,key);const double cooldown=room_.players[index].test_zero_cooldown?0.:ColdCatalog::deployment_cooldown(current.cooldown,room_.deathmatch||(side==Seat::zombie&&secrets_.last_stand()));const double ready=world_.heroes.time+cooldown;
     set(world_.heroes.players[index]->cooldowns,key,ready);set(room_.players[index].cooldown_spans,key,ready-world_.heroes.time);
     services_.deploy_event({seat,key,plan.charge,entity,plan.position,grave,direction});
     if(entity&&one(key,{"zombie:旗帜僵尸","zombie:黑旗帜僵尸"}))flag_reinforcements(*entity);

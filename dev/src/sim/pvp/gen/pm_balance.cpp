@@ -171,7 +171,7 @@ void init() {
     (void)(callm(pm_balance::COSTS, SY("update"), Args{py_dict({{SV("plant:萝卜伞"), V(100.0)}, {SV("plant:寒冰辣椒"), V(150.0)}, {SV("plant:双子向日葵"), V(90.0)}, {SV("zombie:橄榄球僵尸"), V(175.0)}, {SV("zombie:毁灭菇僵尸"), V(250.0)}, {SV("zombie:辣椒僵尸"), V(175.0)}, {SV("zombie:墓碑吞噬者僵尸"), V(225.0)}})}));
     (void)(callm(pm_balance::HEALTH, SY("update"), Args{py_dict({{SV("plant:原始土豆地雷"), V(18.0)}, {SV("plant:萝卜伞"), V(36.0)}, {SV("zombie:墓碑吞噬者僵尸"), V(300.0)}})}));
     (void)(callm(pm_balance::ZOMBIE_COOLDOWNS, SY("update"), Args{py_dict({{SV("zombie:毁灭菇僵尸"), V(60.0)}, {SV("zombie:辣椒僵尸"), V(48.0)}})}));
-    (void)(callm(pm_balance::COSTS, SY("update"), Args{py_dict({{SV("plant:草坪"), V(25.0)}, {SV("plant:石块"), V(-25.0)}, {SV("zombie:小鬼炮"), V(275.0)}, {SV("zombie:报纸僵尸"), V(275.0)}, {SV("zombie:滚桶僵尸"), V(225.0)}, {SV("zombie:海盗船长"), V(250.0)}})}));
+    (void)(callm(pm_balance::COSTS, SY("update"), Args{py_dict({{SV("plant:草坪"), V(25.0)}, {SV("plant:石块"), V(0.0)}, {SV("zombie:小鬼炮"), V(275.0)}, {SV("zombie:报纸僵尸"), V(275.0)}, {SV("zombie:滚桶僵尸"), V(225.0)}, {SV("zombie:海盗船长"), V(250.0)}})}));
     (void)(callm(pm_balance::ZOMBIE_COOLDOWNS, SY("update"), Args{py_dict({{SV("zombie:石化火炬"), V(48.0)}})}));
     pm_balance::PVP73_PLANT_COOLDOWNS = py_dict({{SV("plant:草坪"), V(16.0)}});
     pm_balance::ABSORB_TICKS = py_dict({{SV("磁力菇"), V(9000.0)}, {SV("吸金磁"), V(6000.0)}});

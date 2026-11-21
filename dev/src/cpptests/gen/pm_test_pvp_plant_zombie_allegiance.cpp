@@ -252,7 +252,7 @@ V C_PlantZombieAllegianceTests::m_test_charmed_peas_cross_torch_at_head_height_a
             {
               py::WithGuard wg4_(m_subTest(Args({}, {{SY("name"), L_name}, {SY("secret"), L_secret}})));
                 L_b = m_battle(Args({}, {{SY("plants"), (V::list({SV("plant:火炬树桩")}) + ((L_secret).truthy() ? V(V::list({L_secret})) : V(V::list({}))))}}));
-                py::set_slice(rdm(rd(pvz::getattr(L_b, SY("avatars")), SV("zombie")), &Obj::玩家位置, SV("玩家位置")), V::none(), V::none(), V::list({V(1400.0), V(480.0), V(0.0), V(0.0)}));
+                py::set_slice(rdm(rd(pvz::getattr(L_b, SY("avatars")), SV("zombie")), &Obj::玩家位置, SV("玩家位置")), V::none(), V::none(), V::list({V(1000.0), V(480.0), V(0.0), V(0.0)}));
                 L_source = m_obj(Args{L_b, (SV("zombie:") + L_name), V(500.0)});
                 (void)(callm(L_source, SY("update"), Args({}, {{SY("魅惑"), V(200.0)}, {SY("血量"), V(10000.0)}, {SY("啃咬"), V(100000.0)}})));
                 L_torch = m_obj(Args{L_b, SV("plant:火炬树桩"), V(650.0)});
@@ -261,16 +261,29 @@ V C_PlantZombieAllegianceTests::m_test_charmed_peas_cross_torch_at_head_height_a
                 L_ally = m_obj(Args{L_b, SV("zombie:普通僵尸"), V(850.0)});
                 (void)(callm(L_ally, SY("update"), Args({}, {{SY("魅惑"), V(200.0)}, {SY("血量"), V(10000.0)}, {SY("啃咬"), V(100000.0)}})));
                 L_lit = V(false);
+                V seen = V::set();
+                V closest=V::tuple({V(100000.),V(0.),V(0.)});
                 { const int64_t b5_ = 0, e5_ = (int64_t)(V(650.0)).num(), s5_ = 1;
                 for (int64_t i5_ = b5_; s5_ > 0 ? i5_ < e5_ : i5_ > e5_; i5_ += s5_) {
                     L__ = V(double(i5_)); 
                     (void)(m_ticks(Args{L_b, V(1.0), V::tuple({V::tuple({L_source, V(500.0)}), V::tuple({L_target, V(850.0)}), V::tuple({L_ally, V(850.0)})})}));
+                    auto entities=rd(pvz::getattr(L_b,SY("g")),SV("实体"));
+                    for(size_t idx=0;idx<entities.len();++idx){
+                        auto e=entities.idx(idx);
+                        py::set_add(seen,V::tuple({py::m_get(e,SV("名"),SV("")),V(py::m_get(e,SV("__pvz_sb_charmed_plant_zombie_pea")).truthy())}));
+                        if(py::m_get(e,SV("__pvz_sb_charmed_plant_zombie_pea")).truthy()){
+                            auto pos=rd(e,SV("位置"));double x=pos.idx(0).num();
+                            auto center=(rd(L_torch,SV("坐标")).idx(1).num()+.5)*pvz::getattr(L_b,SY("tile")).num();
+                            auto dx=std::abs(x-center);
+                            if(dx<closest.idx(0).num())closest=V::tuple({V(dx),pos.idx(0),pos.idx(1)});
+                        }
+                    }
                     L_lit = py::bitop("BitOr", L_lit, [&]() -> V { V L_e; { V it7_ = py::iter_list(rd(pvz::getattr(L_b, SY("g")), SV("实体"))); for (size_t i7_ = 0; i7_ < it7_.len(); ++i7_) { L_e = it7_.idx(int64_t(i7_)); if (((py::m_get(L_e, SV("__pvz_sb_charmed_plant_zombie_pea"))).truthy() && (py::m_get_slot(L_e, &Obj::名, SV("名")) == SV("火豆")))) return V(true); }}return V(false); }());
                     if ((rdm(L_target, &Obj::血量, SV("血量")) < V(10000.0))) {
                         break;
                     }
                 }}
-                (void)(m_assertTrue(Args{L_lit, SV("head-height charmed peas must ignite")}));
+                (void)(m_assertTrue(Args{L_lit, V::tuple({L_name,L_secret,py::sorted(seen),rdm(L_target,&Obj::血量,SV("血量")),rdm(L_torch,&Obj::坐标,SV("坐标")),closest})}));
                 (void)(m_assertLessEqual(Args{rdm(L_target, &Obj::血量, SV("血量")), (V(10000.0) - L_minimum)}));
                 (void)(m_assertEqual(Args{V(10000.0), rdm(L_ally, &Obj::血量, SV("血量"))}));
                 (void)(m_assertEqual(Args{rd(callm(L_b, SY("_card"), Args{SV("plant"), SV("plant:火炬树桩")}), SV("hp")), rdm(L_torch, &Obj::植物血, SV("植物血"))}));

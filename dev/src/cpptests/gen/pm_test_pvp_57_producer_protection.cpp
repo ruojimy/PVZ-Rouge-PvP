@@ -396,7 +396,7 @@ V C_ProducerProtection57Tests::m_test_ash_500_packet_has_protected_death_thresho
         (void)((rd(pvz::getattr(L_b, SY("g")), SV("灰烬僵尸"))).call(Args{L_index}));
         (void)((rd(pvz::getattr(L_b, SY("g")), SV("灰烬僵尸"))).call(Args{L_index}));
     }
-    (void)(m_assertEqual(Args{V(275.0), rdm(L_grave, &Obj::血量, SV("血量"))}));
+    (void)(m_assertEqual(Args{V(212.5), rdm(L_grave, &Obj::血量, SV("血量"))}));
     (void)(m_assertNotIn(Args{SV("灰烬"), L_grave}));
     return V::none();
 }
@@ -522,22 +522,23 @@ V C_ProducerProtection57Tests::m_test_native_supplemental_bite_scales_desired_to
     (void)(m_reset(Args{L_b}));
     L_plant = m_obj(Args{L_b, SV("plant:向日葵")});
     L_zombie = m_obj(Args{L_b, SV("zombie:墓碑吞噬者僵尸"), V(640.0)});
+    L_before = rdm(L_plant, &Obj::植物血, SV("植物血"));
     setm(L_zombie, &Obj::啃咬, SV("啃咬"), V(100.0));
     { const int64_t b1_ = 0, e1_ = (int64_t)(V(10.0)).num(), s1_ = 1;
     for (int64_t i1_ = b1_; s1_ > 0 ? i1_ < e1_ : i1_ > e1_; i1_ += s1_) {
         L_unused = V(double(i1_)); 
         (void)(callm(L_b, SY("_step_original"), Args{V(false)}));
     }}
-    (void)(m_assertIn(Args{py::id(L_plant), rd(pvz::getattr(pvz::getattr(L_b, SY("patch")), SY("ns")), SV("__pvz_sb_gravebuster_zombie_bite_records"))}));
+    (void)(m_assertEqual(Args{L_before,rdm(L_plant, &Obj::植物血, SV("植物血"))}));
     setm(L_zombie, &Obj::啃咬, SV("啃咬"), V(0.0));
     L_before = rdm(L_plant, &Obj::植物血, SV("植物血"));
-    (void)(m_assertEqual(Args{V(1.5), m_first_loss(Args{L_b, L_plant, SV("植物血")})}));
+    (void)(m_assertEqual(Args{V(0.75), m_first_loss(Args{L_b, L_plant, SV("植物血")})}));
     { const int64_t b2_ = 0, e2_ = (int64_t)(V(6.0)).num(), s2_ = 1;
     for (int64_t i2_ = b2_; s2_ > 0 ? i2_ < e2_ : i2_ > e2_; i2_ += s2_) {
         L_unused = V(double(i2_)); 
         (void)(callm(L_b, SY("_step_original"), Args{V(false)}));
     }}
-    (void)(m_assertEqual(Args{V(1.5), (L_before - rdm(L_plant, &Obj::植物血, SV("植物血")))}));
+    (void)(m_assertEqual(Args{V(0.75), (L_before - rdm(L_plant, &Obj::植物血, SV("植物血")))}));
     return V::none();
 }
 

@@ -47,17 +47,18 @@ void Economy::loose_suns(std::span<const Seat> present,bool multi_plant){
     native_.loose_suns.clear();
 }
 double Economy::day_payments(int64_t previous,int64_t now,double interval){
-    if(!state_.subsidy)return std::max(0.,py::floordiv(double(now),interval)-py::floordiv(double(previous),interval));
+    const double count=std::max(0.,py::floordiv(double(now),interval)-py::floordiv(double(previous),interval));
+    if(!state_.subsidy||count<=0.)return count;
+    // PvP75 补贴: the plain clock; a payment made with no own zombie on the field
+    // brings 15 more brains six seconds later.
     const bool occupied=std::any_of(world_.targets->begin(),world_.targets->end(),[&](const CombatTarget& target){
         if(target.is_hero())return false;
         const auto& u=*target.unit;
         return !u.protection.grave && !u.orphan_barrel && !u.source.plant.present() && u.body.hp>0. &&
                u.source.content.or_missing(std::string{})!="抓人草触手" && world_.heroes.owner(source_ref(target.unit))==Seat::zombie;
     });
-    state_.subsidy_phase+=(now-previous)*(occupied?1.:2.);
-    const double count=py::floordiv(state_.subsidy_phase,interval);
-    state_.subsidy_phase=py::mod(state_.subsidy_phase,interval);
-    return std::trunc(count);
+    if(!occupied)for(double i=0.;i<count;++i)state_.subsidy_due.push_back(now+1500);
+    return count;
 }
 void Economy::sky(double elapsed,const EconomyRules& rules,bool multi_plant){
     const bool blocked=state_.night||state_.rain;
@@ -110,6 +111,13 @@ void Economy::advance(std::span<const Seat> present,double elapsed,const Economy
             if(team_of(side)!=Seat::zombie)continue;
             resources_.create(side,rules.day_amount,world_.heroes.players[seat_index(side)]->position,"day_income");
         }
+    }
+    if(!state_.subsidy_due.empty()){
+        std::vector<int64_t> keep;size_t due=0;
+        for(const auto tick:state_.subsidy_due)if(tick<=now)++due;else keep.push_back(tick);
+        state_.subsidy_due=std::move(keep);
+        for(size_t i=0;i<due;++i)for(const auto side:seats)if(team_of(side)==Seat::zombie)
+            resources_.create(side,15.,world_.heroes.players[seat_index(side)]->position,"zsecret_subsidy");
     }
     sky(elapsed,rules,multi_plant);graves();resources_.settle(rules.sun_lifetime);
 }

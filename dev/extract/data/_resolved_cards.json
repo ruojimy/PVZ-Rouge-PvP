@@ -3083,7 +3083,7 @@
    "native_source": "marshal+1.5.0.1-patch",
    "native_cd_fallback": false,
    "native_deploy_cd": 4000,
-   "native_description": "放置一块原生石头，不会自然消失。八邻域需有实体方块；可被炸毁。上方可放花盆。",
+   "native_description": "放置一块原生石头，不会自然消失。八邻域需有实体方块；可被炸毁。上方可放花盆。放置费用为0。",
    "native_secret_names": []
   },
   "plant:草坪": {
@@ -6001,7 +6001,7 @@
    "ban_protected": false,
    "family": "secret:体香",
    "asset": "大蒜",
-   "description": "香喷喷的身体，僵尸吃了都说好；沿用原戴夫受击逻辑。海盗鹦鹉与乌鸦啃咬携带者后眩晕0.5秒。",
+   "description": "香喷喷的身体，僵尸吃了都说好；沿用原戴夫受击逻辑。僵尸啃咬携带者后受到2秒一级中毒。海盗鹦鹉与乌鸦另眩晕0.5秒。",
    "economy": "none",
    "selectable": true,
    "dependency": "",
@@ -6025,7 +6025,7 @@
    "resolved_id": "secret:体香",
    "native_input_name": "体香",
    "native_source": "native-secret; not a spawned entity",
-   "native_description": "香喷喷的身体,僵尸吃了都说好海盗鹦鹉与乌鸦啃咬携带者后眩晕0.5秒。",
+   "native_description": "香喷喷的身体,僵尸吃了都说好僵尸啃咬携带者后受到2秒一级中毒。海盗鹦鹉与乌鸦另眩晕0.5秒。",
    "native_shop_cost": 400,
    "native_secret_names": []
   },
@@ -13825,7 +13825,7 @@
    "native_source": "marshal+1.5.0.1-patch",
    "native_cd_fallback": false,
    "native_deploy_cd": 4000,
-   "native_description": "放置一块原生石头，不会自然消失。八邻域需有实体方块；可被炸毁。上方可放花盆。",
+   "native_description": "放置一块原生石头，不会自然消失。八邻域需有实体方块；可被炸毁。上方可放花盆。放置费用为0。",
    "native_secret_names": []
   },
   "plant:草坪": {
@@ -16743,7 +16743,7 @@
    "ban_protected": false,
    "family": "secret:体香",
    "asset": "大蒜",
-   "description": "香喷喷的身体，僵尸吃了都说好；沿用原戴夫受击逻辑。海盗鹦鹉与乌鸦啃咬携带者后眩晕0.5秒。",
+   "description": "香喷喷的身体，僵尸吃了都说好；沿用原戴夫受击逻辑。僵尸啃咬携带者后受到2秒一级中毒。海盗鹦鹉与乌鸦另眩晕0.5秒。",
    "economy": "none",
    "selectable": true,
    "dependency": "",
@@ -16767,7 +16767,7 @@
    "resolved_id": "secret:体香",
    "native_input_name": "体香",
    "native_source": "native-secret; not a spawned entity",
-   "native_description": "香喷喷的身体,僵尸吃了都说好海盗鹦鹉与乌鸦啃咬携带者后眩晕0.5秒。",
+   "native_description": "香喷喷的身体,僵尸吃了都说好僵尸啃咬携带者后受到2秒一级中毒。海盗鹦鹉与乌鸦另眩晕0.5秒。",
    "native_shop_cost": 400,
    "native_secret_names": []
   },

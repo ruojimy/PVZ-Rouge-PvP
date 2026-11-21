@@ -166,7 +166,14 @@ void observe(const V& app,double elapsed,double work){
     if(!snapshot.is_dict()){p->advance_pending=false;return;}
     const V raw_frame=py::m_get(snapshot,SV("native_frame"),V::none());
     const V frame=raw_frame.is_dict()?raw_frame:V::dict();
-    const bool crowded=py::len(py::m_get(snapshot,SV("units"),V::list())).num()>=60.||py::m_get(frame,SV("command_count"),py::len(py::m_get(frame,SV("commands"),V::list()))).num()>=250.;
+    const V mode=py::m_get(view,SV("mode"));
+    const bool scripted=mode==SV("coop") || mode==SV("pve");
+    const bool busy_scene=py::len(py::m_get(snapshot,SV("units"),V::list())).num()>=60.
+        || py::m_get(frame,SV("command_count"),py::len(py::m_get(frame,SV("commands"),V::list()))).num()>=250.;
+    const V authority=scripted&&busy_scene?pvz::getattr(room,SY("battle"),V::none()):V::none();
+    const int living=authority.is_none()?-1:int(pvz::getattr(authority,SY("live_mobile_zombies"),V(-1)).num());
+    const bool light_wave=scripted&&(!busy_scene||(living>=0&&living<=6));
+    const bool crowded=busy_scene&&!light_wave;
     const bool overloaded=crowded&&elapsed>1./36.&&p->frame_work>.024;
     p->pressure_seconds=overloaded?p->pressure_seconds+gate_dt:std::max(0.,p->pressure_seconds-gate_dt*2.);
     p->pressure_bad_frames=overloaded?std::min(1000000,p->pressure_bad_frames+1):0;
@@ -196,7 +203,7 @@ void observe(const V& app,double elapsed,double work){
     else if(p->pressure_seconds>=.8&&(!candidate()||p->pressure_bad_frames>=3)){
         if(target<scale)scale=std::max(target,scale-control_dt*(p->a_ratio.num()>1.5?.5:.18));
     }
-    if(p->frame_age>=5.&&p->recovery_seconds>=2.)scale=std::min(std::max(scale,target),scale+control_dt*.12);
+    if(p->frame_age>=5.&&p->recovery_seconds>=2.)scale=std::min(std::max(scale,target),scale+control_dt*(light_wave?.5:.12));
     p->a_scale=V(scale);
     const bool smoothing=p->frame_age>=5.&&scale<.999;
     setitem(state,SV("pressure_interpolation"),V(smoothing));

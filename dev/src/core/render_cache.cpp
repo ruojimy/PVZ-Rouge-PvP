@@ -5,6 +5,7 @@
 #include <unordered_map>
 #include <cstring>
 #include <cmath>
+#include <cstdlib>
 namespace pvz { namespace {
 uint64_t hash_key(const V& key){
     switch(key.t){
@@ -85,4 +86,53 @@ V native_recipe_key(const V& description,const V& area,const V& scale){
     if(!encode(encode,description,0)||!encode(encode,area,0)||!encode(encode,scale,0))return V::none();
     return V(std::move(out));
 }
+V native_replay_normalize(const V& description,V& alpha,bool& applied){
+    applied=false;
+    static const bool enabled=[]{const char* p=std::getenv("PVP75_REPLAY_NORMALIZE");return !p||*p!='0';}();
+    if(!enabled||!description.is_dict())return description;
+    // Pure chain check first (no copies for composite recipes).
+    V level=description;
+    for(int depth=0;;++depth){
+        if(depth>64||!level.is_dict())return description;
+        const V recipe=py::m_get(level,V("image"));if(!recipe.is_dict())return description;
+        const V op=py::m_get(recipe,V("op"));if(op.t!=V::STR)return description;
+        const auto& name=op.str();
+        if(name=="asset")break;
+        if(name!="crop"&&name!="flip"&&name!="scale"&&name!="smoothscale"&&name!="rotate")return description;
+        level=py::m_get(recipe,V("source"));
+    }
+    const auto rebuild=[&](const auto& self,const V& d)->V{
+        V out=V::dict();for(const auto& [k,v]:py::items_vec(d))out.at(k)=v;
+        out.at(V("alpha"))=V(255.);
+        const V recipe=py::m_get(d,V("image"));V copy=V::dict();for(const auto& [k,v]:py::items_vec(recipe))copy.at(k)=v;
+        const auto& name=py::m_get(recipe,V("op")).str();
+        if(name=="rotate"){
+            const V args=py::m_get(recipe,V("args"));
+            const double step=native_replay_angle_step();
+            if(step>0.&&(args.t==V::LIST||args.t==V::TUPLE)&&args.len()>=1&&args.idx(0).t==V::NUM){
+                V next=V::list();next.append(V(std::round(args.idx(0).num()/step)*step));
+                for(size_t i=1;i<size_t(args.len());++i)next.append(args.idx(int64_t(i)));
+                copy.at(V("args"))=next;
+            }
+        }
+        if(name!="asset")copy.at(V("source"))=self(self,py::m_get(recipe,V("source")));
+        out.at(V("image"))=copy;return out;
+    };
+    alpha=py::m_get(description,V("alpha"));applied=true;
+    return rebuild(rebuild,description);
+}
+double native_replay_cache_bytes(){
+    static const double v=[]{const char* p=std::getenv("PVP75_REPLAY_CACHE_MB");const double mb=p?std::atof(p):64.;return (mb>=8.&&mb<=1024.?mb:64.)*1024.*1024.;}();return v;
+}
+double native_replay_cache_entries(){
+    static const double v=[]{const char* p=std::getenv("PVP75_REPLAY_CACHE_ENTRIES");const double n=p?std::atof(p):1536.;return n>=64.&&n<=65536.?n:1536.;}();return v;
+}
+namespace {
+double& angle_step_slot(){
+    static double v=[]{const char* p=std::getenv("PVP75_REPLAY_ANGLE_STEP");const double s=p?std::atof(p):.25;return s>=0.&&s<=5.?s:.25;}();return v;
+}
+}
+double native_replay_angle_step(){return angle_step_slot();}
+ReplayExactAngles::ReplayExactAngles():previous(angle_step_slot()){angle_step_slot()=0.;}
+ReplayExactAngles::~ReplayExactAngles(){angle_step_slot()=previous;}
 }

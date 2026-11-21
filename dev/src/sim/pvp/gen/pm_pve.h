@@ -46,6 +46,7 @@ V f_coin_drop(const Args& A);
 V f_health_scale(const Args& A);
 V f_reward_pool(const Args& A);
 V f_map_for_day(const Args& A);
+V f_skip_price(const Args& A);
 V f_shop_price(const Args& A);
 V f_plant_price(const Args& A);
 V f_clear_bonus(const Args& A);

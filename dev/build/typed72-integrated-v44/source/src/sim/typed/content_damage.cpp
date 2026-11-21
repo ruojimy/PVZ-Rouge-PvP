@@ -1,4 +1,5 @@
 #include "sim/typed/content_damage.h"
+#include "sim/typed/pvp75_content.h"
 #include "sim/typed/content_target_state.h"
 #include "sim/typed/mortar_plants.h"
 #include "core/pymath.h"
@@ -163,6 +164,7 @@ void NativeContentDamage::primal_knockback(size_t index,double speed,const Entit
     for(size_t candidate=0;candidate<roster->size();++candidate) {
         const auto target=roster->at(candidate);const auto& record=body(target);
         if(record.hp<=0.||world_.heroes.owner(source(target))==owner||(target.is_hero()&&candidate!=index)||(!record.hand.empty()&&record.hand_hp>0.))continue;
+        if(!target.is_hero()&&pvp75::guard_active(*target.unit))continue;
         const auto p=motion(target);
         if(candidate!=index&&std::hypot(wrap_delta(position.x,p.x,world_.world_width.get()),position.y-(p.y-world_.runtime.tile))>radius*world_.runtime.tile)continue;
         const auto key=world_.heroes.source_id(source(target));

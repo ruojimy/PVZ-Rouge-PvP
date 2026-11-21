@@ -19,6 +19,7 @@
 #include "sim/typed/content_zombie70_state.h"
 #include "sim/typed/terraria_state.h"
 #include "sim/typed/attention_state.h"
+#include "sim/typed/pvp75_state.h"
 #include <span>
 #include <unordered_set>
 
@@ -44,6 +45,7 @@ struct ZombiePatchState {
     bool knockback_is_boolean=false;
 };
 struct CombatZombie {
+    std::optional<double> aim_center_tiles; // visual center above the feet for scaled sprites
     AttentionState attention;
     std::shared_ptr<TerrariaNpcState> terraria;
     PveZombieState pve;
@@ -62,6 +64,7 @@ struct CombatZombie {
     ContentZombieState content;
     ContentZombie56State content56;
     ContentZombie70State content70;
+    Pvp75ZombieState pvp75;
     ZombiePoisonState poison;
     bool orphan_barrel=false;
     Field<std::shared_ptr<Motion>> barrel_position;
@@ -175,6 +178,7 @@ struct TypedBattleState : EntityBirthObserver {
     NativeObjectRegistry native_objects;
     WindEnvironment wind_environment;
     ContentProjectiles content_projectiles;
+    Pvp75World pvp75;
     FumeState fume;
     BallisticHistory ballistics;
     ZombiePeaWorld zombie_peas;

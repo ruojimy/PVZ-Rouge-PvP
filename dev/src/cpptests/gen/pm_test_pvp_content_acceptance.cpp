@@ -231,7 +231,7 @@ V C_ContentAcceptance::m_test_actual_native_charm_bites_and_reciprocal_damage(co
     V L_name;
     V L_target;
     V L_tick;
-    { V it1_ = py::iter_list(V::list({V::tuple({SV("海盗船长"), V(40.0)}), V::tuple({SV("黑路障僵尸"), V(30.0)}), V::tuple({SV("黑铁桶僵尸"), V(30.0)}), V::tuple({SV("墓碑吞噬者僵尸"), V(60.0)})}));
+    { V it1_ = py::iter_list(V::list({V::tuple({SV("海盗船长"), V(40.0)}), V::tuple({SV("黑路障僵尸"), V(30.0)}), V::tuple({SV("黑铁桶僵尸"), V(30.0)}), V::tuple({SV("墓碑吞噬者僵尸"), V(30.0)})}));
     for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) {
         { V ut2_ = py::as_seq(it1_.idx(int64_t(i1_))); L_name = ut2_.idx(0); L_amount = ut2_.idx(1); } 
         L_b = m_make(Args{});
@@ -711,14 +711,14 @@ V C_ContentAcceptance::m_test_charmed_units_walk_towards_nearest_enemy_and_bite_
         L_b = m_make(Args{V::list({SV("plant:魅惑菇")}), V::list({SV("secret:魅惑")})});
         L_a = m_obj(Args({L_b, (SV("zombie:") + L_name), V(700.0)}, {{SY("facing"), V(1.0)}}));
         setm(L_a, &Obj::魅惑, SV("魅惑"), V(200.0));
-        L_target = m_obj(Args{L_b, SV("zombie:普通僵尸"), V(560.0)});
+        L_target = m_obj(Args{L_b, SV("zombie:普通僵尸"), V(800.0)});
         setm(L_target, &Obj::移速, SV("移速"), V(0.001));
         { const int64_t b2_ = 0, e2_ = (int64_t)(V(20.0)).num(), s2_ = 1;
         for (int64_t i2_ = b2_; s2_ > 0 ? i2_ < e2_ : i2_ > e2_; i2_ += s2_) {
             L_unused = V(double(i2_)); 
             (void)(callm(L_b, SY("_step_original"), Args{V(false)}));
         }}
-        (void)(m_assertLess(Args{rd(rdm(L_a, &Obj::位置, SV("位置")), V(0.0)), V(700.0), L_name}));
+        (void)(m_assertGreater(Args{rd(rdm(L_a, &Obj::位置, SV("位置")), V(0.0)), V(700.0), L_name}));
         (void)(m_assertEqual(Args{rdm(L_target, &Obj::_pvp_id, SV("_pvp_id")), rdm(L_a, &Obj::_pvp_target, SV("_pvp_target"))}));
         setm(L_target, &Obj::血量, SV("血量"), V(-1000.0));
         py::set_slice(rdm(L_a, &Obj::位置, SV("位置")), V::none(), V::none(), V::list({V(990.0), V(480.0), V(0.0), V(0.0)}));

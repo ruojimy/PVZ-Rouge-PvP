@@ -1,5 +1,6 @@
 #include "sim/typed/plant_queries.h"
 #include "sim/typed/plant_lookup.h"
+#include "sim/typed/projectile_rules.h"
 #include <algorithm>
 #include <cmath>
 #include <numeric>
@@ -21,18 +22,20 @@ bool tagged(const CombatPlant& plant,std::span<const std::string> names) {
 double number(const Field<double>& field,double fallback) {
     return field.present() && !field.is_null()?field.get():fallback;
 }
-struct StarBody {double hp,size;Point point;};
+struct StarBody {double hp,size,aim_tiles;Point point;};
 StarBody star_body(TypedBattleState& world,const CombatTarget& target) {
     if(target.is_hero()) {
         const auto& proxy=world.heroes.cached_proxy(target.hero);
-        return {proxy.hp,number(proxy.size,2.),{proxy.position->x,proxy.position->y}};
+        const double size=number(proxy.size,2.);
+        return {proxy.hp,size,.35*size,{proxy.position->x,proxy.position->y}};
     }
     const auto& body=target.unit->body;const auto& p=body.motion.get();
-    return {body.hp,number(body.size,2.),{p.x,p.y}};
+    const double size=number(body.size,2.);
+    return {body.hp,size,aim_height(target,.35*size),{p.x,p.y}};
 }
 bool on_ray(StarBody body,Point origin,double tile,const std::array<Point,5>& rays) {
     if(body.hp<=0.)return false;
-    const double dx=body.point.x-origin.x,dy=body.point.y-tile*.35*body.size-origin.y;
+    const double dx=body.point.x-origin.x,dy=body.point.y-tile*body.aim_tiles-origin.y;
     if(std::sqrt(dx*dx+dy*dy)<tile*.45)return false;
     const double limit=std::max(18.,tile*.42)+tile*std::max(.22,.18*body.size);
     return std::any_of(rays.begin(),rays.end(),[&](Point ray) {
@@ -62,6 +65,7 @@ bool plant_needs_support(const TypedBattleState& world,size_t index,std::span<co
     }
     const auto& secrets=*world.heroes.globals.secrets.get();
     if(plant.kind=="海蘑菇" && contains(secrets,"水兵"))return false;
+    if(plant.kind=="三叶草" || (plant.kind=="模仿者" && named(plant.copy_card,"plant:三叶草")))return false; // PvP75 flying blover
     return !tagged(plant,air) && plant.kind!="花盆" && plant.kind!="墓碑吞噬者";
 }
 bool plant_edible_target(const TypedBattleState& world,size_t index) {

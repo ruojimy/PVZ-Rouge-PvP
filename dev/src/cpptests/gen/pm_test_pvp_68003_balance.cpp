@@ -1723,7 +1723,7 @@ V C_CoopConfirmTests::m_test_human_seat_deck_change_still_asks_everyone_to_confi
     L_r = m_room(Args{});
     (void)(m_assertEqual(Args{SV(""), m_confirm(Args{L_r, SV("host")})}));
     (void)(m_assertEqual(Args{SV(""), callm(L_r, SY("command"), Args{SV("old"), py_dict({{SV("type"), SV("pve_deck")}, {SV("revision"), pvz::getattr(L_r, SY("revision"))}, {SV("deck"), V::list({SV("plant:花盆"), SV("plant:坚果")})}})})}));
-    (void)(m_assertFalse(Args{py::any(callm(pvz::getattr(L_r, SY("confirmed")), SY("values"), Args{}))}));
+    (void)(m_assertEqual(Args{py_dict({{SV("plant"), V(true)}, {SV("plant2"), V(false)}}), pvz::getattr(L_r, SY("confirmed"))}));
     return V::none();
 }
 

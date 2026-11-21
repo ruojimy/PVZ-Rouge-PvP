@@ -1,5 +1,7 @@
 #include "sim/typed/terraria_bosses.h"
 #include "sim/typed/attention.h"
+#include "sim/typed/pvp75_content.h"
+#include <algorithm>
 #include "sim/typed/projectile_rules.h"
 #include <cmath>
 #include <limits>
@@ -29,7 +31,10 @@ int terraria_type(std::string_view key){for(const auto& d:definitions)if(key==st
 bool terraria_summon(int type){return type==4||type==13||type==35;}
 const ColdCatalogData& terraria_catalog(){
  static const auto data=[](){auto d=compiled_cold_catalog();const auto found=std::find_if(d.cards.begin(),d.cards.end(),[](const auto& c){return c.id=="zombie:普通僵尸";});if(found==d.cards.end())throw std::logic_error("missing zombie template");const auto base=*found;
-  for(const auto& npc:definitions){auto c=base;c.id=c.base_id=c.resolved_id=std::string("zombie:")+npc.name;c.name=npc.name;c.family=npc.name;c.asset="terraria/NPC_"+std::to_string(npc.type)+".png";c.native_source=npc.name;c.behavior="terraria";c.hp.set(npc.hp);c.defense.set(npc.defense);c.attention_hits.set(npc.type>=13&&npc.type<=15?1.:3.);c.attention_seconds.set(npc.type>=13&&npc.type<=15?10.:6.);c.damage=npc.damage;c.cost=0.;c.cooldown=0.;c.producer=false;c.selectable=terraria_summon(npc.type);c.spawn_only.set(!c.selectable);c.pvp_regular_unit.set(true);c.height.set(npc.height*3.);c.description="仅本地测试模式 · 泰拉瑞亚普通模式";d.cards.push_back(std::move(c));}
+  for(const auto& npc:definitions){
+   // PvP75: zombie:克苏鲁之仆 is a real card in the compiled catalog; keep that record.
+   if(std::any_of(d.cards.begin(),d.cards.end(),[&](const auto& card){return card.id==std::string("zombie:")+npc.name;}))continue;
+   auto c=base;c.id=c.base_id=c.resolved_id=std::string("zombie:")+npc.name;c.name=npc.name;c.family=npc.name;c.asset="terraria/NPC_"+std::to_string(npc.type)+".png";c.native_source=npc.name;c.behavior="terraria";c.hp.set(npc.hp);c.defense.set(npc.defense);c.attention_hits.set(npc.type>=13&&npc.type<=15?1.:3.);c.attention_seconds.set(npc.type>=13&&npc.type<=15?10.:6.);c.damage=npc.damage;c.cost=0.;c.cooldown=0.;c.producer=false;c.selectable=terraria_summon(npc.type);c.spawn_only.set(!c.selectable);c.pvp_regular_unit.set(true);c.height.set(npc.height*3.);c.description="仅本地测试模式 · 泰拉瑞亚普通模式";d.cards.push_back(std::move(c));}
   return d;}();return data;
 }
 Point TerrariaBosses::center(const ZombieRef& u)const{const auto& m=u->body.motion.get();return {m.x,m.y-world_.runtime.tile};}
@@ -77,9 +82,16 @@ ZombieRef TerrariaBosses::summon(int type,Point c){if((!world_.local_test_mode&&
  if(type==35)for(int side:{-1,1}){auto part=factory_(36,c,root);if(part){part->terraria->parent=root;part->terraria->ai[0]=side;if(side==1)part->terraria->ai[3]=150.;}}
  return root;
 }
-void TerrariaBosses::advance(){if(!world_.local_test_mode&&!world_.scripted_terraria_boss)return;
+ZombieRef TerrariaBosses::summon_servant(Point c,double facing){
+ auto unit=factory_(5,c,{});if(!unit)return {};
+ unit->terraria->vx=(facing<0.?-1.:1.)*2.5;unit->body.facing=facing<0.?-1.:1.;return unit;
+}
+void TerrariaBosses::advance(){
+ // PvP75 servants run in every mode; Bosses still need the test mode or the scripted days.
+ if(!world_.local_test_mode&&!world_.scripted_terraria_boss&&std::none_of(world_.targets->begin(),world_.targets->end(),[](const CombatTarget& t){return t.unit&&t.unit->terraria;}))return;
  // PvZ status durations remain on the production 250 Hz clock.
  for(const auto& t:*world_.targets)if(t.unit&&t.unit->terraria){auto& b=t.unit->body;
+  if(t.unit->terraria->type!=5)pvp75::convert_boss_control(*t.unit); // PvP75: Bosses are slowed, never held
   if(b.hurt>0.&&++b.hurt>=50.)b.hurt=0.;
   for(auto* status:{&b.ice,&b.butter,&b.stun})if(status->present()&&!status->is_null()&&status->get()>0.)status->get()-=1.;
  }

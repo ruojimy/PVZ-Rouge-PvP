@@ -12,7 +12,7 @@ import hashlib
 import json
 from pathlib import Path
 import torch
-from study_train import from_export
+from train import DeepSet
 
 
 def norm(tensor):
@@ -33,7 +33,17 @@ ap.add_argument('--out',type=Path,required=True)
 args=ap.parse_args()
 assert not args.out.exists(), 'Use a new output directory'
 torch.set_num_threads(2)
-doc,model=from_export(args.backbone)
+doc=json.loads(args.backbone.read_text('utf-8'))
+assert doc.get('policy_version',1)==1, 'This seed converter requires policy-v1 weights'
+version=doc.get('feature_version',1)
+assert version in (1,2), 'Unsupported feature version'
+model=DeepSet(16+len(doc['behaviors']),doc['embedding'],doc['hidden'])
+if version==2:model.body=torch.nn.Linear(28+4*doc['embedding'],doc['hidden'])
+with torch.no_grad():
+    for key in ('unit','body','heads'):
+        layer=getattr(model,key)
+        layer.weight.copy_(torch.tensor(doc[key]['weight']))
+        layer.bias.copy_(torch.tensor(doc[key]['bias']))
 assert not doc.get('residual'), 'Backbone must be a validated absolute model'
 with torch.no_grad():
     model.heads.weight.zero_();model.heads.bias.zero_()
@@ -46,12 +56,14 @@ doc['initialization']='trained feature encoder with neutral residual output head
 doc['backbone_sha256']=hashlib.sha256(args.backbone.read_bytes()).hexdigest()
 # Do not carry absolute-policy training selection metadata onto a new policy semantic.
 doc.pop('study_spec',None)
+doc.pop('training_source',None)
 
 from train import collate
 rows=[]
 with args.features.open(encoding='utf-8') as source:
     header=json.loads(next(source))
     assert all(header[k]==doc[k] for k in ('catalog_hash','rules_hash','behaviors','sim_fingerprint'))
+    assert header.get('feature_version',1)==version, 'Feature version mismatch'
     for line in source:
         row=json.loads(line)
         if row['seat']!='plant' or row.get('aug'):continue
@@ -87,9 +99,11 @@ assert first['heads.weight']>0 and second['body.weight']>0 and second['unit.weig
 model.load_state_dict(initial)
 args.out.mkdir(parents=True)
 (args.out/'model.json').write_text(json.dumps(doc,ensure_ascii=False,separators=(',',':')),'utf-8')
+feature_header={k:header[k] for k in ('catalog_hash','rules_hash','behaviors','sim_fingerprint')}
+if version==2:feature_header['feature_version']=2
 torch.save(dict(format='pvz-residual-seed-checkpoint-1',residual_state_dict=initial,
-    policy_semantics='r22-residual',feature_header={k:header[k] for k in ('catalog_hash','rules_hash','behaviors','sim_fingerprint')},
-    spec=dict(embedding=doc['embedding'],hidden=doc['hidden']),backbone_sha256=doc['backbone_sha256']),args.out/'residual-seed.pt')
+    policy_semantics='r22-residual',feature_header=feature_header,
+    spec=dict(embedding=doc['embedding'],hidden=doc['hidden'],feature_version=version),backbone_sha256=doc['backbone_sha256']),args.out/'residual-seed.pt')
 result=dict(passed=True,samples=len(rows),neutral_actions_verified=True,
     all_zero_fixture_gradients=dead_grad,trained_encoder_first_step=first,trained_encoder_second_step=second,
     seed_restored_after_probe=True,reward_training_completed=False,
