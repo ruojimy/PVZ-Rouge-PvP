@@ -25,7 +25,7 @@ EXTRA = {'zombie:盾卫僵尸': ['c.defense.set(6.);']}
 PATCH_FIELDS = ('cost', 'cooldown', 'hp', 'description', 'native_description', 'allow_air')
 PATCH_CARDS = ['plant:杨桃', 'plant:三叶草', 'plant:玉米加农炮', 'zombie:小鬼僵尸', 'zombie:黑普通僵尸',
                'zombie:海豚僵尸', 'zombie:撑杆跳僵尸', 'zombie:雪橇车小队', 'secret:大帝',
-               'zombie:投篮车僵尸', 'zombie:小鬼炮', 'zsecret:补贴']
+               'zombie:投篮车僵尸', 'zombie:小鬼炮', 'zsecret:补贴', 'zsecret:海陆空']
 
 
 def load():

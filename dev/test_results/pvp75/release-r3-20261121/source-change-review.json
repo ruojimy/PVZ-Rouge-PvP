@@ -1,0 +1,91 @@
+{
+ "base_revision": "pvp75-r2",
+ "reviewed_files": {
+  "build/typed72-integrated-v44/source/src/sim/typed/cold_admission.cpp": {
+   "r2": "8c2c4c9371bc5679fe7da785708e7ec86e6f13f3e1dee6f0b3311b4682f05fd8",
+   "r3": "b20e0949827aaa144442aa3e70b4e8e0baa15b2991f4920c548ea26cc4d01bd0"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/cold_catalog_data.cpp": {
+   "r2": "a0a40b3936100a759f3169fea9fda6d588adfc55ccb97b5e2562222d952b9d0b",
+   "r3": "452d27fd8490564f22d994080b23bdcba2f426314d127d4858d2f5285e8c317a"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/cold_zombie_secrets.cpp": {
+   "r2": "1d12216c90ca986049b3c4a72acd865a96efc5df53fe0773567d007f0cda6122",
+   "r3": "e99a26b79de8e6b968fad3f29cd805f17d5d5d9eeab0267df317a6b2b55dfeda"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/pvp75_content.cpp": {
+   "r2": "0fa5f9d4bedf6bbeb91fb95857c7221589bbc770780057fda98283a6c515ca2d",
+   "r3": "a0a2a3eeab575372c1a6e3ae431097b663cb8cffa1d9427a01a5430315a75b04"
+  },
+  "build/typed72-integrated-v44/source/src/sim/typed/pvp75_content.h": {
+   "r2": "bcdef5888e900a83ca4aa9344e91574da8bcdddb6e7e669fe0111693e241d70b",
+   "r3": "1ccbc446ff60daa71e45d001027c5c560fc2835986161cda8c209252bda20942"
+  },
+  "extract/data/__init__.json": {
+   "r2": "74a89a2f8e943fab280457887dc5693e57821ccd68b615e972298d1c853cbcc1",
+   "r3": "a0d69f2df1516ff12d232a151274ca03a7d78408a19cd8ef4fb2c39801b8a73d"
+  },
+  "extract/data/catalog.json": {
+   "r2": "e83c75355a7e00abfbcddf8422477081da89915b413c392ef34d9fa5c096f00d",
+   "r3": "fab4402e65a4b40e3dc1e164393d7144d35c6e699539f7612aca9d121d9ce9e4"
+  },
+  "extract/data/zombie_secret_catalog.json": {
+   "r2": "f2ce69624602e85d2b28a856560a1ab25489a5d5e791e06ea491774623e3b1c7",
+   "r3": "904b13634a5a3b25dd6b8300e1ac9f81b99dda0b7eb8a18461645c50c00711ac"
+  },
+  "extract/data/zombie_secrets.json": {
+   "r2": "9ed230d9511fb777f9c9958cf8612f0874ddeaf372aa0b9dc0ae2693998d9661",
+   "r3": "2c9406e83b086885fd5183dd64773013cc484df31153010f726cc7efa995d1b4"
+  },
+  "src/sim/pvp/gen/pm_almanac_text.cpp": {
+   "r2": "93a0e421be635bc8685e3926b2e8ba0a4ea27f212db8b9d4a379ca494ebe1f5a",
+   "r3": "3e810f928b50b32ad4483a76b6c59972de823c031d8f7311a59f3d4960bccd9d"
+  },
+  "src/sim/pvp/gen/pm_catalog.cpp": {
+   "r2": "81edb221002dd8e342d2cca1119ed465fc36d798fafa8f20a59b9096729044dd",
+   "r3": "2e5823c5e9413fe014d27d09f95fde1c685cb2e2136472ec23f5d55cf027e04a"
+  },
+  "src/sim/pvp/gen/pm_zombie_secrets.cpp": {
+   "r2": "22d440620e51fe8b273d978424a82fc259893954ad9c5d8290085ac4bcbefe71",
+   "r3": "48727e1887af03d4b50abe9db34dfefb3cdad036ac8d2630ef1082353096abe4"
+  },
+  "src/uitools/pvp75_audit.cpp": {
+   "r2": "82d8bc7f8a0592a14209ffc4a0485f6d2fa1d7996c91f6dde0ce2969e11710cb",
+   "r3": "c21eade9ba3611bf7fe93e09e255e628cdfb12fced868c114d7eed2d3685c079"
+  },
+  "tools/pvp72_sources/almanac_text.py": {
+   "r2": "1dbb8e8542772c23ff3b980b5b83502ea645863ae5c5e465f36eb712e9622315",
+   "r3": "df196bd63fd6c455de42b0b9938ba5687383a0137c396860cb7f75db944139d5"
+  },
+  "tools/pvp72_sources/catalog.py": {
+   "r2": "8ad95a54270095a5dcce5c2a097ab7a5074bada43eb1492b7708ab1b484cbd93",
+   "r3": "de14069dfe75826a74ff5c44a6e53e34aa1643acf7dc3e16d4589512620b4581"
+  },
+  "tools/pvp72_sources/zombie_secret_catalog.py": {
+   "r2": "267f722210afc4da33c1456c5b62e12b83f23cf8803eb7e29b7e050cfd691da3",
+   "r3": "90530d0cd071ca61034b47585e8fa309c725dd0efccdbb34a957f449595e8d93"
+  },
+  "tools/pvp72_sources/zombie_secrets.py": {
+   "r2": "653b452de0982f58a032cda43f2a95f9964feec28898815483cc3eded8bcb196",
+   "r3": "7e05cd46c9b49baa4ea497f4f75eb067bac777eeada12639b3aee4f4c767d32e"
+  },
+  "tools/pvp75_catalog_sync.py": {
+   "r2": "f050199dc767b2597a801472d6a22303ef206a2b28b89108b4b4cd5cc692be66",
+   "r3": "e7a7649cd7d2c07b9e9d5ac96c9ce96cf6f7fdfe1788bdc9ee48751daf1a3af7"
+  },
+  "tools/pvp75_release.py": {
+   "r2": "507abafb3fe6a68aa5f51b8a82a0b549c1b33c5081301ac85343433af4ca552f",
+   "r3": "757acccb86985bd4e17d2a7e1774794fedf0bb51c67d9d1157e12700f9fbbded"
+  },
+  "tools/pvp75_testbuild.py": {
+   "r2": "ef84416a6e3e1f620bef533537083c79a812ebb71aa8b68e32461e0b255c6ef6",
+   "r3": "365166f7c7f5506c3b2fa303782ece22a55485a6d74b81b37d72bc3b727154d4"
+  },
+  "tools/pvp75_ui_hooks.py": {
+   "r2": "1814c077d4d49d8e609b7826364d98045fe76068042b18e5acde6af6cbf5ff7f",
+   "r3": "48a68ca3424f5ff29a8e43900f69f14c4830f44d86b0c234a0b8f7fa68da5cee"
+  }
+ },
+ "added_files": [],
+ "note": "PvP75 r3 quick balance: 盾卫僵尸 160 HP / -40% speed while guarding / 4 s cooldown; 巴豆 gas 60 damage; 克苏鲁之仆 is air for 海陆空 (and its summon now applies zombie secrets); brief almanac lines for the four new cards. Checked by test_results/pvp75/r3-quick/checks.json."
+}

@@ -116,6 +116,7 @@ void Pvp75Content::gases(){
             u->body.stun.set(std::max(positive(u->body.stun),pvp75::kGasStunTicks));
             status_.apply(CombatTarget::zombie(u),1,pvp75::kGasPoisonSeconds,Seat::plant);
             if(is_boss(*u))pvp75::convert_boss_control(*u);
+            targets_.damage(gas.source,CombatTarget::zombie(u),pvp75::kGasDamage,gas.direction,false,HeroHit::content);
         }
     }
 }

@@ -1811,7 +1811,7 @@ void init() {
     pm_zombie_secrets::FLAGS = V::tuple({SV("zombie:旗帜僵尸"), SV("zombie:黑旗帜僵尸")});
     pm_zombie_secrets::PIRATES = V::tuple({SV("zombie:滚桶僵尸"), SV("zombie:钩索僵尸"), SV("zombie:海盗船长"), SV("zombie:小鬼炮")});
     pm_zombie_secrets::WATER = (V::tuple({SV("zombie:潜水僵尸"), SV("zombie:海豚僵尸"), SV("zombie:鸭子普通僵尸"), SV("zombie:鸭子路障僵尸"), SV("zombie:鸭子铁桶僵尸")}) + pm_zombie_secrets::PIRATES);
-    pm_zombie_secrets::AIR = V::tuple({SV("zombie:海盗鹦鹉"), SV("zombie:乌鸦"), SV("zombie:气球僵尸"), SV("zombie:飞贼僵尸")});
+    pm_zombie_secrets::AIR = V::tuple({SV("zombie:海盗鹦鹉"), SV("zombie:乌鸦"), SV("zombie:气球僵尸"), SV("zombie:飞贼僵尸"), SV("zombie:克苏鲁之仆")}); // PvP75: servant is air
     pm_zombie_secrets::CROWD_RADIUS = V(6.0);
     pm_zombie_secrets::CROWD_STEP = V(0.15);
     pm_zombie_secrets::CROWD_MAX = V(0.75);

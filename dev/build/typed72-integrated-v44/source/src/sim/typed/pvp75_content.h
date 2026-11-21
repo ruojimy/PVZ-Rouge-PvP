@@ -12,9 +12,9 @@ namespace pvp75 {
 constexpr double kLaserMinCells=8.,kLaserMaxCells=20.,kLaserHalfAngle=80.;
 constexpr double kLaserPulseTicks=100.,kLaserDamage=30.;
 constexpr double kCrotonDamage=150.,kCrotonStunTicks=1500.,kCrotonPoisonSeconds=6.;
-constexpr double kGasCells=6.,kGasStunTicks=750.,kGasPoisonSeconds=3.,kGasTicks=500.,kGasSpreadTicks=190.;
-constexpr double kGuardRaiseTicks=150.,kGuardTicks=1500.,kGuardCooldownTicks=1500.;
-constexpr double kGuardDefense=60.,kGuardBaseDefense=6.,kGuardSpeed=.25;
+constexpr double kGasCells=6.,kGasStunTicks=750.,kGasPoisonSeconds=3.,kGasTicks=500.,kGasSpreadTicks=190.,kGasDamage=60.;
+constexpr double kGuardRaiseTicks=150.,kGuardTicks=1500.,kGuardCooldownTicks=1000.;
+constexpr double kGuardDefense=60.,kGuardBaseDefense=6.,kGuardSpeed=.6;
 constexpr int kStarPierce=3;
 // Eye of the 48x48 runtime art (right-facing), relative to the cell's top-left.
 Point laser_eye(const CombatPlant&,double tile);

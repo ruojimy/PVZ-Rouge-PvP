@@ -1,0 +1,82 @@
+{
+ "release": "PvP75 r3",
+ "version": "1.6.0.75-typed.20261121-r3",
+ "revision": "pvp75-r3",
+ "android_version_code": 1121078,
+ "sha256": {
+  "PvZ-PvP-Native-20261121-pvp75-r3.zip": "730bfc1d4ef02e8c1def1075ac497e8fc0b6a4f9a9c5b4be7d962d0397859d6d",
+  "PvZ-PvP-Native-1.6.0.75-typed.20261121-r3-1121078-pvp75-r3-20261121.apk": "3ac6f7f8372b15b7ef482f801563dd4574c4dce1b1a82d33d0e03b8e59af7354",
+  "PvZ-PvP-Native-20261121-pvp75-r3-Developer-Package.zip": "b40c21ecb74afdf998ab813aedd504d410ed50e1b814f436c4161e378fd99fa7"
+ },
+ "kind": "quick balance revision on top of r2; the full product regression was not rerun for r3 (user request)",
+ "r3_changes": [
+  "盾卫僵尸 160 HP, -40% speed while guarding, 4 s skill cooldown",
+  "巴豆 gas: +60 damage to touched zombies",
+  "克苏鲁之仆 counts as air for 海陆空 (its summon now applies zombie secrets)",
+  "brief almanac lines for 巴豆 / 激光豆 / 盾卫僵尸 / 克苏鲁之仆"
+ ],
+ "targeted_checks": {
+  "audits": [
+   {
+    "audit": "kernel",
+    "exit": 0,
+    "failures": 0
+   },
+   {
+    "audit": "ui",
+    "exit": 0,
+    "failures": 0
+   },
+   {
+    "audit": "testmode",
+    "exit": 0,
+    "failures": 0
+   }
+  ],
+  "modules": {
+   "test_pvp_66_ai_capability": {
+    "passed": 10,
+    "failed": 0
+   },
+   "test_pvp_66_feedback": {
+    "passed": 19,
+    "failed": 0
+   },
+   "test_pvp_66_zombie_secrets": {
+    "passed": 47,
+    "failed": 0
+   },
+   "test_pvp_69002_balance": {
+    "passed": 14,
+    "failed": 0
+   },
+   "test_pvp_71002": {
+    "passed": 5,
+    "failed": 0
+   },
+   "test_pvp_68003_balance": {
+    "passed": 22,
+    "failed": 0
+   }
+  },
+  "production_flags": true
+ },
+ "packaged_audits": "74.4 testmode/controls/sky-weather/material/feedback/r3, 74.4 r4, pvp75 kernel and UI audits on the staged r3 package",
+ "previous_full_regression": {
+  "revision": "pvp75-r2",
+  "counts": {
+   "PASS": 2351,
+   "FAIL": 3,
+   "ERROR": 12,
+   "SKIP": 0
+  },
+  "missing": 0,
+  "unwaived": 0
+ },
+ "not_verified": [
+  "full product regression for r3",
+  "real-device touch feel",
+  "two-machine online play",
+  "long-session stress"
+ ]
+}

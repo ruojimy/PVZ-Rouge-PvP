@@ -22,14 +22,16 @@ double total(const ZombieRef& z){return std::max(0.,z->body.hp)+std::max(0.,z->b
 struct Fixture {
     std::unique_ptr<MatchProbe> match;
     std::optional<NativeBirthScope> births;
-    explicit Fixture(bool test_mode=true){
-        static std::map<bool,typed72app::ColdExport> colds;
-        auto found=colds.find(test_mode);
+    // variant "trinity": a 海陆空 zombie deck (land 普通, water 海豚, air 克苏鲁之仆).
+    explicit Fixture(bool test_mode=true,const std::string& variant=""){
+        static std::map<std::string,typed72app::ColdExport> colds;
+        const auto cache_key=std::string(test_mode?"t":"f")+variant;
+        auto found=colds.find(cache_key);
         if(found==colds.end()){
             auto handle=battle_from_scenario({{"fixture_flat",true},{"durable_heroes",true},{"seed",75001},
                 {"rules",{{"local_test_mode",test_mode}}},
-                {"decks",{{"plant",{"plant:激光豆","plant:巴豆","plant:杨桃","plant:向日葵","secret:大帝"}},{"zombie",{"zombie:脑光墓碑","zombie:盾卫僵尸","zombie:克苏鲁之仆","zombie:雪橇车小队"}}}}});
-            found=colds.emplace(test_mode,typed72app::export_cold(handle.battle,75001)).first;
+                {"decks",variant=="trinity"?J{{"plant",{"plant:向日葵","plant:豌豆射手"}},{"zombie",{"zombie:脑光墓碑","zombie:普通僵尸","zombie:海豚僵尸","zombie:克苏鲁之仆","zsecret:海陆空"}}}:J{{"plant",{"plant:激光豆","plant:巴豆","plant:杨桃","plant:向日葵","secret:大帝"}},{"zombie",{"zombie:脑光墓碑","zombie:盾卫僵尸","zombie:克苏鲁之仆","zombie:雪橇车小队"}}}}});
+            found=colds.emplace(cache_key,typed72app::export_cold(handle.battle,75001)).first;
             callm(handle.battle,SY("close"),Args{});
         }
         const auto& cold=found->second;const auto& c=cold.cold;
@@ -103,7 +105,9 @@ J croton(){
         auto bean=f.plant("巴豆");const double x=1512.;
         auto biter=f.zombie("铁桶僵尸",x,-1.);biter->native.biting.set(0.);
         auto behind=f.zombie("普通僵尸",x+2.5*48.,-1.);auto front=f.zombie("普通僵尸",x-3.*48.,-1.);
-        const double before=total(biter);
+        // 60 gas damage kills an ordinary zombie outright: give the one behind room to show damage + poison.
+        behind->body.hp=1000.;behind->max_hp.set(1000.);
+        const double before=total(biter),behind_before=total(behind);
         {HeroContext ctx(m.world,{Seat::plant,Seat::zombie,CombatPhase::zombies,source_ref(biter),{}});m.mobile.advance(f.index(biter));}
         expect(bean->dead.present(),"巴豆 not consumed by the first bite");
         expect(m.battle.pvp75.bites.size()==1,"bite not handed over");
@@ -114,9 +118,10 @@ J croton(){
         expect(biter_poison.present()&&!biter_poison.is_null()&&biter_poison.get()&&biter_poison.get()->level.or_missing(0)==2,"biter level-2 poison");
         f.run(200);
         expect(behind->body.stun.or_missing(0.)>0.,"zombie behind the biter not stunned by gas");
-        const auto& p2=behind->poison.poison;expect(p2.present()&&!p2.is_null()&&p2.get()&&p2.get()->level.or_missing(0)>=1,"gas poison");
+        const auto& p2=behind->poison.poison;expect(p2.present()&&!p2.is_null()&&p2.get()&&p2.get()->level.or_missing(0)>=1,"gas poison: hp "+std::to_string(behind->body.hp)+" stun "+std::to_string(behind->body.stun.or_missing(0.))+" poison "+(p2.present()&&!p2.is_null()&&p2.get()?std::to_string(p2.get()->level.or_missing(-1)):std::string("none")));
         expect(front->body.stun.or_missing(0.)<=0.,"gas reached the biter's front");
-        return J{{"biter_stun",biter->body.stun.or_missing(0.)},{"behind_stun",behind->body.stun.or_missing(0.)},{"gas",m.battle.pvp75.gases.size()}};
+        expect(behind_before-total(behind)>=59.9,"gas damage "+std::to_string(behind_before-total(behind)));
+        return J{{"biter_stun",biter->body.stun.or_missing(0.)},{"behind_stun",behind->body.stun.or_missing(0.)},{"gas_damage",behind_before-total(behind)},{"gas",m.battle.pvp75.gases.size()}};
     }));
     rows.push_back(scenario("bite.asleep_is_ordinary_food",[](){
         Fixture f;auto& m=*f.match;auto bean=f.plant("巴豆");bean->sleep.set(1.);
@@ -189,20 +194,21 @@ J guard(){
     }));
     rows.push_back(scenario("raise.guard.cooldown",[](){
         Fixture f;auto& m=*f.match;auto z=f.zombie("盾卫僵尸",1800.,-1.);
-        near(z->body.defense.get(),6.,"base defense");near(z->body.hp,150.,"hp");
+        near(z->body.defense.get(),6.,"base defense");near(z->body.hp,160.,"hp");
         const double speed=z->native.move_speed.get();
         f.run(3);z->body.hp-=1.;f.run(3);
         expect(z->pvp75.guard==GuardPhase::raising,"hit did not raise the shield");
         near(z->body.defense.get(),6.,"defense during the raise");
         f.run(160);
         expect(z->pvp75.guard==GuardPhase::guarding,"not guarding after 0.6 s");
-        near(z->body.defense.get(),60.,"guard defense");near(z->native.move_speed.get(),speed*.25,"guard speed");
+        near(z->body.defense.get(),60.,"guard defense");near(z->native.move_speed.get(),speed*.6,"guard speed (-40%)");
         const auto vx=z->body.motion.get().vx;m.content_damage.knockback(f.index(z),500.);near(z->body.motion.get().vx,vx,"knockback while guarding");
         f.run(1500);
         expect(z->pvp75.guard==GuardPhase::cooldown,"guard did not end after 6 s");
         near(z->body.defense.get(),6.,"defense restored");near(z->native.move_speed.get(),speed,"speed restored");
         z->body.hp-=1.;f.run(20);expect(z->pvp75.guard==GuardPhase::cooldown,"raised during cooldown");
-        f.run(1500);expect(z->pvp75.guard==GuardPhase::ready,"cooldown did not end");
+        f.run(880);expect(z->pvp75.guard==GuardPhase::cooldown,"cooldown ended before 4 s");
+        f.run(150);expect(z->pvp75.guard==GuardPhase::ready,"cooldown did not end after 4 s");
         return J{{"speed",speed}};
     }));
     return rows;
@@ -233,6 +239,13 @@ J servant(){
         expect(u->body.hp>0.,"servant died");const auto moved=std::hypot(u->body.motion.get().x-start.x,u->body.motion.get().y-start.y);
         expect(moved>1.,"servant did not move");
         return J{{"moved",moved}};
+    }));
+    rows.push_back(scenario("trinity.servant_is_air",[](){
+        Fixture f(false,"trinity");auto& m=*f.match;
+        auto id=m.spawn_unit("zombie:克苏鲁之仆","zombie",1700.,700.,-1.,false);expect(bool(id),"servant not summoned");
+        auto u=std::get<ZombieRef>(m.battle.native_objects.get(*id).value());
+        near(u->body.hp,12.,"servant hp with 海陆空 (8 x 1.5)");
+        return J{{"hp",u->body.hp}};
     }));
     return rows;
 }

@@ -4,7 +4,7 @@ namespace pvz::typed72 {
 namespace {
 bool one(std::string_view s,std::initializer_list<std::string_view> list){return std::find(list.begin(),list.end(),s)!=list.end();}
 bool water(std::string_view s){return one(s,{"zombie:潜水僵尸","zombie:海豚僵尸","zombie:鸭子普通僵尸","zombie:鸭子路障僵尸","zombie:鸭子铁桶僵尸","zombie:滚桶僵尸","zombie:钩索僵尸","zombie:海盗船长","zombie:小鬼炮"});}
-bool air(std::string_view s){return one(s,{"zombie:海盗鹦鹉","zombie:乌鸦","zombie:气球僵尸","zombie:飞贼僵尸"});}
+bool air(std::string_view s){return one(s,{"zombie:海盗鹦鹉","zombie:乌鸦","zombie:气球僵尸","zombie:飞贼僵尸","zombie:克苏鲁之仆"});}  // PvP75: servant flies
 bool yes(const Field<bool>& f){return f.present()&&!f.is_null()&&f.get();}
 }
 bool ColdZombieSecrets::seat_has(Seat seat,std::string_view key)const{

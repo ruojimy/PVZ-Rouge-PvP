@@ -1,0 +1,461 @@
+{
+  "checks": [
+    {
+      "evidence": true,
+      "name": "ordinary_and_2v2_reject_cheats_and_bosses",
+      "passed": true
+    },
+    {
+      "evidence": true,
+      "name": "test_catalog_preserves_ordinary_replay_hash",
+      "passed": true
+    },
+    {
+      "evidence": [
+        "plant:豌豆射手",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "name": "thirteen_empty_slots_and_live_editing",
+      "passed": true
+    },
+    {
+      "evidence": true,
+      "name": "economy_hp_clear_validation_and_recording",
+      "passed": true
+    },
+    {
+      "evidence": true,
+      "name": "shared_defense_legacy_and_classic_formula",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "frame_commands": 53547,
+        "units": 71
+      },
+      "name": "classic_spawn_stats_and_parts",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "eye": {
+          "ahead": "",
+          "ai": [
+            3.0,
+            0.0,
+            39.0,
+            0.0
+          ],
+          "alpha": 0.0,
+          "behind": "",
+          "damage": 23.0,
+          "despawn": 750,
+          "frame": 2,
+          "frame_ticks": 540,
+          "parent": "",
+          "rotation": 50.26548245743669,
+          "target": "hero:plant",
+          "type": 4,
+          "vx": 0.0,
+          "vy": 2.7299999999999995
+        },
+        "servants": 2
+      },
+      "name": "eye_servants_and_two_phase_transform",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "bodies": 62,
+        "heads": 2,
+        "tails": 2
+      },
+      "name": "worm_splits_and_independent_health",
+      "passed": true
+    },
+    {
+      "evidence": true,
+      "name": "skeletron_hand_loss_and_parent_death",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "ahead": "",
+        "ai": [
+          1.0,
+          2.0,
+          10.0,
+          0.0
+        ],
+        "alpha": 0.0,
+        "behind": "",
+        "damage": 9999.0,
+        "despawn": 750,
+        "frame": 0,
+        "frame_ticks": 813,
+        "parent": "",
+        "rotation": 3.8926339884903314,
+        "target": "hero:plant",
+        "type": 35,
+        "vx": 0.005965814314112277,
+        "vy": 7.999997775565913
+      },
+      "name": "skeletron_hover_spin_and_day_enrage",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "charmed": 15.0,
+        "dave": 1.5
+      },
+      "name": "contact_damage_charmed_and_dave",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "ahead": "",
+        "ai": [
+          0.0,
+          0.0,
+          7.0,
+          0.0
+        ],
+        "alpha": 0.0,
+        "behind": "",
+        "damage": 15.0,
+        "despawn": 750,
+        "frame": 1,
+        "frame_ticks": 7,
+        "parent": "",
+        "rotation": -0.08,
+        "target": "u3",
+        "type": 4,
+        "vx": 0.16,
+        "vy": -0.28
+      },
+      "name": "charm_and_sweet_potato_immunity",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "loss": 4.0
+      },
+      "name": "ordinary_projectile_hits_large_boss_and_defense",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "ice": 959.0
+      },
+      "name": "ordinary_freeze_slows_boss",
+      "passed": true
+    },
+    {
+      "evidence": true,
+      "name": "night_encounter_repeatable",
+      "passed": true
+    },
+    {
+      "evidence": true,
+      "name": "plant_contact_scaling_and_unit_editor",
+      "passed": true
+    },
+    {
+      "evidence": true,
+      "name": "eye_day_retreat_and_servant_lifetime",
+      "passed": true
+    },
+    {
+      "evidence": true,
+      "name": "sweet_potato_does_not_redirect_locked_boss",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "u2": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "u3": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "name": "skeletron_both_hands_complete_attack_cycles",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "near_euclidean": "u1",
+        "selected": "u2"
+      },
+      "name": "classic_target_uses_manhattan_distance",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "after": 0.5999999999999996,
+        "before": 0.2999999999999998
+      },
+      "name": "skeletron_spin_does_not_reverse_when_target_crosses",
+      "passed": true
+    },
+    {
+      "evidence": 49,
+      "name": "skeletron_retreat_has_its_own_countdown",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "eye_foreground": true,
+        "worm_segments": 67
+      },
+      "name": "worm_uses_existing_terrain_occlusion_layer",
+      "passed": true
+    },
+    {
+      "evidence": [
+        {
+          "clock": 1.0,
+          "frame": 21,
+          "phase": 1
+        },
+        {
+          "clock": 0.0,
+          "frame": 120,
+          "phase": 2
+        },
+        {
+          "clock": 0.0,
+          "frame": 222,
+          "phase": 3
+        }
+      ],
+      "name": "classic_eye_half_hp_and_exact_transform_clock",
+      "passed": true
+    },
+    {
+      "evidence": [
+        {
+          "charges": [
+            {
+              "frame": 601,
+              "speed": 6.0
+            },
+            {
+              "frame": 753,
+              "speed": 5.999999999999999
+            },
+            {
+              "frame": 903,
+              "speed": 6.0
+            }
+          ],
+          "second": false
+        },
+        {
+          "charges": [
+            {
+              "frame": 402,
+              "speed": 6.800000000000001
+            },
+            {
+              "frame": 534,
+              "speed": 6.799999999999999
+            },
+            {
+              "frame": 666,
+              "speed": 6.8
+            }
+          ],
+          "second": true
+        }
+      ],
+      "name": "classic_eye_three_charges_per_phase",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "head": {
+          "ahead": "",
+          "ai": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "alpha": 255.0,
+          "behind": "u36",
+          "damage": 22.0,
+          "despawn": 750,
+          "frame": 0,
+          "frame_ticks": 3,
+          "parent": "",
+          "rotation": 2.5308666892005847,
+          "target": "hero:plant",
+          "type": 13,
+          "vx": 0.23099999999999998,
+          "vy": 0.33
+        },
+        "tail": {
+          "ahead": "u32",
+          "ai": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "alpha": 255.0,
+          "behind": "",
+          "damage": 11.0,
+          "despawn": 750,
+          "frame": 0,
+          "frame_ticks": 3,
+          "parent": "",
+          "rotation": 3.7749716200146786,
+          "target": "hero:plant",
+          "type": 15,
+          "vx": 0.0,
+          "vy": 0.0
+        }
+      },
+      "name": "worm_split_resets_defaults_and_retains_integer_life_ratio",
+      "passed": true
+    },
+    {
+      "evidence": [
+        {
+          "vx": 0.077,
+          "vy": 0.11,
+          "water": false
+        },
+        {
+          "vx": 0.07,
+          "vy": 0.077,
+          "water": true
+        }
+      ],
+      "name": "worm_water_uses_burrowing_motion",
+      "passed": true
+    },
+    {
+      "evidence": [
+        {
+          "heads": 1,
+          "removed": [
+            0
+          ],
+          "survivors": 66
+        },
+        {
+          "heads": 1,
+          "removed": [
+            66
+          ],
+          "survivors": 66
+        },
+        {
+          "heads": 2,
+          "removed": [
+            22,
+            23
+          ],
+          "survivors": 65
+        },
+        {
+          "heads": 3,
+          "removed": [
+            20,
+            40
+          ],
+          "survivors": 65
+        },
+        {
+          "heads": 1,
+          "removed": [
+            1,
+            3
+          ],
+          "survivors": 63
+        }
+      ],
+      "name": "worm_head_tail_adjacent_and_multiple_breaks",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "deaths": {
+          "世界吞噬者": {
+            "24": 1,
+            "25": 1,
+            "26": 65,
+            "27": 65,
+            "28": 1,
+            "29": 1
+          },
+          "克苏鲁之眼": {
+            "10": 2,
+            "2": 2,
+            "7": 2,
+            "9": 2
+          },
+          "骷髅王": {
+            "54": 1,
+            "55": 1,
+            "56": 2,
+            "57": 6
+          }
+        },
+        "transform": {
+          "6": 2,
+          "7": 2,
+          "8": 2
+        }
+      },
+      "name": "original_transform_and_death_gore_reaches_frame",
+      "passed": true
+    },
+    {
+      "evidence": [
+        {
+          "frame": 801,
+          "phase": 1,
+          "timer": 1.0
+        },
+        {
+          "frame": 1200,
+          "phase": 0,
+          "timer": 0.0
+        }
+      ],
+      "name": "skeletron_classic_800_hover_400_spin_and_idle_hand_retreat",
+      "passed": true
+    },
+    {
+      "evidence": true,
+      "name": "actual_local_ui_entry_and_panels",
+      "passed": true
+    }
+  ],
+  "failures": 0,
+  "passed": true
+}

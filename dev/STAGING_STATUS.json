@@ -1,27 +1,24 @@
 {
-  "revision": "pvp75-r2",
-  "compatibility_build": "1.6.0.75-typed.20261121-r2",
+  "revision": "pvp75-r3",
+  "compatibility_build": "1.6.0.75-typed.20261121-r3",
   "formal_release": true,
   "release_authorized_by_user": true,
   "pc_package_verified": true,
   "android_package_verified": true,
   "android_real_device_verified": false,
-  "full_regression_rerun": true,
-  "full_regression_passed": true,
-  "full_regression_counts": {
+  "full_regression_rerun": false,
+  "full_regression_passed": null,
+  "full_regression_counts": null,
+  "full_regression_report": null,
+  "previous_full_regression": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp75\\full-suite-r2\\summary.json",
+  "previous_full_regression_counts": {
     "PASS": 2351,
     "FAIL": 3,
     "ERROR": 12,
     "SKIP": 0
   },
-  "full_regression_report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp75\\full-suite-r2\\summary.json",
-  "full_regression_baseline": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp75\\full-suite-final\\summary.json",
-  "full_regression_diff": {
-    "new_nonpass": 0,
-    "fixed_since_baseline": 0,
-    "still_nonpass": 15
-  },
-  "intended_rule_changes": 0,
-  "unwaived": 0,
+  "quick_revision_checks": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp75\\r3-quick\\checks.json",
+  "quick_revision_checks_passed": true,
+  "note": "Quick balance revision on top of r2; full suite not rerun at the user request.",
   "product_acceptance_passed": false
 }

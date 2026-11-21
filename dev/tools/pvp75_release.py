@@ -23,14 +23,14 @@ for old, new in [('更新说明-PvP74.4.md', '更新说明-PvP75.md'), ('更新�
 release = types.ModuleType('pvp75_release_base'); release.__file__ = str(ROOT / 'tools/pvp744_release_r3.py')
 exec(compile(SOURCE, release.__file__, 'exec'), release.__dict__)
 
-release.OUT = ROOT / 'test_results/pvp75/release-r2-20261121'
-release.STAGE = ROOT / 'dist/PvZ-PvP-Native-20261121-pvp75-r2'
-release.VERSION = '1.6.0.75-typed.20261121-r2'
-release.REV = 'pvp75-r2'
-release.PREVIOUS_REV = 'pvp75-r1'
-release.CODE = 1121077  # the phone carries the 1121076 test APK
-release.NATIVE_RUN = 'pvp75-r2-20261121'
-release.APK_DIR = ROOT / 'dist/apk-pvp75-r2-20261121'
+release.OUT = ROOT / 'test_results/pvp75/release-r3-20261121'
+release.STAGE = ROOT / 'dist/PvZ-PvP-Native-20261121-pvp75-r3'
+release.VERSION = '1.6.0.75-typed.20261121-r3'
+release.REV = 'pvp75-r3'
+release.PREVIOUS_REV = 'pvp75-r2'
+release.CODE = 1121078
+release.NATIVE_RUN = 'pvp75-r3-20261121'
+release.APK_DIR = ROOT / 'dist/apk-pvp75-r3-20261121'
 release.EXTRA_AUDITS = [('pvp744_r4_audit', 'r4'), ('pvp75_audit', 'pvp75'), ('pvp75_ui_audit', 'pvp75-ui')]
 release.helpers.VERSION, release.helpers.OUT, release.helpers.STAGE = release.VERSION, release.OUT, release.STAGE
 SUITE = ROOT / 'test_results/pvp75/full-suite-r2/summary.json'
@@ -64,7 +64,25 @@ def regression_status():
                 intended_rule_changes=len(new), unwaived=len(s['waivers']['unexpected_nonpass']))
 
 
-release.regression_status = regression_status
+QUICK = ROOT / 'test_results/pvp75/r3-quick/checks.json'
+
+
+def quick_status():
+    """r3 is a quick balance revision: the user asked not to rerun the full suite. Records the r2
+    full suite it builds on and the targeted checks run on this exact build."""
+    read, digest = release.read, release.sha
+    q = read(QUICK)
+    if not q['passed']: raise ValueError('Targeted r3 checks failed; see ' + str(QUICK))
+    for name, expected in q['binaries'].items():
+        if digest(ROOT / name) != expected: raise ValueError('Binary changed after the targeted checks: ' + name)
+    base = read(SUITE)
+    return dict(full_regression_rerun=False, full_regression_passed=None, full_regression_counts=None,
+                full_regression_report=None, previous_full_regression=str(SUITE), previous_full_regression_counts=base['counts'],
+                quick_revision_checks=str(QUICK), quick_revision_checks_passed=True,
+                note='Quick balance revision on top of r2; full suite not rerun at the user request.')
+
+
+release.regression_status = quick_status
 
 
 def backup():

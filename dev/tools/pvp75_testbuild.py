@@ -18,7 +18,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 BUILD = ROOT / 'build/app-typed72-v2/Release'
 DEST = ROOT / 'PVZ_rougePvP_native'
-RELEASED = ROOT / 'dist/PvZ-PvP-Native-20261121-pvp75'
+# The current formal release (dist/latest-native-release.json): rollback source and launcher files.
+RELEASED = Path(json.loads((ROOT / 'dist/latest-native-release.json').read_text('utf8'))['release'])
 
 
 def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()

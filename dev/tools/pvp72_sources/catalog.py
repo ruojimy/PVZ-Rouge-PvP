@@ -595,15 +595,15 @@ for _field in ('description','native_description'):
 # cells, gas 6 cells, star pierce 3) live in the typed kernel.
 PVP75_TEXT = {
     'plant:巴豆': ('巴豆被僵尸啃咬时立即消失并生效：啃咬者受到150伤害、6秒眩晕与6秒二级中毒，'
-                 '并向其面朝方向的反方向喷出长6格的绿色毒气；接触毒气的其他敌方僵尸受到3秒眩晕与3秒一级中毒。毒气约2秒后消散。'),
+                 '并向其面朝方向的反方向喷出长6格的绿色毒气；接触毒气的其他敌方僵尸受到60伤害、3秒眩晕与3秒一级中毒。毒气约2秒后消散。'),
     'plant:激光豆': ('点击激光豆进入发射状态（各发射植物状态独立；手持卡牌时点击它会取消选卡并进入发射状态），'
                   '在其面朝方向±80°、8到20格范围内选择目标点：内圈红色为过近区域，外圈绿色为可选区域，超出范围自动取消；左键发射、右键取消。'
                   '激光从眼睛射向目标点并持续，直到再次点击这株激光豆。光束每0.4秒对触及的每个敌方单位造成30÷激光长度（格）的伤害；'
                   '对僵尸戴夫固定1点且不会将其击倒。睡眠、被压扁或死亡时停止发射。'),
-    'zombie:盾卫僵尸': ('防御力6。受到伤害时举起木盾（0.6秒，期间技能尚未生效），随后进入6秒防御姿态：移速降低75%，'
-                     '防御力提高至60，免疫击退。放下盾牌后技能冷却6秒。'),
+    'zombie:盾卫僵尸': ('防御力6。受到伤害时举起木盾（0.6秒，期间技能尚未生效），随后进入6秒防御姿态：移速降低40%，'
+                     '防御力提高至60，免疫击退。放下盾牌后技能冷却4秒。'),
     'zombie:克苏鲁之仆': ('召唤一只克苏鲁之仆（泰拉瑞亚普通模式数值：8生命、接触伤害12，对植物与戴夫伤害÷10）。'
-                      '无需墓碑，可在场上任意位置释放；自行追踪最近的敌人，不服从跟随／进攻指挥与召集旗帜，初始朝向由部署时的朝向决定。'),
+                      '无需墓碑，可在场上任意位置释放；自行追踪最近的敌人，不服从跟随／进攻指挥与召集旗帜，初始朝向由部署时的朝向决定。海陆空秘籍中算作空中单位。'),
 }
 def _pvp75_card(key, template, **values):
     card = deepcopy(CARDS[template])
@@ -622,7 +622,7 @@ _pvp75_card('plant:巴豆', 'plant:幽灵辣椒', cost=40, cooldown=36., hp=6, n
             range=55, native_cd=9000, native_deploy_cd=9000)
 _pvp75_card('plant:激光豆', 'plant:幽灵辣椒', cost=200, cooldown=36., hp=6, native_hp=6, damage=30., interval=.4,
             behavior='laser', range=960, native_cd=9000, native_deploy_cd=9000)
-_pvp75_card('zombie:盾卫僵尸', 'zombie:垃圾桶僵尸', cost=150, cooldown=12., hp=150, native_hp=150, damage=35,
+_pvp75_card('zombie:盾卫僵尸', 'zombie:垃圾桶僵尸', cost=150, cooldown=12., hp=160, native_hp=160, damage=35,
             speed=28, native_speed=40, armor=0., metal=False, native_handheld_hp=0., native_armor_hp=0.,
             native_izombie_handheld_hp=0, native_hard_handheld_hp=0, native_input_name='普通僵尸',
             native_cd=3000, native_deploy_cd=3000)

@@ -37,7 +37,8 @@ FLAGS = ("zombie:旗帜僵尸", "zombie:黑旗帜僵尸")
 PIRATES = ("zombie:滚桶僵尸", "zombie:钩索僵尸", "zombie:海盗船长", "zombie:小鬼炮")
 WATER = ("zombie:潜水僵尸", "zombie:海豚僵尸", "zombie:鸭子普通僵尸", "zombie:鸭子路障僵尸",
          "zombie:鸭子铁桶僵尸") + PIRATES
-AIR = ("zombie:海盗鹦鹉", "zombie:乌鸦", "zombie:气球僵尸", "zombie:飞贼僵尸")
+# PvP75: the 克苏鲁之仆 (flying Terraria servant) counts as an air unit.
+AIR = ("zombie:海盗鹦鹉", "zombie:乌鸦", "zombie:气球僵尸", "zombie:飞贼僵尸", "zombie:克苏鲁之仆")
 
 CROWD_RADIUS = 6.
 CROWD_STEP = .15

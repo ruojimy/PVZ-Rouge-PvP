@@ -94,4 +94,26 @@ changed |= replace('src/sim/pvp/gen/pm_native_animation.cpp', [
      '              (void)(callm(L_screen, SY("blit"), Args({L_surface, L_pos}, '),
 ])
 
+# PvP75 brief almanac lines for the new cards (tools/pvp72_sources/almanac_text.py NOTES):
+# appended right after the generated NOTES dict line.
+CRLF, LF = chr(13) + chr(10), chr(10)
+ALMANAC_NOTES = {'plant:巴豆': '被啃即消失：啃咬者受150伤害、眩晕6秒、二级中毒；身后喷出6格毒气，接触的僵尸受60伤害、眩晕3秒、一级中毒。', 'plant:激光豆': '点它后在面朝±80°、8～20格内选点，持续发射激光：每0.4秒伤害30÷光束长度（格），对戴夫固定1点；再点一次停止。', 'zombie:盾卫僵尸': '受伤后举盾：6秒内防御60、免疫击退、移速-40%；放下后冷却4秒。', 'zombie:克苏鲁之仆': '0脑光，无需墓碑，任意位置召唤，自己追最近的敌人；不受调令与召集旗帜影响，海陆空中算空中单位。'}
+
+
+def almanac_notes(rel):
+    path = ROOT / rel
+    raw = path.read_bytes().decode('utf8'); nl = CRLF if CRLF in raw else LF
+    lines = raw.replace(CRLF, LF).split(LF)
+    lines = [l for l in lines if '// PvP75 almanac notes' not in l]
+    at = [i for i, l in enumerate(lines) if l.startswith('    pm_almanac_text::NOTES = py_dict(')]
+    if len(at) != 1: raise RuntimeError('PvP75 almanac NOTES anchor missing or ambiguous')
+    add = ['    pvz::setitem(pm_almanac_text::NOTES, SV("%s"), SV("%s")); // PvP75 almanac notes' % (k, v) for k, v in ALMANAC_NOTES.items()]
+    lines[at[0] + 1:at[0] + 1] = add
+    out = LF.join(lines).replace(LF, nl)
+    if out == raw: return False
+    if CHECK: raise SystemExit('Stale PvP75 hooks in ' + rel + ': run tools/pvp75_ui_hooks.py')
+    path.write_bytes(out.encode('utf8')); return True
+
+
+changed |= almanac_notes('src/sim/pvp/gen/pm_almanac_text.cpp')
 print('PvP75 UI hooks:', 'checked' if CHECK else ('applied' if changed else 'unchanged'))
