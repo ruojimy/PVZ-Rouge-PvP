@@ -1,0 +1,110 @@
+{
+  "revision": "pvp76-r2",
+  "version": "1.6.0.76-typed.20261122-r2",
+  "android_version_code": 1122077,
+  "file_integrity": {
+    "PvZ-PvP-Native-20261122-pvp76-r2.zip": {
+      "bytes": 170855026,
+      "sha256": "f20ef2dd0b51b26aefff1dff2a53304a9bdda2ab02a05086ba814c7df61c998f"
+    },
+    "PvZ-PvP-Native-20261122-pvp76-r2-Developer-Package.zip": {
+      "bytes": 94635729,
+      "sha256": "002e1a704aa56aaae1e5a299361c94247f36249b6824bc022c143d21dfa72c8c"
+    },
+    "PvZ-PvP-Native-1.6.0.76-typed.20261122-r2-1122077-pvp76-r2b-20261122.apk": {
+      "bytes": 193528268,
+      "sha256": "adccaf8349f4416aac0751760773595713ccf9d8f1c064e835fe6d02c7a9c213"
+    }
+  },
+  "windows_executable_sha256": "56021fa298396c2391cd3410af4be1902f71aa8a4faf4a536490a766459e0e74",
+  "windows_packaged_smoke_passed": true,
+  "windows_launcher_executable_verified": true,
+  "android_signature_continuity_verified": true,
+  "full_regression": {
+    "collected": 2366,
+    "modules": 204,
+    "counts": {
+      "PASS": 2351,
+      "FAIL": 3,
+      "ERROR": 12,
+      "SKIP": 0
+    },
+    "missing": 0,
+    "waived": 15,
+    "unwaived": 0,
+    "baseline_revision": "pvp76-r1",
+    "new_nonpass": 0,
+    "gates": {
+      "pure_typed_gate": true,
+      "combat_r4_gate": true,
+      "fire_gate": true
+    },
+    "summary_sha256": "40aa96af2e27bb346aae84562519e4d74908009c7d7cf4c1944391d011ebd408"
+  },
+  "packaged_audits": [
+    {
+      "case": "boss",
+      "checks": 31,
+      "passed": true
+    },
+    {
+      "case": "controls",
+      "checks": 4,
+      "passed": true
+    },
+    {
+      "case": "weather",
+      "checks": 25,
+      "passed": true
+    },
+    {
+      "case": "material",
+      "checks": 88,
+      "passed": true
+    },
+    {
+      "case": "feedback",
+      "checks": 14,
+      "passed": true
+    },
+    {
+      "case": "r3",
+      "checks": 14,
+      "passed": true
+    },
+    {
+      "case": "r4",
+      "checks": 10,
+      "passed": true
+    },
+    {
+      "case": "pvp75",
+      "checks": 7,
+      "passed": true
+    },
+    {
+      "case": "pvp75-ui",
+      "checks": 6,
+      "passed": true
+    },
+    {
+      "case": "pvp76",
+      "checks": 5,
+      "passed": true
+    },
+    {
+      "case": "pvp76r2",
+      "checks": 8,
+      "passed": true
+    }
+  ],
+  "developer_repo": {
+    "files": 8623
+  },
+  "not_verified": [
+    "Android real-device acceptance for this release",
+    "two-device online play",
+    "long-session stress",
+    "player crash 11-22 (no throw site recorded; hardening only)"
+  ]
+}

@@ -21,25 +21,36 @@ bool free_summon_preview(const V& app,const V& card,const V& x,const V& y){
 }
 }
 namespace pvz::pvp76_perf {
-bool typed(const V& battle){return !battle.is_none()&&py_str(pvz::getattr(battle,Sym("backend"),V("")))=="typed72";}
-double zombie_count(const V& battle){
+bool typed(const V& battle){try{return !battle.is_none()&&py_str(pvz::getattr(battle,Sym("backend"),V("")))=="typed72";}catch(...){return false;}}
+// PvP76 r2: performance evidence must never take the game down. These run every 30
+// frames while a recording is active, also across the result -> room transition.
+double zombie_count_raw(const V& battle);
+V population_raw(const V& app,const V& battle);
+double zombie_count(const V& battle){try{return zombie_count_raw(battle);}catch(...){return 0.;}}
+V population(const V& app,const V& battle){
+    try{return population_raw(app,battle);}
+    catch(...){return py_dict({{V("native_tick"),V(0.)},{V("zombies"),V(0.)},{V("plants"),V(0.)},{V("projectiles"),V(0.)},{V("backlog_seconds"),V(0.)},{V("unavailable"),V(true)}});}
+}
+double zombie_count_raw(const V& battle){
     if(typed(battle))return pvz::getattr(battle,Sym("live_mobile_zombies"),V(0.)).num();
     return py::len(py::m_get(pvz::getattr(battle,Sym("g")),V("僵尸"),V::list())).num();
 }
-V population(const V& app,const V& battle){
+V population_raw(const V& app,const V& battle){
     const V room=pvz::getattr(app,Sym("room"),V::none());
     const V backlog=room.is_none()?V(0.):pvz::getattr(room,Sym("accumulator"),V(0.));
     const V tick=pvz::getattr(pvz::getattr(battle,Sym("engine")),Sym("native_tick"));
     if(!typed(battle)){
         const V g=pvz::getattr(battle,Sym("g"));double z=0,p=0;
-        for(const auto& u:py::iter_list(py::m_get(g,V("僵尸"),V::list())).items())if(py::m_get(u,V("血量"),V(0.)).num()>0.)++z;
-        for(const auto& u:py::iter_list(py::m_get(g,V("植物"),V::list())).items())if(py::m_get(u,V("植物血"),V(0.)).num()>0.)++p;
+        const V zs=py::iter_list(py::m_get(g,V("僵尸"),V::list())),ps=py::iter_list(py::m_get(g,V("植物"),V::list()));
+        for(const auto& u:zs.items())if(py::m_get(u,V("血量"),V(0.)).num()>0.)++z;
+        for(const auto& u:ps.items())if(py::m_get(u,V("植物血"),V(0.)).num()>0.)++p;
         return py_dict({{V("native_tick"),tick},{V("zombies"),V(z)},{V("plants"),V(p)},{V("projectiles"),py::len(py::m_get(g,V("实体"),V::list()))},{V("backlog_seconds"),backlog}});
     }
     const V view=pvz::getattr(app,Sym("view"),V::dict());const V b=view.is_dict()?py::m_get(view,V("battle"),V::dict()):V::dict();
     V units=b.is_dict()?py::m_get(b,V("units"),V::list()):V::list();if(units.is_dict())units=py::list_it(callm(units,Sym("values"),Args{}));
     double z=0,p=0;
-    for(const auto& u:py::iter_list(units).items()){if(py::m_get(u,V("hp"),V(0.)).num()<=0.)continue;const auto side=py_str(py::m_get(u,V("side"),V("")));if(side.rfind("zombie",0)==0)++z;else if(side.rfind("plant",0)==0)++p;}
+    const V listed=py::iter_list(units);
+    for(const auto& u:listed.items()){if(py::m_get(u,V("hp"),V(0.)).num()<=0.)continue;const auto side=py_str(py::m_get(u,V("side"),V("")));if(side.rfind("zombie",0)==0)++z;else if(side.rfind("plant",0)==0)++p;}
     const V shots=b.is_dict()?py::m_get(b,V("projectiles"),V::list()):V::list();
     return py_dict({{V("native_tick"),tick},{V("zombies"),V(z)},{V("plants"),V(p)},{V("projectiles"),py::len(shots)},{V("backlog_seconds"),backlog}});
 }

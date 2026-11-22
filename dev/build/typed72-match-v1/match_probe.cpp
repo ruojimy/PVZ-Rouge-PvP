@@ -112,6 +112,14 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
         const auto& card=catalog.at(std::string("zombie:")+def.name);ColdParent cp;if(parent)cp.id=parent->source.id.get();
         cold_registration.register_unit(u,card,Seat::zombie,false,cold_admission.context(),parent?&cp:nullptr);return u;
     }
+    // PvP76 r2: production grenade pricing. The fixture table (observe_grenadiers) stays for oracle replays;
+    // the shipped composition used to read that empty table, so every candidate cost 0 and the grenade
+    // fell back to the nearest plant. pvp64_content.grenade_target: b._unit_card(owner, card)["cost"].
+    double card_cost(std::optional<Seat> owner,const std::string& key)override{
+        if(observe_grenadiers)return GrenadierProbe::card_cost(owner,key);
+        if(!owner)throw std::invalid_argument("grenade target without owner");
+        return placement_view.unit_card(*owner,key).cost;
+    }
     std::optional<std::string> spawn_terraria(const std::string& key,Point p,double facing)override{auto u=key=="zombie:克苏鲁之仆"?terraria.summon_servant(p,facing):terraria.summon(terraria_type(key),p);return u?std::optional<std::string>(u->source.id.get()):std::nullopt;}
     void before_native_tick(double now)override{ContentPhaseProbe::before_native_tick(now);terraria.advance();}
     PeaHybrid hybrid{battle,chart,indexes};

@@ -72,6 +72,7 @@ private:
     bool custom(std::string_view)const;
     bool follow(const CombatZombie&)const;
     bool rally(const CombatZombie&)const;
+    bool kunkun(const CombatZombie&)const;  // PvP76 r2: 坤坤 cart ignores orders
     Point destination(const CombatZombie&);
     Seat following_seat(const CombatZombie&)const;
     void restore_player(CombatZombie&);

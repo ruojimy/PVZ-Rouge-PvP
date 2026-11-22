@@ -1,6 +1,6 @@
 {
-  "revision": "pvp76-r1",
-  "compatibility_build": "1.6.0.76-typed.20261122-r1",
+  "revision": "pvp76-r2",
+  "compatibility_build": "1.6.0.76-typed.20261122-r2",
   "formal_release": true,
   "release_authorized_by_user": true,
   "pc_package_verified": true,
@@ -14,8 +14,8 @@
     "ERROR": 12,
     "SKIP": 0
   },
-  "full_regression_report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp76\\full-suite\\summary.json",
-  "full_regression_baseline": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp75\\full-suite-r2\\summary.json",
+  "full_regression_report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp76\\r2\\full-suite\\summary.json",
+  "full_regression_baseline": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp76\\full-suite-versioned-r1\\summary.json",
   "full_regression_diff": {
     "new_nonpass": 0,
     "fixed_since_baseline": 0,

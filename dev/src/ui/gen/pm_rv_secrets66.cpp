@@ -228,7 +228,7 @@ void init() {
     inited_ = true;
     py::note_module_loaded("pvp.rv_secrets66");
     py::init_deps_rv_secrets66();
-    pm_rv_secrets66::SPRINT = V::tuple({SV("zombie:雪橇车僵尸"), SV("zombie:滚桶僵尸")});
+    pm_rv_secrets66::SPRINT = V::tuple({SV("zombie:雪橇车僵尸"), SV("zombie:滚桶僵尸"), SV("zombie:投篮车僵尸"), SV("zombie:小鬼炮")});  // PvP76 r2
     pm_rv_secrets66::ATHLETES = V::tuple({SV("zombie:撑杆跳僵尸"), SV("zombie:橄榄球僵尸"), SV("zombie:黑撑杆僵尸"), SV("zombie:黑橄榄僵尸")});
     pm_rv_secrets66::POLES = V::tuple({SV("zombie:撑杆跳僵尸"), SV("zombie:黑撑杆僵尸")});
     pm_rv_secrets66::GIANTS = V::tuple({SV("zombie:巨人僵尸"), SV("zombie:红眼巨人"), SV("zombie:角斗士巨人")});

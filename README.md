@@ -1,27 +1,27 @@
 # PVZ-Rouge · 对战模式（PvP）
 
-中文版最新正式版 **PvP76 r1**（`1.6.0.76-typed.20261122-r1`，C++ 原生版，无需 Python）。Android versionCode **1122076**。英文版为 PvP64。
+中文版最新正式版 **PvP76 r2**（`1.6.0.76-typed.20261122-r2`，C++ 原生版，无需 Python）。Android versionCode **1122077**。英文版为 PvP64。
 
 ## 下载
 
-[PvP76 r1 正式发布页](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/tag/v1.6.0.76-pvp76-r1) · [历史版本](https://github.com/ruojimy/PVZ-Rouge-PvP/releases)
+[PvP76 r2 正式发布页](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/tag/v1.6.0.76-pvp76-r2) · [历史版本](https://github.com/ruojimy/PVZ-Rouge-PvP/releases)
 
 | 附件 | 用途 |
 | --- | --- |
-| [Windows 玩家包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.76-pvp76-r1/PvZ-PvP-Native-20261122-pvp76-r1.zip) | 完整解压后运行“启动PvP.cmd” |
-| [Android ARM64](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.76-pvp76-r1/PvZ-PvP-Native-1.6.0.76-typed.20261122-r1-1122076-pvp76-r1-20261122.apk) | 同包名同签名覆盖升级，versionCode 1122076 |
-| [完整开发者包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.76-pvp76-r1/PvZ-PvP-Native-20261122-pvp76-r1-Developer-Package.zip) | 正式源码、生成器、冻结生产阶段和配套验证 |
-| [SHA-256 清单](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.76-pvp76-r1/zh-SHA256SUMS.txt) | 核对三个正式包 |
+| [Windows 玩家包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.76-pvp76-r2/PvZ-PvP-Native-20261122-pvp76-r2.zip) | 完整解压后运行“启动PvP.cmd” |
+| [Android ARM64](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.76-pvp76-r2/PvZ-PvP-Native-1.6.0.76-typed.20261122-r2-1122077-pvp76-r2b-20261122.apk) | 同包名同签名覆盖升级，versionCode 1122077 |
+| [完整开发者包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.76-pvp76-r2/PvZ-PvP-Native-20261122-pvp76-r2-Developer-Package.zip) | 正式源码、生成器、冻结生产阶段和配套验证 |
+| [SHA-256 清单](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.76-pvp76-r2/zh-SHA256SUMS.txt) | 核对三个正式包 |
 
-## PvP76 更新
+## PvP76 r2 更新
 
-- 合作地图按行更新，减少梯子逐格搭建引发的卡顿。优化世界吞噬者体节绘制和索敌。
-- 新增聚能和守卫两张秘籍。聚能进入合作商店，两张秘籍均可在材质工坊替换。
-- 修复僵王出品的二类防具拦截、威压的攻击间隔倍率，以及克苏鲁之仆和测试模式 Boss 的放置预览。[完整更新说明](dev/更新说明-PvP76.md)。
+- 调整：克苏鲁之仆冷却 24 秒，会被三叶草与三叶草僵尸的风吹动；投篮车僵尸、小鬼炮移速减半；大运！小子覆盖两车；携带坤坤后投篮车不服从跟随与召集旗帜；阳光收集秘籍开局 80 秒内自动收集会让植物戴夫感冒 2 秒。
+- 合作模式：每通关一天，敌方加入一个僵尸秘籍（前体需进入当天卡池）。
+- 修复：掷弹兵改为炸 6 格内阳光消耗最高的植物；钩索被萝卜伞挡下不再造成任何伤害。[完整更新说明](dev/更新说明-PvP76.md)。
 
-联机双方请使用 PvP76 r1。
+联机双方请使用 PvP76 r2。
 
-本版重跑了 2366 项全量回归，2351 项通过，3 项失败，12 项错误。15 项非通过结果与 PvP75 r2 基线相同并沿用既有豁免，缺失和未豁免均为 0。三道生产门禁通过。Windows 已通过出包冒烟并核对实际启动 EXE。Android 已验证包名、版本号和签名连续性，实机验收待完成。[验证摘要](docs/pvp76-r1-validation.json)。
+本版重跑了 2366 项全量回归，2351 项通过，3 项失败，12 项错误。15 项非通过结果与 PvP76 r1 基线相同并沿用既有豁免，缺失和未豁免均为 0。三道生产门禁通过。Windows 已通过出包冒烟（含 r2 专项审计 8 组）并核对实际启动 EXE。Android 已验证包名、版本号和签名连续性，实机验收待完成。[验证摘要](docs/pvp76-r2-validation.json)。
 
 ## 神经网络 AI 研究
 
@@ -33,7 +33,7 @@
 
 ## 源码与升级
 
-`dev/` 对应 PvP76 r1 开发者包，研究数据等 Git 忽略项随相应下载发布。发行清单和逐文件 SHA-256 见 [MANIFEST-PvP76.json](dev/MANIFEST-PvP76.json) 和 [SHA256SUMS.txt](dev/SHA256SUMS.txt)。
+`dev/` 对应 PvP76 r2 开发者包，研究数据等 Git 忽略项随相应下载发布。发行清单和逐文件 SHA-256 见 [MANIFEST-PvP76.json](dev/MANIFEST-PvP76.json) 和 [SHA256SUMS.txt](dev/SHA256SUMS.txt)。
 
 生产内核位于 `dev/build/typed72-integrated-v44/source/src/sim/typed/`，组合层源位于 `dev/build/typed72-match-v1/`。Windows 默认使用 `%APPDATA%/PVZ-PvP-Native/pvp_userdata`。
 

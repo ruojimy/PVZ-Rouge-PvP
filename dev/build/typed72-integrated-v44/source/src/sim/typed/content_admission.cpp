@@ -67,6 +67,8 @@ void ContentAdmission::configure(const ZombieRef& unit,const ColdCard& card) {
     else throw std::out_of_range("unconfigured NativeContent zombie");
     unit->max_hp.set(unit->body.hp);
     if(content=="滚桶僵尸"||content=="小鬼炮")unit->native.move_speed=template_speed(content=="滚桶僵尸"?"巨人僵尸":"撑杆跳僵尸");
+    // PvP76 r2: 小鬼炮 moves at half its 撑杆跳 template speed.
+    if(content=="小鬼炮"&&unit->native.move_speed.present()&&!unit->native.move_speed.is_null())unit->native.move_speed.set(unit->native.move_speed.get()*.5);
     unit->base_speed=unit->native.move_speed;unit->content.summon_clock.set(0.);
     if(content=="滚桶僵尸") {
         unit->body.hand="滚桶";unit->body.hand_hp=400.;unit->content.barrel_direction.set(unit->body.facing);

@@ -19,6 +19,7 @@ class CoopProgress:
     def reset(self):
         self.run_id = uuid.uuid4().hex
         self.day=1
+        self.zombie_from=1   # PvP76 r2: first day counted for co-op zombie secrets
         self.campaigns = {}
         self.income = {}
         self.applied = set()
@@ -48,6 +49,7 @@ class CoopProgress:
                 value=json.loads(path.read_text('utf8'))
                 if value.get('format')!='pvp67-coop-seats-1':raise ValueError('未知合作存档格式')
                 self.run_id=str(value['run_id']);self.day=max(1,int(value['day']))
+                self.zombie_from=max(1,int(value.get('zombie_secret_from',1)))  # older runs: every cleared day
                 self.campaigns={s:Campaign.from_dict(value['seats'][s]) for s in ('plant','plant2')}
                 for seat,c in self.campaigns.items():
                     c.deck=[k for k in value['seats'][seat].get('deck',[]) if k in c.unlocked][:c.slots()]
@@ -68,6 +70,7 @@ class CoopProgress:
         value=dict(format='pvp67-coop-seats-1',run_id=self.run_id,day=self.day,
             seats={s:c.to_dict() for s,c in self.campaigns.items()},income=self.income,
             applied=[list(k) for k in sorted(self.applied,key=repr)][-200:])
+        value['zombie_secret_from']=self.zombie_from
         text=json.dumps(value,ensure_ascii=False,indent=1)
         if text==self._saved:return
         self.path.parent.mkdir(parents=True,exist_ok=True)
@@ -81,6 +84,8 @@ class CoopProgress:
         pve = room.pve
         pve['coop_run_id'] = self.run_id
         pve['run_day']=self.day
+        # PvP76 r2 (native: src/sim/pvp/hand/pvp76r2_coop.cpp): one zombie secret per cleared day.
+        pve['coop_zombie_from']=self.zombie_from
         pve['guest_campaigns'] = {}
         pve['guest_income'] = {}
         pve['seat_slots'] = {}

@@ -85,7 +85,7 @@
   "zombie:角斗士巨人": 80.0,
   "zombie:石化火炬": 48.0,
   "zombie:盾卫僵尸": 12.0,
-  "zombie:克苏鲁之仆": 20.0
+  "zombie:克苏鲁之仆": 24.0
  },
  "GRAVE_BALANCE": {
   "zombie:脑光墓碑": {
@@ -4842,7 +4842,7 @@
    "ban_protected": false,
    "family": "zombie:投篮车僵尸",
    "asset": "投篮车僵尸",
-   "description": "远程投掷单位，篮球以抛物线攻击，可越过部分地面阻挡；需要保护它免受贴身单位和快速突袭。出场80秒后自毁，不造成范围伤害；冰冻、减速、黄油、眩晕与坤坤锁血均不延长寿命。120生命。跟随戴夫或前往召集旗帜时只移动，不投篮；进攻指挥下才投篮。",
+   "description": "远程投掷单位，篮球以抛物线攻击，可越过部分地面阻挡；需要保护它免受贴身单位和快速突袭。出场80秒后自毁，不造成范围伤害；冰冻、减速、黄油、眩晕与坤坤锁血均不延长寿命。120生命。跟随戴夫或前往召集旗帜时只移动，不投篮；进攻指挥下才投篮。移速为原来的一半。携带坤坤秘籍时不服从跟随与召集旗帜，始终按进攻行动。",
    "economy": "none",
    "selectable": true,
    "native_cost": 400,
@@ -4865,7 +4865,7 @@
    "native_source": "marshal+1.5.0.1-patch",
    "native_cd_fallback": true,
    "native_deploy_cd": 0,
-   "native_description": "远程投掷单位，篮球以抛物线攻击，可越过部分地面阻挡；需要保护它免受贴身单位和快速突袭。出场80秒后自毁，不造成范围伤害；冰冻、减速、黄油、眩晕与坤坤锁血均不延长寿命。120生命。跟随戴夫或前往召集旗帜时只移动，不投篮；进攻指挥下才投篮。"
+   "native_description": "远程投掷单位，篮球以抛物线攻击，可越过部分地面阻挡；需要保护它免受贴身单位和快速突袭。出场80秒后自毁，不造成范围伤害；冰冻、减速、黄油、眩晕与坤坤锁血均不延长寿命。120生命。跟随戴夫或前往召集旗帜时只移动，不投篮；进攻指挥下才投篮。移速为原来的一半。携带坤坤秘籍时不服从跟随与召集旗帜，始终按进攻行动。"
   },
   "zombie:小丑僵尸": {
    "id": "zombie:小丑僵尸",
@@ -7932,7 +7932,7 @@
    "ban_protected": false,
    "family": "zombie:小鬼炮",
    "asset": "小鬼炮",
-   "description": "120生命，移速快速，沿用投篮车移动模板与跟随/追击指令。追击时在距敌方戴夫20格内驻停，每4秒抛射一只小鬼；发射前装填小鬼，发射后炮口清空。减速使装填和发射速度减半；冰冻、黄油、眩晕暂停行动，中毒照常造成伤害。出场80秒后自毁，不造成范围伤害、不额外召唤小鬼；控制状态不延长寿命。跟随戴夫或前往召集旗帜时只移动，不发射小鬼。",
+   "description": "120生命，移速为撑杆跳僵尸的一半，沿用投篮车移动模板与跟随/追击指令。追击时在距敌方戴夫20格内驻停，每4秒抛射一只小鬼；发射前装填小鬼，发射后炮口清空。减速使装填和发射速度减半；冰冻、黄油、眩晕暂停行动，中毒照常造成伤害。出场80秒后自毁，不造成范围伤害、不额外召唤小鬼；控制状态不延长寿命。跟随戴夫或前往召集旗帜时只移动，不发射小鬼。",
    "economy": "none",
    "selectable": true,
    "native_cost": 225,
@@ -7955,7 +7955,7 @@
    "native_source": "marshal+1.5.0.1-patch",
    "native_cd_fallback": true,
    "native_deploy_cd": 10000,
-   "native_description": "120生命，移速快速，沿用投篮车移动模板与跟随/追击指令。追击时在距敌方戴夫20格内驻停，每4秒抛射一只小鬼；发射前装填小鬼，发射后炮口清空。减速使装填和发射速度减半；冰冻、黄油、眩晕暂停行动，中毒照常造成伤害。出场80秒后自毁，不造成范围伤害、不额外召唤小鬼；控制状态不延长寿命。跟随戴夫或前往召集旗帜时只移动，不发射小鬼。",
+   "native_description": "120生命，移速为撑杆跳僵尸的一半，沿用投篮车移动模板与跟随/追击指令。追击时在距敌方戴夫20格内驻停，每4秒抛射一只小鬼；发射前装填小鬼，发射后炮口清空。减速使装填和发射速度减半；冰冻、黄油、眩晕暂停行动，中毒照常造成伤害。出场80秒后自毁，不造成范围伤害、不额外召唤小鬼；控制状态不延长寿命。跟随戴夫或前往召集旗帜时只移动，不发射小鬼。",
    "content": "小鬼炮",
    "content_art": "cannon",
    "expansion": "content:小鬼炮"
@@ -8342,7 +8342,7 @@
    "ban_protected": false,
    "family": "secret:阳光",
    "asset": "黄金蓓蕾",
-   "description": "全地图自动收集植物方阳光，包括天降、植物生产和补光掉落；不受戴夫距离限制。",
+   "description": "全地图自动收集植物方阳光，包括天降、植物生产和补光掉落；不受戴夫距离限制。开局前80秒内，每次自动收集阳光会使植物戴夫感冒2秒。",
    "economy": "event_enemy_kill_refund",
    "selectable": true,
    "dependency": null,
@@ -8366,7 +8366,7 @@
    "resolved_id": "secret:阳光",
    "native_input_name": "补光",
    "native_source": "native-secret; not a spawned entity",
-   "native_description": "全地图自动收集植物方阳光，包括天降、植物生产和补光掉落；不受戴夫距离限制。",
+   "native_description": "全地图自动收集植物方阳光，包括天降、植物生产和补光掉落；不受戴夫距离限制。开局前80秒内，每次自动收集阳光会使植物戴夫感冒2秒。",
    "native_shop_cost": 2000,
    "pvp_added": true
   },
@@ -8750,7 +8750,7 @@
    "ban_protected": false,
    "family": "zsecret:大运！小子",
    "asset": "雪橇车僵尸",
-   "description": "雪橇车僵尸与滚桶僵尸移速增加 100%，两者脑光消耗各 +50。",
+   "description": "雪橇车僵尸、滚桶僵尸、投篮车僵尸与小鬼炮移速增加 100%（与其他移速加成加算），四者脑光消耗各 +50。",
    "economy": "none",
    "selectable": true,
    "dependency": "",
@@ -8774,11 +8774,13 @@
    "resolved_id": "zsecret:大运！小子",
    "native_input_name": "大运！小子",
    "native_source": "PvP66 zombie secret; not a spawned entity",
-   "native_description": "雪橇车僵尸与滚桶僵尸移速增加 100%，两者脑光消耗各 +50。",
+   "native_description": "雪橇车僵尸、滚桶僵尸、投篮车僵尸与小鬼炮移速增加 100%（与其他移速加成加算），四者脑光消耗各 +50。",
    "native_shop_cost": null,
    "targets": [
     "zombie:雪橇车僵尸",
-    "zombie:滚桶僵尸"
+    "zombie:滚桶僵尸",
+    "zombie:投篮车僵尸",
+    "zombie:小鬼炮"
    ],
    "pvp_added": true,
    "pvp_regular_unit": true
@@ -8948,7 +8950,7 @@
    "ban_protected": false,
    "family": "zsecret:坤坤",
    "asset": "投篮车僵尸",
-   "description": "投篮车僵尸投篮速度翻倍；濒死时若篮球未投完则锁血至投完。脑光消耗 350。锁定前体：投篮车僵尸。",
+   "description": "投篮车僵尸投篮速度翻倍；濒死时若篮球未投完则锁血至投完；不再服从跟随指挥与召集旗帜，始终按进攻行动。脑光消耗 350。锁定前体：投篮车僵尸。",
    "economy": "none",
    "selectable": true,
    "dependency": "zombie:投篮车僵尸",
@@ -8972,7 +8974,7 @@
    "resolved_id": "zsecret:坤坤",
    "native_input_name": "坤坤",
    "native_source": "PvP66 zombie secret; not a spawned entity",
-   "native_description": "投篮车僵尸投篮速度翻倍；濒死时若篮球未投完则锁血至投完。脑光消耗 350。锁定前体：投篮车僵尸。",
+   "native_description": "投篮车僵尸投篮速度翻倍；濒死时若篮球未投完则锁血至投完；不再服从跟随指挥与召集旗帜，始终按进攻行动。脑光消耗 350。锁定前体：投篮车僵尸。",
    "native_shop_cost": null,
    "targets": [
     "zombie:投篮车僵尸"
@@ -10480,7 +10482,7 @@
    "ban_protected": false,
    "family": "zsecret:船锚",
    "asset": "船锚",
-   "description": "钩索僵尸脑光消耗提高至125。钩索命中、技能生效后无敌3秒。发射时对整条路径的敌方目标额外造成3伤害，锁定植物累计6伤害；魅惑后对敌方僵尸的对应伤害按10倍。",
+   "description": "钩索僵尸脑光消耗提高至125。钩索命中、技能生效后无敌3秒。钩索命中时对整条路径的敌方目标额外造成3伤害，锁定植物累计6伤害；钩索被萝卜伞挡下时不造成任何伤害。魅惑后对敌方僵尸的对应伤害按10倍。",
    "economy": "none",
    "selectable": true,
    "dependency": "zombie:钩索僵尸",
@@ -10504,7 +10506,7 @@
    "resolved_id": "zsecret:船锚",
    "native_input_name": "补光",
    "native_source": "native-secret; not a spawned entity",
-   "native_description": "钩索僵尸脑光消耗提高至125。钩索命中、技能生效后无敌3秒。发射时对整条路径的敌方目标额外造成3伤害，锁定植物累计6伤害；魅惑后对敌方僵尸的对应伤害按10倍。",
+   "native_description": "钩索僵尸脑光消耗提高至125。钩索命中、技能生效后无敌3秒。钩索命中时对整条路径的敌方目标额外造成3伤害，锁定植物累计6伤害；钩索被萝卜伞挡下时不造成任何伤害。魅惑后对敌方僵尸的对应伤害按10倍。",
    "native_shop_cost": 2000,
    "pvp_added": true
   },
@@ -10900,19 +10902,19 @@
    "range": 55,
    "speed": 0,
    "behavior": "servant",
-   "cooldown": 20.0,
+   "cooldown": 24.0,
    "category": "zombie",
    "producer": false,
    "ban_protected": false,
    "family": "zombie:克苏鲁之仆",
    "asset": "克苏鲁之仆",
-   "description": "召唤一只克苏鲁之仆（泰拉瑞亚普通模式数值：8生命、接触伤害12，对植物与戴夫伤害÷10）。无需墓碑，可在场上任意位置释放；自行追踪最近的敌人，不服从跟随／进攻指挥与召集旗帜，初始朝向由部署时的朝向决定。海陆空秘籍中算作空中单位。",
+   "description": "召唤一只克苏鲁之仆（泰拉瑞亚普通模式数值：8生命、接触伤害12，对植物与戴夫伤害÷10）。无需墓碑，可在场上任意位置释放；自行追踪最近的敌人，不服从跟随／进攻指挥与召集旗帜，初始朝向由部署时的朝向决定。海陆空秘籍中算作空中单位；与其他飞行僵尸一样会被三叶草、三叶草僵尸的风吹动。",
    "economy": "none",
    "selectable": true,
    "native_cost": 0,
    "native_hp": 8,
    "native_speed": 40,
-   "native_cd": 5000,
+   "native_cd": 6000,
    "native_name": "克苏鲁之仆",
    "native_armor_hp": 0,
    "native_handheld_hp": 0,
@@ -10928,8 +10930,8 @@
    "native_input_name": "普通僵尸",
    "native_source": "PvP75 rule; isolated native template",
    "native_cd_fallback": true,
-   "native_deploy_cd": 5000,
-   "native_description": "召唤一只克苏鲁之仆（泰拉瑞亚普通模式数值：8生命、接触伤害12，对植物与戴夫伤害÷10）。无需墓碑，可在场上任意位置释放；自行追踪最近的敌人，不服从跟随／进攻指挥与召集旗帜，初始朝向由部署时的朝向决定。海陆空秘籍中算作空中单位。",
+   "native_deploy_cd": 6000,
+   "native_description": "召唤一只克苏鲁之仆（泰拉瑞亚普通模式数值：8生命、接触伤害12，对植物与戴夫伤害÷10）。无需墓碑，可在场上任意位置释放；自行追踪最近的敌人，不服从跟随／进攻指挥与召集旗帜，初始朝向由部署时的朝向决定。海陆空秘籍中算作空中单位；与其他飞行僵尸一样会被三叶草、三叶草僵尸的风吹动。",
    "content": "克苏鲁之仆",
    "pvp_added": true,
    "ignores_command": true,
@@ -14569,7 +14571,7 @@
   "sky_max_scale": 2.0,
   "command_key": "f",
   "page_key": "tab",
-  "build": "1.6.0.75-typed.20261121-r3",
+  "build": "1.6.0.76-typed.20261122-r2",
   "ruleset": "pvp76",
   "rule_schema": 2,
   "mechanics72": {

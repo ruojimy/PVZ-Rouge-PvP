@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "defaults": {
+    "candidate": true,
+    "fixed_guard": 0,
+    "local_frame": true,
+    "metadata_view": true,
+    "scale_floor": 0.15,
+    "state_view": true,
+    "step_budget_ms": 8,
+    "step_limit": 12,
+    "view_reuse": true
+  },
+  "explicit_opt_out_passed": true,
+  "default_userdata_path_isolated": true,
+  "actual_user_data_unchanged": true,
+  "exe_sha256": "56021fa298396c2391cd3410af4be1902f71aa8a4faf4a536490a766459e0e74"
+}

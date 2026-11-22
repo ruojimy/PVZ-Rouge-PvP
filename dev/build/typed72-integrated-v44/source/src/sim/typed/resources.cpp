@@ -84,7 +84,7 @@ bool Resources::auto_shared_sky(const std::string& id){
     for(auto s:seats_for(world_.mode))if(team_of(s)==Seat::plant)seats.push_back(s);
     if(seats.size()!=2 || std::none_of(seats.begin(),seats.end(),[&](Seat s){return secret(world_.heroes.players.at(seat_index(s)).value(),"secret:阳光");}))return false;
     const auto copy=*r;expire(id);remove_motion(id);
-    for(const auto seat:seats)income(copy,seat,15.,true);
+    for(const auto seat:seats){if(secret(world_.heroes.players.at(seat_index(seat)).value(),"secret:阳光"))sun_secret_chill(seat,copy);income(copy,seat,15.,true);}
     return true;
 }
 bool Resources::touching(const MatchResource& r,const HeroPlayer& p)const{
@@ -99,26 +99,37 @@ std::optional<Seat> Resources::shared_collector(const MatchResource& r)const{
     }
     return {};
 }
+void Resources::sun_secret_chill(Seat seat,const MatchResource& r){
+    if(team_of(seat)!=Seat::plant||team_of(r.side)!=Seat::plant||world_.heroes.time>=80.)return;
+    if(r.coin.present()&&!r.coin.is_null()&&!r.coin.get().empty())return;
+    if(!world_.heroes.contains(seat))return;auto& hero=world_.heroes.hero(seat);if(hero.frame.hp.or_missing(0.)<=0.)return;
+    hero.cold_until.set(std::max(hero.cold_until.or_missing(0.),double(world_.heroes.tick)+500.));++sun_chills;
+}
 void Resources::settle(double lifetime){
+    // An automatic pickup is one the 阳光 secret made: the collector was not touching it.
+    const auto chill_if_automatic=[&](Seat seat,const MatchResource& r){
+        const auto& p=world_.heroes.players.at(seat_index(seat)).value();
+        if(secret(p,"secret:阳光")&&!touching(r,p))sun_secret_chill(seat,r);
+    };
     std::vector<std::string> ids;ids.reserve(records_.size());for(const auto& r:records_)ids.push_back(r.id);
     const bool team=world_.mode==MatchMode::duo||world_.mode==MatchMode::coop;
     for(const auto& id:ids){
         const auto* r=find(id);if(!r)throw std::logic_error("resource collection order changed");
         if(flag(r->shared)){
             if(auto_shared_sky(id))continue;
-            if(const auto collector=shared_collector(*r))collect(id,collector);
+            if(const auto collector=shared_collector(*r)){chill_if_automatic(*collector,*r);collect(id,collector);}
             else if(world_.heroes.time-r->born>lifetime)expire(id);
             continue;
         }
         const auto& player=world_.heroes.players.at(seat_index(r->side)).value();
         if(team && player.hp<=0.){
             if(world_.mode==MatchMode::coop && team_of(r->side)==Seat::plant){
-                if(const auto collector=shared_collector(*r)){collect(id,collector);continue;}
+                if(const auto collector=shared_collector(*r)){chill_if_automatic(*collector,*r);collect(id,collector);continue;}
             }
             if(world_.heroes.time-r->born>lifetime)expire(id);
             continue;
         }
-        if((team_of(r->side)==Seat::plant && secret(player,"secret:阳光")) || touching(*r,player))collect(id);
+        if((team_of(r->side)==Seat::plant && secret(player,"secret:阳光")) || touching(*r,player)){chill_if_automatic(r->side,*r);collect(id);}
         else if(world_.heroes.time-r->born>lifetime)expire(id);
     }
 }

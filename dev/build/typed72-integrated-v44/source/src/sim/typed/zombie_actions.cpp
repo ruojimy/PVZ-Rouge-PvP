@@ -135,7 +135,8 @@ void ZombieActions::vehicle(const ZombieMotionFrame& f){
         if(world_.heroes.owner(source_ref(u))==Seat::zombie){
             double sum=0.;for(const auto& entry:u->patch.speed_factors)sum+=entry.second;factor+=sum;
         }
-        p.vx=b.facing*(named(u->source.content,"小鬼炮")?n.move_speed.get():w.plk*40.*factor);
+        // PvP76 r2: 投篮车 runs at half its former 40 (sleds keep 40); 小鬼炮 uses its own halved template speed.
+        p.vx=b.facing*(named(u->source.content,"小鬼炮")?n.move_speed.get():w.plk*(sled?40.:20.)*factor);
         ++n.wheel.get();if(n.crash.get()>0.)--n.crash.get();
     }
     auto& hero=*g.position.get();bool crash=false;

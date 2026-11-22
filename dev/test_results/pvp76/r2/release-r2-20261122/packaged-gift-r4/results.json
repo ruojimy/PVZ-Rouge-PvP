@@ -1,0 +1,504 @@
+{
+  "checks": [
+    {
+      "name": "密植_啃咬_僵尸豌豆_红火_蓝火_大喷",
+      "evidence": [
+        {
+          "id": "pea.weak-first",
+          "attack": "pea",
+          "weak_last": false,
+          "earlier_hp": 1.0,
+          "later_hp": 98.0,
+          "passed": true
+        },
+        {
+          "id": "pea.weak-last",
+          "attack": "pea",
+          "weak_last": true,
+          "earlier_hp": 100.0,
+          "later_hp": -1.0,
+          "passed": true
+        },
+        {
+          "id": "fire.weak-first",
+          "attack": "fire",
+          "weak_last": false,
+          "earlier_hp": -0.33333333333333326,
+          "later_hp": 96.0,
+          "passed": true
+        },
+        {
+          "id": "fire.weak-last",
+          "attack": "fire",
+          "weak_last": true,
+          "earlier_hp": 98.66666666666667,
+          "later_hp": -3.0,
+          "passed": true
+        },
+        {
+          "id": "blue.weak-first",
+          "attack": "blue",
+          "weak_last": false,
+          "earlier_hp": -1.0,
+          "later_hp": 94.0,
+          "passed": true
+        },
+        {
+          "id": "blue.weak-last",
+          "attack": "blue",
+          "weak_last": true,
+          "earlier_hp": 98.0,
+          "later_hp": -5.0,
+          "passed": true
+        },
+        {
+          "id": "fume.weak-first",
+          "attack": "fume",
+          "weak_last": false,
+          "earlier_hp": 0.0,
+          "later_hp": 99.0,
+          "passed": true
+        },
+        {
+          "id": "fume.weak-last",
+          "attack": "fume",
+          "weak_last": true,
+          "earlier_hp": 99.0,
+          "later_hp": 0.0,
+          "passed": true
+        },
+        {
+          "id": "bite.weak-first",
+          "attack": "bite",
+          "weak_last": false,
+          "earlier_hp": 1.0,
+          "later_hp": 99.0,
+          "passed": true
+        },
+        {
+          "id": "bite.weak-last",
+          "attack": "bite",
+          "weak_last": true,
+          "earlier_hp": 100.0,
+          "later_hp": 0.0,
+          "passed": true
+        },
+        {
+          "id": "three.pumpkin-middle",
+          "hp": [
+            30.0,
+            18.0,
+            9.75
+          ],
+          "passed": true
+        },
+        {
+          "id": "three.fume-middle-death-next-hit",
+          "surviving_hp": [
+            99.0,
+            7.0
+          ],
+          "passed": true
+        },
+        {
+          "id": "three.two-hits-one-tick",
+          "surviving_hp": [
+            30.0,
+            98.0
+          ],
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "魅惑_双方防御与Boss",
+      "evidence": [
+        {
+          "target": "黑普通僵尸",
+          "charmed": false,
+          "defense": 1,
+          "loss": 95.0
+        },
+        {
+          "target": "黑普通僵尸",
+          "charmed": true,
+          "defense": 1,
+          "loss": 95.0
+        },
+        {
+          "target": "黑路障僵尸",
+          "charmed": false,
+          "defense": 1,
+          "loss": 95.0
+        },
+        {
+          "target": "黑路障僵尸",
+          "charmed": true,
+          "defense": 1,
+          "loss": 95.0
+        },
+        {
+          "target": "黑铁桶僵尸",
+          "charmed": false,
+          "defense": 1,
+          "loss": 95.0
+        },
+        {
+          "target": "黑铁桶僵尸",
+          "charmed": true,
+          "defense": 1,
+          "loss": 95.0
+        },
+        {
+          "target": "橄榄球僵尸",
+          "charmed": false,
+          "defense": 4,
+          "loss": 80.0
+        },
+        {
+          "target": "橄榄球僵尸",
+          "charmed": true,
+          "defense": 4,
+          "loss": 80.0
+        },
+        {
+          "target": "黑橄榄僵尸",
+          "charmed": false,
+          "defense": 4,
+          "loss": 80.0
+        },
+        {
+          "target": "黑橄榄僵尸",
+          "charmed": true,
+          "defense": 4,
+          "loss": 80.0
+        },
+        {
+          "target": "世界吞噬者",
+          "charmed": false,
+          "defense": 2,
+          "loss": 90.0
+        },
+        {
+          "target": "克苏鲁之眼",
+          "charmed": false,
+          "defense": 12,
+          "loss": 40.0
+        },
+        {
+          "target": "骷髅王",
+          "charmed": false,
+          "defense": 10,
+          "loss": 50.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "索敌_小体型中心",
+      "evidence": [
+        {
+          "target": "小鬼僵尸",
+          "x": 1656.0,
+          "y": 936.0
+        },
+        {
+          "target": "小型史莱姆",
+          "x": 1656.0,
+          "y": 936.0
+        },
+        {
+          "target": "海盗鹦鹉",
+          "x": 1656.0,
+          "y": 936.0
+        },
+        {
+          "target": "中型史莱姆",
+          "x": 1656.0,
+          "y": 924.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "索敌_七种植物实弹与世界吞噬者",
+      "evidence": [
+        {
+          "plant": "玉米投手",
+          "target": "小鬼僵尸",
+          "room_steps": 20,
+          "hit": true,
+          "loss": 10.0
+        },
+        {
+          "plant": "玉米投手",
+          "target": "小型史莱姆",
+          "room_steps": 20,
+          "hit": true,
+          "loss": 10.0
+        },
+        {
+          "plant": "玉米投手",
+          "target": "海盗鹦鹉",
+          "room_steps": 20,
+          "hit": true,
+          "loss": 10.0
+        },
+        {
+          "plant": "卷心菜投手",
+          "target": "小鬼僵尸",
+          "room_steps": 20,
+          "hit": true,
+          "loss": 31.089206161877883
+        },
+        {
+          "plant": "卷心菜投手",
+          "target": "小型史莱姆",
+          "room_steps": 20,
+          "hit": true,
+          "loss": 31.089206161877883
+        },
+        {
+          "plant": "卷心菜投手",
+          "target": "海盗鹦鹉",
+          "room_steps": 20,
+          "hit": true,
+          "loss": 30.832469697867054
+        },
+        {
+          "plant": "西瓜投手",
+          "target": "小鬼僵尸",
+          "room_steps": 20,
+          "hit": true,
+          "loss": 155.4460308093894
+        },
+        {
+          "plant": "西瓜投手",
+          "target": "小型史莱姆",
+          "room_steps": 20,
+          "hit": true,
+          "loss": 155.4460308093894
+        },
+        {
+          "plant": "西瓜投手",
+          "target": "海盗鹦鹉",
+          "room_steps": 20,
+          "hit": true,
+          "loss": 154.16234848933527
+        },
+        {
+          "plant": "冰瓜投手",
+          "target": "小鬼僵尸",
+          "room_steps": 20,
+          "hit": true,
+          "loss": 155.4460308093894
+        },
+        {
+          "plant": "冰瓜投手",
+          "target": "小型史莱姆",
+          "room_steps": 20,
+          "hit": true,
+          "loss": 155.4460308093894
+        },
+        {
+          "plant": "冰瓜投手",
+          "target": "海盗鹦鹉",
+          "room_steps": 20,
+          "hit": true,
+          "loss": 154.16234848933527
+        },
+        {
+          "plant": "甜椒投手",
+          "target": "小鬼僵尸",
+          "room_steps": 68,
+          "hit": true,
+          "loss": 60.0
+        },
+        {
+          "plant": "甜椒投手",
+          "target": "小型史莱姆",
+          "room_steps": 68,
+          "hit": true,
+          "loss": 60.0
+        },
+        {
+          "plant": "甜椒投手",
+          "target": "海盗鹦鹉",
+          "room_steps": 68,
+          "hit": true,
+          "loss": 60.0
+        },
+        {
+          "plant": "豌豆迫击炮",
+          "target": "小鬼僵尸",
+          "room_steps": 108,
+          "hit": true,
+          "loss": 50.04685809535658
+        },
+        {
+          "plant": "豌豆迫击炮",
+          "target": "小型史莱姆",
+          "room_steps": 107,
+          "hit": true,
+          "loss": 50.0
+        },
+        {
+          "plant": "豌豆迫击炮",
+          "target": "海盗鹦鹉",
+          "room_steps": 108,
+          "hit": true,
+          "loss": 50.0
+        },
+        {
+          "plant": "香蒲",
+          "target": "小鬼僵尸",
+          "room_steps": 48,
+          "hit": true,
+          "loss": 10.0
+        },
+        {
+          "plant": "香蒲",
+          "target": "小型史莱姆",
+          "room_steps": 48,
+          "hit": true,
+          "loss": 10.0
+        },
+        {
+          "plant": "香蒲",
+          "target": "海盗鹦鹉",
+          "room_steps": 47,
+          "hit": true,
+          "loss": 10.0
+        },
+        {
+          "plant": "豌豆射手",
+          "target": "世界吞噬者",
+          "room_steps": 14,
+          "hit": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "索敌_Boss与召唤物行列",
+      "evidence": [
+        {
+          "type": 4,
+          "fired": []
+        },
+        {
+          "type": 5,
+          "fired": [
+            "豌豆射手",
+            "玉米投手",
+            "卷心菜投手",
+            "西瓜投手",
+            "冰瓜投手",
+            "甜椒投手"
+          ]
+        },
+        {
+          "type": 13,
+          "fired": [
+            "豌豆射手",
+            "玉米投手",
+            "卷心菜投手",
+            "西瓜投手",
+            "冰瓜投手",
+            "甜椒投手"
+          ]
+        },
+        {
+          "type": 14,
+          "fired": []
+        },
+        {
+          "type": 15,
+          "fired": []
+        },
+        {
+          "type": 35,
+          "fired": []
+        },
+        {
+          "type": 36,
+          "fired": []
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "索敌_Boss各部位实弹",
+      "evidence": [
+        {
+          "id": "eye.body",
+          "type": 4,
+          "fired": true,
+          "hp_lost": 4.0,
+          "room_steps": 1,
+          "passed": true
+        },
+        {
+          "id": "eye.servant",
+          "type": 5,
+          "fired": true,
+          "hp_lost": 8.0,
+          "room_steps": 215,
+          "passed": true
+        },
+        {
+          "id": "worm.segment",
+          "type": 14,
+          "fired": true,
+          "hp_lost": 148.0,
+          "room_steps": 20,
+          "passed": true
+        },
+        {
+          "id": "skeleton.head",
+          "type": 35,
+          "fired": true,
+          "hp_lost": 5.0,
+          "room_steps": 2,
+          "passed": true
+        },
+        {
+          "id": "skeleton.hand",
+          "type": 36,
+          "fired": true,
+          "hp_lost": 143.0,
+          "room_steps": 110,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "体香_真实啃咬",
+      "evidence": true,
+      "passed": true
+    },
+    {
+      "name": "安卓调速_高负载转少量僵尸",
+      "evidence": {
+        "overloaded_scale": 0.26666666666666666,
+        "living": 1.0,
+        "draw_commands": 400,
+        "final_scale": 1.0
+      },
+      "passed": true
+    },
+    {
+      "name": "测试卡槽_跳关_石块_雪橇车",
+      "evidence": true,
+      "passed": true
+    },
+    {
+      "name": "合作_取消确认与过期配置",
+      "evidence": true,
+      "passed": true
+    }
+  ],
+  "failures": 0
+}

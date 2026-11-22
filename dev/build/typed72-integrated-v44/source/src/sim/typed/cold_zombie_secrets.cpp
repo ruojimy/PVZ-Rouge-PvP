@@ -6,13 +6,20 @@ bool one(std::string_view s,std::initializer_list<std::string_view> list){return
 bool water(std::string_view s){return one(s,{"zombie:潜水僵尸","zombie:海豚僵尸","zombie:鸭子普通僵尸","zombie:鸭子路障僵尸","zombie:鸭子铁桶僵尸","zombie:滚桶僵尸","zombie:钩索僵尸","zombie:海盗船长","zombie:小鬼炮"});}
 bool air(std::string_view s){return one(s,{"zombie:海盗鹦鹉","zombie:乌鸦","zombie:气球僵尸","zombie:飞贼僵尸","zombie:克苏鲁之仆"});}  // PvP75: servant flies
 bool yes(const Field<bool>& f){return f.present()&&!f.is_null()&&f.get();}
+// PvP76 r2: co-op (and solo PvE) carry the run's zombie secrets on the dormant zombie seat,
+// which is not one of the seated seats; it still holds them for every team-wide rule.
+std::vector<Seat> secret_seats(MatchMode mode){
+    const auto seated=seats_for(mode);std::vector<Seat> out(seated.begin(),seated.end());
+    if((mode==MatchMode::pve||mode==MatchMode::coop)&&std::find(out.begin(),out.end(),Seat::zombie)==out.end())out.push_back(Seat::zombie);
+    return out;
+}
 }
 bool ColdZombieSecrets::seat_has(Seat seat,std::string_view key)const{
     if(team_of(seat)!=Seat::zombie)return false;const auto& player=world_.heroes.players[seat_index(seat)];if(!player)return false;
     return std::find(player->secrets.begin(),player->secrets.end(),"zsecret:"+std::string(key))!=player->secrets.end();
 }
-bool ColdZombieSecrets::has(std::string_view key)const{for(Seat seat:seats_for(world_.mode))if(seat_has(seat,key))return true;return false;}
-bool ColdZombieSecrets::enabled()const{for(Seat seat:seats_for(world_.mode))if(team_of(seat)==Seat::zombie)if(const auto& p=world_.heroes.players[seat_index(seat)])for(const auto& key:p->secrets)if(key.starts_with("zsecret:"))return true;return false;}
+bool ColdZombieSecrets::has(std::string_view key)const{for(Seat seat:secret_seats(world_.mode))if(seat_has(seat,key))return true;return false;}
+bool ColdZombieSecrets::enabled()const{for(Seat seat:secret_seats(world_.mode))if(team_of(seat)==Seat::zombie)if(const auto& p=world_.heroes.players[seat_index(seat)])for(const auto& key:p->secrets)if(key.starts_with("zsecret:"))return true;return false;}
 bool ColdZombieSecrets::last_stand()const{for(const auto& until:world_.heroes.last_stand)if(until)return true;return false;}
 void ColdZombieSecrets::configure_locked(){
     trinity_.fill(false);
@@ -34,7 +41,7 @@ void ColdZombieSecrets::on_spawn(const ZombieRef& z,const ColdCard& card,const C
     if(!enabled()||card.side!="zombie"||z->protection.grave)return;const auto& key=card.base_id;const Seat seat=z->source.seat.value_or(Seat::zombie);
     if(key=="zombie:萝卜伞僵尸"&&seat_has(seat,"萝卜伞")){scale_hp(z,2.);z->patch.umbrella_secret.set(true);}
     if(has("散弹攻击")&&key=="zombie:机枪僵尸")scale_hp(z,2.);
-    if(has("大运！小子")&&one(key,{"zombie:雪橇车僵尸","zombie:滚桶僵尸"}))scale_speed(z,"大运",1.);
+    if(has("大运！小子")&&one(key,{"zombie:雪橇车僵尸","zombie:滚桶僵尸","zombie:投篮车僵尸","zombie:小鬼炮"}))scale_speed(z,"大运",1.);  // PvP76 r2: carts
     if(has("体育生")&&one(key,{"zombie:撑杆跳僵尸","zombie:橄榄球僵尸","zombie:黑撑杆僵尸","zombie:黑橄榄僵尸"})){
         scale_hp(z,1.25);scale_speed(z,"体育生",.25);if(key=="zombie:黑橄榄僵尸")z->expansion.charge_cd.set(750.);
     }

@@ -24,7 +24,7 @@ TILE_HZ = 250
 SUBSIDY_BONUS = 15          # PvP75 补贴
 SUBSIDY_DELAY_TICKS = 6 * 250
 
-SPRINT = ("zombie:雪橇车僵尸", "zombie:滚桶僵尸")
+SPRINT = ("zombie:雪橇车僵尸", "zombie:滚桶僵尸", "zombie:投篮车僵尸", "zombie:小鬼炮")  # PvP76 r2: carts
 ATHLETES = ("zombie:撑杆跳僵尸", "zombie:橄榄球僵尸", "zombie:黑撑杆僵尸", "zombie:黑橄榄僵尸")
 GIANTS = ("zombie:巨人僵尸", "zombie:红眼巨人", "zombie:角斗士巨人")
 CROWD = ("zombie:普通僵尸", "zombie:鸭子普通僵尸", "zombie:黑普通僵尸")

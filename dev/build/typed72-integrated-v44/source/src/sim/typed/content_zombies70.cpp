@@ -116,17 +116,25 @@ std::optional<ContentTarget> ContentZombies70::hook_target(const ZombieRef& unit
 bool ContentZombies70::hook(const ZombieRef& unit) {
     const auto selected=hook_target(unit);if(!selected)return false;
     const auto start=targets_.point(CombatTarget::zombie(unit)),end=targets_.point(*selected);const auto source=snapshot(unit);
-    const bool anchor=seat_has(unit,"zsecret:船锚");const double firing_direction=unit->body.facing;
-    if(anchor)for(const auto& candidate:queries_.enemies(source)) {
-        if(!alive(candidate) || (candidate!=*selected && !targets_.contact(candidate,start,{wrap_delta(start.x,end.x,world_.world_width.get()),end.y-start.y})))continue;
-        const auto* body=std::get_if<CombatTarget>(&candidate);
-        targets_.damage(source,candidate,body && !body->is_hero()?30.:3.,firing_direction,false,HeroHit::anchor);
-    }
+    // PvP76 r2: 船锚's path damage is settled when the hook lands (anchor_path), so a hook
+    // turned back by a 萝卜伞 deals no damage at all (neither the target nor the path).
+    const bool anchor=seat_has(unit,"zsecret:船锚");(void)end;
     auto shot=std::make_shared<ContentProjectile>();shot->kind.set("hook");shot->motion={start.x,start.y,0.,0.};
     shot->owner.set(world_.heroes.owner(source).value());shot->source=unit->source.id;shot->seat.set(source->seat.value());
     shot->direction=unit->body.facing;shot->target.set(world_.heroes.source_id(queries_.source(*selected)));shot->anchor.set(anchor);shot->defused.set(false);
     world_.content_projectiles.shots.push_back(shot);
     services_.zombie70_event({Zombie70Event::Kind::hook_fired,unit->source.id,{},shot->target});return true;
+}
+// 船锚: every enemy on the straight path from the hook zombie to the landed target takes
+// 3 (30 against zombies); the target itself takes it too, then the ordinary hook hit.
+void ContentZombies70::anchor_path(const ZombieRef& unit,const ContentTarget& selected,Point end,double direction) {
+    const auto source=snapshot(unit);const auto start=targets_.point(CombatTarget::zombie(unit));
+    const Point span{wrap_delta(start.x,end.x,world_.world_width.get()),end.y-start.y};
+    for(const auto& candidate:queries_.enemies(source)) {
+        if(!alive(candidate) || (candidate!=selected && !targets_.contact(candidate,start,span)))continue;
+        const auto* body=std::get_if<CombatTarget>(&candidate);
+        targets_.damage(source,candidate,body && !body->is_hero()?30.:3.,direction,false,HeroHit::anchor);
+    }
 }
 ContentZombies70::Graves ContentZombies70::graves()const {
     Graves result;const double tile=world_.runtime.tile;
@@ -243,11 +251,12 @@ void ContentZombies70::projectiles() {
             if(!hit || !source || !alive(*hit) || !alive(*source) || target_owner(world_,*hit)==shot->owner.get())continue;
             const auto goal=targets_.point(*hit);const double dx=wrap_delta(point.x,goal.x,width),dy=goal.y-point.y,distance=std::hypot(dx,dy),step=tile*.16;
             if(distance>step){point.x=py::mod(point.x+dx/distance*step,width);point.y+=dy/distance*step;}else {point.x=goal.x;point.y=goal.y;}
-            if(reflect(shot)){kept.push_back(shot);continue;}
+            if(reflect(shot)){kept.push_back(shot);continue;}  // PvP76 r2: blocked by a 萝卜伞 = no damage at all
             if(distance<=step) {
                 auto packet=std::make_shared<AttackSource>();packet->owner.set(std::string(seat_name(shot->owner.get())));packet->id=shot->source;
-                const auto* body=std::get_if<CombatTarget>(&*hit);targets_.damage(packet,*hit,body?30.:3.,shot->direction,false,HeroHit::hook);
                 const auto* owner=std::get_if<CombatTarget>(&*source);if(!owner || owner->is_hero())throw std::logic_error("hook source requires native zombie");
+                if(yes(shot->anchor))anchor_path(owner->unit,*hit,goal,shot->direction);
+                const auto* body=std::get_if<CombatTarget>(&*hit);if(alive(*hit))targets_.damage(packet,*hit,body?30.:3.,shot->direction,false,HeroHit::hook);
                 const auto* plant=std::get_if<PlantRef>(&*hit);
                 owner->unit->content70.hook_pull.set({goal.x,plant?((*plant)->cell.y+1.)*tile:body->unit->body.motion.get().y});
                 if(yes(shot->anchor))owner->unit->protection.anchor_until.set(double(world_.heroes.tick)+750.);

@@ -144,7 +144,7 @@ int main(int argc,char** argv){
             for(int i=0;i<3;++i){auto e=deploy();need(e.empty()||e=="None","zero-cooldown deploy "+std::to_string(i)+": "+e);d.frame(1);need(cd("zombie:克苏鲁之仆")<=0.,"cooldown started while 0 cooldown");}
             d.cheat("zombie",{{"op","zero_cooldown"}});d.frame(1);need(!d.players()["zombie"].value("test_zero_cooldown",false),"flag kept after switching off");
             auto e=deploy();need(e.empty()||e=="None","normal deploy: "+e);d.frame(1);const double left=cd("zombie:克苏鲁之仆");
-            need(left>18.&&left<=20.01,"normal cooldown not restored: "+std::to_string(left));
+            need(left>22.&&left<=24.01,"normal cooldown not restored: "+std::to_string(left));  // PvP76 r2: 24 s
             return J{{"cooldown_after_off",left}};
         });
         check("replay_normalize_same_pixels",[&]()->J{

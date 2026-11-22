@@ -42,6 +42,9 @@ private:
     std::optional<ContentTarget> target(const ZombieRef&,bool closest=false);
     std::string id(const ContentTarget&)const;
     void step(const ZombieRef&);
+    // PvP76 r2: 克苏鲁之仆 takes blover / 三叶草僵尸 wind like the other flyers.
+    void absorb_wind(const ZombieRef&);
+    void publish_wind(const ZombieRef&);
     void eye(const ZombieRef&,Point);
     void skeleton(const ZombieRef&,Point);
     void hand(const ZombieRef&,Point);

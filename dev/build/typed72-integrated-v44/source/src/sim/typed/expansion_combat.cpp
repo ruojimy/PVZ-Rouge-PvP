@@ -20,6 +20,9 @@ void ExpansionCombat::configure_locked_secrets() {
             paralysis_secret=paralysis_secret||secret(player,"secret:麻痹");
         }else silence_secret=silence_secret||secret(player,"zsecret:沉默");
     }
+    // PvP76 r2: co-op / PvE zombie secrets ride on the dormant zombie seat.
+    if((world_.mode==MatchMode::pve||world_.mode==MatchMode::coop)&&world_.heroes.players.at(seat_index(Seat::zombie)))
+        silence_secret=silence_secret||secret(*world_.heroes.players.at(seat_index(Seat::zombie)),"zsecret:沉默");
 }
 void ExpansionCombat::configure(const ZombieRef& unit,const ExpansionVariantSetup& setup) {
     unit->body.hp=setup.hp;unit->body.armor=setup.armor;unit->body.armor_hp=setup.armor_hp;

@@ -114,9 +114,23 @@ void TerrariaBosses::advance(){
  {const char* v=std::getenv("PVP76_TERRARIA_CACHE");if(!(v&&std::string(v)=="0"))enemy_cache_=enemies();}struct ClearCache{std::optional<std::vector<ContentTarget>>& c;~ClearCache(){c.reset();}} clear_cache{enemy_cache_};
  auto units=*world_.targets;for(const auto& t:units)if(t.unit&&t.unit->terraria&&t.unit->body.hp>0.){
   const auto& u=t.unit;auto [last,first]=observed_hp_.try_emplace(u->identity.value,u->body.hp);
-  if(!first&&u->body.hp<last->second){sound(u,u->terraria->type>=35?"NPC_Hit_2":"NPC_Hit_1");feedback(u,last->second-u->body.hp);}last->second=u->body.hp;step(u);
+  if(!first&&u->body.hp<last->second){sound(u,u->terraria->type>=35?"NPC_Hit_2":"NPC_Hit_1");feedback(u,last->second-u->body.hp);}last->second=u->body.hp;
+  if(u->terraria->type==5)absorb_wind(u);step(u);if(u->terraria->type==5)publish_wind(u);
  }reap();
  std::erase_if(contact_until_,[&](const auto& item){return item.second<frames_-60;});
+}
+// PvP76 r2: wind pushes (plant blover, 三叶草僵尸) add to the motion velocity between AI
+// frames, which the next frame used to overwrite. A servant now carries that change
+// into its own velocity, capped like a size-2 flyer (parrot / crow) under the blover.
+void TerrariaBosses::absorb_wind(const ZombieRef& u){
+ auto& n=*u->terraria;const auto& m=u->body.motion.get();if(!n.wind_ref)return;
+ const double dvx=m.vx-n.wind_vx,dvy=m.vy-n.wind_vy;if(std::abs(dvx)<1e-12&&std::abs(dvy)<1e-12)return;
+ const double k=250./(60.*scale());n.vx+=dvx*k;n.vy+=dvy*k;
+ const double cap=std::max(1.,world_.wind_environment.zombie_speed_max)*36./8.*k;
+ if(dvx>0.&&n.vx>cap)n.vx=std::max(cap,n.vx-dvx*k);else if(dvx<0.&&n.vx< -cap)n.vx=std::min(-cap,n.vx-dvx*k);
+}
+void TerrariaBosses::publish_wind(const ZombieRef& u){
+ auto& n=*u->terraria;if(n.removed)return;const auto& m=u->body.motion.get();n.wind_vx=m.vx;n.wind_vy=m.vy;n.wind_ref=true;
 }
 void TerrariaBosses::step(const ZombieRef& u){auto& n=*u->terraria;u->source.charmed.erase();const Point before=center(u);auto t=target(u,n.type==5);Point d=t?delta(center(u),hits_.point(*t)):Point{0.,500.};
  const auto parent=n.parent.lock();const bool hand_retreat=n.type==36&&alive(parent)&&parent->terraria->ai[1]==3.;

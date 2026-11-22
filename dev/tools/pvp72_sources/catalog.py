@@ -708,6 +708,25 @@ RULES['ruleset'] = 'pvp76'
 RULES['mechanics76'] = dict(defense_floor=.5, laser_focus_missing=.02, guard_secret_defense=600., guard_secret_cooldown_ticks=500,
     gloom_vine_hero=2.5, giants_bosses_inedible=True, laser_aura=True, pressure_slows=True)
 
+# PvP76 r2 (2026-11-22, second request): numbers and text; the rules live in the typed kernel.
+ZOMBIE_COOLDOWNS['zombie:克苏鲁之仆'] = 24.
+CARDS['zombie:克苏鲁之仆'].update(cooldown=24., native_cd=6000, native_deploy_cd=6000)
+def _pvp762_note(key, note, fields=('description', 'native_description')):
+    for _field in fields:
+        _text = CARDS[key].get(_field) or ''
+        CARDS[key][_field] = _text + ('' if not _text or _text[-1] in '。；！？.!?' else '。') + note
+for _field in ('description', 'native_description'):
+    CARDS['zombie:克苏鲁之仆'][_field] = CARDS['zombie:克苏鲁之仆'][_field].replace(
+        '海陆空秘籍中算作空中单位。', '海陆空秘籍中算作空中单位；与其他飞行僵尸一样会被三叶草、三叶草僵尸的风吹动。')
+    CARDS['zombie:小鬼炮'][_field] = CARDS['zombie:小鬼炮'][_field].replace('移速快速，沿用投篮车移动模板', '移速为撑杆跳僵尸的一半，沿用投篮车移动模板')
+    CARDS['zsecret:船锚'][_field] = (
+        '钩索僵尸脑光消耗提高至125。钩索命中、技能生效后无敌3秒。钩索命中时对整条路径的敌方目标额外造成3伤害，'
+        '锁定植物累计6伤害；钩索被萝卜伞挡下时不造成任何伤害。魅惑后对敌方僵尸的对应伤害按10倍。')
+    CARDS['secret:阳光'][_field] = ('全地图自动收集植物方阳光，包括天降、植物生产和补光掉落；不受戴夫距离限制。'
+                                  '开局前80秒内，每次自动收集阳光会使植物戴夫感冒2秒。')
+_pvp762_note('zombie:投篮车僵尸', '移速为原来的一半。携带坤坤秘籍时不服从跟随与召集旗帜，始终按进攻行动。')
+# 大运！小子 now names the carts in zombie_secret_catalog.py (text, targets, COST_ADD).
+
 
 def digest(value):
     return hashlib.sha256(json.dumps(value,sort_keys=True,ensure_ascii=False,separators=(",",":"),allow_nan=False).encode("utf-8")).hexdigest()

@@ -1087,7 +1087,9 @@ class Room:
             if not per_seat.get(seat):
                 per_seat[seat]=list(self.pve["deck"])
         self.decks={seat:list(per_seat[seat]) for seat in plant_seats}
-        self.decks["zombie"]=[]
+        # PvP76 r2: a co-op day's dormant zombie seat carries the run's zombie secrets
+        # (native schedule: src/sim/pvp/hand/pvp76r2_coop.cpp coop_battle_secrets).
+        self.decks["zombie"]=list(self.pve.get("coop_zombie_secrets") or []) if self.mode=="coop" else []
         widest=max(len(per_seat[seat]) for seat in plant_seats)
         rules=pve_rules(self.rules,per_seat[plant_seats[0]],self.pve.get("start_sun",150),slots=widest)
         director=WaveDirector(self.pve["day"],self.pve["seed"],coop=len(self.seat_list())>1,

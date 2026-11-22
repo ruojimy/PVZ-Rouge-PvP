@@ -22,6 +22,11 @@ bool ContentZombies::custom(std::string_view name)const {
 bool ContentZombies::follow(const CombatZombie& unit)const {
     return commands_.for_owner(world_.mode,unit.source.seat)==PathMode::follow_hero;
 }
+bool ContentZombies::kunkun(const CombatZombie& unit)const {
+    if(unit.source.charmed.present()||!named(unit.protection.card,"zombie:投篮车僵尸"))return false;
+    const auto seat=unit.source.seat.value_or(Seat::zombie);const auto& player=world_.heroes.players.at(seat_index(seat));
+    return player&&std::find(player->secrets.begin(),player->secrets.end(),"zsecret:坤坤")!=player->secrets.end();
+}
 bool ContentZombies::rally(const CombatZombie& unit)const {
     return rally_.for_owner(world_.mode,unit.source.seat).has_value();
 }
@@ -48,23 +53,25 @@ void ContentZombies::cart_gate(const ZombieRef& unit,std::string_view name) {
     auto& state=unit->content;auto& body=unit->body;auto& native=unit->native;
     if(!state.player_position.present())state.player_position=world_.heroes.globals.position;
     const bool charmed=unit->source.charmed.present();
-    Seat side=charmed || follow(*unit)?Seat::zombie:Seat::plant;
+    // PvP76 r2: with 坤坤 the cart ignores the follow command and the rally flag (always attacks).
+    const bool unruly=kunkun(*unit);const bool following=follow(*unit) && !unruly;
+    Seat side=charmed || following?Seat::zombie:Seat::plant;
     if(side==Seat::zombie)side=following_seat(*unit);
-    const bool has_rally=rally(*unit) && !charmed;
+    const bool has_rally=rally(*unit) && !charmed && !unruly;
     if(!has_rally)world_.heroes.globals.position.set(std::make_shared<Motion>(*world_.heroes.hero(side).frame.position.get()));
     const auto& hero=*world_.heroes.globals.position.get();
     const auto goal=has_rally?destination(*unit):Point{hero.x,hero.y};
     const double tile=world_.runtime.tile,dx=wrap_delta(body.motion.get().x,goal.x,world_.world_width.get());
-    if(name=="小鬼炮" || follow(*unit) || has_rally) {
-        const double stopping=has_rally?.4:follow(*unit) && !charmed?2.:20.;
+    if(name=="小鬼炮" || following || has_rally) {
+        const double stopping=has_rally?.4:following && !charmed?2.:20.;
         body.facing=dx>=0.?1.:-1.;native.advance.set(std::abs(dx)>stopping*tile?2.:0.);
         if(native.advance.get()==0.)body.motion.get().vx=0.;
     }
     if(named(unit->protection.card,"zombie:投篮车僵尸") && unit->protection.basketball.or_missing(0.)<=0.) {
         unit->protection.basketball.set(0.);native.shooting.set(0.);native.basketball_cd.set(1e9);
-        if(!follow(*unit) && !has_rally)native.advance.set(2.);
+        if(!following && !has_rally)native.advance.set(2.);
     }
-    if((follow(*unit) || has_rally) && !charmed && name!="小鬼炮") {
+    if((following || has_rally) && !charmed && name!="小鬼炮") {
         state.saved_basketball_cd.set(native.basketball_cd.or_missing(0.));native.basketball_cd.set(1e9);
     }
 }

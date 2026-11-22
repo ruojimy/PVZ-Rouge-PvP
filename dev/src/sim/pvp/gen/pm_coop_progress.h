@@ -15,6 +15,7 @@ struct C_CoopProgress : PyObj {
     V a_campaigns;
     V a_income;
     V a_applied;
+    V a_zombie_from;  // PvP76 r2 zombie secret start (not a Python slot)
     const char* type_name() const override { return "CoopProgress"; }
     bool isa(const char* c) const override;
     V* slot(Sym name) override;

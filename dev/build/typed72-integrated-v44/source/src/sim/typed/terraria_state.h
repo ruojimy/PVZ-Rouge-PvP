@@ -14,5 +14,7 @@ struct TerrariaNpcState {
     std::weak_ptr<CombatZombie> ahead,behind,parent;
     std::string target_id;
     std::map<std::string,int64_t> contact_ready;
+    // PvP76 r2: the motion velocity this NPC last published (wind absorption baseline).
+    double wind_vx=0.,wind_vy=0.;bool wind_ref=false;
 };
 }

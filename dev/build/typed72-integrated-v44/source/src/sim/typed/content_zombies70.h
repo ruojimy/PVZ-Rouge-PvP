@@ -43,6 +43,7 @@ public:
     bool airdrop_child(const ScriptedSpawnOrigin&);
     std::optional<ContentTarget> hook_target(const ZombieRef&);
     bool hook(const ZombieRef&);
+    void anchor_path(const ZombieRef&,const ContentTarget& selected,Point end,double direction);
     Graves graves()const;
     bool grave_cell(Cell,const Graves&)const;
     std::optional<Cell> bone_cell(const ZombieRef&);

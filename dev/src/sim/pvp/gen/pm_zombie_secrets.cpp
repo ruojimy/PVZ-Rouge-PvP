@@ -1804,7 +1804,7 @@ void init() {
     py::note_module_loaded("pvp.zombie_secrets");
     py::init_deps_zombie_secrets();
     pm_zombie_secrets::TILE_HZ = V(250.0);
-    pm_zombie_secrets::SPRINT = V::tuple({SV("zombie:雪橇车僵尸"), SV("zombie:滚桶僵尸")});
+    pm_zombie_secrets::SPRINT = V::tuple({SV("zombie:雪橇车僵尸"), SV("zombie:滚桶僵尸"), SV("zombie:投篮车僵尸"), SV("zombie:小鬼炮")});  // PvP76 r2
     pm_zombie_secrets::ATHLETES = V::tuple({SV("zombie:撑杆跳僵尸"), SV("zombie:橄榄球僵尸"), SV("zombie:黑撑杆僵尸"), SV("zombie:黑橄榄僵尸")});
     pm_zombie_secrets::GIANTS = V::tuple({SV("zombie:巨人僵尸"), SV("zombie:红眼巨人"), SV("zombie:角斗士巨人")});
     pm_zombie_secrets::CROWD = V::tuple({SV("zombie:普通僵尸"), SV("zombie:鸭子普通僵尸"), SV("zombie:黑普通僵尸")});

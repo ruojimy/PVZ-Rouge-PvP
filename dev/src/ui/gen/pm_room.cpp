@@ -8,6 +8,7 @@
 #include "sim/pvp/gen/pm_audit_log.h"
 #include "sim/pvp/gen/pm_catalog.h"
 #include "sim/pvp/gen/pm_coop_progress.h"
+#include "sim/pvp/hand/pvp76r2_coop.h" // PvP76 r2 coop include
 #include "sim/pvp/shim/pm_cppcore.h"
 #include "sim/pvp/gen/pm_custom_maps.h"
 #include "ui/gen/pm_draft_advisor.h"
@@ -2352,7 +2353,7 @@ V C_Room::m__start_pve(const Args& A) {
         }
     }}
     a_decks = [&]() -> V { V out_ = V::dict(); V L_seat; { V it3_ = py::iter_list(L_plant_seats); for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) { L_seat = it3_.idx(int64_t(i3_)); out_.at(L_seat) = py::list_it(rd(L_per_seat, L_seat)); }}return out_; }();
-    pvz::setitem(a_decks, SV("zombie"), V::list({}));
+    pvz::setitem(a_decks, SV("zombie"), (a_mode == SV("coop")) ? pvz::pvp76r2::coop_battle_secrets(a_pve) : V::list({}));  // PvP76 r2 coop zombie secrets
     L_widest = py::max_it([&]() -> V { V out_ = V::list(); V L_seat; { V it4_ = py::iter_list(L_plant_seats); for (size_t i4_ = 0; i4_ < it4_.len(); ++i4_) { L_seat = it4_.idx(int64_t(i4_)); out_.append(py::len(rd(L_per_seat, L_seat))); }}return out_; }(), py::Key(), V());
     L_rules = (L_pve_rules).call(Args({a_rules, rd(L_per_seat, rd(L_plant_seats, V(0.0))), py::m_get(a_pve, SV("start_sun"), V(150.0))}, {{SY("slots"), L_widest}}));
     L_director = (L_WaveDirector).call(Args({rd(a_pve, SV("day")), rd(a_pve, SV("seed"))}, {{SY("coop"), V((py::len([&]() -> V { if (V* override_ = this->find_dyn(SY("seat_list"))) return override_->call(Args{}); return m_seat_list(Args{}); }()) > V(1.0)))}, {SY("max_zombies"), py::m_get(a_pve, SV("max_zombies"), py::m_get(a_rules, SV("pve_max_zombies"), V(40.0)))}}));

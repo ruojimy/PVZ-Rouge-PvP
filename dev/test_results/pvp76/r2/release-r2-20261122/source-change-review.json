@@ -1,0 +1,218 @@
+{
+  "base_revision": "pvp76-r1",
+  "revision": "pvp76-r2",
+  "reviewed_files": {
+    "CMakeLists.txt": {
+      "pvp76-r1": "6145d5fd45911784fd3ff56ca30ae616aca01d45a566c584f01dc23c92eb83c6",
+      "pvp76-r2": "67d30e026f70a5c58e2e58b0765f8c399a94821ae7624056eef973c284860e70"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/cold_catalog_data.cpp": {
+      "pvp76-r1": "a66b5219eea33e76f0a15ccd746562308be9b40f2b3d1dd0612d8b39cd8ab375",
+      "pvp76-r2": "765334f2e54ccca662b9e5fbece479db7e844e971f7000f01da18c5e98463c79"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/cold_zombie_secrets.cpp": {
+      "pvp76-r1": "e99a26b79de8e6b968fad3f29cd805f17d5d5d9eeab0267df317a6b2b55dfeda",
+      "pvp76-r2": "fe28230a0405cc850c9fcee655134c6eb36eae52ae72ec13193523a87bd3c503"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/content_admission.cpp": {
+      "pvp76-r1": "8f41a455c3d50fe67a8342bc18c3a77f4e512b7e488c514d4eb75ec1b0ce8f4d",
+      "pvp76-r2": "42d53d1cad377d43ffaf81e048a3d0c62f41f4e37fed3a36f4fe22962c4cc100"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/content_zombies.cpp": {
+      "pvp76-r1": "ce89fcf71850a9a5ea7a7502bb1825eaa34d2329651f05edcceeeb859c129b00",
+      "pvp76-r2": "9da06d30dbad04f085e89641c6cd48c864880403c39687445c636c3d0f200be0"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/content_zombies.h": {
+      "pvp76-r1": "325f98eaa69f0ad1759e2ffeb2ec829784d312fd6b82d9a446d188be46785a4b",
+      "pvp76-r2": "904fd162296c0a007c4a9bf980d78de599cb0b9017c062bb01b4abc7a17e26ee"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/content_zombies70.cpp": {
+      "pvp76-r1": "f3d285c86f422d523214698567056612906ec98db8f67e97be374304484d615b",
+      "pvp76-r2": "919fe255154b1d146c29c21d3dcca34db3ac52c9fbbe0f859c890c30db317603"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/content_zombies70.h": {
+      "pvp76-r1": "e7b0f51b51405d80058c53442138b7eda20a87af220d37032501a1b2ac68d76c",
+      "pvp76-r2": "40b86dcdb0dfa126aa95111b4cdaad1d8f9b515667f3656d6485aa2dfbfa09a8"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/expansion_combat.cpp": {
+      "pvp76-r1": "2d590fb83f14e66145eb4332ccd1871ab8294d010f6700471b84fe65b3a07c82",
+      "pvp76-r2": "226b7c1d7088216025298d31465335656ab1d4dd99a0a41f80e3454428eb42a5"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/resources.cpp": {
+      "pvp76-r1": "e065c231999c85dd8592bde68fa8fdea80ed0fdc499c0f7809c4923568623eb3",
+      "pvp76-r2": "a05c777f8b483b18649c36b8490b625312f014fb299933babb0b0db2602d0b55"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/resources.h": {
+      "pvp76-r1": "3c657fcaba351d35e5031dda83f708dfde6043b3d10fd67e030c4d55a907f5fb",
+      "pvp76-r2": "0a0acf3ba56e6440c4e5e92d97f2b69313982c85abdfd641717c81166ab28ec4"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/terraria_bosses.cpp": {
+      "pvp76-r1": "e313fe9b98c8e33199f8d4ffb829f40cea0fefb6ad40a9e8fafb276d11dfa249",
+      "pvp76-r2": "2da5659424e2d53bbc1a6103285463de4b15eace0d29aa4a5d53d55af6b2f0bf"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/terraria_bosses.h": {
+      "pvp76-r1": "5f88a43d7375abecef9c0cc7ca9b2265f3bee2d27f801fb9930d999da16e5d00",
+      "pvp76-r2": "7acc6bdb922163068149517b4f4d0bfecc48252c1f24d08f2678d68066dda815"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/terraria_state.h": {
+      "pvp76-r1": "905849fb806d4ab863cddffd06421ac208e850b71ea99dcb4e55d7949f32b743",
+      "pvp76-r2": "df2d14a2eb7a7cd87d2f65bdf68829d6c8b7394d72a3039b106550b354fae393"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/zombie_actions.cpp": {
+      "pvp76-r1": "70cbb655282a7451fd22086c37373e12c66f2f7b8e008b15fc0d593c56dd0079",
+      "pvp76-r2": "220965de4ba06b256b9d94d27b73b5b436148cc08371ade7503e1d02338063e1"
+    },
+    "build/typed72-match-v1/match_probe.cpp": {
+      "pvp76-r1": "d7cd7984f05ed57748d2702caa97d273e18f62ffd9f6365f060a90bbfb58c0ff",
+      "pvp76-r2": "ebf88fc535f840d133f06e81c1227106c9734a016be00f370a6daa8693df1354"
+    },
+    "extract/data/__init__.json": {
+      "pvp76-r1": "86bbb0ec5fb78d2af5844f801e864857b334c6c4d646bb8ff4f685320a6e0f86",
+      "pvp76-r2": "944c1c475c69338019166135772d9949649321741477231c7535a47a6e34b496"
+    },
+    "extract/data/catalog.json": {
+      "pvp76-r1": "18209789adbb26ad4af04d64b2b171a555f863063d7b87537fe72da17c296836",
+      "pvp76-r2": "583fdcb5f83f4a9d36e2a9aef6d5a33551ee8df385961be1009fdb9e60609149"
+    },
+    "extract/data/zombie_secret_catalog.json": {
+      "pvp76-r1": "904b13634a5a3b25dd6b8300e1ac9f81b99dda0b7eb8a18461645c50c00711ac",
+      "pvp76-r2": "22839f3a48d734840682b35113dc54ef2ba4782652f6f511f28cb3aa499a20a6"
+    },
+    "extract/data/zombie_secrets.json": {
+      "pvp76-r1": "2c9406e83b086885fd5183dd64773013cc484df31153010f726cc7efa995d1b4",
+      "pvp76-r2": "08edf423241bdc12215300cdd0288a0f7c29fa17ef613a7a484d103f4412b04d"
+    },
+    "src/sim/pvp/gen/pm_catalog.cpp": {
+      "pvp76-r1": "6b45370cf0fba3aea89f16170fd8e946d050bb154625ac3fc00ac21ccd60cad9",
+      "pvp76-r2": "416e6f23b851bb87f1dbbc0854f4560e533b5e29fb8874c2281fc5e29f2380b5"
+    },
+    "src/sim/pvp/gen/pm_coop_progress.cpp": {
+      "pvp76-r1": "1a9da5c785fd9263675183cefd4bea580956a4fa298385f062db18128e37f105",
+      "pvp76-r2": "3c971f7b9a3d0329212399b772938a6ef605f805579adc683a752dcf433d0f21"
+    },
+    "src/sim/pvp/gen/pm_coop_progress.h": {
+      "pvp76-r1": "cd0ed56bbeee5fc2e3fdba4edaab6649a8898c7e490db76cd8ec098b667b4da6",
+      "pvp76-r2": "85d73ca506dfed27209228bcfdda97e7f752d2114f0802875232eeb5267e47c5"
+    },
+    "src/sim/pvp/gen/pm_zombie_secret_catalog.cpp": {
+      "pvp76-r1": "f600f04400c11dcacbbee4b0ec940f2aceba26e2471659345580ca7e356b8ffb",
+      "pvp76-r2": "f6146aaaba031dc3e944727df80d8a113dd35e099396fec5f4d1c820c00c9a26"
+    },
+    "src/sim/pvp/gen/pm_zombie_secrets.cpp": {
+      "pvp76-r1": "b34499c72940cb7ab766c12b0fc4b7d0c93ba93a31b21ab97bcb653a261c97c3",
+      "pvp76-r2": "5ddb22ee5aa967855ad744bfd65040665a97d0904e5029716716cb5257be7137"
+    },
+    "src/sim/typed72_app/composition/MANIFEST.json": {
+      "pvp76-r1": "3253a2000eca0911d314547c3ed059af44e796f21cd4a5c9242cb199bbbfad0a",
+      "pvp76-r2": "6fabfc09142884e3b5805ab607d0e79544eddc361dcdc3b59cfa1b48146b0380"
+    },
+    "src/sim/typed72_app/composition/match_probe.cpp": {
+      "pvp76-r1": "9048e362ff46c54dbb42b15447f5b76b62320c697e6b4a72bd6afe1f5253ca60",
+      "pvp76-r2": "f353b30a118fd4b4e947e2cb157f7466a4e45d730b5ede417ed82e625a02e61e"
+    },
+    "src/ui/gen/pm_app.cpp": {
+      "pvp76-r1": "c3bd620cdcd7a38e3b2de5808a6376091fd3f162457765e01f8f78c8a8f851ad",
+      "pvp76-r2": "4e61d82b58544c790faae0dca84ba1c0be61ca0bc2d42cd2ce4053697e79986d"
+    },
+    "src/ui/gen/pm_pve_ui.cpp": {
+      "pvp76-r1": "8492c09323d477b7ad111dde3eb27295079619d0caa4b783cf94cf3274e18017",
+      "pvp76-r2": "78645aa8139675e4b33f654416cccf96d98f1433246d67e59f5b09e55937e951"
+    },
+    "src/ui/gen/pm_room.cpp": {
+      "pvp76-r1": "71aa8fed5da0d169d01f075d65c2b7064df1cf535c1e25c923ec033c8ca1383a",
+      "pvp76-r2": "c9bb67b9de2cf43e1a85e7c4438b8bf5214db3105550bf7c087be4989ff0cdc9"
+    },
+    "src/ui/gen/pm_rv_secrets66.cpp": {
+      "pvp76-r1": "ec4095b88f75665e46b1bd04804f8e100d7dc4262ccb90c3c61d07bf15740bb9",
+      "pvp76-r2": "2d16dca45506e896326bed19bb659493f10f6a5d984c23a846c7bc78386fba42"
+    },
+    "src/ui/hand/pvp76_ui.cpp": {
+      "pvp76-r1": "e32f11a96bd6ebe8ff2bb50d7403072bd645350f1ef862bf2b443813de1d4012",
+      "pvp76-r2": "6eeea95bcca75cca0cbe306adba98224f7f16c7cd2f291c9e084b4610abb631d"
+    },
+    "src/uitools/pvp744_testmode_audit.cpp": {
+      "pvp76-r1": "165f8b9aea60fbb7ac2fdbddb80d02dc3edf9cdb40ba226332db2aeabd7cf1db",
+      "pvp76-r2": "a32ab0a36614f4aadba5ff0249c1918ac93e538cc0cd47cf7c68ed22cb71bc9c"
+    },
+    "src/uitools/pvp75_audit.cpp": {
+      "pvp76-r1": "d59daf34561ff6d345ed56525b35f12be962ce6393d2eec8a8a133de28dbf0f8",
+      "pvp76-r2": "dbd9e703c774872cdf672990872795e3d823bcb5fedbd3e3f70ff4220a6d4bd4"
+    },
+    "src/uitools/pvp75_ui_audit.cpp": {
+      "pvp76-r1": "9fd245512eabbf9ce57c16954f21ea2da33314fe690dc351680aa615c08ad885",
+      "pvp76-r2": "6c61216e137851186d3788ada30159a5dd5b9b0df46e211a1f757af79e9fda30"
+    },
+    "tools/pvp72_sources/catalog.py": {
+      "pvp76-r1": "a3690c55462b72da68ed84d4f1bc06bdffd7a0e00596925211c8390ad67dc561",
+      "pvp76-r2": "32d6e77acfa7853766d36238ec68796db2ce39d08d6673993179084d4e07f4c4"
+    },
+    "tools/pvp72_sources/coop_progress.py": {
+      "pvp76-r1": "3ea887a5fb9fb1d546b2a69f1fee2dfc42fc17038b3c479cf07664de2d202f0f",
+      "pvp76-r2": "bbab8f113edeed3887ea7c7b4fcacd770904b9f51910b30e3d616f65313eafaa"
+    },
+    "tools/pvp72_sources/room.py": {
+      "pvp76-r1": "dace4611edb5cc679d83a7ae08a50d0a00dbe193dc0b89f6f56e132d0a3baa5f",
+      "pvp76-r2": "62a58352639c2fa811435edfd0b1013446b9870ebf583bc382f9f7fa23e10b06"
+    },
+    "tools/pvp72_sources/zombie_secret_catalog.py": {
+      "pvp76-r1": "90530d0cd071ca61034b47585e8fa309c725dd0efccdbb34a957f449595e8d93",
+      "pvp76-r2": "b073364ca5a14e4da5d9cf628f3c36091446212af547290ae0b234a20d6532d4"
+    },
+    "tools/pvp72_sources/zombie_secrets.py": {
+      "pvp76-r1": "3c114f808cdda744a9c4c58a670dd204aa71a62c8e55d50e6f8b94675598f805",
+      "pvp76-r2": "1ddbdc30e352db893722c40b899af384776b53bb46dea8fa53d66acab10f1dad"
+    },
+    "tools/pvp744_feedback_sources.json": {
+      "pvp76-r1": "9eca7a643fc8b786db4cd370de42c5fc29a575ce643e87fe76578f8e72ddc7b0",
+      "pvp76-r2": "1dfe4bdc44e0154308bf2146c474b95225ee5eae0ffb680014e86cea57cb86d8"
+    },
+    "tools/pvp75_catalog_sync.py": {
+      "pvp76-r1": "b34fca77ee054ba7caaa5e3cb1ed99ab9281cb5027e49acc03d86849ebf77df8",
+      "pvp76-r2": "acd15f9e25cb37a22339783ce07d0cbf2775f241bd349182deb865cb65ee1047"
+    },
+    "更新公告-PvP76.txt": {
+      "pvp76-r1": "8e5ddc84ea85256a1d49dfa03c8a78011ba81994e7f6425e05c2f1929ac7533a",
+      "pvp76-r2": "f7a482b7af1b9ea96b0d7d14529524653dc19a9cb49512e243c313348673cd0c"
+    },
+    "更新说明-PvP76.md": {
+      "pvp76-r1": "03e1e875feb722616f495ba9018801213c6d14b0af5cc82890fcaf9a9f37d94e",
+      "pvp76-r2": "65f896971fdeaedadc82dd43b9724469b812cbdaf1be093d8a9be2a1997d6f39"
+    }
+  },
+  "added_files": {
+    "src/sim/pvp/hand/pvp76r2_coop.cpp": "89ee59423a3c54454a28df96ca0341e789d163cb43cb8da1cfc13fab851a570f",
+    "src/sim/pvp/hand/pvp76r2_coop.h": "03d4893058547b84f6b55e60f87a4107de13fd085dd7c797fffa69f170863590",
+    "src/uitools/pvp76r2_audit.cpp": "92b38ed04f7258e59836e5d88e63001181448199453445bfc71e2c04cd9de409",
+    "tools/pvp76r2_hooks.py": "bc43c309cdabd30ac1e9345a712e2bd383d290f21d5764929e416cadcc51f7d6",
+    "tools/pvp76r2_release.py": "cfe8ae9c3c1c86ca08882fdc9427542e04c9a7cd2e2feb0045f1a06ade8d88c0"
+  },
+  "notes": "Compares the current developer-package source and asset owners with the verified PvP76 r1 developer archive (backup-latest/previous-source.zip). Production changes are described in 更新说明-PvP76.md (r2 section).",
+  "full_suite": {
+    "version": "1.6.0.76-typed.20261122-r2",
+    "collected": 2366,
+    "counts": {
+      "PASS": 2351,
+      "FAIL": 3,
+      "ERROR": 12,
+      "SKIP": 0
+    },
+    "missing": 0,
+    "waived": 15,
+    "unwaived": 0,
+    "baseline": "pvp76-r1",
+    "new_nonpass": 0,
+    "gates": {
+      "pure_typed_gate": true,
+      "combat_r4_gate": true,
+      "fire_gate": true
+    },
+    "summary_sha256": "40aa96af2e27bb346aae84562519e4d74908009c7d7cf4c1944391d011ebd408",
+    "binary_sha256": {
+      "cpp_tests": "72412441b72a597fe2c4f135740f31a7efffb38b3829512eb54016469117d76d",
+      "app_run": "9c60568fd62c998e60ec9960a4805fff1003eac158bdb4620a19c8d8bf205dfd",
+      "audit": "8553a0ed1bfd07b27446a9e57d658599e9ddfdda961450906012c38f0b5a318f",
+      "game": "56021fa298396c2391cd3410af4be1902f71aa8a4faf4a536490a766459e0e74",
+      "fire": "4d4f6791e1bde54f50b6de66e015288f113895e21a0bbf05b51d0cd95dba0e6b"
+    }
+  }
+}

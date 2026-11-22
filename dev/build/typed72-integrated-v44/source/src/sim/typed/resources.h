@@ -21,9 +21,12 @@ public:
         :world_(world),regions_(regions),sequence_(sequence){}
     std::array<ResourceAccount,4> accounts;
     double coins=0.,diamond_coins=0.;
+    int64_t sun_chills=0;  // PvP76 r2 audit counter
     const std::list<MatchResource>& records()const{return records_;}
     const std::list<ResourceMotion>& motions()const{return motions_;}
     MatchResource* find(const std::string& id);
+    // PvP76 r2: 阳光 secret, first 80 s: every automatic sun pickup chills the collecting Dave 2 s.
+    void sun_secret_chill(Seat,const MatchResource&);
     NativeSun* motion(const std::string& id);
     std::string create(Seat,double,Point,std::string source);
     void admit(MatchResource); // Validated save/room boundary preserves order.

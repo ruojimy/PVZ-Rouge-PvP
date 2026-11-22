@@ -26,10 +26,12 @@ PATCH_FIELDS = ('cost', 'cooldown', 'hp', 'description', 'native_description', '
 PATCH_CARDS = ['plant:杨桃', 'plant:三叶草', 'plant:玉米加农炮', 'zombie:小鬼僵尸', 'zombie:黑普通僵尸',
                'zombie:海豚僵尸', 'zombie:撑杆跳僵尸', 'zombie:雪橇车小队', 'secret:大帝',
                'zombie:投篮车僵尸', 'zombie:小鬼炮', 'zsecret:补贴', 'zsecret:海陆空',
-               'zombie:路灯花僵尸', 'zombie:三叶草僵尸', 'zombie:潜水僵尸', 'zombie:雪橇车小队僵尸']  # PvP76 balance
+               'zombie:路灯花僵尸', 'zombie:三叶草僵尸', 'zombie:潜水僵尸', 'zombie:雪橇车小队僵尸',  # PvP76 balance
+               'zsecret:大运！小子', 'zsecret:船锚', 'secret:阳光', 'zsecret:坤坤']  # PvP76 r2 texts
 # PvP76: per-card native health fields (雪橇车小队 30 per member); other cards keep their reviewed cold values.
 PATCH_EXTRA = {'zombie:雪橇车小队': ('native_hp', 'native_izombie_hp', 'native_hard_hp'),
-               'zombie:雪橇车小队僵尸': ('native_hp', 'native_izombie_hp', 'native_hard_hp')}
+               'zombie:雪橇车小队僵尸': ('native_hp', 'native_izombie_hp', 'native_hard_hp'),
+               'zsecret:大运！小子': ('targets',)}  # PvP76 r2: carts join 大运
 
 
 def load():

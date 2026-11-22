@@ -1,0 +1,227 @@
+{
+  "checks": [
+    {
+      "name": "卡表",
+      "evidence": [
+        {
+          "id": "cold.costs_cooldowns",
+          "plant:巴豆": {
+            "cost": 40.0,
+            "cooldown": 36.0
+          },
+          "plant:激光豆": {
+            "cost": 200.0,
+            "cooldown": 32.0
+          },
+          "zombie:盾卫僵尸": {
+            "cost": 150.0,
+            "cooldown": 12.0
+          },
+          "zombie:克苏鲁之仆": {
+            "cost": 0.0,
+            "cooldown": 24.0
+          },
+          "zombie:小鬼僵尸": {
+            "cost": 50.0,
+            "cooldown": 8.0
+          },
+          "zombie:黑普通僵尸": {
+            "cost": 50.0,
+            "cooldown": 8.0
+          },
+          "zombie:海豚僵尸": {
+            "cost": 40.0,
+            "cooldown": 16.0
+          },
+          "zombie:撑杆跳僵尸": {
+            "cost": 50.0,
+            "cooldown": 16.0
+          },
+          "plant:杨桃": {
+            "cost": 300.0,
+            "cooldown": 24.0
+          },
+          "passed": true
+        },
+        {
+          "id": "v.runtime_catalog",
+          "plant:巴豆": {
+            "cost": 40.0,
+            "cooldown": 36.0,
+            "behavior": "croton"
+          },
+          "plant:激光豆": {
+            "cost": 200.0,
+            "cooldown": 32.0,
+            "behavior": "laser"
+          },
+          "zombie:盾卫僵尸": {
+            "cost": 150.0,
+            "cooldown": 12.0,
+            "behavior": "bite"
+          },
+          "zombie:克苏鲁之仆": {
+            "cost": 0.0,
+            "cooldown": 24.0,
+            "behavior": "servant"
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "巴豆",
+      "evidence": [
+        {
+          "id": "bite.consumes_and_poisons",
+          "biter_stun": 1233.0,
+          "behind_stun": 533.0,
+          "gas_damage": 60.0,
+          "gas": 1,
+          "passed": true
+        },
+        {
+          "id": "bite.asleep_is_ordinary_food",
+          "hp": 5.0,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "激光豆",
+      "evidence": [
+        {
+          "id": "aim.fire.stop",
+          "pulse": 2.0195236186103322,
+          "lost": 4.039047237220643,
+          "cells": 14.854988435660632,
+          "passed": true
+        },
+        {
+          "id": "hero.one_point",
+          "lost": 1.0,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "盾卫僵尸",
+      "evidence": [
+        {
+          "id": "poison.tints.shield.art",
+          "art": {
+            "drawn": 2,
+            "tinted": 2,
+            "shield": 2,
+            "shield_and_tinted": 2
+          },
+          "passed": true
+        },
+        {
+          "id": "raise.guard.cooldown",
+          "speed": 0.21119999999999997,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "Boss控制",
+      "evidence": [
+        {
+          "id": "terraria.control_to_slow",
+          "ice": 999.0,
+          "boss_slow": 1500.0,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "克苏鲁之仆",
+      "evidence": [
+        {
+          "id": "pvp.deploy_any_point",
+          "moved": 212.20200305369278,
+          "passed": true
+        },
+        {
+          "id": "trinity.servant_is_air",
+          "hp": 12.0,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "平衡",
+      "evidence": [
+        {
+          "id": "sled_squad.one_per_second",
+          "counts": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "passed": true
+        },
+        {
+          "id": "starfruit.pierce",
+          "plain": 3,
+          "emperor": 4,
+          "passed": true
+        },
+        {
+          "id": "blover.untargetable_air",
+          "targetable": false,
+          "passed": true
+        },
+        {
+          "id": "carts.120hp",
+          "cart": 120.0,
+          "cannon": 120.0,
+          "passed": true
+        },
+        {
+          "id": "subsidy.six_second_bonus",
+          "empty_deltas": [
+            [
+              3000,
+              25.0
+            ],
+            [
+              4500,
+              15.0
+            ]
+          ],
+          "empty": {
+            "day": 3000,
+            "bonus": 4500
+          },
+          "crowded_deltas": [
+            [
+              3000,
+              25.0
+            ]
+          ],
+          "crowded": {
+            "day": 3000,
+            "bonus": null
+          },
+          "passed": true
+        },
+        {
+          "id": "cannon.reload_32s",
+          "cd": 8000,
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "failures": 0
+}
