@@ -380,7 +380,7 @@ V C_PvP56ZombieTests::m_test_sled_deployment_charges_once_and_creates_four_nativ
     (void)(m_assertEqual(Args{SV(""), L_error}));
     L_sleds = [&]() -> V { V out_ = V::list(); V L_z; { V it1_ = py::iter_list(rdm(pvz::getattr(L_b, SY("g")), &Obj::僵尸, SV("僵尸"))); for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) { L_z = it1_.idx(int64_t(i1_)); if (!((py::m_get_slot(L_z, &Obj::僵尸, SV("僵尸")) == SV("雪橇车小队僵尸")))) continue; out_.append(L_z); }}return out_; }();
     (void)(m_assertEqual(Args{V(4.0), py::len(L_sleds)}));
-    (void)(m_assertTrue(Args{[&]() -> V { V L_z; { V it3_ = py::iter_list(L_sleds); for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) { L_z = it3_.idx(int64_t(i3_)); if (!((rdm(L_z, &Obj::血量, SV("血量")) == V(50.0)))) return V(false); }}return V(true); }()}));
+    (void)(m_assertTrue(Args{[&]() -> V { V L_z; { V it3_ = py::iter_list(L_sleds); for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) { L_z = it3_.idx(int64_t(i3_)); if (!((rdm(L_z, &Obj::血量, SV("血量")) == V(30.0) /* PvP76: 30 per member */))) return V(false); }}return V(true); }()}));
     (void)(m_assertEqual(Args{V(90.0), (L_before - rd(rd(pvz::getattr(L_b, SY("players")), SV("zombie")), SV("resource")))}));
     (void)(m_assertEqual(Args{V(32.0), rd(rd(rd(pvz::getattr(L_b, SY("players")), SV("zombie")), SV("cooldowns")), SV("zombie:雪橇车小队"))}));
     (void)(m_assertFalse(Args{pm_catalog::f_allowed(Args{SV("zombie:雪橇车小队僵尸")})}));

@@ -1,0 +1,225 @@
+{
+  "base_revision": "pvp75-r3",
+  "revision": "pvp76-r1",
+  "reviewed_files": {
+    "AGENTS.md": {
+      "pvp75-r3": "7afbc77e1a44b50fb25bad21ebe7315af64818156e1522c6c0918b62b60300ca",
+      "pvp76-r1": "d1e169e414deb7ef3cb34ee76000d7d41b2d5903dfa090814b434b5921f5913d"
+    },
+    "CMakeLists.txt": {
+      "pvp75-r3": "06c35d80144f2e1958c18fc6f246cb2d006a16ec8687196a5ad1a6b39096d61e",
+      "pvp76-r1": "6145d5fd45911784fd3ff56ca30ae616aca01d45a566c584f01dc23c92eb83c6"
+    },
+    "build/ai-nn/deckvalue_corpus.py": {
+      "pvp75-r3": "056513473b179fbe05329235d8dec249807cdbe8b71beafd0d9cf0ab205b4a02",
+      "pvp76-r1": "89f1a022cfcfb311a154ea0153eb7528700339b1e353e53d15e16486c0487ce1"
+    },
+    "build/ai-nn/deckvalue_distill.py": {
+      "pvp75-r3": "58a0914532e4eb177cfbca6244b32672138da952d44898106cabce5e8c1a322b",
+      "pvp76-r1": "3b5d64f6e4a6dcec00226a8e3a342548a2172d1d5cac1fe23fe481d54fbd3c1a"
+    },
+    "build/ai-nn/deckvalue_loop.py": {
+      "pvp75-r3": "4484e09910e2a6ae33951eddbef0f9f5b78594a39a067f2e176bd9c4365f7ff6",
+      "pvp76-r1": "fdc37dcb6a6a7c025dc89a03e95abdf9a3b1963b1e58fe8a269478355985f245"
+    },
+    "build/ai-nn/deckvalue_model.py": {
+      "pvp75-r3": "6fd00326f6d4ac34aa5f4703c2c10285ba8a5f46166e0990a00f7293e50db8bb",
+      "pvp76-r1": "702eeeee01aff48791d75b1e4eac31ad4c917d1be8600e9dba265ce3b724b6e9"
+    },
+    "build/ai-nn/deckvalue_search.py": {
+      "pvp75-r3": "6ba5c5922cb91a17ef77abd445a73e4ded7b1c4aa502996b71fd428d711bcbc5",
+      "pvp76-r1": "fb956b004984ebbc2c1f10e48b1a67308e6e176dea2d13b1914d991fc0618e41"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/cold_catalog_data.cpp": {
+      "pvp75-r3": "452d27fd8490564f22d994080b23bdcba2f426314d127d4858d2f5285e8c317a",
+      "pvp76-r1": "a66b5219eea33e76f0a15ccd746562308be9b40f2b3d1dd0612d8b39cd8ab375"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/cold_deployment.cpp": {
+      "pvp75-r3": "5829883b8ad7807f34ba659f7254a265521f77cf3d5f6bbb139c81f0dff098e6",
+      "pvp76-r1": "8069a4db224ab855c976303d8ce435386cd97f00b99da7f3b791ff652a434730"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/defense.h": {
+      "pvp75-r3": "8f3526ae67c145e26c2f69887ba2085644f71e74e10c7f20e37889d1192b4c93",
+      "pvp76-r1": "306ecdafd91d51005c0f13648bbabac427eb5e5f749649d7d75328e30bff7e16"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/expansion_garden.cpp": {
+      "pvp75-r3": "c524d0de37f23ce3003638f98983f31e093cc4d2441a8a44dfa7537b1428456a",
+      "pvp76-r1": "2f72cdc1fb1bcb45895694d652ae34b6dd76693cd1957f0656c8fa432518132f"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/hero.cpp": {
+      "pvp75-r3": "a90b2c775c409736c5d69973238a4c43319f117fbe9e9f1585eb9393edaec2a8",
+      "pvp76-r1": "a59a2e6b0760625db641599bb2f3475f44b7dfdec99b04c4a7ad24fde3202abe"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/plant_queries.cpp": {
+      "pvp75-r3": "88547e16edcbed1906f202d471137364f621cd963691872911e72cb1ab1250ef",
+      "pvp76-r1": "8e780bdcb884e91613b7682c4ab983973849b3e6c71448c2a2981318766200b2"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/protection.cpp": {
+      "pvp75-r3": "33cb08381c1efbff8ca556a923b1b7ef0140b70ceb85c86cc8c531609d14b7ff",
+      "pvp76-r1": "8a781485bbe883c3c3b2738567bbdd9df05023c1d8e1fa06ce81f54396ac7a65"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/pvp75_content.cpp": {
+      "pvp75-r3": "a0a2a3eeab575372c1a6e3ae431097b663cb8cffa1d9427a01a5430315a75b04",
+      "pvp76-r1": "27b5746d92262a5cd6684c1332db30993cf8ec9e7c2f800364db28b9220b3deb"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/pvp75_content.h": {
+      "pvp75-r3": "1ccbc446ff60daa71e45d001027c5c560fc2835986161cda8c209252bda20942",
+      "pvp76-r1": "0ad519f36c1583c3e6bc09f1056b27912a4efc97d5e7111662bc9d62e83ea0b2"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/terraria_bosses.cpp": {
+      "pvp75-r3": "85bf8277576e2b2e4ff24ae0b8680516e8e150d4c7efd55adb80bd46cb6de9c5",
+      "pvp76-r1": "e313fe9b98c8e33199f8d4ffb829f40cea0fefb6ad40a9e8fafb276d11dfa249"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/terraria_bosses.h": {
+      "pvp75-r3": "5cb629e11eaa4376285fcb4093383368b9aa31c133a8f0179459beb813690126",
+      "pvp76-r1": "5f88a43d7375abecef9c0cc7ca9b2265f3bee2d27f801fb9930d999da16e5d00"
+    },
+    "build/typed72-match-v1/match_probe.cpp": {
+      "pvp75-r3": "0095d851291c6903bfe771ea7c866e7ab52f291bd6cacfd8575fc25095f28144",
+      "pvp76-r1": "d7cd7984f05ed57748d2702caa97d273e18f62ffd9f6365f060a90bbfb58c0ff"
+    },
+    "extract/data/__init__.json": {
+      "pvp75-r3": "a0d69f2df1516ff12d232a151274ca03a7d78408a19cd8ef4fb2c39801b8a73d",
+      "pvp76-r1": "86bbb0ec5fb78d2af5844f801e864857b334c6c4d646bb8ff4f685320a6e0f86"
+    },
+    "extract/data/catalog.json": {
+      "pvp75-r3": "fab4402e65a4b40e3dc1e164393d7144d35c6e699539f7612aca9d121d9ce9e4",
+      "pvp76-r1": "18209789adbb26ad4af04d64b2b171a555f863063d7b87537fe72da17c296836"
+    },
+    "extract/data/texture_card_icons74.json": {
+      "pvp75-r3": "de3468c533d860d0b8494670cc4b5d89a1f87fcd504769615abf1cd4b7d2b984",
+      "pvp76-r1": "604adc45e35d7b8532e6a2ffbfdfb38a90d9f330f6d85fe1979269f092529a35"
+    },
+    "extract/data/texture_resources74.json": {
+      "pvp75-r3": "785158211c5ff0b5dcb7669f2e85f1434235af4a8016e62a8940f7626108fb16",
+      "pvp76-r1": "5eaa78705194e52e6d3454fdb23be905e0aa04453516e463065c18fc8ada3b26"
+    },
+    "src/cpptests/gen/pm_test_pvp_56_zombies.cpp": {
+      "pvp75-r3": "d2c450d3f65dfc30f6e8de9ad1fb3df15c59c0fbc7aedc490ff034f3470d5339",
+      "pvp76-r1": "ebb5e182e756236eb3ad067830251ece5fcf27ca4aa70deaefd7238645ce14f4"
+    },
+    "src/cpptests/gen/pm_test_pvp_69002_balance.cpp": {
+      "pvp75-r3": "9bbe6acaf3ec3d3b232a8e3c5873108af8d641e95f3cf5d03c28805c77e4f737",
+      "pvp76-r1": "e12d918f051548910f5f979fed524863e8a78dc6bcf0c743ca7160e624105ba8"
+    },
+    "src/cpptests/gen/pm_test_pvp_balance50.cpp": {
+      "pvp75-r3": "1c306898c5d3c4cad457ec85f95be7b25afdff0a632013178f16aa0facb228cb",
+      "pvp76-r1": "929177edcf01aa479f6ff2dcbdc5dbad0a6be344b989af721a95372f93b8f356"
+    },
+    "src/sim/pvp/gen/pm_catalog.cpp": {
+      "pvp75-r3": "2e5823c5e9413fe014d27d09f95fde1c685cb2e2136472ec23f5d55cf027e04a",
+      "pvp76-r1": "6b45370cf0fba3aea89f16170fd8e946d050bb154625ac3fc00ac21ccd60cad9"
+    },
+    "src/sim/pvp/gen/pm_native_expansion.cpp": {
+      "pvp75-r3": "46320c81c7c37577000985dcbc1ddd6b16fe668ea2f318ea8f719b5d9e7f4b17",
+      "pvp76-r1": "eeaabe3e509401345d56c6115faa10e1098021942df17ac0b33a2e5e8a118625"
+    },
+    "src/sim/pvp/gen/pm_native_placement.cpp": {
+      "pvp75-r3": "7d6e8931617263cb1e826fcfc80779f86325c258e73971d6f078c726063cf5f1",
+      "pvp76-r1": "bc231a3790fe1639faa3f25b465ea7060c51502ec493a266d8270947698afa36"
+    },
+    "src/sim/pvp/gen/pm_native_targets.cpp": {
+      "pvp75-r3": "88372a17eb61317ade4dcc5522318ecd188867ac7d4346ac23492dfe802fd4e3",
+      "pvp76-r1": "fc08d3985faa661d2d98168ce6f8d1987cbe923e1500a614306983175c892582"
+    },
+    "src/sim/pvp/gen/pm_zombie_secrets.cpp": {
+      "pvp75-r3": "48727e1887af03d4b50abe9db34dfefb3cdad036ac8d2630ef1082353096abe4",
+      "pvp76-r1": "b34499c72940cb7ab766c12b0fc4b7d0c93ba93a31b21ab97bcb653a261c97c3"
+    },
+    "src/sim/typed72_app/composition/MANIFEST.json": {
+      "pvp75-r3": "347fa99247f1eb5546e3c85e0a40bca6e8713f0221c119c1a45f2b1291f0788b",
+      "pvp76-r1": "3253a2000eca0911d314547c3ed059af44e796f21cd4a5c9242cb199bbbfad0a"
+    },
+    "src/sim/typed72_app/composition/match_probe.cpp": {
+      "pvp75-r3": "47b2ba6cf00b96b246a1999f55c5facc16cda336bb2fca1475ae12573ae960ff",
+      "pvp76-r1": "9048e362ff46c54dbb42b15447f5b76b62320c697e6b4a72bd6afe1f5253ca60"
+    },
+    "src/sim/typed72_app/typed_battle.cpp": {
+      "pvp75-r3": "9ac327d9c1c5d32fe5e0366a6b57e4f8fb195450a0444183e585fcec02081261",
+      "pvp76-r1": "8d57f4340b0662492ca78c8d7eea36de34d3a746c6a9c92ecd7ab46dfadfdf89"
+    },
+    "src/ui/gen/pm_app.cpp": {
+      "pvp75-r3": "577a3d40459218cb0229394c1e9b9c142d1eb6117b7f10800e5cce93210e897a",
+      "pvp76-r1": "c3bd620cdcd7a38e3b2de5808a6376091fd3f162457765e01f8f78c8a8f851ad"
+    },
+    "src/ui/gen/pm_performance.cpp": {
+      "pvp75-r3": "d3e1a95423459d97fb807396909d1fdc701c28fa48111bbf71b66653ef7e2473",
+      "pvp76-r1": "165c92b98d8d9d66c5b1c0630820d991bfa8ad7b351b1c10e80ea9b50747bf34"
+    },
+    "src/uitools/pvp75_audit.cpp": {
+      "pvp75-r3": "c21eade9ba3611bf7fe93e09e255e628cdfb12fced868c114d7eed2d3685c079",
+      "pvp76-r1": "d59daf34561ff6d345ed56525b35f12be962ce6393d2eec8a8a133de28dbf0f8"
+    },
+    "tools/pvp72_sources/catalog.py": {
+      "pvp75-r3": "de14069dfe75826a74ff5c44a6e53e34aa1643acf7dc3e16d4589512620b4581",
+      "pvp76-r1": "a3690c55462b72da68ed84d4f1bc06bdffd7a0e00596925211c8390ad67dc561"
+    },
+    "tools/pvp72_sources/native_placement.py": {
+      "pvp75-r3": "23107787842971b0246d4e0f14bdc9dd237b65e1a52db89416d1c410b95a93ad",
+      "pvp76-r1": "255b6f0d2a66e5b51b0b10859cb2d4676b81a2f12904eb2855b24660bae5b74d"
+    },
+    "tools/pvp72_sources/native_targets.py": {
+      "pvp75-r3": "def531af4324376e8528edaa6c29bd133c76b05a539056b6a8ff68985b56bdd7",
+      "pvp76-r1": "8dfaf3e91e22825278a01c094764e10c6ac50772656807063693fb614656aca7"
+    },
+    "tools/pvp72_sources/zombie_secrets.py": {
+      "pvp75-r3": "7e05cd46c9b49baa4ea497f4f75eb067bac777eeada12639b3aee4f4c767d32e",
+      "pvp76-r1": "3c114f808cdda744a9c4c58a670dd204aa71a62c8e55d50e6f8b94675598f805"
+    },
+    "tools/pvp75_assets.py": {
+      "pvp75-r3": "046baf1a193bf1d8283cbbbce2622d1c562f3e5a55641c50a53c432165a78508",
+      "pvp76-r1": "216b32fa829146573927fa008e73459720ce534d6cfa3f546bfc503a2dce208e"
+    },
+    "tools/pvp75_catalog_sync.py": {
+      "pvp75-r3": "e7a7649cd7d2c07b9e9d5ac96c9ce96cf6f7fdfe1788bdc9ee48751daf1a3af7",
+      "pvp76-r1": "b34fca77ee054ba7caaa5e3cb1ed99ab9281cb5027e49acc03d86849ebf77df8"
+    }
+  },
+  "added_files": {
+    "build/ai-nn/deckvalue_night75.py": "8c7a9aff6a3cbc4f7148441b174c5db569962741fe8bed531b54a85d579c5728",
+    "build/ai-nn/ranked_pvp75_native.py": "5ae66138fe257a6f8e89c64cbcd05e7d2758dd38ea91b34b43dd91605af6aac5",
+    "src/ui/hand/pvp76_ui.cpp": "e32f11a96bd6ebe8ff2bb50d7403072bd645350f1ef862bf2b443813de1d4012",
+    "src/ui/hand/pvp76_ui.h": "8cdd0f45b4eff95aa3c8538e2d39bb8bb0cbf79975e91d1e0162ae56e6fa4d46",
+    "src/uitools/pvp76_audit.cpp": "586f8b40945ed0931ba30b9ae315afe0fb61b39e2fa9e91a4ed9787310781fc5",
+    "tools/pvp76_release.py": "561c6976e76616544abb232dc06c758ca7d8d27b65ab317f9aafddcd04e05c1c",
+    "tools/pvp76_ui_hooks.py": "6a8c0e27abde74bc59f4bb92208af8fe7e36c0d9b5de24d3a98f160b53880903"
+  },
+  "historical_paths_retained_by_package": [
+    "docs/history/MANIFEST-PvP74.2.json",
+    "docs/history/README-before-PvP74.2.md",
+    "docs/history/README-before-PvP74.3.md",
+    "docs/history/STAGING_STATUS-PvP74.2.json"
+  ],
+  "notes": "Compares the current developer-package source and asset owners with the verified PvP75 r3 developer archive. Production changes are described in 更新说明-PvP76.md.",
+  "full_suite": {
+    "version": "1.6.0.76-typed.20261122-r1",
+    "collected": 2366,
+    "modules": 204,
+    "seconds": 1036.641,
+    "counts": {
+      "PASS": 2351,
+      "FAIL": 3,
+      "ERROR": 12,
+      "SKIP": 0
+    },
+    "missing": 0,
+    "waived": 15,
+    "unwaived": 0,
+    "baseline": "pvp75-r2",
+    "new_nonpass": 0,
+    "gates": {
+      "pure_typed_gate": true,
+      "combat_r4_gate": true,
+      "fire_gate": true
+    },
+    "summary_sha256": "110f486245111320cbfd1e3de7d88765ae2c840ef7b4522ab4189f78c7ec6792",
+    "source_hashes_sha256": "2599a2cb76694a7b95e2004508c7c6bf7f48f992559e482c47b50c8f96961bcc",
+    "binary_sha256": {
+      "cpp_tests": "4ffe5b2733899cf984c688a99867d47d250207a9054175ebb3fee7cfc0682a2d",
+      "app_run": "3764dabc2e825a19418a30b105bfdc6795e2d4c20f7c21d2e8633e8dac5fb02f",
+      "audit": "d32b7eb7e62e73a85e53e610b62decfce4fe9c4a8d9d43639a12625150ac727b",
+      "game": "cc706ff702f64d8405e41d183f761e8302d8d4fdcad37334995beb3cc7a239e6",
+      "fire": "5d59c5d668dc602dca8ff01d8700a4bd968dc2b8cf42151bd007c0a387f5762b"
+    }
+  }
+}

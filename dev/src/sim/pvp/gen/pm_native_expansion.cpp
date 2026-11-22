@@ -1238,7 +1238,7 @@ V C_NativeExpansion::m_aura(const Args& A) {
     { V ut1_ = py::as_seq(rdm(L_plant, &Obj::坐标, SV("坐标"))); L_row = ut1_.idx(0); L_col = ut1_.idx(1); } 
     L_stacks = py::m_get(a_aura_cells, V::tuple({L_row, L_col}), V(0.0));
     L_slow = callm(pvz::getattr(pvz::getattr(a_b, SY("content")), SY("pvp61")), SY("slow_factor"), Args{L_plant, (a_slow_cells.has() ? V(a_slow_cells) : V(V::tuple({})))});
-    L_factor = ((pow(V(0.8), py::min_it(V::list({V(4.0), L_stacks}), py::Key(), V())) * L_slow) * callm(pvz::getattr(a_b, SY("zsecrets")), SY("pressure"), Args{L_plant}));
+    L_factor = ((pow(V(0.8), py::min_it(V::list({V(4.0), L_stacks}), py::Key(), V())) * L_slow) / callm(pvz::getattr(a_b, SY("zsecrets")), SY("pressure"), Args{L_plant}));  // PvP76: intervals x1.3
     if (((py::m_get_slot(L_plant, &Obj::植物, SV("植物")) == SV("仙人掌")) && py::in(SV("secret:尖刺"), rd(pvz::getattr(a_b, SY("team_secrets")), SV("plant"))))) {
         L_factor = (L_factor * V(0.5));
     }

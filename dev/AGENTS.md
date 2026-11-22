@@ -13,3 +13,5 @@
 - 用户于本轮明确：抓人草对僵尸戴夫单次伤害为 4，原图鉴 8 是文案错误。图鉴与机制冲突先查已有全量回归的明确断言；已覆盖时按回归约束，未覆盖时按图鉴；用户明确更正优先。
 
 - PvP74.1 动画配方缓存使用 `src/core/render_cache.*` 的链表加哈希索引，图像尺寸、透明度和淘汰顺序保持原契约；`PVP741_RENDER_LRU=0` 仅用于对照。函数计时由 `PVP741_PROFILE=1` 显式启用，默认关闭，不得混入回放或战斗状态。周期坐标索引必须核对实时单位坐标、重新解析 Motion，英雄代理始终读取实时指针。
+
+- PvP76 界面修补由 `src/ui/hand/pvp76_ui.cpp` 与 `tools/pvp76_ui_hooks.py` 拥有（仆从/测试 Boss 预览不吸附墓碑；性能记录与过载记录器在 typed 对局不读 battle.g）；UI 重新生成后运行该脚本，`--check` 为构建门禁。卡表平衡与新秘籍仍走 `tools/pvp72_sources/catalog.py` → `tools/pvp75_catalog_sync.py`。

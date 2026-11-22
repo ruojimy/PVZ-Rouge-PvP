@@ -64,6 +64,8 @@ std::string ColdDeployment::perform(Seat seat,const std::string& key,Point point
     services_.deploy_event({seat,key,plan.charge,entity,plan.position,grave,direction});
     if(entity&&one(key,{"zombie:旗帜僵尸","zombie:黑旗帜僵尸"}))flag_reinforcements(*entity);
     if(key=="plant:黄金蓓蕾"&&entity&&state_.ranked)room_.players[index].collect_locked_until=std::max(room_.players[index].collect_locked_until,world_.heroes.time+12.);
+    // PvP76: 克苏鲁之仆 is not a grave soldier; a selected grave neither feeds 头兵 nor follows it.
+    if(side==Seat::zombie&&entity&&card.behavior=="servant")grave.reset();
     if(side==Seat::zombie&&entity){secrets_.on_deployed(*entity,grave);if(grave&&!grave->empty()&&secrets_.unsealed(seat))services_.select_grave(seat,*grave);}
     if(key=="zombie:乌鸦"&&entity){if(secrets_.seat_has(seat,"鸦群"))secrets_.crow_flock(*entity,seat);else{const auto* unit=placement_.find(*entity);if(!unit)throw std::out_of_range("missing crow projection");scarecrows_.crow_echo(unit->position,*entity);}}
     services_.sync_public();return {};

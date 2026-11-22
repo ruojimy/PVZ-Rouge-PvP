@@ -75,7 +75,7 @@ J catalog(){
     rows.push_back(scenario("cold.costs_cooldowns",[](){
         Fixture f;auto& m=*f.match;J out;
         const std::vector<std::tuple<std::string,double,double>> want{
-            {"plant:巴豆",40,36},{"plant:激光豆",200,36},{"zombie:盾卫僵尸",150,12},{"zombie:克苏鲁之仆",0,20},
+            {"plant:巴豆",40,36},{"plant:激光豆",200,32} /* PvP76: 32 s */,{"zombie:盾卫僵尸",150,12},{"zombie:克苏鲁之仆",0,20},
             {"zombie:小鬼僵尸",50,8},{"zombie:黑普通僵尸",50,-1},{"zombie:海豚僵尸",40,-1},{"zombie:撑杆跳僵尸",50,-1},{"plant:杨桃",300,-1}};
         for(const auto& [key,cost,cd]:want){
             const auto card=m.catalog.resolve(key,{},{},false);
@@ -93,7 +93,7 @@ J catalog(){
             const V card=rd(pm_catalog::CARDS,V(key));expect(card.truthy(),std::string("V card ")+key);
             out[key]={{"cost",rd(card,V("cost")).num()},{"cooldown",rd(card,V("cooldown")).num()},{"behavior",py_str(rd(card,V("behavior")))}};
         }
-        expect(py_str(rd(pm_catalog::RULES,V("ruleset")))=="pvp75","ruleset");
+        expect(py_str(rd(pm_catalog::RULES,V("ruleset")))=="pvp76","ruleset");  // PvP76 ruleset
         return out;
     }));
     return rows;

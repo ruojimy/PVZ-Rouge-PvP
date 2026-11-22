@@ -669,6 +669,45 @@ RULES['ruleset'] = 'pvp75'
 RULES['mechanics75'] = dict(star_pierce=3, emperor_pierce=1, cannon_reload_ticks=8000, sled_squad_interval_ticks=250,
     boss_control_to_slow=True, speed_bonus_additive=True, speed_penalty_multiplicative=True, blover_untargetable_air=True)
 
+# PvP76 (2026-11-22): balance and two secrets. Numbers and rules live in the
+# typed kernel; these entries carry the card values, text and precursor locks.
+for _key, _cost in {'zombie:路灯花僵尸': 125, 'zombie:三叶草僵尸': 175}.items():
+    COSTS[_key] = _cost
+    CARDS[_key]['cost'] = _cost
+ZOMBIE_COOLDOWNS['zombie:潜水僵尸'] = 6.
+CARDS['zombie:潜水僵尸']['cooldown'] = 6.
+PLANT_COOLDOWNS['plant:激光豆'] = 32.
+CARDS['plant:激光豆']['cooldown'] = 32.
+for _key in ('zombie:雪橇车小队', 'zombie:雪橇车小队僵尸'):
+    CARDS[_key].update(hp=30., native_hp=30., native_izombie_hp=30., native_hard_hp=60.)
+    for _field in ('description', 'native_description'):
+        CARDS[_key][_field] = CARDS[_key][_field].replace('每只50生命', '每只30生命')
+for _field in ('description', 'native_description'):
+    CARDS['plant:激光豆'][_field] = CARDS['plant:激光豆'][_field].replace(
+        '对僵尸戴夫固定1点且不会将其击倒。',
+        '穿透二类防具（对方携带僵王出品时由二类防具先承受）；脉冲间隔享受金盏花加速并受威压减速。对僵尸戴夫固定1点且不会将其击倒。')
+    CARDS['zombie:盾卫僵尸'][_field] = CARDS['zombie:盾卫僵尸'][_field].replace('放下盾牌后技能冷却4秒。', '放下盾牌后技能冷却4秒（守卫秘籍：2秒）。')
+PVP76_SECRETS = {
+    'secret:聚能': ('secret:大帝', 'plant:激光豆', '激光豆',
+                  '激光每次命中额外造成目标2%已损生命值的伤害（对僵尸戴夫无效）。锁定前体：激光豆。'),
+    'zsecret:守卫': ('zsecret:威压', 'zombie:盾卫僵尸', '盾卫僵尸',
+                   '盾卫僵尸举盾期间防御力变为600，技能冷却时间减半（2秒）。锁定前体：盾卫僵尸。'),
+}
+for _key, (_template, _lock, _art, _text) in PVP76_SECRETS.items():
+    _card = deepcopy(CARDS[_template])
+    _name = _key.split(':', 1)[1]
+    _card.update(id=_key, base_id=_key, resolved_id=_key, family=_key, name=_name, native_name=_name,
+                 native_input_name=_name, asset=_art, dependency=_lock, description=_text, native_description=_text,
+                 selectable=True, pvp_added=True, native_shop_cost=None,
+                 native_secret_name=_name if _key.startswith('secret:') else None,
+                 native_source='PvP76 secret; not a spawned entity')
+    if _key.startswith('zsecret:'):_card['targets'] = [_lock]
+    else:_card['effect'] = 'laser_focus'
+    CARDS[_key] = _card
+RULES['ruleset'] = 'pvp76'
+RULES['mechanics76'] = dict(defense_floor=.5, laser_focus_missing=.02, guard_secret_defense=600., guard_secret_cooldown_ticks=500,
+    gloom_vine_hero=2.5, giants_bosses_inedible=True, laser_aura=True, pressure_slows=True)
+
 
 def digest(value):
     return hashlib.sha256(json.dumps(value,sort_keys=True,ensure_ascii=False,separators=(",",":"),allow_nan=False).encode("utf-8")).hexdigest()

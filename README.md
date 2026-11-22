@@ -1,27 +1,27 @@
 # PVZ-Rouge · 对战模式（PvP）
 
-中文版最新正式版为 **PvP75 r3**（`1.6.0.75-typed.20261121-r3`，C++ 原生版，无需 Python），Android versionCode **1121078**。英文版仍为 PvP64，不可混用联机。
+中文版最新正式版 **PvP76 r1**（`1.6.0.76-typed.20261122-r1`，C++ 原生版，无需 Python）。Android versionCode **1122076**。英文版为 PvP64。
 
 ## 下载
 
-[PvP75 r3 正式发布页](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/tag/v1.6.0.75-pvp75-r3) · [历史版本](https://github.com/ruojimy/PVZ-Rouge-PvP/releases)
+[PvP76 r1 正式发布页](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/tag/v1.6.0.76-pvp76-r1) · [历史版本](https://github.com/ruojimy/PVZ-Rouge-PvP/releases)
 
 | 附件 | 用途 |
 | --- | --- |
-| [Windows 玩家包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.75-pvp75-r3/PvZ-PvP-Native-20261121-pvp75-r3.zip) | 解压后运行“启动PvP.cmd”；默认使用独立用户数据目录 |
-| [Android ARM64](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.75-pvp75-r3/PvZ-PvP-Native-1.6.0.75-typed.20261121-r3-1121078-pvp75-r3-20261121.apk) | 同包名、同签名覆盖升级，versionCode 1121078 |
-| [完整开发者包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.75-pvp75-r3/PvZ-PvP-Native-20261121-pvp75-r3-Developer-Package.zip) | PvP75 r3 正式源码、生成器、冻结生产阶段和配套验证 |
-| [SHA-256 清单](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.75-pvp75-r3/zh-SHA256SUMS.txt) | 核对三个正式包 |
+| [Windows 玩家包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.76-pvp76-r1/PvZ-PvP-Native-20261122-pvp76-r1.zip) | 完整解压后运行“启动PvP.cmd” |
+| [Android ARM64](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.76-pvp76-r1/PvZ-PvP-Native-1.6.0.76-typed.20261122-r1-1122076-pvp76-r1-20261122.apk) | 同包名同签名覆盖升级，versionCode 1122076 |
+| [完整开发者包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.76-pvp76-r1/PvZ-PvP-Native-20261122-pvp76-r1-Developer-Package.zip) | 正式源码、生成器、冻结生产阶段和配套验证 |
+| [SHA-256 清单](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.76-pvp76-r1/zh-SHA256SUMS.txt) | 核对三个正式包 |
 
-## PvP75 更新
+## PvP76 更新
 
-新卡：巴豆、激光豆、盾卫僵尸、克苏鲁之仆（新贴图与动画，全部收入材质工坊，并接入合作模式）。平衡：小鬼、黑普通、撑杆 50 脑光，海豚 40；投篮车与小鬼炮 120 血；雪橇车小队逐秒出场；三叶草改为不可选中的飞行植物；杨桃 300 阳光、星星穿透 3 个单位，大帝改为穿透 +1；加农炮 32 秒装填；补贴秘籍改为无僵尸时周期补给 6 秒后再给 15 脑光；Boss 的冰冻、黄油、眩晕改为同时长减速。
+- 合作地图按行更新，减少梯子逐格搭建引发的卡顿。优化世界吞噬者体节绘制和索敌。
+- 新增聚能和守卫两张秘籍。聚能进入合作商店，两张秘籍均可在材质工坊替换。
+- 修复僵王出品的二类防具拦截、威压的攻击间隔倍率，以及克苏鲁之仆和测试模式 Boss 的放置预览。[完整更新说明](dev/更新说明-PvP76.md)。
 
-r3 平衡：盾卫僵尸 160 血、举盾期间移速 -40%、技能冷却 4 秒；巴豆毒气接触的僵尸额外受到 60 伤害；克苏鲁之仆在海陆空秘籍中算作空中单位；图鉴简略版补上四张新卡的简短说明。
+联机双方请使用 PvP76 r1。
 
-r2 修正：激光豆在正式版中无法瞄准发射的问题；范围提示改为面朝方向 ±80° 扇形；激光豆、巴豆静置动画；盾卫僵尸中毒变色；克苏鲁之仆冷却 20 秒；测试模式“该方0冷却”开关；材质工坊卡面图标修正。性能：激光光束分段绘制，单位旋转与受伤闪烁的绘制缓存改进，身首分开画的僵尸与带防具僵尸在持续受击时明显减少卡顿。[完整更新说明](dev/更新说明-PvP75.md) · [公开验证摘要](docs/pvp75-r3-validation.json)。
-
-联机双方应统一使用 PvP75 r3（与 r1、r2、74.4 不兼容）。r3 是在 r2 之上的快速平衡修订：**本次未重跑完整产品回归**，只跑了相关定向检查（PvP75 内核、界面与测试模式审计，以及海陆空、秘籍和平衡相关的 6 个测试模块，共 117 项）和打包后审计；r2 的完整回归为 2351 通过、3 失败、12 错误、0 缺失，其余 15 项均为既有已豁免问题。Android 实机触控手感、双机联机与长时压力尚未正式验收。
+本版重跑了 2366 项全量回归，2351 项通过，3 项失败，12 项错误。15 项非通过结果与 PvP75 r2 基线相同并沿用既有豁免，缺失和未豁免均为 0。三道生产门禁通过。Windows 已通过出包冒烟并核对实际启动 EXE。Android 已验证包名、版本号和签名连续性，实机验收待完成。[验证摘要](docs/pvp76-r1-validation.json)。
 
 ## 神经网络 AI 研究
 
@@ -33,9 +33,9 @@ r2 修正：激光豆在正式版中无法瞄准发射的问题；范围提示�
 
 ## 源码与升级
 
-`dev/` 与 PvP75 r3 开发者包逐文件一致（仅 `.gitignore` 排除的 AI 研究语料目录不上传，见上方研究发布页）。正式包清单及逐文件哈希见 `dev/MANIFEST-PvP75.json` 和 `dev/SHA256SUMS.txt`。
+`dev/` 对应 PvP76 r1 开发者包，研究数据等 Git 忽略项随相应下载发布。发行清单和逐文件 SHA-256 见 [MANIFEST-PvP76.json](dev/MANIFEST-PvP76.json) 和 [SHA256SUMS.txt](dev/SHA256SUMS.txt)。
 
-生产内核位于 `dev/build/typed72-integrated-v44/source/src/sim/typed/`，组合层拥有源位于 `dev/build/typed72-match-v1/`。Windows 默认使用 `%APPDATA%/PVZ-PvP-Native/pvp_userdata`；Android 同包名同签名覆盖升级。发行包不含个人存档和签名私钥。
+生产内核位于 `dev/build/typed72-integrated-v44/source/src/sim/typed/`，组合层源位于 `dev/build/typed72-match-v1/`。Windows 默认使用 `%APPDATA%/PVZ-PvP-Native/pvp_userdata`。
 
 ## 英文版及其依赖
 

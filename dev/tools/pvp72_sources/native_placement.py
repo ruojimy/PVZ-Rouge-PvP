@@ -14,7 +14,7 @@ from .maps import _cell
 from .pvp56_plants_catalog import AIR_PLANTS
 from .pvp58_catalog import DENSE_PLANT_LIMIT
 
-UNTARGETABLE_PLANTS = ('幽灵辣椒',)
+UNTARGETABLE_PLANTS = ('幽灵辣椒', '三叶草')  # PvP76: preview matches the kernel (PvP75 untargetable clover)
 
 
 _PATCHES = {}

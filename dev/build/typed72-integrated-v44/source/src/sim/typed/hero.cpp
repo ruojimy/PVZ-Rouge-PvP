@@ -344,7 +344,7 @@ std::optional<double> balanced_hero_amount(const AttackSource* s, Seat side, con
     if(content=="甜椒投手")return 10.;
     if(content=="原始豌豆射手")return color=="blue"?16.:!color.empty()?12.:8.;
     if(plant=="胆小菇"||plant=="胆小鬼")return 2.5;
-    if(plant=="海蘑菇"||(plant=="小喷菇"&&content!="忧郁藤蔓"))return 2.5;
+    if(plant=="海蘑菇"||plant=="小喷菇")return 2.5;  // PvP76: 忧郁藤蔓 also 2.5 against Zombie Dave
     if(plant=="大喷菇"||plant=="雷蘑菇")return 5.;
     if(projectile=="豌豆"||projectile=="冰豆"||projectile=="火豆"||projectile=="蓝火豆"||projectile=="僵尸豌豆")return color=="blue"?8.:!color.empty()?6.:4.;
     if(projectile=="西瓜"||projectile=="冰瓜")return flag(s->melon_splash)?4.:16.;
@@ -361,7 +361,7 @@ std::optional<double> HeroCombat::source_amount(Seat side) const {
     if(!s||!s->projectile.present())return std::nullopt;
     const auto n=name(s->projectile),p=name(s->plant_kind),content=name(s->content);
     if(zombie) {
-        if(p=="小喷菇"&&content!="忧郁藤蔓")return 2.5;
+        if(p=="小喷菇")return 2.5;  // PvP76: 忧郁藤蔓 included
         if(p=="海蘑菇")return 2.5;
         if(n=="星星")return 6.;
         if(n=="尖刺"&&flag(s->cattail))return 2.;

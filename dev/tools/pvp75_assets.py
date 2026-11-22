@@ -136,8 +136,11 @@ def build(write):
             if write: target.write_bytes(data)
     icon_rows = json.loads(ICONS.read_text('utf8'))
     keep = [r for r in icon_rows if r.get('key') not in {'icon:' + n for n in CARDS}]
+    # PvP76: every card drawn with this art (e.g. secret:聚能 / zsecret:守卫) is listed, like the icon baker does.
+    exported = json.loads((ROOT / 'extract/data/catalog.json').read_text('utf8'))['CARDS']
     for name, (file, data) in icons.items():
-        keep.append(dict(cards=[CARDS[name]], category='植物' if CARDS[name].startswith('plant:') else '僵尸',
+        owners = [CARDS[name]] + sorted(k for k, c in exported.items() if k != CARDS[name] and c.get('asset', c.get('name')) == name)
+        keep.append(dict(cards=owners, category='植物' if CARDS[name].startswith('plant:') else '僵尸',
                          file='extract/assets/_png/' + file, height=128, key='icon:' + name,
                          name=name + ' · 完整卡面图标', projectile=False, scope='icon', width=128))
         target = PNG / file

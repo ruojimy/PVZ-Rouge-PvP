@@ -74,7 +74,7 @@ PRESSURE_FACTOR = 1. / 1.3           # intervals x1.3 -> progress /1.3
 POLE_REACH = 2.                      # 立棍！小子: two tiles ahead
 POLE_DAMAGE = 4.
 KING_ARMOR = 1.25                    # 僵王出品
-TYPE2 = ("报纸", "钢门", "梯子", "铁栅门", "传送带")
+TYPE2 = ("报纸", "钢门", "梯子", "铁栅门", "传送带", "垃圾桶", "滚桶")  # PvP76: trash can (incl. 二手) and barrel
 SHARED_HAND_ARMOR = ("钢门", "垃圾桶", "梯子", "传送带")
 SHOT_TIMERS = ("植物僵尸射cd", "篮球cd")
 # 植物僵尸: plant -> its plant-zombie form (only pairs that exist in the pool).

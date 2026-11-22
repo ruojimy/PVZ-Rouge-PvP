@@ -1258,7 +1258,8 @@
  },
  {
   "cards": [
-   "plant:激光豆"
+   "plant:激光豆",
+   "secret:聚能"
   ],
   "category": "植物",
   "file": "extract/assets/_png/pvp75-icon-d0604bc58629962f.png",
@@ -1351,7 +1352,8 @@
  },
  {
   "cards": [
-   "zombie:盾卫僵尸"
+   "zombie:盾卫僵尸",
+   "zsecret:守卫"
   ],
   "category": "僵尸",
   "file": "extract/assets/_png/pvp75-icon-147a77bfce8bf6ca.png",

@@ -3,7 +3,8 @@ Stop with <RUN>/STOP_LOOP.  Each blind uses its own fresh seed block, fixed befo
 import json,time,sys,traceback
 from pathlib import Path
 H=Path(__file__).resolve().parent
-RUN=H.parents[1]/'test_results/ai-nn-home-options-20261118/deck-value-20261120'
+import os
+RUN=Path(os.environ['DV_RUN']) if os.environ.get('DV_RUN') else H.parents[1]/'test_results/ai-nn-home-options-20261118/deck-value-20261120'
 FITS=[1500,3000,6000,10000,15000,22000,30000]
 BLINDS={3000:('blind-1',49000000),10000:('blind-2',49100000)}
 CROSS={15000:('cross-1',49300000),30000:('cross-2',49400000)}    # opponent = fast prior drafter

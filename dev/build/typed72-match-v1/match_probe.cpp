@@ -1161,6 +1161,9 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
         // ZombieSecrets.__init__ (豌豆 head) and native_battle:304 (二手 watches armour breaks).
         zruntime.present=tick_state.present;zruntime.lock();
         chain.damage.watch_armor=damage.watch_armor=zsecrets.has("二手");
+        // PvP76: 僵王出品 (native_battle installs shield_first): its 二类 door/paper/ladder/gate/belt
+        // takes piercing (ordinary) damage first. The typed port never set this flag.
+        chain.damage.shield_first=damage.shield_first=zsecrets.has("僵王出品");
         torches.fury=zsecrets.has("暴怒");wild_dance=zsecrets.has("狂野舞步");
     }
     std::string test_command(Seat sender,const J& command){
@@ -1344,6 +1347,7 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
             director.next_wave=d.at("next_wave").get<int64_t>();room.director=true;room.director_cycle=c.cycle;
         }
         if(zsecrets.has("二手")){chain.damage.watch_armor=true;damage.watch_armor=true;}
+        if(zsecrets.has("僵王出品")){chain.damage.shield_first=true;damage.shield_first=true;}  // PvP76
         torches.fury=zsecrets.has("暴怒");  // zombie_secrets.torch_range_scale / torch_sleep_scale
         wild_dance=zsecrets.has("狂野舞步");  // pvp56_zombies.wild: independent backup dancers
         factory_settings.pumpkin_chance=0;  // native_patch.py:119 pumpkin_armor_chance = lambda game: 0

@@ -4,6 +4,8 @@
 #include <algorithm>
 #include "sim/typed/projectile_rules.h"
 #include <cmath>
+#include <cstdlib>
+#include <string>
 #include <limits>
 namespace pvz::typed72 {
 namespace {
@@ -69,7 +71,17 @@ void TerrariaBosses::draw_debris(NativeCanvas& c){
 }
 Point TerrariaBosses::delta(Point a,Point b)const{return {wrap_delta(a.x,b.x,world_.world_width.get())/scale(),(b.y-a.y)/scale()};}
 std::string TerrariaBosses::id(const ContentTarget& t)const{if(const auto* p=std::get_if<PlantRef>(&t))return (*p)->source.id.or_missing("p"+std::to_string((*p)->identity.value));const auto& z=std::get<CombatTarget>(t);return z.is_hero()?std::string("hero:")+std::string(seat_name(z.hero)):z.unit->source.id.or_missing("z"+std::to_string(z.unit->identity.value));}
+bool TerrariaBosses::live_enemy(const ContentTarget& t)const{
+ if(const auto* p=std::get_if<PlantRef>(&t))return (*p)->hp.or_missing(0.)>0.&&!(*p)->dead.present()&&world_.heroes.owner(source_ref(*p))==Seat::plant;
+ const auto& z=std::get<CombatTarget>(t);
+ if(z.is_hero())return world_.heroes.contains(z.hero)&&world_.heroes.hero(z.hero).frame.hp.get()>0.;
+ return z.unit&&z.unit->body.hp>0.&&world_.heroes.owner(source_ref(z.unit))==Seat::plant;
+}
 std::vector<ContentTarget> TerrariaBosses::enemies()const{
+ // PvP76: inside one AI frame the roster is listed once; each use re-checks the same
+ // liveness/allegiance conditions, so the result equals a fresh listing (no plant or
+ // plant-side unit is created during the frame). A 67-part worm used to list it ~134 times.
+ if(enemy_cache_){std::vector<ContentTarget> out;out.reserve(enemy_cache_->size());for(const auto& t:*enemy_cache_)if(live_enemy(t))out.push_back(t);return out;}
  std::vector<ContentTarget> out;for(const auto& p:*world_.plant_roster)if(p->hp.or_missing(0.)>0.&&!p->dead.present()&&world_.heroes.owner(source_ref(p))==Seat::plant)out.emplace_back(p);
  for(const auto& t:*world_.targets)if(t.unit&&t.unit->body.hp>0.&&world_.heroes.owner(source_ref(t.unit))==Seat::plant)out.emplace_back(t);
  for(const auto seat:seats_for(world_.mode))if(team_of(seat)==Seat::plant&&world_.heroes.contains(seat)&&world_.heroes.hero(seat).frame.hp.get()>0.)out.emplace_back(CombatTarget::player(seat));return out;
@@ -97,7 +109,10 @@ void TerrariaBosses::advance(){
  }
  accumulator_+=60;if(accumulator_<250)return;accumulator_-=250;++frames_;
  for(const auto seat:seats_for(world_.mode))if(world_.heroes.contains(seat))world_.heroes.proxy(seat);
- advance_debris();auto units=*world_.targets;for(const auto& t:units)if(t.unit&&t.unit->terraria&&t.unit->body.hp>0.){
+ advance_debris();enemy_cache_.reset();
+ // PVP76_TERRARIA_CACHE=0 (diagnostic A/B only) lists the roster at every use as before.
+ {const char* v=std::getenv("PVP76_TERRARIA_CACHE");if(!(v&&std::string(v)=="0"))enemy_cache_=enemies();}struct ClearCache{std::optional<std::vector<ContentTarget>>& c;~ClearCache(){c.reset();}} clear_cache{enemy_cache_};
+ auto units=*world_.targets;for(const auto& t:units)if(t.unit&&t.unit->terraria&&t.unit->body.hp>0.){
   const auto& u=t.unit;auto [last,first]=observed_hp_.try_emplace(u->identity.value,u->body.hp);
   if(!first&&u->body.hp<last->second){sound(u,u->terraria->type>=35?"NPC_Hit_2":"NPC_Hit_1");feedback(u,last->second-u->body.hp);}last->second=u->body.hp;step(u);
  }reap();
@@ -179,7 +194,11 @@ void TerrariaBosses::draw(NativeCanvas& c){if(!c.drawing())return;for(const auto
   auto art=c.crop(sheet,0.,double(frame*d.sprite_height),d.sprite_width,d.sprite_height);art=c.resize(art,d.sprite_width*scale(),d.sprite_height*scale());auto p=center(u);NativeFrameScope owner(c.frames,{u->source.id.get(),{p.x,p.y}});
   if(n.type==36){if(auto parent=n.parent.lock();alive(parent)){auto pc=center(parent);pc.x=p.x+wrap_delta(p.x,pc.x,world_.world_width.get());auto& bone=sheets_[1000];if(!bone){bone=std::make_shared<NativeArtImage>();bone->width=26;bone->height=98;auto recipe=std::make_shared<NativeArtRecipe>();recipe->key="world:terraria/Arm_Bone";bone->recipe=recipe;}auto boneArt=c.resize(bone,26.*scale(),98.*scale());Point joint{p.x-5.*n.ai[0]*scale(),p.y-6.*scale()};for(int j=0;j<2;++j){Point d{(pc.x-joint.x)/scale()-(j?50.:200.)*n.ai[0],(pc.y-joint.y)/scale()+(j?80.:130.)};auto v=aim(d,j?60.:92.);joint.x+=v.x*scale();joint.y+=v.y*scale();c.rotated(boneArt,{joint.x-boneArt->width/2.,joint.y-boneArt->height/2.},(std::atan2(d.y,d.x)-pi/2.)*180./pi);if(!j){joint.x+=v.x*scale()/2.;joint.y+=v.y*scale()/2.;}}}if(n.ai[0]>0.)art=NativeArtStore::flip(art,true,false);}
   // Subtle PvZ palette adaptation remains a display recipe, never collision pixels.
-  c.fill(art,{244,255,238,255},nullptr,8);if(u->body.hurt>0.)c.fill(art,{70,70,70,0},nullptr,6);if(u->body.ice.or_missing(0.)>0.)c.fill(art,{170,205,255,255},nullptr,8);NativeCanvas::set_alpha(art,255.-n.alpha);c.rotated(art,{p.x-art->width/2.,p.y-art->height/2.},n.rotation*180./pi);
+  c.fill(art,{244,255,238,255},nullptr,8);if(u->body.hurt>0.)c.fill(art,{70,70,70,0},nullptr,6);if(u->body.ice.or_missing(0.)>0.)c.fill(art,{170,205,255,255},nullptr,8);NativeCanvas::set_alpha(art,255.-n.alpha);
+  // PvP76: worm parts are drawn at 3-degree steps (display only; motion and hits keep the exact angle)
+  // so the 67 parts reuse cached rotated images instead of rotating pixels every frame.
+  double degrees=n.rotation*180./pi;if(n.type>=13&&n.type<=15)degrees=std::round(degrees/3.)*3.;
+  c.rotated(art,{p.x-art->width/2.,p.y-art->height/2.},degrees);
   if(n.type>=13&&n.type<=15)c.frames.tag_layer(draw_start,"below_ground");
  }draw_debris(c);}
 }

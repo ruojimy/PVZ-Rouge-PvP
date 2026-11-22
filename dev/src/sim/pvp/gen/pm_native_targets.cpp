@@ -691,7 +691,7 @@ V C_NativeTargets::m_hero_source_amount(const Args& A) {
         return V::none();
     }
     if ((callm(py::str(L_side), SY("startswith"), Args{SV("zombie")})).truthy()) {
-        if (((py::m_get_slot(L_source, &Obj::_pvp_plant_kind, SV("_pvp_plant_kind")) == SV("小喷菇")) && (py::m_get_slot(L_source, &Obj::_pvp_content, SV("_pvp_content")) != SV("忧郁藤蔓")))) {
+        if ((py::m_get_slot(L_source, &Obj::_pvp_plant_kind, SV("_pvp_plant_kind")) == SV("小喷菇"))) {  // PvP76: 忧郁藤蔓 included
             return V(2.5);
         }
         if ((py::m_get_slot(L_source, &Obj::_pvp_plant_kind, SV("_pvp_plant_kind")) == SV("海蘑菇"))) {

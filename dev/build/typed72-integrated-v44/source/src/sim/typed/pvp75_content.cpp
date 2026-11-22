@@ -14,6 +14,12 @@ std::string_view text(const Field<std::string>& f){return f.present()&&!f.is_nul
 bool alive(const ZombieRef& u){return u&&u->body.hp>0.&&!u->body.ash.present();}
 bool plant_alive(const CombatPlant& p){return p.hp.or_missing(0.)>0.&&!p.dead.present();}
 double positive(const Field<double>& f){return f.present()&&!f.is_null()?f.get():0.;}
+// PvP76: whether the seat that currently owns `source` carries a secret card.
+bool holds(const TypedBattleState& w,const std::shared_ptr<AttackSource>& source,std::string_view card){
+    const auto seat=w.heroes.owner(source);if(!seat)return false;
+    const auto& player=w.heroes.players.at(seat_index(*seat));if(!player)return false;
+    return std::find(player->secrets.begin(),player->secrets.end(),card)!=player->secrets.end();
+}
 }
 namespace pvp75 {
 Point laser_eye(const CombatPlant& p,double tile){
@@ -127,12 +133,16 @@ void Pvp75Content::lasers(){
         if(plant->kind!="激光豆"||!plant->pvp75.firing)continue;
         auto& s=plant->pvp75;
         if(!plant_alive(*plant)||plant->sleep.present()||plant->crushed.or_missing(false)){s=Pvp75PlantState{};continue;}
-        if(++s.clock<pvp75::kLaserPulseTicks)continue;
-        s.clock=0.;++beam_pulses;
+        // PvP76: the pulse interval follows the plant's interval factor (金盏花 x0.8 per layer,
+        // 稻草人 and 威压 lengthen it), like every other plant attack clock.
+        s.clock+=1./std::max(.01,plant->aura_factor.present()&&!plant->aura_factor.is_null()?plant->aura_factor.get():1.);
+        if(s.clock<pvp75::kLaserPulseTicks)continue;
+        s.clock-=pvp75::kLaserPulseTicks;++beam_pulses;
         const auto eye=pvp75::laser_eye(*plant,tile);
         const Point delta{wrap_delta(eye.x,s.target.x,width),s.target.y-eye.y};
         const double cells=std::max(1e-6,std::hypot(delta.x,delta.y)/tile),amount=pvp75::kLaserDamage/cells;
         const auto source=source_ref(plant);
+        const bool focus=holds(world_,source,"secret:聚能");  // PvP76 聚能
         for(const auto& target:queries_.enemies(source)){
             if(!targets_.contact(target,eye,delta))continue;
             const auto* body=std::get_if<CombatTarget>(&target);
@@ -142,7 +152,17 @@ void Pvp75Content::lasers(){
                 hp=std::max(0.,hp-1.);world_.runtime.events.emplace_back(EnvironmentalDamageEvent{body->hero,1.});continue;
             }
             if(body&&!alive(body->unit))continue;
-            targets_.damage(source,target,amount,plant->facing,false,HeroHit::content);
+            double hit=amount;
+            if(focus&&body){
+                // 2% of the target's missing body health, added to this pulse (never to Zombie Dave).
+                const auto& u=*body->unit;const double top=u.max_hp.present()&&!u.max_hp.is_null()?u.max_hp.get():u.body.hp;
+                const double extra=pvp75::kFocusMissing*std::max(0.,top-std::max(0.,u.body.hp));
+                if(extra>0.){hit+=extra;++focus_hits;}
+            }
+            // The beam passes 二类 (hand) armor; a 僵王出品 holder's door/paper/ladder takes it first (PvP76).
+            const bool shielded=body&&!body->is_hero()&&holds(world_,source_ref(body->unit),"zsecret:僵王出品")
+                &&world_.protection.shield_first(body->unit->damage_target(),body->unit->body.hand_hp);
+            targets_.damage(source,target,hit,plant->facing,shielded,HeroHit::content);
         }
     }
 }
@@ -158,7 +178,8 @@ void Pvp75Content::guard(const ZombieRef& u){
     case GuardPhase::ready:if(hurt){s.guard=GuardPhase::raising;s.guard_clock=0.;++guards;}break;
     case GuardPhase::raising:
         if(++s.guard_clock>=pvp75::kGuardRaiseTicks){
-            s.guard=GuardPhase::guarding;s.guard_clock=0.;b.defense.set(pvp75::kGuardDefense);
+            s.guard=GuardPhase::guarding;s.guard_clock=0.;
+            b.defense.set(holds(world_,source_ref(u),"zsecret:守卫")?pvp75::kGuardSecretDefense:pvp75::kGuardDefense);  // PvP76 守卫
             const double speed=u->native.move_speed.or_missing(0.);s.walk_speed=speed;u->native.move_speed.set(speed*pvp75::kGuardSpeed);
         }break;
     case GuardPhase::guarding:
@@ -167,7 +188,9 @@ void Pvp75Content::guard(const ZombieRef& u){
             // Undo only the guard factor: other speed changes made meanwhile stay.
             const double now=u->native.move_speed.or_missing(0.);u->native.move_speed.set(now/pvp75::kGuardSpeed);s.walk_speed.reset();
         }break;
-    case GuardPhase::cooldown:if(++s.guard_clock>=pvp75::kGuardCooldownTicks){s.guard=GuardPhase::ready;s.guard_clock=0.;}break;
+    case GuardPhase::cooldown:{
+        const double cooldown=holds(world_,source_ref(u),"zsecret:守卫")?pvp75::kGuardSecretCooldownTicks:pvp75::kGuardCooldownTicks;  // PvP76 守卫
+        if(++s.guard_clock>=cooldown){s.guard=GuardPhase::ready;s.guard_clock=0.;}break;}
     }
 }
 void Pvp75Content::draw(NativeCanvas& c){

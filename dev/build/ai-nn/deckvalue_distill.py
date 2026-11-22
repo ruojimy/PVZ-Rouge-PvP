@@ -26,6 +26,7 @@ def opponent(j,prior,head):
     r=random.Random(SEED0+j*13).random()
     if r<.55:return ('prior',prior,.04),'prior-.04'
     if r<.8:return ('prior',prior,.2),'prior-.2'
+    if head is None:return ('prior',prior,.5),'prior-.5'      # PvP75: no draft head exists
     return ('head',head,False),'head-warm'
 
 def collect_one(j,value,prior,head_path):
@@ -33,7 +34,7 @@ def collect_one(j,value,prior,head_path):
     seat=SIDES[j%2];foe=SIDES[1-j%2];seed=SEED0+j
     room=Room();searcher=ds.Searcher(value,prior)
     try:
-        head=DraftNet(room.catalog).load(head_path)
+        head=DraftNet(room.catalog).load(head_path) if Path(head_path).exists() else None
         opp,name=opponent(j,prior,head)
         t=time.time();sc,notes=ds.run_draft(room,seed,{seat:('search',searcher),foe:opp});secs=time.time()-t
     finally:room.close();searcher.close()
@@ -160,13 +161,20 @@ def fit(epochs=40):
 
 class FastDrafter:
     """Greedy distilled drafter for run_draft (policy ('distill', FastDrafter()))."""
-    def __init__(self,path=None):
+    def __init__(self,path=None,prior=None,M=24):
+        # Training targets only cover the searcher's candidates (top-M offers by card prior); restrict inference to the
+        # same set, otherwise unseen low-prior cards get arbitrary scores (11-22 eval-1: deck collapse).
+        self.prior=prior;self.M=M
         self.vocab=dm.Vocab();self.enc=Encoder(self.vocab)
         d=torch.load(path or RUN/'models/distill-latest.pt',weights_only=False);assert d['keys']==self.vocab.keys
         self.net=Fast(self.vocab);self.net.load_state_dict(d['state']);self.net.eval()
     @torch.no_grad()
     def choose(self,side,a,state,offers):
         if len(offers)==1:return offers[0]
+        if self.prior is not None:
+            cand=sorted(offers,key=lambda k:-(self.prior.get(k,0.) if k else -1e9))[:self.M]
+            if None in offers and None not in cand:cand.append(None)
+            offers=cand
         e=self.enc.encode(side,a['stage'],a['kind'],state['decks'],state['bans'],offers)
         return offers[int(self.net([e])[0].argmax())]
 

@@ -19,13 +19,17 @@ sys.path.insert(0, str(ROOT / 'tools/typed72'))
 KERNEL = ROOT / 'build/typed72-integrated-v44/source/src/sim/typed'
 DATA = KERNEL / 'cold_catalog_data.cpp'
 FIELDS = KERNEL / 'cold_card_fields.h'
-NEW = ['plant:巴豆', 'plant:激光豆', 'zombie:盾卫僵尸', 'zombie:克苏鲁之仆']
+NEW = ['plant:巴豆', 'plant:激光豆', 'zombie:盾卫僵尸', 'zombie:克苏鲁之仆', 'secret:聚能', 'zsecret:守卫']  # PvP76: two secrets
 # Typed-only numbers that the V catalog never carried (see 74.4 defense lines).
 EXTRA = {'zombie:盾卫僵尸': ['c.defense.set(6.);']}
 PATCH_FIELDS = ('cost', 'cooldown', 'hp', 'description', 'native_description', 'allow_air')
 PATCH_CARDS = ['plant:杨桃', 'plant:三叶草', 'plant:玉米加农炮', 'zombie:小鬼僵尸', 'zombie:黑普通僵尸',
                'zombie:海豚僵尸', 'zombie:撑杆跳僵尸', 'zombie:雪橇车小队', 'secret:大帝',
-               'zombie:投篮车僵尸', 'zombie:小鬼炮', 'zsecret:补贴', 'zsecret:海陆空']
+               'zombie:投篮车僵尸', 'zombie:小鬼炮', 'zsecret:补贴', 'zsecret:海陆空',
+               'zombie:路灯花僵尸', 'zombie:三叶草僵尸', 'zombie:潜水僵尸', 'zombie:雪橇车小队僵尸']  # PvP76 balance
+# PvP76: per-card native health fields (雪橇车小队 30 per member); other cards keep their reviewed cold values.
+PATCH_EXTRA = {'zombie:雪橇车小队': ('native_hp', 'native_izombie_hp', 'native_hard_hp'),
+               'zombie:雪橇车小队僵尸': ('native_hp', 'native_izombie_hp', 'native_hard_hp')}
 
 
 def load():
@@ -79,7 +83,7 @@ def render(text, catalog, balance):
     for key in PATCH_CARDS:
         i = ids.index(key)
         b = cards[i]
-        for name in PATCH_FIELDS:
+        for name in PATCH_FIELDS + PATCH_EXTRA.get(key, ()):
             if name not in catalog.CARDS[key]: continue
             new = line(name, catalog.CARDS[key][name], required)
             pattern = re.compile(r'^c\.' + name + r'(=.*|\.set\(.*\)|\.set_null\(\));$', re.M)
@@ -106,8 +110,9 @@ def render(text, catalog, balance):
 
 def balance_table(catalog, name):
     keys = {'COSTS': ['zombie:小鬼僵尸', 'zombie:黑普通僵尸', 'zombie:海豚僵尸', 'zombie:撑杆跳僵尸', 'plant:杨桃',
-                      'plant:巴豆', 'plant:激光豆', 'zombie:盾卫僵尸', 'zombie:克苏鲁之仆'],
-            'ZOMBIE_COOLDOWNS': ['zombie:小鬼僵尸', 'zombie:盾卫僵尸', 'zombie:克苏鲁之仆'],
+                      'plant:巴豆', 'plant:激光豆', 'zombie:盾卫僵尸', 'zombie:克苏鲁之仆',
+                      'zombie:路灯花僵尸', 'zombie:三叶草僵尸'],
+            'ZOMBIE_COOLDOWNS': ['zombie:小鬼僵尸', 'zombie:盾卫僵尸', 'zombie:克苏鲁之仆', 'zombie:潜水僵尸'],
             'PLANT_COOLDOWNS': ['plant:巴豆', 'plant:激光豆'],
             'HEALTH': ['zombie:投篮车僵尸', 'zombie:小鬼炮']}[name]
     table = getattr(catalog, name)
@@ -126,7 +131,8 @@ def v_block(catalog):
     payload = dict(cards={k: catalog.CARDS[k] for k in keys},
                    costs=balance_table(catalog, 'COSTS'), zombie_cooldowns=balance_table(catalog, 'ZOMBIE_COOLDOWNS'),
                    plant_cooldowns=balance_table(catalog, 'PLANT_COOLDOWNS'), health=balance_table(catalog, 'HEALTH'),
-                   ruleset=catalog.RULES['ruleset'], mechanics75=catalog.RULES['mechanics75'])
+                   ruleset=catalog.RULES['ruleset'], mechanics75=catalog.RULES['mechanics75'],
+                   mechanics76=catalog.RULES['mechanics76'])
     text = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
     assert ')PVP75"' not in text
     rows = [V_BEGIN,
@@ -141,6 +147,7 @@ def v_block(catalog):
             '        for (const auto& [key, value] : py::items_vec(rd(data, SV("health")))) pvz::setitem(pm_balance::HEALTH, key, value);\n',
             '        pvz::setitem(pm_catalog::RULES, SV("ruleset"), rd(data, SV("ruleset")));\n',
             '        pvz::setitem(pm_catalog::RULES, SV("mechanics75"), rd(data, SV("mechanics75")));\n',
+            '        pvz::setitem(pm_catalog::RULES, SV("mechanics76"), rd(data, SV("mechanics76")));\n',
             '    }\n',
             V_END]
     return ''.join(rows)

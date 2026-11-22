@@ -497,7 +497,7 @@ class NativeTargets:
         # zombies, their plant heads and reflected shots at Plant Dave retain
         # their existing damage paths and values.
         if str(side).startswith('zombie'):
-            if source.get('_pvp_plant_kind') == '小喷菇' and source.get('_pvp_content') != '忧郁藤蔓':return 2.5
+            if source.get('_pvp_plant_kind') == '小喷菇':return 2.5  # PvP76: 忧郁藤蔓 included
             if source.get('_pvp_plant_kind') == '海蘑菇':return 2.5
             if source['名']=='星星':return 6.
             if source['名']=='尖刺' and source.get('_pvp_cattail'):return 2.

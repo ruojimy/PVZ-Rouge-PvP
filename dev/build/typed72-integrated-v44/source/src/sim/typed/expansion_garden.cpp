@@ -61,7 +61,8 @@ double ExpansionGarden::pressure(const PlantRef& plant) {
 double ExpansionGarden::aura(const PlantRef& plant) {
     const auto found = aura_cells.find({plant->cell.y, plant->cell.x});
     const int stacks = found == aura_cells.end() ? 0 : found->second;
-    double factor = std::pow(.8, std::min(4, stacks)) * Scarecrows::slow_factor(plant, slow_cells) * pressure(plant);
+    // PvP76: pressure() is the progress factor (1/1.3); intervals are x1.3, so divide (it used to speed plants up).
+    double factor = std::pow(.8, std::min(4, stacks)) * Scarecrows::slow_factor(plant, slow_cells) / pressure(plant);
     if (plant->kind == "仙人掌" && cactus_spikes) factor *= .5;
     return factor;
 }

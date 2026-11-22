@@ -228,9 +228,33 @@ struct TypedBattle:PyObj {
     // check reads). Edits since the session started are pushed to the typed published cells.
     // battle.map: the V construction map dict with "tiles" = the typed published cells, rebuilt
     // when the terrain revision moves (NativeBattle._sync_terrain rewrites self.map tiles).
-    J map_tiles;V map_v;int64_t map_revision=-1;
+    J map_tiles;V map_v;int64_t map_revision=-1;J map_tiles_seen;
+    // PvP76: map_v can only be edited by a caller that received it from battle.map; the
+    // snapshot hands out copies. Until then there is nothing to compare (a whole-map pass).
+    bool map_out=false;
+    // PvP76: one terrain cell change (co-op ladder support adds one cell every ~0.5 s) used
+    // to re-convert and deep-copy the whole map. Rows whose published cells did not change
+    // keep their V row; the snapshot copy re-copies only rows whose V row object changed.
+    std::vector<V> map_rows;std::vector<V> published_rows_src,published_rows_copy;
+    int64_t map_rows_reused=0,map_rows_rebuilt=0,published_rows_reused=0,published_rows_copied=0;
+    V published_map(){
+        PVP_PROFILE_SCOPE("TypedBattle::published_map");
+        const V m=typed_map();
+        if(map_out)return py::deepcopy(m);  // a caller may edit map_v rows in place: copy everything
+        V out=V::dict();
+        for(auto& kv:m.kv())if(py_str(kv.first)!="tiles")out.at(kv.first)=py::deepcopy(kv.second);
+        const auto rows=py::iter_list(m.get(V("tiles"),V::list({})));std::vector<V> copied;copied.reserve(rows.len());
+        if(published_rows_src.size()!=rows.len()){published_rows_src.assign(rows.len(),V());published_rows_copy.assign(rows.len(),V());}
+        for(size_t r=0;r<rows.len();++r){
+            const V row=rows.idx(int64_t(r));
+            if(!published_rows_src[r].has()||!py_is(published_rows_src[r],row)){published_rows_src[r]=row;published_rows_copy[r]=py::deepcopy(row);++published_rows_copied;}
+            else ++published_rows_reused;
+            copied.push_back(published_rows_copy[r]);
+        }
+        out.at(V("tiles"))=V::list(copied);return out;
+    }
     void push_map_edits(){
-        if(!map_v.is_dict()||map_tiles.is_null())return;
+        if(!map_out||!map_v.is_dict()||map_tiles.is_null())return;
         const J now=vj(map_v.get(V("tiles"),V::list({})));
         for(size_t r=0;r<now.size()&&r<map_tiles.size();++r)for(size_t c=0;c<now[r].size()&&c<map_tiles[r].size();++c)
             if(now[r][c]!=map_tiles[r][c])session->fixture_tile(int64_t(r),int64_t(c),now[r][c]);
@@ -252,7 +276,15 @@ struct TypedBattle:PyObj {
             if(session->coop_red_sky())environment.at(V("background"))=V("红天");
             environment.at(V("night"))=V(*night);m.at(V("environment"))=environment;
         }
-        m.at(V("tiles"))=jv(map_tiles);map_v=m;map_revision=revision;return map_v;
+        {PVP_PROFILE_SCOPE("TypedBattle::map_rows");
+         std::vector<V> rows;rows.reserve(map_tiles.size());
+         const J* previous=map_rows.size()==map_tiles.size()&&map_v.is_dict()?&map_tiles_seen:nullptr;
+         for(size_t r=0;r<map_tiles.size();++r){
+             if(previous&&r<previous->size()&&(*previous)[r]==map_tiles[r]){rows.push_back(map_rows[r]);++map_rows_reused;}
+             else{rows.push_back(jv(map_tiles[r]));++map_rows_rebuilt;}
+         }
+         map_rows=rows;map_tiles_seen=map_tiles;m.at(V("tiles"))=V::list(rows);}
+        map_v=m;map_revision=revision;return map_v;
     }
     // g["ditu"] edits (whole-cell replacement or key writes) since the last projection.
     J ditu_seen;
@@ -398,7 +430,7 @@ struct TypedBattle:PyObj {
             out.at(kv.first)=py::deepcopy(kv.second);
         }
         copy_phases.mark("StateView::snapshot_copy");
-        if(include_map)out.at(V("map"))=py::deepcopy(typed_map());   // deepcopy(self.map)
+        if(include_map)out.at(V("map"))=published_map();   // deepcopy(self.map), row-cached (PvP76)
         if(local&&lazy_frame){
             if(!local_native_frame.has())local_native_frame=make_local_frame(session->native_frame(),local_frame_stats);
             out.at(V("native_frame"))=local_native_frame;
@@ -503,7 +535,7 @@ struct TypedBattle:PyObj {
             return V::inst(e);
         }
         // Static construction attributes only; the V battle's dynamic state is never read.
-        if(n=="map")return typed_map();
+        if(n=="map"){V m=typed_map();map_out=true;return m;}
         if(n=="dt"||n=="rules"||n=="mode"||n=="seats"||n=="tile"||n=="width"||n=="height"||n=="seed"||n=="bans"||n=="graphics")return pvz::getattr(native,name);
         found=false;return V();
     }
@@ -795,6 +827,8 @@ struct TypedBattle:PyObj {
             d.at(V("frame_descriptions"))=V(double(frame_projection.descriptions));
             d.at(V("frame_description_hits"))=V(double(frame_projection.hits));
             d.at(V("native_projections"))=V(double(native_projections));
+            {V m=V::dict();m.at(V("rows_reused"))=V(double(map_rows_reused));m.at(V("rows_rebuilt"))=V(double(map_rows_rebuilt));
+             m.at(V("published_reused"))=V(double(published_rows_reused));m.at(V("published_copied"))=V(double(published_rows_copied));d.at(V("pvp76_map"))=m;}  // PvP76 map row reuse
             d.at(V("ai_observations"))=V(double(ai_observations));d.at(V("ai_resets"))=V(double(ai_resets));
             d.at(V("ai_plans"))=V(double(ai_plans));d.at(V("ai_controls"))=V(double(ai_controls));d.at(V("ai_planner_resets"))=V(double(ai_planner_resets));
             // Audit evidence only: typed planner memory mode and branch counters per seat.

@@ -16,7 +16,7 @@ from concurrent.futures import ThreadPoolExecutor
 import numpy as np
 
 H=Path(__file__).resolve().parent
-RUN=H.parents[1]/'test_results/ai-nn-home-options-20261118/deck-value-20261120'
+RUN=Path(os.environ['DV_RUN']) if os.environ.get('DV_RUN') else H.parents[1]/'test_results/ai-nn-home-options-20261118/deck-value-20261120'
 os.environ['PVZ_RANKED_PROFILE']=str(RUN/'profile.json')
 import torch
 from ranked_draft import Room,DraftNet,SIDES,HOME,environment,check_game,read,write

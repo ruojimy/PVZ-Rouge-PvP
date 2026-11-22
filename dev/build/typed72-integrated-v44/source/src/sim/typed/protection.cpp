@@ -70,7 +70,8 @@ double UnitProtection::adjust(DamageTarget target,double amount) {
 }
 bool UnitProtection::shield_first(const DamageTarget& target,double hand_hp) const {
     const auto& hand=target.hand;
-    return hand_hp>0&&(hand=="报纸"||hand=="钢门"||hand=="梯子"||hand=="铁栅门"||hand=="传送带")&&own(target);
+    // PvP76: 僵王出品 makes every 二类 armour act like a 一类 one (doors, paper, ladder, belt, gate, trash can incl. 二手, and the rolled barrel; never the balloon); poison still skips it.
+    return hand_hp>0&&(hand=="报纸"||hand=="钢门"||hand=="梯子"||hand=="铁栅门"||hand=="传送带"||hand=="垃圾桶"||hand=="滚桶")&&own(target);
 }
 bool UnitProtection::selected(const DamageTarget& target) const {
     const auto uid=optional_string(target.identity.id);

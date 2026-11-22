@@ -14,7 +14,7 @@ import torch
 from torch import nn
 
 H=Path(__file__).resolve().parent
-RUN=H.parents[1]/'test_results/ai-nn-home-options-20261118/deck-value-20261120'
+RUN=Path(os.environ['DV_RUN']) if os.environ.get('DV_RUN') else H.parents[1]/'test_results/ai-nn-home-options-20261118/deck-value-20261120'
 SIDES=('plant','zombie')
 torch.set_num_threads(int(os.environ.get('DV_THREADS','6')))
 

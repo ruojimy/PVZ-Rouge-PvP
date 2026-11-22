@@ -1846,7 +1846,7 @@ void init() {
     pm_zombie_secrets::POLE_REACH = V(2.0);
     pm_zombie_secrets::POLE_DAMAGE = V(4.0);
     pm_zombie_secrets::KING_ARMOR = V(1.25);
-    pm_zombie_secrets::TYPE2 = V::tuple({SV("报纸"), SV("钢门"), SV("梯子"), SV("铁栅门"), SV("传送带")});
+    pm_zombie_secrets::TYPE2 = V::tuple({SV("报纸"), SV("钢门"), SV("梯子"), SV("铁栅门"), SV("传送带"), SV("垃圾桶"), SV("滚桶")});  // PvP76
     pm_zombie_secrets::SHARED_HAND_ARMOR = V::tuple({SV("钢门"), SV("垃圾桶"), SV("梯子"), SV("传送带")});
     pm_zombie_secrets::SHOT_TIMERS = V::tuple({SV("植物僵尸射cd"), SV("篮球cd")});
     pm_zombie_secrets::PLANT_ZOMBIES = py_dict({{SV("豌豆射手"), SV("豌豆僵尸")}, {SV("机枪射手"), SV("机枪僵尸")}, {SV("坚果"), SV("坚果僵尸")}, {SV("高坚果"), SV("高坚果僵尸")}, {SV("火爆辣椒"), SV("辣椒僵尸")}, {SV("毁灭菇"), SV("毁灭菇僵尸")}, {SV("三叶草"), SV("三叶草僵尸")}, {SV("路灯花"), SV("路灯花僵尸")}, {SV("倭瓜"), SV("倭瓜僵尸")}, {SV("窝瓜"), SV("倭瓜僵尸")}, {SV("墓碑吞噬者"), SV("墓碑吞噬者僵尸")}, {SV("萝卜伞"), SV("萝卜伞僵尸")}, {SV("吸金磁"), SV("吸金磁僵尸")}, {SV("大喷菇"), SV("大喷菇僵尸")}});

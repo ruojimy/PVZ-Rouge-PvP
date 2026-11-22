@@ -512,7 +512,7 @@ void init() {
     inited_ = true;
     py::note_module_loaded("pvp.native_placement");
     py::init_deps_native_placement();
-    pm_native_placement::UNTARGETABLE_PLANTS = V::tuple({SV("幽灵辣椒")});
+    pm_native_placement::UNTARGETABLE_PLANTS = V::tuple({SV("幽灵辣椒"), SV("三叶草")});  // PvP76: clover untargetable (kernel thief rule)
     pm_native_placement::_PATCHES = py_dict({});
 }
 static V modattr_(Sym n) {

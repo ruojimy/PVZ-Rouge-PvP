@@ -74,6 +74,10 @@ bool plant_edible_target(const TypedBattleState& world,size_t index) {
     const auto& unit=*target.unit;
     if(world.heroes.tick<unit.protection.anchor_until.or_missing(0.))return false;
     if(named(unit.source.variant,"角斗士巨人") || named(unit.source.content,"红眼巨人"))return false;
+    // PvP76: 大嘴花/龙蒺藜 never swallow the three giants or a Terraria Boss / Boss part
+    // (眼、世界吞噬者头/体节/尾节、骷髅王、骷髅王之手); 克苏鲁之仆 and other summons stay edible.
+    if(unit.body.kind=="巨人僵尸" || named(unit.source.content,"巨人僵尸"))return false;
+    if(unit.terraria && unit.terraria->type!=5)return false;
     if((unit.source.content.present() && !unit.source.content.is_null() && !unit.source.content.get().empty()) ||
        (unit.source.variant.present() && !unit.source.variant.is_null() && !unit.source.variant.get().empty()))return true;
     return number(unit.body.size,0.)==2.;

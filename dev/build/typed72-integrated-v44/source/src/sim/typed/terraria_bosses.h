@@ -37,6 +37,8 @@ private:
     Point center(const ZombieRef&)const;
     Point delta(Point,Point)const;
     std::vector<ContentTarget> enemies()const;
+    bool live_enemy(const ContentTarget&)const;
+    std::optional<std::vector<ContentTarget>> enemy_cache_;  // PvP76: one listing per AI frame
     std::optional<ContentTarget> target(const ZombieRef&,bool closest=false);
     std::string id(const ContentTarget&)const;
     void step(const ZombieRef&);

@@ -16,7 +16,8 @@ from concurrent.futures import ThreadPoolExecutor,wait,FIRST_COMPLETED
 H=Path(__file__).resolve().parent
 R=H.parents[1]
 ROOT=R/'test_results/ai-nn-home-options-20261118'
-RUN=ROOT/'deck-value-20261120'
+LEGACY=ROOT/'deck-value-20261120'
+RUN=Path(os.environ['DV_RUN']) if os.environ.get('DV_RUN') else LEGACY   # PvP75 run: deck-value-pvp75-20261121
 V2=ROOT/'ranked-v2-20261120'
 SEED0=41000000
 
@@ -31,7 +32,25 @@ def setup():
     head=RUN/'draft-head.npz'
     if not head.exists():shutil.copyfile(V2/'draft/current.npz',head)
 
+def setup75():
+    """PvP75 r3 run: tools relinked by ranked_pvp75_native.py, game data snapshotted into the run (the release folder
+    is replaced on every release).  There is no PvP75 draft head yet, so head policies are not used."""
+    sys.path.insert(0,str(H))
+    from overnight_common import read,write
+    run=ROOT/'deck-value-pvp75-20261121';run.mkdir(exist_ok=True)
+    nb=read(ROOT/'ranked-pvp75-20261121/native-build.json');rel=read(R/'dist/latest-native-release.json')
+    assert rel['revision']=='pvp75-r3' and nb['version']==rel['version']
+    data=run/'data'
+    if not (data/'extract').exists():shutil.copytree(Path(rel['release'])/'extract',data/'extract')
+    base=read(LEGACY/'profile.json')
+    cfg={**base,'version':nb['version'],'output':str(run),'data_root':str(data),'native_dir':str(ROOT/'ranked-pvp75-20261121/native'),
+         'seed_offset':SEED0,'purpose':'deck-value corpus, PvP75 r3, r22 vs r22','native_build':nb['fingerprint']}
+    cfg.pop('draft_parent',None);cfg.pop('draft_sha',None)
+    if not (run/'profile.json').exists():write(run/'profile.json',cfg)
+    print(run)
+
 if sys.argv[1:2]==['setup']:setup();sys.exit()
+if sys.argv[1:2]==['setup75']:setup75();sys.exit()
 os.environ['PVZ_RANKED_PROFILE']=str(RUN/'profile.json')
 from ranked_draft import Room,DraftNet,draft,SIDES,HOME,PROFILE,read,write
 from ranked_draft_train import fight
@@ -45,8 +64,15 @@ FIRST_TEMPLATE_ID=200     # ids below this were generated before the template po
 FIRST_PRIOR_ID=15400      # from here (2026-11-21 09:40) seats may also draft with the value-derived card prior
 PRIOR_POLICIES={'uniform':(.10,.25),'head-warm':(.10,.20),'head-cold':(.10,.15),'template':(.35,.10),'prior':(.35,.30)}
 
+P75_BASE={'uniform':(.45,.60),'template':(.55,.40)}
+P75_PRIOR={'uniform':(.20,.35),'template':(.40,.25),'prior':(.40,.40)}
+
 def policy_for(i):
     rng=random.Random(SEED0+i*7+3)
+    if RUN!=LEGACY:
+        table=P75_PRIOR if (RUN/'prior.json').exists() else P75_BASE
+        names=list(table)
+        return {s:rng.choices(names,[table[n][j] for n in names])[0] for j,s in enumerate(SIDES)}
     names=list(POLICIES)
     if i<FIRST_TEMPLATE_ID:
         old={'uniform':.4,'head-warm':.35,'head-cold':.25}
@@ -90,7 +116,7 @@ def one(i,head_path):
     room=Room()
     try:
         pol=policy_for(i);seed=SEED0+i
-        head=DraftNet(room.catalog).load(head_path);template=None
+        head=DraftNet(room.catalog).load(head_path) if head_path.exists() else None;template=None
         if 'prior' in pol.values():
             import deckvalue_search as ds
             pr=read(RUN/'prior.json')['prior'];mapping={'prior':('prior',pr,.1),'uniform':('prior',{},1.),
@@ -100,9 +126,8 @@ def one(i,head_path):
         else:sc=None
         uni=DraftNet(room.catalog)
         # draft() takes one noise scale per call; mix seats by giving the uniform seat a zeroed scorer.
-        nets={s:(uni if pol[s]=='uniform' else head) for s in SIDES}
-        if pol['plant']=='uniform' or pol['zombie']=='uniform':
-            for k in ('w','head','bias'):getattr(uni,k)[...]=0
+        for k in ('w','head','bias'):getattr(uni,k)[...]=0
+        nets={s:(uni if pol[s]=='uniform' or head is None else head) for s in SIDES}
         scales={POLICIES[pol[s]][2] for s in SIDES if pol[s] in POLICIES and pol[s]!='uniform'}
         scale=min(scales) if scales else 1.
         if sc is not None:pass
@@ -137,7 +162,7 @@ def load_rows(path=None):
 def run(lanes):
     db=open_db();head=RUN/'draft-head.npz'
     done={r[0] for r in db.execute('select id from games')}
-    nxt=0;pending={};t0=time.time();made=0
+    nxt=0;pending={};t0=time.time();made=0;streak=0
     def status(phase):
         n=db.execute('select count(*) from games').fetchone()[0]
         write(RUN/'corpus-status.json',dict(phase=phase,games=n,new=made,lanes=lanes,updated=local(time.time()),
@@ -151,9 +176,12 @@ def run(lanes):
             fin,_=wait(pending,timeout=30,return_when=FIRST_COMPLETED)
             for f in fin:
                 i=pending.pop(f)
-                try:row=f.result()
+                try:row=f.result();streak=0
                 except Exception as e:
-                    row=dict(i=i,error=repr(e)[:400])
+                    row=dict(i=i,error=repr(e)[:400]);streak+=1
+                if streak>=40:
+                    # A broken environment (missing data root, bad binary) must not flood the corpus with error rows.
+                    status('连续出错已停止');(RUN/'STOP').write_text(row['error'],'utf8');return
                 with db:db.execute('insert or replace into games values(?,?)',(i,zlib.compress(json.dumps(row,ensure_ascii=False,separators=(',',':')).encode(),6)))
                 made+=1
             status('生成中')
