@@ -1214,8 +1214,8 @@
    "production_changes": []
   },
   "match_probe.cpp": {
-   "source_sha256": "ebf88fc535f840d133f06e81c1227106c9734a016be00f370a6daa8693df1354",
-   "generated_sha256": "f353b30a118fd4b4e947e2cb157f7466a4e45d730b5ede417ed82e625a02e61e",
+   "source_sha256": "80da862bfeb0291faf8b597ccb045d7626c1dca329e783ac31bee7e4bd7eef94",
+   "generated_sha256": "139123179d8ecc9d5bda3cdc18f015e08131b1169b7e07cfe50e08a073de3f3a",
    "removed": [
     "spawn_events.push_back({\"black_armor\",name});",
     "spawn_events.push_back({\"spawn_blocked\",card});"

@@ -73,6 +73,40 @@ int main(int argc,char** argv){
         auto app=args.pos.at(0);int frame_no=int(args.pos.at(1).num());if(frame_no>4)return V(true);if(frame_no!=0)return V(false);
         Driver d{app,output};
         auto check=[&](const char* name,auto fn){J row={{"name",name}};try{row["evidence"]=fn();row["passed"]=true;}catch(const std::exception& e){row["passed"]=false;row["error"]=e.what();++failed;}results.push_back(row);std::cerr<<row.dump()<<std::endl;};
+        check("ranked_guest_click_on_locked_sun",[] {
+            auto guest = std::make_shared<pm_app::C_Application>();
+            const V guest_app = V::inst(guest);
+            guest->a_mode = V("guest");
+            guest->a_peer_id = V("guest");
+            guest->a_tutorial = V::none();
+            guest->a_state = val({{"screen", "room"}, {"active_side", "plant"}, {"selected_card", "plant:豌豆射手"}});
+            guest->a_sequence = val({{"plant", 0}});
+            guest->a_renderer = V::inst(std::make_shared<PyObj>());
+            setattr(guest->a_renderer, SY("camera"), V::none());
+            setattr(guest->a_renderer, SY("world_point"), V::func([](const Args& args) { return args.pos.at(0); }));
+            J sent = J::array();
+            guest->a_transport = V::inst(std::make_shared<PyObj>());
+            setattr(guest->a_transport, SY("send"), V::func([&](const Args& args) {
+                sent.push_back(json(args.pos.at(0)).at("payload").at("input"));
+                return V(true);
+            }));
+            J view = {{"phase", "battle"}, {"revision", 1}, {"members", {{"guest", "plant"}}},
+                      {"battle", {{"map", {{"width", 3456}}}, {"time", 5.0}, {"units", J::array()},
+                                  {"players", {{"plant", {{"collect_locked_until", 12.0}}}}},
+                                  {"resources", {{{"id", "sun-1"}, {"x", 240.0}, {"y", 360.0}, {"side", "plant"}}}}}}};
+            const auto click = [&] {
+                guest->a_view = val(view);
+                callm(guest_app, SY("world_click"), Args{V::tuple({V(240.0), V(360.0)})});
+            };
+            click();
+            need(sent.size() == 1 && sent[0]["type"] == "deploy" && sent[0]["card"] == "plant:豌豆射手",
+                 "locked pickup blocked deploy: " + sent.dump());
+            view["battle"]["time"] = 12.0;
+            click();
+            need(sent.size() == 2 && sent[1]["type"] == "collect" && sent[1]["resource"] == "sun-1",
+                 "unlocked pickup lost priority: " + sent.dump());
+            return sent;
+        });
         try{
             callm(app,SY("create"),Args{V(true)});callm(app,SY("render"),Args{});
             test74::action(app,V::tuple({V("test74"),V("start")}));need(getattr(d.room(),SY("phase"))==V("battle"),"test mode did not start");
@@ -144,7 +178,7 @@ int main(int argc,char** argv){
             for(int i=0;i<3;++i){auto e=deploy();need(e.empty()||e=="None","zero-cooldown deploy "+std::to_string(i)+": "+e);d.frame(1);need(cd("zombie:克苏鲁之仆")<=0.,"cooldown started while 0 cooldown");}
             d.cheat("zombie",{{"op","zero_cooldown"}});d.frame(1);need(!d.players()["zombie"].value("test_zero_cooldown",false),"flag kept after switching off");
             auto e=deploy();need(e.empty()||e=="None","normal deploy: "+e);d.frame(1);const double left=cd("zombie:克苏鲁之仆");
-            need(left>22.&&left<=24.01,"normal cooldown not restored: "+std::to_string(left));  // PvP76 r2: 24 s
+            need(left>30.&&left<=32.01,"normal cooldown not restored: "+std::to_string(left));
             return J{{"cooldown_after_off",left}};
         });
         check("replay_normalize_same_pixels",[&]()->J{

@@ -22,6 +22,9 @@ public:
     void before_plants();
     void after_plants();
     void after_zombies();
+    // PvP76 r3: a Dave blown along the ground hops a one-tile step in front of him.
+    void wind_hop(Seat,double direction);
+    uint64_t wind_hops=0;
     const std::array<std::optional<double>,4>& plant_baselines()const noexcept{return plant_baselines_;}
 private:
     TypedBattleState& world_;

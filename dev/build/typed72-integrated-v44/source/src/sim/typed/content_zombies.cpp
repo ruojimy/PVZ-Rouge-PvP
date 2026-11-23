@@ -22,6 +22,11 @@ bool ContentZombies::custom(std::string_view name)const {
 bool ContentZombies::follow(const CombatZombie& unit)const {
     return commands_.for_owner(world_.mode,unit.source.seat)==PathMode::follow_hero;
 }
+bool ContentZombies::idle_for(CombatZombie& unit,double ticks)const {
+    auto& hurt=unit.protection.reaper_hurt;const double now=double(world_.heroes.tick);
+    if(!hurt.present()||hurt.is_null())hurt.set(now);  // the clock starts when the cart first acts
+    return now-hurt.get()>=ticks;
+}
 bool ContentZombies::kunkun(const CombatZombie& unit)const {
     if(unit.source.charmed.present()||!named(unit.protection.card,"zombie:投篮车僵尸"))return false;
     const auto seat=unit.source.seat.value_or(Seat::zombie);const auto& player=world_.heroes.players.at(seat_index(seat));
@@ -71,7 +76,10 @@ void ContentZombies::cart_gate(const ZombieRef& unit,std::string_view name) {
         unit->protection.basketball.set(0.);native.shooting.set(0.);native.basketball_cd.set(1e9);
         if(!following && !has_rally)native.advance.set(2.);
     }
-    if((following || has_rally) && !charmed && name!="小鬼炮") {
+    // PvP76 r3: a basketball cart nobody has hit for 10 s stops throwing until it is hit again
+    // (like the reaper's bones); 坤坤 lifts the limit.
+    const bool idle=name!="小鬼炮" && !unruly && idle_for(*unit,2500.);
+    if(((following || has_rally) && !charmed || idle) && name!="小鬼炮") {
         state.saved_basketball_cd.set(native.basketball_cd.or_missing(0.));native.basketball_cd.set(1e9);
     }
 }
@@ -143,7 +151,8 @@ void ContentZombies::finish_summoner(const ZombieRef& unit,std::string_view name
         const double dx=wrap_delta(position.x,goal.x,world_.world_width.get());
         unit->body.facing=dx>=0.?1.:-1.;
         const bool following=(follow(*unit) || rally(*unit)) && !unit->source.charmed.present();
-        active=!following && std::abs(dx)<=20.*world_.runtime.tile;
+        // PvP76 r3: 15 s without being hit: no more imps until the cannon is hit again.
+        active=!following && std::abs(dx)<=20.*world_.runtime.tile && !idle_for(*unit,3750.);
         if(active){position.x=unit->grenadier.before.get().x;position.vx=0.;}
     }
     if(active)state.summon_clock.get()+=factor;

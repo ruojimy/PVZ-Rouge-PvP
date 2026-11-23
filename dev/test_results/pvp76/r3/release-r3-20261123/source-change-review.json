@@ -1,0 +1,202 @@
+{
+  "base_revision": "pvp76-r2",
+  "revision": "pvp76-r3",
+  "reviewed_files": {
+    "CMakeLists.txt": {
+      "pvp76-r2": "67d30e026f70a5c58e2e58b0765f8c399a94821ae7624056eef973c284860e70",
+      "pvp76-r3": "c2360c51f50e5efda673c04a24c5c1975486fc48d3a7f2dd999247a1546a05ac"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/cold_catalog_data.cpp": {
+      "pvp76-r2": "765334f2e54ccca662b9e5fbece479db7e844e971f7000f01da18c5e98463c79",
+      "pvp76-r3": "4cf09023bf4f251f06213bbcd73b83a2048df5b7980de594c18b73a6306e040a"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/cold_deployment.cpp": {
+      "pvp76-r2": "8069a4db224ab855c976303d8ce435386cd97f00b99da7f3b791ff652a434730",
+      "pvp76-r3": "f131aa95a3fdd971a9f3f8b78351cbbaf11e6fdb4455fbd54400d3836d94dbeb"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/cold_placement.cpp": {
+      "pvp76-r2": "f62ef34bf07028c32b38c2b24416337a3ca74000b421b50159258cc86467b263",
+      "pvp76-r3": "9a4ff2ba8041fa52d1cb246057103f6c255baff7382b5b7314597d6f010866de"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/cold_placement_rules.cpp": {
+      "pvp76-r2": "3ef6ba1eda0a2f71661c03c807fb83fcc000ddeeaf632badad432a3a50702fd1",
+      "pvp76-r3": "e3f264e8c1452e2d6658f3ace5fc7669528ef5ead5d79c6675a96917830c25fc"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/cold_placement_rules.h": {
+      "pvp76-r2": "7e4d3b98fc9413c855bab6cff4461b6537fb666583f9ec9f670024f38e37dae7",
+      "pvp76-r3": "27c528ac32f7e6d1b1672053910b6d925eb19dc3260f910f2068fe76085792a7"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/content_zombies.cpp": {
+      "pvp76-r2": "9da06d30dbad04f085e89641c6cd48c864880403c39687445c636c3d0f200be0",
+      "pvp76-r3": "ee8eb42eb05a1ad6c0833e3d7c6efd1c37b887126c3abbefadec23a980a42956"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/content_zombies.h": {
+      "pvp76-r2": "904fd162296c0a007c4a9bf980d78de599cb0b9017c062bb01b4abc7a17e26ee",
+      "pvp76-r3": "dfa7cd34b896986c559fb082e0280c90a4171d85550f01c953c93012dd940941"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/damage_patch.cpp": {
+      "pvp76-r2": "0ee04bee6cf11ac0295fc7d85c2f0f1b92fdd4e76c6151c52b35321638799053",
+      "pvp76-r3": "c5472c82981e18bc3e9cc5eab2e1673dc8bb4eb79d6772af11101e6c6d70b628"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/doom_effects.cpp": {
+      "pvp76-r2": "c8dbd608267d8eea23647b3a4a6ece83cf2d042ebf8cc87635b0cd4bd74796bb",
+      "pvp76-r3": "2331fda1bf5ef18488a8f1bcb3fddb612d84bedafa9552271e410fd703a402d7"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/doom_effects.h": {
+      "pvp76-r2": "9f865cfd155f07f796c51819608c89300389ce5e90cda62d6c6430b003b745de",
+      "pvp76-r3": "930974c66a72c7fa203632db564b64a4405ecc453d5d41163706b6c0ad1de13a"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/native_patch_draw.cpp": {
+      "pvp76-r2": "c6efc72f70f34620e50d0e6c713fe1ba6538603d38eadb81519309a59ed78d5b",
+      "pvp76-r3": "2e5636323ec128a50029be0e98576792619488320c841495dc2eab4e41b6f282"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/protection.cpp": {
+      "pvp76-r2": "8a781485bbe883c3c3b2738567bbdd9df05023c1d8e1fa06ce81f54396ac7a65",
+      "pvp76-r3": "d77a289812d7c2f05ee7a016bfaff1098f0d91eb57d08e9b19d884c3806981fb"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/pvp75_content.cpp": {
+      "pvp76-r2": "27b5746d92262a5cd6684c1332db30993cf8ec9e7c2f800364db28b9220b3deb",
+      "pvp76-r3": "e5c66319b38a93dc692af8be9cbcbfab6b2f79c6ffc7ac4eb45acd10008874cb"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/pvp75_content.h": {
+      "pvp76-r2": "0ad519f36c1583c3e6bc09f1056b27912a4efc97d5e7111662bc9d62e83ea0b2",
+      "pvp76-r3": "41bf1796208b383ff26b66086fd522fc89708b39732798f6d6866022e2ee746b"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/terraria_bosses.cpp": {
+      "pvp76-r2": "2da5659424e2d53bbc1a6103285463de4b15eace0d29aa4a5d53d55af6b2f0bf",
+      "pvp76-r3": "cec00b6c14238d06615275cb0bbe467a9eafdfb7c7d7c2330e5350877c10c8da"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/wind_effects.cpp": {
+      "pvp76-r2": "af78050177d24953ec37bd40765cd4988f91578a0a38848a1abd1e2fb5322dcc",
+      "pvp76-r3": "cccbe95121a72e94f28c1ebc788125f7bbbb0165c70b6796e3c302dace87265e"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/wind_effects.h": {
+      "pvp76-r2": "5f09ebffc9710bcf9fbdae85814ff027cdfffefcbe43d47c349d3f331e46ff38",
+      "pvp76-r3": "ec6b94d0a287aa6daa8c524cef59f68728946b5a5975dffe16002b3787a1215f"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/zombie_secret_runtime.cpp": {
+      "pvp76-r2": "025fefac9327bfcaa5d51f0b0f7ff306b0b8a723884e0ff45633fd171f0b9526",
+      "pvp76-r3": "c761c2a86fe0fa58c1d00facd12590984783426d75e42d415ff60d50fdf904c0"
+    },
+    "build/typed72-match-v1/match_probe.cpp": {
+      "pvp76-r2": "ebf88fc535f840d133f06e81c1227106c9734a016be00f370a6daa8693df1354",
+      "pvp76-r3": "80da862bfeb0291faf8b597ccb045d7626c1dca329e783ac31bee7e4bd7eef94"
+    },
+    "extract/data/__init__.json": {
+      "pvp76-r2": "944c1c475c69338019166135772d9949649321741477231c7535a47a6e34b496",
+      "pvp76-r3": "05ce8f64725eeb22b04fc13de86e7f3d44635093951d3a7e5b540aa74d95b05e"
+    },
+    "extract/data/catalog.json": {
+      "pvp76-r2": "583fdcb5f83f4a9d36e2a9aef6d5a33551ee8df385961be1009fdb9e60609149",
+      "pvp76-r3": "070c8f9753e905f9d7fe8e89cfcc28a48c60868649a4b4aa245b13ac2be673de"
+    },
+    "extract/data/zombie_secret_catalog.json": {
+      "pvp76-r2": "22839f3a48d734840682b35113dc54ef2ba4782652f6f511f28cb3aa499a20a6",
+      "pvp76-r3": "3577ac6b1597095d519ef7bab03a2e94faec1b90be47bae4ac4c868e1a8db619"
+    },
+    "extract/data/zombie_secrets.json": {
+      "pvp76-r2": "08edf423241bdc12215300cdd0288a0f7c29fa17ef613a7a484d103f4412b04d",
+      "pvp76-r3": "248a4b9d444ba0231430a3e79b8c33ae91a3ba3e16fa699dbcff25c58acf26d5"
+    },
+    "src/cpptests/gen/pm_test_pvp_57_balance.cpp": {
+      "pvp76-r2": "8960d45fbe0865bcfbbb000ec0aed082d217944eccd972a4da3063c928d64f28",
+      "pvp76-r3": "d6d2b3c9855c882c6ee3f2aeaf95be57382a3afff669afe81be0603d38ec06d6"
+    },
+    "src/cpptests/gen/pm_test_pvp_58_features.cpp": {
+      "pvp76-r2": "3d9a532b81d2ee8b7efcbe93666956e529432e10b06dc4e83c2ee0ba44389b7c",
+      "pvp76-r3": "4dc7b6b805c1be65eaf93a7d537b0a97e9442a68e2531c55d167462e2897265e"
+    },
+    "src/cpptests/gen/pm_test_pvp_63_features.cpp": {
+      "pvp76-r2": "6470bcbd294e521ebc2a383c404a8a789193a60f478291246dc66351e4d56ffd",
+      "pvp76-r3": "17527c3e98ae1358b4e8420b4a66c49e155f9c9a44e35357333fdd041dbe947b"
+    },
+    "src/cpptests/gen/pm_test_pvp_66_personal_commands.cpp": {
+      "pvp76-r2": "7596365384224240ab808093c9e41591d6fed48d9ed90b54eb78afd5f749aa31",
+      "pvp76-r3": "cb959853ddf48f9964f6198583f0d3410cc4ca81a195adb4fc4f1f9989ad14ca"
+    },
+    "src/cpptests/gen/pm_test_pvp_66_zombie_secrets.cpp": {
+      "pvp76-r2": "adccc53fd684dfed1a23de24200fbbe0bd61ec7f5dd04f2556d9ec13c607504c",
+      "pvp76-r3": "82c038a6ffc913081b3039ce5b022f7089a1002699eafffd9d9cef381dd73ef9"
+    },
+    "src/cpptests/gen/pm_test_pvp_balance_economy.cpp": {
+      "pvp76-r2": "52ee310dbbe95a59186e7fac6d1ab9c6d65627770933de61e6dba80d97507f35",
+      "pvp76-r3": "5ad4f81cf434d903ce58fcf0cebc8c0aef3cf256e420d644fb40a7b717217b84"
+    },
+    "src/sim/pvp/gen/pm_catalog.cpp": {
+      "pvp76-r2": "416e6f23b851bb87f1dbbc0854f4560e533b5e29fb8874c2281fc5e29f2380b5",
+      "pvp76-r3": "bd268c4b5ebf479fa6f9a8337a7f2f232b3404a863060f0c212048e998577a39"
+    },
+    "src/sim/pvp/gen/pm_zombie_secrets.cpp": {
+      "pvp76-r2": "5ddb22ee5aa967855ad744bfd65040665a97d0904e5029716716cb5257be7137",
+      "pvp76-r3": "3963869c7442c9e7c74941be6f869caee67acd4409aedd1f4570949596647f34"
+    },
+    "src/sim/typed72_app/composition/MANIFEST.json": {
+      "pvp76-r2": "6fabfc09142884e3b5805ab607d0e79544eddc361dcdc3b59cfa1b48146b0380",
+      "pvp76-r3": "393d481421771837a37b6f20074145b4eb294d6510e3847fa18aea5d5fb21f2f"
+    },
+    "src/sim/typed72_app/composition/match_probe.cpp": {
+      "pvp76-r2": "f353b30a118fd4b4e947e2cb157f7466a4e45d730b5ede417ed82e625a02e61e",
+      "pvp76-r3": "139123179d8ecc9d5bda3cdc18f015e08131b1169b7e07cfe50e08a073de3f3a"
+    },
+    "src/ui/gen/pm_app.cpp": {
+      "pvp76-r2": "4e61d82b58544c790faae0dca84ba1c0be61ca0bc2d42cd2ce4053697e79986d",
+      "pvp76-r3": "d3987cf7e1b05af7ffa2a0a6a0f864e212dac506d92cac79a1ce4daef85811f2"
+    },
+    "src/uitools/pvp75_audit.cpp": {
+      "pvp76-r2": "dbd9e703c774872cdf672990872795e3d823bcb5fedbd3e3f70ff4220a6d4bd4",
+      "pvp76-r3": "c9e2b2a1e6c86e12acf1ba1c764cdbe6ae7f1d95b77d925b68d12f974ce6637e"
+    },
+    "src/uitools/pvp75_ui_audit.cpp": {
+      "pvp76-r2": "6c61216e137851186d3788ada30159a5dd5b9b0df46e211a1f757af79e9fda30",
+      "pvp76-r3": "169ce1d296d55a91a898e2fe6022b7d24292218a350e4a4c1f7e792a9deb06e3"
+    },
+    "src/uitools/pvp76r2_audit.cpp": {
+      "pvp76-r2": "92b38ed04f7258e59836e5d88e63001181448199453445bfc71e2c04cd9de409",
+      "pvp76-r3": "2dbbbc20293bfc723843593c85731b7d61fd6f9e648856f5b4b560a2dbcec804"
+    },
+    "src/uitools/pvp76r3_audit.cpp": {
+      "pvp76-r2": null,
+      "pvp76-r3": "94ce4ddcf2b183ad8f30b5ef5ea13116b5c7874aaa011dbfed396e6dd36146e9"
+    },
+    "tools/native_test_contracts.py": {
+      "pvp76-r2": "71e42b7c8f3e7b46050fce45bea6a63c7cc907ba42aaa55ef963aabc5812a53d",
+      "pvp76-r3": "d222442c286edb5b7af3d5e17eb8310592e07af3e396f77ef0e5470d564a94b9"
+    },
+    "tools/pvp72_sources/catalog.py": {
+      "pvp76-r2": "32d6e77acfa7853766d36238ec68796db2ce39d08d6673993179084d4e07f4c4",
+      "pvp76-r3": "bd371676ce130898fd60ad7c73143bbbb068268c872cdfde5bd947425e947626"
+    },
+    "tools/pvp72_sources/zombie_secret_catalog.py": {
+      "pvp76-r2": "b073364ca5a14e4da5d9cf628f3c36091446212af547290ae0b234a20d6532d4",
+      "pvp76-r3": "ddd43b75aa86f09aae187ee114c997b7311c3d79e6d788683a4dc6eab79d9c78"
+    },
+    "tools/pvp72_sources/zombie_secrets.py": {
+      "pvp76-r2": "1ddbdc30e352db893722c40b899af384776b53bb46dea8fa53d66acab10f1dad",
+      "pvp76-r3": "58ed4d3abd027b95e4c1953158aa025e8f36fbc4ed8e5442ee1adb1360b7f4c4"
+    },
+    "tools/pvp75_catalog_sync.py": {
+      "pvp76-r2": "acd15f9e25cb37a22339783ce07d0cbf2775f241bd349182deb865cb65ee1047",
+      "pvp76-r3": "5292a641fe9f6bdc6a2cbe5f43a736f10f2dd27e3fb526fe4876a11baf2f7e7b"
+    },
+    "tools/pvp76r3_hooks.py": {
+      "pvp76-r2": null,
+      "pvp76-r3": "985074596b5774377e095dfdd16c33a9d5f42c365cfbffb628a92144fecf6147"
+    },
+    "tools/pvp76r3_release.py": {
+      "pvp76-r2": null,
+      "pvp76-r3": "18ba8d9abb4fd2d98426386cf9a83cc365f155f504dd95adc3f178eaccb0cfc9"
+    },
+    "tools/run_cpp_suite.py": {
+      "pvp76-r2": "089467f727e60877fa574fcaeff39924f442cb99884bf6c9ab6110dde4e09435",
+      "pvp76-r3": "f11bebc36bb7840ec0b966e6e75f05305fa1569f1eb83725211c8940fff9c358"
+    }
+  },
+  "notes": [
+    "The production kernel and generated composition are both included.",
+    "Ranked guest input checks the published Golden Bloom pickup lock before queueing the command.",
+    "Historical tests assert the updated costs, hit points, confluence refund and servant cooldown. The waiver policy is unchanged.",
+    "The user restored standard contact knockdown for the Terraria servant before release. Its deployment cooldown remains 32 seconds.",
+    "The land and aquatic growing graves start at 100 HP and use a 200 HP cap at maturity, preserving the existing doubling rule.",
+    "Resumption checks the reviewed source and fixture changes and reruns related plus unfinished modules on the final binaries."
+  ]
+}

@@ -727,6 +727,38 @@ for _field in ('description', 'native_description'):
 _pvp762_note('zombie:投篮车僵尸', '移速为原来的一半。携带坤坤秘籍时不服从跟随与召集旗帜，始终按进攻行动。')
 # 大运！小子 now names the carts in zombie_secret_catalog.py (text, targets, COST_ADD).
 
+# PvP76 r3 (2026-11-23): balance numbers and text; behaviour lives in the typed kernel.
+for _key, _cost in {'plant:三叶草': 50, 'zombie:倭瓜僵尸': 75}.items():
+    COSTS[_key] = _cost
+    CARDS[_key]['cost'] = _cost
+for _key in ('zombie:成长脑光墓碑', 'zombie:水上成长脑光墓碑'):
+    CARDS[_key].update(hp=100., mature_hp=200.)
+    _pvp762_note(_key, '初始生命100，成熟后生命上限200。')
+ZOMBIE_COOLDOWNS['zombie:克苏鲁之仆'] = 32.
+CARDS['zombie:克苏鲁之仆'].update(cooldown=32., native_cd=8000, native_deploy_cd=8000)
+HEALTH['zombie:投篮车僵尸'] = 225.
+CARDS['zombie:投篮车僵尸']['hp'] = 225.
+for _field in ('description', 'native_description'):
+    CARDS['zombie:投篮车僵尸'][_field] = CARDS['zombie:投篮车僵尸'][_field].replace('120生命。', '225生命。')
+_pvp762_note('zombie:投篮车僵尸', '连续10秒未受到攻击时停止投篮，再次受到攻击后恢复；携带坤坤秘籍时无此限制。')
+_pvp762_note('zombie:小鬼炮', '连续15秒未受到攻击时停止发射小鬼，再次受到攻击后恢复。')
+_pvp762_note('plant:巴豆', '僵尸戴夫接触毒气时受到3秒眩晕与3秒一级中毒（无直接伤害，每团毒气一次）。')
+_pvp762_note('plant:黄金蓓蕾', '计入胜率对局：放置后12秒内植物戴夫感冒（移速减半）。')
+_pvp762_note('plant:三叶草', '被吹动的僵尸戴夫遇到一格高的障碍会自动跳起。')
+_pvp762_note('zombie:三叶草僵尸', '被吹动的植物戴夫遇到一格高的障碍会自动跳起。')
+_pvp762_note('zombie:辣椒僵尸', '在冰冻或减速状态下死亡时不会自爆（同化灰）。')
+for _key in ('plant:激光豆', 'plant:玉米加农炮'):
+    _pvp762_note(_key, '不受密植秘籍影响：所在格不能再种其他主体植物。')
+_pvp762_note('secret:密植', '激光豆与玉米加农炮不受密植影响。')
+for _field in ('description', 'native_description'):
+    CARDS['zombie:盾卫僵尸'][_field] = CARDS['zombie:盾卫僵尸'][_field].replace('防御力6。', '防御力12（守卫秘籍：24）。', 1)
+    CARDS['zsecret:守卫'][_field] = '盾卫僵尸平时防御力变为24，举盾期间防御力变为600，技能冷却时间减半（2秒）。锁定前体：盾卫僵尸。'
+_pvp762_note('secret:核平', '己方魅惑的毁灭菇僵尸自爆时同样生效。')
+for _field in ('description', 'native_description'):
+    CARDS['zsecret:汇流'][_field] = CARDS['zsecret:汇流'][_field].replace('返还 15 脑光', '返还 25 脑光')
+    CARDS['zsecret:空输'][_field] = CARDS['zsecret:空输'][_field].replace('飞贼僵尸（蹦极僵尸）部署冷却减半。', '飞贼僵尸（蹦极僵尸）脑光消耗由75提高到100，部署冷却减半。')
+    CARDS['zombie:飞贼僵尸'][_field] = CARDS['zombie:飞贼僵尸'][_field].replace('携带空输秘籍时部署冷却减半', '携带空输秘籍时脑光消耗变为100、部署冷却减半')
+
 
 def digest(value):
     return hashlib.sha256(json.dumps(value,sort_keys=True,ensure_ascii=False,separators=(",",":"),allow_nan=False).encode("utf-8")).hexdigest()

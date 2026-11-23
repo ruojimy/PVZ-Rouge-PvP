@@ -132,8 +132,20 @@ void WindEffects::after_plants() {
             const double x=(p->cell.x+.5)*tile,direction=p->facing==1.?1.:-1.;
             if((direction==1.&&pos.x>=x)||(direction==-1.&&pos.x<=x)){push(velocity,direction,accel,limit);pushed=true;}
         }
-        if(pushed)pos.vx=velocity.vx;
+        if(pushed){pos.vx=velocity.vx;wind_hop(Seat(i),velocity.vx);}
     }
+}
+void WindEffects::wind_hop(Seat seat,double direction){
+    if(direction==0.)return;
+    auto& hero=world_.heroes.hero(seat);auto& f=hero.frame;if(number(f.hp)<=0.||number(f.down)>0.)return;
+    auto& pos=*f.position.get();const double tile=world_.runtime.tile,plk=tile/10000.;
+    // Standing (just landed) and not already rising or in a jump.
+    if(hero.landing_result.or_missing(0)!=1||pos.vy<0.||number(f.jump)>0.)return;
+    const auto& map=world_.terrain;const double dir=direction>0.?1.:-1.;
+    const int64_t feet=int64_t(std::floor((pos.y-1.)/tile)),col=int64_t(std::floor((pos.x+dir*tile*.55)/tile));
+    if(map.outside(feet,col)||map.outside(feet-2,col)||map.empty(feet,col))return;
+    if(!map.empty(feet-1,col)||!map.empty(feet-2,col))return;  // only a one-tile step with headroom
+    pos.vy=-plk*380.;f.jump.set(1.);++wind_hops;
 }
 void WindEffects::after_zombies() {
     const double accel=hero_acceleration(),limit=hero_limit(),tile=world_.runtime.tile;
@@ -145,7 +157,7 @@ void WindEffects::after_zombies() {
         for(const auto seat:seats_for(world_.mode))if(team_of(seat)!=*owner) {
             auto& h=world_.heroes.hero(seat).frame;if(number(h.hp)<=0.)continue;auto& pos=*h.position.get();
             const double dx=wrap_delta(center.x,pos.x,width_());if(dx*direction< -tile*.25||std::hypot(dx,pos.y-tile-center.y)>8.*tile)continue;
-            push(pos,direction,accel,limit);
+            push(pos,direction,accel,limit);wind_hop(seat,direction);
         }
     }
 }

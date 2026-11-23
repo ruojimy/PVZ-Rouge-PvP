@@ -21,17 +21,22 @@ DATA = KERNEL / 'cold_catalog_data.cpp'
 FIELDS = KERNEL / 'cold_card_fields.h'
 NEW = ['plant:巴豆', 'plant:激光豆', 'zombie:盾卫僵尸', 'zombie:克苏鲁之仆', 'secret:聚能', 'zsecret:守卫']  # PvP76: two secrets
 # Typed-only numbers that the V catalog never carried (see 74.4 defense lines).
-EXTRA = {'zombie:盾卫僵尸': ['c.defense.set(6.);']}
+EXTRA = {'zombie:盾卫僵尸': ['c.defense.set(12.);']}  # PvP76 r3: base defense 12
 PATCH_FIELDS = ('cost', 'cooldown', 'hp', 'description', 'native_description', 'allow_air')
 PATCH_CARDS = ['plant:杨桃', 'plant:三叶草', 'plant:玉米加农炮', 'zombie:小鬼僵尸', 'zombie:黑普通僵尸',
                'zombie:海豚僵尸', 'zombie:撑杆跳僵尸', 'zombie:雪橇车小队', 'secret:大帝',
                'zombie:投篮车僵尸', 'zombie:小鬼炮', 'zsecret:补贴', 'zsecret:海陆空',
                'zombie:路灯花僵尸', 'zombie:三叶草僵尸', 'zombie:潜水僵尸', 'zombie:雪橇车小队僵尸',  # PvP76 balance
-               'zsecret:大运！小子', 'zsecret:船锚', 'secret:阳光', 'zsecret:坤坤']  # PvP76 r2 texts
+               'zsecret:大运！小子', 'zsecret:船锚', 'secret:阳光', 'zsecret:坤坤',  # PvP76 r2 texts
+               'zombie:倭瓜僵尸', 'zombie:成长脑光墓碑', 'zombie:水上成长脑光墓碑', 'plant:巴豆', 'plant:黄金蓓蕾',
+               'zombie:三叶草僵尸', 'zombie:辣椒僵尸', 'plant:激光豆', 'secret:密植', 'secret:核平', 'zsecret:汇流',
+               'zsecret:空输', 'zombie:飞贼僵尸']  # PvP76 r3
 # PvP76: per-card native health fields (雪橇车小队 30 per member); other cards keep their reviewed cold values.
 PATCH_EXTRA = {'zombie:雪橇车小队': ('native_hp', 'native_izombie_hp', 'native_hard_hp'),
                'zombie:雪橇车小队僵尸': ('native_hp', 'native_izombie_hp', 'native_hard_hp'),
-               'zsecret:大运！小子': ('targets',)}  # PvP76 r2: carts join 大运
+               'zsecret:大运！小子': ('targets',),
+               'zombie:成长脑光墓碑': ('mature_hp',),
+               'zombie:水上成长脑光墓碑': ('mature_hp',)}
 
 
 def load():
@@ -113,7 +118,7 @@ def render(text, catalog, balance):
 def balance_table(catalog, name):
     keys = {'COSTS': ['zombie:小鬼僵尸', 'zombie:黑普通僵尸', 'zombie:海豚僵尸', 'zombie:撑杆跳僵尸', 'plant:杨桃',
                       'plant:巴豆', 'plant:激光豆', 'zombie:盾卫僵尸', 'zombie:克苏鲁之仆',
-                      'zombie:路灯花僵尸', 'zombie:三叶草僵尸'],
+                      'zombie:路灯花僵尸', 'zombie:三叶草僵尸', 'plant:三叶草', 'zombie:倭瓜僵尸'],  # PvP76 r3
             'ZOMBIE_COOLDOWNS': ['zombie:小鬼僵尸', 'zombie:盾卫僵尸', 'zombie:克苏鲁之仆', 'zombie:潜水僵尸'],
             'PLANT_COOLDOWNS': ['plant:巴豆', 'plant:激光豆'],
             'HEALTH': ['zombie:投篮车僵尸', 'zombie:小鬼炮']}[name]

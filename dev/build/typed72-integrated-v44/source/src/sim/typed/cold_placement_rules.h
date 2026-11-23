@@ -9,6 +9,7 @@ struct ColdPlacementPlant {
     std::string name;
     Cell cell;
     bool sleeping=false,basin=false,vine=false,air=false,sleep_present=false;
+    bool exclusive=false;  // PvP76 r3: 激光豆 / 玉米加农炮 ignore 密植 (alone in their cell)
 };
 class ColdPlacementRules {
 public:
@@ -19,7 +20,7 @@ public:
     bool water(int row,int64_t col)const;
     bool marker(int row,int64_t col)const;
     std::vector<const ColdPlacementPlant*> plants_at(int row,int64_t col)const;
-    std::string dense_error(std::string_view name,int row,int64_t col)const;
+    std::string dense_error(std::string_view name,int row,int64_t col,bool exclusive=false)const;
     bool accepts(std::string_view name,int row,int64_t col)const;
     bool shell_cell(int row,int64_t col,bool vine)const;
     bool idle_cell(int row,int64_t col)const;

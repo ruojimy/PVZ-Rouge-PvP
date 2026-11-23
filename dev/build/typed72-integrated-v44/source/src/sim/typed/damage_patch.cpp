@@ -102,6 +102,9 @@ bool DamagePatch::trigger_deaths(const ZombieRef& unit) {
 bool DamagePatch::trigger_chili(const ZombieRef& unit) {
     if(!unit)return false;auto& u=*unit;
     if(name(u.patch.plant_name)!="辣椒僵尸"||yes(u.patch.chili_exploded)||!eligible(u))return false;
+    // PvP76 r3: a chili zombie that dies frozen or slowed (the native 冰冻 timer) does not burst,
+    // like one reduced to ash. The marker is still written so it never fires later.
+    if(u.body.ice.or_missing(0.)>0.){u.patch.chili_exploded.set(true);return false;}
     u.patch.chili_exploded.set(true);effects_.chili_row_hint(unit,true);return effects_.chili_fire_row(unit,u.source.charmed.present());
 }
 bool DamagePatch::trigger_doom(const ZombieRef& unit) {

@@ -312,7 +312,7 @@ V C_EconomyBalanceTests::m_test_grave_first_production_status_clock_and_mature_h
     V L_uid;
     L_b = callm(self(), SY("battle"), Args({}, {{SY("zombies"), V::list({SV("zombie:成长脑光墓碑")})}}));
     L_grave = callm(self(), SY("deploy"), Args{L_b, SV("zombie"), SV("zombie:成长脑光墓碑"), V(17.0)});
-    (void)(callm(self(), SY("assertEqual"), Args{V(75.0), rdm(L_grave, &Obj::血量, SV("血量"))}));
+    (void)(callm(self(), SY("assertEqual"), Args{V(100.0) /* PvP76 r3 */, rdm(L_grave, &Obj::血量, SV("血量"))}));
     (void)(callm(L_b, SY("step"), Args{V(179.0)}));
     (void)(callm(self(), SY("assertEqual"), Args{V(0.0), rd(rd(rd(pvz::getattr(L_b, SY("players")), SV("zombie")), SV("stats")), SV("earned"))}));
     (void)(callm(L_b, SY("step"), Args{}));
@@ -333,8 +333,8 @@ V C_EconomyBalanceTests::m_test_grave_first_production_status_clock_and_mature_h
     (void)(callm(self(), SY("assertEqual"), Args{V(0.0), rdm(L_grave, &Obj::黄油, SV("黄油"))}));
     setm(L_grave, &Obj::_pvp_born, SV("_pvp_born"), (pvz::getattr(L_b, SY("time")) - V(90.0)));
     (void)(callm(L_b, SY("step"), Args{}));
-    (void)(callm(self(), SY("assertEqual"), Args{V(150.0), rdm(L_grave, &Obj::血量, SV("血量"))}));
-    (void)(callm(self(), SY("assertEqual"), Args{V(150.0), rdm(L_grave, &Obj::_pvp_max_hp, SV("_pvp_max_hp"))}));
+    (void)(callm(self(), SY("assertEqual"), Args{V(200.0), rdm(L_grave, &Obj::血量, SV("血量"))}));
+    (void)(callm(self(), SY("assertEqual"), Args{V(200.0), rdm(L_grave, &Obj::_pvp_max_hp, SV("_pvp_max_hp"))}));
     return V::none();
 }
 

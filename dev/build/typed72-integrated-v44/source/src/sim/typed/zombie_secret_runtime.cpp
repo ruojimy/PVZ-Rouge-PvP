@@ -10,7 +10,7 @@
 namespace pvz::typed72 {
 namespace {
 constexpr double CROWD_RADIUS=6.,CROWD_STEP=.15,CROWD_MAX=.75,HEAL_PERIOD=12.,HEAL_RADIUS=8.,HEAL_AMOUNT=40.,HEAL_DAVE=4.;
-constexpr double TACO_PERIOD=20.,RALLY_RADIUS=6.,RALLY_REFUND=15.,RALLY_DAVE_SPEED=1.25,PICKUP_SECONDS=30.,PICKUP_REACH=.7;
+constexpr double TACO_PERIOD=20.,RALLY_RADIUS=6.,RALLY_REFUND=25./*PvP76 r3*/,RALLY_DAVE_SPEED=1.25,PICKUP_SECONDS=30.,PICKUP_REACH=.7;
 constexpr double PEA_PERIOD=2.,POLE_REACH=2.,POLE_DAMAGE=4.;
 const std::array<const char*,3> GIANTS{"zombie:巨人僵尸","zombie:红眼巨人","zombie:角斗士巨人"};
 const std::array<const char*,7> HEAD_ARMORS{"路障","铁桶","黑路障","黑铁桶","橄榄球头盔","黑橄榄球头盔","南瓜头防具"};

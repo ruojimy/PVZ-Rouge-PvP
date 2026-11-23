@@ -2399,7 +2399,7 @@ V C_MoreSecretTests::m_test_rally_refund_only_inside_six_tiles(const Args& A) {
     V L_expect;
     V L_inside;
     V L_z;
-    { V it1_ = py::iter_list(V::tuple({V::tuple({V(true), V(15.0)}), V::tuple({V(false), V(0.0)})}));
+    { V it1_ = py::iter_list(V::tuple({V::tuple({V(true), V(25.0) /* PvP76 r3 汇流 */}), V::tuple({V(false), V(0.0)})}));
     for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) {
         { V ut2_ = py::as_seq(it1_.idx(int64_t(i1_))); L_inside = ut2_.idx(0); L_expect = ut2_.idx(1); } 
         L_b = m_lane(Args({}, {{SY("zombies"), V::list({SV("zombie:普通僵尸"), pm_zombie_secret_catalog::f_key(Args{SV("汇流")})})}}));

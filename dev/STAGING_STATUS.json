@@ -1,12 +1,12 @@
 {
-  "revision": "pvp76-r2",
-  "compatibility_build": "1.6.0.76-typed.20261122-r2",
+  "revision": "pvp76-r3",
+  "compatibility_build": "1.6.0.76-typed.20261123-r3",
   "formal_release": true,
   "release_authorized_by_user": true,
   "pc_package_verified": true,
   "android_package_verified": true,
   "android_real_device_verified": false,
-  "full_regression_rerun": true,
+  "full_regression_rerun": false,
   "full_regression_passed": true,
   "full_regression_counts": {
     "PASS": 2351,
@@ -14,8 +14,8 @@
     "ERROR": 12,
     "SKIP": 0
   },
-  "full_regression_report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp76\\r2\\full-suite\\summary.json",
-  "full_regression_baseline": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp76\\full-suite-versioned-r1\\summary.json",
+  "full_regression_report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp76\\r3\\full-suite\\summary.json",
+  "full_regression_baseline": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp76\\r2\\full-suite\\summary.json",
   "full_regression_diff": {
     "new_nonpass": 0,
     "fixed_since_baseline": 0,
@@ -23,5 +23,9 @@
   },
   "intended_rule_changes": 0,
   "unwaived": 0,
+  "full_regression_resumed": true,
+  "full_regression_executed_modules": 80,
+  "full_regression_reused_modules": 124,
+  "full_regression_resume_evidence": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp76\\r3\\full-suite\\resume-evidence.json",
   "product_acceptance_passed": false
 }

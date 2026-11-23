@@ -115,9 +115,21 @@ void NativePatchDraw::plant_zombie_heads(){
             }
             return image;
         };
-        NativeArt head;
-        if(!suffix.empty())if(auto variant=canvas_.atlas.find(head_key+suffix)){
+        // PvP76 r3: the status variants are flat silhouettes (like every zombie's). Ordinary zombies
+        // draw them over the normal art (hurt: sin flash ×150, ice / charm: alpha 100); only ash
+        // replaces the head. Drawing them in place of the head left charmed heads a solid block.
+        NativeArt head;std::vector<std::pair<NativeArt,double>> overlays;
+        const double head_direction=direction;  // clang: lambdas cannot capture structured bindings
+        const auto overlay=[&](const std::string& tag,double alpha){
+            if(alpha<=0.)return;if(auto v=canvas_.atlas.find(head_key+tag))overlays.emplace_back(head_direction>0.?v:flip_cached(v,head_key+tag+"-pvp-left"),alpha);
+        };
+        if(suffix=="-灰烬")if(auto variant=canvas_.atlas.find(head_key+suffix)){
             variant=poison(variant);head=direction>0.?variant:flip_cached(variant,head_key+suffix+"-pvp-left");
+        }
+        if(!head){
+            if(b.hurt>0.)overlay("-受伤",std::sin(pi*(b.hurt/50.))*150.);
+            if(b.ice.present()&&!b.ice.is_null()&&b.ice.get()>0.)overlay("-冰冻",100.);
+            if(u->source.charmed.present())overlay("-魅惑",100.);
         }
         if(!head){
             head=canvas_.atlas.find(head_key);if(!head)continue;
@@ -157,6 +169,7 @@ void NativePatchDraw::plant_zombie_heads(){
         const double base=direction>0.?0.:180.;
         const double local=((py::mod(((angle-base)+180.),360.)-180.)+0.)+angle_delta;
         canvas_.rotated(head,{center.x-(head_w*.5),center.y-(head_h*.5)},local);
+        for(const auto& [layer,alpha]:overlays){NativeCanvas::set_alpha(layer,alpha);canvas_.rotated(layer,{center.x-(double(layer->width)*.5),center.y-(double(layer->height)*.5)},local);}
         // __pvz_sb_draw_plant_zombie_head_armor
         const auto& armor=u->body.armor;
         if((armor=="路障"||armor=="铁桶")&&u->body.armor_hp>0.){

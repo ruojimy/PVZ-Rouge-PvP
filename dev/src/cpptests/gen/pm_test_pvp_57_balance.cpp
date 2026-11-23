@@ -170,7 +170,7 @@ V C_Balance57Tests::m_test_card_values_atlas_and_existing_focused_balance(const 
     V L_key;
     V L_limit;
     V L_name;
-    { V it1_ = py::iter_list(V::tuple({V::tuple({SV("zombie:黑普通僵尸"), V(50.0), V(8.0)}), V::tuple({SV("zombie:伴舞僵尸"), V(75.0), V(8.0)}), V::tuple({SV("zombie:倭瓜僵尸"), V(100.0), V(20.0)}), V::tuple({SV("zombie:舞王僵尸"), V(225.0), V(40.0)}), V::tuple({SV("zombie:黑撑杆僵尸"), V(175.0), V(40.0)})}));
+    { V it1_ = py::iter_list(V::tuple({V::tuple({SV("zombie:黑普通僵尸"), V(50.0), V(8.0)}), V::tuple({SV("zombie:伴舞僵尸"), V(75.0), V(8.0)}), V::tuple({SV("zombie:倭瓜僵尸"), V(75.0) /* PvP76 r3 */, V(20.0)}), V::tuple({SV("zombie:舞王僵尸"), V(225.0), V(40.0)}), V::tuple({SV("zombie:黑撑杆僵尸"), V(175.0), V(40.0)})}));
     for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) {
         { V ut2_ = py::as_seq(it1_.idx(int64_t(i1_))); L_key = ut2_.idx(0); L_cost = ut2_.idx(1); L_cd = ut2_.idx(2); } 
         L_card = pm_catalog::f_actual_card(Args{L_key});

@@ -50,7 +50,7 @@ HEAL_DAVE = 4.                       # 生生不息: the holder Dave, up to its 
 TACO_PERIOD = 20.
 BRAIN_PER_KILL = 15
 RALLY_RADIUS = 6.
-RALLY_REFUND = 15
+RALLY_REFUND = 25  # PvP76 r3
 RALLY_DAVE_SPEED = 1.25              # 汇流: a zombie Dave inside the rally reach
 WAKE_RADIUS = 2.4
 WAKE_HEAL = 4.                       # 起床！: per teleport, may pass the cap
@@ -918,7 +918,7 @@ class ZombieSecrets(object):
             self._queue_conversion(plant)
 
     def on_unit_gone(self, obj):
-        """汇流: a zombie that dies near the rally flag refunds 15 brains."""
+        """汇流: a zombie that dies near the rally flag refunds 25 brains."""
         if not self.enabled or not self.has("汇流"):
             return
         point = self.b.rally_for(obj)

@@ -1822,7 +1822,7 @@ void init() {
     pm_zombie_secrets::TACO_PERIOD = V(20.0);
     pm_zombie_secrets::BRAIN_PER_KILL = V(15.0);
     pm_zombie_secrets::RALLY_RADIUS = V(6.0);
-    pm_zombie_secrets::RALLY_REFUND = V(15.0);
+    pm_zombie_secrets::RALLY_REFUND = V(25.0);  // PvP76 r3
     pm_zombie_secrets::RALLY_DAVE_SPEED = V(1.25);
     pm_zombie_secrets::WAKE_RADIUS = V(2.4);
     pm_zombie_secrets::WAKE_HEAL = V(4.0);

@@ -282,7 +282,7 @@ V C_PvP58Tests::m_test_balance_values(const Args& A) {
     (void)(m_assertEqual(Args{V::tuple({V(75.0), V(30.0)}), V::tuple({rd(pm_catalog::f_actual_card(Args{SV("zombie:双生脑光墓碑")}), SV("cost")), rd(pm_catalog::f_actual_card(Args{SV("zombie:双生脑光墓碑")}), SV("hp"))})}));
     (void)(m_assertEqual(Args{V::tuple({V(75.0), V(30.0)}), V::tuple({rd(pm_catalog::f_actual_card(Args{SV("zombie:水上双生脑光墓碑")}), SV("cost")), rd(pm_catalog::f_actual_card(Args{SV("zombie:水上双生脑光墓碑")}), SV("hp"))})}));
     (void)(m_assertEqual(Args{V(90.0), rd(pm_catalog::f_actual_card(Args{SV("zombie:雪橇车小队")}), SV("cost"))}));
-    { V it1_ = py::iter_list(V::tuple({V::tuple({SV("zombie:伴舞僵尸"), V(75.0), V(8.0)}), V::tuple({SV("zombie:倭瓜僵尸"), V(100.0), V(20.0)})}));
+    { V it1_ = py::iter_list(V::tuple({V::tuple({SV("zombie:伴舞僵尸"), V(75.0), V(8.0)}), V::tuple({SV("zombie:倭瓜僵尸"), V(75.0) /* PvP76 r3 */, V(20.0)})}));
     for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) {
         { V ut2_ = py::as_seq(it1_.idx(int64_t(i1_))); L_key = ut2_.idx(0); L_cost = ut2_.idx(1); L_cd = ut2_.idx(2); } 
         (void)(m_assertEqual(Args{V::tuple({L_cost, L_cd}), V::tuple({rd(pm_catalog::f_actual_card(Args{L_key}), SV("cost")), rd(pm_catalog::f_actual_card(Args{L_key}), SV("cooldown"))}), L_key}));
@@ -352,7 +352,7 @@ V C_PvP58Tests::m_test_grown_grave_yields_40_and_carries_the_gold_frame_flag(con
     pvz::setitem(pvz::getattr(L_b, SY("_grave_progress")), L_uid, V(15.9));
     (void)(callm(L_b, SY("step"), Args{V(15.0)}));
     (void)(m_assertTrue(Args{rd(rd(pvz::getattr(L_b, SY("units")), L_uid), SV("mature"))}));
-    (void)(m_assertEqual(Args{V(150.0), rdm(L_grave, &Obj::_pvp_max_hp, SV("_pvp_max_hp"))}));
+    (void)(m_assertEqual(Args{V(200.0), rdm(L_grave, &Obj::_pvp_max_hp, SV("_pvp_max_hp"))}));
     L_paid = [&]() -> V { V out_ = V::list(); V L_e; { V it2_ = py::iter_list(pvz::getattr(L_b, SY("events"))); for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) { L_e = it2_.idx(int64_t(i2_)); if (!(((py::m_get(L_e, SV("event")) == SV("income")) && (py::m_get(L_e, SV("source")) == L_uid)))) continue; out_.append(rd(L_e, SV("amount"))); }}return out_; }();
     (void)(m_assertEqual(Args{V::list({V(20.0), V(40.0)}), L_paid}));
     return V::none();

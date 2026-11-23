@@ -13,7 +13,9 @@ std::vector<ColdPlacementPlant> ColdDeployment::placement_roster()const{
         const bool vine=one(content,{"阳光藤蔓","忧郁藤蔓","抓人草"});const bool shell=p->kind=="南瓜头"||vine||(p->kind=="模仿者"&&text(p->copy_card)=="plant:抓人草");
         const bool air=one(content,{"旋转芜菁","芦笋战机"})||(p->kind=="模仿者"&&one(text(p->copy_card),{"plant:旋转芜菁","plant:芦笋战机"}));
         // Serialized native placement state writes True whenever 睡觉 exists.
-        result.push_back({shell?"南瓜头":p->kind,p->cell,p->sleep.present(),content=="水盆",vine,air,p->sleep.present()});
+        const auto card=text(p->protection.card);const auto copy=text(p->copy_card);
+        const bool exclusive=card=="plant:激光豆"||card=="plant:玉米加农炮"||copy=="plant:激光豆"||copy=="plant:玉米加农炮";  // PvP76 r3
+        result.push_back({shell?"南瓜头":p->kind,p->cell,p->sleep.present(),content=="水盆",vine,air,p->sleep.present(),exclusive});
     }return result;
 }
 ColdPlacementResult ColdDeployment::placement(Seat seat,const std::string& key,Point point,std::optional<std::string> grave,std::optional<std::string> copy)const{
@@ -63,7 +65,11 @@ std::string ColdDeployment::perform(Seat seat,const std::string& key,Point point
     set(world_.heroes.players[index]->cooldowns,key,ready);set(room_.players[index].cooldown_spans,key,ready-world_.heroes.time);
     services_.deploy_event({seat,key,plan.charge,entity,plan.position,grave,direction});
     if(entity&&one(key,{"zombie:旗帜僵尸","zombie:黑旗帜僵尸"}))flag_reinforcements(*entity);
-    if(key=="plant:黄金蓓蕾"&&entity&&state_.ranked)room_.players[index].collect_locked_until=std::max(room_.players[index].collect_locked_until,world_.heroes.time+12.);
+    if(key=="plant:黄金蓓蕾"&&entity&&state_.ranked){
+        room_.players[index].collect_locked_until=std::max(room_.players[index].collect_locked_until,world_.heroes.time+12.);
+        // PvP76 r3: the same 12 s give the planting Dave a cold (half speed, shiver).
+        auto& hero=world_.heroes.hero(seat);hero.cold_until.set(std::max(hero.cold_until.or_missing(0.),double(world_.heroes.tick)+3000.));
+    }
     // PvP76: 克苏鲁之仆 is not a grave soldier; a selected grave neither feeds 头兵 nor follows it.
     if(side==Seat::zombie&&entity&&card.behavior=="servant")grave.reset();
     if(side==Seat::zombie&&entity){secrets_.on_deployed(*entity,grave);if(grave&&!grave->empty()&&secrets_.unsealed(seat))services_.select_grave(seat,*grave);}

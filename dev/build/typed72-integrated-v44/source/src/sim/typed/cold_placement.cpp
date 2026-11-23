@@ -140,7 +140,8 @@ ColdPlacementResult ColdPlacement::plant(Seat seat,const std::string& key,Point 
         if(native.water(row,col)&&(!occupied||native.dense()))special_legal=true;
     }
     const bool shell=placed.behavior=="vine"||(!copied&&card.native_input_name=="南瓜头");
-    const auto limit=native.dense_error(shell?"南瓜头":placed.native_input_name,row,col);if(!limit.empty())return limit;
+    const bool exclusive=!shell&&(placed.base_id=="plant:激光豆"||placed.base_id=="plant:玉米加农炮");  // PvP76 r3
+    const auto limit=native.dense_error(shell?"南瓜头":placed.native_input_name,row,col,exclusive);if(!limit.empty())return limit;
     ColdPlacementPlan plan;plan.card=card;plan.charge=charge;plan.position={(col+.5)*tile,(row+1)*tile};plan.cell=Cell{row,col};plan.slot=key;
     if(card.behavior=="gravebuster"){
         const RoomPublishedUnit* target=nullptr;

@@ -14,7 +14,8 @@ constexpr double kLaserPulseTicks=100.,kLaserDamage=30.;
 constexpr double kCrotonDamage=150.,kCrotonStunTicks=1500.,kCrotonPoisonSeconds=6.;
 constexpr double kGasCells=6.,kGasStunTicks=750.,kGasPoisonSeconds=3.,kGasTicks=500.,kGasSpreadTicks=190.,kGasDamage=60.;
 constexpr double kGuardRaiseTicks=150.,kGuardTicks=1500.,kGuardCooldownTicks=1000.;
-constexpr double kGuardDefense=60.,kGuardBaseDefense=6.,kGuardSpeed=.6;
+constexpr double kGuardDefense=60.,kGuardBaseDefense=12.,kGuardSpeed=.6;  // PvP76 r3: base 12 (was 6)
+constexpr double kGuardSecretBaseDefense=24.;  // PvP76 r3: 守卫 base defense
 // PvP76 secrets: 聚能 (laser +2% missing health per pulse), 守卫 (guard defense 600, cooldown halved).
 constexpr double kFocusMissing=.02,kGuardSecretDefense=600.,kGuardSecretCooldownTicks=500.;
 constexpr int kStarPierce=3;
@@ -40,7 +41,7 @@ public:
     void before_tick();
     void after_plants();
     void draw(NativeCanvas&);
-    uint64_t beam_pulses=0,gas_hits=0,croton_triggers=0,guards=0,focus_hits=0;
+    uint64_t beam_pulses=0,gas_hits=0,croton_triggers=0,guards=0,focus_hits=0,gas_hero_hits=0;  // gas_hero_hits: PvP76 r3
 private:
     TypedBattleState& world_;ContentQueries& queries_;ContentTargets& targets_;NativeStatus& status_;
     const std::vector<std::string>& bosses_;

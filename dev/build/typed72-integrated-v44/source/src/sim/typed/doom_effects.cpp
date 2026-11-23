@@ -72,6 +72,7 @@ size_t DoomEffects::native_ash_targets(const ZombieRef& source,Point point,doubl
         const auto found=std::find(list->begin(),list->end(),target);
         if(found==list->end())continue;
         services_.ash_target(size_t(found-list->begin()),damage_,target);++count;
+        if(charmed&&nuclear&&!target.is_hero()&&target.unit->body.hp>-1000.&&!target.unit->protection.hero)target.unit->body.ash.set(0.);
     }
     return count;
 }

@@ -3444,8 +3444,16 @@ V C_Application::m_world_click(const Args& A) {
     if (((L_side == SV("plant")) && !(L_right).truthy() && !(callm(self(), SY("cannon_aiming"), Args{})).truthy())) {
         L_resource = callm(self(), SY("resource_at"), Args{L_x, L_y});
         if ((L_resource).truthy()) {
-            (void)(callm(self(), SY("input"), Args({L_side, SV("collect")}, {{SY("resource"), rd(L_resource, SV("id"))}})));
-            return V::none();
+            // PvP76 r3 bloom click: a guest queues input before the host handles it.
+            const V seat = callm(self(), SY("local_seat"), Args{L_side});
+            const V players = py::m_get(L_battle, SV("players"), V::dict());
+            const V player = py::m_get(players, seat, V::dict());
+            const bool pickup_locked = py::m_get(player, SV("collect_locked_until"), V(0.0))
+                                     > py::m_get(L_battle, SV("time"), V(0.0));
+            if (!pickup_locked || !py::m_get(a_state, SV("selected_card")).truthy()) {
+                (void)callm(self(), SY("input"), Args({L_side, SV("collect")}, {{SY("resource"), rd(L_resource, SV("id"))}}));
+                return V::none();
+            }
         }
     }
     if ((!(L_right).truthy() && !(py::m_get(a_state, SV("selected_card"))).truthy())) {

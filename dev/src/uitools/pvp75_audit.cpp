@@ -75,7 +75,7 @@ J catalog(){
     rows.push_back(scenario("cold.costs_cooldowns",[](){
         Fixture f;auto& m=*f.match;J out;
         const std::vector<std::tuple<std::string,double,double>> want{
-            {"plant:巴豆",40,36},{"plant:激光豆",200,32} /* PvP76: 32 s */,{"zombie:盾卫僵尸",150,12},{"zombie:克苏鲁之仆",0,24} /* PvP76 r2: 24 s */,
+            {"plant:巴豆",40,36},{"plant:激光豆",200,32} /* PvP76: 32 s */,{"zombie:盾卫僵尸",150,12},{"zombie:克苏鲁之仆",0,32},
             {"zombie:小鬼僵尸",50,8},{"zombie:黑普通僵尸",50,-1},{"zombie:海豚僵尸",40,-1},{"zombie:撑杆跳僵尸",50,-1},{"plant:杨桃",300,-1}};
         for(const auto& [key,cost,cd]:want){
             const auto card=m.catalog.resolve(key,{},{},false);
@@ -84,7 +84,7 @@ J catalog(){
         }
         const std::vector<std::string> emperor{"secret:大帝"};
         near(m.catalog.resolve("plant:杨桃",emperor,{},false).cost,300.,"大帝 keeps the starfruit cost");
-        near(m.catalog.at("zombie:盾卫僵尸").defense.get(),6.,"盾卫 defense");
+        near(m.catalog.at("zombie:盾卫僵尸").defense.get(),12.,"盾卫 defense (PvP76 r3: 12)");
         expect(m.catalog.at("plant:三叶草").allow_air.or_missing(false),"三叶草 allow_air");
         return out;
     }));
@@ -194,18 +194,18 @@ J guard(){
     }));
     rows.push_back(scenario("raise.guard.cooldown",[](){
         Fixture f;auto& m=*f.match;auto z=f.zombie("盾卫僵尸",1800.,-1.);
-        near(z->body.defense.get(),6.,"base defense");near(z->body.hp,160.,"hp");
+        near(z->body.defense.get(),12.,"base defense (PvP76 r3: 12)");near(z->body.hp,160.,"hp");
         const double speed=z->native.move_speed.get();
         f.run(3);z->body.hp-=1.;f.run(3);
         expect(z->pvp75.guard==GuardPhase::raising,"hit did not raise the shield");
-        near(z->body.defense.get(),6.,"defense during the raise");
+        near(z->body.defense.get(),12.,"defense during the raise");
         f.run(160);
         expect(z->pvp75.guard==GuardPhase::guarding,"not guarding after 0.6 s");
         near(z->body.defense.get(),60.,"guard defense");near(z->native.move_speed.get(),speed*.6,"guard speed (-40%)");
         const auto vx=z->body.motion.get().vx;m.content_damage.knockback(f.index(z),500.);near(z->body.motion.get().vx,vx,"knockback while guarding");
         f.run(1500);
         expect(z->pvp75.guard==GuardPhase::cooldown,"guard did not end after 6 s");
-        near(z->body.defense.get(),6.,"defense restored");near(z->native.move_speed.get(),speed,"speed restored");
+        near(z->body.defense.get(),12.,"defense restored");near(z->native.move_speed.get(),speed,"speed restored");
         z->body.hp-=1.;f.run(20);expect(z->pvp75.guard==GuardPhase::cooldown,"raised during cooldown");
         f.run(880);expect(z->pvp75.guard==GuardPhase::cooldown,"cooldown ended before 4 s");
         f.run(150);expect(z->pvp75.guard==GuardPhase::ready,"cooldown did not end after 4 s");
@@ -280,10 +280,10 @@ J balance(){
         expect(!september_targetable(*blover)&&untargetable_plant(*blover),"三叶草 targetable");
         return J{{"targetable",false}};
     }));
-    rows.push_back(scenario("carts.120hp",[](){
+    rows.push_back(scenario("carts.health",[](){
         Fixture f;auto cart=f.zombie("投篮车僵尸",1900.,-1.),cannon=f.zombie("小鬼炮",2100.,-1.);
-        near(cart->body.hp,120.,"投篮车 hp");near(cannon->body.hp,120.,"小鬼炮 hp");
-        near(cart->max_hp.get(),120.,"投篮车 max");near(cannon->max_hp.get(),120.,"小鬼炮 max");
+        near(cart->body.hp,225.,"投篮车 hp");near(cannon->body.hp,120.,"小鬼炮 hp");
+        near(cart->max_hp.get(),225.,"投篮车 max");near(cannon->max_hp.get(),120.,"小鬼炮 max");
         return J{{"cart",cart->body.hp},{"cannon",cannon->body.hp}};
     }));
     rows.push_back(scenario("subsidy.six_second_bonus",[](){

@@ -3,6 +3,25 @@ import ast
 
 
 REVISIONS = {
+    'test_pvp_57_balance': {
+        'test_card_values_atlas_and_existing_focused_balance': [
+            ("('zombie:倭瓜僵尸',100,20)", "('zombie:倭瓜僵尸',75,20)")],
+    },
+    'test_pvp_58_features': {
+        'test_balance_values': [
+            ('("zombie:倭瓜僵尸", 100, 20.)', '("zombie:倭瓜僵尸", 75, 20.)')],
+        'test_grown_grave_yields_40_and_carries_the_gold_frame_flag': [
+            ('self.assertEqual(150, grave["_pvp_max_hp"])', 'self.assertEqual(200, grave["_pvp_max_hp"])')],
+    },
+    'test_pvp_66_personal_commands': {
+        'test_confluence_refunds_at_own_flag_only': [("before['zombie2']+15", "before['zombie2']+25")],
+    },
+    'test_pvp_balance_economy': {
+        'test_grave_first_production_status_clock_and_mature_hp': [
+            ('self.assertEqual(75,grave["血量"])', 'self.assertEqual(100,grave["血量"])'),
+            ('self.assertEqual(150,grave["血量"])', 'self.assertEqual(200,grave["血量"])'),
+            ('self.assertEqual(150,grave["_pvp_max_hp"])', 'self.assertEqual(200,grave["_pvp_max_hp"])')],
+    },
     'test_pvp_62_features': {
         'test_dense_zombies_bite_the_shell_first': [
             ('1, vines.lookup(3, 4))  # attacking zombies: the pumpkin',
@@ -59,7 +78,7 @@ REVISIONS = {
             ("self.assertEqual(catalog_hash(),data['catalog_hash'])",
              "from pvp.catalog import digest\n        self.assertEqual(catalog_hash(),digest(data['CARDS']))"),
             ("exported=data['cards']", "exported=data['CARDS']")],
-        'PLANT_COSTS': [('萝卜伞=60','萝卜伞=100')],
+        'PLANT_COSTS': [('萝卜伞=60','萝卜伞=100'), ('三叶草=0','三叶草=50')],
         'ZOMBIE_COSTS': [('橄榄球僵尸=200','橄榄球僵尸=175'),('报纸僵尸=250','报纸僵尸=275'),
                         ('墓碑吞噬者僵尸=300','墓碑吞噬者僵尸=225')],
     },
@@ -97,6 +116,7 @@ REVISIONS = {
         'test_taco_effect_survives_snapshot_and_does_not_delay_or_duplicate_buff': [('2*speed','1.75*speed',2)],
     },
     'test_pvp_66_zombie_secrets': {
+        'test_rally_refund_only_inside_six_tiles': [('(True, 15)', '(True, 25)')],
         'test_heal_and_taco_from_the_holder_dave': [('speed * 2','speed * 1.75',2)],
         'test_trinity_needs_land_water_air_in_own_deck': [("1.5, native['移速']","1.25, native['移速']")],
     },

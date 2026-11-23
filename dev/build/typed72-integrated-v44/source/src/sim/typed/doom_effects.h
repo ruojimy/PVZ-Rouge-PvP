@@ -18,6 +18,8 @@ class DoomEffects {
 public:
     DoomEffects(TypedBattleState& world,TargetDamage& damage,PlantLifecycle& plants,DoomServices& services,const CollisionCatalog& catalog)
         :world_(world),damage_(damage),plants_(plants),services_(services),catalog_(catalog){}
+    // PvP76 r3: the plant side carries 核平: a charmed doom zombie's blast ashes every non-hero unit it hits.
+    bool nuclear=false;
     bool explode(const ZombieRef&);
     size_t ash_targets(const ZombieRef&,Point,double scale);
     size_t destroy_blocks(Point,double scale);

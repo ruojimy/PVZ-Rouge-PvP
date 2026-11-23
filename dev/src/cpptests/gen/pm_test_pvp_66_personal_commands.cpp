@@ -389,7 +389,7 @@ V C_PersonalCommands::m_test_confluence_refunds_at_own_flag_only(const Args& A) 
     (void)(m_cmd(Args({L_b, SV("zombie2"), SV("rally")}, {{SY("x"), (V(20.0) * pvz::getattr(L_b, SY("tile")))}, {SY("y"), (V(9.0) * pvz::getattr(L_b, SY("tile")))}})));
     (void)(callm(pvz::getattr(L_b, SY("zsecrets")), SY("on_unit_gone"), Args{L_z}));
     (void)(m_assertEqual(Args{rd(L_before, SV("zombie")), rd(rd(pvz::getattr(L_b, SY("players")), SV("zombie")), SV("resource"))}));
-    (void)(m_assertEqual(Args{(rd(L_before, SV("zombie2")) + V(15.0)), rd(rd(pvz::getattr(L_b, SY("players")), SV("zombie2")), SV("resource"))}));
+    (void)(m_assertEqual(Args{(rd(L_before, SV("zombie2")) + V(25.0) /* PvP76 r3 汇流 */), rd(rd(pvz::getattr(L_b, SY("players")), SV("zombie2")), SV("resource"))}));
     return V::none();
 }
 

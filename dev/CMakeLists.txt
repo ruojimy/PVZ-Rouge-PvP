@@ -148,6 +148,7 @@ if(UI_SRC)
     COMMAND "${Python3_EXECUTABLE}" -I -B "${CMAKE_SOURCE_DIR}/tools/pvp75_ui_hooks.py" --check
     COMMAND "${Python3_EXECUTABLE}" -I -B "${CMAKE_SOURCE_DIR}/tools/pvp76_ui_hooks.py" --check
     COMMAND "${Python3_EXECUTABLE}" -I -B "${CMAKE_SOURCE_DIR}/tools/pvp76r2_hooks.py" --check
+    COMMAND "${Python3_EXECUTABLE}" -I -B "${CMAKE_SOURCE_DIR}/tools/pvp76r3_hooks.py" --check
     WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}" VERBATIM)
   add_dependencies(pvzui pvp75_sources_check)
   # The AISeat typed-observation bodies in src/ui/gen/pm_lobby_room.cpp are
@@ -169,7 +170,7 @@ if(UI_SRC)
     get_filename_component(n ${f} NAME_WE)
     add_executable(${n} ${f})
     target_link_libraries(${n} PRIVATE pvzui)
-    if(n STREQUAL "pvp744_r4_audit" OR n STREQUAL "pvp75_audit" OR n STREQUAL "pvp76_audit" OR n STREQUAL "pvp76r2_audit")
+    if(n STREQUAL "pvp744_r4_audit" OR n STREQUAL "pvp75_audit" OR n STREQUAL "pvp76_audit" OR n STREQUAL "pvp76r2_audit" OR n STREQUAL "pvp76r3_audit")
       target_include_directories(${n} BEFORE PRIVATE ${PVZ_TYPED72_STAGE}/src ${PVZ_TYPED72_COMPOSITION} ${PVZ_TYPED72_COMPOSITION}/probes)
     endif()
     if(n MATCHES "^pvp744_material_" OR n STREQUAL "pvp741_hero_texture_audit" OR n STREQUAL "pvp742_terrain_units_audit" OR n STREQUAL "pvp742_reverse_subscription_bench" OR n STREQUAL "pvp742_plant_occupancy_audit" OR n STREQUAL "pvp742_secondhand_audit" OR n STREQUAL "pvp744_state_view_audit" OR n STREQUAL "pvp744_r3_audit")

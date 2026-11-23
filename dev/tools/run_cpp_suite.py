@@ -96,10 +96,60 @@ def clone_fixture(source,target):
     shutil.copytree(str(source),str(target),copy_function=link_or_copy)
     return target
 
+
+def resume_modules(plan_file, out, grouped, source_hashes, waivers):
+    """Reuse accepted module reports after a reviewed, bounded input change."""
+    def read(path):
+        return json.loads(path.read_text(encoding="utf-8"))
+
+    plan = read(plan_file)
+    previous = (plan_file.parent / plan["previous_run"]).resolve()
+    rerun = set(plan["rerun_modules"])
+    if previous == out or not plan["reason"].strip() or rerun - grouped.keys():
+        raise ValueError("Invalid resumption plan")
+    for name in ("input-versions.json", "collection.json", "bytecode-ref-fingerprints.json", "waiver-policy.json"):
+        if file_sha(previous / name) != file_sha(out / name):
+            raise ValueError("Cannot resume with different " + name)
+    old_sources = read(previous / "source-hashes.json")
+    changed_sources = {name for name in old_sources.keys() | source_hashes.keys()
+                       if old_sources.get(name) != source_hashes.get(name)}
+    old_fixture = read(previous / "fixture-manifest.json")["files"]
+    new_fixture = read(out / "fixture-manifest.json")["files"]
+    changed_fixture = {name for name in old_fixture.keys() | new_fixture.keys()
+                       if old_fixture.get(name) != new_fixture.get(name)}
+    if changed_sources != set(plan["changed_sources"]) or changed_fixture != set(plan["changed_fixtures"]):
+        raise ValueError("Inputs differ from the reviewed resumption plan: "
+                         + repr(sorted(changed_sources)) + " / " + repr(sorted(changed_fixture)))
+
+    reused = {}
+    for module in sorted(grouped.keys() - rerun):
+        status_file = previous / (module + ".status.json")
+        report_file = previous / (module + ".json")
+        if not status_file.is_file() or not report_file.is_file():
+            continue
+        status, results = read(status_file), read(report_file)
+        verdict = evaluate_module(module, grouped[module], results, status["exit"],
+                                  status["hero_guard_violations"], status["report_error"], waivers)
+        if not verdict["accepted"] or any(status.get(key) != value for key, value in verdict.items()):
+            continue
+        for suffix in (".json", ".status.json", ".log", ".hero-guard.jsonl"):
+            source = previous / (module + suffix)
+            if source.is_file():
+                shutil.copy2(str(source), str(out / source.name))
+        reused[module] = status
+    evidence = dict(plan, previous_run=str(previous), previous_source_manifest_sha256=file_sha(previous / "source-hashes.json"),
+                    reused_reports={module: file_sha(out / (module + ".json")) for module in reused})
+    (out / "resume-evidence.json").write_text(json.dumps(evidence, ensure_ascii=False, indent=2), encoding="utf-8")
+    return reused
+
+
 def main():
     ap=argparse.ArgumentParser();ap.add_argument("--out",required=True);ap.add_argument("--workers",type=worker_count,default=None,help="auto (default) or a positive maximum; memory admission still applies");ap.add_argument("--worker-memory-mib",type=positive_int,default=1536);ap.add_argument("--memory-reserve-mib",type=positive_int,default=1024);ap.add_argument("--timeout",type=int,default=600);ap.add_argument("--module",action="append");ap.add_argument("--reference",default=str(REFERENCE));ap.add_argument("--exe",default=None,help="cpp_tests.exe to run (default cpp_tests.exe beside --app-run)");ap.add_argument("--strict",action="store_true",help="Disable the user-approved temporary exact-failure waivers");ap.add_argument("--app-run",default=str(ROOT/"build/app-typed72-v2/Release/app_run.exe"),help="app_run.exe for the PvP73 pure-typed dynamic-path gate")
     ap.add_argument("--baseline", type=Path, help="Complete previous full-suite summary (defaults to latest release)")
+    ap.add_argument("--resume-plan", type=Path, help="Reviewed JSON plan to reuse accepted reports from a prior interrupted run")
     args=ap.parse_args()
+    if args.resume_plan and args.module:
+        ap.error("--resume-plan applies to a full collection")
     # Both the frozen async-function ASTs and bytecode capture policy were
     # produced by CPython 3.8. sys.executable also runs the relay fixtures.
     # Refuse an incompatible interpreter before copying fixtures or testing.
@@ -167,6 +217,10 @@ def main():
     source_files.append(ROOT/"tools/pvp741_hooks.json")
     source_hashes={str(p.relative_to(ROOT)):file_sha(p) for p in source_files}
     (out/"source-hashes.json").write_text(json.dumps(source_hashes,indent=2),encoding="utf-8")
+    reused = resume_modules(args.resume_plan.resolve(), out, grouped, source_hashes, waivers) if args.resume_plan else {}
+    pending = [module for module in selected if module not in reused]
+    if args.resume_plan:
+        print("RESUME", len(reused), "accepted modules reused;", len(pending), "to run", flush=True)
     started=time.time()
     active={};active_lock=threading.Lock();module_roots={}
     def processes():
@@ -208,7 +262,9 @@ def main():
         print(mod,verdict["counts"],"missing",len(verdict["missing"]),"exit",rc,"waived",len(verdict["waived"]),"accepted",verdict["accepted"],flush=True)
         (out/(mod+".status.json")).write_text(json.dumps(status,ensure_ascii=False,indent=2),encoding="utf-8")
         return status
-    statuses,scheduling=run_modules(selected,run,max_workers,args.worker_memory_mib,args.memory_reserve_mib,processes,scheduling_event)
+    statuses,scheduling=run_modules(pending,run,max_workers,args.worker_memory_mib,args.memory_reserve_mib,processes,scheduling_event)
+    by_module = {status["module"]: status for status in statuses}
+    statuses = [reused[module] if module in reused else by_module[module] for module in selected]
     scheduling['requested_workers']=args.workers or 'auto'
     (out/"module-fixtures.json").write_text(json.dumps(module_roots,ensure_ascii=False,indent=2),encoding='utf-8')
     # Preserve the two public unit-report paths used by independent pixel/unit
@@ -270,6 +326,9 @@ def main():
     summary={"source_changed_during_run":changed,"fixture_changed_during_run":fixture_changed,"exe_changed_during_run":exe_changed,"collection_mismatch":collection_mismatch,"exe":str(exe),"exe_sha256":exe_hash,"seconds":round(time.time()-started,3),"modules":statuses,"counts":{k:sum(s["counts"][k] for s in statuses) for k in ("PASS","FAIL","ERROR","SKIP")},"missing":sum(len(s["missing"]) for s in statuses),"execution_success":execution_success,"success":accepted,"accepted_with_waivers":accepted and bool(applied),"waived":len(applied),"waivers":waiver_report,"scheduling":scheduling,"pure_typed_gate":pure_gate,"combat_r4_gate":combat}
     summary.update(fire_gate=fire_gate,scope="subset" if args.module else "full", collected=len(ids), selected=len(selected),
                    build_version=version_inputs["build"]["BUILD"], binary_sha256=binary_hashes)
+    if args.resume_plan:
+        summary["resumed"] = {"reused_modules": len(reused), "executed_modules": len(pending),
+                              "evidence": str(out / "resume-evidence.json")}
     changed_binaries=[name for name,path in binaries.items() if file_sha(path)!=binary_hashes[name]]
     summary["changed_binaries"]=changed_binaries
     if changed_binaries:summary["success"]=summary["execution_success"]=False

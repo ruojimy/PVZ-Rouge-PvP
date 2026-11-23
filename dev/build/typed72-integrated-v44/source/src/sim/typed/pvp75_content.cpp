@@ -111,7 +111,24 @@ void Pvp75Content::gases(){
         const double reach=pvp75::kGasCells*tile*std::min(1.,age/pvp75::kGasSpreadTicks);
         for(const auto& target:queries_.enemies(gas.source)){
             const auto* body=std::get_if<CombatTarget>(&target);
-            if(!body||body->is_hero()||!alive(body->unit)||body->unit->protection.grave)continue;
+            if(body&&body->is_hero()){
+                // PvP76 r3: the zombie Dave in the cloud: 3 s stun and 3 s level-1 poison (hero poison
+                // rules), no direct damage, once per cloud.
+                const auto seat=body->hero;if(team_of(seat)!=Seat::zombie)continue;
+                const uint64_t key=(uint64_t(1)<<63)|uint64_t(seat_index(seat));
+                if(std::find(gas.touched.begin(),gas.touched.end(),key)!=gas.touched.end())continue;
+                auto& h=world_.heroes.hero(seat);if(h.frame.hp.or_missing(0.)<=0.)continue;
+                const auto& m=*world_.heroes.cached_proxy(seat).position;const double along=wrap_delta(gas.origin.x,m.x,width)*gas.direction;
+                const double half=tile*.28*2.;
+                if(along<-half||along>reach+half)continue;
+                if(m.y<gas.origin.y-tile*.4||m.y-tile*2.>gas.origin.y+tile*.6)continue;
+                gas.touched.push_back(key);++gas_hero_hits;
+                h.stun.set(std::max(h.stun.or_missing(0.),pvp75::kGasStunTicks));
+                if(const auto& proxy=world_.heroes.proxies.at(seat_index(seat)))proxy->stun.set(std::max(proxy->stun.or_missing(0.),pvp75::kGasStunTicks));
+                status_.apply(CombatTarget::player(seat),1,pvp75::kGasPoisonSeconds,Seat::plant);
+                continue;
+            }
+            if(!body||!alive(body->unit)||body->unit->protection.grave)continue;
             const auto& u=body->unit;
             if(std::find(gas.touched.begin(),gas.touched.end(),u->identity.value)!=gas.touched.end())continue;
             const auto& m=u->body.motion.get();const double along=wrap_delta(gas.origin.x,m.x,width)*gas.direction;
@@ -174,6 +191,10 @@ void Pvp75Content::guard(const ZombieRef& u){
         if(s.guard==GuardPhase::guarding&&s.walk_speed){u->native.move_speed.set(*s.walk_speed);s.walk_speed.reset();}
         return;
     }
+    // PvP76 r3: outside the raised-shield window the shield bearer keeps its base defense,
+    // 12, or 24 for a 守卫 holder (re-read each step: the holder is known after admission).
+    const bool secret=holds(world_,source_ref(u),"zsecret:守卫");
+    if(s.guard!=GuardPhase::guarding){const double base=secret?pvp75::kGuardSecretBaseDefense:pvp75::kGuardBaseDefense;if(b.defense.or_missing(-1.)!=base)b.defense.set(base);}
     switch(s.guard){
     case GuardPhase::ready:if(hurt){s.guard=GuardPhase::raising;s.guard_clock=0.;++guards;}break;
     case GuardPhase::raising:
@@ -184,7 +205,7 @@ void Pvp75Content::guard(const ZombieRef& u){
         }break;
     case GuardPhase::guarding:
         if(++s.guard_clock>=pvp75::kGuardTicks){
-            s.guard=GuardPhase::cooldown;s.guard_clock=0.;b.defense.set(pvp75::kGuardBaseDefense);
+            s.guard=GuardPhase::cooldown;s.guard_clock=0.;b.defense.set(secret?pvp75::kGuardSecretBaseDefense:pvp75::kGuardBaseDefense);
             // Undo only the guard factor: other speed changes made meanwhile stay.
             const double now=u->native.move_speed.or_missing(0.);u->native.move_speed.set(now/pvp75::kGuardSpeed);s.walk_speed.reset();
         }break;

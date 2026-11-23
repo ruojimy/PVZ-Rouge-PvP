@@ -1,0 +1,373 @@
+{
+  "checks": [
+    {
+      "name": "catalog",
+      "evidence": [
+        {
+          "id": "cold.numbers",
+          "plant:三叶草": [
+            50.0,
+            32.0
+          ],
+          "zombie:倭瓜僵尸": [
+            75.0,
+            20.0
+          ],
+          "zombie:克苏鲁之仆": [
+            0.0,
+            32.0
+          ],
+          "passed": true
+        },
+        {
+          "id": "deployed.grave_and_cart_hp",
+          "grave_error": "",
+          "cart_error": "",
+          "grave_hp": 100.0,
+          "cart_hp": 225.0,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "heroes",
+      "evidence": [
+        {
+          "id": "servant.contact_knocks_dave_down",
+          "hp_lost": 32.400000000000006,
+          "max_down": 90.0,
+          "passed": true
+        },
+        {
+          "id": "croton.zombie_dave",
+          "croton_triggers": 1,
+          "gas_hits": 0,
+          "gas_hero_hits": 1,
+          "stun": 746.0,
+          "poison": 1,
+          "hp_lost_immediate": 0.0,
+          "hits_after": 1,
+          "passed": true
+        },
+        {
+          "id": "bloom.ranked_cold",
+          "deploy": "",
+          "cold_ticks": 3000.0,
+          "collect_lock": 12.0,
+          "unranked_cold": -8.0,
+          "passed": true
+        },
+        {
+          "id": "wind.hop_step",
+          "hops": 1,
+          "max_x": 51.54220000000083,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "zombies",
+      "evidence": [
+        {
+          "id": "cart.idle_stop",
+          "basket": [
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            2.0,
+            2.0,
+            3.0,
+            3.0,
+            4.0,
+            4.0,
+            5.0,
+            5.0,
+            5.0,
+            5.0,
+            5.0,
+            5.0,
+            5.0,
+            5.0,
+            5.0,
+            5.0,
+            5.0,
+            6.0,
+            6.0,
+            7.0,
+            7.0,
+            8.0,
+            8.0,
+            9.0,
+            9.0,
+            10.0
+          ],
+          "kunkun": [
+            0.0,
+            1.0,
+            1.0,
+            2.0,
+            3.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            6.0,
+            7.0,
+            8.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0,
+            11.0,
+            12.0,
+            13.0,
+            13.0,
+            14.0,
+            15.0,
+            16.0,
+            16.0,
+            17.0,
+            18.0,
+            18.0,
+            19.0,
+            20.0,
+            20.0
+          ],
+          "cannon": [
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            4.0,
+            4.0,
+            4.0,
+            4.0,
+            5.0,
+            5.0,
+            5.0,
+            5.0,
+            6.0
+          ],
+          "passed": true
+        },
+        {
+          "id": "chili.no_burst_when_chilled",
+          "plain": {
+            "fires": 259,
+            "exploded_flag": true
+          },
+          "slowed": {
+            "fires": 0,
+            "exploded_flag": true
+          },
+          "passed": true
+        },
+        {
+          "id": "guard.base_defense",
+          "plain": {
+            "base": 12.0,
+            "raised": 60.0
+          },
+          "guard": {
+            "base": 24.0,
+            "raised": 600.0
+          },
+          "passed": true
+        },
+        {
+          "id": "nuclear.charmed_doom_zombie",
+          "plain": {
+            "charmed": true,
+            "giant_hp": 4500.0,
+            "giant_ash": false
+          },
+          "nuclear": {
+            "charmed": true,
+            "giant_hp": 4500.0,
+            "giant_ash": true
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "plants",
+      "evidence": [
+        {
+          "id": "dense.laser_and_cob_alone",
+          "pea_pea": [
+            "",
+            ""
+          ],
+          "laser_on_pea": "激光豆与玉米加农炮不受密植影响，所在格不能有其他主体植物",
+          "laser_alone": "",
+          "pea_on_laser": "激光豆与玉米加农炮不受密植影响，所在格不能再种主体植物",
+          "cob_on_pea": "激光豆与玉米加农炮不受密植影响，所在格不能有其他主体植物",
+          "passed": true
+        },
+        {
+          "id": "testmode.clear_restores_terrain",
+          "pot": "卡牌不在本方卡槽",
+          "basin": "卡牌不在本方卡槽",
+          "before": [
+            "空",
+            "土",
+            "空",
+            "土"
+          ],
+          "clear": "",
+          "after": [
+            "空",
+            "土",
+            "空",
+            "土"
+          ],
+          "plants_left": 0,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "probe",
+      "evidence": [
+        {
+          "id": "explore.servant_hp",
+          "deploy_error": "",
+          "hp": 8.0,
+          "max_hp": 8.0,
+          "defense": 0.0,
+          "trace": [
+            0.0
+          ],
+          "passed": true
+        },
+        {
+          "id": "explore.charmed_heads",
+          "__pvz_sb_fumeshroom_zombie_thunder_head": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:@load/图片/雷蘑菇.png/41x41\",\"op\":\"asset\",\"size\":[41,41]},\"size\":[41,41]}",
+          "__pvz_sb_fumeshroom_zombie_thunder_head-冰冻": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:__pvz_sb_fumeshroom_zombie_thunder_head-冰冻\",\"op\":\"asset\",\"size\":[41,41]},\"size\":[41,41]}",
+          "__pvz_sb_fumeshroom_zombie_thunder_head-受伤": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:__pvz_sb_fumeshroom_zombie_thunder_head-受伤\",\"op\":\"asset\",\"size\":[41,41]},\"size\":[41,41]}",
+          "__pvz_sb_fumeshroom_zombie_thunder_head-灰烬": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:__pvz_sb_fumeshroom_zombie_thunder_head-灰烬\",\"op\":\"asset\",\"size\":[41,41]},\"size\":[41,41]}",
+          "__pvz_sb_fumeshroom_zombie_thunder_head-魅惑": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:__pvz_sb_fumeshroom_zombie_thunder_head-魅惑\",\"op\":\"asset\",\"size\":[41,41]},\"size\":[41,41]}",
+          "大喷菇僵尸-植头": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:@load/图片/大喷菇僵尸-植物头.png/41x41\",\"op\":\"asset\",\"size\":[41,41]},\"size\":[41,41]}",
+          "大喷菇僵尸-植头-冰冻": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:大喷菇僵尸-植头-冰冻\",\"op\":\"asset\",\"size\":[41,41]},\"size\":[41,41]}",
+          "大喷菇僵尸-植头-受伤": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:大喷菇僵尸-植头-受伤\",\"op\":\"asset\",\"size\":[41,41]},\"size\":[41,41]}",
+          "大喷菇僵尸-植头-灰烬": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:大喷菇僵尸-植头-灰烬\",\"op\":\"asset\",\"size\":[41,41]},\"size\":[41,41]}",
+          "大喷菇僵尸-植头-魅惑": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:大喷菇僵尸-植头-魅惑\",\"op\":\"asset\",\"size\":[41,41]},\"size\":[41,41]}",
+          "豌豆僵尸-植头": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:@load/图片/豌豆僵尸-植物头.png/37x37\",\"op\":\"asset\",\"size\":[37,37]},\"size\":[37,37]}",
+          "豌豆僵尸-植头-冰冻": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:豌豆僵尸-植头-冰冻\",\"op\":\"asset\",\"size\":[37,37]},\"size\":[37,37]}",
+          "豌豆僵尸-植头-受伤": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:豌豆僵尸-植头-受伤\",\"op\":\"asset\",\"size\":[37,37]},\"size\":[37,37]}",
+          "豌豆僵尸-植头-灰烬": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:豌豆僵尸-植头-灰烬\",\"op\":\"asset\",\"size\":[37,37]},\"size\":[37,37]}",
+          "豌豆僵尸-植头-魅惑": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:豌豆僵尸-植头-魅惑\",\"op\":\"asset\",\"size\":[37,37]},\"size\":[37,37]}",
+          "passed": true
+        },
+        {
+          "id": "explore.pea_damage",
+          "普通僵尸_fired": [
+            16,
+            516,
+            1016,
+            1516,
+            2016
+          ],
+          "普通僵尸_entities": [
+            "普通僵尸-首"
+          ],
+          "普通僵尸": {
+            "start_hp": 50.0,
+            "per_hit": [
+              [
+                10.0,
+                283
+              ],
+              [
+                10.0,
+                833
+              ],
+              [
+                10.0,
+                1383
+              ],
+              [
+                10.0,
+                1941
+              ],
+              [
+                14.0,
+                2491
+              ],
+              [
+                9.0,
+                2500
+              ]
+            ]
+          },
+          "克苏鲁之仆_fired": [
+            16,
+            1016,
+            1516
+          ],
+          "克苏鲁之仆_entities": [],
+          "克苏鲁之仆": {
+            "start_hp": 1000.0,
+            "per_hit": [
+              [
+                10.0,
+                100
+              ],
+              [
+                10.0,
+                516
+              ],
+              [
+                10.0,
+                1083
+              ]
+            ]
+          },
+          "passed": true
+        },
+        {
+          "id": "explore.pea_damage_deployed",
+          "plant_deploy": "",
+          "grave_deploy": "",
+          "grave": "u2",
+          "zombie_deploy": "",
+          "zombie_hp": 50.0,
+          "zombie_kind": "普通僵尸",
+          "per_hit": [
+            [
+              10.0,
+              17650
+            ]
+          ],
+          "mode": "正常模式",
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "failures": 0
+}

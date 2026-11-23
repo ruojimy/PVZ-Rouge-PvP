@@ -85,7 +85,7 @@
   "zombie:角斗士巨人": 80.0,
   "zombie:石化火炬": 48.0,
   "zombie:盾卫僵尸": 12.0,
-  "zombie:克苏鲁之仆": 24.0
+  "zombie:克苏鲁之仆": 32.0
  },
  "GRAVE_BALANCE": {
   "zombie:脑光墓碑": {
@@ -140,7 +140,7 @@
   "zombie:豌豆僵尸": 75,
   "zombie:伴舞僵尸": 75,
   "zombie:撑杆跳僵尸": 50,
-  "zombie:倭瓜僵尸": 100,
+  "zombie:倭瓜僵尸": 75,
   "zombie:蹦蹦僵尸": 90,
   "zombie:普通僵尸": 25,
   "zombie:鸭子普通僵尸": 25,
@@ -183,7 +183,7 @@
   "zombie:成长脑光墓碑": 60,
   "zombie:水上成长脑光墓碑": 60,
   "zombie:海豚僵尸": 40,
-  "plant:三叶草": 0,
+  "plant:三叶草": 50,
   "plant:大嘴花": 100,
   "plant:金盏花": 100,
   "zombie:黑铁桶僵尸": 175,
@@ -228,7 +228,7 @@
   "plant:南瓜头": 108.0,
   "plant:原始土豆地雷": 18.0,
   "zombie:墓碑吞噬者僵尸": 300.0,
-  "zombie:投篮车僵尸": 120.0,
+  "zombie:投篮车僵尸": 225.0,
   "zombie:小鬼炮": 120.0
  },
  "ABSORB_TICKS": {
@@ -395,7 +395,7 @@
    "ban_protected": false,
    "family": "plant:黄金蓓蕾",
    "asset": "黄金蓓蕾",
-   "description": "一次性生产8个阳光。对局前2分钟每个值15阳光，共120；2分钟后每个恢复25，共200。开局冷却遵循原生规则，为16秒。可以被模仿；死斗期间不能新增。",
+   "description": "一次性生产8个阳光。对局前2分钟每个值15阳光，共120；2分钟后每个恢复25，共200。开局冷却遵循原生规则，为16秒。可以被模仿；死斗期间不能新增。计入胜率对局：放置后12秒内植物戴夫感冒（移速减半）。",
    "economy": "burst_sun",
    "selectable": true,
    "period": 16.0,
@@ -420,7 +420,7 @@
    "native_source": "PvP54 rule; isolated native template",
    "native_cd_fallback": false,
    "native_deploy_cd": 3000,
-   "native_description": "一次性生产8个阳光。对局前2分钟每个值15阳光，共120；2分钟后每个恢复25，共200。开局冷却遵循原生规则，为16秒。可以被模仿；死斗期间不能新增。",
+   "native_description": "一次性生产8个阳光。对局前2分钟每个值15阳光，共120；2分钟后每个恢复25，共200。开局冷却遵循原生规则，为16秒。可以被模仿；死斗期间不能新增。计入胜率对局：放置后12秒内植物戴夫感冒（移速减半）。",
    "first_production": null,
    "content": "黄金蓓蕾",
    "content_art": "gold_bloom",
@@ -2588,7 +2588,7 @@
    "id": "plant:三叶草",
    "name": "三叶草",
    "side": "plant",
-   "cost": 0,
+   "cost": 50,
    "hp": 6,
    "damage": 20,
    "interval": 1.5,
@@ -2601,7 +2601,7 @@
    "ban_protected": false,
    "family": "plant:三叶草",
    "asset": "三叶草",
-   "description": "三叶草能把僵尸吹飞，它能把气球僵尸吹很远，但吹不死气球僵尸。三叶草是无法被僵尸方选中的飞行植物，可放在任意闲置空格（包括空气）。",
+   "description": "三叶草能把僵尸吹飞，它能把气球僵尸吹很远，但吹不死气球僵尸。三叶草是无法被僵尸方选中的飞行植物，可放在任意闲置空格（包括空气）。被吹动的僵尸戴夫遇到一格高的障碍会自动跳起。",
    "economy": "none",
    "selectable": true,
    "fuse": 1.0,
@@ -2625,7 +2625,7 @@
    "native_source": "marshal+1.5.0.1-patch",
    "native_cd_fallback": false,
    "native_deploy_cd": 12000,
-   "native_description": "三叶草能把僵尸吹飞，它能把气球僵尸吹很远，但吹不死气球僵尸。三叶草是无法被僵尸方选中的飞行植物，可放在任意闲置空格（包括空气）。",
+   "native_description": "三叶草能把僵尸吹飞，它能把气球僵尸吹很远，但吹不死气球僵尸。三叶草是无法被僵尸方选中的飞行植物，可放在任意闲置空格（包括空气）。被吹动的僵尸戴夫遇到一格高的障碍会自动跳起。",
    "allow_air": true
   },
   "plant:弹簧草": {
@@ -2778,7 +2778,7 @@
    "ban_protected": false,
    "family": "plant:玉米加农炮",
    "asset": "玉米加农炮",
-   "description": "玉米加农炮阳光250，开炮后会慢速重新装填。发射后32秒完成装填。",
+   "description": "玉米加农炮阳光250，开炮后会慢速重新装填。发射后32秒完成装填。不受密植秘籍影响：所在格不能再种其他主体植物。",
    "economy": "none",
    "selectable": true,
    "splash": 160,
@@ -2803,7 +2803,7 @@
    "native_source": "marshal+1.5.0.1-patch",
    "native_cd_fallback": false,
    "native_deploy_cd": 30000,
-   "native_description": "玉米加农炮阳光250，开炮后会慢速重新装填。发射后32秒完成装填。"
+   "native_description": "玉米加农炮阳光250，开炮后会慢速重新装填。发射后32秒完成装填。不受密植秘籍影响：所在格不能再种其他主体植物。"
   },
   "plant:路灯花": {
    "id": "plant:路灯花",
@@ -4830,7 +4830,7 @@
    "name": "投篮车僵尸",
    "side": "zombie",
    "cost": 275,
-   "hp": 120.0,
+   "hp": 225.0,
    "damage": 80,
    "interval": 2.5,
    "range": 540,
@@ -4842,7 +4842,7 @@
    "ban_protected": false,
    "family": "zombie:投篮车僵尸",
    "asset": "投篮车僵尸",
-   "description": "远程投掷单位，篮球以抛物线攻击，可越过部分地面阻挡；需要保护它免受贴身单位和快速突袭。出场80秒后自毁，不造成范围伤害；冰冻、减速、黄油、眩晕与坤坤锁血均不延长寿命。120生命。跟随戴夫或前往召集旗帜时只移动，不投篮；进攻指挥下才投篮。移速为原来的一半。携带坤坤秘籍时不服从跟随与召集旗帜，始终按进攻行动。",
+   "description": "远程投掷单位，篮球以抛物线攻击，可越过部分地面阻挡；需要保护它免受贴身单位和快速突袭。出场80秒后自毁，不造成范围伤害；冰冻、减速、黄油、眩晕与坤坤锁血均不延长寿命。225生命。跟随戴夫或前往召集旗帜时只移动，不投篮；进攻指挥下才投篮。移速为原来的一半。携带坤坤秘籍时不服从跟随与召集旗帜，始终按进攻行动。连续10秒未受到攻击时停止投篮，再次受到攻击后恢复；携带坤坤秘籍时无此限制。",
    "economy": "none",
    "selectable": true,
    "native_cost": 400,
@@ -4865,7 +4865,7 @@
    "native_source": "marshal+1.5.0.1-patch",
    "native_cd_fallback": true,
    "native_deploy_cd": 0,
-   "native_description": "远程投掷单位，篮球以抛物线攻击，可越过部分地面阻挡；需要保护它免受贴身单位和快速突袭。出场80秒后自毁，不造成范围伤害；冰冻、减速、黄油、眩晕与坤坤锁血均不延长寿命。120生命。跟随戴夫或前往召集旗帜时只移动，不投篮；进攻指挥下才投篮。移速为原来的一半。携带坤坤秘籍时不服从跟随与召集旗帜，始终按进攻行动。"
+   "native_description": "远程投掷单位，篮球以抛物线攻击，可越过部分地面阻挡；需要保护它免受贴身单位和快速突袭。出场80秒后自毁，不造成范围伤害；冰冻、减速、黄油、眩晕与坤坤锁血均不延长寿命。225生命。跟随戴夫或前往召集旗帜时只移动，不投篮；进攻指挥下才投篮。移速为原来的一半。携带坤坤秘籍时不服从跟随与召集旗帜，始终按进攻行动。连续10秒未受到攻击时停止投篮，再次受到攻击后恢复；携带坤坤秘籍时无此限制。"
   },
   "zombie:小丑僵尸": {
    "id": "zombie:小丑僵尸",
@@ -4927,7 +4927,7 @@
    "ban_protected": false,
    "family": "zombie:飞贼僵尸",
    "asset": "飞贼僵尸",
-   "description": "携带空输秘籍时部署冷却减半，下降到目标位置后原地召唤1只路障僵尸，路障被禁选也能召唤；魅惑后召唤物归植物方。",
+   "description": "携带空输秘籍时脑光消耗变为100、部署冷却减半，下降到目标位置后原地召唤1只路障僵尸，路障被禁选也能召唤；魅惑后召唤物归植物方。",
    "economy": "none",
    "selectable": true,
    "flying": true,
@@ -4951,7 +4951,7 @@
    "native_source": "marshal+1.5.0.1-patch",
    "native_cd_fallback": true,
    "native_deploy_cd": 0,
-   "native_description": "从空中选择一株存活敌方植物下降并执行原偷取行为，不需要墓碑出场；优先针对关键后排或防线核心。携带空输秘籍时部署冷却减半，下降到目标位置后原地召唤1只路障僵尸，路障被禁选也能召唤；魅惑后召唤物归植物方。"
+   "native_description": "从空中选择一株存活敌方植物下降并执行原偷取行为，不需要墓碑出场；优先针对关键后排或防线核心。携带空输秘籍时脑光消耗变为100、部署冷却减半，下降到目标位置后原地召唤1只路障僵尸，路障被禁选也能召唤；魅惑后召唤物归植物方。"
   },
   "zombie:豌豆僵尸": {
    "id": "zombie:豌豆僵尸",
@@ -5231,7 +5231,7 @@
    "ban_protected": false,
    "family": "zombie:辣椒僵尸",
    "asset": "辣椒僵尸",
-   "description": "",
+   "description": "在冰冻或减速状态下死亡时不会自爆（同化灰）。",
    "economy": "none",
    "selectable": true,
    "fuse": 12.0,
@@ -5258,13 +5258,13 @@
    "native_source": "marshal+1.5.0.1-patch",
    "native_cd_fallback": true,
    "native_deploy_cd": 0,
-   "native_description": "死亡时沿地面生成贴地火焰，烧尽范围内敌方植物与魅惑僵尸，并对敌方戴夫造成一次 10 点伤害（与小丑自爆相同，不会秒杀）；我方戴夫踏入火焰会被辣飞天击飞，同一爆炸不会重复判定，贴图范围即伤害范围。"
+   "native_description": "死亡时沿地面生成贴地火焰，烧尽范围内敌方植物与魅惑僵尸，并对敌方戴夫造成一次 10 点伤害（与小丑自爆相同，不会秒杀）；我方戴夫踏入火焰会被辣飞天击飞，同一爆炸不会重复判定，贴图范围即伤害范围。在冰冻或减速状态下死亡时不会自爆（同化灰）。"
   },
   "zombie:倭瓜僵尸": {
    "id": "zombie:倭瓜僵尸",
    "name": "倭瓜僵尸",
    "side": "zombie",
-   "cost": 100,
+   "cost": 75,
    "hp": 150,
    "damage": 1800,
    "interval": 1.5,
@@ -5365,7 +5365,7 @@
    "ban_protected": false,
    "family": "zombie:三叶草僵尸",
    "asset": "三叶草僵尸",
-   "description": "",
+   "description": "被吹动的植物戴夫遇到一格高的障碍会自动跳起。",
    "economy": "none",
    "selectable": true,
    "fuse": 1.0,
@@ -5389,7 +5389,7 @@
    "native_source": "marshal+1.5.0.1-patch",
    "native_cd_fallback": true,
    "native_deploy_cd": 0,
-   "native_description": "周期吹风干扰单位，可按原三叶草逻辑吹飞前方目标、气球与雨；更适合拆解空中或密集推进。"
+   "native_description": "周期吹风干扰单位，可按原三叶草逻辑吹飞前方目标、气球与雨；更适合拆解空中或密集推进。被吹动的植物戴夫遇到一格高的障碍会自动跳起。"
   },
   "zombie:路灯花僵尸": {
    "id": "zombie:路灯花僵尸",
@@ -5702,7 +5702,7 @@
    "name": "成长脑光墓碑",
    "side": "zombie",
    "cost": 60,
-   "hp": 75,
+   "hp": 100.0,
    "damage": 20,
    "interval": 1.5,
    "range": 520,
@@ -5714,7 +5714,7 @@
    "ban_protected": false,
    "family": "zombie:成长脑光墓碑",
    "asset": "成长脑光墓碑",
-   "description": "",
+   "description": "初始生命100，成熟后生命上限200。",
    "economy": "periodic_brain",
    "selectable": true,
    "period": 16.0,
@@ -5739,16 +5739,17 @@
    "resolved_id": "zombie:成长脑光墓碑",
    "native_input_name": "成长脑光墓碑",
    "native_source": "PvP-only entity; no native equivalent",
-   "mature_hp": 150,
+   "mature_hp": 200.0,
    "first_production": 6.0,
-   "grave_surface": "land"
+   "grave_surface": "land",
+   "native_description": "初始生命100，成熟后生命上限200。"
   },
   "zombie:水上成长脑光墓碑": {
    "id": "zombie:水上成长脑光墓碑",
    "name": "水上成长脑光墓碑",
    "side": "zombie",
    "cost": 60,
-   "hp": 75,
+   "hp": 100.0,
    "damage": 20,
    "interval": 1.5,
    "range": 520,
@@ -5760,7 +5761,7 @@
    "ban_protected": false,
    "family": "zombie:水上成长脑光墓碑",
    "asset": "成长脑光墓碑",
-   "description": "独立水系墓碑，只能布置在水面，使用鸭子救生圈。生产、受控减产、成长与原地面型相同。不享受基础陆地墓碑的禁选保护。",
+   "description": "独立水系墓碑，只能布置在水面，使用鸭子救生圈。生产、受控减产、成长与原地面型相同。不享受基础陆地墓碑的禁选保护。初始生命100，成熟后生命上限200。",
    "economy": "periodic_brain",
    "selectable": true,
    "period": 16.0,
@@ -5785,11 +5786,11 @@
    "resolved_id": "zombie:水上成长脑光墓碑",
    "native_input_name": "成长脑光墓碑",
    "native_source": "PvP54 rule; isolated native template",
-   "mature_hp": 150,
+   "mature_hp": 200.0,
    "first_production": 6.0,
    "grave_surface": "water",
    "requires_water": true,
-   "native_description": "独立水系墓碑，只能布置在水面，使用鸭子救生圈。生产、受控减产、成长与原地面型相同。不享受基础陆地墓碑的禁选保护。",
+   "native_description": "独立水系墓碑，只能布置在水面，使用鸭子救生圈。生产、受控减产、成长与原地面型相同。不享受基础陆地墓碑的禁选保护。初始生命100，成熟后生命上限200。",
    "pvp_added": true
   },
   "zombie:坚固脑光墓碑": {
@@ -6463,7 +6464,7 @@
    "ban_protected": false,
    "family": "secret:核平",
    "asset": "毁灭菇",
-   "description": "毁灭菇直接秒杀范围内任何非英雄单位；对英雄仍为原伤害且受单轮上限保护。",
+   "description": "毁灭菇直接秒杀范围内任何非英雄单位；对英雄仍为原伤害且受单轮上限保护。己方魅惑的毁灭菇僵尸自爆时同样生效。",
    "economy": "none",
    "selectable": true,
    "dependency": "plant:毁灭菇",
@@ -6487,7 +6488,7 @@
    "resolved_id": "secret:核平",
    "native_input_name": "核平",
    "native_source": "native-secret; not a spawned entity",
-   "native_description": "毁灭菇伤害+100%",
+   "native_description": "毁灭菇伤害+100%。己方魅惑的毁灭菇僵尸自爆时同样生效。",
    "native_shop_cost": 500
   },
   "secret:魅惑": {
@@ -7932,7 +7933,7 @@
    "ban_protected": false,
    "family": "zombie:小鬼炮",
    "asset": "小鬼炮",
-   "description": "120生命，移速为撑杆跳僵尸的一半，沿用投篮车移动模板与跟随/追击指令。追击时在距敌方戴夫20格内驻停，每4秒抛射一只小鬼；发射前装填小鬼，发射后炮口清空。减速使装填和发射速度减半；冰冻、黄油、眩晕暂停行动，中毒照常造成伤害。出场80秒后自毁，不造成范围伤害、不额外召唤小鬼；控制状态不延长寿命。跟随戴夫或前往召集旗帜时只移动，不发射小鬼。",
+   "description": "120生命，移速为撑杆跳僵尸的一半，沿用投篮车移动模板与跟随/追击指令。追击时在距敌方戴夫20格内驻停，每4秒抛射一只小鬼；发射前装填小鬼，发射后炮口清空。减速使装填和发射速度减半；冰冻、黄油、眩晕暂停行动，中毒照常造成伤害。出场80秒后自毁，不造成范围伤害、不额外召唤小鬼；控制状态不延长寿命。跟随戴夫或前往召集旗帜时只移动，不发射小鬼。连续15秒未受到攻击时停止发射小鬼，再次受到攻击后恢复。",
    "economy": "none",
    "selectable": true,
    "native_cost": 225,
@@ -7955,7 +7956,7 @@
    "native_source": "marshal+1.5.0.1-patch",
    "native_cd_fallback": true,
    "native_deploy_cd": 10000,
-   "native_description": "120生命，移速为撑杆跳僵尸的一半，沿用投篮车移动模板与跟随/追击指令。追击时在距敌方戴夫20格内驻停，每4秒抛射一只小鬼；发射前装填小鬼，发射后炮口清空。减速使装填和发射速度减半；冰冻、黄油、眩晕暂停行动，中毒照常造成伤害。出场80秒后自毁，不造成范围伤害、不额外召唤小鬼；控制状态不延长寿命。跟随戴夫或前往召集旗帜时只移动，不发射小鬼。",
+   "native_description": "120生命，移速为撑杆跳僵尸的一半，沿用投篮车移动模板与跟随/追击指令。追击时在距敌方戴夫20格内驻停，每4秒抛射一只小鬼；发射前装填小鬼，发射后炮口清空。减速使装填和发射速度减半；冰冻、黄油、眩晕暂停行动，中毒照常造成伤害。出场80秒后自毁，不造成范围伤害、不额外召唤小鬼；控制状态不延长寿命。跟随戴夫或前往召集旗帜时只移动，不发射小鬼。连续15秒未受到攻击时停止发射小鬼，再次受到攻击后恢复。",
    "content": "小鬼炮",
    "content_art": "cannon",
    "expansion": "content:小鬼炮"
@@ -8433,7 +8434,7 @@
    "ban_protected": false,
    "family": "secret:密植",
    "asset": "密植",
-   "description": "同一格最多种植3个主体植物，另可额外种植1个南瓜头或藤蔓（两者共享保护壳名额）；同格内后种的植物优先被攻击，地形条件仍按原版判断。咖啡豆不占主体或保护壳名额，可独立种在含沉睡植物的满额格子上，一次唤醒同格全部沉睡植物。",
+   "description": "同一格最多种植3个主体植物，另可额外种植1个南瓜头或藤蔓（两者共享保护壳名额）；同格内后种的植物优先被攻击，地形条件仍按原版判断。咖啡豆不占主体或保护壳名额，可独立种在含沉睡植物的满额格子上，一次唤醒同格全部沉睡植物。激光豆与玉米加农炮不受密植影响。",
    "economy": "none",
    "selectable": true,
    "dependency": "",
@@ -8457,7 +8458,7 @@
    "resolved_id": "secret:密植",
    "native_input_name": "补光",
    "native_source": "native-secret; not a spawned entity",
-   "native_description": "同一格最多种植3个主体植物，另可额外种植1个南瓜头或藤蔓（两者共享保护壳名额）；同格内后种的植物优先被攻击，地形条件仍按原版判断。咖啡豆不占主体或保护壳名额，可独立种在含沉睡植物的满额格子上，一次唤醒同格全部沉睡植物。",
+   "native_description": "同一格最多种植3个主体植物，另可额外种植1个南瓜头或藤蔓（两者共享保护壳名额）；同格内后种的植物优先被攻击，地形条件仍按原版判断。咖啡豆不占主体或保护壳名额，可独立种在含沉睡植物的满额格子上，一次唤醒同格全部沉睡植物。激光豆与玉米加农炮不受密植影响。",
    "native_shop_cost": 2000,
    "pvp_added": true
   },
@@ -9864,7 +9865,7 @@
    "ban_protected": false,
    "family": "zsecret:汇流",
    "asset": "黑旗帜僵尸",
-   "description": "召集旗半径 6 格内的僵尸死亡时返还 15 脑光（自动收集）；范围内的僵尸戴夫移速 +25%。",
+   "description": "召集旗半径 6 格内的僵尸死亡时返还 25 脑光（自动收集）；范围内的僵尸戴夫移速 +25%。",
    "economy": "none",
    "selectable": true,
    "dependency": "",
@@ -9888,7 +9889,7 @@
    "resolved_id": "zsecret:汇流",
    "native_input_name": "汇流",
    "native_source": "PvP66 zombie secret; not a spawned entity",
-   "native_description": "召集旗半径 6 格内的僵尸死亡时返还 15 脑光（自动收集）；范围内的僵尸戴夫移速 +25%。",
+   "native_description": "召集旗半径 6 格内的僵尸死亡时返还 25 脑光（自动收集）；范围内的僵尸戴夫移速 +25%。",
    "native_shop_cost": null,
    "targets": [],
    "pvp_added": true,
@@ -10575,7 +10576,7 @@
    "ban_protected": false,
    "family": "zsecret:空输",
    "asset": "僵尸秘籍图标:空输",
-   "description": "飞贼僵尸（蹦极僵尸）部署冷却减半。下降到目标位置后原地召唤1只路障僵尸，每只飞贼只触发一次；不额外扣费，路障被禁选也能召唤。召唤物继承调令、席位与当前魅惑归属，合作模式遵守出怪上限。",
+   "description": "飞贼僵尸（蹦极僵尸）脑光消耗由75提高到100，部署冷却减半。下降到目标位置后原地召唤1只路障僵尸，每只飞贼只触发一次；不额外扣费，路障被禁选也能召唤。召唤物继承调令、席位与当前魅惑归属，合作模式遵守出怪上限。",
    "economy": "none",
    "selectable": true,
    "dependency": "zombie:飞贼僵尸",
@@ -10599,7 +10600,7 @@
    "resolved_id": "zsecret:空输",
    "native_input_name": "补光",
    "native_source": "native-secret; not a spawned entity",
-   "native_description": "飞贼僵尸（蹦极僵尸）部署冷却减半。下降到目标位置后原地召唤1只路障僵尸，每只飞贼只触发一次；不额外扣费，路障被禁选也能召唤。召唤物继承调令、席位与当前魅惑归属，合作模式遵守出怪上限。",
+   "native_description": "飞贼僵尸（蹦极僵尸）脑光消耗由75提高到100，部署冷却减半。下降到目标位置后原地召唤1只路障僵尸，每只飞贼只触发一次；不额外扣费，路障被禁选也能召唤。召唤物继承调令、席位与当前魅惑归属，合作模式遵守出怪上限。",
    "native_shop_cost": 2000,
    "pvp_added": true,
    "targets": [
@@ -10768,7 +10769,7 @@
    "ban_protected": false,
    "family": "plant:巴豆",
    "asset": "巴豆",
-   "description": "巴豆被僵尸啃咬时立即消失并生效：啃咬者受到150伤害、6秒眩晕与6秒二级中毒，并向其面朝方向的反方向喷出长6格的绿色毒气；接触毒气的其他敌方僵尸受到60伤害、3秒眩晕与3秒一级中毒。毒气约2秒后消散。",
+   "description": "巴豆被僵尸啃咬时立即消失并生效：啃咬者受到150伤害、6秒眩晕与6秒二级中毒，并向其面朝方向的反方向喷出长6格的绿色毒气；接触毒气的其他敌方僵尸受到60伤害、3秒眩晕与3秒一级中毒。毒气约2秒后消散。僵尸戴夫接触毒气时受到3秒眩晕与3秒一级中毒（无直接伤害，每团毒气一次）。",
    "economy": "none",
    "selectable": true,
    "fuse": 0.0,
@@ -10794,7 +10795,7 @@
    "native_source": "PvP75 rule; isolated native template",
    "native_cd_fallback": false,
    "native_deploy_cd": 9000,
-   "native_description": "巴豆被僵尸啃咬时立即消失并生效：啃咬者受到150伤害、6秒眩晕与6秒二级中毒，并向其面朝方向的反方向喷出长6格的绿色毒气；接触毒气的其他敌方僵尸受到60伤害、3秒眩晕与3秒一级中毒。毒气约2秒后消散。",
+   "native_description": "巴豆被僵尸啃咬时立即消失并生效：啃咬者受到150伤害、6秒眩晕与6秒二级中毒，并向其面朝方向的反方向喷出长6格的绿色毒气；接触毒气的其他敌方僵尸受到60伤害、3秒眩晕与3秒一级中毒。毒气约2秒后消散。僵尸戴夫接触毒气时受到3秒眩晕与3秒一级中毒（无直接伤害，每团毒气一次）。",
    "content": "巴豆",
    "pvp_added": true
   },
@@ -10815,7 +10816,7 @@
    "ban_protected": false,
    "family": "plant:激光豆",
    "asset": "激光豆",
-   "description": "点击激光豆进入发射状态（各发射植物状态独立；手持卡牌时点击它会取消选卡并进入发射状态），在其面朝方向±80°、8到20格范围内选择目标点：内圈红色为过近区域，外圈绿色为可选区域，超出范围自动取消；左键发射、右键取消。激光从眼睛射向目标点并持续，直到再次点击这株激光豆。光束每0.4秒对触及的每个敌方单位造成30÷激光长度（格）的伤害；穿透二类防具（对方携带僵王出品时由二类防具先承受）；脉冲间隔享受金盏花加速并受威压减速。对僵尸戴夫固定1点且不会将其击倒。睡眠、被压扁或死亡时停止发射。",
+   "description": "点击激光豆进入发射状态（各发射植物状态独立；手持卡牌时点击它会取消选卡并进入发射状态），在其面朝方向±80°、8到20格范围内选择目标点：内圈红色为过近区域，外圈绿色为可选区域，超出范围自动取消；左键发射、右键取消。激光从眼睛射向目标点并持续，直到再次点击这株激光豆。光束每0.4秒对触及的每个敌方单位造成30÷激光长度（格）的伤害；穿透二类防具（对方携带僵王出品时由二类防具先承受）；脉冲间隔享受金盏花加速并受威压减速。对僵尸戴夫固定1点且不会将其击倒。睡眠、被压扁或死亡时停止发射。不受密植秘籍影响：所在格不能再种其他主体植物。",
    "economy": "none",
    "selectable": true,
    "fuse": 0.0,
@@ -10841,7 +10842,7 @@
    "native_source": "PvP75 rule; isolated native template",
    "native_cd_fallback": false,
    "native_deploy_cd": 9000,
-   "native_description": "点击激光豆进入发射状态（各发射植物状态独立；手持卡牌时点击它会取消选卡并进入发射状态），在其面朝方向±80°、8到20格范围内选择目标点：内圈红色为过近区域，外圈绿色为可选区域，超出范围自动取消；左键发射、右键取消。激光从眼睛射向目标点并持续，直到再次点击这株激光豆。光束每0.4秒对触及的每个敌方单位造成30÷激光长度（格）的伤害；穿透二类防具（对方携带僵王出品时由二类防具先承受）；脉冲间隔享受金盏花加速并受威压减速。对僵尸戴夫固定1点且不会将其击倒。睡眠、被压扁或死亡时停止发射。",
+   "native_description": "点击激光豆进入发射状态（各发射植物状态独立；手持卡牌时点击它会取消选卡并进入发射状态），在其面朝方向±80°、8到20格范围内选择目标点：内圈红色为过近区域，外圈绿色为可选区域，超出范围自动取消；左键发射、右键取消。激光从眼睛射向目标点并持续，直到再次点击这株激光豆。光束每0.4秒对触及的每个敌方单位造成30÷激光长度（格）的伤害；穿透二类防具（对方携带僵王出品时由二类防具先承受）；脉冲间隔享受金盏花加速并受威压减速。对僵尸戴夫固定1点且不会将其击倒。睡眠、被压扁或死亡时停止发射。不受密植秘籍影响：所在格不能再种其他主体植物。",
    "content": "激光豆",
    "pvp_added": true
   },
@@ -10862,7 +10863,7 @@
    "ban_protected": false,
    "family": "zombie:盾卫僵尸",
    "asset": "盾卫僵尸",
-   "description": "防御力6。受到伤害时举起木盾（0.6秒，期间技能尚未生效），随后进入6秒防御姿态：移速降低40%，防御力提高至60，免疫击退。放下盾牌后技能冷却4秒（守卫秘籍：2秒）。",
+   "description": "防御力12（守卫秘籍：24）。受到伤害时举起木盾（0.6秒，期间技能尚未生效），随后进入6秒防御姿态：移速降低40%，防御力提高至60，免疫击退。放下盾牌后技能冷却4秒（守卫秘籍：2秒）。",
    "economy": "none",
    "selectable": true,
    "armor": 0.0,
@@ -10887,7 +10888,7 @@
    "native_source": "PvP75 rule; isolated native template",
    "native_cd_fallback": true,
    "native_deploy_cd": 3000,
-   "native_description": "防御力6。受到伤害时举起木盾（0.6秒，期间技能尚未生效），随后进入6秒防御姿态：移速降低40%，防御力提高至60，免疫击退。放下盾牌后技能冷却4秒（守卫秘籍：2秒）。",
+   "native_description": "防御力12（守卫秘籍：24）。受到伤害时举起木盾（0.6秒，期间技能尚未生效），随后进入6秒防御姿态：移速降低40%，防御力提高至60，免疫击退。放下盾牌后技能冷却4秒（守卫秘籍：2秒）。",
    "content": "盾卫僵尸",
    "pvp_added": true
   },
@@ -10902,7 +10903,7 @@
    "range": 55,
    "speed": 0,
    "behavior": "servant",
-   "cooldown": 24.0,
+   "cooldown": 32.0,
    "category": "zombie",
    "producer": false,
    "ban_protected": false,
@@ -10914,7 +10915,7 @@
    "native_cost": 0,
    "native_hp": 8,
    "native_speed": 40,
-   "native_cd": 6000,
+   "native_cd": 8000,
    "native_name": "克苏鲁之仆",
    "native_armor_hp": 0,
    "native_handheld_hp": 0,
@@ -10930,7 +10931,7 @@
    "native_input_name": "普通僵尸",
    "native_source": "PvP75 rule; isolated native template",
    "native_cd_fallback": true,
-   "native_deploy_cd": 6000,
+   "native_deploy_cd": 8000,
    "native_description": "召唤一只克苏鲁之仆（泰拉瑞亚普通模式数值：8生命、接触伤害12，对植物与戴夫伤害÷10）。无需墓碑，可在场上任意位置释放；自行追踪最近的敌人，不服从跟随／进攻指挥与召集旗帜，初始朝向由部署时的朝向决定。海陆空秘籍中算作空中单位；与其他飞行僵尸一样会被三叶草、三叶草僵尸的风吹动。",
    "content": "克苏鲁之仆",
    "pvp_added": true,
@@ -10999,7 +11000,7 @@
    "ban_protected": false,
    "family": "zsecret:守卫",
    "asset": "盾卫僵尸",
-   "description": "盾卫僵尸举盾期间防御力变为600，技能冷却时间减半（2秒）。锁定前体：盾卫僵尸。",
+   "description": "盾卫僵尸平时防御力变为24，举盾期间防御力变为600，技能冷却时间减半（2秒）。锁定前体：盾卫僵尸。",
    "economy": "none",
    "selectable": true,
    "dependency": "zombie:盾卫僵尸",
@@ -11023,7 +11024,7 @@
    "resolved_id": "zsecret:守卫",
    "native_input_name": "守卫",
    "native_source": "PvP76 secret; not a spawned entity",
-   "native_description": "盾卫僵尸举盾期间防御力变为600，技能冷却时间减半（2秒）。锁定前体：盾卫僵尸。",
+   "native_description": "盾卫僵尸平时防御力变为24，举盾期间防御力变为600，技能冷却时间减半（2秒）。锁定前体：盾卫僵尸。",
    "native_shop_cost": null,
    "targets": [
     "zombie:盾卫僵尸"
@@ -11049,7 +11050,7 @@
   "ban_protected": false,
   "family": "zsecret:守卫",
   "asset": "盾卫僵尸",
-  "description": "盾卫僵尸举盾期间防御力变为600，技能冷却时间减半（2秒）。锁定前体：盾卫僵尸。",
+  "description": "盾卫僵尸平时防御力变为24，举盾期间防御力变为600，技能冷却时间减半（2秒）。锁定前体：盾卫僵尸。",
   "economy": "none",
   "selectable": true,
   "dependency": "zombie:盾卫僵尸",
@@ -11073,7 +11074,7 @@
   "resolved_id": "zsecret:守卫",
   "native_input_name": "守卫",
   "native_source": "PvP76 secret; not a spawned entity",
-  "native_description": "盾卫僵尸举盾期间防御力变为600，技能冷却时间减半（2秒）。锁定前体：盾卫僵尸。",
+  "native_description": "盾卫僵尸平时防御力变为24，举盾期间防御力变为600，技能冷却时间减半（2秒）。锁定前体：盾卫僵尸。",
   "native_shop_cost": null,
   "targets": [
    "zombie:盾卫僵尸"
@@ -14368,7 +14369,7 @@
   "大帝": 0,
   "三向蓝火": 800
  },
- "_key": "zsecret:守卫",
+ "_key": "plant:玉米加农炮",
  "_c": {
   "id": "plant:龙蒺藜",
   "name": "龙蒺藜",
@@ -14467,7 +14468,7 @@
    "zombie:梯子僵尸"
   ]
  },
- "_cost": 175,
+ "_cost": 75,
  "_seconds": 20.0,
  "_values": {
   "hp": 900,
@@ -14571,7 +14572,7 @@
   "sky_max_scale": 2.0,
   "command_key": "f",
   "page_key": "tab",
-  "build": "1.6.0.76-typed.20261122-r2",
+  "build": "1.6.0.76-typed.20261123-r3",
   "ruleset": "pvp76",
   "rule_schema": 2,
   "mechanics72": {

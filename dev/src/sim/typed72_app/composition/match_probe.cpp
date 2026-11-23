@@ -1153,7 +1153,7 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
         gas_secret=plant_has("secret:毒气");hardening=plant_has("secret:硬化");phototherapy=plant_has("secret:光疗");
         reeds.electrotherapy=plant_has("secret:电疗");
         plant_rules.lantern_secret=phototherapy;navigation.cactus_secret=plant_has("secret:尖刺");navigation.charm_secret=plant_has("secret:魅惑");
-        death_rules.nuclear_secret=plant_has("secret:核平");death_rules.zombie_secrets_enabled=zsecrets.enabled();
+        death_rules.nuclear_secret=plant_has("secret:核平");chain.doom.nuclear=death_rules.nuclear_secret;  /* PvP76 r3 */death_rules.zombie_secrets_enabled=zsecrets.enabled();
         death_rules.brain_holders.clear();death_rules.conversion_holders.clear();death_rules.conversion_forms.clear();
         for(const auto seat:tick_state.present)if(team_of(seat)==Seat::zombie){
             if(zsecrets.seat_has(seat,"脑光"))death_rules.brain_holders.push_back(seat);
@@ -1224,7 +1224,16 @@ struct MatchProbe final:ContentPhaseProbe,RoomServices,CommandServices,NativeTic
             else if(op=="daylight"){set_daylight(!command.at("night").get<bool>()?false:true);}
             else if(op=="clear"){
                 const std::string what=command.at("what");if(what!="plants"&&what!="zombies"&&what!="all")return "未知清理范围";
-                if(what!="zombies")for(size_t i=battle.plant_roster->size();i-->0;){const auto p=battle.plant_roster->at(i);p->hp.set(0.);if(p->source.id.present())battle.native_objects.erase(p->source.id.get());const auto cell=battle.terrain.at(p->cell.y,battle.terrain.wrap(p->cell.x));if(cell){cell->plant.erase();cell->pot.erase();cell->lily.erase();}battle.erase_plant_at(i);}
+                // PvP76 r3: undo the terrain a plant installed, as its ordinary death does: a 花盆 leaves
+                // 花盆块 behind, a 睡莲 its lily mark and a 水盆 the water it poured (restored first).
+                if(what!="zombies"){
+                    for(const auto& p:*battle.plant_roster)if(p->source.content.present()&&!p->source.content.is_null()&&p->source.content.get()=="水盆")plants70.remove_basin(p);
+                    for(size_t i=battle.plant_roster->size();i-->0;){const auto p=battle.plant_roster->at(i);p->hp.set(0.);if(p->source.id.present())battle.native_objects.erase(p->source.id.get());
+                        const auto cell=battle.terrain.at(p->cell.y,battle.terrain.wrap(p->cell.x));
+                        if(cell){if(p->kind=="花盆"&&cell->block.present()&&!cell->block.is_null()&&cell->block.get()=="花盆块")cell->block.set("空");cell->plant.erase();cell->pot.erase();cell->lily.erase();}
+                        battle.erase_plant_at(i);}
+                    sync_terrain();
+                }
                 if(what!="plants")for(size_t i=battle.targets->size();i-->0;){const auto u=battle.targets->at(i).unit;if(!u)continue;u->body.hp=0.;if(u->terraria)u->terraria->removed=true;if(u->source.id.present())battle.native_objects.erase(u->source.id.get());battle.erase_mobile_at(i);}
             }else return "未知测试命令";
             publish(op=="clear"||op=="daylight");return {};

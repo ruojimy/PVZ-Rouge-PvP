@@ -73,6 +73,7 @@ private:
     bool follow(const CombatZombie&)const;
     bool rally(const CombatZombie&)const;
     bool kunkun(const CombatZombie&)const;  // PvP76 r2: 坤坤 cart ignores orders
+    bool idle_for(CombatZombie&,double ticks)const;  // PvP76 r3: carts stop firing when not hit
     Point destination(const CombatZombie&);
     Seat following_seat(const CombatZombie&)const;
     void restore_player(CombatZombie&);

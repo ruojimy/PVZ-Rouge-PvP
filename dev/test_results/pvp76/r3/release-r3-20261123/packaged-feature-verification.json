@@ -1,0 +1,89 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": "boss",
+      "checks": 31,
+      "passed": true,
+      "executable_sha256": "17f18bf29d91eea28dd1feae2df18548b9774320d8468b3816ed06d004668d04",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp76\\r3\\release-r3-20261123\\packaged-gift-boss\\results.json"
+    },
+    {
+      "case": "controls",
+      "checks": 4,
+      "passed": true,
+      "executable_sha256": "61045cd615ea3c0171031ab5eeabbf1034905fccfead9c001d75780dea0e3d87",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp76\\r3\\release-r3-20261123\\packaged-gift-controls\\results.json"
+    },
+    {
+      "case": "weather",
+      "checks": 25,
+      "passed": true,
+      "executable_sha256": "2b49bdb2a25c68868b35ca89a25c4dab68139b6d884d287481fe2a3295907d95",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp76\\r3\\release-r3-20261123\\packaged-gift-weather\\results.json"
+    },
+    {
+      "case": "material",
+      "checks": 88,
+      "passed": true,
+      "executable_sha256": "6c6321dd3e7ccbb19bd028030fc6a61a70d9fbeae35ab284477d50cb0c2c213d",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp76\\r3\\release-r3-20261123\\packaged-gift-material\\results.json"
+    },
+    {
+      "case": "feedback",
+      "checks": 14,
+      "passed": true,
+      "executable_sha256": "050d2212f8753df8fe8777e7aa767fbb159b186d5daae4c38b903d05cd2389a2",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp76\\r3\\release-r3-20261123\\packaged-gift-feedback\\results.json"
+    },
+    {
+      "case": "r3",
+      "checks": 14,
+      "passed": true,
+      "executable_sha256": "10ee0eeb7d6224f80f08de4382b17f36f4a46f06ee6d88d091da440e6cc9bafb",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp76\\r3\\release-r3-20261123\\packaged-gift-r3\\results.json"
+    },
+    {
+      "case": "r4",
+      "checks": 10,
+      "passed": true,
+      "executable_sha256": "a0e364742e3877e938556f1780e7aebe925ea87c2ab95a0220e19799a4c71a5b",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp76\\r3\\release-r3-20261123\\packaged-gift-r4\\results.json"
+    },
+    {
+      "case": "pvp75",
+      "checks": 7,
+      "passed": true,
+      "executable_sha256": "d9bee1e41be5605c049990fe7c8870f0e0d439ce2df2c7c62328a34ed893ceef",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp76\\r3\\release-r3-20261123\\packaged-gift-pvp75\\results.json"
+    },
+    {
+      "case": "pvp75-ui",
+      "checks": 7,
+      "passed": true,
+      "executable_sha256": "ea3f80a5d69b7831e9d4ef2f299f496ca07ad596c3398650c151e65f8ca34284",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp76\\r3\\release-r3-20261123\\packaged-gift-pvp75-ui\\results.json"
+    },
+    {
+      "case": "pvp76",
+      "checks": 5,
+      "passed": true,
+      "executable_sha256": "da634a920b8a990d4cd5496ec330fc925935a75179f60a9a0010c1784bc8e204",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp76\\r3\\release-r3-20261123\\packaged-gift-pvp76\\results.json"
+    },
+    {
+      "case": "pvp76r2",
+      "checks": 8,
+      "passed": true,
+      "executable_sha256": "aded0e017a25200bfe117bd2799a6900775bfde09cfcacd46304437ac893f9f9",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp76\\r3\\release-r3-20261123\\packaged-gift-pvp76r2\\results.json"
+    },
+    {
+      "case": "pvp76r3",
+      "checks": 5,
+      "passed": true,
+      "executable_sha256": "5843c609af74c8ef0d8ceb176a14421b53465cdd86f6c4506998c5a7949803f2",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp76\\r3\\release-r3-20261123\\packaged-gift-pvp76r3\\results.json"
+    }
+  ]
+}

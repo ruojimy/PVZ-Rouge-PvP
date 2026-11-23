@@ -72,12 +72,12 @@ template<class F> J scenario(const std::string& id,F run){
 
 J catalog(){
     J rows=J::array();
-    rows.push_back(scenario("servant.cooldown_24",[](){
+    rows.push_back(scenario("servant.cooldown_and_rush",[](){
         Fixture f(decks({"plant:向日葵"},{"zombie:脑光墓碑","zombie:克苏鲁之仆"}));auto& m=*f.match;
         const auto plain=m.catalog.resolve("zombie:克苏鲁之仆",{},{},false);
         const std::vector<std::string> rush{"zsecret:加急"};const auto fast=m.catalog.resolve("zombie:克苏鲁之仆",rush,{},false);
-        near(plain.cooldown,24.,"servant cooldown");near(fast.cooldown,18.,"servant cooldown with 加急");
-        const V card=rd(pm_catalog::CARDS,V("zombie:克苏鲁之仆"));near(rd(card,V("cooldown")).num(),24.,"V servant cooldown");
+        near(plain.cooldown,32.,"servant cooldown");near(fast.cooldown,24.,"servant cooldown with 加急");
+        const V card=rd(pm_catalog::CARDS,V("zombie:克苏鲁之仆"));near(rd(card,V("cooldown")).num(),32.,"V servant cooldown");
         return J{{"typed",plain.cooldown},{"rush",fast.cooldown}};
     }));
     rows.push_back(scenario("sprint.carts_cost",[](){

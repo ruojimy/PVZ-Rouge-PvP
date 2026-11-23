@@ -32,11 +32,15 @@ std::vector<const ColdPlacementPlant*> ColdPlacementRules::plants_at(int y,int64
     std::vector<const ColdPlacementPlant*> result;
     for(const auto& plant:plants_)if(plant.cell==Cell{y,x})result.push_back(&plant);return result;
 }
-std::string ColdPlacementRules::dense_error(std::string_view name,int y,int64_t x)const{
+std::string ColdPlacementRules::dense_error(std::string_view name,int y,int64_t x,bool exclusive)const{
     if(!dense()||one(name,{"咖啡豆","花盆","睡莲","石块"}))return {};
     auto here=plants_at(y,map_.wrap(x));
     if(name=="南瓜头")return std::any_of(here.begin(),here.end(),[](auto* p){return p->name=="南瓜头";})?"每格最多额外种一个南瓜头或藤蔓":"";
-    return std::count_if(here.begin(),here.end(),[](auto* p){return !one(p->name,{"南瓜头","咖啡豆","花盆","睡莲","水盆"});})>=3?"密植每格最多种三个主体植物":"";
+    const auto body=[](auto* p){return !one(p->name,{"南瓜头","咖啡豆","花盆","睡莲","水盆"});};
+    // PvP76 r3: 激光豆 and 玉米加农炮 are not compatible with 密植: one body plant per cell for them.
+    if(exclusive&&std::any_of(here.begin(),here.end(),body))return "激光豆与玉米加农炮不受密植影响，所在格不能有其他主体植物";
+    if(std::any_of(here.begin(),here.end(),[&](auto* p){return p->exclusive&&body(p);}))return "激光豆与玉米加农炮不受密植影响，所在格不能再种主体植物";
+    return std::count_if(here.begin(),here.end(),body)>=3?"密植每格最多种三个主体植物":"";
 }
 bool ColdPlacementRules::stone_cell(int y,int64_t x)const{
     if(!map_.valid_row(y))return false;const auto& tile=map_.native_at(y,map_.wrap(x));
