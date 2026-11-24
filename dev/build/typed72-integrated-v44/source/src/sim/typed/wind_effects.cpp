@@ -1,4 +1,5 @@
 #include "sim/typed/wind_effects.h"
+#include "sim/typed/hero_terrain_contact.h"
 #include <algorithm>
 #include <cmath>
 namespace pvz::typed72 {
@@ -120,31 +121,58 @@ double WindEffects::hero_acceleration()const {const double p=world_.runtime.plk;
 double WindEffects::hero_limit()const {const double s=world_.wind_environment.zombie_speed_max;return (s==0.?10.:s)*36./8.*2.;}
 void WindEffects::before_plants() {
     plant_baselines_.fill({});bool clover=false;
-    for(const auto& p:*world_.plant_roster)if(p->kind=="三叶草"&&number(p->hp)>0.&&!p->dead.present()){clover=true;break;}
+    for(const auto& p:*world_.plant_roster)if(p->kind=="三叶草"&&number(p->hp)>0.&&!p->dead.present()&&!p->sleep.present()){clover=true;break;}
     if(clover)for(const auto seat:seats_for(world_.mode))if(team_of(seat)==Seat::zombie)plant_baselines_[seat_index(seat)]=world_.heroes.hero(seat).frame.position.get()->vx;
 }
 void WindEffects::after_plants() {
     const double accel=hero_acceleration(),limit=hero_limit(),tile=world_.runtime.tile;
+    decltype(exposure_) current;
     for(size_t i=0;i<plant_baselines_.size();++i)if(plant_baselines_[i]) {
         auto& hero=world_.heroes.hero(Seat(i));if(number(hero.frame.hp)<=0.)continue;
         auto& pos=*hero.frame.position.get();Motion velocity{0.,0.,*plant_baselines_[i],0.};bool pushed=false;
-        for(const auto& p:*world_.plant_roster)if(p->kind=="三叶草"&&number(p->hp)>0.&&!p->dead.present()) {
+        const bool exposed=hero_terrain_contact(world_.terrain,pos,tile,true);
+        for(const auto& p:*world_.plant_roster)if(p->kind=="三叶草"&&number(p->hp)>0.&&!p->dead.present()&&!p->sleep.present()) {
             const double x=(p->cell.x+.5)*tile,direction=p->facing==1.?1.:-1.;
-            if((direction==1.&&pos.x>=x)||(direction==-1.&&pos.x<=x)){push(velocity,direction,accel,limit);pushed=true;}
+            if((pos.x-x)*direction<0.){
+                const double across=wrap_delta(x,pos.x,width_());
+                if(across*direction<0.)continue;
+            }
+            push(velocity,direction,accel,limit);pushed=true;
+            if(exposed && hero.frame.hp.get()>0. && !world_.solo.izombie()) {
+                const auto key=std::make_pair(p,Seat(i));
+                int& ticks=current[key];const auto previous=exposure_.find(key);
+                ticks=previous==exposure_.end()?1:previous->second+1;
+                if(ticks>=100) {
+                    ticks=0;
+                    hero.frame.hp.set(std::max(0.,hero.frame.hp.get()-5.));
+                    world_.runtime.events.emplace_back(EnvironmentalDamageEvent{Seat(i),5.});
+                }
+            }
         }
         if(pushed){pos.vx=velocity.vx;wind_hop(Seat(i),velocity.vx);}
     }
+    exposure_.swap(current);
 }
 void WindEffects::wind_hop(Seat seat,double direction){
     if(direction==0.)return;
     auto& hero=world_.heroes.hero(seat);auto& f=hero.frame;if(number(f.hp)<=0.||number(f.down)>0.)return;
     auto& pos=*f.position.get();const double tile=world_.runtime.tile,plk=tile/10000.;
-    // Standing (just landed) and not already rising or in a jump.
-    if(hero.landing_result.or_missing(0)!=1||pos.vy<0.||number(f.jump)>0.)return;
     const auto& map=world_.terrain;const double dir=direction>0.?1.:-1.;
-    const int64_t feet=int64_t(std::floor((pos.y-1.)/tile)),col=int64_t(std::floor((pos.x+dir*tile*.55)/tile));
-    if(map.outside(feet,col)||map.outside(feet-2,col)||map.empty(feet,col))return;
-    if(!map.empty(feet-1,col)||!map.empty(feet-2,col))return;  // only a one-tile step with headroom
+    const auto row=int64_t(std::floor((pos.y-1.)/tile));
+    const auto ahead=int64_t(std::floor((pos.x+dir*tile*.55)/tile));
+    auto& last=jumped_step_[seat_index(seat)];
+    if(map.outside(row,ahead)||map.outside(row-2,ahead)||map.empty(row,ahead)){
+        last.reset();return;
+    }
+    if(!map.empty(row-1,ahead)||!map.empty(row-2,ahead))return;
+    const auto col=int64_t(std::floor(pos.x/tile));
+    const bool supported=!map.outside(row+1,col)&&!map.empty(row+1,col);
+    const bool swimming=f.in_water.or_missing(false)||(!map.outside(row,col)&&map.water(row,col));
+    if(!swimming && !(hero.landing_result.or_missing(0)==1 || (supported && pos.vy>=0.)))return;
+    if(pos.vy < -plk*250.)return;
+    const Cell step{int(row),map.wrap(ahead)};
+    if(last && last->y==step.y && last->x==step.x && pos.vy<0.)return;
+    last=step;
     pos.vy=-plk*380.;f.jump.set(1.);++wind_hops;
 }
 void WindEffects::after_zombies() {

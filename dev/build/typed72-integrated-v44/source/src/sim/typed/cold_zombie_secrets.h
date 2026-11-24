@@ -17,6 +17,7 @@ class ColdZombieSecrets final:public ColdPlacementSecrets {
 public:
     ColdZombieSecrets(TypedBattleState& world,const ColdCatalog& catalog,const ColdDeploymentState& deployment,
         Scarecrows& scarecrows,ColdZombieSecretServices& services):world_(world),catalog_(catalog),deployment_(deployment),scarecrows_(scarecrows),services_(services){}
+    std::vector<std::string> scripted_roster;
     void configure_locked();
     bool enabled()const;
     bool has(std::string_view)const;

@@ -75,7 +75,7 @@ void ContentAdmission::configure(const ZombieRef& unit,const ColdCard& card) {
         const auto point=unit->body.motion.get();unit->barrel_position.set(std::make_shared<Motion>(Motion{py::mod(point.x+unit->body.facing*world_.runtime.tile*.9,world_.world_width.get()),point.y,0.,0.}));
         systems_.barrels.track(unit);
     }
-    if(content=="海盗船长")unit->patch.bite_plant.set(4.);
+    if(content=="海盗船长"){unit->patch.bite_plant.set(4.);unit->protection.reaper_hurt.set(double(world_.heroes.tick));}
     if(content=="海盗鹦鹉"){unit->body.hand.clear();unit->body.hand_hp=0.;unit->body.size.set(2.);unit->body.balloon.erase();unit->flight.set(true);}
 }
 } // namespace pvz::typed72

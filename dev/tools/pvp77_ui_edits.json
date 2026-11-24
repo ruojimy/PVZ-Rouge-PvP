@@ -1,0 +1,202 @@
+[
+ [
+  "src/sim/pvp/gen/pm_coop_progress.h",
+  "    V a_applied;",
+  "    V a_applied;\n    V a_expanded_from;"
+ ],
+ [
+  "src/sim/pvp/gen/pm_coop_progress.cpp",
+  "    a_zombie_from = V(1.0);  // PvP76 r2 reset",
+  "    a_zombie_from = V(1.0);  // PvP76 r2 reset\n    a_expanded_from = V(1.0);"
+ ],
+ [
+  "src/sim/pvp/gen/pm_coop_progress.cpp",
+  "            a_zombie_from = py::max_it(V::list({V(1.0), py::int_(py::m_get(L_value, SV(\"zombie_secret_from\"), V(1.0)))}), py::Key(), V());  // PvP76 r2 load",
+  "            a_zombie_from = py::max_it(V::list({V(1.0), py::int_(py::m_get(L_value, SV(\"zombie_secret_from\"), V(1.0)))}), py::Key(), V());  // PvP76 r2 load\n    a_expanded_from = py::m_get(L_value, SV(\"zombie_secret_v77_from\"), a_day);"
+ ],
+ [
+  "src/sim/pvp/gen/pm_coop_progress.cpp",
+  "        a_zombie_from = V(1.0);  // PvP76 r2 migrate",
+  "        a_zombie_from = V(1.0);  // PvP76 r2 migrate\n    a_expanded_from = a_day;"
+ ],
+ [
+  "src/sim/pvp/gen/pm_coop_progress.cpp",
+  "    pvz::setitem(L_value, SV(\"zombie_secret_from\"), a_zombie_from);  // PvP76 r2 save",
+  "    pvz::setitem(L_value, SV(\"zombie_secret_from\"), a_zombie_from);  // PvP76 r2 save\n    pvz::setitem(L_value, SV(\"zombie_secret_v77_from\"), a_expanded_from);"
+ ],
+ [
+  "src/sim/pvp/gen/pm_coop_progress.cpp",
+  "    pvz::setitem(L_pve, SV(\"coop_zombie_from\"), a_zombie_from);pvz::setitem(L_pve, SV(\"coop_zombie_secrets\"), pvz::pvp76r2::coop_zombie_secrets(a_run_id, a_zombie_from, a_day));  // PvP76 r2 sync",
+  "    pvz::setitem(L_pve, SV(\"coop_zombie_from\"), a_zombie_from);pvz::setitem(L_pve, SV(\"coop_zombie_secrets\"), pvz::pvp76r2::coop_zombie_secrets(a_run_id, a_zombie_from, a_day, a_expanded_from));  // PvP76 r2 sync\n    pvz::setitem(L_pve, SV(\"coop_expanded_from\"), a_expanded_from);"
+ ],
+ [
+  "src/ui/gen/pm_app.cpp",
+  "#include \"ui/hand/pvp76_ui.h\" // PvP76 ui include",
+  "#include \"ui/hand/pvp76_ui.h\" // PvP76 ui include\n#include \"ui/hand/solo77.h\""
+ ],
+ [
+  "src/ui/gen/pm_app.cpp",
+  "    V L_action = A.get(0, SY(\"action\"), nullptr, \"pve_action\");",
+  "    V L_action = A.get(0, SY(\"action\"), nullptr, \"pve_action\");\n    if(solo77::action(self(),L_action))return V(true);"
+ ],
+ [
+  "src/ui/gen/pm_app.cpp",
+  "} else if (test74::draw(self())) {",
+  "} else if (solo77::draw(self())) {\n    } else if (test74::draw(self())) {"
+ ],
+ [
+  "src/ui/gen/pm_app.cpp",
+  "V L_result = A.get(0, SY(\"result\"), nullptr, \"pve_result\");",
+  "V L_result = A.get(0, SY(\"result\"), nullptr, \"pve_result\");\n    if(solo77::result(self(),L_result))return V::none();"
+ ],
+ [
+  "src/ui/gen/pm_menu_view.cpp",
+  "SV(\"合作闯关\"), SV(\"coop_lobby\")",
+  "SV(\"闯关模式\"), SV(\"solo77\")"
+ ],
+ [
+  "src/ui/gen/pm_menu_view.cpp",
+  "((L_action == SV(\"coop_lobby\")) ? V(V::tuple({L_action}))",
+  "((L_action == SV(\"solo77\")) ? V(V::tuple({L_action,SV(\"modes\")}))"
+ ],
+ [
+  "src/ui/gen/pm_room.cpp",
+  "V C_Room::m_seat_list(const Args& A) {",
+  "V C_Room::m_seat_list(const Args& A) {\n    if(a_pve.is_dict()&&py::m_get(a_pve,SV(\"pvp77_mode\"))==SV(\"izombie\"))return V::list({SV(\"zombie\")});"
+ ],
+ [
+  "src/ui/gen/pm_room.cpp",
+  "    L_widest = py::max_it([&]() -> V { V out_ = V::list(); V L_seat; { V it4_",
+  "    const V solo=py::m_get(a_pve,SV(\"pvp77_mode\"));\n    if(solo.truthy())pvz::setitem(a_decks,SV(\"zombie\"),py::m_get(a_pve,SV(\"pvp77_zombie_deck\")));\n    L_widest = py::max_it([&]() -> V { V out_ = V::list(); V L_seat; { V it4_"
+ ],
+ [
+  "src/ui/gen/pm_room.cpp",
+  "    L_director = (L_WaveDirector).call(",
+  "    if(solo.truthy()){\n        for(const char* k:{\"pvp77_mode\",\"pvp77_stage\",\"pvp77_defenders\",\"pvp77_plants\",\"pvp77_zombies\"})pvz::setitem(L_rules,V(k),py::m_get(a_pve,V(k)));\n        pvz::setitem(L_rules,SV(\"producer_protection_seconds\"),V(0));pvz::setitem(L_rules,SV(\"ranked\"),V(false));\n        pvz::setitem(L_rules,SV(\"zombie_slots\"),py::len(rd(a_decks,SV(\"zombie\"))));\n    }\n    L_director = (L_WaveDirector).call("
+ ],
+ [
+  "src/ui/gen/pm_room.cpp",
+  "{SY(\"coop\"), V((py::len([&]() -> V { if (V* override_ = this->find_dyn(SY(\"seat_list\"))) return override_->call(Args{}); return m_seat_list(Args{}); }()) > V(1.0)))}",
+  "{SY(\"coop\"), V(solo==SV(\"lottery\")||(py::len([&]() -> V { if (V* override_ = this->find_dyn(SY(\"seat_list\"))) return override_->call(Args{}); return m_seat_list(Args{}); }()) > V(1.0)))}"
+ ],
+ [
+  "src/ui/gen/pm_room.cpp",
+  "{SY(\"mode\"), a_mode}, {SY(\"director\"), L_director}",
+  "{SY(\"mode\"), solo==SV(\"izombie\")?SV(\"duel\"):a_mode}, {SY(\"director\"), solo==SV(\"izombie\")?V::none():L_director}"
+ ],
+ [
+  "src/ui/gen/pm_app.cpp",
+  "    return V::none();\n}\n\nV C_Application::pr_personal_campaign() {",
+  "    solo77::pool_button(L_r);\n    return V::none();\n}\n\nV C_Application::pr_personal_campaign() {"
+ ],
+ [
+  "src/sim/pvp/gen/pm_simulation.cpp",
+  "            if ((L_error).truthy()) {\n                py::raise(py::make_exc(SV(\"ValueError\"), Args{L_error}, \"\"));\n            }\n        }\n        L_spawns",
+  "            if(py::m_get(a_rules,SV(\"pvp77_mode\"))==SV(\"izombie\")){\n                if(L_side==SV(\"zombie\")&&L_error==pm_catalog::STARTER_GRAVE_ERROR)L_error=V(\"\");\n                if(L_side==SV(\"plant\")){\n                    L_error=V(\"\");\n                    for(size_t i=0;i<L_deck.len();++i){\n                        const auto row=py::m_get(pm_catalog::CARDS,L_deck.idx(i));\n                        if(!row.is_dict()||py::m_get(row,SV(\"category\"))!=SV(\"secret\")||py::m_get(row,SV(\"side\"))!=SV(\"plant\")){L_error=SV(\"守方只能携带已解锁的植物秘籍\");break;}\n                    }\n                }\n            }\n            if ((L_error).truthy()) {\n                py::raise(py::make_exc(SV(\"ValueError\"), Args{L_error}, \"\"));\n            }\n        }\n        L_spawns"
+ ],
+ [
+  "src/ui/gen/pm_hud.cpp",
+  "    V L_rules = A.get(1, SY(\"rules\"), nullptr, \"stage_text\");",
+  "    V L_rules = A.get(1, SY(\"rules\"), nullptr, \"stage_text\");\n    if(py::m_get(L_battle,SV(\"solo_mode\"))==SV(\"izombie\")){\n        const bool boss=py::m_get(L_battle,SV(\"solo_stage\"))==V(19);\n        return V(std::string(boss?\"黄金脑子 \":\"脑子 \")+py_str(py::m_get(L_battle,SV(\"brains_destroyed\"),V(0)))+\"/3\");\n    }"
+ ],
+ [
+  "src/ui/gen/pm_battle_view.cpp",
+  "py::percent(SV(\"%.1f\"), L_cd), V::tuple({(rd(L_rect, V(0.0)) + V(4.0)),",
+  "(py::m_get(L_game,SV(\"solo_mode\"))==SV(\"lottery\")&&L_cd.num()>1e8?SV(\"已用\"):py::percent(SV(\"%.1f\"), L_cd)), V::tuple({(rd(L_rect, V(0.0)) + V(4.0)),"
+ ],
+ [
+  "src/ui/gen/pm_battle_view.cpp",
+  "py::percent(SV(\"%.1f\"), L_cd), V::tuple({(rd(L_rect, V(0.0)) + V(3.0)),",
+  "(py::m_get(L_game,SV(\"solo_mode\"))==SV(\"lottery\")&&L_cd.num()>1e8?SV(\"已用\"):py::percent(SV(\"%.1f\"), L_cd)), V::tuple({(rd(L_rect, V(0.0)) + V(3.0)),"
+ ],
+ [
+  "src/ui/gen/pm_hud.cpp",
+  "    if ((L_side == SV(\"zombie\"))) {\n        L_summary = py::m_get(L_battle, SV(\"_local_hud\"));",
+  "    if ((L_side == SV(\"zombie\"))) {\n        if(py::m_get(L_battle, SV(\"solo_mode\"))==SV(\"izombie\"))\n            return py::percent(SV(\"可用墓碑 %d · 选卡后点墓碑出兵\"),py::m_get(L_battle,SV(\"map_grave_count\"),V(0)));\n        L_summary = py::m_get(L_battle, SV(\"_local_hud\"));"
+ ],
+ [
+  "src/ui/gen/pm_team_hud.cpp",
+  "    (void)(callm(L_r, SY(\"text\"), Args{SV(\"僵尸来袭\"),",
+  "    const V heading=py::m_get(L_game,SV(\"solo_mode\"))==SV(\"izombie\")?py::percent(SV(\"我是僵尸 · 第 %d 场\"),py::m_get(L_game,SV(\"solo_stage\"),V(1))):SV(\"僵尸来袭\");\n    (void)(callm(L_r, SY(\"text\"), Args{heading,"
+ ],
+ [
+  "src/sim/pvp/gen/pm_almanac_text.cpp",
+  "if (!py_is(py::m_get(L_card, SV(\"hp\")), V::none())) {",
+  "if (!py_is(py::m_get(L_card, SV(\"hp\")), V::none()) && !py::in(rd(L_card,SV(\"behavior\")),V::tuple({SV(\"stone\"),SV(\"copy\")}))) {"
+ ],
+ [
+  "src/sim/pvp/gen/pm_catalog.cpp",
+  "本局前%g秒数值伤害减少%g%%，不分昼夜或天气；后种不会重新计时。",
+  "PvP和合作对局前%g秒数值伤害减少%g%%。抽奖和我是僵尸从开局起承受正常伤害。"
+ ],
+ [
+  "src/sim/pvp/gen/pm_catalog.cpp",
+  "白天全局补给：第%g秒起",
+  "PvP白天全局补给：第%g秒起"
+ ],
+ [
+  "src/sim/pvp/gen/pm_catalog.cpp",
+  "7 分钟后禁止新增；已有生产单位按原生产逻辑提速 1.5 倍。",
+  "PvP死斗开始后禁止新增；已有生产单位按原生产逻辑提速 1.5 倍。"
+ ],
+ [
+  "src/ui/gen/pm_battle_view.cpp",
+  "    if (py::in(L_side, L_local)) {\n        L_remaining",
+  "    if (py::in(L_side, L_local) && py::m_get(L_game,SV(\"solo_mode\"))!=SV(\"izombie\")) {\n        L_remaining"
+ ],
+ [
+  "src/ui/gen/pm_replay.cpp",
+  "V f_state_hash(const Args& A) {\n    V L_battle = A.get(0, SY(\"battle\"), nullptr, \"state_hash\");\n    return pm_catalog::f_digest(Args{callm(L_battle, SY(\"snapshot\"), Args({}, {{SY(\"include_map\"), V(true)}}))});",
+  "static V replay_snapshot(V battle) {\n    V snapshot = callm(battle, SY(\"snapshot\"), Args({}, {{SY(\"include_map\"), V(true)}}));\n    const V players = py::m_get(snapshot, SV(\"players\"), V::dict());\n    V copied_players;\n    for (const auto& [seat, row] : py::items_vec(players)) {\n        if (!py::in(SV(\"passive_mark\"), row)) continue;\n        // The label is derived presentation. Preserve the recorded combat fields.\n        if (copied_players.is_none()) copied_players = py::dict_of(players);\n        V copy = py::dict_of(row);\n        callm(copy, SY(\"pop\"), Args{SV(\"passive_mark\")});\n        pvz::setitem(copied_players, seat, copy);\n    }\n    if (!copied_players.is_none()) {\n        snapshot = py::dict_of(snapshot);\n        pvz::setitem(snapshot, SV(\"players\"), copied_players);\n    }\n    return snapshot;\n}\n\nV f_state_hash(const Args& A) {\n    V L_battle = A.get(0, SY(\"battle\"), nullptr, \"state_hash\");\n    return pm_catalog::f_digest(Args{replay_snapshot(L_battle)});"
+ ],
+ [
+  "src/ui/gen/pm_replay.cpp",
+  "    L_snapshot = callm(L_battle, SY(\"snapshot\"), Args({}, {{SY(\"include_map\"), V(true)}}));",
+  "    L_snapshot = replay_snapshot(L_battle);"
+ ],
+ [
+  "src/sim/pvp/gen/pm_pve.cpp",
+  "    L_rng = py::stdlib_call(SV(\"random.Random\"), Args{((a_seed * V(7.0)) + (a_day * V(101.0)))});",
+  "    V price_day=a_day;\n    V seed=(a_seed*V(7))+(a_day*V(101));\n    const bool settled=(A.size()||A.has_kw(SY(\"settled\"))) && A.get(0,SY(\"settled\"),nullptr).truthy();\n    if (settled) {\n        seed=py::stdlib_call(SV(\"secrets.randbelow\"),Args{V(2147483648.)});\n        V entry=rd(a_history,V(-1));\n        pvz::setitem(entry,SV(\"shop_refreshed\"),V(true));\n        if (rd(entry,SV(\"result\"))==SV(\"win\")) price_day=a_day+V(1);\n    }\n    L_rng = py::stdlib_call(SV(\"random.Random\"), Args{seed});"
+ ],
+ [
+  "src/sim/pvp/gen/pm_pve.cpp",
+  "            L_item = it5_.idx(int64_t(i5_)); \n            pvz::setitem(L_item, SV(\"price\"), pm_pve::f_shop_price(Args{rd(L_item, SV(\"price\")), a_day}));",
+  "            L_item = it5_.idx(int64_t(i5_)); \n            pvz::setitem(L_item, SV(\"price\"), pm_pve::f_shop_price(Args{rd(L_item, SV(\"price\")), price_day}));"
+ ],
+ [
+  "src/sim/pvp/gen/pm_pve.cpp",
+  "    a_day = py::iadd(a_day, V(1.0));\n    (void)(m_stock_shop(Args{}));",
+  "    a_day = py::iadd(a_day, V(1.0));\n    if (a_history.len() && py::m_get(rd(a_history,V(-1)),SV(\"shop_refreshed\")).truthy()) {\n        for (size_t i=0;i<a_shop.len();++i) {\n            V item=a_shop.idx(i);\n            if (L_key.truthy() && py::m_get(item,SV(\"key\"))==L_key) pvz::setitem(item,SV(\"sold\"),V(true));\n        }\n    } else m_stock_shop(Args{});"
+ ],
+ [
+  "src/sim/pvp/gen/pm_coop_progress.cpp",
+  "        L_total = (pvz::getattr(L_campaign, SY(\"coins\")) - L_before);",
+  "        callm(L_campaign,SY(\"stock_shop\"),Args{V(true)});\n        L_total = (pvz::getattr(L_campaign, SY(\"coins\")) - L_before);"
+ ],
+ [
+  "src/sim/pvp/gen/pm_pve.cpp",
+  "    L_rng = py::stdlib_call(SV(\"random.Random\"), Args{seed});\n    L_pool = pm_pve::f_reward_pool(Args{a_unlocked, a_coop});",
+  "    L_rng = py::stdlib_call(SV(\"random.Random\"), Args{seed});\n    L_pool = pm_pve::f_reward_pool(Args{a_unlocked, a_coop});\n    if (settled && a_rewards.truthy()) {\n        V available=V::list();\n        for (size_t i=0;i<L_pool.len();++i) if (!py::in(L_pool.idx(i),a_rewards)) available.append(L_pool.idx(i));\n        L_pool=available;\n    }"
+ ],
+ [
+  "src/sim/pvp/gen/pm_maps.cpp",
+  "L_original = callm(L_bridge, SY(\"generate_map\"), Args{L_map_id, L_seed});",
+  "L_original = A.has_kw(SY(\"solo_variant\"))&&A.get(6,SY(\"solo_variant\"),nullptr).truthy()?callm(L_bridge,SY(\"generate_map\"),Args{L_map_id,L_seed,V(true)}):callm(L_bridge, SY(\"generate_map\"), Args{L_map_id, L_seed});"
+ ],
+ [
+  "src/ui/gen/pm_world_view.cpp",
+  "if ((L_grave).truthy()) {",
+  "if (L_kind==SV(\"坟墓\") && (L_grave).truthy()) {"
+ ],
+ [
+  "src/ui/gen/pm_pve_ui.cpp",
+  "#include \"sim/pvp/dynamic_bindings.h\"",
+  "#include \"sim/pvp/dynamic_bindings.h\"\n#include \"ui/hand/texture_pack.h\""
+ ],
+ [
+  "src/ui/gen/pm_pve_ui.cpp",
+  "    L_image = callm(L_r, SY(\"artwork\"), Args{L_name});\n    if (py_is(L_image, V::none())) {",
+  "    L_image=V::none();\n    if(texture74::active()){\n        const auto name=py_str(L_name);\n        if(name==\"商店\"||name==\"主界面\")L_image=texture74::artwork(\"bg:\"+name);\n        else{\n            L_image=texture74::artwork(\"ui:\"+name);\n            if(L_image.is_none())L_image=texture74::artwork(\"world:\"+name);\n        }\n    }\n    if(L_image.is_none())L_image = callm(L_r, SY(\"artwork\"), Args{L_name});\n    if (py_is(L_image, V::none())) {"
+ ]
+]

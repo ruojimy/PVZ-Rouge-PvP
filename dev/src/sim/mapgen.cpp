@@ -4,6 +4,7 @@
 #include "core/pymath.h"
 #include "data/datastore.h"
 #include <stdexcept>
+#include <algorithm>
 
 namespace pvz {
 
@@ -320,14 +321,24 @@ void gen_data(Gen& g, const std::string& mapname) {
 
 }  // namespace
 
-GenGrid generate_original_map(const std::string& name, int64_t seed) {
+GenGrid generate_original_map(const std::string& name, int64_t seed, bool solo_variant) {
     Gen g(seed);
     g.ditu.assign(24, std::vector<GenCell>(72));
     if (name == "山地") gen_山地(g);
     else if (name == "大楼") gen_大楼(g);
     else if (name == "铁道") gen_铁道(g);
     else if (name == "沙城") gen_沙城(g);
-    else gen_data(g, name);
+    else {
+        gen_data(g, name);
+        if(solo_variant){
+            // Data maps wrap horizontally. Move whole columns before computing spawn floors.
+            const int offset=int(g.随(0,71));const bool mirror=g.随(0,1)!=0;
+            for(auto& row:g.ditu){
+                std::rotate(row.begin(),row.begin()+offset,row.end());
+                if(mirror)std::reverse(row.begin(),row.end());
+            }
+        }
+    }
     return std::move(g.ditu);
 }
 

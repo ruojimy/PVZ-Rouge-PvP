@@ -283,6 +283,16 @@ V C_Battle::m___init__(const Args& A) {
         L_deck = py::m_get(L_decks, L_seat, rd(L_decks, L_side));
         if (!(a_mode==SV("duel")&&py::m_get(a_rules,SV("local_test_mode"),V(false)).truthy()&&!L_deck.truthy()) && !((a_scripted).truthy() && (L_side == SV("zombie")))) { // PvP744 test-only empty cold deck
             L_error = pm_catalog::f_validate_deck(Args({L_side, L_deck, L_bans, rd(a_rules, (L_side + SV("_slots")))}, {{SY("starter_budget"), rd(a_rules, SV("zombie_start"))}}));
+            if(py::m_get(a_rules,SV("pvp77_mode"))==SV("izombie")){
+                if(L_side==SV("zombie")&&L_error==pm_catalog::STARTER_GRAVE_ERROR)L_error=V("");
+                if(L_side==SV("plant")){
+                    L_error=V("");
+                    for(size_t i=0;i<L_deck.len();++i){
+                        const auto row=py::m_get(pm_catalog::CARDS,L_deck.idx(i));
+                        if(!row.is_dict()||py::m_get(row,SV("category"))!=SV("secret")||py::m_get(row,SV("side"))!=SV("plant")){L_error=SV("守方只能携带已解锁的植物秘籍");break;}
+                    }
+                }
+            }
             if ((L_error).truthy()) {
                 py::raise(py::make_exc(SV("ValueError"), Args{L_error}, ""));
             }

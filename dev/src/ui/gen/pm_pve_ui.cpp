@@ -3,6 +3,7 @@
 #include "ui/hand/seat_view.h"
 #include "sim/pvp/hand/pvp76r2_coop.h" // PvP76 r2 coop include
 #include "sim/pvp/dynamic_bindings.h"
+#include "ui/hand/texture_pack.h"
 #include "sim/pvp/gen/pm_catalog.h"
 #include "ui/gen/pm_coop_ai.h"
 #include "ui/gen/pm_lobby_room.h"
@@ -117,7 +118,16 @@ V f_native_image(const Args& A) {
     V L_image;
     V L_key;
     V L_scaled;
-    L_image = callm(L_r, SY("artwork"), Args{L_name});
+    L_image=V::none();
+    if(texture74::active()){
+        const auto name=py_str(L_name);
+        if(name=="商店"||name=="主界面")L_image=texture74::artwork("bg:"+name);
+        else{
+            L_image=texture74::artwork("ui:"+name);
+            if(L_image.is_none())L_image=texture74::artwork("world:"+name);
+        }
+    }
+    if(L_image.is_none())L_image = callm(L_r, SY("artwork"), Args{L_name});
     if (py_is(L_image, V::none())) {
         return V(false);
     }

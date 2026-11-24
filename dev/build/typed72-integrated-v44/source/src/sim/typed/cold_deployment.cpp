@@ -42,7 +42,7 @@ std::string ColdDeployment::deploy(Seat seat,const std::string& key,Point point,
     }return perform(seat,key,point,std::move(grave),std::move(copy),facing);
 }
 std::string ColdDeployment::perform(Seat seat,const std::string& key,Point point,std::optional<std::string> grave,std::optional<std::string> copy,std::optional<double> facing){
-    if(world_.mode==MatchMode::pve||world_.mode==MatchMode::coop)if(catalog_.find(key)&&(!campaign_allowed(key)||(key=="plant:模仿者"&&copy&&catalog_.find(*copy)&&!campaign_allowed(*copy))))return world_.mode==MatchMode::coop?"合作模式禁用此卡":"闯关模式禁用此卡";
+    if(world_.mode==MatchMode::pve||world_.mode==MatchMode::coop)if(catalog_.find(key)&&(!campaign_allowed(key)||(key=="plant:模仿者"&&!world_.solo.lottery()&&copy&&catalog_.find(*copy)&&!campaign_allowed(*copy))))return world_.mode==MatchMode::coop?"合作模式禁用此卡":"闯关模式禁用此卡";
     auto result=placement(seat,key,point,grave,copy);if(!result.error.empty())return result.error;if(!result.plan)throw std::logic_error("placement returned neither plan nor error");
     const auto plan=std::move(*result.plan);const auto& card=plan.card;const Seat side=team_of(seat);const size_t index=seat_index(seat);
     const double direction=facing.value_or(double(published_.heroes.at(index).value().visible.facing));cold_select_hero(world_.heroes,seat,native_secrets_);
@@ -52,7 +52,21 @@ std::string ColdDeployment::perform(Seat seat,const std::string& key,Point point
         const auto cell=plan.cell.value();world_.terrain.native_at(cell.y,cell.x).block=card.terrain_kind;services_.sync_terrain();services_.terrain_grass(cell);
     }else if(side==Seat::plant&&card.behavior=="coffee")coffee(plan.cell.value(),direction);
     else{
-        entity=admission_.spawn(card.id,side,plan.position,direction,plan.temporary);
+        const bool flag=world_.solo.izombie()&&world_.solo.first_soldier&&one(key,{"zombie:普通僵尸","zombie:路障僵尸","zombie:铁桶僵尸"});
+        entity=admission_.spawn(flag?"zombie:旗帜僵尸":card.id,side,plan.position,direction,plan.temporary);
+        if(flag&&entity)world_.solo.first_soldier=false;
+        if(world_.solo.lottery()&&key=="plant:模仿者"&&entity){
+            auto p=std::get<PlantRef>(*world_.native_objects.get(*entity));
+            const auto& solo=world_.solo;
+            auto& rng=world_.runtime.rng;
+            const auto alive=std::count_if(world_.targets->begin(),world_.targets->end(),[](const auto& t){
+                return t.unit&&t.unit->body.hp>0.&&!t.unit->protection.grave;
+            });
+            const bool enemy=rng.randrange(3+alive/10)==0&&!solo.boss()&&!solo.lottery_zombies.empty();
+            const auto& pool=enemy?solo.lottery_zombies:solo.lottery_plants;
+            if(!pool.empty())p->copy_card.set(pool[size_t(rng.randrange(pool.size()))]);
+            p->imitation.set("随机");p->imitator_cd.set(300.);
+        }
         if(side==Seat::zombie&&!entity)return "未能生成该单位，未扣除脑光或冷却";
         if(side==Seat::plant&&!text(card.content).empty()&&!entity)return "未能生成该植物，未扣除阳光或冷却";
         if(entity&&plan.grave_target){const auto object=world_.native_objects.get(*entity);if(!object)throw std::out_of_range("missing deployed gravebuster");graves_.attach(std::get<PlantRef>(*object),*plan.grave_target);}
@@ -61,7 +75,11 @@ std::string ColdDeployment::perform(Seat seat,const std::string& key,Point point
     resources_.accounts[index].balance-=plan.charge;state_.players[index].spent+=plan.charge;
     if(side==Seat::plant&&entity&&card.category!="tool"&&card.category!="secret"&&card.behavior!="gravebuster"&&card.behavior!="copy")state_.players[index].last_copy_card=key;
     if(side==Seat::plant&&entity&&card.base_id=="plant:地刺"&&card.native_secret_names.present()&&!card.native_secret_names.is_null()&&std::find(card.native_secret_names.get().begin(),card.native_secret_names.get().end(),"地刺")!=card.native_secret_names.get().end())state_.spike_cost.set(std::max(15.,state_.spike_cost.or_missing(plan.charge)-10.));
-    const auto current=placement_.player_card(seat,key);const double cooldown=room_.players[index].test_zero_cooldown?0.:ColdCatalog::deployment_cooldown(current.cooldown,room_.deathmatch||(side==Seat::zombie&&secrets_.last_stand()));const double ready=world_.heroes.time+cooldown;
+    const auto current=placement_.player_card(seat,key);
+    const bool lottery=world_.solo.lottery()&&side==Seat::plant;
+    const bool reusable=key=="plant:模仿者"||key=="plant:咖啡豆";
+    if(lottery&&!reusable)world_.solo.spent.insert(key);
+    const double cooldown=lottery?(reusable?2.:1e9):(world_.solo.izombie()&&side==Seat::zombie)||room_.players[index].test_zero_cooldown?0.:ColdCatalog::deployment_cooldown(current.cooldown,room_.deathmatch||(side==Seat::zombie&&secrets_.last_stand()));const double ready=world_.heroes.time+cooldown;
     set(world_.heroes.players[index]->cooldowns,key,ready);set(room_.players[index].cooldown_spans,key,ready-world_.heroes.time);
     services_.deploy_event({seat,key,plan.charge,entity,plan.position,grave,direction});
     if(entity&&one(key,{"zombie:旗帜僵尸","zombie:黑旗帜僵尸"}))flag_reinforcements(*entity);

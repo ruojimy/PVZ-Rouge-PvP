@@ -155,6 +155,7 @@ void ContentZombies::finish_summoner(const ZombieRef& unit,std::string_view name
         active=!following && std::abs(dx)<=20.*world_.runtime.tile && !idle_for(*unit,3750.);
         if(active){position.x=unit->grenadier.before.get().x;position.vx=0.;}
     }
+    if(name=="海盗船长")active=!idle_for(*unit,25.*250.);
     if(active)state.summon_clock.get()+=factor;
     const double period=name=="小鬼炮"?1000.:2000.;
     if(active && factor>0. && state.summon_clock.get()>=period) {

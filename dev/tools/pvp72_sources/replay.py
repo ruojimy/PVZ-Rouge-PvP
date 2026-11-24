@@ -20,12 +20,26 @@ INPUT_FIELDS = ('type', 'seq', 'move', 'jump', 'edge', 'card', 'x', 'y',
                 'op', 'side', 'slot', 'value', 'max', 'what', 'night', 'id', 'field')
 
 
+def _replay_snapshot(battle):
+    snapshot = battle.snapshot(include_map=True)
+    players = snapshot.get('players', {})
+    marked = [seat for seat, row in players.items() if 'passive_mark' in row]
+    if marked:
+        # The HUD derives the label from positions, health and line of sight.
+        players = dict(players)
+        for seat in marked:
+            players[seat] = dict(players[seat])
+            del players[seat]['passive_mark']
+        snapshot = dict(snapshot, players=players)
+    return snapshot
+
+
 def state_hash(battle):
-    return digest(battle.snapshot(include_map=True))
+    return digest(_replay_snapshot(battle))
 
 
 def matches_state_hash(battle, expected, recording):
-    snapshot = battle.snapshot(include_map=True)
+    snapshot = _replay_snapshot(battle)
     if digest(snapshot) == expected:return True
     # Native R8 omitted the rope width global. Only its presentation field may
     # be normalized; every combat field must still match the recorded digest.

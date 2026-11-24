@@ -115,6 +115,10 @@ void Resources::settle(double lifetime){
     const bool team=world_.mode==MatchMode::duo||world_.mode==MatchMode::coop;
     for(const auto& id:ids){
         const auto* r=find(id);if(!r)throw std::logic_error("resource collection order changed");
+        if(world_.solo.izombie()&&flag(r->shared)&&r->coin.present()){
+            if(touching(*r,*world_.heroes.players.at(seat_index(Seat::zombie)))||world_.heroes.time-r->born>=1.6)collect(id,Seat::zombie);
+            continue;
+        }
         if(flag(r->shared)){
             if(auto_shared_sky(id))continue;
             if(const auto collector=shared_collector(*r)){chill_if_automatic(*collector,*r);collect(id,collector);}

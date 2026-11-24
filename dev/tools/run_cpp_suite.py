@@ -1,5 +1,5 @@
 """Run every collected native test module in isolated processes; fail closed on missing results."""
-import argparse,hashlib,json,os,shutil,subprocess,sys,threading,time
+import argparse,hashlib,json,os,shutil,subprocess,sys,tempfile,threading,time
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from native_test_waivers import DEFAULT_POLICY, evaluate_module, load_waivers
@@ -37,10 +37,23 @@ def file_sha(path):
         for block in iter(lambda:fh.read(1024*1024),b""):digest.update(block)
     return digest.hexdigest()
 
-def build_fixture(out,reference):
-    """Create <out>/fixture-root mirroring the original layout; copied files are marked read-only."""
+def make_scratch_dir(out, scratch_root):
+    if scratch_root is None:
+        if os.name == "nt":
+            local_appdata = Path(os.environ.get("LOCALAPPDATA") or Path.home() / "AppData" / "Local")
+        else:
+            local_appdata = Path(tempfile.gettempdir())
+        scratch_root = local_appdata / "PVZNativeTestScratch"
+    scratch_root = scratch_root.resolve()
+    if scratch_root == out or out in scratch_root.parents:
+        raise ValueError("Fixture scratch must be outside the test results directory: " + str(scratch_root))
+    scratch_root.mkdir(parents=True, exist_ok=True)
+    return Path(tempfile.mkdtemp(prefix="suite-", dir=str(scratch_root)))
+
+
+def build_fixture(out, reference, root):
+    """Mirror the original layout in scratch and record the read-only inputs in the report."""
     import shutil,stat
-    root=out/"fixture-root"
     if root.exists():raise RuntimeError("Refusing to reuse an existing fixture root: "+str(root))
     manifest={}
     for origin,spec in FIXTURE_COPIES:
@@ -147,6 +160,7 @@ def main():
     ap=argparse.ArgumentParser();ap.add_argument("--out",required=True);ap.add_argument("--workers",type=worker_count,default=None,help="auto (default) or a positive maximum; memory admission still applies");ap.add_argument("--worker-memory-mib",type=positive_int,default=1536);ap.add_argument("--memory-reserve-mib",type=positive_int,default=1024);ap.add_argument("--timeout",type=int,default=600);ap.add_argument("--module",action="append");ap.add_argument("--reference",default=str(REFERENCE));ap.add_argument("--exe",default=None,help="cpp_tests.exe to run (default cpp_tests.exe beside --app-run)");ap.add_argument("--strict",action="store_true",help="Disable the user-approved temporary exact-failure waivers");ap.add_argument("--app-run",default=str(ROOT/"build/app-typed72-v2/Release/app_run.exe"),help="app_run.exe for the PvP73 pure-typed dynamic-path gate")
     ap.add_argument("--baseline", type=Path, help="Complete previous full-suite summary (defaults to latest release)")
     ap.add_argument("--resume-plan", type=Path, help="Reviewed JSON plan to reuse accepted reports from a prior interrupted run")
+    ap.add_argument("--scratch-root", type=Path, help="Parent for per-run fixtures and worker temp files; use an unindexed directory (Windows default: %%LOCALAPPDATA%%/PVZNativeTestScratch)")
     args=ap.parse_args()
     if args.resume_plan and args.module:
         ap.error("--resume-plan applies to a full collection")
@@ -160,9 +174,15 @@ def main():
     waivers={} if args.strict else load_waivers()
     out=Path(args.out).resolve()
     if out.exists() and any(out.iterdir()):raise RuntimeError("Refusing to reuse nonempty test results: "+str(out))
+    scratch = make_scratch_dir(out, args.scratch_root)
+    fixture_root = scratch / "fixture-root"
     out.mkdir(parents=True,exist_ok=True)
+    # Keep the scratch paths available for subsequent inspection and bytecode controls.
+    (out/"scratch-paths.json").write_text(json.dumps({
+        "run_scratch": str(scratch), "fixture_root": str(fixture_root),
+    }, ensure_ascii=False, indent=2), encoding="utf-8")
     if policy_hash:(out/"waiver-policy.json").write_bytes(DEFAULT_POLICY.read_bytes())
-    fixture_root=build_fixture(out,Path(args.reference))
+    build_fixture(out, Path(args.reference), fixture_root)
     fingerprints=bytecode_ref_fingerprints(out,Path(args.reference),fixture_root)
     exe=Path(args.exe).resolve() if args.exe else Path(args.app_run).resolve().with_name("cpp_tests.exe")
     version_inputs={"build":json.loads((ROOT/"extract/data/__init__.json").read_text(encoding="utf-8")),
@@ -229,11 +249,13 @@ def main():
         with (out/"scheduling.jsonl").open('a',encoding='utf-8') as stream:stream.write(json.dumps(dict(row,time=time.time()))+'\n')
         if row['event'] in ('started','waiting_for_memory'):print('SCHEDULER',json.dumps(row),flush=True)
     def run(mod):
-        local_fixture=clone_fixture(fixture_root,out/"module-fixtures"/mod/"fixture-root") if max_workers>1 else fixture_root
+        local_fixture=clone_fixture(fixture_root,scratch/"module-fixtures"/mod/"fixture-root") if max_workers>1 else fixture_root
         with active_lock:module_roots[mod]=str(local_fixture)
+        worker_temp = scratch / "tmp" / mod
+        worker_temp.mkdir(parents=True, exist_ok=True)
         env=os.environ.copy();env.pop("PVZ_TRACE",None)
         env.update(SDL_VIDEODRIVER="dummy",SDL_AUDIODRIVER="dummy",APPDATA=str(out/"userdata"/mod),PVP_USERDATA=str(out/"userdata"/mod/"pvp_userdata"))
-        env.update(PVZ_TEST_ROOT=str(local_fixture))
+        env.update(PVZ_TEST_ROOT=str(local_fixture), TEMP=str(worker_temp), TMP=str(worker_temp), TMPDIR=str(worker_temp))
         # client tests that need a relay run the real Python relay server out of process (tools/relay_fixture_server.py)
         env.update(PVZ_TEST_PYTHON=sys.executable,PVZ_RELAY_FIXTURE=str(ROOT/"tools"/"relay_fixture_server.py"))
         env.update(PVZ_REAL_THREADS="1")   # CPython semantics: test-created threads are real threads
@@ -267,13 +289,15 @@ def main():
     statuses = [reused[module] if module in reused else by_module[module] for module in selected]
     scheduling['requested_workers']=args.workers or 'auto'
     (out/"module-fixtures.json").write_text(json.dumps(module_roots,ensure_ascii=False,indent=2),encoding='utf-8')
-    # Preserve the two public unit-report paths used by independent pixel/unit
-    # comparison tools. Other writable artifacts remain isolated per module.
-    if max_workers>1 and 'test_pvp_native_units' in module_roots:
+    # Publish unit and animation evidence at the path used by comparison tools.
+    if 'test_pvp_native_units' in module_roots:
         for name in ('original-unit-loop-matrix.json','original-native-zombie-real-ticks.json','original-native-zombie-real-ticks.png'):
             rel=Path('对战/测试结果/native-animation')/name
             source=Path(module_roots['test_pvp_native_units'])/rel
-            if source.exists():shutil.copy2(str(source),str(fixture_root/rel))
+            if source.is_file():
+                destination = out / "fixture-root" / rel
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(source, destination)
     changed=[name for name,digest in source_hashes.items() if not (ROOT/name).exists() or file_sha(ROOT/name)!=digest]
     fixture_manifest=json.loads((out/"fixture-manifest.json").read_text('utf-8'))['files']
     fixture_changed=[name for name,entry in fixture_manifest.items() if not (fixture_root/name).is_file() or file_sha(fixture_root/name)!=entry['sha256']]

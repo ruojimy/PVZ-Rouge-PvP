@@ -194,10 +194,10 @@ V f_draw_home(const Args& A) {
     L_buttons_width = ((L_button_w * V(5.0)) + (V(18.0) * V(4.0)));
     L_bx = floordiv((L_width - L_buttons_width), V(2.0));
     L_by = py::min_it(V::list({(L_height - V(97.0)), ((L_top + L_card_h) + V(28.0))}), py::Key(), V());
-    { V it4_ = py::iter_list(V::tuple({V::tuple({SV("对战图鉴"), SV("almanac")}), V::tuple({SV("规则帮助"), SV("help")}), V::tuple({SV("设置"), SV("settings")}), V::tuple({SV("合作闯关"), SV("coop_lobby")}), V::tuple({SV("退出游戏"), SV("exit")})})); const double st4_ = 0.0;
+    { V it4_ = py::iter_list(V::tuple({V::tuple({SV("对战图鉴"), SV("almanac")}), V::tuple({SV("规则帮助"), SV("help")}), V::tuple({SV("设置"), SV("settings")}), V::tuple({SV("闯关模式"), SV("solo77")}), V::tuple({SV("退出游戏"), SV("exit")})})); const double st4_ = 0.0;
     for (size_t i4_ = 0; i4_ < it4_.len(); ++i4_) {
         L_index = V(st4_ + double(i4_)); { V ut5_ = py::as_seq(it4_.idx(int64_t(i4_))); L_label = ut5_.idx(0); L_action = ut5_.idx(1); } 
-        (void)(callm(L_r, SY("button"), Args({L_label, V::tuple({(L_bx + (L_index * (L_button_w + V(18.0)))), L_by, L_button_w, V(37.0)}), ((L_action == SV("coop_lobby")) ? V(V::tuple({L_action})) : V(V::tuple({SV("menu"), L_action})))}, {{SY("size"), V(16.0)}})));
+        (void)(callm(L_r, SY("button"), Args({L_label, V::tuple({(L_bx + (L_index * (L_button_w + V(18.0)))), L_by, L_button_w, V(37.0)}), ((L_action == SV("solo77")) ? V(V::tuple({L_action,SV("modes")})) : V(V::tuple({SV("menu"), L_action})))}, {{SY("size"), V(16.0)}})));
     }}
     (void)(callm(L_r, SY("button"), Args({SV("公开大厅"), V::tuple({(L_width - V(175.0)), V(18.0), V(150.0), V(39.0)}), V::tuple({SV("relay_lobby")})}, {{SY("size"), V(17.0)}})));
     (void)(callm(L_r, SY("button"), Args({SV("地图编辑器"), V::tuple({V(25.0), V(18.0), V(150.0), V(39.0)}), V::tuple({SV("maps_open")})}, {{SY("size"), V(17.0)}})));

@@ -432,7 +432,7 @@ V f_draw_touch(const Args& A) {
             } else if ((L_secret).truthy()) {
                 (void)(callm(L_r, SY("text"), Args{SV("秘"), V::tuple({(rd(L_rect, V(0.0)) + V(4.0)), (rd(L_rect, V(1.0)) + V(4.0))}), V::tuple({V(69.0), V(38.0), V(16.0)}), V(13.0)}));
             } else if (((L_cd).truthy() && (py::m_get(L_state, SV("numeric_cd"), V(true))).truthy())) {
-                (void)(callm(L_r, SY("text"), Args{py::percent(SV("%.1f"), L_cd), V::tuple({(rd(L_rect, V(0.0)) + V(4.0)), ((rd(L_rect, V(1.0)) + floordiv(L_ch, V(2.0))) - V(7.0))}), rd(L_COLORS, SV("text")), V(15.0), (L_cw - V(8.0))}));
+                (void)(callm(L_r, SY("text"), Args{(py::m_get(L_game,SV("solo_mode"))==SV("lottery")&&L_cd.num()>1e8?SV("已用"):py::percent(SV("%.1f"), L_cd)), V::tuple({(rd(L_rect, V(0.0)) + V(4.0)), ((rd(L_rect, V(1.0)) + floordiv(L_ch, V(2.0))) - V(7.0))}), rd(L_COLORS, SV("text")), V(15.0), (L_cw - V(8.0))}));
             } else if (((L_owned).truthy() && (L_active).truthy())) {
                 (void)(callm(L_r, SY("text"), Args{py::str((L_index + V(1.0))), V::tuple({(rd(L_rect, V(0.0)) + V(4.0)), (rd(L_rect, V(1.0)) + V(3.0))}), V::tuple({V(38.0), V(59.0), V(31.0)}), V(12.0)}));
             }
@@ -683,7 +683,7 @@ V f__draw_desktop(const Args& A) {
             } else if ((L_secret).truthy()) {
                 (void)(callm(L_r, SY("text"), Args{SV("秘"), V::tuple({(rd(L_rect, V(0.0)) + V(3.0)), (rd(L_rect, V(1.0)) + V(3.0))}), V::tuple({V(69.0), V(38.0), V(16.0)}), V(12.0)}));
             } else if (((L_cd).truthy() && (py::m_get(L_state, SV("numeric_cd"), V(true))).truthy())) {
-                (void)(callm(L_r, SY("text"), Args{py::percent(SV("%.1f"), L_cd), V::tuple({(rd(L_rect, V(0.0)) + V(3.0)), (rd(L_rect, V(1.0)) + V(25.0))}), rd(L_COLORS, SV("text")), V(14.0), (L_cw - V(6.0))}));
+                (void)(callm(L_r, SY("text"), Args{(py::m_get(L_game,SV("solo_mode"))==SV("lottery")&&L_cd.num()>1e8?SV("已用"):py::percent(SV("%.1f"), L_cd)), V::tuple({(rd(L_rect, V(0.0)) + V(3.0)), (rd(L_rect, V(1.0)) + V(25.0))}), rd(L_COLORS, SV("text")), V(14.0), (L_cw - V(6.0))}));
             }
             if (((L_owned).truthy() && (L_active).truthy() && !(py::m_get(L_state, SV("touch_mode"))).truthy() && (L_index < V(8.0)))) {
                 L_label = callm(callm(pvz::getattr(pvz::getattr(L_r, SY("pg")), SY("key")), SY("name"), Args{py::m_get(py::m_get(L_state, SV("bindings"), py_dict({})), py::percent(SV("slot_%d"), (L_index + V(1.0))), (pvz::getattr(pvz::getattr(L_r, SY("pg")), SY("K_1")) + L_index))}), SY("upper"), Args{});
@@ -761,7 +761,7 @@ V f__draw_desktop(const Args& A) {
         L_own_rally_seat = V::func(pm_teams::f_own_rally_seat);
         (void)(callm(pvz::getattr(L_r, SY("world")), SY("flag"), Args{pvz::getattr(L_r, SY("screen")), V(190.0), V(144.0), V(17.0), (L_own_rally_seat).call(Args{L_game})}));
     }
-    if (py::in(L_side, L_local)) {
+    if (py::in(L_side, L_local) && py::m_get(L_game,SV("solo_mode"))!=SV("izombie")) {
         L_remaining = py::max_it(V::list({V(0.0), (py::m_get(rd(L_players, L_side), SV("teleport_ready_at"), V(0.0)) - py::m_get(L_game, SV("time"), V(0.0)))}), py::Key(), V());
         L_left = (py::in(SV("zombie"), L_local) ? V(V(278.0)) : V(V(100.0)));
         (void)(callm(L_r, SY("button"), Args({((L_remaining).truthy() ? V(py::percent(SV("传送 %.1fs"), L_remaining)) : V((L_shortcut).call(Args{SV("传送"), SV("teleport")}))), V::tuple({L_left, V(121.0), V(105.0), V(27.0)}), V::tuple({SV("teleport")})}, {{SY("selected"), py::m_get(L_state, SV("teleport"), V(false))}, {SY("size"), V(14.0)}})));

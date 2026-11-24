@@ -188,6 +188,7 @@ def hero_status(hero,now):
     if hero.get("control_until",0)>now:labels.append("受控 %.1fs"%(hero["control_until"]-now))
     elif hero.get("immune_until",0)>now:labels.append("控制保护 %.1fs"%(hero["immune_until"]-now))
     if hero.get("marked_until",0)>now:labels.append("已标记 %.1fs"%(hero["marked_until"]-now))
+    if hero.get("passive_mark"):labels.append("%s标记"%hero["passive_mark"])
     # 计入胜率对局：黄金蓓蕾放下后只能由戴夫肉身拾取阳光。
     if hero.get("collect_locked_until",0)>now:labels.append("鼠标拾阳光 %.1fs"%(hero["collect_locked_until"]-now))
     return " · ".join(labels)
@@ -211,6 +212,8 @@ class FeedbackTracker:
         text=self.notice if now<self.until else ""
         if side=="zombie":
             summary=battle.get('_local_hud')
+            if battle.get('solo_mode')=='izombie':
+                return '地图墓碑 %d · 选卡后点墓碑出兵'%battle.get('map_grave_count',0)
             if summary is not None:
                 count=summary['graves'];damaged=summary['damaged_graves']
             else:

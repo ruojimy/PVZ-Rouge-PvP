@@ -1,0 +1,173 @@
+{
+  "baseline": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\dist\\PvZ-PvP-Native-20261123-pvp77-r2-Developer-Package.zip",
+  "files": {
+    "src/sim/mapgen.cpp": {
+      "before": "73e11d980ef2a2269f60a321ffc2319002347dd8ac01d00771a4f12430955f5f",
+      "after": "df0bfe93496bb97c8846fadef076ef84699c82acb528a94ad4adaf0357dc534c"
+    },
+    "src/sim/mapgen.h": {
+      "before": "50acdf1c4138abf718c4d8b8678f67362a12b0a44bde39e5d01fc68d7adbd4e3",
+      "after": "4ab6d00239af26348b38f85d0ef0d1ecac7c584eb7890ee30d4cb6a7f098f96a"
+    },
+    "src/uitools/pvp76r3_audit.cpp": {
+      "before": "ef3671b9d79e9e5f4920ad6a55116c7383f3c63b568b126d467ca7e2406c3f94",
+      "after": "23c1916c91572caebccb0753754542792a706d85e00c355f0fcc45a3d5021263"
+    },
+    "src/ui/gen/pm_hud.cpp": {
+      "before": "698a99a8c96a68bcc4c7698ed2eb9a25d9bc638abdbaedc0eb5bee1172606268",
+      "after": "cd7eca623b434f1205d31c4c02a33b5a89fb881ab9698ccfb8d9385791caa8d2"
+    },
+    "src/ui/gen/pm_pve_ui.cpp": {
+      "before": "78645aa8139675e4b33f654416cccf96d98f1433246d67e59f5b09e55937e951",
+      "after": "014936cba176a9f113841a0f9efa65b85a388a53717aa38a74a74a582a6ef716"
+    },
+    "src/ui/gen/pm_world_view.cpp": {
+      "before": "b65d7580e1c03c76b0b15aafc25f9eaa2e49f4e37f0861854e840f9fde5c1877",
+      "after": "179ea22d51a0ea62cc1ccb6e113bf4acb05542afc769b77400ab6b613d0e0835"
+    },
+    "src/ui/hand/solo77.cpp": {
+      "before": "024ebb8a25a042abfc10924c617492c52b22f2ed4cf426aa804ff7d9a4b1c579",
+      "after": "691b69917c438fe4e7f6c884493665d19df39173fb31a17b8c4569dd7418b8f5"
+    },
+    "src/ui/hand/test_mode74.cpp": {
+      "before": "e32b061d553f1809bb1d4d7d97d8e2047ba90a7e27a7f88328dd290e8db3e630",
+      "after": "fe521ac2513535772d0d22522a54e277552df04cf6ea7cc51fd0074349392d29"
+    },
+    "src/ui/hand/texture74_editor.cpp": {
+      "before": "af395d4dd50e53d50ecdd041b84bf7892509185ab1d95a1f830e41c5807492fe",
+      "after": "4e1f54fe329f342f6a89a75d1c0045a8f5e3f1bcb5a07a48a02bbc4188f7126d"
+    },
+    "src/ui/hand/texture74_internal.h": {
+      "before": "764d6caf05de1de2bc4b8eeab156d3af762f3b204e7dbe43475465c5b2b292e5",
+      "after": "f765f98538afacf062ce606513c9fd9678420f148fc408f4a207fa41c16c3fdd"
+    },
+    "src/ui/hand/texture74_model.cpp": {
+      "before": "27b530139bdb3e82e340078255ebeb7fd5ff23ca5c9c40fb2ada128cc6e371b4",
+      "after": "63a9d573c14dce23923f379c03023fa80abc56356a8c738c309b55e07b8e85db"
+    },
+    "src/sim/typed72_app/composition/MANIFEST.json": {
+      "before": "f07db27db0bf4163ecf5d49422c317e806535e3b906bc4db99d58f352a4ceb84",
+      "after": "73ffd22021fe6c6217714bed2a33b8be23903bc2efa2c202a58d6de0eac12cd6"
+    },
+    "src/sim/typed72_app/composition/match_probe.cpp": {
+      "before": "6d95bd21dc066c854d091439fdcb040098101c30c8a779bb5da2b79e7e929019",
+      "after": "12a75d1399daec5f2728f0aae25435dcda87a24abe700f2ae68b7ba4e9be75dd"
+    },
+    "src/sim/typed72_app/composition/snapshot_layer.inc": {
+      "before": "e82dc0c39673351652a1c9425bcedb62568c9922c292a8af2a07f77d8c2c3fe2",
+      "after": "6850e7f45fb1d048783af5f7e7c8fc39e7d1ac0be114b863efc9c49ed496cfa7"
+    },
+    "src/sim/pvp/gen/pm_maps.cpp": {
+      "before": "4fd86300703dc215a975b7bb645857549bbc9ea84f4c5af531f9c06f7660ce59",
+      "after": "61d9471877acd53b9c2f13efa8267246e9573d49e817b0c05d648d5b8b3a23d9"
+    },
+    "src/sim/pvp/gen/pm_pve.cpp": {
+      "before": "fa6e9222f4a825da19f34ba12d9504f91177894c5412fc123de7abd409e25010",
+      "after": "cec352d33d52e8ac306fbc28fe104ec09fbf3fc80f0da9492ff37ffa19329a83"
+    },
+    "src/sim/pvp/hand/misc.cpp": {
+      "before": "cb051514bba9022fb229d7509a144a79c30645a385b2ba8e8c9b42e25ff32353",
+      "after": "071c662690b9b8298460d690a30bbc52b41d241f8930583e7ff221672e25dc6c"
+    },
+    "src/sim/pvp/hand/solo_campaign77.cpp": {
+      "before": "ae0ae8ae8b1958098915bd2fb67d765eca1b4f0d2b630327dbfde6bfd1180779",
+      "after": "3b13150a60555e95dc79909c5bf25f42eba8124fbc66f2331342ef5122ce5b38"
+    },
+    "src/sim/pvp/hand/solo_campaign77.h": {
+      "before": "199f531b0c61ad33d6b85f8513492bebe6f14f0f347bf6c5514e37926d7672a4",
+      "after": "adc6a7012d621ae9c44b1b751cb34c556139ee5f0b0d2a3429eb5a2566027458"
+    },
+    "tools/pvp744_feedback_sources.json": {
+      "before": "8d9ca33fa7a0c74c340a0e58628363e30386dbbcc5e971fffbc271b2a30ace36",
+      "after": "e3639c2aa69a71b805b22d27b0f00ef6b024d2af3dbddbc18df0336352dadb59"
+    },
+    "tools/pvp74_resource_catalog.py": {
+      "before": "380d3cdc9a9ac0e833130fca7f05a95f008bd6fc54320134edffce0c14408404",
+      "after": "ecc459a78eabb28c28ceb24ac1d71385c2b623a8ea75140f30e263df448bba67"
+    },
+    "tools/pvp77_r3_release.py": {
+      "before": null,
+      "after": "a48e2f78d86aec9b10fbba03efd96852db00d459f3be7dfd506d1a0fd87c42de"
+    },
+    "tools/pvp77_ui_edits.json": {
+      "before": "b4b0ff03f5d13d4b3f6938fe1d31e8088114a5f3833ccce55ba53ca462f35be1",
+      "after": "a777a9c992cd01cb5666b605543e951e8158c134e799dda13e6c8b5900ab525a"
+    },
+    "tools/pvp72_sources/pve.py": {
+      "before": "8a468673abcf57d006d9f37b495efccaff2d45c3773542e6a428dbbe39675420",
+      "after": "6edd42abfca291b306d6b41b71473558b4b0ffa6e854a5d0f68514cdfd52d147"
+    },
+    "tools/pvp72_sources/world_view.py": {
+      "before": "4db4a2c4b3a94ee95d589ac773d97bb65da26c80d3cbd1b4bc1d1e9407de5b9e",
+      "after": "80b599a967383d8ff5760e8de8582ee3c8fdc9a79ce8b810f97f8d89e7d9f3c7"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/cold_deployment.cpp": {
+      "before": "1e65d313392a8b6f2c1e730ed983e820fbad7bedc7b8ffa02e8f1f0cf61ff488",
+      "after": "c7d0403811740e76be5eb2f91412b70b62ca0ff55fb884cecc91484af52dca9d"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/cold_placement.cpp": {
+      "before": "fedcf175ced12eb4078b59b5f4eeecd0641dc45c4a9248344922df3d6790ce15",
+      "after": "7cf467bb2b761296f85ebb31594d2b9e4d3753a8677cd8756e89cca9f81e4122"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/content_queries.cpp": {
+      "before": "fb1e220beb5081dd54d1d05c600d0c12de3cbbe63d0b5e45570b0fb702d1391c",
+      "after": "cfe4045dc602bc6362f62fd8f7e3d0e6b3561c289db3279b305b9d0e1bf1a0d1"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/native_plant_draw.cpp": {
+      "before": "6a65344478189bcb50adee1075ca0f95e9b73e8ce511f6d32f93f812d5c077f9",
+      "after": "59a347029e5390956a1ae3d1c05183682c7f4fbd59796c69ad426024f06ced35"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/native_registry.cpp": {
+      "before": "f6459bf67c97a32060a1231182fd0f37506aac4a95797ee4d77f7dd631928c56",
+      "after": "436c61f4e1af47ddeba297984a03ef43e8e8a30d716e66c6c1e04b3449f5ee36"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/native_tick.cpp": {
+      "before": "8e6ff45b22c62ee14786b425abfc8255b719971898c164e01831c87298a043f5",
+      "after": "27ad3776568f7cdb11e37fcf564c36a28406042fd3769cf3d4e13ce13a81f47a"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/plant_spawn.cpp": {
+      "before": "c98e8e7572a07c1c30085d0dc00af8e70b66d11a31804c4a451b50c2f8298c0a",
+      "after": "7bf6673f872c8d1ab005c255d4d2ff3960f8452c444548e44e92703568f9328e"
+    },
+    "build/typed72-match-v1/match_probe.cpp": {
+      "before": "00ac5599f5a1dce01fb919214223eaf5ddcfc1ad267ebf12f67b720c61aa4f93",
+      "after": "82cf8853862df84e3144a382c52146c2fec2247c5ce585422acb7ef21b9c674f"
+    },
+    "build/typed72-match-v1/snapshot_layer.inc": {
+      "before": "e82dc0c39673351652a1c9425bcedb62568c9922c292a8af2a07f77d8c2c3fe2",
+      "after": "6850e7f45fb1d048783af5f7e7c8fc39e7d1ac0be114b863efc9c49ed496cfa7"
+    },
+    "build/typed72-match-v1/build/cmake_install.cmake": {
+      "before": null,
+      "after": "0c7db5671b996426983506aa8f76b93a0bb745ec037058902feae38787093c0c"
+    },
+    "build/typed72-match-v1/build/CMakeFiles/3.30.5-msvc23/CMakeCXXCompiler.cmake": {
+      "before": null,
+      "after": "a6750cd8e71d2c337eef2aab626dc0fa3f8c43ab8da446f0da6e261fdea9b584"
+    },
+    "build/typed72-match-v1/build/CMakeFiles/3.30.5-msvc23/CMakeRCCompiler.cmake": {
+      "before": null,
+      "after": "85223e3627ab66035651f1bc87d7ab01c67bccd4c1132ea0ebcf6fd87de0c7d1"
+    },
+    "build/typed72-match-v1/build/CMakeFiles/3.30.5-msvc23/CMakeSystem.cmake": {
+      "before": null,
+      "after": "cb655f074177502b26612fa979ee72c606731a0b59f300e936ebba161d8cce09"
+    },
+    "build/typed72-match-v1/build/CMakeFiles/3.30.5-msvc23/CompilerIdCXX/CMakeCXXCompilerId.cpp": {
+      "before": null,
+      "after": "9a626dbff6d2a66fd7a8ea916abbd361129799867015ff02f1c53e6de16fe89c"
+    },
+    "extract/data/catalog.json": {
+      "before": "a684138297b17069441400269bf0fbfa76aceadfe8029e1188375200846c8f7d",
+      "after": "50c80e340520da7c94bb3564e02750df78847cd77ea1ec14a739cd44a908cc70"
+    },
+    "extract/data/texture_resources74.json": {
+      "before": "5eaa78705194e52e6d3454fdb23be905e0aa04453516e463065c18fc8ada3b26",
+      "after": "e892b60cd5598c366a358e7c5017b5781688b63736fff762412d5aa563b0f284"
+    },
+    "extract/data/__init__.json": {
+      "before": "af7a3e538cd8033d68a2f64ecf25dfefb98e77a13a7be45c5c2d85ce9d42760b",
+      "after": "6a21fe18dacc72e8cd8aabcccd58d08da8ef4fe97ecb3269b1eec66ac6d8e36f"
+    }
+  }
+}

@@ -30,6 +30,7 @@ template<class M> void project_metadata(M& m,SnapshotSink& w){
         w.put("facing",v.facing);w.put("frozen",v.frozen);w.put("slowed",v.slowed);w.put("buttered",v.buttered);
         w.put("jumps",v.jumps);w.put("jump_cap",v.jump_cap);w.put("grounded",v.grounded);w.put("poison_level",v.poison);w.put("jump_held",p.jump_held);
         w.object("stats");w.put("spent",m.deployment.players[i].spent);w.put("earned",account.earned);w.put("hero_damage",p.hero_damage);w.put("producer_lost",rp.producer_lost);w.end();
+        if(const auto reason=m.chart.passive_mark(seat);!reason.empty())w.put("passive_mark",std::string(reason));
         w.put("id",s);w.put("side",team);w.put("native_side",team);
         for(const char* k:{"owner","current_owner","original_owner","source_entity","root_source","root_original_owner"})w.put(k,team);
         w.null("parent_entity");w.null("parent_attack");
@@ -76,6 +77,10 @@ template<class M> void project_metadata(M& m,SnapshotSink& w){
         w.put("x",r.position.x);w.put("y",r.position.y);w.put("born",r.born);w.put("source",r.source);
         if(r.shared.present())w.optional("shared",r.shared);if(r.coin.present())w.optional("coin",r.coin);w.end();
     }w.end();
+    if(m.battle.solo.active()){w.put("solo_mode",std::string(m.battle.solo.izombie()?"izombie":"lottery"));w.put("solo_stage",m.battle.solo.stage);if(m.battle.solo.izombie()){
+            w.put("brains_destroyed",m.battle.solo.brains);
+            w.put("map_grave_count",m.battle.solo.available_graves(m.battle.terrain));
+        }}
     w.object("pvp70");w.json("projectiles",m.pvp70_projectiles());w.array("tentacles");
     for(const auto& p:*m.battle.plant_roster){
         if(!p->source.content.present()||p->source.content.is_null()||p->source.content.get()!="抓人草触手")continue;

@@ -1,4 +1,5 @@
 #include "sim/typed/hero_recovery.h"
+#include "sim/typed/hero_terrain_contact.h"
 #include <cmath>
 
 namespace pvz::typed72 {
@@ -11,6 +12,7 @@ void HeroRecovery::water_damage(std::span<const Seat> seats,double elapsed,bool 
         auto& a=world_.heroes.hero(side);const auto& p=*a.frame.position.get();bool wet=false;
         if(deathmatch)for(const double dx:{-tile*.2,0.,tile*.2})for(const double dy:{.1,-tile*.5,-tile*1.2})
             if(map_.water_at({p.x+dx,p.y+dy},tile,width))wet=true;
+        if(deathmatch && !wet)wet=hero_terrain_contact(world_.terrain,p,tile,false);
         double progress=wet?a.water_damage_clock.or_missing(0.)+elapsed:0.;
         auto& hp=a.frame.hp.get();
         if(wet && hp>0. && progress+1e-9>=1.){

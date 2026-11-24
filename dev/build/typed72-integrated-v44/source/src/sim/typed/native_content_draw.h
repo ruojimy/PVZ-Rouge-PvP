@@ -18,6 +18,8 @@ public:
     std::function<void(const ZombieRef&)> carried_barrel;
     int64_t native_tick=0;
     void draw_zombie(const ZombieRef&);
+    static bool has_frame_headgear(std::string_view wearer);
+    static bool is_headgear(std::string_view name);
     // pvp64 draw_zombie (slimes, grenadier) and pvp61 draw_zombie (scarecrow, crow).
     void draw_zombie64(const ZombieRef&);
     void draw_zombie61(const ZombieRef&);

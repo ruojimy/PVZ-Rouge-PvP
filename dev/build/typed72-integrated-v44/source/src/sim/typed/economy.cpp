@@ -100,6 +100,9 @@ void Economy::graves(){
     }
 }
 void Economy::advance(std::span<const Seat> present,double elapsed,const EconomyRules& rules){
+    if(world_.solo.izombie()){
+        native_.loose_suns.clear();resources_.settle(rules.sun_lifetime);return;
+    }
     const auto seats=seats_for(world_.mode);
     const bool multi_plant=std::count_if(seats.begin(),seats.end(),[](Seat s){return team_of(s)==Seat::plant;})>1;
     resources_.merge_suns();loose_suns(present,multi_plant);

@@ -29,9 +29,9 @@ def opponent(j,prior,head):
     if head is None:return ('prior',prior,.5),'prior-.5'      # PvP75: no draft head exists
     return ('head',head,False),'head-warm'
 
-def collect_one(j,value,prior,head_path):
+def collect_one(j,value,prior,head_path,side=None):
     from deckvalue_corpus import fight_once,outcome,label
-    seat=SIDES[j%2];foe=SIDES[1-j%2];seed=SEED0+j
+    seat=side or SIDES[j%2];foe=SIDES[1-SIDES.index(seat)];seed=SEED0+j
     room=Room();searcher=ds.Searcher(value,prior)
     try:
         head=DraftNet(room.catalog).load(head_path) if Path(head_path).exists() else None
@@ -52,17 +52,18 @@ def collect_one(j,value,prior,head_path):
 
 def compress(o):return zlib.compress(json.dumps(o,ensure_ascii=False,separators=(',',':')).encode(),6)
 
-def collect(lanes=8,until=None):
+def collect(lanes=8,until=None,side=None,start=0):
+    # side='plant' + start>=100000 (11-22 night): plant-only searched drafts on fresh seeds and corpus ids.
     value=ds.Value();prior=ds.corpus_prior(value);head=RUN/'draft-head.npz'
     db=sqlite3.connect(RUN/'distill.sqlite',timeout=60);db.execute('pragma journal_mode=wal')
     db.execute('create table if not exists drafts(id integer primary key,data blob not null)');db.commit()
     corpus=sqlite3.connect(RUN/'corpus.sqlite',timeout=120)
-    done={r[0] for r in db.execute('select id from drafts')};nxt=0;pending={}
+    done={r[0] for r in db.execute('select id from drafts')};nxt=start;pending={}
     with ThreadPoolExecutor(lanes) as pool:
         while not (RUN/'STOP_DISTILL').exists() and (until is None or time.time()<until):
             while len(pending)<lanes:
                 while nxt in done:nxt+=1
-                pending[pool.submit(collect_one,nxt,value,prior,head)]=nxt;nxt+=1
+                pending[pool.submit(collect_one,nxt,value,prior,head,side)]=nxt;nxt+=1
             fin,_=wait(pending,timeout=30,return_when=FIRST_COMPLETED)
             for f in fin:
                 j=pending.pop(f)
@@ -116,7 +117,7 @@ def decisions():
             if len(n['scores'])>1:out.append((r['j'],n))
     return out,rows
 
-def fit(epochs=40):
+def fit(epochs=40, initial=None):
     torch.manual_seed(3)
     vocab=dm.Vocab();enc=Encoder(vocab);data,rows=decisions()
     items=[]
@@ -124,7 +125,12 @@ def fit(epochs=40):
         cands=[c for c,_ in n['scores']];sc=torch.tensor([v for _,v in n['scores']],dtype=torch.float32)
         e=enc.encode(n['side'],n['stage'],n['kind'],n['decks'],n['bans'],cands);e['target']=sc;e['j']=j;items.append(e)
     val=[e for e in items if e['j']%10==0];tr=[e for e in items if e['j']%10!=0]
-    net=Fast(vocab);opt=torch.optim.AdamW(net.parameters(),lr=2e-3,weight_decay=1e-3)
+    net=Fast(vocab)
+    if initial:
+        checkpoint=torch.load(initial,map_location='cpu',weights_only=False)
+        assert checkpoint['keys']==vocab.keys
+        net.load_state_dict(checkpoint['state'])
+    opt=torch.optim.AdamW(net.parameters(),lr=2e-3,weight_decay=1e-3)
     def loss_of(batch):
         outs=net(batch);L=0
         for o,b in zip(outs,batch):
@@ -170,13 +176,19 @@ class FastDrafter:
         self.net=Fast(self.vocab);self.net.load_state_dict(d['state']);self.net.eval()
     @torch.no_grad()
     def choose(self,side,a,state,offers):
-        if len(offers)==1:return offers[0]
+        return self.rank_choices(side,a,state,offers,1)[0]
+
+    @torch.no_grad()
+    def rank_choices(self,side,a,state,offers,count):
+        if len(offers)==1:return list(offers)
         if self.prior is not None:
             cand=sorted(offers,key=lambda k:-(self.prior.get(k,0.) if k else -1e9))[:self.M]
             if None in offers and None not in cand:cand.append(None)
             offers=cand
         e=self.enc.encode(side,a['stage'],a['kind'],state['decks'],state['bans'],offers)
-        return offers[int(self.net([e])[0].argmax())]
+        scores=self.net([e])[0]
+        if count==1:return [offers[int(scores.argmax())]]
+        return [offers[i] for i in torch.argsort(scores,descending=True,stable=True)[:count].tolist()]
 
 if __name__=='__main__':
     if sys.argv[1]=='collect':collect(int(sys.argv[2]),float(sys.argv[3]) if len(sys.argv)>3 else None)

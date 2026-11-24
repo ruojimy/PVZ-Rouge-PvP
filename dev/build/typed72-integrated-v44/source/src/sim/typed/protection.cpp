@@ -91,7 +91,7 @@ double UnitProtection::amount(DamageTarget target,double amount) {
     if(secrets.enabled)amount=adjust(target,amount);
     amount*=multiplier(target);
     // PvP76 r3: the carts keep the same "last hurt" clock (they stop firing when left alone).
-    if(amount>0&&(value(target.identity.content)=="死神僵尸"||value(target.state.card)=="zombie:投篮车僵尸"||value(target.state.card)=="zombie:小鬼炮"))
+    if(amount>0&&(value(target.identity.content)=="死神僵尸"||value(target.identity.content)=="海盗船长"||value(target.state.card)=="zombie:投篮车僵尸"||value(target.state.card)=="zombie:小鬼炮"))
         target.state.reaper_hurt.set(double(heroes_.tick));
     return amount;
 }

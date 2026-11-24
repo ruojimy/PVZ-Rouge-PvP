@@ -45,11 +45,14 @@ void CartLifecycle::draw(const ZombieRef& unit,CartDrawing& drawing) {
     const double phase=state.cannon_animation.or_missing(0.),recoil=state.cannon_recoil.or_missing(0.)/90.;
     const bool advancing=unit->native.advance.present() && !unit->native.advance.is_null() && unit->native.advance.get()!=0.;
     const double bob=advancing?std::sin(phase/18.)*tile*.015:0.;
+    double load=0.,lift=0.;
     if(alive && state.cannon_loaded.present() && !state.cannon_loaded.is_null() && state.cannon_loaded.get()) {
         const auto imp=drawing.copy(drawing.art("小鬼炮-装填小鬼"));
         const double progress=std::clamp((state.summon_clock.or_missing(0.)-800.)/90.,0.,1.);
-        drawing.alpha(imp,int(py::round0(255.*progress)));drawing.blit(image,imp,{0.,py::round0((1.-progress)*tile*.13)});
+        load=progress;lift=py::round0((1.-progress)*tile*.13);
+        drawing.alpha(imp,int(py::round0(255.*progress)));drawing.blit(image,imp,{0.,lift});
     }
+    if(alive&&body.armor_hp>0.)image=drawing.headgear(image,load,lift);
     const auto overlay=[&](int r,int g,int b,CartBlend blend,int alpha) {
         const auto copy=drawing.copy(image);drawing.fill(copy,r,g,b,blend);drawing.alpha(copy,alpha);drawing.blit(image,copy,{0.,0.});
     };

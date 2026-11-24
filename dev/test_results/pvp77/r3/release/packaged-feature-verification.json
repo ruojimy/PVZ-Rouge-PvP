@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": "pvp77",
+      "checks": 1,
+      "passed": true,
+      "executable_sha256": "d2925fe4570be476b7c216658f06ea90ec72bbfee4c9628bdecf359b2a379506",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp77\\r3\\release\\packaged-gift-pvp77\\results.json"
+    }
+  ]
+}

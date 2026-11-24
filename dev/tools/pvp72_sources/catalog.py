@@ -744,7 +744,8 @@ _pvp762_note('zombie:投篮车僵尸', '连续10秒未受到攻击时停止投�
 _pvp762_note('zombie:小鬼炮', '连续15秒未受到攻击时停止发射小鬼，再次受到攻击后恢复。')
 _pvp762_note('plant:巴豆', '僵尸戴夫接触毒气时受到3秒眩晕与3秒一级中毒（无直接伤害，每团毒气一次）。')
 _pvp762_note('plant:黄金蓓蕾', '计入胜率对局：放置后12秒内植物戴夫感冒（移速减半）。')
-_pvp762_note('plant:三叶草', '被吹动的僵尸戴夫遇到一格高的障碍会自动跳起。')
+_pvp762_note('zombie:海盗船长', '连续25秒未受到伤害时暂停召唤海盗鹦鹉，再次受伤后继续累计召唤时间。')
+_pvp762_note('plant:三叶草', '持续吹动的僵尸戴夫遇到一格台阶可再次起跳，也可从水中上岸。在梯子、传送带或水中每株每0.4秒对其造成5点伤害，不击倒。')
 _pvp762_note('zombie:三叶草僵尸', '被吹动的植物戴夫遇到一格高的障碍会自动跳起。')
 _pvp762_note('zombie:辣椒僵尸', '在冰冻或减速状态下死亡时不会自爆（同化灰）。')
 for _key in ('plant:激光豆', 'plant:玉米加农炮'):
@@ -755,10 +756,31 @@ for _field in ('description', 'native_description'):
     CARDS['zsecret:守卫'][_field] = '盾卫僵尸平时防御力变为24，举盾期间防御力变为600，技能冷却时间减半（2秒）。锁定前体：盾卫僵尸。'
 _pvp762_note('secret:核平', '己方魅惑的毁灭菇僵尸自爆时同样生效。')
 for _field in ('description', 'native_description'):
+    _spring = CARDS['plant:弹簧草'].get(_field, '')
+    CARDS['plant:弹簧草'][_field] = _spring.replace('海盗鹦鹉与乌鸦改为三叶草式吹飞：沿攻击方向施加原三叶草吹飞初速度的5倍。', '对海陆空列出的飞行僵尸强化击退：海盗鹦鹉、乌鸦、气球僵尸和克苏鲁之仆沿攻击方向以原三叶草吹飞初速度的5倍弹飞；飞贼僵尸命中后立即沿绳撤回。')
+_pvp762_note('plant:三叶草', '飞贼僵尸进入风向范围后立即沿绳撤回。')
+_pvp762_note('zombie:飞贼僵尸', '被弹簧草命中、受到三叶草吹风或被萝卜伞弹开时，立即沿绳撤回。')
+for _field in ('description', 'native_description'):
     CARDS['zsecret:汇流'][_field] = CARDS['zsecret:汇流'][_field].replace('返还 15 脑光', '返还 25 脑光')
     CARDS['zsecret:空输'][_field] = CARDS['zsecret:空输'][_field].replace('飞贼僵尸（蹦极僵尸）部署冷却减半。', '飞贼僵尸（蹦极僵尸）脑光消耗由75提高到100，部署冷却减半。')
     CARDS['zombie:飞贼僵尸'][_field] = CARDS['zombie:飞贼僵尸'][_field].replace('携带空输秘籍时部署冷却减半', '携带空输秘籍时脑光消耗变为100、部署冷却减半')
 
+
+# The original marigold cloned Plantern's flat HP. The plant factory uses native HP.
+CARDS['plant:金盏花']['hp'] = CARDS['plant:金盏花']['native_hp']
+for _key, _note in {
+    'plant:金盏花':'我是僵尸中，首次未致死的有效啃咬掉50商店金币，后续每次掉10，致死一口不掉。',
+    'plant:向日葵':'我是僵尸中，每次有效啃咬获得15脑光，含致死一口。',
+    'plant:双子向日葵':'我是僵尸中，每次有效啃咬获得25脑光，含致死一口。',
+    'plant:阳光菇':'我是僵尸中，被啃死时产脑光：幼年50，成熟75。',
+    'plant:黄金蓓蕾':'我是僵尸中始终休眠，被啃死时产200脑光。',
+    'plant:寒冰辣椒':'我是僵尸中开场休眠，被啃时唤醒。',
+    'plant:冰冻生菜':'我是僵尸中，陆地仍由接触触发，水中开场休眠，被啃时唤醒。',
+    'plant:三叶草':'我是僵尸中开场休眠，允许啃咬并唤醒。'
+}.items():
+    if not CARDS[_key].get('description'):
+        CARDS[_key]['description'] = CARDS[_key].get('native_description','')
+    _pvp762_note(_key,_note)
 
 def digest(value):
     return hashlib.sha256(json.dumps(value,sort_keys=True,ensure_ascii=False,separators=(",",":"),allow_nan=False).encode("utf-8")).hexdigest()
@@ -1035,7 +1057,7 @@ def describe(card_id, secrets=(), night=False, detailed=True):
                           "只可水面放置，自带鸭子救生圈。" if surface=='water' else
                           "地面或水面放置；水上自动携带鸭子救生圈并浮在水面。") +
                          "可被植物攻击，作为僵尸出兵点，脑光自动收集。")
-            lines.append("白天全局补给：第%g秒起，每%g秒自动补充%d脑光，不占卡槽；夜晚无补给，死斗不加速。"%
+            lines.append("PvP白天全局补给：第%g秒起，每%g秒自动补充%d脑光，不占卡槽；夜晚无补给，死斗不加速。"%
                          (RULES["day_brain_interval"],RULES["day_brain_interval"],RULES["day_brain_amount"]))
             if c['base_id'] in BASIC_GRAVES:
                 lines.append("脑光墓碑和成长脑光墓碑最多禁用一个；有水地图也只保护这两种基础陆地型。")
@@ -1049,7 +1071,7 @@ def describe(card_id, secrets=(), night=False, detailed=True):
             lines.append("沿用原"+c["name"]+"的移动、攻击、装备与受击机制。")
         elif c.get("description"):lines.append(c["description"])
     if c.get("producer"):
-        lines.append("本局前%g秒数值伤害减少%g%%，不分昼夜或天气；后种不会重新计时。"%
+        lines.append("PvP和合作对局前%g秒数值伤害减少%g%%。抽奖和我是僵尸从开局起承受正常伤害。"%
                      (RULES["producer_protection_seconds"],(1-RULES["producer_protection_multiplier"])*100))
         lines.append("模仿者复制后沿用本局截止时间。吞噬、碾压、直接焚毁及自然退场、铲除保留原机制。")
         if c.get("first_production"):lines.append("种植后 6 秒首次生产；之后每 %.0f 秒生产。" % c["period"])
@@ -1057,7 +1079,7 @@ def describe(card_id, secrets=(), night=False, detailed=True):
         if c["base_id"] in DEATHMATCH_ALLOWED_PRODUCERS:
             lines.append("死斗期间仍可放置；已有生产单位按原生产逻辑提速 1.5 倍。")
         else:
-            lines.append("7 分钟后禁止新增；已有生产单位按原生产逻辑提速 1.5 倍。")
+            lines.append("PvP死斗开始后禁止新增；已有生产单位按原生产逻辑提速 1.5 倍。")
     if c["base_id"]=="zombie:坚固脑光墓碑":
         lines.append("携带后僵尸戴夫生命上限 +8（48）；濒死气球在生命降到 12 时触发，每局一次。")
     if c["base_id"]=="plant:土豆地雷":

@@ -34,6 +34,9 @@ def main():
     args = ap.parse_args()
     out = Path(args.out).resolve(); out.mkdir(parents=True, exist_ok=False)
     fixture = Path(args.fixture_run).resolve()
+    scratch_receipt = fixture / "scratch-paths.json"
+    fixture_root = (Path(json.loads(scratch_receipt.read_text(encoding="utf-8"))["fixture_root"])
+                    if scratch_receipt.is_file() else fixture / "fixture-root")
     ref_dir = ROOT/"references/bytecode"
     original = ref_dir/(MODULE + ".json")
     inputs = [original, ROOT/"tools/bytecode_ref_capture.py", fixture/"bytecode-ref-fingerprints.json"]
@@ -53,7 +56,7 @@ def main():
         for key in ("PVZ_BYTECODE_REF_TAMPER", "PVZ_NEGATIVE_CONTROL_NATIVE"):
             env.pop(key, None)
         env.update(SDL_VIDEODRIVER="dummy", SDL_AUDIODRIVER="dummy", APPDATA=str(folder/"appdata"),
-                   PVP_USERDATA=str(folder/"userdata"), PVZ_TEST_ROOT=str(fixture/"fixture-root"),
+                   PVP_USERDATA=str(folder/"userdata"), PVZ_TEST_ROOT=str(fixture_root),
                    PVZ_BYTECODE_REF_DIR=str(reference), PVZ_BYTECODE_REF_FINGERPRINTS=str(fp),
                    PVZ_BYTECODE_REF_AUDIT=str(folder/"audit.jsonl"))
         env.update(changes or {})

@@ -15,7 +15,7 @@ bool ContentVines::configure(const PlantRef& plant,std::string_view name) {
 }
 void ContentVines::wake_cell(const PlantRef& vine) {
     if(!named(vine->source.content,"忧郁藤蔓")||vine->hp.or_missing(0.)<=0.||vine->dead.present())return;
-    for(const auto& plant:*world_.plant_roster)if(plant!=vine&&plant->cell==vine->cell){plant->content_state.awake_forever.set(true);plant->sleep.erase();}
+    for(const auto& plant:*world_.plant_roster)if(plant!=vine&&plant->cell==vine->cell&&!(world_.solo.izombie()&&plant->kind=="黄金蓓蕾")){plant->content_state.awake_forever.set(true);plant->sleep.erase();}
 }
 std::optional<size_t> ContentVines::coffee_target(Cell cell) {
     std::vector<size_t> sleepers;for(size_t i=0;i<world_.plant_roster->size();++i) {

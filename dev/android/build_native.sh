@@ -13,6 +13,7 @@ python3 "$SRC/tools/pvp744_controls_hooks.py" --check
 python3 "$SRC/tools/pvp744_testmode_hooks.py" --check
 python3 "$SRC/tools/pvp744_feedback_sources.py" --check
 python3 "$SRC/tools/pvp743_network_sources.py" --check
+python3 "$SRC/tools/pvp77_ui_hooks.py" --check
 NDK=${PVZ_ANDROID_NDK:-$HOME/pvz-android/sdk/ndk/25.1.8937393}
 DIST=${PVZ_ANDROID_SDL_DIST:-$HOME/pvz-android/build/dists/pvzpvp}
 WORK=${PVZ_ANDROID_WORK:-$HOME/pvz-native-android}

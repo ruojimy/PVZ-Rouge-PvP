@@ -7,7 +7,7 @@
 namespace pvz::texture74 {
 using J=nlohmann::json;
 constexpr size_t MAX_PACK=32*1024*1024, MAX_PIXELS=32*1024*1024;
-struct Resource {std::string key,name,file,scope,category;int w=0,h=0;bool projectile=false;std::vector<std::string> cards,heroes;};
+struct Resource {std::string key,name,file,scope,category;int w=0,h=0;bool projectile=false,campaign=false;std::vector<std::string> cards,heroes;};
 struct Layer {std::string name;bool visible=true;int opacity=255;std::vector<uint32_t> pixels;};
 struct Canvas {
     int w=0,h=0,selected=0;std::vector<Layer> layers;

@@ -1,8 +1,9 @@
-"""Relink the headless training front ends against the shipped PvP75 r3 rules and data (2026-11-21, after r4 was retired)."""
+"""Link the ranked training front ends against the verified installed release."""
 import hashlib
 import re
 import shutil
 import subprocess
+import sys
 import zipfile
 from pathlib import Path
 
@@ -15,10 +16,14 @@ RELEASE=read(R/'dist/latest-native-release.json')
 SHIPPED=Path(RELEASE['target']).parent
 LIB=R/'build/app-typed72-v2/Release'
 
-def build():
-    assert RELEASE['revision']=='pvp75-r3' and sha(Path(RELEASE['target']))==RELEASE['exe_sha256']
+def build(revision='pvp75-r3', output=OUT, work=WORK):
+    native=output/'native'
+    assert RELEASE['revision']==revision and sha(Path(RELEASE['target']))==RELEASE['exe_sha256']
     assert sha(Path(RELEASE['developer_package']))==RELEASE['developer_sha256']
-    root=WORK/'src';root.mkdir(parents=True,exist_ok=True);NATIVE.mkdir(parents=True,exist_ok=True)
+    if revision in ('pvp76-r3','pvp77-r2'):
+        assert sha(LIB/'PvZPvPNative.exe')==RELEASE['exe_sha256']
+        assert sha(Path(RELEASE['release'])/'PvZPvPNative.exe')==RELEASE['exe_sha256']
+    root=work/'src';root.mkdir(parents=True,exist_ok=True);native.mkdir(parents=True,exist_ok=True)
     app='src/sim/typed72_app';kernel='build/typed72-integrated-v44/source/src/sim/typed'
     paths=set()
     for folder,exts in [(kernel,('cpp','h')),(app+'/composition',('cpp','h','inc')),(app+'/ai',('cpp','h'))]:
@@ -62,7 +67,7 @@ def build():
     if(!rules.at("ranked").get<bool>() || rules.at("extra_slot").get<bool>() ||
        rules.at("plant_slots")!=7 || rules.at("zombie_slots")!=7 ||
        rules.at("build")!="'''+RELEASE['version']+'''" || entry.plant_deck.size()!=7 || entry.zombie_deck.size()!=7)
-        throw std::runtime_error("expected released PvP75 ranked seven-slot duel");
+        throw std::runtime_error("expected released ranked seven-slot duel");
     auto session=Session::create(std::move(cold),entry.map);''')
     txt=txt.replace('header["seq_base"]=o.seq_base;', 'header["ranked_rules"]=rules;header["source_fingerprint"]=AI_NN_SIM_FINGERPRINT;header["seq_base"]=o.seq_base;')
     main.write_text(txt,'utf8')
@@ -70,7 +75,7 @@ def build():
     sdl=R/'third_party/SDL2-2.30.9/lib/x64/SDL2.lib'
     other=[R/f'third_party/SDL2_{n}-{v}/lib/x64/SDL2_{n}.lib' for n,v in [('image','2.8.2'),('ttf','2.22.0'),('mixer','2.8.0')]]
     def cm(args):return ' '.join('"'+Path(v).as_posix()+'"' for v in args)
-    c=['cmake_minimum_required(VERSION 3.20)','project(RankedPvP75 CXX)','set(CMAKE_CXX_STANDARD 20)',
+    c=['cmake_minimum_required(VERSION 3.20)','project(RankedTraining CXX)','set(CMAKE_CXX_STANDARD 20)',
        'set(CMAKE_MSVC_RUNTIME_LIBRARY MultiThreaded)','add_compile_definitions(NOMINMAX WIN32_LEAN_AND_MEAN SDL_MAIN_HANDLED _CRT_SECURE_NO_WARNINGS)',
        'add_compile_options(/O2 /fp:precise /utf-8 /bigobj /EHsc /GR /w)',
        'include_directories('+cm([root,R/kernel.split('/sim/typed')[0],R/app/'composition',R/app/'composition/probes',R/'src',R/'third_party',R/'tools/typed72',R/'third_party/SDL2-2.30.9/include',H/'src'])+')']
@@ -85,18 +90,27 @@ def build():
         'target_link_libraries(position_match PRIVATE '+cm([LIB/'pvztyped72kernel.lib',sdl])+')']
     (root/'CMakeLists.txt').write_text('\n'.join(c)+'\n','utf8')
     cmake=re.search(r'^CMAKE_COMMAND:INTERNAL=(.+)$',(BUILD/'CMakeCache.txt').read_text('utf8'),re.M)[1]
-    subprocess.run([cmake,'-S',root,'-B',WORK/'obj','-G','Visual Studio 17 2022','-A','x64'],check=True)
-    subprocess.run([cmake,'--build',WORK/'obj','--config','Release','--parallel','4'],check=True)
+    subprocess.run([cmake,'-S',root,'-B',work/'obj','-G','Visual Studio 17 2022','-A','x64'],check=True)
+    subprocess.run([cmake,'--build',work/'obj','--config','Release','--parallel','4'],check=True)
     names=('ranked_draft_room','cold73_export','position_match')
     for name in names:
-        src=WORK/'obj/Release'/(name+'.exe');dst=NATIVE/src.name
-        if not dst.exists():dst.hardlink_to(src)
+        src=work/'obj/Release'/(name+'.exe');dst=native/src.name
+        if src!=dst:shutil.copy2(src,dst)
         assert sha(src)==sha(dst)
     for dll in (SHIPPED).glob('SDL2*.dll'):
-        target=NATIVE/dll.name
+        target=native/dll.name
         if not target.exists():target.hardlink_to(dll)
-    write(OUT/'native-build.json',dict(version=RELEASE['version'],release=RELEASE['exe_sha256'],developer_package=RELEASE['developer_sha256'],
+    write(output/'native-build.json',dict(version=RELEASE['version'],release=RELEASE['exe_sha256'],developer_package=RELEASE['developer_sha256'],
           source_files=len(hashes),fingerprint=fp,release_overrides=overrides,data_root=str(SHIPPED),libraries={p.name:sha(p) for p in libs},
-          binaries={n:sha(NATIVE/(n+'.exe')) for n in names},shipped_catalog=sha(SHIPPED/'extract/data/_resolved_cards.json')))
+          draft_probe=sha(R/'build/pvp73-tools/ranked_draft_room.cpp'),
+          binaries={n:sha(native/(n+'.exe')) for n in names},shipped_catalog=sha(SHIPPED/'extract/data/_resolved_cards.json')))
 
-if __name__=='__main__':build()
+if __name__=='__main__':
+    if sys.argv[1:]==['pvp76-r3']:
+        build('pvp76-r3',ROOT/'deck-value-pvp76-r3-20261123',R/'build/pvp76r3-train')
+    elif sys.argv[1:]==['pvp77-r2']:
+        build('pvp77-r2',ROOT/'deck-value-pvp77-r2-20261123',R/'build/pvp77r2-train')
+    elif not sys.argv[1:]:
+        build()
+    else:
+        sys.exit('Usage: ranked_pvp75_native.py [pvp76-r3|pvp77-r2]')

@@ -41,7 +41,7 @@ class Game:
     def path(self):
         return self.storage/'games'/(self.key()+'.jsonl.gz')
 
-def play(g):
+def play(g, timeout=None):
     if g.policy:
         parent=read(g.policy).get('position_parent')
         if parent and parent!=digest(g.position):raise ValueError('Option policy requires its frozen position scorer')
@@ -60,8 +60,10 @@ def play(g):
     if g.position:args+=['--position-model',g.position]
     if g.policy:args+=['--option-model',g.policy]
     if g.forced>=0:args+=['--force-option',g.forced,'--fork-after',g.after]
-    result=subprocess.run([str(x) for x in args],capture_output=True,check=False)
-    if result.returncode:raise RuntimeError(result.stderr.decode('utf8','replace')[-2000:])
+    result=subprocess.run([str(x) for x in args],capture_output=True,check=False,timeout=timeout)
+    if result.returncode:
+        detail=result.stderr.decode('utf8','replace')[-2000:]
+        raise RuntimeError(f'Native battle exited {result.returncode}: {detail}')
     raw_data=raw.read_bytes();head,tail=[json.loads(s) for s in raw_data.splitlines()]
     assert head['id']==tail['id']==g.uid and not tail['ai_error']
     assert tail['finished'] or (tail['timeout'] and abs(tail['time']-g.limit)<.01)

@@ -59,7 +59,7 @@ void SeptemberPlants::advance(const PlantRef& plant) {
         for(const auto& target:queries_.enemies_in_box(source_ref(plant),{origin.x-5.*tile,origin.y-.85*tile,origin.x+5.*tile,origin.y+.85*tile})) {
             ++queries_.range_exact_tests;
             const auto* body=std::get_if<CombatTarget>(&target);
-            if(!body)continue;
+            if(!body||(world_.solo.izombie()&&body->is_hero()))continue;
             const auto hp=body->is_hero()?world_.heroes.cached_proxy(body->hero).hp:body->unit->body.hp;
             if((!body->is_hero() && body->unit->protection.grave) || hp<=0.)continue;
             if(inside(plant,target,5.,.85)){trigger=true;break;}

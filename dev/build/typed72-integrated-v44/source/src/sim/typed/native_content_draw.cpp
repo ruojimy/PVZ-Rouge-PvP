@@ -15,11 +15,54 @@ void NativeContentDraw::draw_center(const NativeArt& image,double x,double y,dou
 namespace {
 constexpr double kpi=3.141592653589793;
 std::string itext(double v){return std::to_string(int64_t(v));}
+struct Crown {
+    double x,y,width; // centre of forehead and width of an equipped bucket, in body-frame fractions
+};
+Crown frame_crown(std::string_view name,int frame,bool attacking){
+    if(name=="海盗鹦鹉")return {.66,frame==2?.48:.47,.31};
+    if(name=="乌鸦")return {.70,(attacking&&frame==1)?.405:.39,.245};
+    if(name=="稻草人")return {.47,.18,.36};
+    if(name=="滚桶僵尸")return {.56,.23,.32};
+    if(name=="掷弹兵僵尸")return {attacking&&frame==3?.61:.65,frame==1?.22:.20,.33};
+    return {.67,frame==0?.24:.265,.31}; // three slime sizes share the same source proportions
+}
+NativeArt equip_frame(NativeCanvas& canvas,const ZombieRef& unit,NativeArt body,Crown crown,bool apply_status=true){
+    const auto& b=unit->body;
+    if(b.hp<=0.||b.ash.present()||b.armor_hp<=0.||!NativeContentDraw::is_headgear(b.armor))return body;
+    std::string key=b.armor;
+    if((key=="路障"||key=="铁桶")&&!text(unit->expansion.black_armor).empty())key="黑"+key;
+    const bool football=key=="橄榄球头盔"||key=="黑橄榄球头盔",pumpkin=key=="南瓜头防具";
+    auto plate=NativeArtStore::copy(canvas.image(key));NativeCanvas::set_alpha(plate,255.);
+    for(const auto& [suffix,alpha]:{std::pair{"-冰冻",b.ice.or_missing(0.)>0.?100.:0.},
+                                     std::pair{"-受伤",b.hurt>0.?std::sin(kpi*b.hurt/50.)*150.:0.}}){
+        if(apply_status&&alpha>0.&&canvas.has(key+suffix))NativeArtStore::blit(plate,canvas.with_alpha(key+suffix,alpha),{0.,0.});
+    }
+    // The headwear PNGs have different transparent margins. Seat the brim (or
+    // the visor of a helmet) in unmirrored body space, then mirror the complete frame.
+    const double scale=body->width*crown.width/(pumpkin?48.:30.);
+    plate=canvas.resize(plate,std::max(1.,std::round(plate->width*scale)),std::max(1.,std::round(plate->height*scale)));
+    const double pivot_x=pumpkin?.5:football?56./96.:60./96.;
+    const double pivot_y=pumpkin?29./48.:football?23./96.:25./96.;
+    const int x=int(std::round(body->width*crown.x-plate->width*pivot_x));
+    const int y=int(std::round(body->height*crown.y-plate->height*pivot_y));
+    // Symmetric horizontal padding keeps the body centre and feet fixed even at the muzzle.
+    const int side=std::max({0,-x,x+int(plate->width)-int(body->width)}),top=std::max(0,-y);
+    auto out=NativeCanvas::surface(body->width+2*side,body->height+top);
+    NativeArtStore::blit(out,body,{double(side),double(top)});
+    NativeArtStore::blit(out,plate,{double(x+side),double(y+top)});
+    return out;
+}
 // CartDrawing over the native canvas: handles index the images of one cart draw.
 class CanvasCartDrawing final:public CartDrawing {
 public:
-    explicit CanvasCartDrawing(NativeCanvas& canvas):canvas_(canvas){}
+    CanvasCartDrawing(NativeCanvas& canvas,const ZombieRef& unit):canvas_(canvas),unit_(unit){}
     CartImage art(std::string_view name)override{return add(canvas_.image(std::string(name)));}
+    CartImage headgear(CartImage body,double load,double lift)override{
+        // Empty muzzle and the loaded imp have different centres. As the imp
+        // emerges, the equipped brim follows its forehead through the recoil.
+        const double x=(105.+15.*load)/144.,y=(59.+lift*load)/144.;
+        return add(equip_frame(canvas_,unit_,at(body),{x,y,.18},false));
+    }
     CartImage saved_art(std::string_view name,CartImage)override{return add(canvas_.unaliased(std::string(name)));}
     CartImage copy(CartImage i)override{return add(NativeArtStore::copy(at(i)));}
     Point dimensions(CartImage i)override{return {double(at(i)->width),double(at(i)->height)};}
@@ -33,6 +76,7 @@ public:
     void display(CartImage i,Point p)override{canvas_.display(at(i),p);}
 private:
     NativeCanvas& canvas_;
+    ZombieRef unit_;
     std::vector<NativeArt> images_;
     CartImage add(NativeArt image){images_.push_back(std::move(image));return images_.size()-1;}
     const NativeArt& at(CartImage i)const{return images_.at(size_t(i));}
@@ -328,9 +372,15 @@ void NativeContentDraw::draw_head(const CombatPlant& z){
     }
 }
 namespace {
-struct ZombieFrameArt {bool overlay_if_present=false;bool key_fallback=false;};
 }
-static NativeArt status_frame(NativeCanvas& c,const ZombieRef& u,const std::string& key,bool fallback,bool checked){
+bool NativeContentDraw::is_headgear(std::string_view n){
+    return n=="路障"||n=="铁桶"||n=="黑路障"||n=="黑铁桶"||n=="橄榄球头盔"||n=="黑橄榄球头盔"||n=="南瓜头防具";
+}
+bool NativeContentDraw::has_frame_headgear(std::string_view n){
+    return n=="海盗鹦鹉"||n=="乌鸦"||n=="稻草人"||n=="滚桶僵尸"||n=="掷弹兵僵尸"||
+           n=="史莱姆僵尸"||n=="中型史莱姆"||n=="小型史莱姆"||n=="小鬼炮";
+}
+static NativeArt status_frame(NativeCanvas& c,const ZombieRef& u,const std::string& key,bool fallback,bool checked,Crown crown){
     const auto& b=u->body;
     const std::string suffix=b.ash.present()?"-灰烬":b.hurt>0.?"-受伤":"";
     auto image=NativeArtStore::copy(fallback&&!c.has(key+suffix)?c.image(key):c.image(key+suffix));
@@ -345,6 +395,7 @@ static NativeArt status_frame(NativeCanvas& c,const ZombieRef& u,const std::stri
         const auto& level=u->poison.poison.get()->level;
         if(level.present()&&!level.is_null())image=c.tint_poison(image,level.get());
     }
+    image=equip_frame(c,u,image,crown);
     if(b.facing<0.)image=NativeCanvas::flip(image);
     return image;
 }
@@ -371,7 +422,7 @@ void NativeContentDraw::draw_zombie64(const ZombieRef& u){
         const bool moving=std::fabs(m.vx)>.01||num(u->native.biting)!=0.;
         key=name+"-帧"+itext(moving?py::mod(py::floordiv(now,35.),3.):0.);
     }
-    auto image=status_frame(canvas_,u,key,true,true);
+    auto image=status_frame(canvas_,u,key,true,true,frame_crown(name,key.back()-'0',key.find("-投")!=std::string::npos));
     if(b.hp<=0.){
         const double age=std::max(0.,-b.hp);
         NativeCanvas::set_alpha(image,std::max(0.,255.-double(int64_t((std::max(0.,age-120.)*255.)/200.))));
@@ -390,7 +441,7 @@ void NativeContentDraw::draw_zombie61(const ZombieRef& u){
     const bool attacking=name=="乌鸦"&&b.hp>0.&&num(u->native.biting)>0.;
     if(attacking)frame=py::mod(py::floordiv(now,12.),4.);
     const auto key=name+(attacking?"-攻击":"-帧")+itext(frame);
-    auto image=status_frame(canvas_,u,key,false,false);
+    auto image=status_frame(canvas_,u,key,false,false,frame_crown(name,int(frame),attacking));
     if(name=="乌鸦"&&b.hp<=0.){
         const double age=std::max(0.,-b.hp);
         image=NativeArtStore::rotate(image,(-b.facing)*std::min(80.,age*.35));
@@ -410,7 +461,7 @@ void NativeContentDraw::draw_zombie(const ZombieRef& u){
     if(name=="小鬼炮"){
         // native_content.draw_zombie -> self.carts.draw(z) (CartLifecycle::draw).
         if(!draw_cart){missing("content_zombie:小鬼炮");return;}
-        CanvasCartDrawing drawing(canvas_);draw_cart(u,drawing);return;
+        CanvasCartDrawing drawing(canvas_,u);draw_cart(u,drawing);return;
     }
     const auto& b=u->body;const auto& m=b.motion.get();
     int frame=(num(u->native.biting)!=0.||std::fabs(m.vx)>.01||name=="海盗鹦鹉")?int(1+py::mod(py::floordiv(double(native_tick),35.),2.)):0;
@@ -429,6 +480,7 @@ void NativeContentDraw::draw_zombie(const ZombieRef& u){
         const auto& level=u->poison.poison.get()->level;
         if(level.present()&&!level.is_null())image=canvas_.tint_poison(image,level.get());
     }
+    if(has_frame_headgear(name))image=equip_frame(canvas_,u,image,frame_crown(name,frame,false));
     if(b.facing<0.)image=NativeCanvas::flip(image);
     if(name=="海盗鹦鹉"&&b.hp<=0.){
         const double age=std::max(0.,-b.hp);

@@ -6,6 +6,17 @@ namespace {
 V get(const V& d,const char* k,const V& fallback=V::none()){return d.is_dict()?py::m_get(d,V(k),fallback):fallback;}
 }
 bool free_summon_preview(const V& app,const V& card,const V& x,const V& y){
+    const V room=getattr(app,Sym("room"),V::none());
+    if(room.truthy()&&get(getattr(room,Sym("pve"),V::none()),"pvp77_mode").truthy()){
+        const V battle=getattr(room,Sym("battle"),V::none());
+        if(battle.truthy()){
+            V state=getattr(app,Sym("state"));
+            const V result=callm(battle,Sym("placement"),Args{get(state,"active_side"),card,x,y});
+            const V plan=result.idx(1);
+            setitem(state,V("placement_preview"),py_dict({{V("x"),get(plan,"x",x)},{V("y"),get(plan,"y",y)},{V("error"),result.idx(0)}}));
+            return true;
+        }
+    }
     const V entry=get(pm_catalog::CARDS,py_str(card).c_str());
     const std::string behavior=py_str(get(entry,"behavior",V("")));
     if(behavior!="servant"&&behavior!="terraria")return false;

@@ -1,6 +1,7 @@
 #pragma once
 #include "sim/typed/plant_zombie_target.h"
 #include "sim/typed/wind_state.h"
+#include <map>
 namespace pvz::typed72 {
 class WindServices {
 public:
@@ -34,6 +35,8 @@ private:
     std::array<std::optional<double>,4> plant_baselines_;
     std::shared_ptr<TargetRoster> surface_roster_;
     std::vector<size_t> surface_indices_;
+    std::map<std::pair<PlantRef,Seat>,int> exposure_;
+    std::array<std::optional<Cell>,4> jumped_step_;
     void radius_wind(const ZombieRef&,double);
     void mapped_surface(size_t,double,double);
     ZombieRecordFields& fields(const CombatTarget&)const;

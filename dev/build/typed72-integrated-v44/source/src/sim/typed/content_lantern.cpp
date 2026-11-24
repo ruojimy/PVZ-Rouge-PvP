@@ -15,6 +15,7 @@ void ContentLantern::burn(const PlantRef& plant) {
     const auto owner=world_.heroes.owner(source_ref(plant));std::vector<Field<std::string>> woken;
     const auto roster=world_.plant_roster;for(size_t i=0;i<roster->size();++i) {
         const auto target=roster->at(i);
+        if(world_.solo.izombie()&&target->kind=="黄金蓓蕾")continue;
         if(target->hp.or_missing(0.)<=0.||target->dead.present()||!target->sleep.present()||world_.heroes.owner(source_ref(target))!=owner)continue;
         if(std::abs(wrap_delta(double(cell.x),double(target->cell.x),double(world_.terrain.cols())))>3.||std::abs(target->cell.y-cell.y)>3.)continue;
         target->sleep.erase();woken.push_back(target->source.id);PlantRef root=target;

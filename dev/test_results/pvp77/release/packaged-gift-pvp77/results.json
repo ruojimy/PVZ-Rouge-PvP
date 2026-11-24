@@ -1,0 +1,3478 @@
+{
+  "checks": [
+    {
+      "name": "catalog",
+      "evidence": [
+        {
+          "id": "cold.numbers",
+          "plant:三叶草": [
+            50.0,
+            32.0
+          ],
+          "zombie:倭瓜僵尸": [
+            75.0,
+            20.0
+          ],
+          "zombie:克苏鲁之仆": [
+            0.0,
+            32.0
+          ],
+          "passed": true
+        },
+        {
+          "id": "deployed.grave_and_cart_hp",
+          "grave_error": "",
+          "cart_error": "",
+          "grave_hp": 100.0,
+          "cart_hp": 225.0,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "heroes",
+      "evidence": [
+        {
+          "id": "servant.contact_knocks_dave_down",
+          "hp_lost": 32.400000000000006,
+          "max_down": 90.0,
+          "passed": true
+        },
+        {
+          "id": "croton.zombie_dave",
+          "croton_triggers": 1,
+          "gas_hits": 0,
+          "gas_hero_hits": 1,
+          "stun": 746.0,
+          "poison": 1,
+          "hp_lost_immediate": 0.0,
+          "hits_after": 1,
+          "passed": true
+        },
+        {
+          "id": "bloom.ranked_cold",
+          "deploy": "",
+          "cold_ticks": 3000.0,
+          "collect_lock": 12.0,
+          "unranked_cold": -8.0,
+          "passed": true
+        },
+        {
+          "id": "wind.hop_step",
+          "hops": 3,
+          "max_x": 51.54220000000083,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "zombies",
+      "evidence": [
+        {
+          "id": "cart.idle_stop",
+          "basket": [
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            2.0,
+            2.0,
+            3.0,
+            3.0,
+            4.0,
+            4.0,
+            5.0,
+            5.0,
+            5.0,
+            5.0,
+            5.0,
+            5.0,
+            5.0,
+            5.0,
+            5.0,
+            5.0,
+            5.0,
+            6.0,
+            6.0,
+            7.0,
+            7.0,
+            8.0,
+            8.0,
+            9.0,
+            9.0,
+            10.0
+          ],
+          "kunkun": [
+            0.0,
+            1.0,
+            1.0,
+            2.0,
+            3.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            6.0,
+            7.0,
+            8.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0,
+            11.0,
+            12.0,
+            13.0,
+            13.0,
+            14.0,
+            15.0,
+            16.0,
+            16.0,
+            17.0,
+            18.0,
+            18.0,
+            19.0,
+            20.0,
+            20.0
+          ],
+          "cannon": [
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            4.0,
+            4.0,
+            4.0,
+            4.0,
+            5.0,
+            5.0,
+            5.0,
+            5.0,
+            6.0
+          ],
+          "passed": true
+        },
+        {
+          "id": "chili.no_burst_when_chilled",
+          "plain": {
+            "fires": 259,
+            "exploded_flag": true
+          },
+          "slowed": {
+            "fires": 0,
+            "exploded_flag": true
+          },
+          "passed": true
+        },
+        {
+          "id": "guard.base_defense",
+          "plain": {
+            "base": 12.0,
+            "raised": 60.0
+          },
+          "guard": {
+            "base": 24.0,
+            "raised": 600.0
+          },
+          "passed": true
+        },
+        {
+          "id": "nuclear.charmed_doom_zombie",
+          "plain": {
+            "charmed": true,
+            "giant_hp": 4500.0,
+            "giant_ash": false
+          },
+          "nuclear": {
+            "charmed": true,
+            "giant_hp": 4500.0,
+            "giant_ash": true
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "plants",
+      "evidence": [
+        {
+          "id": "dense.laser_and_cob_alone",
+          "pea_pea": [
+            "",
+            ""
+          ],
+          "laser_on_pea": "激光豆与玉米加农炮不受密植影响，所在格不能有其他主体植物",
+          "laser_alone": "",
+          "pea_on_laser": "激光豆与玉米加农炮不受密植影响，所在格不能再种主体植物",
+          "cob_on_pea": "激光豆与玉米加农炮不受密植影响，所在格不能有其他主体植物",
+          "passed": true
+        },
+        {
+          "id": "testmode.clear_restores_terrain",
+          "pot": "卡牌不在本方卡槽",
+          "basin": "卡牌不在本方卡槽",
+          "before": [
+            "空",
+            "土",
+            "空",
+            "土"
+          ],
+          "clear": "",
+          "after": [
+            "空",
+            "土",
+            "空",
+            "土"
+          ],
+          "plants_left": 0,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "probe",
+      "evidence": [
+        {
+          "id": "explore.servant_hp",
+          "deploy_error": "",
+          "hp": 8.0,
+          "max_hp": 8.0,
+          "defense": 0.0,
+          "trace": [
+            0.0
+          ],
+          "passed": true
+        },
+        {
+          "id": "explore.charmed_heads",
+          "__pvz_sb_fumeshroom_zombie_thunder_head": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:@load/图片/雷蘑菇.png/41x41\",\"op\":\"asset\",\"size\":[41,41]},\"size\":[41,41]}",
+          "__pvz_sb_fumeshroom_zombie_thunder_head-冰冻": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:__pvz_sb_fumeshroom_zombie_thunder_head-冰冻\",\"op\":\"asset\",\"size\":[41,41]},\"size\":[41,41]}",
+          "__pvz_sb_fumeshroom_zombie_thunder_head-受伤": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:__pvz_sb_fumeshroom_zombie_thunder_head-受伤\",\"op\":\"asset\",\"size\":[41,41]},\"size\":[41,41]}",
+          "__pvz_sb_fumeshroom_zombie_thunder_head-灰烬": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:__pvz_sb_fumeshroom_zombie_thunder_head-灰烬\",\"op\":\"asset\",\"size\":[41,41]},\"size\":[41,41]}",
+          "__pvz_sb_fumeshroom_zombie_thunder_head-魅惑": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:__pvz_sb_fumeshroom_zombie_thunder_head-魅惑\",\"op\":\"asset\",\"size\":[41,41]},\"size\":[41,41]}",
+          "大喷菇僵尸-植头": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:@load/图片/大喷菇僵尸-植物头.png/41x41\",\"op\":\"asset\",\"size\":[41,41]},\"size\":[41,41]}",
+          "大喷菇僵尸-植头-冰冻": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:大喷菇僵尸-植头-冰冻\",\"op\":\"asset\",\"size\":[41,41]},\"size\":[41,41]}",
+          "大喷菇僵尸-植头-受伤": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:大喷菇僵尸-植头-受伤\",\"op\":\"asset\",\"size\":[41,41]},\"size\":[41,41]}",
+          "大喷菇僵尸-植头-灰烬": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:大喷菇僵尸-植头-灰烬\",\"op\":\"asset\",\"size\":[41,41]},\"size\":[41,41]}",
+          "大喷菇僵尸-植头-魅惑": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:大喷菇僵尸-植头-魅惑\",\"op\":\"asset\",\"size\":[41,41]},\"size\":[41,41]}",
+          "豌豆僵尸-植头": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:@load/图片/豌豆僵尸-植物头.png/37x37\",\"op\":\"asset\",\"size\":[37,37]},\"size\":[37,37]}",
+          "豌豆僵尸-植头-冰冻": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:豌豆僵尸-植头-冰冻\",\"op\":\"asset\",\"size\":[37,37]},\"size\":[37,37]}",
+          "豌豆僵尸-植头-受伤": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:豌豆僵尸-植头-受伤\",\"op\":\"asset\",\"size\":[37,37]},\"size\":[37,37]}",
+          "豌豆僵尸-植头-灰烬": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:豌豆僵尸-植头-灰烬\",\"op\":\"asset\",\"size\":[37,37]},\"size\":[37,37]}",
+          "豌豆僵尸-植头-魅惑": "{\"alpha\":255,\"colorkey\":null,\"image\":{\"key\":\"world:豌豆僵尸-植头-魅惑\",\"op\":\"asset\",\"size\":[37,37]},\"size\":[37,37]}",
+          "passed": true
+        },
+        {
+          "id": "explore.pea_damage",
+          "普通僵尸_fired": [
+            16,
+            516,
+            1016,
+            1516,
+            2016
+          ],
+          "普通僵尸_entities": [
+            "普通僵尸-首"
+          ],
+          "普通僵尸": {
+            "start_hp": 50.0,
+            "per_hit": [
+              [
+                10.0,
+                283
+              ],
+              [
+                10.0,
+                833
+              ],
+              [
+                10.0,
+                1383
+              ],
+              [
+                10.0,
+                1941
+              ],
+              [
+                14.0,
+                2491
+              ],
+              [
+                9.0,
+                2500
+              ]
+            ]
+          },
+          "克苏鲁之仆_fired": [
+            16,
+            1016,
+            1516
+          ],
+          "克苏鲁之仆_entities": [],
+          "克苏鲁之仆": {
+            "start_hp": 1000.0,
+            "per_hit": [
+              [
+                10.0,
+                100
+              ],
+              [
+                10.0,
+                516
+              ],
+              [
+                10.0,
+                1083
+              ]
+            ]
+          },
+          "passed": true
+        },
+        {
+          "id": "explore.pea_damage_deployed",
+          "plant_deploy": "",
+          "grave_deploy": "",
+          "grave": "u2",
+          "zombie_deploy": "",
+          "zombie_hp": 50.0,
+          "zombie_kind": "普通僵尸",
+          "per_hit": [
+            [
+              10.0,
+              17650
+            ]
+          ],
+          "mode": "正常模式",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "pvp77",
+      "evidence": [
+        {
+          "id": "catalog.current_cards",
+          "cards": 238,
+          "fields": 5,
+          "brief": "费用100 · 冷却36秒 · 生命6\n附近横纵各3格内友方植物的生产（含首次）、主攻击、单轮连发、地刺攻击、萝卜伞保护、吸铁服务、路灯治疗、加农炮装填、地雷出土、消化与吞墓间隔每层乘0.8，最多4层（间隔40.96%）。与原有动态攻速叠加；沉睡暂停，仍须有合法目标才触发。",
+          "marigold_spawn_hp": 6.0,
+          "passed": true
+        },
+        {
+          "id": "captain.hurt_window",
+          "idle": 17.0,
+          "resumed": 59.0,
+          "passed": true
+        },
+        {
+          "id": "spring.air_and_bungee",
+          "海盗鹦鹉": {
+            "vx": 9.588022453227307,
+            "leaving": false
+          },
+          "乌鸦": {
+            "vx": 8.754446449681028,
+            "leaving": false
+          },
+          "气球僵尸": {
+            "vx": 8.754446449681028,
+            "leaving": false
+          },
+          "飞贼僵尸": {
+            "vx": 0.0,
+            "leaving": true
+          },
+          "克苏鲁之仆": {
+            "vx": 8.411672723295805,
+            "leaving": false
+          },
+          "普通僵尸": {
+            "vx": 0.96,
+            "leaving": false
+          },
+          "passed": true
+        },
+        {
+          "id": "lottery",
+          "cooldown": 2,
+          "draw": "zombie:普通僵尸",
+          "plants": 1,
+          "passed": true
+        },
+        {
+          "id": "izombie",
+          "graves": 3,
+          "brains": 3,
+          "coins": 30.0,
+          "passed": true
+        },
+        {
+          "id": "campaign.complete_saves",
+          "lottery": {
+            "stages": [
+              "山地",
+              "沙城",
+              "家院",
+              "要塞",
+              "大桥",
+              "铁道",
+              "遗迹",
+              "绿洲",
+              "小镇",
+              "古堡",
+              "木船",
+              "大楼",
+              "山地",
+              "沙城",
+              "家院",
+              "要塞",
+              "大桥",
+              "铁道",
+              "遗迹",
+              "绿洲",
+              "小镇",
+              "古堡",
+              "木船",
+              "大楼"
+            ],
+            "coins": 5160
+          },
+          "izombie": {
+            "stages": [
+              "家院",
+              "家院",
+              "古堡",
+              "古堡",
+              "家院",
+              "家院",
+              "遗迹",
+              "遗迹",
+              "大桥",
+              "大桥",
+              "古堡",
+              "古堡",
+              "沙城",
+              "沙城",
+              "古堡",
+              "古堡",
+              "木船",
+              "木船",
+              "家院"
+            ],
+            "coins": 570
+          },
+          "passed": true
+        },
+        {
+          "id": "izombie.boss_bites",
+          "coins": 330.0,
+          "reference_marigold": 90,
+          "pvp_marigold": 90,
+          "golden": 3,
+          "passed": true
+        },
+        {
+          "id": "coop.expanded_secrets",
+          "whitelist": 25,
+          "eligible_draws": 23,
+          "converted_hp": 50.0,
+          "maritime_hp": 240.0,
+          "passed": true
+        },
+        {
+          "id": "solo.producer_and_sleep",
+          "lottery": "full producer damage",
+          "izombie": "full producer damage",
+          "passed": true
+        },
+        {
+          "id": "wind.terrain_intervals",
+          "damage": 20.0,
+          "passed": true
+        },
+        {
+          "id": "wind.stairs_and_shores",
+          "paths": [
+            {
+              "source": "plant",
+              "dir": -1,
+              "water": false,
+              "cells": 13.191000000000846,
+              "hops": 3,
+              "trajectory": [
+                [
+                  0.13600000000000043,
+                  19.7672
+                ],
+                [
+                  5.606200000000247,
+                  18.787600000000015
+                ],
+                [
+                  10.031000000000631,
+                  17.73280000000003
+                ]
+              ]
+            },
+            {
+              "source": "plant",
+              "dir": -1,
+              "water": true,
+              "cells": 13.002400000001103,
+              "hops": 3,
+              "trajectory": [
+                [
+                  2.026200000000003,
+                  19.44671
+                ],
+                [
+                  6.128800000000297,
+                  17.957110000000007
+                ],
+                [
+                  11.821000000000973,
+                  16.87911000000002
+                ]
+              ]
+            },
+            {
+              "source": "plant",
+              "dir": 1,
+              "water": false,
+              "cells": 13.191000000000164,
+              "hops": 3,
+              "trajectory": [
+                [
+                  0.13599999999996726,
+                  19.7672
+                ],
+                [
+                  5.6062000000005225,
+                  18.787600000000015
+                ],
+                [
+                  10.031000000000594,
+                  17.73280000000003
+                ]
+              ]
+            },
+            {
+              "source": "plant",
+              "dir": 1,
+              "water": true,
+              "cells": 13.002400000000156,
+              "hops": 3,
+              "trajectory": [
+                [
+                  2.0262000000001024,
+                  19.44671
+                ],
+                [
+                  6.1288000000004486,
+                  17.957110000000007
+                ],
+                [
+                  11.82100000000033,
+                  16.87911000000002
+                ]
+              ]
+            },
+            {
+              "source": "zombie",
+              "dir": -1,
+              "water": false,
+              "cells": 13.08480000000075,
+              "hops": 3,
+              "trajectory": [
+                [
+                  0.13600000000000043,
+                  19.7672
+                ],
+                [
+                  5.606200000000247,
+                  18.787600000000015
+                ],
+                [
+                  10.010400000000535,
+                  17.79120000000003
+                ]
+              ]
+            },
+            {
+              "source": "zombie",
+              "dir": -1,
+              "water": true,
+              "cells": 13.270000000001062,
+              "hops": 3,
+              "trajectory": [
+                [
+                  2.026200000000003,
+                  19.44671
+                ],
+                [
+                  6.128800000000297,
+                  17.957110000000007
+                ],
+                [
+                  11.80220000000088,
+                  16.87911000000002
+                ]
+              ]
+            },
+            {
+              "source": "zombie",
+              "dir": 1,
+              "water": false,
+              "cells": 13.084999999999875,
+              "hops": 4,
+              "trajectory": [
+                [
+                  0.13599999999996726,
+                  19.7672
+                ],
+                [
+                  2.218199999999958,
+                  18.787600000000015
+                ],
+                [
+                  5.217399999999922,
+                  19.004800000000035
+                ],
+                [
+                  10.014599999999916,
+                  17.530800000000045
+                ]
+              ]
+            },
+            {
+              "source": "zombie",
+              "dir": 1,
+              "water": true,
+              "cells": 13.191799999999839,
+              "hops": 3,
+              "trajectory": [
+                [
+                  2.0613999999999635,
+                  19.3451
+                ],
+                [
+                  3.918999999999888,
+                  19.00870000000001
+                ],
+                [
+                  9.575399999999888,
+                  17.966700000000024
+                ]
+              ]
+            }
+          ],
+          "passed": true
+        },
+        {
+          "id": "mark.and_deathmatch",
+          "hp_after_two_seconds": 2,
+          "passed": true
+        },
+        {
+          "id": "lottery.daily_wave_counts",
+          "days": [
+            {
+              "day": 1,
+              "map": "山地",
+              "ratio": 0.2987012987012987,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 10,
+                    "ordinary": 8,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 4,
+                    "ordinary": 2,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 11,
+                    "ordinary": 8,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 4,
+                    "ordinary": 2,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 3,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 15,
+                    "ordinary": 13,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 3,
+                    "ordinary": 1,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 71,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 15,
+                    "ordinary": 13,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 4,
+                    "ordinary": 2,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 19,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 14,
+                    "ordinary": 12,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 4,
+                    "ordinary": 2,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 110,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 12,
+                    "ordinary": 10,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 4,
+                    "ordinary": 2,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                }
+              ]
+            },
+            {
+              "day": 2,
+              "map": "沙城",
+              "ratio": 0.25,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 23,
+                    "ordinary": 21,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 7,
+                    "ordinary": 5,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 25,
+                    "ordinary": 22,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 6,
+                    "ordinary": 3,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 3,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 23,
+                    "ordinary": 19,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 6,
+                    "ordinary": 4,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 71,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 24,
+                    "ordinary": 22,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 5,
+                    "ordinary": 3,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 19,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 28,
+                    "ordinary": 26,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 7,
+                    "ordinary": 5,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 110,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 25,
+                    "ordinary": 22,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 6,
+                    "ordinary": 3,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                }
+              ]
+            },
+            {
+              "day": 3,
+              "map": "家院",
+              "ratio": 0.2538860103626943,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 32,
+                    "ordinary": 30,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 8,
+                    "ordinary": 5,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 33,
+                    "ordinary": 30,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 8,
+                    "ordinary": 6,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 3,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 30,
+                    "ordinary": 28,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 7,
+                    "ordinary": 5,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 71,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 29,
+                    "ordinary": 25,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 9,
+                    "ordinary": 7,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 19,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 36,
+                    "ordinary": 34,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 9,
+                    "ordinary": 7,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 110,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 33,
+                    "ordinary": 31,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 8,
+                    "ordinary": 6,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                }
+              ]
+            },
+            {
+              "day": 4,
+              "map": "要塞",
+              "ratio": 0.2565597667638484,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 61,
+                    "ordinary": 59,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 16,
+                    "ordinary": 14,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 60,
+                    "ordinary": 58,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 14,
+                    "ordinary": 11,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 3,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 55,
+                    "ordinary": 51,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 14,
+                    "ordinary": 12,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 71,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 53,
+                    "ordinary": 50,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 15,
+                    "ordinary": 13,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 19,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 58,
+                    "ordinary": 56,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 15,
+                    "ordinary": 13,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 110,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 56,
+                    "ordinary": 52,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 14,
+                    "ordinary": 11,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                }
+              ]
+            },
+            {
+              "day": 5,
+              "map": "大桥",
+              "ratio": 0.24945770065075923,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 88,
+                    "ordinary": 86,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 20,
+                    "ordinary": 18,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 75,
+                    "ordinary": 72,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 20,
+                    "ordinary": 18,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 3,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 73,
+                    "ordinary": 69,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 19,
+                    "ordinary": 15,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 71,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 76,
+                    "ordinary": 73,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 17,
+                    "ordinary": 15,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 19,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 67,
+                    "ordinary": 62,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 19,
+                    "ordinary": 17,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 110,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 82,
+                    "ordinary": 79,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 20,
+                    "ordinary": 18,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                }
+              ]
+            },
+            {
+              "day": 6,
+              "map": "铁道",
+              "ratio": 0.24573863636363635,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 123,
+                    "ordinary": 121,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 31,
+                    "ordinary": 28,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 122,
+                    "ordinary": 120,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 29,
+                    "ordinary": 27,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 3,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 117,
+                    "ordinary": 114,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 29,
+                    "ordinary": 27,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 71,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 118,
+                    "ordinary": 115,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 28,
+                    "ordinary": 25,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 19,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 113,
+                    "ordinary": 110,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 27,
+                    "ordinary": 24,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 110,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 111,
+                    "ordinary": 105,
+                    "flag": 1,
+                    "ladder": 5,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 29,
+                    "ordinary": 26,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                }
+              ]
+            },
+            {
+              "day": 7,
+              "map": "遗迹",
+              "ratio": 0.2591240875912409,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 139,
+                    "ordinary": 136,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 37,
+                    "ordinary": 34,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 137,
+                    "ordinary": 133,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 35,
+                    "ordinary": 33,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 3,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 133,
+                    "ordinary": 128,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 37,
+                    "ordinary": 35,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 71,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 136,
+                    "ordinary": 130,
+                    "flag": 1,
+                    "ladder": 5,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 35,
+                    "ordinary": 33,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 19,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 137,
+                    "ordinary": 132,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 34,
+                    "ordinary": 31,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 110,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 140,
+                    "ordinary": 137,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 35,
+                    "ordinary": 33,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                }
+              ]
+            },
+            {
+              "day": 8,
+              "map": "绿洲",
+              "ratio": 0.2458609271523179,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 186,
+                    "ordinary": 183,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 1
+                  },
+                  "lottery": {
+                    "total": 48,
+                    "ordinary": 46,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 1
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 211,
+                    "ordinary": 209,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 1
+                  },
+                  "lottery": {
+                    "total": 49,
+                    "ordinary": 47,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 1
+                  }
+                },
+                {
+                  "seed": 3,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 205,
+                    "ordinary": 202,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 1
+                  },
+                  "lottery": {
+                    "total": 53,
+                    "ordinary": 50,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 1
+                  }
+                },
+                {
+                  "seed": 71,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 203,
+                    "ordinary": 198,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 1
+                  },
+                  "lottery": {
+                    "total": 48,
+                    "ordinary": 46,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 1
+                  }
+                },
+                {
+                  "seed": 19,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 201,
+                    "ordinary": 197,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 1
+                  },
+                  "lottery": {
+                    "total": 49,
+                    "ordinary": 47,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 1
+                  }
+                },
+                {
+                  "seed": 110,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 202,
+                    "ordinary": 197,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 1
+                  },
+                  "lottery": {
+                    "total": 50,
+                    "ordinary": 47,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 1
+                  }
+                }
+              ]
+            },
+            {
+              "day": 9,
+              "map": "小镇",
+              "ratio": 0.24546172059984214,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 209,
+                    "ordinary": 203,
+                    "flag": 1,
+                    "ladder": 5,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 53,
+                    "ordinary": 50,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 214,
+                    "ordinary": 211,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 52,
+                    "ordinary": 50,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 3,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 202,
+                    "ordinary": 198,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 50,
+                    "ordinary": 46,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 71,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 209,
+                    "ordinary": 205,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 50,
+                    "ordinary": 48,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 19,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 207,
+                    "ordinary": 200,
+                    "flag": 1,
+                    "ladder": 6,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 52,
+                    "ordinary": 50,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 110,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 226,
+                    "ordinary": 223,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 54,
+                    "ordinary": 52,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                }
+              ]
+            },
+            {
+              "day": 10,
+              "map": "古堡",
+              "ratio": 0.2508064516129032,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 198,
+                    "ordinary": 194,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 50,
+                    "ordinary": 48,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 219,
+                    "ordinary": 215,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 53,
+                    "ordinary": 51,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 3,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 196,
+                    "ordinary": 191,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 53,
+                    "ordinary": 50,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 71,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 211,
+                    "ordinary": 208,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 52,
+                    "ordinary": 50,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 19,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 204,
+                    "ordinary": 202,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 50,
+                    "ordinary": 48,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 110,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 212,
+                    "ordinary": 208,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 53,
+                    "ordinary": 51,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                }
+              ]
+            },
+            {
+              "day": 11,
+              "map": "木船",
+              "ratio": 0.2515105740181269,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 213,
+                    "ordinary": 209,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 53,
+                    "ordinary": 48,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 229,
+                    "ordinary": 224,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 57,
+                    "ordinary": 55,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 3,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 218,
+                    "ordinary": 215,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 57,
+                    "ordinary": 55,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 71,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 229,
+                    "ordinary": 225,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 56,
+                    "ordinary": 54,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 19,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 210,
+                    "ordinary": 206,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 58,
+                    "ordinary": 56,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 110,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 225,
+                    "ordinary": 219,
+                    "flag": 1,
+                    "ladder": 5,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 52,
+                    "ordinary": 50,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                }
+              ]
+            },
+            {
+              "day": 12,
+              "map": "大楼",
+              "ratio": 0.25115562403698,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 224,
+                    "ordinary": 220,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 55,
+                    "ordinary": 52,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 217,
+                    "ordinary": 212,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 55,
+                    "ordinary": 50,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 3,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 203,
+                    "ordinary": 196,
+                    "flag": 1,
+                    "ladder": 6,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 54,
+                    "ordinary": 51,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 71,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 218,
+                    "ordinary": 215,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 53,
+                    "ordinary": 51,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 19,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 204,
+                    "ordinary": 198,
+                    "flag": 1,
+                    "ladder": 5,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 54,
+                    "ordinary": 52,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 110,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 232,
+                    "ordinary": 227,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 55,
+                    "ordinary": 53,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                }
+              ]
+            },
+            {
+              "day": 13,
+              "map": "山地",
+              "ratio": 0.25379939209726443,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 212,
+                    "ordinary": 207,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 53,
+                    "ordinary": 51,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 236,
+                    "ordinary": 229,
+                    "flag": 1,
+                    "ladder": 6,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 58,
+                    "ordinary": 56,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 3,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 218,
+                    "ordinary": 215,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 54,
+                    "ordinary": 52,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 71,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 221,
+                    "ordinary": 214,
+                    "flag": 1,
+                    "ladder": 6,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 54,
+                    "ordinary": 52,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 19,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 213,
+                    "ordinary": 210,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 56,
+                    "ordinary": 54,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 110,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 216,
+                    "ordinary": 208,
+                    "flag": 1,
+                    "ladder": 7,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 59,
+                    "ordinary": 57,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                }
+              ]
+            },
+            {
+              "day": 14,
+              "map": "沙城",
+              "ratio": 0.24100719424460432,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 227,
+                    "ordinary": 221,
+                    "flag": 1,
+                    "ladder": 5,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 57,
+                    "ordinary": 53,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 228,
+                    "ordinary": 224,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 58,
+                    "ordinary": 56,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 3,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 232,
+                    "ordinary": 227,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 55,
+                    "ordinary": 51,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 71,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 240,
+                    "ordinary": 236,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 56,
+                    "ordinary": 54,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 19,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 239,
+                    "ordinary": 233,
+                    "flag": 1,
+                    "ladder": 5,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 55,
+                    "ordinary": 53,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 110,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 224,
+                    "ordinary": 218,
+                    "flag": 1,
+                    "ladder": 5,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 54,
+                    "ordinary": 52,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                }
+              ]
+            },
+            {
+              "day": 15,
+              "map": "家院",
+              "ratio": 0.2496382054992764,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 222,
+                    "ordinary": 219,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 61,
+                    "ordinary": 59,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 222,
+                    "ordinary": 217,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 54,
+                    "ordinary": 51,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 3,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 233,
+                    "ordinary": 229,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 53,
+                    "ordinary": 51,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 71,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 243,
+                    "ordinary": 231,
+                    "flag": 1,
+                    "ladder": 11,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 59,
+                    "ordinary": 55,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 19,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 253,
+                    "ordinary": 250,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 63,
+                    "ordinary": 59,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 110,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 209,
+                    "ordinary": 204,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 55,
+                    "ordinary": 52,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                }
+              ]
+            },
+            {
+              "day": 16,
+              "map": "要塞",
+              "ratio": 0.24280701754385964,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 230,
+                    "ordinary": 226,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 1
+                  },
+                  "lottery": {
+                    "total": 59,
+                    "ordinary": 54,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 1
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 231,
+                    "ordinary": 226,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 1
+                  },
+                  "lottery": {
+                    "total": 58,
+                    "ordinary": 56,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 1
+                  }
+                },
+                {
+                  "seed": 3,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 234,
+                    "ordinary": 228,
+                    "flag": 1,
+                    "ladder": 5,
+                    "boss": 1
+                  },
+                  "lottery": {
+                    "total": 58,
+                    "ordinary": 56,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 1
+                  }
+                },
+                {
+                  "seed": 71,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 256,
+                    "ordinary": 252,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 1
+                  },
+                  "lottery": {
+                    "total": 56,
+                    "ordinary": 53,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 1
+                  }
+                },
+                {
+                  "seed": 19,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 240,
+                    "ordinary": 233,
+                    "flag": 1,
+                    "ladder": 6,
+                    "boss": 1
+                  },
+                  "lottery": {
+                    "total": 58,
+                    "ordinary": 55,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 1
+                  }
+                },
+                {
+                  "seed": 110,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 234,
+                    "ordinary": 231,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 1
+                  },
+                  "lottery": {
+                    "total": 57,
+                    "ordinary": 53,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 1
+                  }
+                }
+              ]
+            },
+            {
+              "day": 17,
+              "map": "大桥",
+              "ratio": 0.2507082152974504,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 230,
+                    "ordinary": 226,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 55,
+                    "ordinary": 52,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 250,
+                    "ordinary": 246,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 60,
+                    "ordinary": 55,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 3,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 230,
+                    "ordinary": 225,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 57,
+                    "ordinary": 53,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 71,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 247,
+                    "ordinary": 243,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 62,
+                    "ordinary": 59,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 19,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 220,
+                    "ordinary": 215,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 61,
+                    "ordinary": 58,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 110,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 235,
+                    "ordinary": 230,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 59,
+                    "ordinary": 56,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                }
+              ]
+            },
+            {
+              "day": 18,
+              "map": "铁道",
+              "ratio": 0.25054624908958484,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 212,
+                    "ordinary": 206,
+                    "flag": 1,
+                    "ladder": 5,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 53,
+                    "ordinary": 51,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 236,
+                    "ordinary": 230,
+                    "flag": 1,
+                    "ladder": 5,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 58,
+                    "ordinary": 55,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 3,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 233,
+                    "ordinary": 228,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 61,
+                    "ordinary": 59,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 71,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 223,
+                    "ordinary": 216,
+                    "flag": 1,
+                    "ladder": 6,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 58,
+                    "ordinary": 54,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 19,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 230,
+                    "ordinary": 223,
+                    "flag": 1,
+                    "ladder": 6,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 59,
+                    "ordinary": 57,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 110,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 239,
+                    "ordinary": 230,
+                    "flag": 1,
+                    "ladder": 8,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 55,
+                    "ordinary": 51,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  }
+                }
+              ]
+            },
+            {
+              "day": 19,
+              "map": "遗迹",
+              "ratio": 0.25702247191011235,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 251,
+                    "ordinary": 247,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 63,
+                    "ordinary": 60,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 226,
+                    "ordinary": 220,
+                    "flag": 1,
+                    "ladder": 5,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 58,
+                    "ordinary": 54,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 3,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 247,
+                    "ordinary": 240,
+                    "flag": 1,
+                    "ladder": 6,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 60,
+                    "ordinary": 58,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 71,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 229,
+                    "ordinary": 223,
+                    "flag": 1,
+                    "ladder": 5,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 62,
+                    "ordinary": 58,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 19,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 242,
+                    "ordinary": 235,
+                    "flag": 1,
+                    "ladder": 6,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 60,
+                    "ordinary": 55,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 110,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 229,
+                    "ordinary": 223,
+                    "flag": 1,
+                    "ladder": 5,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 63,
+                    "ordinary": 60,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                }
+              ]
+            },
+            {
+              "day": 20,
+              "map": "绿洲",
+              "ratio": 0.25339673913043476,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 244,
+                    "ordinary": 239,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 60,
+                    "ordinary": 56,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 248,
+                    "ordinary": 240,
+                    "flag": 1,
+                    "ladder": 7,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 64,
+                    "ordinary": 61,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 3,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 238,
+                    "ordinary": 235,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 64,
+                    "ordinary": 62,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 71,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 242,
+                    "ordinary": 235,
+                    "flag": 1,
+                    "ladder": 6,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 64,
+                    "ordinary": 59,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 19,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 253,
+                    "ordinary": 246,
+                    "flag": 1,
+                    "ladder": 6,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 61,
+                    "ordinary": 58,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 110,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 247,
+                    "ordinary": 242,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 60,
+                    "ordinary": 57,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                }
+              ]
+            },
+            {
+              "day": 21,
+              "map": "小镇",
+              "ratio": 0.25488917861799215,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 247,
+                    "ordinary": 237,
+                    "flag": 1,
+                    "ladder": 9,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 67,
+                    "ordinary": 63,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 254,
+                    "ordinary": 248,
+                    "flag": 1,
+                    "ladder": 5,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 65,
+                    "ordinary": 63,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 3,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 269,
+                    "ordinary": 256,
+                    "flag": 1,
+                    "ladder": 12,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 68,
+                    "ordinary": 65,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 71,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 256,
+                    "ordinary": 247,
+                    "flag": 1,
+                    "ladder": 8,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 64,
+                    "ordinary": 60,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 19,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 260,
+                    "ordinary": 253,
+                    "flag": 1,
+                    "ladder": 6,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 62,
+                    "ordinary": 59,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 110,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 248,
+                    "ordinary": 239,
+                    "flag": 1,
+                    "ladder": 8,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 65,
+                    "ordinary": 63,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                }
+              ]
+            },
+            {
+              "day": 22,
+              "map": "古堡",
+              "ratio": 0.25477707006369427,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 274,
+                    "ordinary": 268,
+                    "flag": 1,
+                    "ladder": 5,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 66,
+                    "ordinary": 64,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 249,
+                    "ordinary": 238,
+                    "flag": 1,
+                    "ladder": 10,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 63,
+                    "ordinary": 59,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 3,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 262,
+                    "ordinary": 255,
+                    "flag": 1,
+                    "ladder": 6,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 67,
+                    "ordinary": 65,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 71,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 254,
+                    "ordinary": 249,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 68,
+                    "ordinary": 66,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 19,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 264,
+                    "ordinary": 258,
+                    "flag": 1,
+                    "ladder": 5,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 65,
+                    "ordinary": 61,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 110,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 267,
+                    "ordinary": 263,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 71,
+                    "ordinary": 68,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                }
+              ]
+            },
+            {
+              "day": 23,
+              "map": "木船",
+              "ratio": 0.24219210371243372,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 287,
+                    "ordinary": 277,
+                    "flag": 1,
+                    "ladder": 9,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 67,
+                    "ordinary": 63,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 280,
+                    "ordinary": 270,
+                    "flag": 1,
+                    "ladder": 9,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 66,
+                    "ordinary": 61,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 3,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 291,
+                    "ordinary": 280,
+                    "flag": 1,
+                    "ladder": 10,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 67,
+                    "ordinary": 64,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 71,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 276,
+                    "ordinary": 271,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 73,
+                    "ordinary": 71,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 19,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 269,
+                    "ordinary": 264,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 69,
+                    "ordinary": 64,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 110,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 294,
+                    "ordinary": 290,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 69,
+                    "ordinary": 66,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                }
+              ]
+            },
+            {
+              "day": 24,
+              "map": "大楼",
+              "ratio": 0.24719101123595505,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 271,
+                    "ordinary": 262,
+                    "flag": 1,
+                    "ladder": 8,
+                    "boss": 1
+                  },
+                  "lottery": {
+                    "total": 73,
+                    "ordinary": 69,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 1
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 274,
+                    "ordinary": 269,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 1
+                  },
+                  "lottery": {
+                    "total": 70,
+                    "ordinary": 66,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 1
+                  }
+                },
+                {
+                  "seed": 3,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 277,
+                    "ordinary": 267,
+                    "flag": 1,
+                    "ladder": 9,
+                    "boss": 1
+                  },
+                  "lottery": {
+                    "total": 69,
+                    "ordinary": 66,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 1
+                  }
+                },
+                {
+                  "seed": 71,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 276,
+                    "ordinary": 266,
+                    "flag": 1,
+                    "ladder": 9,
+                    "boss": 1
+                  },
+                  "lottery": {
+                    "total": 66,
+                    "ordinary": 61,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 1
+                  }
+                },
+                {
+                  "seed": 19,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 305,
+                    "ordinary": 298,
+                    "flag": 1,
+                    "ladder": 6,
+                    "boss": 1
+                  },
+                  "lottery": {
+                    "total": 70,
+                    "ordinary": 66,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 1
+                  }
+                },
+                {
+                  "seed": 110,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 288,
+                    "ordinary": 281,
+                    "flag": 1,
+                    "ladder": 6,
+                    "boss": 1
+                  },
+                  "lottery": {
+                    "total": 70,
+                    "ordinary": 66,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 1
+                  }
+                }
+              ]
+            }
+          ],
+          "coop": 26771,
+          "lottery": 6693,
+          "ratio": 0.2500093384632625,
+          "passed": true
+        },
+        {
+          "id": "ui.entries",
+          "coop_pool_detail": true,
+          "lottery": "battle",
+          "izombie": "battle",
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "failures": 0
+}

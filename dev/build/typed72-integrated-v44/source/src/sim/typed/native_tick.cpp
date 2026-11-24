@@ -45,6 +45,7 @@ void NativeTick::tracking() {
 }
 
 void NativeTick::append_heroes() {
+    if(world_.solo.izombie())return;
     auto& heroes=world_.heroes;
     if(!state_.scripted && !state_.team_mode) {
         heroes.proxy(Seat::zombie);

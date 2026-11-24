@@ -75,6 +75,7 @@ V C_CoopProgress::m_reset(const Args& A) {
     a_run_id = pvz::getattr(py::stdlib_call(SV("uuid.uuid4"), Args{}), SY("hex"));
     a_day = V(1.0);
     a_zombie_from = V(1.0);  // PvP76 r2 reset
+    a_expanded_from = V(1.0);
     a_campaigns = py_dict({});
     a_income = py_dict({});
     a_applied = py::set_it();
@@ -127,6 +128,7 @@ V C_CoopProgress::m_bind(const Args& A) {
             a_run_id = py::str(rd(L_value, SV("run_id")));
             a_day = py::max_it(V::list({V(1.0), py::int_(rd(L_value, SV("day")))}), py::Key(), V());
             a_zombie_from = py::max_it(V::list({V(1.0), py::int_(py::m_get(L_value, SV("zombie_secret_from"), V(1.0)))}), py::Key(), V());  // PvP76 r2 load
+    a_expanded_from = py::m_get(L_value, SV("zombie_secret_v77_from"), a_day);
             a_campaigns = [&]() -> V { V out_ = V::dict(); V L_s; { V it1_ = py::iter_list(V::tuple({SV("plant"), SV("plant2")})); for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) { L_s = it1_.idx(int64_t(i1_)); out_.at(L_s) = pm_pve::C_Campaign::m_from_dict(Args{rd(rd(L_value, SV("seats")), L_s)}); }}return out_; }();
             { auto it2_ = py::items_vec(a_campaigns);
             for (size_t i2_ = 0; i2_ < it2_.size(); ++i2_) {
@@ -147,6 +149,7 @@ V C_CoopProgress::m_bind(const Args& A) {
         pvz::setattr(rd(a_campaigns, SV("plant")), SY("deck"), py::list_it(pvz::getattr(L_initial, SY("deck"))));
         a_day = pvz::getattr(L_initial, SY("day"));
         a_zombie_from = V(1.0);  // PvP76 r2 migrate
+    a_expanded_from = a_day;
     }
     (void)(m_ensure(Args{V::none()}));
     (void)(m_save(Args{}));
@@ -162,6 +165,7 @@ V C_CoopProgress::m_save(const Args& A) {
     }
     L_value = py_dict({{SV("format"), SV("pvp67-coop-seats-1")}, {SV("run_id"), a_run_id}, {SV("day"), a_day}, {SV("seats"), [&]() -> V { V out_ = V::dict(); V L_c; V L_s; { auto it1_ = py::items_vec(a_campaigns); for (size_t i1_ = 0; i1_ < it1_.size(); ++i1_) { L_s = it1_[i1_].first; L_c = it1_[i1_].second; out_.at(L_s) = callm(L_c, SY("to_dict"), Args{}); }}return out_; }()}, {SV("income"), a_income}, {SV("applied"), py::slice([&]() -> V { V out_ = V::list(); V L_k; { V it2_ = py::iter_list(py::sorted_it(a_applied, py::keyfn(py::builtin(SV("repr"))), false)); for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) { L_k = it2_.idx(int64_t(i2_)); out_.append(py::list_it(L_k)); }}return out_; }(), V(-200.0), V::none())}});
     pvz::setitem(L_value, SV("zombie_secret_from"), a_zombie_from);  // PvP76 r2 save
+    pvz::setitem(L_value, SV("zombie_secret_v77_from"), a_expanded_from);
     L_text = py::stdlib_call(SV("json.dumps"), Args({L_value}, {{SY("ensure_ascii"), V(false)}, {SY("indent"), V(1.0)}}));
     if ((L_text == a__saved)) {
         return V::none();
@@ -186,7 +190,8 @@ V C_CoopProgress::m_sync(const Args& A) {
     L_pve = pvz::getattr(L_room, SY("pve"));
     pvz::setitem(L_pve, SV("coop_run_id"), a_run_id);
     pvz::setitem(L_pve, SV("run_day"), a_day);
-    pvz::setitem(L_pve, SV("coop_zombie_from"), a_zombie_from);pvz::setitem(L_pve, SV("coop_zombie_secrets"), pvz::pvp76r2::coop_zombie_secrets(a_run_id, a_zombie_from, a_day));  // PvP76 r2 sync
+    pvz::setitem(L_pve, SV("coop_zombie_from"), a_zombie_from);pvz::setitem(L_pve, SV("coop_zombie_secrets"), pvz::pvp76r2::coop_zombie_secrets(a_run_id, a_zombie_from, a_day, a_expanded_from));  // PvP76 r2 sync
+    pvz::setitem(L_pve, SV("coop_expanded_from"), a_expanded_from);
     pvz::setitem(L_pve, SV("guest_campaigns"), py_dict({}));
     pvz::setitem(L_pve, SV("guest_income"), py_dict({}));
     pvz::setitem(L_pve, SV("seat_slots"), py_dict({}));
@@ -403,6 +408,7 @@ V C_CoopProgress::m_finish(const Args& A) {
         if ((py::m_get(L_result, SV("winner")) != SV("plant"))) {
             (void)(callm(L_campaign, SY("lose"), Args({L_coins}, {{SY("diamond_coins"), py::m_get(L_result, SV("diamond_coins"), V(0.0))}})));
         }
+        callm(L_campaign,SY("stock_shop"),Args{V(true)});
         L_total = (pvz::getattr(L_campaign, SY("coins")) - L_before);
         pvz::setitem(a_income, L_seat, py_dict({{SV("day"), rd(L_result, SV("pve_day"))}, {SV("winner"), py::m_get(L_result, SV("winner"))}, {SV("coins"), (L_total - L_bonus)}, {SV("bonus"), L_bonus}, {SV("total"), L_total}, {SV("coin_half"), pvz::getattr(L_campaign, SY("coin_half"))}}));
     }}

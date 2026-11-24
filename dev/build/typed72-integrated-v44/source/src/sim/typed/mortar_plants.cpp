@@ -1,4 +1,5 @@
 #include "sim/typed/mortar_plants.h"
+#include "sim/typed/air_zombies.h"
 #include "sim/typed/projectile_rules.h"
 #include "core/pymath.h"
 #include <algorithm>
@@ -169,8 +170,10 @@ bool MortarPlants::spring(const PlantRef& plant) {
         const auto roster=world_.targets;
         const auto found=std::find(roster->begin(),roster->end(),*body);
         if(found==roster->end() || body->unit->body.hp<=0.)continue;
-        const auto& content=body->unit->source.content;
-        if(content.present() && !content.is_null() && (content.get()=="海盗鹦鹉" || content.get()=="乌鸦")) {
+        const auto& z=*body->unit;
+        if(retract_bungee(z.body.kind,body->unit->native,z.body.motion.get()))continue;
+        const auto& key=z.protection.card;
+        if((key.present()&&!key.is_null()&&air_zombie_card(key.get()))||air_zombie_name(z.source.content.or_missing(z.body.kind))||(z.terraria&&z.terraria->type==5)) {
             const double max_speed=world_.wind_environment.zombie_speed_max;
             const double limit=(max_speed?max_speed:10.)*50.;
             const double distance=std::hypot(hit.delta.x,hit.delta.y),length=distance?distance:1.;
@@ -178,6 +181,12 @@ bool MortarPlants::spring(const PlantRef& plant) {
             auto& motion=body->unit->body.motion.get();
             if(motion.vx*unit.x<limit*std::abs(unit.x))motion.vx=unit.x*limit;
             motion.vy=unit.y*limit;body->unit->body.blown.set(true);
+            if(z.terraria&&z.terraria->type==5){
+                // Its AI integrates at 60 Hz in sprite pixels. Keep its internal velocity in sync with the impact.
+                const double factor=250./(60.*(tile/16.));
+                z.terraria->vx=motion.vx*factor;z.terraria->vy=motion.vy*factor;
+                z.terraria->wind_vx=motion.vx;z.terraria->wind_vy=motion.vy;z.terraria->wind_ref=true;
+            }
         }else services_.spring_knockback(size_t(found-roster->begin()),direction*world_.runtime.plk*200.);
     }
     swipes.push_back({world_.heroes.tick,origin,axis});

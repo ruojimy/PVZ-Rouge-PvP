@@ -148,6 +148,7 @@ if(UI_SRC)
     COMMAND "${Python3_EXECUTABLE}" -I -B "${CMAKE_SOURCE_DIR}/tools/pvp75_ui_hooks.py" --check
     COMMAND "${Python3_EXECUTABLE}" -I -B "${CMAKE_SOURCE_DIR}/tools/pvp76_ui_hooks.py" --check
     COMMAND "${Python3_EXECUTABLE}" -I -B "${CMAKE_SOURCE_DIR}/tools/pvp76r2_hooks.py" --check
+    COMMAND "${Python3_EXECUTABLE}" -I -B "${CMAKE_SOURCE_DIR}/tools/pvp77_ui_hooks.py" --check
     COMMAND "${Python3_EXECUTABLE}" -I -B "${CMAKE_SOURCE_DIR}/tools/pvp76r3_hooks.py" --check
     WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}" VERBATIM)
   add_dependencies(pvzui pvp75_sources_check)

@@ -94,7 +94,10 @@ void destroy_original_block(TypedBattleState& world,PlantLifecycle& plants,Cell 
         map.native_at(cell.y,cell.x).block.set("空");
         if(!map.outside(cell.y-1,cell.x)&&map.native_at(cell.y-1,cell.x).plant.present())plants.clear({cell.y-1,cell.x});
     }
-    if(cell.y<map.water_surface&&name!="车底") {
+    if(world.solo.izombie()&&name=="坟墓"){
+        auto& grave=map.native_at(cell.y,cell.x);
+        grave.grave_art.erase();grave.growing.erase();grave.block.set(cell.y<map.water_surface?"空":"水");
+    }else if(cell.y<map.water_surface&&name!="车底") {
         if(!map.is_empty(name)&&name!="雪") {
             map.native_at(cell.y,cell.x).inner_block.set(name);
             rt.sound("方块"+std::to_string(rt.rng.randint(1,4)),{center.x,center.y,0.,0.});

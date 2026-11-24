@@ -413,7 +413,7 @@ V C_WorldView::m__tile(const Args& A) {
         }
     }
     L_grave = py::m_get(L_native, SV("坟墓"));
-    if ((L_grave).truthy()) {
+    if (L_kind==SV("坟墓") && (L_grave).truthy()) {
         (void)(callm(a_art, SY("blit"), Args{L_screen, (SV("坟墓") + py::str(L_grave)), pvz::getattr(L_rect, SY("topleft")), pvz::getattr(L_rect, SY("size"))}));
     }
     if ((py::m_get(L_cell, SV("water"))).truthy()) {

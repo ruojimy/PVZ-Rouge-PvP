@@ -14,7 +14,7 @@ bool pvp_shell(const CombatPlant& plant) {
 }
 bool untargetable_plant(const CombatPlant& plant) {
     // 幽灵辣椒 and (PvP75) 三叶草 are never selected or shot by the zombie side.
-    return equals(plant.source.content,"幽灵辣椒") || plant.kind=="三叶草" ||
+    return equals(plant.source.content,"幽灵辣椒") || (plant.kind=="三叶草"&&!plant.biteable_blover) ||
            (plant.kind=="模仿者" && (equals(plant.copy_card,"plant:幽灵辣椒") || equals(plant.copy_card,"plant:三叶草")));
 }
 bool september_targetable(const CombatPlant& plant) {

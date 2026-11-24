@@ -352,7 +352,7 @@ def _draw_desktop(r,view,state):
         from .teams import own_rally_seat
         r.world.flag(r.screen,190,144,17,own_rally_seat(game))
     # Context lives at the edge. The lawn and heroes retain the original scale.
-    if side in local:
+    if side in local and game.get('solo_mode')!='izombie':
         remaining=max(0,players[side].get('teleport_ready_at',0)-game.get('time',0))
         left=278 if 'zombie' in local else 100
         r.button('传送 %.1fs'%remaining if remaining else shortcut('传送','teleport'),(left,121,105,27),('teleport',),selected=state.get('teleport',False),size=14)

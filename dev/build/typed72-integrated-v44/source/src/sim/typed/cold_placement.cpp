@@ -117,7 +117,9 @@ ColdPlacementResult ColdPlacement::plant(Seat seat,const std::string& key,Point 
     ColdCard card;try{card=catalog_.resolve(key,secrets(seat),state_.bans,economy_.night);}catch(const std::invalid_argument& e){return std::string(e.what());}
     if(cooldown(seat,key)>world_.heroes.time)return "卡牌冷却中";
     std::optional<ColdCard> copied;
-    if(card.behavior=="copy"){
+    if(world_.solo.lottery()&&world_.solo.spent.contains(key))return "本关已经种过此卡";
+    if(card.behavior=="copy"&&world_.solo.lottery())copied_id.reset();
+    else if(card.behavior=="copy"){
         if(!copied_id)copied_id=state_.players[seat_index(seat)].last_copy_card;
         if(!copied_id||*copied_id==key||!deck_has(seat,*copied_id))return "请先种下一株可复制植物，或通过模仿目标按键选择复制目标（默认 V）";
         try{copied=catalog_.resolve(*copied_id,secrets(seat),state_.bans,economy_.night);}catch(const std::invalid_argument& e){return std::string(e.what());}
@@ -183,11 +185,32 @@ ColdPlacementResult ColdPlacement::zombie(Seat seat,const std::string& key,Point
         if(world_.native_objects.size()+count>700)return "战场单位达到上限";
         plan.position={mod(p.x,width()),p.y};return plan;
     }
+    if(world_.solo.izombie()&&key=="zombie:克苏鲁之仆")return "我是僵尸禁用克苏鲁之仆";
     if(card.behavior=="servant"){
         // PvP75 克苏鲁之仆: no grave; any point on the map (it flies).
         if(team!=Seat::zombie)return "只有僵尸方可召唤克苏鲁之仆";
         if(p.x<0.||p.x>=width()||p.y<0.||p.y>=height())return "放置坐标无效";
         plan.position={mod(p.x,width()),p.y};return plan;
+    }
+    if(world_.solo.izombie()&&team==Seat::zombie){
+        if(key=="zombie:克苏鲁之仆"||card.behavior=="grave")return "此模式不可部署此卡";
+        const double tile=world_.runtime.tile;
+        const Cell cell{int(std::floor(p.y/tile)),int64_t(std::floor(mod(p.x,width())/tile))};
+        if(cell.y<0||cell.y>=world_.terrain.rows())return "请选择存活的墓碑";
+        if(world_.terrain.native_at(cell.y,cell.x).block.or_missing("")!="坟墓"){
+            for(const auto& item:world_.native_objects.entries()){
+                auto grave=std::get_if<ZombieRef>(&item.object);
+                if(!grave||!(*grave)->protection.grave||(*grave)->body.hp<=0.||world_.heroes.owner(source_ref(*grave))!=Seat::zombie)continue;
+                const auto& pos=(*grave)->body.motion.get();
+                const bool tile_hit=int(std::floor(mod(pos.x,width())/tile))==cell.x&&int(std::round(pos.y/tile))-1==cell.y;
+                const bool sprite_hit=grave_id&&*grave_id==item.key&&std::abs(delta(pos.x,p.x,width()))<35.&&std::abs(pos.y-p.y-20.)<50.;
+                if(tile_hit||sprite_hit){
+                    plan.position={pos.x,pos.y};return plan;
+                }
+            }
+            return "请选择存活的墓碑";
+        }
+        plan.position={(cell.x+.5)*tile,(cell.y+1.)*tile};return plan;
     }
     if(team==Seat::zombie&&card.behavior!="grave"){
         const auto* grave=grave_id?find(*grave_id):nullptr;

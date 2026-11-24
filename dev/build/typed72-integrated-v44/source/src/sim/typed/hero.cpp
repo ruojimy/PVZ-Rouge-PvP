@@ -211,6 +211,7 @@ void HeroCombat::on_damage(Seat side, double amount, HeroHit kind, const std::sh
     events.push_back(HeroDamageEvent{HeroDamageEvent::Type::damage,side,amount,kind,s&&s->id.present()&&!s->id.is_null()?std::optional<std::string>(s->id.get()):std::nullopt});
 }
 double HeroCombat::damage(Seat side, double amount, HeroHit kind) {
+    if(commander&&team_of(side)==Seat::zombie)return 0.;
     if(!active || amount<=0 || owner()==team_of(side))return 0.;
     auto s=source();if(s&&flag(s->no_hero_attack))return 0.;
     auto& a=hero(side).frame;if(a.hp.get()<=0)return 0.;

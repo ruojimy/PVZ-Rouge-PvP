@@ -56,6 +56,7 @@ void RoomScheduler::publish_heroes(){
     }
 }
 void RoomScheduler::subsidy(){
+    if(world_.solo.active())return;
     const auto due=int64_t(py::floordiv(world_.heroes.time,8.));
     while(state_.ai_subsidy_paid<due){
         ++state_.ai_subsidy_paid;
@@ -117,6 +118,11 @@ void RoomScheduler::team_step(double elapsed){
         }
         publish_heroes();services_.sync_public(false);
     }
+    if(world_.solo.izombie()){
+        if(world_.solo.brains>=3)state_.result=RoomResult{RoomWinner::zombie,RoomResultReason::waves_cleared,state_.tick};
+        else if(world_.solo.board_ready&&world_.solo.bankrupt)state_.result=RoomResult{RoomWinner::plant,RoomResultReason::hero_death,state_.tick};
+        if(state_.result){state_.result->coins=resources_.coins;finish_result();}return;
+    }
     if(state_.director)services_.director_step();
     if(state_.result)return;
     std::array<bool,2> standing{};
@@ -137,7 +143,7 @@ void RoomScheduler::step(int64_t steps){
         services_.capture_deferred(state_.defer_capture);++state_.capture_frames;state_.capture_deferred+=state_.defer_capture;
         ++state_.tick;world_.heroes.time=state_.tick*rules_.dt();
         if(state_.director&&state_.director_cycle)services_.cycle_step();
-        if(!state_.deathmatch&&world_.heroes.time>=rules_.deathmatch_seconds)begin_deathmatch();
+        if(!world_.solo.active()&&!state_.deathmatch&&world_.heroes.time>=rules_.deathmatch_seconds)begin_deathmatch();
         for(size_t i=0;i<world_.heroes.players.size();++i)if(world_.heroes.players[i]&&state_.tick-state_.players[i].last_input_tick>int64_t(rules_.tick_rate)*2)clear_input(Seat(i));
         const int64_t phase=int64_t(state_.native_phase)+250,count=phase/rules_.tick_rate;
         state_.native_phase=int(phase%rules_.tick_rate);

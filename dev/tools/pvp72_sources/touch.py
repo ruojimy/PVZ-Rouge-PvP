@@ -266,7 +266,7 @@ class TouchControls:
                 if side == "plant" and "plant" in local:
                     actions.append((("shovel",), "铲子"))
                     deck = players.get(side, {}).get("deck", [])
-                    if any(key in CARDS and CARDS[key]["behavior"] == "copy" for key in deck):
+                    if battle.get("solo_mode") != "lottery" and any(key in CARDS and CARDS[key]["behavior"] == "copy" for key in deck):
                         # The label carries the current target: a bare "模仿"
                         # button told players nothing about what it did.
                         actions.append((("copy_target",), "模仿·" + self._copy_name(battle)))
@@ -279,7 +279,8 @@ class TouchControls:
                 remaining = max(0, players.get(side, {}).get("teleport_ready_at", 0)
                                 - battle.get("time", 0))
                 label = "传送·选目标" if state.get('teleport') else "传送 %.0fs" % remaining if remaining else "传送"
-                actions.append((("teleport",), label))
+                if battle.get("solo_mode") != "izombie":
+                    actions.append((("teleport",), label))
                 if len(players.get(side, {}).get("deck", [])) > 7:
                     actions.append((("battle_page",), "翻面"))
             buttons.extend(self._action_buttons(slots, actions))

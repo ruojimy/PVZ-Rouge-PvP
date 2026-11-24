@@ -13,23 +13,29 @@ EXPORTER=ROOM.with_name('cold73_export.exe')
 
 @lru_cache(None)
 def atlas():
+    if PROFILE.get('simulation_atlas'):
+        p=Path(PROFILE['simulation_atlas'])
+        assert sha(p)==PROFILE['simulation_atlas_sha256']
+        return p
     i=read(OLD_CORPUS/'index.json');p=OLD_CORPUS/i['atlas']
     assert sha(p)==i['atlas_sha256']
     return p
 
-def native(sc, directory, name, full=False, original=False):
+def native(sc, directory, name, full=False, original=False, timeout=90):
     check_game(sc)
     src=directory/(name+'.input.json');cold=directory/(name+'.json');draw=directory/(name+'.draw.json')
     write(src,sc)
     args=[(EXPORT/'cold73_export.exe') if original and not PROFILE else EXPORTER,src,cold]
     if full:args.append(directory/'atlas.bin')
     else:args.extend(['--draw-only',draw])
-    result=subprocess.run(args,cwd=DATA_ROOT,capture_output=True,timeout=90)
+    result=subprocess.run(args,cwd=DATA_ROOT,capture_output=True,timeout=timeout)
     if result.returncode:raise RuntimeError(result.stderr.decode('utf8','replace'))
     src.unlink()
     data=read(cold)
     assert data['seed']==sc['seed'] and all(data['battle']['rules'][k]==v for k,v in RULES.items())
     if PROFILE:assert data['battle']['rules']['build']==PROFILE['version']
+    if PROFILE.get('simulation_atlas'):
+        assert data['battle']['mode']=='duel'
     assert data['battle']['bans']==sc['bans']
     for s in SIDES:assert data['players'][s]['deck']==sc['decks'][s]
     return cold, (directory/'atlas.bin.draw.json') if full else draw

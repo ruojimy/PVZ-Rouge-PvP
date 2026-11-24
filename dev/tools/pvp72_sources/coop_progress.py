@@ -229,6 +229,7 @@ class CoopProgress:
                                  played_day=result['pve_day'], diamond_coins=result.get('diamond_coins', 0)) if result.get('winner') == 'plant' else 0
             if result.get('winner') != 'plant':
                 campaign.lose(coins, diamond_coins=result.get("diamond_coins", 0))
+            campaign.stock_shop(settled=True)
             total = campaign.coins - before
             self.income[seat] = dict(day=result['pve_day'], winner=result.get('winner'),
                                     coins=total-bonus, bonus=bonus, total=total, coin_half=campaign.coin_half)

@@ -285,7 +285,8 @@ V f_draw_scripted_tray(const Args& A) {
     L_team = py_or(py::m_get(L_game, SV("team")), [&]() -> V { return py_dict({}); });
     L_waves = py_or(py::m_get(L_team, SV("waves")), [&]() -> V { return py_dict({}); });
     (void)(callm(L_r, SY("icon"), Args{SV("脑子"), V::tuple({(L_x + V(9.0)), (L_y + V(9.0)), V(31.0), V(31.0)})}));
-    (void)(callm(L_r, SY("text"), Args{SV("僵尸来袭"), V::tuple({(L_x + V(50.0)), (L_y + V(8.0))}), pm_team_hud::TEXT, V(17.0), (L_w - V(60.0))}));
+    const V heading=py::m_get(L_game,SV("solo_mode"))==SV("izombie")?py::percent(SV("我是僵尸 · 第 %d 场"),py::m_get(L_game,SV("solo_stage"),V(1))):SV("僵尸来袭");
+    (void)(callm(L_r, SY("text"), Args{heading, V::tuple({(L_x + V(50.0)), (L_y + V(8.0))}), pm_team_hud::TEXT, V(17.0), (L_w - V(60.0))}));
     if ((L_waves).truthy()) {
         (void)(callm(L_r, SY("text"), Args{py::percent(SV("第 %d / %d 波 · 场上 %d"), V::tuple({py::m_get(L_waves, SV("wave"), V(0.0)), py::m_get(L_waves, SV("waves"), V(0.0)), py::m_get(L_waves, SV("remaining"), V(0.0))})), V::tuple({(L_x + V(50.0)), (L_y + V(34.0))}), pm_team_hud::GOLD, V(15.0), (L_w - V(160.0))}));
     }

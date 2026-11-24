@@ -280,6 +280,10 @@ V f_page_summary(const Args& A) {
 V f_stage_text(const Args& A) {
     V L_battle = A.get(0, SY("battle"), nullptr, "stage_text");
     V L_rules = A.get(1, SY("rules"), nullptr, "stage_text");
+    if(py::m_get(L_battle,SV("solo_mode"))==SV("izombie")){
+        const bool boss=py::m_get(L_battle,SV("solo_stage"))==V(19);
+        return V(std::string(boss?"黄金脑子 ":"脑子 ")+py_str(py::m_get(L_battle,SV("brains_destroyed"),V(0)))+"/3");
+    }
     V L_now;
     V L_threshold;
     V L_wave_line;
@@ -316,6 +320,9 @@ V f_hero_status(const Args& A) {
     }
     if ((py::m_get(L_hero, SV("marked_until"), V(0.0)) > L_now)) {
         (void)(py::m_append(L_labels, py::percent(SV("已标记 %.1fs"), (rd(L_hero, SV("marked_until")) - L_now))));
+    }
+    if (py::m_get(L_hero, SV("passive_mark")).truthy()) {
+        (void)py::m_append(L_labels, py::percent(SV("%s标记"), rd(L_hero, SV("passive_mark"))));
     }
     if ((py::m_get(L_hero, SV("collect_locked_until"), V(0.0)) > L_now)) {
         (void)(py::m_append(L_labels, py::percent(SV("鼠标拾阳光 %.1fs"), (rd(L_hero, SV("collect_locked_until")) - L_now))));
@@ -402,6 +409,8 @@ V C_FeedbackTracker::m_update(const Args& A) {
     a_tick = py::m_get(L_battle, SV("tick"), V(0.0));
     L_text = ((L_now < a_until) ? V(a_notice) : V(SV("")));
     if ((L_side == SV("zombie"))) {
+        if(py::m_get(L_battle, SV("solo_mode"))==SV("izombie"))
+            return py::percent(SV("可用墓碑 %d · 选卡后点墓碑出兵"),py::m_get(L_battle,SV("map_grave_count"),V(0)));
         L_summary = py::m_get(L_battle, SV("_local_hud"));
         if (!py_is(L_summary, V::none())) {
             L_count = rd(L_summary, SV("graves"));

@@ -139,7 +139,11 @@ void ZombieActions::vehicle(const ZombieMotionFrame& f){
         p.vx=b.facing*(named(u->source.content,"小鬼炮")?n.move_speed.get():w.plk*(sled?40.:20.)*factor);
         ++n.wheel.get();if(n.crash.get()>0.)--n.crash.get();
     }
-    auto& hero=*g.position.get();bool crash=false;
+    // The cart AI temporarily points globals.position at a commander or rally flag.
+    // Resolve contact against the same plant seat that receives the collision damage.
+    const bool enemy_cart=b.kind=="投篮车僵尸" && !u->source.charmed.present();
+    auto& hero=*(enemy_cart?world_.heroes.hero(Seat::plant).frame.position:g.position).get();
+    bool crash=false;
     if(std::abs(hero.x-p.x-b.facing*w.tile/2.)<=w.tile*1.5 && std::abs(hero.y-p.y)<=w.tile*.5 && n.crash.get()==0.){
         crash=true;w.screen_shake.set({70.,0.,0.});
         hero.vx+=(p.x>hero.x?-400.:400.)*w.plk;hero.vy-=400.*w.plk;

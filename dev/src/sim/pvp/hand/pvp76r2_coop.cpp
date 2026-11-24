@@ -31,6 +31,7 @@ const std::vector<Entry>& table(){
         {"zsecret:黏糊糊",{"zombie:史莱姆僵尸"}},
         {"zsecret:萝卜伞",{"zombie:萝卜伞僵尸"}},
         {"zsecret:守卫",{"zombie:盾卫僵尸"}},
+        {"zsecret:植物僵尸",{}},{"zsecret:海陆空",{}},{"zsecret:远离诱惑",{}},{"zsecret:遗骸",{}},
     };
     return t;
 }
@@ -56,11 +57,15 @@ const std::vector<std::string>& coop_secret_keys(){
     return keys;
 }
 bool coop_secret_allowed(const std::string& key){return find(key)!=nullptr;}
+bool precursor_in_roster(const std::string& key,const std::vector<std::string>& roster){
+    const auto* entry=find(key);if(!entry)return false;
+    return entry->precursors.empty()||std::any_of(entry->precursors.begin(),entry->precursors.end(),[&](const char* card){return std::find(roster.begin(),roster.end(),card)!=roster.end();});
+}
 bool precursor_in_pool(const std::string& key,int64_t day){
     const auto* e=find(key);if(!e||!card_exists(key))return false;const auto today=pool(day);
-    return std::any_of(e->precursors.begin(),e->precursors.end(),[&](const char* p){return today.count(p)>0;});
+    return e->precursors.empty() || std::any_of(e->precursors.begin(),e->precursors.end(),[&](const char* p){return today.count(p)>0;});
 }
-V coop_zombie_secrets(const V& run_id,const V& from_day,const V& day){
+V coop_zombie_secrets(const V& run_id,const V& from_day,const V& day,const V& expanded_from){
     V out=V::list();if(run_id.is_none()||from_day.is_none())return out;  // no counting start: none yet
     const std::string run=py_str(run_id);const int64_t first=std::max<int64_t>(1,whole(from_day,1)),now=whole(day,1);
     std::vector<std::string> owned;
@@ -68,7 +73,8 @@ V coop_zombie_secrets(const V& run_id,const V& from_day,const V& day){
         const auto next=pool(cleared+1);std::vector<std::string> eligible;
         for(const auto& e:table()){
             if(std::find(owned.begin(),owned.end(),e.key)!=owned.end()||!card_exists(e.key))continue;
-            if(std::any_of(e.precursors.begin(),e.precursors.end(),[&](const char* p){return next.count(p)>0;}))eligible.push_back(e.key);
+            if(e.precursors.empty() && cleared<whole(expanded_from,1))continue;
+            if(e.precursors.empty() || std::any_of(e.precursors.begin(),e.precursors.end(),[&](const char* p){return next.count(p)>0;}))eligible.push_back(e.key);
         }
         if(eligible.empty())continue;
         owned.push_back(eligible[size_t(fnv(run+":"+std::to_string(cleared))%eligible.size())]);
@@ -89,6 +95,6 @@ V coop_secret_line(const V& pve){
 }
 V coop_battle_secrets(const V& pve){
     if(!pve.is_dict())return V::list();
-    return coop_zombie_secrets(py::m_get(pve,V("coop_run_id"),V::none()),py::m_get(pve,V("coop_zombie_from"),V::none()),py::m_get(pve,V("day"),V::none()));
+    return coop_zombie_secrets(py::m_get(pve,V("coop_run_id"),V::none()),py::m_get(pve,V("coop_zombie_from"),V::none()),py::m_get(pve,V("day"),V::none()),py::m_get(pve,V("coop_expanded_from"),V(1.)));
 }
 }

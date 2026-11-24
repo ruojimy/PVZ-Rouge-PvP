@@ -131,6 +131,7 @@ enum class HeroConversion { charm,death,expiry,emerge,kind,size,armor,armor_hp,h
 
 class HeroCombat {
 public:
+    bool commander=false;
     explicit HeroCombat(CombatRuntime& presentation) : events(presentation.events),presentation_(presentation) {}
     HeroCombat(const HeroCombat&) = delete;
     HeroCombat& operator=(const HeroCombat&) = delete;

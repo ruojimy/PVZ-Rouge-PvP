@@ -227,7 +227,7 @@ V f_reward_pool(const Args& A) {
         if (!(pm_pve::f_campaign_card_allowed(Args{L_key, L_coop})).truthy()) {
             continue;
         }
-        if (((rd(L_card, SV("side")) != SV("plant")) || !(py::m_get(L_card, SV("selectable"), V(true))).truthy() || py::in(L_key, L_owned) || py::in(L_key, pm_pve::NOT_REWARDS))) {
+        if (((rd(L_card, SV("side")) != SV("plant")) || !(py::m_get(L_card, SV("selectable"), V(true))).truthy() || py::in(L_key, L_owned) || (py::in(L_key, pm_pve::NOT_REWARDS) && !(L_coop.truthy() && L_key==SV("plant:模仿者"))))) {
             continue;
         }
         if ((py::m_get(L_card, SV("category")) == SV("derived"))) {
@@ -1055,8 +1055,22 @@ V C_Campaign::m_stock_shop(const Args& A) {
     V L_pool;
     V L_rng;
     V L_secrets;
-    L_rng = py::stdlib_call(SV("random.Random"), Args{((a_seed * V(7.0)) + (a_day * V(101.0)))});
+    V price_day=a_day;
+    V seed=(a_seed*V(7))+(a_day*V(101));
+    const bool settled=(A.size()||A.has_kw(SY("settled"))) && A.get(0,SY("settled"),nullptr).truthy();
+    if (settled) {
+        seed=py::stdlib_call(SV("secrets.randbelow"),Args{V(2147483648.)});
+        V entry=rd(a_history,V(-1));
+        pvz::setitem(entry,SV("shop_refreshed"),V(true));
+        if (rd(entry,SV("result"))==SV("win")) price_day=a_day+V(1);
+    }
+    L_rng = py::stdlib_call(SV("random.Random"), Args{seed});
     L_pool = pm_pve::f_reward_pool(Args{a_unlocked, a_coop});
+    if (settled && a_rewards.truthy()) {
+        V available=V::list();
+        for (size_t i=0;i<L_pool.len();++i) if (!py::in(L_pool.idx(i),a_rewards)) available.append(L_pool.idx(i));
+        L_pool=available;
+    }
     L_plants = [&]() -> V { V out_ = V::list(); V L_k; { V it1_ = py::iter_list(L_pool); for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) { L_k = it1_.idx(int64_t(i1_)); if (!((rd(rd(pm_catalog::CARDS, L_k), SV("category")) != SV("secret")))) continue; out_.append(L_k); }}return out_; }();
     L_secrets = [&]() -> V { V out_ = V::list(); V L_k; { V it2_ = py::iter_list(L_pool); for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) { L_k = it2_.idx(int64_t(i2_)); if (!((rd(rd(pm_catalog::CARDS, L_k), SV("category")) == SV("secret")))) continue; out_.append(L_k); }}return out_; }();
     L_items = [&]() -> V { V out_ = V::list(); V L_k; { V it3_ = py::iter_list(callm(L_rng, SY("sample"), Args{L_plants, py::min_it(V::list({V(3.0), py::len(L_plants)}), py::Key(), V())})); for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) { L_k = it3_.idx(int64_t(i3_)); out_.append(py_dict({{SV("kind"), SV("plant")}, {SV("key"), L_k}, {SV("price"), pm_pve::f_plant_price(Args{L_k})}, {SV("sold"), V(false)}})); }}return out_; }();
@@ -1072,7 +1086,7 @@ V C_Campaign::m_stock_shop(const Args& A) {
         { V it5_ = py::iter_list(L_items);
         for (size_t i5_ = 0; i5_ < it5_.len(); ++i5_) {
             L_item = it5_.idx(int64_t(i5_)); 
-            pvz::setitem(L_item, SV("price"), pm_pve::f_shop_price(Args{rd(L_item, SV("price")), a_day}));
+            pvz::setitem(L_item, SV("price"), pm_pve::f_shop_price(Args{rd(L_item, SV("price")), price_day}));
         }}
     }
     return L_items;
@@ -1266,7 +1280,12 @@ V C_Campaign::m_choose_reward(const Args& A) {
     }
     a_rewards = V::list({});
     a_day = py::iadd(a_day, V(1.0));
-    (void)(m_stock_shop(Args{}));
+    if (a_history.len() && py::m_get(rd(a_history,V(-1)),SV("shop_refreshed")).truthy()) {
+        for (size_t i=0;i<a_shop.len();++i) {
+            V item=a_shop.idx(i);
+            if (L_key.truthy() && py::m_get(item,SV("key"))==L_key) pvz::setitem(item,SV("sold"),V(true));
+        }
+    } else m_stock_shop(Args{});
     if ((!py_is(L_key, V::none()) && (py::len(a_deck) < m_slots(Args{})))) {
         L_dependency = py::m_get(rd(pm_catalog::CARDS, L_key), SV("dependency"));
         if ((!(L_dependency).truthy() || py::in(L_dependency, a_deck))) {

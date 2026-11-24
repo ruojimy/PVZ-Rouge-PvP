@@ -125,6 +125,7 @@
             for(const char* k:{"id","side","owner","current_owner","original_owner","native_side","source_entity","root_source","root_original_owner"})row[k]=s;
             row["side"]=std::string(seat_name(team_of(seat)));row["native_side"]=std::string(seat_name(team_of(seat)));
             row["parent_entity"]=nullptr;row["parent_attack"]=nullptr;
+            if(const auto reason=chart.passive_mark(seat);!reason.empty())row["passive_mark"]=reason;
             row["w"]=tile*.8;row["h"]=tile*1.9;
             row["deck"]=deployment.players[i].deck;row["secrets"]=p.secrets;if(battle.local_test_mode)row["test_slots"]=true;
             row["input"]={{"move",p.move}};
@@ -195,6 +196,15 @@
                 {"engine","original-native-250hz"},{"native_tick",battle.heroes.tick},
                 {"native_placement_state",include_streamed?placement_state_json():J::object()},
                 {"audio",audio_snapshot()},{"pvp70",{{"projectiles",include_streamed?pvp70_projectiles():J::array()},{"tentacles",tentacles}}}};
+        if(battle.solo.active()){
+            out["solo_mode"]=battle.solo.izombie()?"izombie":"lottery";out["solo_stage"]=battle.solo.stage;
+            if(battle.solo.izombie()){
+                out["brains_destroyed"]=battle.solo.brains;
+                int graves=battle.solo.available_graves(battle.terrain);
+                for(const auto& e:battle.native_objects.entries())if(const auto* z=std::get_if<ZombieRef>(&e.object);z&&(*z)->protection.grave&&(*z)->body.hp>0.&&battle.heroes.owner(source_ref(*z))==Seat::zombie)++graves;
+                out["map_grave_count"]=graves;
+            }
+        }
         if(battle.local_test_mode){
             J npcs=J::array();for(const auto& target:*battle.targets)if(target.unit&&target.unit->terraria)npcs.push_back(zombie_json(target.unit));
             out["test_mode"]={{"night",economy_state.night},{"ai_frames",terraria.frames()},{"accumulator",terraria.accumulator()},{"contacts",terraria.contacts_state()},{"npcs",npcs}};

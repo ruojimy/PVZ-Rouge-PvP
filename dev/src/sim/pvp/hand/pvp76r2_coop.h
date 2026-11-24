@@ -13,9 +13,10 @@
 #include <vector>
 namespace pvz::pvp76r2 {
 bool coop_secret_allowed(const std::string& key);
+bool precursor_in_roster(const std::string& key,const std::vector<std::string>& roster);
 bool precursor_in_pool(const std::string& key,int64_t day);
 // Secrets owned when playing `day`: one per cleared day in [from_day, day).
-V coop_zombie_secrets(const V& run_id,const V& from_day,const V& day);
+V coop_zombie_secrets(const V& run_id,const V& from_day,const V& day,const V& expanded_from=V(1.));
 const std::vector<std::string>& coop_secret_keys();
 // Room text: "僵尸秘籍（n）：A、B…" from pve["coop_zombie_secrets"] (absent: none yet).
 V coop_secret_line(const V& pve);

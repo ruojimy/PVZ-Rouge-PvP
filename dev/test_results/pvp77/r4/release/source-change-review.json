@@ -1,0 +1,77 @@
+{
+  "baseline": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\dist\\PvZ-PvP-Native-20261124-pvp77-r3-Developer-Package.zip",
+  "files": {
+    "src/uitools/pvp76r3_audit.cpp": {
+      "before": "23c1916c91572caebccb0753754542792a706d85e00c355f0fcc45a3d5021263",
+      "after": "9c3210c5a5505abc2ad2ad7a7dab563c4845f61971ddcf93d4bb2e55c78a15d8"
+    },
+    "src/sim/typed72_app/composition/frame_layer.inc": {
+      "before": "d1fa5103733d734e16baeb2997fecdc7e25cb8398f22a387cbdce44e0a6bc120",
+      "after": "4fa7a6c42a6026e1417157935df7989de42a9743f6d8c0844f57cdd35aa055f5"
+    },
+    "src/sim/typed72_app/composition/MANIFEST.json": {
+      "before": "73ffd22021fe6c6217714bed2a33b8be23903bc2efa2c202a58d6de0eac12cd6",
+      "after": "41e3f139122fdc87e331a4c32a715757bcd22e3607a8e9bf60056cd11c97140c"
+    },
+    "tools/pvp77_r4_release.py": {
+      "before": null,
+      "after": "4c9046bef2933d392b3da7bbb62df4fdfcd9898ad97a30c672041193d1d12151"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/cart_lifecycle.cpp": {
+      "before": "e9016fc4ec9af4954b8735707cdccf6515ca52d71c419cc39e2e9e2cc8a86172",
+      "after": "b6de4ef91462933c7e8a6985c66f0958666593f26a1e5d47f4ce4a2a094d08f8"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/cart_lifecycle.h": {
+      "before": "6c279e6a9a1d88b9edae8ddfaf8d6ef6e699377d2be26a10e91f57f5514f87ab",
+      "after": "d901e0f466e3c71680fcbaa43b68dd697144378a0f5c9cce097b4f09541ef9e4"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/native_content_draw.cpp": {
+      "before": "d35014231bcff8d93422de6f1b6fa3607d4b08e900e0b220200835ec1d3581d1",
+      "after": "2f69444ff1114f8686714456d4b92a74eef67fddbdbe7f6977323220b00721f0"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/native_content_draw.h": {
+      "before": "96745b3426bf23422935740684516f608007a70f041111956c37cf000d71ed95",
+      "after": "92d594fb0fdc4f794c94526e02e47e3a6fba483f09761d6e8e41f90703c28f84"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/native_patch_draw.cpp": {
+      "before": "2e5636323ec128a50029be0e98576792619488320c841495dc2eab4e41b6f282",
+      "after": "005ca02515a742887f0dbae838055aea215a13a873ef18cf7f022469782d6a30"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/zombie_actions.cpp": {
+      "before": "220965de4ba06b256b9d94d27b73b5b436148cc08371ade7503e1d02338063e1",
+      "after": "3f963733fe714a8633712d69832428890aa53a73c2074d6575d7ce52007540ab"
+    },
+    "build/typed72-match-v1/frame_layer.inc": {
+      "before": "ca17efa299baa5f1d41d430bb7b0993926d431080c653791c0ed426b2be1a9d0",
+      "after": "694f2418e1c2a64c258c35d11922505c137d45e975a20f4d29416a20e3001952"
+    },
+    "build/typed72-match-v1/build/cmake_install.cmake": {
+      "before": null,
+      "after": "0c7db5671b996426983506aa8f76b93a0bb745ec037058902feae38787093c0c"
+    },
+    "build/typed72-match-v1/build/CMakeFiles/3.30.5-msvc23/CMakeCXXCompiler.cmake": {
+      "before": null,
+      "after": "a6750cd8e71d2c337eef2aab626dc0fa3f8c43ab8da446f0da6e261fdea9b584"
+    },
+    "build/typed72-match-v1/build/CMakeFiles/3.30.5-msvc23/CMakeRCCompiler.cmake": {
+      "before": null,
+      "after": "85223e3627ab66035651f1bc87d7ab01c67bccd4c1132ea0ebcf6fd87de0c7d1"
+    },
+    "build/typed72-match-v1/build/CMakeFiles/3.30.5-msvc23/CMakeSystem.cmake": {
+      "before": null,
+      "after": "cb655f074177502b26612fa979ee72c606731a0b59f300e936ebba161d8cce09"
+    },
+    "build/typed72-match-v1/build/CMakeFiles/3.30.5-msvc23/CompilerIdCXX/CMakeCXXCompilerId.cpp": {
+      "before": null,
+      "after": "9a626dbff6d2a66fd7a8ea916abbd361129799867015ff02f1c53e6de16fe89c"
+    },
+    "extract/data/catalog.json": {
+      "before": "50c80e340520da7c94bb3564e02750df78847cd77ea1ec14a739cd44a908cc70",
+      "after": "145e351e9a0cbf0de43f0c947abe54a90dd54d47d9006d7b3e882155b6297854"
+    },
+    "extract/data/__init__.json": {
+      "before": "6a21fe18dacc72e8cd8aabcccd58d08da8ef4fe97ecb3269b1eec66ac6d8e36f",
+      "after": "9d0d64b5a2215ce11ec2e7641de2669fd0b61b4d10bfc46c0713d1c511c8c17d"
+    }
+  }
+}

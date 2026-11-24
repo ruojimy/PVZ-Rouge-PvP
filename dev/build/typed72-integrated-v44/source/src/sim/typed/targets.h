@@ -1,6 +1,7 @@
 // Typed NativeTargets dispatch. The required raw patch chain is injected as
 // a typed C++ interface; there is no default or old-runtime fallback.
 #pragma once
+#include "sim/typed/solo_battle.h"
 #include "sim/typed/pve_director_state.h"
 #include "sim/typed/zombie_secret_state.h"
 #include "sim/typed/cold_factory_state.h"
@@ -157,6 +158,7 @@ private:
 // There is deliberately no step()/legacy conversion until the full driver is
 // implemented; this type is not a selectable production battle backend yet.
 struct TypedBattleState : EntityBirthObserver {
+    SoloBattle solo;
     bool local_test_mode=false;
     bool scripted_terraria_boss=false; // Only the fixed co-op Boss days; never enables test commands/cards.
     using UnitId=Store<ZombieRef>::Id;

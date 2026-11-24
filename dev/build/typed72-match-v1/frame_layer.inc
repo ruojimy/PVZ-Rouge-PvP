@@ -210,14 +210,14 @@
         if(d.mirrored)image=NativeCanvas::flip(image);
         if(d.rotation)canvas.rotated(image,d.position,*d.rotation);else canvas.display(image,d.position);
     }
-    // patch1501 should_skip_native_plant_zombie_armor_draw (screen.blit wrapper): the native
-    // armor layer (防具/冰冻防具, with its hurt flash) of a plant zombie wearing 路障/铁桶, or of
-    // a 南瓜头防具 wearer, is not blitted; the patch overlay draws that armor instead.
+    // Full-frame and plant-headed wearers draw their gear with the authored head.
     bool skip_plant_zombie_armor(const std::string& sprite)const{
         const auto s=battle.heroes.source();if(!s)return false;const auto u=s->unit.lock();if(!u)return false;
         const auto& armor=u->body.armor;if(armor.empty()||u->body.armor_hp<=0.)return false;
         const bool plant=u->patch.plant_zombie.present()&&!u->patch.plant_zombie.is_null()&&u->patch.plant_zombie.get();
-        if(!(armor=="南瓜头防具"||(plant&&(armor=="路障"||armor=="铁桶"))))return false;
+        const auto& name=u->source.content;
+        const bool custom=name.present()&&!name.is_null()&&NativeContentDraw::has_frame_headgear(name.get());
+        if(!(custom||plant)||!NativeContentDraw::is_headgear(armor))return false;
         return sprite==armor||sprite==armor+"-受伤"||sprite==armor+"-冰冻"||sprite==armor+"-冰冻-受伤";
     }
     void alpha(const EntitySprite& s,double a)override{ContentPhaseProbe::alpha(s,a);NativeCanvas::set_alpha(frame_image(s),a);}

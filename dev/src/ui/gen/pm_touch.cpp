@@ -517,7 +517,7 @@ V C_TouchControls::m_layout(const Args& A) {
             if (((L_side == SV("plant")) && py::in(SV("plant"), L_local))) {
                 (void)(py::m_append(L_actions, V::tuple({V::tuple({SV("shovel")}), SV("铲子")})));
                 L_deck = py::m_get(py::m_get(L_players, L_side, py_dict({})), SV("deck"), V::list({}));
-                if (([&]() -> V { V L_key; { V it3_ = py::iter_list(L_deck); for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) { L_key = it3_.idx(int64_t(i3_)); if ((py::in(L_key, pm_catalog::CARDS) && (rd(rd(pm_catalog::CARDS, L_key), SV("behavior")) == SV("copy")))) return V(true); }}return V(false); }()).truthy()) {
+                if (((py::m_get(L_battle, SV("solo_mode")) != SV("lottery")) && ([&]() -> V { V L_key; { V it3_ = py::iter_list(L_deck); for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) { L_key = it3_.idx(int64_t(i3_)); if ((py::in(L_key, pm_catalog::CARDS) && (rd(rd(pm_catalog::CARDS, L_key), SV("behavior")) == SV("copy")))) return V(true); }}return V(false); }()).truthy())) {
                     (void)(py::m_append(L_actions, V::tuple({V::tuple({SV("copy_target")}), (SV("模仿·") + callm(self(), SY("_copy_name"), Args{L_battle}))})));
                 }
             }
@@ -531,7 +531,9 @@ V C_TouchControls::m_layout(const Args& A) {
             }
             L_remaining = py::max_it(V::list({V(0.0), (py::m_get(py::m_get(L_players, L_side, py_dict({})), SV("teleport_ready_at"), V(0.0)) - py::m_get(L_battle, SV("time"), V(0.0)))}), py::Key(), V());
             L_label = ((py::m_get(L_state, SV("teleport"))).truthy() ? V(SV("传送·选目标")) : V(((L_remaining).truthy() ? V(py::percent(SV("传送 %.0fs"), L_remaining)) : V(SV("传送")))));
-            (void)(py::m_append(L_actions, V::tuple({V::tuple({SV("teleport")}), L_label})));
+            if ((py::m_get(L_battle, SV("solo_mode")) != SV("izombie"))) {
+                (void)(py::m_append(L_actions, V::tuple({V::tuple({SV("teleport")}), L_label})));
+            }
             if ((py::len(py::m_get(py::m_get(L_players, L_side, py_dict({})), SV("deck"), V::list({}))) > V(7.0))) {
                 (void)(py::m_append(L_actions, V::tuple({V::tuple({SV("battle_page")}), SV("翻面")})));
             }

@@ -162,19 +162,26 @@ bool NativeTracking::hero_lock(const TrackingSource& source,Seat side)const {
     // A source outside lock range cannot acquire the hero, regardless of marks.
     const double hx=wrap_delta(origin.x,point.x,world_.world_width.get()),hy=origin.y-point.y;
     if(hx*hx+hy*hy>sight_.hero_lock_range*sight_.hero_lock_range)return false;
-    bool marked=heroes.time<target.marked_until;
-    if(!marked)for(const auto& p:*world_.plant_roster) {
+    return (heroes.time<target.marked_until || !passive_mark(side).empty()) &&
+           within_sight(origin,point,sight_.hero_lock_range);
+}
+std::string_view NativeTracking::passive_mark(Seat side)const {
+    const auto& heroes=world_.heroes;
+    if(team_of(side)!=Seat::zombie || !heroes.players.at(seat_index(side)))return {};
+    const auto point=player_center(*heroes.players.at(seat_index(side)));
+    const auto tile=world_.runtime.tile;
+    for(const auto& p:*world_.plant_roster) {
         if(p->kind=="路灯花" && p->hp.present() && !p->hp.is_null() && p->hp.get()>0. &&
-           within_sight({(p->cell.x+.5)*tile,(p->cell.y+1)*tile-tile/2.},point,220.)){marked=true;break;}
+           within_sight({(p->cell.x+.5)*tile,(p->cell.y+1)*tile-tile/2.},point,220.))return "路灯花";
     }
-    if(!marked)for(const auto seat:seats_for(world_.mode)) {
+    for(const auto seat:seats_for(world_.mode)) {
         if(team_of(seat)!=Seat::plant)continue;
         const auto& player=heroes.players.at(seat_index(seat)).value();
         const auto& down=heroes.heroes.at(seat_index(seat)).value().frame.down;
         if(player.hp>0. && (!down.present() || down.is_null() || down.get()==0.) &&
-           within_sight(player_center(player),point,220.)){marked=true;break;}
+           within_sight(player_center(player),point,220.))return "戴夫";
     }
-    return marked && within_sight(origin,point,sight_.hero_lock_range);
+    return {};
 }
 void NativeTracking::target_index(const TrackingSource& s) {
     PVP_PROFILE_SCOPE("NativeTracking::target_index");

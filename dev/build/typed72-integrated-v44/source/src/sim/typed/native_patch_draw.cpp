@@ -1,4 +1,5 @@
 #include "sim/typed/native_patch_draw.h"
+#include "sim/typed/native_content_draw.h"
 #include "sim/typed/plant_zombie_target.h"
 #include "core/pymath.h"
 #include <algorithm>
@@ -172,12 +173,14 @@ void NativePatchDraw::plant_zombie_heads(){
         for(const auto& [layer,alpha]:overlays){NativeCanvas::set_alpha(layer,alpha);canvas_.rotated(layer,{center.x-(double(layer->width)*.5),center.y-(double(layer->height)*.5)},local);}
         // __pvz_sb_draw_plant_zombie_head_armor
         const auto& armor=u->body.armor;
-        if((armor=="路障"||armor=="铁桶")&&u->body.armor_hp>0.){
-            if(NativeArt surface=canvas_.atlas.find(armor)){
-                if(!(direction>0.))surface=flip_cached(surface,armor+"-植僵左");
+        if(NativeContentDraw::is_headgear(armor)&&u->body.armor_hp>0.){
+            const auto key=(armor=="路障"||armor=="铁桶")&&!text(u->expansion.black_armor).empty()?"黑"+armor:armor;
+            if(NativeArt surface=canvas_.atlas.find(key)){
+                if(!(direction>0.))surface=flip_cached(surface,key+"-植僵左");
                 const double width=double(surface->width),height=double(surface->height);
-                const double base_visible_x=width*(22.5/36.);
-                const double visible_x=direction<0.?width-base_visible_x:base_visible_x,visible_y=height*(6./36.);
+                const bool pumpkin=armor=="南瓜头防具",football=armor=="橄榄球头盔"||armor=="黑橄榄球头盔";
+                const double base_visible_x=width*(pumpkin?.5:football?56./96.:22.5/36.);
+                const double visible_x=direction<0.?width-base_visible_x:base_visible_x,visible_y=height*(pumpkin?29./48.:football?14./96.:6./36.);
                 const double px=scale/18.;
                 const double tx=center.x+(direction*((scale*.02)+(field(cfg.armor_x,0.)*px)));
                 const double ty=(center.y-(scale*.22))+(field(cfg.armor_y,0.)*px);

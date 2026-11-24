@@ -18,6 +18,6 @@ using GenGrid = std::vector<std::vector<GenCell>>;   // [24][72]
 extern const char* const MAP_NAMES[12];
 
 // Throws std::runtime_error for an unknown map.
-GenGrid generate_original_map(const std::string& name, int64_t seed);
+GenGrid generate_original_map(const std::string& name, int64_t seed, bool solo_variant=false);
 
 }  // namespace pvz

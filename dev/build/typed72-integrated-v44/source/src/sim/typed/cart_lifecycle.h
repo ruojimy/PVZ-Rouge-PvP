@@ -18,6 +18,7 @@ public:
     virtual CartImage scale(CartImage,Point)=0;
     virtual CartImage mirror(CartImage)=0;
     virtual CartImage tint_poison(CartImage,int level)=0;
+    virtual CartImage headgear(CartImage image,double load,double lift){return image;}
     virtual void display(CartImage,Point)=0;
 };
 class CartLifecycleServices {

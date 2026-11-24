@@ -17,6 +17,7 @@ namespace pvz::typed72 {
  X(expires,"消亡") X(grave_eating,"滚蛋") X(cannon_cd,"发射cd") X(cannon_animation,"发射动画") X(cannon_flash,"发射闪闪") X(cannon_column,"发射x") X(magnet,"吸")
 struct CombatPlant {
     PvePlantState pve;
+    bool biteable_blover=false,marigold_paid=false;
     ColdPlantRegistrationState registration;
     ExpansionClockState expansion_clock;
     BonusPlantState bonus;

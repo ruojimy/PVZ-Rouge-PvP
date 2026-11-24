@@ -9,7 +9,8 @@ std::span<const Seat> seats_for(MatchMode mode) {
     static constexpr std::array duo{Seat::plant,Seat::zombie,Seat::plant2,Seat::zombie2};
     static constexpr std::array pve{Seat::plant};
     static constexpr std::array coop{Seat::plant,Seat::plant2};
-    switch(mode){case MatchMode::duel:return duel;case MatchMode::duo:return duo;case MatchMode::pve:return pve;case MatchMode::coop:return coop;}
+    static constexpr std::array izombie{Seat::zombie};
+    switch(mode){case MatchMode::izombie:return izombie;case MatchMode::duel:return duel;case MatchMode::duo:return duo;case MatchMode::pve:return pve;case MatchMode::coop:return coop;}
     throw std::invalid_argument("unknown typed match mode");
 }
 void NativeObjectRegistry::set(std::string key,NativeObject object) {
@@ -33,7 +34,7 @@ std::vector<CombatTarget> collect_native_extras(const NativeObjectRegistry& reco
     }
     // PvE/coop have a dormant zombie avatar for faction bookkeeping, but no
     // zombie Dave target. Duel/duo retain participating fallen heroes too.
-    for(const Seat seat:seats_for(mode))if(team_of(seat)==Seat::zombie){heroes.proxy(seat);result.push_back(CombatTarget::player(seat));}
+    for(const Seat seat:seats_for(mode))if(mode!=MatchMode::izombie&&team_of(seat)==Seat::zombie){heroes.proxy(seat);result.push_back(CombatTarget::player(seat));}
     return result;
 }
 TargetRoster TypedBattleState::omitted_targets(){return collect_native_extras(native_objects,heroes,mode);}

@@ -241,7 +241,7 @@ class WorldView:
                 texture = self._tint_tile(texture, native.get("_pvp_block_color"), ("block", tile_name, rect.size))
                 screen.blit(texture, rect)
         grave = native.get("坟墓")
-        if grave:
+        if grave and kind == "坟墓":
             self.art.blit(screen, "坟墓"+str(grave), rect.topleft, rect.size)
         if cell.get("water"):
             frame = int(seconds*12)%32

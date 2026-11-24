@@ -345,7 +345,7 @@ void NativePlantDraw::original(size_t l){
     }
     if(name=="玉米加农炮")toudushu-=(std::sin(pi*(num(p.cannon_animation)/500.))*90.)*facing;
     if(name=="玉米加农炮"&&((num(p.cannon_animation)>0.&&num(p.cannon_animation)<250.)||num(p.cannon_cd)<=100.)){
-        auto tu=c.image("玉米炮");
+        auto tu=c.image("玉米炮"+hb);
         if(facing==-1.)tu=NativeCanvas::flip(tu);
         double xxxx,yyyy;
         if(num(p.cannon_animation)>0.){

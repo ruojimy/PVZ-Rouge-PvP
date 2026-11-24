@@ -162,7 +162,8 @@ def draw_scripted_tray(r, tray, game):
     team = game.get("team") or {}
     waves = team.get("waves") or {}
     r.icon("脑子", (x + 9, y + 9, 31, 31))
-    r.text("僵尸来袭", (x + 50, y + 8), TEXT, 17, w - 60)
+    heading = "我是僵尸 · 第 %d 场"%game.get("solo_stage",1) if game.get("solo_mode")=="izombie" else "僵尸来袭"
+    r.text(heading, (x + 50, y + 8), TEXT, 17, w - 60)
     if waves:
         r.text("第 %d / %d 波 · 场上 %d" % (waves.get("wave", 0), waves.get("waves", 0), waves.get("remaining", 0)),
                (x + 50, y + 34), GOLD, 15, w - 160)

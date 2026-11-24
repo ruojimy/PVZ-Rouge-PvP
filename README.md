@@ -1,27 +1,25 @@
 # PVZ-Rouge · 对战模式（PvP）
 
-中文版最新正式版 **PvP76 r3**（`1.6.0.76-typed.20261123-r3`，C++ 原生版，无需 Python）。Android versionCode **1123078**。英文版为 PvP64。
+中文版最新正式版为 **PvP77 r4**（`1.6.0.77-typed.20261124-r4`）。Android versionCode 为 **1123082**。英文版为 PvP64。
 
 ## 下载
 
-[PvP76 r3 正式发布页](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/tag/v1.6.0.76-pvp76-r3) · [历史版本](https://github.com/ruojimy/PVZ-Rouge-PvP/releases)
+[PvP77 r4 正式发布页](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/tag/v1.6.0.77-pvp77-r4) · [历史版本](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/)
 
 | 附件 | 用途 |
 | --- | --- |
-| [Windows 玩家包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.76-pvp76-r3/PvZ-PvP-Native-20261123-pvp76-r3.zip) | 完整解压后运行“启动PvP.cmd” |
-| [Android ARM64](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.76-pvp76-r3/PvZ-PvP-Native-1.6.0.76-typed.20261123-r3-1123078-pvp76-r3e-20261123.apk) | 同包名同签名覆盖升级，versionCode 1123078 |
-| [完整开发者包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.76-pvp76-r3/PvZ-PvP-Native-20261123-pvp76-r3-Developer-Package.zip) | 正式源码、生成器、冻结生产阶段和配套验证 |
-| [SHA-256 清单](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.76-pvp76-r3/zh-SHA256SUMS.txt) | 核对三个正式包 |
+| [Windows 玩家包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.77-pvp77-r4/PvZ-PvP-Native-20261124-pvp77-r4.zip) | 完整解压后运行「启动PvP.cmd」 |
+| [Android ARM64](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.77-pvp77-r4/PvZ-PvP-Native-1.6.0.77-typed.20261124-r4-1123082-pvp77-r4b-20261124.apk) | 可从同签名旧版覆盖安装 |
+| [完整开发者包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.77-pvp77-r4/PvZ-PvP-Native-20261124-pvp77-r4-Developer-Package.zip) | 源码、生成器、冻结生产阶段和配套验证 |
+| [SHA-256 清单](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.77-pvp77-r4/zh-SHA256SUMS.txt) | 核对上述三个包 |
 
-## PvP76 r3 更新
+## PvP77 r4 更新
 
-- 盾卫僵尸平时防御力 12，携带守卫时为 24，举盾仍为 60 或 600。克苏鲁之仆冷却 32 秒，接触植物戴夫仍会使其受击倒地。
-- 投篮车僵尸 225 生命。投篮车和小鬼炮在未受击时分别会于 10 秒和 15 秒后停火，再受击可恢复。坤坤投篮车不受停火限制。
-- 修复胜率对局黄金蓓蕾锁定拾取时的放置点击、测试模式清场后盆类残留，以及魅惑植物僵尸的头部显示。
+- 主界面的闯关入口提供双人合作、抽奖和我是僵尸。两个单机模式各自存档，抽奖挑战 24 天，我是僵尸在第 19 场迎战黄金脑子。
+- 小鬼炮与投篮车跟随僵尸戴夫或向集合点停车时，按植物戴夫的实际位置判断碰撞。真正撞到仍会造成伤害、击退和击倒。
+- 校准海盗鹦鹉、乌鸦及其他特殊体型的头顶防具，左右朝向随身体镜像。完整改动见[版本说明](dev/更新说明-PvP77.md)，可对照[防具效果图](docs/pvp77-r4-headgear.png)。
 
-联机双方请使用 PvP76 r3。[完整更新说明](dev/更新说明-PvP76.md)。
-
-全量回归覆盖 2366 项，2351 项通过，3 项失败，12 项错误。15 项非通过结果沿用 PvP76 r2 的既有豁免，缺失和新增未豁免均为 0。三道生产门禁通过。接续验证复用 124 个已完成模块，最终构建执行 80 个模块。 Windows 出包冒烟、启动器核验和 Android 升级签名校验均已通过。Android 实机验收待完成。[验证摘要](docs/pvp76-r3-validation.json)。
+r4 通过 Windows 出包冒烟与定向回归，并核验了 Android 签名连续性。Android 真机实测和全量回归均未在 r4 执行。[验证摘要](docs/pvp77-r4-validation.json)
 
 ## 神经网络 AI 研究
 
@@ -33,7 +31,7 @@
 
 ## 源码与升级
 
-`dev/` 对应 PvP76 r3 开发者包，研究数据等 Git 忽略项随相应下载发布。发行清单和逐文件 SHA-256 见 [MANIFEST-PvP76.json](dev/MANIFEST-PvP76.json) 和 [SHA256SUMS.txt](dev/SHA256SUMS.txt)。
+`dev/` 对应 PvP77 r4 开发者包，研究数据等 Git 忽略项随相应下载发布。发行清单和逐文件 SHA-256 见 [MANIFEST-PvP77.json](dev/MANIFEST-PvP77.json) 和 [SHA256SUMS.txt](dev/SHA256SUMS.txt)。
 
 生产内核位于 `dev/build/typed72-integrated-v44/source/src/sim/typed/`，组合层源位于 `dev/build/typed72-match-v1/`。Windows 默认使用 `%APPDATA%/PVZ-PvP-Native/pvp_userdata`。
 

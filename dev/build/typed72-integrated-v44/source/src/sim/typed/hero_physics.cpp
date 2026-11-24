@@ -121,7 +121,7 @@ void HeroPhysics::step(HeroState& avatar,HeroInput input,int jump_cap,int balloo
         g.angle.get()-=.072*t*t/2.;
     }
     if(jump_cap<1 || jump_cap>3)throw std::invalid_argument("invalid native jump cap");
-    if(input.jump_down && g.down.get()==0. && g.jump.get()<jump_cap && g.double_jump.get()==0.){
+    if(input.jump_down && g.down.get()==0. && (world_.solo.izombie() || g.jump.get()<jump_cap) && g.double_jump.get()==0.){
         const double before=g.jump.get();
         if(++g.jump.get()==2.){g.double_jump.set(1.);p.vx+=g.facing.get()*plk*200.;}
         p.vy=-plk*380.;

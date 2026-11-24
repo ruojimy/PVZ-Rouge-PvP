@@ -7,6 +7,7 @@
 - 保留启动器既有的独立存档目录。发布包默认用户数据路径与本机独立存档分别核验，禁止用测试存档覆盖用户存档。
 - PvP73 的实际生产内核由 `build/typed72-integrated-v44/source/src/sim/typed/` 编译；组合层来源是 `build/typed72-match-v1/{match_probe.cpp,frame_layer.inc,snapshot_layer.inc}`，由 `tools/typed72/make_app_composition.py` 生成到 `src/sim/typed72_app/composition/`。不要只修改早期 `src/sim/typed/` 就宣称生产修复生效。
 - `Downloads/PVZ-Rouge-v1.4.8/next-pvp71` 为只读参照。更新本项目拥有的源文件、生成桥和测试，禁止改写参照目录。
+- Windows 全量回归使用 `tools/run_cpp_suite.py` 的默认 `%LOCALAPPDATA%\PVZNativeTestScratch` 并为每轮创建独立目录。共享夹具、并行副本和 worker 临时文件放在这里，原始报告、日志和输入清单留在 `test_results/`，用 `scratch-paths.json` 和 `module-fixtures.json` 定位本轮夹具与隔离产物。换机器、修改索引范围或指定 `--scratch-root` 时，先确认目标路径在 Windows Search 索引范围之外。参照目录保持只读，续跑仍按 `--resume-plan` 的受审输入和模块范围执行。
 
 - PvP74 材质系统由 `src/ui/hand/texture74_*.cpp` 拥有。重新翻译 UI 后运行 `tools/pvp74_apply_hooks.py`，`--check` 是构建门禁；资源清单由 `tools/pvp74_resource_catalog.py` 生成。覆盖必须只作用于显示，禁止把材质 PNG 写进生产模拟图集或粒子采样；共享只接受房主方向，退出后恢复用户本地包。
 - PvP74.1 的共用掉帧控制与平铺笔画补丁由 `src/ui/hand/pressure_pacing.cpp`、生产阶段 `NativeCanvas` 和 `tools/pvp741_hooks.json` 拥有；UI 重新生成后再运行 `tools/pvp741_apply_hooks.py`，构建时 `--check` 拒绝缺失补丁。合作昼夜投影只限 `director.coop_cycle()`；PvP 昼夜、雨天保持开局地图环境原样，不能补入改变回放哈希的缺省字段。

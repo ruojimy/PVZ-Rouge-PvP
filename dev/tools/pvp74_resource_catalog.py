@@ -89,6 +89,10 @@ for e in entries:
     e['heroes']=['hero:plant'] if root in ('疯狂戴夫','大佬戴夫') else ['hero:zombie'] if root=='僵尸戴夫' else []
     if e['heroes']:e['category']='英雄'
 entries.sort(key=lambda x:(x['name'],x['key']))
+campaign_art={'选块','主界面','抽奖模式','我是僵尸','选卡板','商店','向日葵','豌豆射手','疯狂戴夫','僵尸戴夫','钱袋','脑子','黄金脑子','金杯','植物卡黑','发光1','发光2','发光3','走啦','返回菜单','开始干','种子栏','阳光','增加卡槽'}
+for e in entries:
+    if e['scope'] in ('ui','bg','world','global') and (e['name'].removesuffix('-选中') in campaign_art or e['name'].startswith(('坟墓','选卡板','卡槽'))):
+        e['campaign']=True
 body={'schema':1,'entries':entries,'cards':[dict(id=k,name=c['name'],side=c['side'],category=c['category'],asset=c.get('asset',c['name'])) for k,c in cards.items() if k not in excluded_cards],'heroes':heroes,'excluded_resources':excluded,
       'atlas_sha256':hashlib.sha256((ROOT/'extract/assets/index.json').read_bytes()).hexdigest()}
 target=ROOT/'extract/data/texture_resources74.json'

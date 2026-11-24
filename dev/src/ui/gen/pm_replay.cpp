@@ -14,9 +14,28 @@ V FORMAT;
 V MAX_BYTES;
 V SPEEDS;
 V INPUT_FIELDS;
+static V replay_snapshot(V battle) {
+    V snapshot = callm(battle, SY("snapshot"), Args({}, {{SY("include_map"), V(true)}}));
+    const V players = py::m_get(snapshot, SV("players"), V::dict());
+    V copied_players;
+    for (const auto& [seat, row] : py::items_vec(players)) {
+        if (!py::in(SV("passive_mark"), row)) continue;
+        // The label is derived presentation. Preserve the recorded combat fields.
+        if (copied_players.is_none()) copied_players = py::dict_of(players);
+        V copy = py::dict_of(row);
+        callm(copy, SY("pop"), Args{SV("passive_mark")});
+        pvz::setitem(copied_players, seat, copy);
+    }
+    if (!copied_players.is_none()) {
+        snapshot = py::dict_of(snapshot);
+        pvz::setitem(snapshot, SV("players"), copied_players);
+    }
+    return snapshot;
+}
+
 V f_state_hash(const Args& A) {
     V L_battle = A.get(0, SY("battle"), nullptr, "state_hash");
-    return pm_catalog::f_digest(Args{callm(L_battle, SY("snapshot"), Args({}, {{SY("include_map"), V(true)}}))});
+    return pm_catalog::f_digest(Args{replay_snapshot(L_battle)});
     return V::none();
 }
 
@@ -30,7 +49,7 @@ V f_matches_state_hash(const Args& A) {
     V L_frame;
     V L_snapshot;
     V L_width;
-    L_snapshot = callm(L_battle, SY("snapshot"), Args({}, {{SY("include_map"), V(true)}}));
+    L_snapshot = replay_snapshot(L_battle);
     if ((pm_catalog::f_digest(Args{L_snapshot}) == L_expected)) {
         return V(true);
     }

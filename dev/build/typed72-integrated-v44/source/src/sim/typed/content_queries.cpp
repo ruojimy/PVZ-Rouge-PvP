@@ -57,6 +57,7 @@ bool ContentQueries::eligible(const ContentTarget& t,std::optional<Seat> owner)c
 }
 std::vector<ContentTarget> ContentQueries::enemy_heroes(std::optional<Seat> owner){
     std::vector<ContentTarget> out;const auto foe=owner==Seat::plant?Seat::zombie:Seat::plant;
+    if(world_.solo.izombie()&&foe==Seat::zombie)return out;
     for(const auto side:seats_for(world_.mode))if(team_of(side)==foe&&world_.heroes.proxy(side).hp>0.)out.emplace_back(CombatTarget::player(side));return out;
 }
 std::optional<ContentTarget> ContentQueries::route_enemies(const ContentTarget& origin,std::optional<ContentTarget> goal,bool heroes){

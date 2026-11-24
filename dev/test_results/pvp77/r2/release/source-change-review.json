@@ -1,0 +1,89 @@
+{
+  "baseline": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\dist\\PvZ-PvP-Native-20261123-pvp77-r1-Developer-Package.zip",
+  "files": {
+    "src/uitools/pvp76r3_audit.cpp": {
+      "before": "1c0bf7a1a76eeefbe577fd8860523ec03a3f0bbefda3b725b1817dc6ec898df4",
+      "after": "ef3671b9d79e9e5f4920ad6a55116c7383f3c63b568b126d467ca7e2406c3f94"
+    },
+    "src/ui/hand/solo77.cpp": {
+      "before": "aa6700c18a5e049fb8e27b533b546c51c77b7cc7c8d49c1621b780ff187941c2",
+      "after": "024ebb8a25a042abfc10924c617492c52b22f2ed4cf426aa804ff7d9a4b1c579"
+    },
+    "src/sim/typed72_app/composition/MANIFEST.json": {
+      "before": "ef5eb74ac393fbff0f86f277d57c2e1b6669880bd81553a535bed0e0c155b6d3",
+      "after": "f07db27db0bf4163ecf5d49422c317e806535e3b906bc4db99d58f352a4ceb84"
+    },
+    "src/sim/typed72_app/composition/match_probe.cpp": {
+      "before": "58df51b6f5ca54eb0bed73a40fd15384bbf56d6d2a9e47e28dbcd16f48f310ef",
+      "after": "6d95bd21dc066c854d091439fdcb040098101c30c8a779bb5da2b79e7e929019"
+    },
+    "src/sim/pvp/gen/pm_coop_progress.cpp": {
+      "before": "78d83bb43ede1f16ea63a34f223016f9548f4f66ef675aae9b3af6b4486c0d55",
+      "after": "39ea7324580443e6656566959d6113e5619a6bc00d52f2f58907d8b856509862"
+    },
+    "src/sim/pvp/gen/pm_pve.cpp": {
+      "before": "0c587c2b1159f9c316a443044eedcf6c89e73a1ea92ab799d2e506da82acb308",
+      "after": "fa6e9222f4a825da19f34ba12d9504f91177894c5412fc123de7abd409e25010"
+    },
+    "src/sim/pvp/hand/solo_campaign77.cpp": {
+      "before": "588a9c4b51362751e2c5b632b318709e90fe1db68318485a906a626186167314",
+      "after": "ae0ae8ae8b1958098915bd2fb67d765eca1b4f0d2b630327dbfde6bfd1180779"
+    },
+    "src/sim/pvp/hand/solo_campaign77.h": {
+      "before": "6ae84943b61be3c816d50b9fe57bd43d435cd28bc69adc0ab6858f39aed4b10e",
+      "after": "199f531b0c61ad33d6b85f8513492bebe6f14f0f347bf6c5514e37926d7672a4"
+    },
+    "tools/pvp744_feedback_sources.json": {
+      "before": "6d0bb12277d2cc6ad3b731dc38de9cc022091632bd7c7e8652e639ad82bb78af",
+      "after": "8d9ca33fa7a0c74c340a0e58628363e30386dbbcc5e971fffbc271b2a30ace36"
+    },
+    "tools/pvp77_r2_release.py": {
+      "before": null,
+      "after": "6e541424b04de66a75f49b5249b00f7d5fc3590d1018cba2d81ea7486b79b6c2"
+    },
+    "tools/pvp77_ui_edits.json": {
+      "before": "3a369c411a22784b3d7fb95966efa9d224aedb7bb693227e5845c8332397781a",
+      "after": "b4b0ff03f5d13d4b3f6938fe1d31e8088114a5f3833ccce55ba53ca462f35be1"
+    },
+    "tools/pvp72_sources/coop_progress.py": {
+      "before": "bbab8f113edeed3887ea7c7b4fcacd770904b9f51910b30e3d616f65313eafaa",
+      "after": "389017e04e74215bea4d5a7e745b46f116c09840ddbd95e465e85e68f56617a8"
+    },
+    "tools/pvp72_sources/pve.py": {
+      "before": "f807c9fc26bb49abdfca0bc9e4870e9c991b52b0e0ec88dfa733a2b68daf6b7e",
+      "after": "8a468673abcf57d006d9f37b495efccaff2d45c3773542e6a428dbbe39675420"
+    },
+    "build/typed72-match-v1/match_probe.cpp": {
+      "before": "21e4653a545cb28f0ea909314a0dbc876f187b70d7f725eb51b07c8c2258849f",
+      "after": "00ac5599f5a1dce01fb919214223eaf5ddcfc1ad267ebf12f67b720c61aa4f93"
+    },
+    "build/typed72-match-v1/build/cmake_install.cmake": {
+      "before": null,
+      "after": "0c7db5671b996426983506aa8f76b93a0bb745ec037058902feae38787093c0c"
+    },
+    "build/typed72-match-v1/build/CMakeFiles/3.30.5-msvc23/CMakeCXXCompiler.cmake": {
+      "before": null,
+      "after": "a6750cd8e71d2c337eef2aab626dc0fa3f8c43ab8da446f0da6e261fdea9b584"
+    },
+    "build/typed72-match-v1/build/CMakeFiles/3.30.5-msvc23/CMakeRCCompiler.cmake": {
+      "before": null,
+      "after": "85223e3627ab66035651f1bc87d7ab01c67bccd4c1132ea0ebcf6fd87de0c7d1"
+    },
+    "build/typed72-match-v1/build/CMakeFiles/3.30.5-msvc23/CMakeSystem.cmake": {
+      "before": null,
+      "after": "cb655f074177502b26612fa979ee72c606731a0b59f300e936ebba161d8cce09"
+    },
+    "build/typed72-match-v1/build/CMakeFiles/3.30.5-msvc23/CompilerIdCXX/CMakeCXXCompilerId.cpp": {
+      "before": null,
+      "after": "9a626dbff6d2a66fd7a8ea916abbd361129799867015ff02f1c53e6de16fe89c"
+    },
+    "extract/data/catalog.json": {
+      "before": "da88287c1ecc7837658e25510f3360432b45dd99624cf0ec5a54529656ccc479",
+      "after": "a684138297b17069441400269bf0fbfa76aceadfe8029e1188375200846c8f7d"
+    },
+    "extract/data/__init__.json": {
+      "before": "8e41821c807249c640f2f87d03a582d200ec105cf5cae8e5faf309f8ef1dbc80",
+      "after": "af7a3e538cd8033d68a2f64ecf25dfefb98e77a13a7be45c5c2d85ce9d42760b"
+    }
+  }
+}

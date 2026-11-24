@@ -97,7 +97,8 @@ changed |= replace('src/sim/pvp/gen/pm_native_animation.cpp', [
 # PvP75 brief almanac lines for the new cards (tools/pvp72_sources/almanac_text.py NOTES):
 # appended right after the generated NOTES dict line.
 CRLF, LF = chr(13) + chr(10), chr(10)
-ALMANAC_NOTES = {'plant:巴豆': '被啃即消失：啃咬者受150伤害、眩晕6秒、二级中毒；身后喷出6格毒气，接触的僵尸受60伤害、眩晕3秒、一级中毒。', 'plant:激光豆': '点它后在面朝±80°、8～20格内选点，持续发射激光：每0.4秒伤害30÷光束长度（格），对戴夫固定1点；再点一次停止。', 'zombie:盾卫僵尸': '受伤后举盾：6秒内防御60、免疫击退、移速-40%；放下后冷却4秒。', 'zombie:克苏鲁之仆': '0脑光，无需墓碑，任意位置召唤，自己追最近的敌人；不受调令与召集旗帜影响，海陆空中算空中单位。'}
+sys.path.insert(0, str(ROOT / 'tools'))
+from pvp72_sources.almanac_text import NOTES as ALMANAC_NOTES
 
 
 def almanac_notes(rel):

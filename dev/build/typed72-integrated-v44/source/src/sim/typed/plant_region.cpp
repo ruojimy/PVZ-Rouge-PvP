@@ -1,4 +1,5 @@
 #include "sim/typed/plant_region.h"
+#include "sim/typed/air_zombies.h"
 #include "sim/typed/shooter.h"
 #include "sim/typed/plant_queries.h"
 #include "core/pymath.h"
@@ -282,9 +283,7 @@ void PlantRegion::umbrella(const Frame& frame) {
             if(std::abs(pos.x-globals.xx.get())>tile*2. || std::abs(pos.y-globals.yy.get()-tile/2.)>tile*1.2)continue;
             pos.vx=(pos.x>globals.xx.get()?300.:-300.)*runtime.plk;pos.vy=-300.*runtime.plk;
             auto& native=zombie_native(target);
-            if(body(target).kind=="飞贼僵尸" && !native.leaving.present()) {
-                native.leaving.set(0.);native.entry.set(0.);native.entry_end=native.entry_start;native.entry_start.set({pos.x,pos.y});
-            }
+            retract_bungee(body(target).kind,native,pos);
         }
     }
     if(++plant(index).shoot_cd.get()==1200.){plant(index).shoot_cd.set(0.);plant(index).shooting.set(0.);}
@@ -504,7 +503,12 @@ void PlantRegion::imitation(const Frame& frame) {
     const auto index=frame.index;if(plant(index).imitator_cd.get()<=0.)return;
     --plant(index).imitator_cd.get();++plant(index).root_animation.get();
     if(plant(index).imitator_cd.get()!=0.)return;
-    imitation_clouds(frame);if(plant(index).imitation.get()=="模仿者")return;
+    imitation_clouds(frame);
+    if(world_.solo.lottery()){
+        auto original=world_.plant_roster->at(index);original->dead.set(DeathMarker(0.));
+        services_.imitate(original,frame.cell,original->facing);return;
+    }
+    if(plant(index).imitation.get()=="模仿者")return;
     plant(index).dead.set(DeathMarker(0.));const auto kind=plant(index).imitation.get();
     auto& runtime=world_.runtime;const auto tile=runtime.tile;
     if(contains(world_.plant_catalog.lottery_zombies,kind)) {
@@ -550,6 +554,7 @@ void PlantRegion::blover(const Frame& frame) {
     const auto speed_max=world_.wind_environment.zombie_speed_max;
     for(size_t target=0;target<targets;++target) {
         if(right?position(target).x<globals.xx.get():position(target).x>globals.xx.get())continue;
+        if(body(target).kind=="飞贼僵尸"&&retract_bungee(body(target).kind,zombie_native(target),position(target)))continue;
         if(body(target).hand=="报纸")services_.surface(target,plant(index).facing,body(target).hand_hp);
         if(body(target).hand=="气球") {
             position(target).vx+=(right?1.:-1.)*runtime.plk*20.;
@@ -566,7 +571,7 @@ void PlantRegion::blover(const Frame& frame) {
 }
 void PlantRegion::mine(const Frame& frame) {
     const auto index=frame.index;auto& runtime=world_.runtime;const auto tile=runtime.tile;
-    if(nearby_row(plant(index).cell,0) && world_.heroes.globals.mode.get()!="我是僵尸" && plant(index).buried.get()==0.)plant(index).dead.set(DeathMarker(0.));
+    if(!world_.solo.izombie() && nearby_row(plant(index).cell,0) && world_.heroes.globals.mode.get()!="我是僵尸" && plant(index).buried.get()==0.)plant(index).dead.set(DeathMarker(0.));
     if(plant(index).buried.get()>0. && --plant(index).buried.get()==0.)sound("出坟墓",index);
     if(plant(index).buried.get()!=0.)return;
     if(plant(index).emerged.get()<200.) {

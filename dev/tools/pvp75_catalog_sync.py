@@ -30,7 +30,8 @@ PATCH_CARDS = ['plant:杨桃', 'plant:三叶草', 'plant:玉米加农炮', 'zomb
                'zsecret:大运！小子', 'zsecret:船锚', 'secret:阳光', 'zsecret:坤坤',  # PvP76 r2 texts
                'zombie:倭瓜僵尸', 'zombie:成长脑光墓碑', 'zombie:水上成长脑光墓碑', 'plant:巴豆', 'plant:黄金蓓蕾',
                'zombie:三叶草僵尸', 'zombie:辣椒僵尸', 'plant:激光豆', 'secret:密植', 'secret:核平', 'zsecret:汇流',
-               'zsecret:空输', 'zombie:飞贼僵尸']  # PvP76 r3
+               'zsecret:空输', 'zombie:飞贼僵尸', 'zombie:海盗船长', 'plant:弹簧草', 'plant:金盏花', 'plant:向日葵', 'plant:双子向日葵',
+               'plant:阳光菇', 'plant:寒冰辣椒', 'plant:冰冻生菜', 'plant:阳光藤蔓']  # PvP76 r3
 # PvP76: per-card native health fields (雪橇车小队 30 per member); other cards keep their reviewed cold values.
 PATCH_EXTRA = {'zombie:雪橇车小队': ('native_hp', 'native_izombie_hp', 'native_hard_hp'),
                'zombie:雪橇车小队僵尸': ('native_hp', 'native_izombie_hp', 'native_hard_hp'),
@@ -178,6 +179,19 @@ def main():
     out = render(text, catalog, balance)
     v_text = V_CATALOG.read_bytes().decode('utf8')
     v_out = v_render(v_text, catalog)
+    sys.path.insert(0, str(ROOT / 'tools'))
+    from pvp72_sources.almanac_text import NOTES
+    def export_fields(name, updates):
+        path = ROOT / 'extract/data' / (name + '.json')
+        packaged = json.loads(path.read_text(encoding='utf8'))
+        for table, entries in updates.items():
+            packaged[table].update(entries)
+        rendered = json.dumps(packaged, ensure_ascii=False, indent=1)
+        if path.read_text(encoding='utf8') != rendered:
+            if a.check: raise SystemExit('Stale packaged ' + name + ' fields')
+            path.write_bytes(rendered.encode('utf8'))
+    export_fields('catalog', {'CARDS': {k: catalog.CARDS[k] for k in set(PATCH_CARDS) | set(NEW)}})
+    export_fields('almanac_text', {'NOTES': NOTES})
     if a.check:
         if out != text: raise SystemExit('cold_catalog_data.cpp is not in sync with the PvP75 Python catalog')
         if v_out != v_text: raise SystemExit('pm_catalog.cpp PvP75 block is not in sync with the Python catalog')

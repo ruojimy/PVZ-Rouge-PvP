@@ -61,7 +61,8 @@ class Value:
 
 class Replay:
     """Second native Room that replays a prefix and finishes the draft with a prior-ordered policy."""
-    def __init__(self):self.room=Room();self.cards=self.room.catalog['cards']
+    def __init__(self,ban_targets=None):
+        self.room=Room();self.cards=self.room.catalog['cards'];self.ban_targets=ban_targets
     def close(self):self.room.close()
     def rollout(self,seed,prefix,prior,rng,temp=.04):
         st=self.room.request(op='start',seed=seed,map=HOME,night=False,weather='clear')
@@ -70,6 +71,9 @@ class Replay:
             a=st['action'];keys=keys_for(self.cards,a)
             # Picks favour own valuable cards; bans remove the opponent's valuable cards (prior is owner-relative).
             keys.sort(key=lambda k:-(prior.get(k,0.)+temp*rng.gumbel()))
+            if self.ban_targets and a['kind']=='ban':
+                preferred=[k for k in self.ban_targets(a) if k in keys]
+                keys=preferred+[k for k in keys if k not in preferred]
             legal=self.room.request(op='legal',keys=keys,count=1)
             if not legal and a['kind']=='ban':legal=[None]
             if not legal:return None
@@ -78,12 +82,17 @@ class Replay:
         return st['decks']
 
 class Searcher:
-    def __init__(self,value,prior,M=24,K=3):
-        self.value=value;self.prior=prior;self.M=M;self.K=K;self.replay=Replay()
+    def __init__(self,value,prior,M=24,K=3,explore=0,ban_targets=None):
+        self.value=value;self.prior=prior;self.M=M;self.K=K
+        self.explore=explore;self.replay=Replay(ban_targets)
     def close(self):self.replay.close()
     def choose(self,seed,prefix,side,offers):
         if len(offers)==1:return offers[0],{}
-        cand=sorted(offers,key=lambda k:-(self.prior.get(k,0.) if k else -1e9))[:self.M]
+        ordered=sorted(offers,key=lambda k:-(self.prior.get(k,0.) if k else -1e9))
+        cand=ordered[:self.M]
+        if self.explore and len(ordered)>self.M:
+            cand=cand[:-self.explore]+random.Random(seed*97+len(prefix)).sample(
+                ordered[self.M:],min(self.explore,len(ordered)-self.M))
         if None in offers and None not in cand:cand.append(None)
         decks=[];owner=[]
         for c in cand:

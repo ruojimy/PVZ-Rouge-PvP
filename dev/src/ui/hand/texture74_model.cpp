@@ -22,7 +22,7 @@ std::string unb64(const std::string& text){
 }
 J inventory(){return data::module("texture_resources74");}
 void load_inventory(){auto& s=state();if(!s.resources.empty())return;const auto j=inventory();s.cards=j.at("cards");s.heroes=j.value("heroes",J::array());for(const auto& key:j.value("excluded_resources",J::array()))s.excluded_keys.insert(key.get<std::string>());
- for(const auto& e:j.at("entries")){Resource r;r.key=e.at("key");r.name=e.at("name");r.file=e.at("file");r.scope=e.at("scope");r.category=e.at("category");r.w=e.at("width");r.h=e.at("height");r.projectile=e.at("projectile");r.cards=e.at("cards").get<std::vector<std::string>>();r.heroes=e.value("heroes",std::vector<std::string>{});s.by_key.emplace(r.key,s.resources.size());s.resources.push_back(std::move(r));}}
+ for(const auto& e:j.at("entries")){Resource r;r.key=e.at("key");r.name=e.at("name");r.file=e.at("file");r.scope=e.at("scope");r.category=e.at("category");r.w=e.at("width");r.h=e.at("height");r.projectile=e.at("projectile");r.campaign=e.value("campaign",false);r.cards=e.at("cards").get<std::vector<std::string>>();r.heroes=e.value("heroes",std::vector<std::string>{});s.by_key.emplace(r.key,s.resources.size());s.resources.push_back(std::move(r));}}
 const Resource* resource(const std::string& key){load_inventory();auto& s=state();const auto it=s.by_key.find(key);return it==s.by_key.end()?nullptr:&s.resources.at(it->second);}
 V original(const Resource& r){
  OriginalScope original_pixels;

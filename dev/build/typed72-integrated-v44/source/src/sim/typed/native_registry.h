@@ -14,7 +14,7 @@ struct CombatZombie;
 struct CombatTarget;
 class HeroCombat;
 using NativeObject=std::variant<std::shared_ptr<CombatPlant>,std::shared_ptr<CombatZombie>>;
-enum class MatchMode { duel,duo,pve,coop };
+enum class MatchMode { duel,duo,pve,coop,izombie };
 std::span<const Seat> seats_for(MatchMode);
 
 // Ordered keyed references to the authoritative bodies. Replacing a key keeps

@@ -1,5 +1,6 @@
 #include "ui/hand/test_mode74.h"
 #include "pg/pg.h"
+#include "ui/gen/pm_ui_data.h"
 #include "core/resource_paths.h"
 #include "core/fsutil.h"
 #include "sim/pvp/gen/pm_catalog.h"
@@ -44,6 +45,22 @@ void text(const V& r,const std::string& s,int x,int y,int size=16,int width=0){A
 void button(const V& r,const std::string& s,int x,int y,int w,int h,const std::string& op,const V& data=V::none(),bool selected=false){callm(r,SY("button"),Args({V(s),V::tuple({V(x),V(y),V(w),V(h)}),command(op,data)},{{SY("size"),V(15)},{SY("selected"),V(selected)}}));}
 void send(const V& a,J data){Args args{V(panel.side),V("test_mode")};for(const auto& [k,v]:data.items())args.kw.emplace_back(Sym(k),val(v));V error=callm(a,SY("input"),args);panel.notice=error.truthy()?py_str(error):"已应用";}
 V player(const V& a){const auto view=getattr(a,SY("view"));const auto battle=py::m_get(view,V("battle"),py_dict({}));return py::m_get(py::m_get(battle,V("players"),py_dict({})),V(panel.side),py_dict({}));}
+void fill_deck(const V& app,bool saved){
+    const V side(panel.side),view=getattr(app,SY("view"));
+    const V cards=saved?py::m_get(pm_ui_data::f_load_decks(Args{getattr(getattr(app,SY("settings_path")),SY("parent"))/V("decks.json"),py::m_get(view,V("bans"),V::list())}),side,V::list()):
+        py::m_get(callm(app,SY("draft_advice"),Args{side,side}),V("deck"),V::list());
+    auto current=callm(py::m_get(player(app),V("deck"),V::list()),SY("copy"),Args{});
+    while(current.len()<13)current.append(V(""));
+    int added=0;
+    for(const auto& key:cards.items()){
+        if(!key.truthy()||py::in(key,current))continue;
+        size_t slot=0;while(slot<13&&current.idx(slot).truthy())++slot;if(slot==13)break;
+        auto error=callm(app,SY("input"),Args({side,V("test_mode")},{{SY("op"),V("card")},{SY("slot"),V(int(slot))},{SY("card"),key}}));
+        if(error.truthy())throw std::runtime_error(py_str(error));
+        setitem(current,V(int(slot)),key);++added;
+    }
+    panel.notice=added?"已补入 "+std::to_string(added)+" 张卡":saved?"没有可补入的已存卡牌":"没有可补入的参考卡牌";
+}
 void close(const V& a){panel.focus.clear();setitem(st(a),V("screen"),V("room"));callm(a,SY("_sync_text_input"),Args{});}
 }
 void catalog(){static bool initialized=false;if(initialized)return;pm_catalog::init();auto base=rd(pm_catalog::CARDS,V("zombie:普通僵尸"));for(const auto& n:npcs){if(n.id==5)continue; /* PvP75: zombie:克苏鲁之仆 is a regular card */auto card=callm(base,SY("copy"),Args{});const std::string key=std::string("zombie:")+n.name;for(const char* f:{"id","base_id","resolved_id"})setitem(card,V(f),V(key));setitem(card,V("name"),V(n.name));setitem(card,V("family"),V(n.name));setitem(card,V("native_source"),V(n.name));setitem(card,V("asset"),V(std::string("terraria/NPC_")+std::to_string(n.id)));setitem(card,V("behavior"),V("terraria"));setitem(card,V("cost"),V(0));setitem(card,V("cooldown"),V(0));setitem(card,V("hp"),V(n.hp));setitem(card,V("damage"),V(n.damage));setitem(card,V("defense"),V(n.defense));setitem(card,V("selectable"),V(false));setitem(card,V("spawn_only"),V(true));setitem(card,V("pvp_regular_unit"),V(true));setitem(card,V("description"),V("本地测试模式可召唤；合作第 8/16/24 关对应 Boss 战。普通模式数值。对植物、戴夫伤害除以 10，对魅惑僵尸保持原值。"));setitem(pm_catalog::CARDS,V(key),card);}initialized=true;}
@@ -62,6 +79,7 @@ bool action(const V& app,const V& input){if(input.is_none()||!input.len()||input
  else if(op=="close")close(app);
  else if(op=="side"){panel.side=py_str(data);panel.page=0;}
  else if(op=="tab"){panel.tab=py_str(data);panel.focus.clear();}
+ else if(op=="reference"||op=="saved")fill_deck(app,op=="saved");
  else if(op=="slot")panel.slot=int(data.num());
  else if(op=="page")panel.page=std::max(0,panel.page+int(data.num()));
  else if(op=="focus"){panel.focus=py_str(data);callm(app,SY("_sync_text_input"),Args{});}
@@ -79,7 +97,7 @@ bool action(const V& app,const V& input){if(input.is_none()||!input.len()||input
 bool draw(const V& app){if(screen(app)!="test74")return false;if(!enabled(app)){close(app);return false;}catalog();auto r=getattr(app,SY("renderer"));auto surface=getattr(r,SY("screen"));auto* s=pg::surf(surface);int w=s->w(),h=s->h();SDL_FillRect(s->s,nullptr,SDL_MapRGB(s->s->format,232,236,216));setattr(r,SY("controls"),V::list());
  text(r,"本地测试模式",24,18,26);button(r,"返回对局",w-145,15,120,36,"close");button(r,"选卡",24,62,100,34,"tab",V("cards"),panel.tab=="cards");button(r,"作弊器",132,62,100,34,"tab",V("cheats"),panel.tab=="cheats");button(r,"植物方",260,62,110,34,"side",V("plant"),panel.side=="plant");button(r,"僵尸方",380,62,110,34,"side",V("zombie"),panel.side=="zombie");
  if(panel.tab=="cards"){const auto deck=py::m_get(player(app),V("deck"),V::list());int columns=std::min(7,std::max(4,(w-48)/130)),cw=(w-48)/columns;for(int i=0;i<13;++i){std::string name="空";if(i<int(deck.len())&&deck.idx(i).truthy()){auto card=py::m_get(pm_catalog::CARDS,deck.idx(i),py_dict({}));name=py_str(py::m_get(card,V("name"),deck.idx(i)));}button(r,std::to_string(i+1)+" · "+name,24+(i%columns)*cw,112+(i/columns)*40,cw-5,35,"slot",V(i),panel.slot==i);}
-  int top=112+((13+columns-1)/columns)*40;button(r,"搜索："+panel.query,24,top,w-205,34,"focus",V("query"),panel.focus=="query");button(r,"清空此槽",w-170,top,146,34,"card",V(""));
+  int top=112+((13+columns-1)/columns)*40;button(r,"参考阵容补齐",24,top,145,32,"reference");button(r,"已存阵容补齐",178,top,145,32,"saved");top+=38;button(r,"搜索："+panel.query,24,top,w-205,34,"focus",V("query"),panel.focus=="query");button(r,"清空此槽",w-170,top,146,34,"card",V(""));
   std::vector<std::string> keys;auto raw=J::parse(dump(pm_catalog::CARDS));for(const auto& [key,c]:raw.items()){bool boss=false;for(const auto& n:npcs)if(main_npc(n.id)&&key==std::string("zombie:")+n.name)boss=true;if(c.value("side",std::string{})!=panel.side||(!c.value("selectable",false)&&!boss))continue;const std::string name=c.value("name",key);if(!panel.query.empty()&&name.find(panel.query)==std::string::npos)continue;keys.push_back(key);}
   const int cols=std::max(3,(w-48)/190),rows=std::max(1,(h-top-125)/49),per=rows*cols,pages=std::max(1,int((keys.size()+per-1)/per));panel.page=std::min(panel.page,pages-1);int bw=(w-48)/cols;for(int j=0;j<per&&panel.page*per+j<int(keys.size());++j){const auto& key=keys[panel.page*per+j];const auto& c=raw.at(key);button(r,c.value("name",key),24+(j%cols)*bw,top+45+(j/cols)*49,bw-6,43,"card",V(key));}
   button(r,"上一页",24,h-70,100,32,"page",V(-1));text(r,std::to_string(panel.page+1)+" / "+std::to_string(pages),135,h-64);button(r,"下一页",220,h-70,100,32,"page",V(1));text(r,"先选卡槽，再选卡牌；立即生效，已有单位保留。",340,h-64,14,w-365);

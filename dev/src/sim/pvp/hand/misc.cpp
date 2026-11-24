@@ -244,7 +244,7 @@ V C_NativeBridge::m_generate_map(const Args& A) {
     V seed = A.get(1, Sym("seed"), nullptr);
     if (!py::in(name, pvz::getattr(self(), Sym("map_names"))))
         throw PyError("NativeBridgeError", "Map is not in the verified original catalogue: " + py_str(name));
-    return grid_to_v(generate_original_map(name.str(), int64_t(seed.num())));
+    return grid_to_v(generate_original_map(name.str(), int64_t(seed.num()), A.size()>2&&A.pos[2].truthy()));
 }
 
 static PyError literal_error(const std::string& message) { return PyError("NativeBridgeError", message, {"RuntimeError"}); }

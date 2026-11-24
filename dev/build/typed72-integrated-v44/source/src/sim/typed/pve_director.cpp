@@ -156,6 +156,10 @@ void PveDirector::step(){
             keys.insert(keys.begin(),LADDER_SUPPORT);ladders_.ladder_count=std::max<int64_t>(0,ladders_.ladder_count-1);
             services_.event({"pve_ladder_support",{{"source",std::string("opening")},{"day",day_}}});
         }
+        if(world_.solo.lottery()){
+            const auto total=world_.solo.wave_remainder+int(keys.size());
+            keys.resize(size_t(total/4));world_.solo.wave_remainder=total%4;
+        }
         const auto front=fronts(wave);
         for(size_t i=0;i<keys.size();++i)
             queue.push_back({t+STAGGER*double(i)/double(std::max<size_t>(1,keys.size())),keys[i],front[i%front.size()],wave_index});
@@ -213,6 +217,8 @@ void PveDirector::request_ladder(const ZombieRef& z){
         const double a=std::abs(points_[i].x-m.x),dx=std::min(a,width-a),dy=points_[i].y-m.y,d=dx*dx+dy*dy;
         if(i==0||d<best_d){best=i;best_d=d;}
     }
+    if(world_.solo.lottery()&&++world_.solo.wave_remainder<4){ladders_.ladder_cooldown=last_flag?2000:10000;return;}
+    if(world_.solo.lottery())world_.solo.wave_remainder=0;
     pending_ladders.push_back(int64_t(best));--ladders_.ladder_count;ladders_.ladder_cooldown=last_flag?2000:10000;
     services_.event({"pve_ladder_support",{{"source",std::string("blocked")},{"point",int64_t(best)},{"day",day_}}});
 }

@@ -39,6 +39,7 @@ public:
     bool active()const{return active_;}
     void target_index(const TrackingSource& source={});
     void tracking_index(const TrackingSource&);
+    std::string_view passive_mark(Seat)const;
     bool hero_lock(const TrackingSource&,Seat)const;
     uint64_t nearest_queries=0,nearest_candidates=0,nearest_full_scan=0;
 private:

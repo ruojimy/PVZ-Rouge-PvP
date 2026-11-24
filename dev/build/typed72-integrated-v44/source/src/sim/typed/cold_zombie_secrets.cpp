@@ -1,10 +1,10 @@
 #include "cold_zombie_secrets.h"
+#include "sim/typed/air_zombies.h"
 #include <algorithm>
 namespace pvz::typed72 {
 namespace {
 bool one(std::string_view s,std::initializer_list<std::string_view> list){return std::find(list.begin(),list.end(),s)!=list.end();}
 bool water(std::string_view s){return one(s,{"zombie:潜水僵尸","zombie:海豚僵尸","zombie:鸭子普通僵尸","zombie:鸭子路障僵尸","zombie:鸭子铁桶僵尸","zombie:滚桶僵尸","zombie:钩索僵尸","zombie:海盗船长","zombie:小鬼炮"});}
-bool air(std::string_view s){return one(s,{"zombie:海盗鹦鹉","zombie:乌鸦","zombie:气球僵尸","zombie:飞贼僵尸","zombie:克苏鲁之仆"});}  // PvP75: servant flies
 bool yes(const Field<bool>& f){return f.present()&&!f.is_null()&&f.get();}
 // PvP76 r2: co-op (and solo PvE) carry the run's zombie secrets on the dormant zombie seat,
 // which is not one of the seated seats; it still holds them for every team-wide rule.
@@ -23,10 +23,11 @@ bool ColdZombieSecrets::enabled()const{for(Seat seat:secret_seats(world_.mode))i
 bool ColdZombieSecrets::last_stand()const{for(const auto& until:world_.heroes.last_stand)if(until)return true;return false;}
 void ColdZombieSecrets::configure_locked(){
     trinity_.fill(false);
-    for(Seat seat:seats_for(world_.mode))if(seat_has(seat,"海陆空")){
+    for(Seat seat:secret_seats(world_.mode))if(seat_has(seat,"海陆空")){
         bool land_found=false,water_found=false,air_found=false;
-        for(const auto& key:deployment_.players[seat_index(seat)].deck){if(key.empty())continue;const auto& card=catalog_.at(key);if(card.category=="secret"||card.behavior=="grave")continue;
-            water_found=water_found||water(key);air_found=air_found||air(key);land_found=land_found||(!water(key)&&!air(key));
+        const auto& roster=seat==Seat::zombie && !scripted_roster.empty()?scripted_roster:deployment_.players[seat_index(seat)].deck;
+        for(const auto& key:roster){if(key.empty())continue;const auto& card=catalog_.at(key);if(card.category=="secret"||card.behavior=="grave")continue;
+            water_found=water_found||water(key);air_found=air_found||air_zombie_card(key);land_found=land_found||(!water(key)&&!air_zombie_card(key));
         }trinity_[seat_index(seat)]=land_found&&water_found&&air_found;
     }
 }
@@ -50,7 +51,7 @@ void ColdZombieSecrets::on_spawn(const ZombieRef& z,const ColdCard& card,const C
     if(has("僵王出品")){if(z->body.armor_hp>0.)z->body.armor_hp*=1.25;if(z->body.hand_hp>0.)z->body.hand_hp*=1.25;if(z->armor_max.present()&&!z->armor_max.is_null()&&z->armor_max.get()!=0.)z->armor_max.get()*=1.25;}
     if(one(z->body.hand,{"报纸","钢门","梯子","铁栅门","传送带"})){z->registration.secret_hand.set(z->body.hand);z->hand_max.set(z->body.hand_hp);}
     if(has("立棍！小子")&&one(key,{"zombie:撑杆跳僵尸","zombie:黑撑杆僵尸"}))z->registration.secret_pole.set(z->body.hand=="撑杆");
-    if(trinity_[seat_index(seat)]&&(water(key)||air(key))){scale_hp(z,1.5);scale_speed(z,"海陆空",.25);}
+    if(trinity_[seat_index(seat)]&&(water(key)||air_zombie_card(key))){scale_hp(z,1.5);scale_speed(z,"海陆空",.25);}
     if(has("三五成群")&&one(key,{"zombie:普通僵尸","zombie:鸭子普通僵尸","zombie:黑普通僵尸"}))z->registration.secret_crowd.set(!(parent&&parent->card&&one(*parent->card,{"zombie:旗帜僵尸","zombie:黑旗帜僵尸"})));
 }
 void ColdZombieSecrets::on_deployed(const std::string& entity,const std::optional<std::string>& grave){

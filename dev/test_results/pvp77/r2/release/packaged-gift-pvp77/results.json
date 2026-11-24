@@ -1,0 +1,679 @@
+{
+  "checks": [
+    {
+      "name": "pvp77r2",
+      "evidence": [
+        {
+          "id": "lottery.battle_rng",
+          "samples": [
+            {
+              "draws": [
+                "zombie:普通僵尸",
+                "zombie:普通僵尸",
+                "plant:向日葵"
+              ]
+            },
+            {
+              "draws": [
+                "plant:金盏花",
+                "plant:金盏花",
+                "plant:土豆地雷"
+              ]
+            },
+            {
+              "draws": [
+                "plant:豌豆射手",
+                "plant:金盏花",
+                "plant:金盏花"
+              ]
+            }
+          ],
+          "passed": true
+        },
+        {
+          "id": "izombie.battle_rng",
+          "samples": [
+            {
+              "graves": [
+                [
+                  47,
+                  19
+                ],
+                [
+                  50,
+                  19
+                ],
+                [
+                  46,
+                  19
+                ]
+              ],
+              "brains": [
+                [
+                  "脑子",
+                  26,
+                  19
+                ],
+                [
+                  "脑子",
+                  7,
+                  19
+                ],
+                [
+                  "脑子",
+                  44,
+                  19
+                ]
+              ],
+              "plants": [
+                [
+                  "向日葵",
+                  49,
+                  19
+                ],
+                [
+                  "向日葵",
+                  65,
+                  19
+                ],
+                [
+                  "向日葵",
+                  4,
+                  19
+                ],
+                [
+                  "向日葵",
+                  10,
+                  19
+                ],
+                [
+                  "向日葵",
+                  27,
+                  19
+                ],
+                [
+                  "向日葵",
+                  32,
+                  19
+                ],
+                [
+                  "向日葵",
+                  5,
+                  19
+                ],
+                [
+                  "向日葵",
+                  14,
+                  19
+                ],
+                [
+                  "金盏花",
+                  35,
+                  19
+                ],
+                [
+                  "金盏花",
+                  31,
+                  19
+                ],
+                [
+                  "金盏花",
+                  56,
+                  19
+                ],
+                [
+                  "土豆地雷",
+                  37,
+                  19
+                ],
+                [
+                  "豌豆射手",
+                  0,
+                  19
+                ],
+                [
+                  "土豆地雷",
+                  63,
+                  19
+                ],
+                [
+                  "豌豆射手",
+                  58,
+                  19
+                ],
+                [
+                  "豌豆射手",
+                  54,
+                  19
+                ]
+              ]
+            },
+            {
+              "graves": [
+                [
+                  33,
+                  19
+                ],
+                [
+                  16,
+                  19
+                ],
+                [
+                  17,
+                  19
+                ]
+              ],
+              "brains": [
+                [
+                  "脑子",
+                  67,
+                  19
+                ],
+                [
+                  "脑子",
+                  51,
+                  19
+                ],
+                [
+                  "脑子",
+                  62,
+                  19
+                ]
+              ],
+              "plants": [
+                [
+                  "向日葵",
+                  2,
+                  19
+                ],
+                [
+                  "向日葵",
+                  61,
+                  19
+                ],
+                [
+                  "向日葵",
+                  14,
+                  19
+                ],
+                [
+                  "向日葵",
+                  26,
+                  19
+                ],
+                [
+                  "向日葵",
+                  15,
+                  19
+                ],
+                [
+                  "向日葵",
+                  9,
+                  19
+                ],
+                [
+                  "向日葵",
+                  29,
+                  19
+                ],
+                [
+                  "向日葵",
+                  18,
+                  19
+                ],
+                [
+                  "金盏花",
+                  47,
+                  19
+                ],
+                [
+                  "金盏花",
+                  44,
+                  19
+                ],
+                [
+                  "金盏花",
+                  55,
+                  19
+                ],
+                [
+                  "豌豆射手",
+                  38,
+                  19
+                ],
+                [
+                  "土豆地雷",
+                  65,
+                  19
+                ],
+                [
+                  "豌豆射手",
+                  54,
+                  19
+                ],
+                [
+                  "土豆地雷",
+                  19,
+                  19
+                ],
+                [
+                  "豌豆射手",
+                  53,
+                  19
+                ]
+              ]
+            },
+            {
+              "graves": [
+                [
+                  66,
+                  19
+                ],
+                [
+                  53,
+                  19
+                ],
+                [
+                  67,
+                  19
+                ]
+              ],
+              "brains": [
+                [
+                  "脑子",
+                  16,
+                  19
+                ],
+                [
+                  "脑子",
+                  32,
+                  19
+                ],
+                [
+                  "脑子",
+                  27,
+                  19
+                ]
+              ],
+              "plants": [
+                [
+                  "向日葵",
+                  22,
+                  19
+                ],
+                [
+                  "向日葵",
+                  58,
+                  19
+                ],
+                [
+                  "向日葵",
+                  69,
+                  19
+                ],
+                [
+                  "向日葵",
+                  60,
+                  19
+                ],
+                [
+                  "向日葵",
+                  54,
+                  19
+                ],
+                [
+                  "向日葵",
+                  20,
+                  19
+                ],
+                [
+                  "向日葵",
+                  42,
+                  19
+                ],
+                [
+                  "向日葵",
+                  6,
+                  19
+                ],
+                [
+                  "金盏花",
+                  8,
+                  19
+                ],
+                [
+                  "金盏花",
+                  24,
+                  19
+                ],
+                [
+                  "金盏花",
+                  26,
+                  19
+                ],
+                [
+                  "豌豆射手",
+                  56,
+                  19
+                ],
+                [
+                  "豌豆射手",
+                  63,
+                  19
+                ],
+                [
+                  "土豆地雷",
+                  19,
+                  19
+                ],
+                [
+                  "土豆地雷",
+                  30,
+                  19
+                ],
+                [
+                  "豌豆射手",
+                  49,
+                  19
+                ]
+              ]
+            }
+          ],
+          "passed": true
+        },
+        {
+          "id": "coop.settlement_and_reload",
+          "batches": [
+            [
+              [
+                {
+                  "kind": "plant",
+                  "key": "plant:激光豆",
+                  "price": 315,
+                  "sold": false
+                },
+                {
+                  "kind": "plant",
+                  "key": "plant:幽灵辣椒",
+                  "price": 225,
+                  "sold": false
+                },
+                {
+                  "kind": "plant",
+                  "key": "plant:三叶草",
+                  "price": 135,
+                  "sold": false
+                },
+                {
+                  "kind": "secret",
+                  "key": "secret:硬化",
+                  "price": 270,
+                  "sold": false
+                },
+                {
+                  "kind": "secret",
+                  "key": "secret:密植",
+                  "price": 295,
+                  "sold": false
+                },
+                {
+                  "kind": "slot",
+                  "key": null,
+                  "price": 150,
+                  "sold": false
+                },
+                {
+                  "kind": "sun",
+                  "key": null,
+                  "price": 100,
+                  "sold": false
+                }
+              ],
+              [
+                {
+                  "kind": "plant",
+                  "key": "plant:大喷菇",
+                  "price": 135,
+                  "sold": false
+                },
+                {
+                  "kind": "plant",
+                  "key": "plant:三叶草",
+                  "price": 135,
+                  "sold": false
+                },
+                {
+                  "kind": "plant",
+                  "key": "plant:火炬树桩",
+                  "price": 255,
+                  "sold": false
+                },
+                {
+                  "kind": "secret",
+                  "key": "secret:体香",
+                  "price": 335,
+                  "sold": false
+                },
+                {
+                  "kind": "secret",
+                  "key": "secret:转向",
+                  "price": 265,
+                  "sold": false
+                },
+                {
+                  "kind": "slot",
+                  "key": null,
+                  "price": 150,
+                  "sold": false
+                },
+                {
+                  "kind": "sun",
+                  "key": null,
+                  "price": 100,
+                  "sold": false
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "kind": "plant",
+                  "key": "plant:磁力菇",
+                  "price": 105,
+                  "sold": false
+                },
+                {
+                  "kind": "plant",
+                  "key": "plant:地刺",
+                  "price": 165,
+                  "sold": false
+                },
+                {
+                  "kind": "plant",
+                  "key": "plant:超载芦苇",
+                  "price": 285,
+                  "sold": false
+                },
+                {
+                  "kind": "secret",
+                  "key": "secret:电疗",
+                  "price": 350,
+                  "sold": false
+                },
+                {
+                  "kind": "secret",
+                  "key": "secret:补光",
+                  "price": 350,
+                  "sold": false
+                },
+                {
+                  "kind": "slot",
+                  "key": null,
+                  "price": 150,
+                  "sold": false
+                },
+                {
+                  "kind": "sun",
+                  "key": null,
+                  "price": 100,
+                  "sold": false
+                }
+              ],
+              [
+                {
+                  "kind": "plant",
+                  "key": "plant:闪电芦苇",
+                  "price": 225,
+                  "sold": false
+                },
+                {
+                  "kind": "plant",
+                  "key": "plant:香蒲",
+                  "price": 435,
+                  "sold": false
+                },
+                {
+                  "kind": "plant",
+                  "key": "plant:裂荚射手",
+                  "price": 225,
+                  "sold": false
+                },
+                {
+                  "kind": "secret",
+                  "key": "secret:强健",
+                  "price": 275,
+                  "sold": false
+                },
+                {
+                  "kind": "secret",
+                  "key": "secret:电疗",
+                  "price": 315,
+                  "sold": false
+                },
+                {
+                  "kind": "slot",
+                  "key": null,
+                  "price": 150,
+                  "sold": false
+                },
+                {
+                  "kind": "sun",
+                  "key": null,
+                  "price": 100,
+                  "sold": false
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "kind": "plant",
+                  "key": "plant:窝瓜",
+                  "price": 150,
+                  "sold": false
+                },
+                {
+                  "kind": "plant",
+                  "key": "plant:寒冰辣椒",
+                  "price": 285,
+                  "sold": false
+                },
+                {
+                  "kind": "plant",
+                  "key": "plant:寒冰射手",
+                  "price": 205,
+                  "sold": false
+                },
+                {
+                  "kind": "secret",
+                  "key": "secret:三向蓝火",
+                  "price": 295,
+                  "sold": false
+                },
+                {
+                  "kind": "secret",
+                  "key": "secret:密植",
+                  "price": 325,
+                  "sold": false
+                },
+                {
+                  "kind": "slot",
+                  "key": null,
+                  "price": 165,
+                  "sold": false
+                },
+                {
+                  "kind": "sun",
+                  "key": null,
+                  "price": 110,
+                  "sold": false
+                }
+              ],
+              [
+                {
+                  "kind": "plant",
+                  "key": "plant:地刺王",
+                  "price": 285,
+                  "sold": false
+                },
+                {
+                  "kind": "plant",
+                  "key": "plant:小喷菇",
+                  "price": 85,
+                  "sold": false
+                },
+                {
+                  "kind": "plant",
+                  "key": "plant:黄金蓓蕾",
+                  "price": 85,
+                  "sold": false
+                },
+                {
+                  "kind": "secret",
+                  "key": "secret:硬化",
+                  "price": 345,
+                  "sold": false
+                },
+                {
+                  "kind": "secret",
+                  "key": "secret:闪现",
+                  "price": 370,
+                  "sold": false
+                },
+                {
+                  "kind": "slot",
+                  "key": null,
+                  "price": 165,
+                  "sold": false
+                },
+                {
+                  "kind": "sun",
+                  "key": null,
+                  "price": 110,
+                  "sold": false
+                }
+              ]
+            ]
+          ],
+          "passed": true
+        },
+        {
+          "id": "solo.normal_entries_shop_and_pages",
+          "lottery": [
+            362707955,
+            727752214,
+            910279534
+          ],
+          "izombie": [
+            141245500,
+            650300638,
+            1018055266
+          ],
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "failures": 0
+}

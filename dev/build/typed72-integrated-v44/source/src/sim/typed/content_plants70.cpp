@@ -45,7 +45,7 @@ bool ContentPlants70::configure(PlantRef plant,std::string_view name,double hp) 
         if(found==basins.end())basins.emplace_back(id,plant);else found->second=plant;
         cell.block.set("水");cell.basin.set(id);services_.sync_terrain();
     }else if(name=="抓人草"){p.content70.heads.set({});spawn_head(plant);}
-    else {p.one_shot.set(true);try_lettuce(plant);}return true;
+    else {p.one_shot.set(true);if(world_.solo.izombie()&&!water_component(p.cell).empty())p.sleep.set(0.);else try_lettuce(plant);}return true;
 }
 std::vector<PlantRef> ContentPlants70::heads(const PlantRef& root)const {
     std::vector<PlantRef> result;for(const auto& plant:*world_.plant_roster)

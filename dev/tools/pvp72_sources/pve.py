@@ -457,7 +457,7 @@ def reward_pool(unlocked, coop=False):
     for key, card in sorted(CARDS.items()):
         if not campaign_card_allowed(key, coop):
             continue
-        if card["side"] != "plant" or not card.get("selectable", True) or key in owned or key in NOT_REWARDS:
+        if card["side"] != "plant" or not card.get("selectable", True) or key in owned or (key in NOT_REWARDS and not (coop and key == "plant:模仿者")):
             continue
         if card.get("category") == "derived":
             continue
@@ -605,10 +605,19 @@ class Campaign:
                      or campaign_card_allowed(i.get('key'), True)]
 
     # shop
-    def stock_shop(self):
+    def stock_shop(self, settled=False):
         """Three plants, two secrets, a card slot and starting sun - the original's boot."""
-        rng = random.Random(self.seed * 7 + self.day * 101)
+        price_day = self.day
+        seed = self.seed * 7 + self.day * 101
+        if settled:
+            import secrets
+            seed = secrets.randbelow(2**31)
+            self.history[-1]["shop_refreshed"] = True
+            price_day += self.history[-1]["result"] == "win"
+        rng = random.Random(seed)
         pool = reward_pool(self.unlocked, self.coop)
+        if settled:
+            pool = [key for key in pool if key not in self.rewards]
         plants = [k for k in pool if CARDS[k]["category"] != "secret"]
         secrets = [k for k in pool if CARDS[k]["category"] == "secret"]
         items = [dict(kind="plant", key=k, price=plant_price(k), sold=False)
@@ -622,7 +631,7 @@ class Campaign:
         self.shop = items
         if self.coop:
             for item in items:
-                item['price'] = shop_price(item['price'], self.day)
+                item['price'] = shop_price(item['price'], price_day)
         return items
 
     def buy(self, index):
@@ -759,7 +768,12 @@ class Campaign:
             self.unlocked.append(key)
         self.rewards = []
         self.day += 1
-        self.stock_shop()
+        if self.history and self.history[-1].get("shop_refreshed"):
+            for item in self.shop:
+                if key and item.get("key") == key:
+                    item["sold"] = True
+        else:
+            self.stock_shop()
         if key is not None and len(self.deck) < self.slots():
             dependency = CARDS[key].get("dependency")
             if not dependency or dependency in self.deck:

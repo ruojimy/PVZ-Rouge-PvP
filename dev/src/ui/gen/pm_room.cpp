@@ -1915,6 +1915,7 @@ V C_Room::m_players_sides(const Args& A) {
 }
 
 V C_Room::m_seat_list(const Args& A) {
+    if(a_pve.is_dict()&&py::m_get(a_pve,SV("pvp77_mode"))==SV("izombie"))return V::list({SV("zombie")});
     return pm_teams::f_seats_for(Args{a_mode});
     return V::none();
 }
@@ -2354,10 +2355,17 @@ V C_Room::m__start_pve(const Args& A) {
     }}
     a_decks = [&]() -> V { V out_ = V::dict(); V L_seat; { V it3_ = py::iter_list(L_plant_seats); for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) { L_seat = it3_.idx(int64_t(i3_)); out_.at(L_seat) = py::list_it(rd(L_per_seat, L_seat)); }}return out_; }();
     pvz::setitem(a_decks, SV("zombie"), (a_mode == SV("coop")) ? pvz::pvp76r2::coop_battle_secrets(a_pve) : V::list({}));  // PvP76 r2 coop zombie secrets
+    const V solo=py::m_get(a_pve,SV("pvp77_mode"));
+    if(solo.truthy())pvz::setitem(a_decks,SV("zombie"),py::m_get(a_pve,SV("pvp77_zombie_deck")));
     L_widest = py::max_it([&]() -> V { V out_ = V::list(); V L_seat; { V it4_ = py::iter_list(L_plant_seats); for (size_t i4_ = 0; i4_ < it4_.len(); ++i4_) { L_seat = it4_.idx(int64_t(i4_)); out_.append(py::len(rd(L_per_seat, L_seat))); }}return out_; }(), py::Key(), V());
     L_rules = (L_pve_rules).call(Args({a_rules, rd(L_per_seat, rd(L_plant_seats, V(0.0))), py::m_get(a_pve, SV("start_sun"), V(150.0))}, {{SY("slots"), L_widest}}));
-    L_director = (L_WaveDirector).call(Args({rd(a_pve, SV("day")), rd(a_pve, SV("seed"))}, {{SY("coop"), V((py::len([&]() -> V { if (V* override_ = this->find_dyn(SY("seat_list"))) return override_->call(Args{}); return m_seat_list(Args{}); }()) > V(1.0)))}, {SY("max_zombies"), py::m_get(a_pve, SV("max_zombies"), py::m_get(a_rules, SV("pve_max_zombies"), V(40.0)))}}));
-    a_battle = pvz::typed72app::wrap_battle(pm_native_battle::new_NativeBattle(Args({a_map, a_decks, L_rules, a_seed, V::list({})}, {{SY("bridge"), a_bridge}, {SY("mode"), a_mode}, {SY("director"), L_director}})));  // typed72: dynamic path typed
+    if(solo.truthy()){
+        for(const char* k:{"pvp77_mode","pvp77_stage","pvp77_defenders","pvp77_plants","pvp77_zombies"})pvz::setitem(L_rules,V(k),py::m_get(a_pve,V(k)));
+        pvz::setitem(L_rules,SV("producer_protection_seconds"),V(0));pvz::setitem(L_rules,SV("ranked"),V(false));
+        pvz::setitem(L_rules,SV("zombie_slots"),py::len(rd(a_decks,SV("zombie"))));
+    }
+    L_director = (L_WaveDirector).call(Args({rd(a_pve, SV("day")), rd(a_pve, SV("seed"))}, {{SY("coop"), V(solo==SV("lottery")||(py::len([&]() -> V { if (V* override_ = this->find_dyn(SY("seat_list"))) return override_->call(Args{}); return m_seat_list(Args{}); }()) > V(1.0)))}, {SY("max_zombies"), py::m_get(a_pve, SV("max_zombies"), py::m_get(a_rules, SV("pve_max_zombies"), V(40.0)))}}));
+    a_battle = pvz::typed72app::wrap_battle(pm_native_battle::new_NativeBattle(Args({a_map, a_decks, L_rules, a_seed, V::list({})}, {{SY("bridge"), a_bridge}, {SY("mode"), solo==SV("izombie")?SV("duel"):a_mode}, {SY("director"), solo==SV("izombie")?V::none():L_director}})));  // typed72: dynamic path typed
     if ((a_mode == SV("coop"))) {
         pvz::setattr(a_battle, SY("ai_subsidy_seats"), py::tuple_it(py::sorted_it([&]() -> V { V out_ = V::list(); V L_peer; V L_seat; { auto it5_ = py::items_vec(a_members); for (size_t i5_ = 0; i5_ < it5_.size(); ++i5_) { L_peer = it5_[i5_].first; L_seat = it5_[i5_].second; if (!((py::in(L_peer, a_subsidy_peers) && py::in(L_seat, L_plant_seats)))) continue; out_.append(L_seat); }}return out_; }(), py::Key(), false)));
     }

@@ -28,6 +28,7 @@ void change(){state().dirty=true;state().local_enabled=true;}
 void sethex(){auto& s=state();std::ostringstream o;o<<std::hex<<std::setfill('0')<<std::setw(8)<<s.color;s.hex_input=o.str();}
 std::vector<const Resource*> filtered(){auto& s=state();std::vector<const Resource*> out;for(const auto& r:s.resources){
  if(s.filter=="已修改"&&!s.document["entries"].contains(r.key))continue;
+ if(s.filter=="闯关模式"&&!r.campaign)continue;
  if(s.filter=="弹幕"&&!r.projectile)continue;
  if(s.filter=="场景"&&r.category!="场景")continue;
  if(s.filter=="界面"&&r.scope!="ui")continue;
@@ -66,7 +67,7 @@ void draw_library(const V& app,const V& r,SDL_Surface* target,int w,int h){auto&
  button(r,"新建",{20,90,76,34},"new");button(r,"改名",{104,90,76,34},"rename");button(r,"原版材质",{188,90,108,34},"default");
  SDL_Rect search{310,90,std::max(180,w-332),34};fill(target,search,{34,37,43,255});border(target,search,s.focus=="query"?SDL_Color{255,205,93,255}:SDL_Color{112,113,127,255});text(r,(s.focus=="name"?"包名：":s.focus=="hex"?"颜色：":"搜索：")+(s.focus=="name"?s.document["name"].get<std::string>():s.query)+(s.focus.empty()?"":"|"),search.x+10,search.y+7,16,{234,226,203,255},search.w-20);
  callm(getattr(r,Sym("controls")),Sym("append"),Args{V::tuple({pg::make_rect(search.x,search.y,search.w,search.h),command("focus",V("query"))})});
- int tx=20;for(const auto* tab:{"卡牌","英雄","弹幕","全部","已修改","场景","界面"}){button(r,tab,{tx,134,94,32},"filter",V(tab),s.filter==tab);tx+=104;}
+ const int tabw=std::min(104,(w-32)/8);int tx=16;for(const auto* tab:{"卡牌","英雄","弹幕","全部","已修改","场景","界面","闯关模式"}){button(r,tab,{tx,134,tabw-4,32},"filter",V(tab),s.filter==tab);tx+=tabw;}
  if(!s.card_filter.empty()||!s.hero_filter.empty()){std::string title="卡牌："+s.card_filter;for(const auto& hero:s.heroes)if(hero["id"].get<std::string>()==s.hero_filter)title="英雄："+hero["name"].get<std::string>();text(r,title,20,174,15);button(r,"取消筛选",{w-126,171,104,28},"filter",V(s.hero_filter.empty()?"卡牌":"英雄"),false,13);}
  const int top=205,cols=std::max(2,(w-40)/235),cw=(w-40)/cols,rows=std::max(1,(h-top-72)/86),per=cols*rows;int count=0;
  if(s.filter=="卡牌"||s.filter=="英雄"){const bool heroes=s.filter=="英雄";std::vector<J> cards;for(const auto& c:(heroes?s.heroes:s.cards))if(s.query.empty()||c["name"].get<std::string>().find(s.query)!=std::string::npos||c["id"].get<std::string>().find(s.query)!=std::string::npos)cards.push_back(c);count=cards.size();s.page=std::clamp(s.page,0,std::max(0,(count-1)/per));

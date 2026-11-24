@@ -196,7 +196,7 @@ V f_build_snapshot(const Args& A) {
     if ((!(V((as<pm_native_bridge::C_NativeBridge>(L_bridge) != nullptr))).truthy() && !(py::callable(pvz::getattr(L_bridge, (SV("generate_map")).sym(), V::none()))).truthy())) {
         py::raise(py::make_exc(SV("NativeBridgeError"), Args{SV("An original-map bridge is required")}, "RuntimeError"));
     }
-    L_original = callm(L_bridge, SY("generate_map"), Args{L_map_id, L_seed});
+    L_original = A.has_kw(SY("solo_variant"))&&A.get(6,SY("solo_variant"),nullptr).truthy()?callm(L_bridge,SY("generate_map"),Args{L_map_id,L_seed,V(true)}):callm(L_bridge, SY("generate_map"), Args{L_map_id, L_seed});
     L_empty = py::set_it(pvz::getattr(L_bridge, (SV("empty_blocks")).sym(), V::tuple({SV("空"), SV("水"), SV("梯子块")})));
     L_tiles = [&]() -> V { V out_ = V::list(); V L_row; { V it1_ = py::iter_list(L_original); for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) { L_row = it1_.idx(int64_t(i1_)); out_.append([&]() -> V { V out_ = V::list(); V L_cell; { V it2_ = py::iter_list(L_row); for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) { L_cell = it2_.idx(int64_t(i2_)); out_.append(pm_maps::f__cell(Args{L_cell, L_empty})); }}return out_; }()); }}return out_; }();
     { V tv3_0 = py::len(L_tiles); V tv3_1 = py::len(rd(L_tiles, V(0.0))); L_rows = std::move(tv3_0); L_cols = std::move(tv3_1); }

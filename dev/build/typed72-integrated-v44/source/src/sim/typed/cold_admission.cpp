@@ -9,6 +9,7 @@ bool value(const Field<std::string>& f){return f.present()&&!f.is_null()&&!f.get
 std::optional<std::string> id(const AttackSource& s){return value(s.id)?std::optional<std::string>(s.id.get()):std::nullopt;}
 }
 std::vector<std::string> ColdAdmission::team_secrets(Seat team)const{
+    if(world_.solo.izombie()&&team==Seat::plant)return world_.heroes.players.at(seat_index(team))->secrets;
     std::vector<std::string> result;
     for(Seat seat:seats_for(world_.mode))if(team_of(seat)==team)if(const auto& player=world_.heroes.players[seat_index(seat)])for(const auto& secret:player->secrets)
         if(std::find(result.begin(),result.end(),secret)==result.end())result.push_back(secret);
@@ -26,7 +27,14 @@ PlantRef ColdAdmission::native_plant(Cell cell,const std::string& name,double fa
 bool ColdAdmission::imitate(const PlantRef& imitater,Cell cell,double facing){
     // Copy the handle: the caller passes a roster element, and the roster grows below.
     const PlantRef source=imitater;
-    if(!source||source->kind!="模仿者"||!value(source->copy_card))return false;
+    if(!source||source->kind!="模仿者")return false;
+    if(world_.solo.lottery()&&value(source->copy_card)&&source->copy_card.get().starts_with("zombie:")){
+        const double tile=world_.runtime.tile;
+        if(spawn(source->copy_card.get(),Seat::zombie,{(cell.x+.5)*tile,(cell.y+1.)*tile},facing,true))
+            source->transform_succeeded.set(true);
+        return true;
+    }
+    if(!value(source->copy_card))return false;
     const auto key=source->copy_card.get();const auto secrets=team_secrets(Seat::plant);
     ColdCard card;try{card=catalog_.resolve(key,secrets,state_.bans,economy_.night);}catch(const std::invalid_argument&){services_.spawn_blocked(key);return true;}
     if(room_.deathmatch&&card.producer){services_.spawn_blocked(card.id);return true;}
@@ -40,7 +48,7 @@ bool ColdAdmission::imitate(const PlantRef& imitater,Cell cell,double facing){
     for(const auto& native:transformed){
         registration_.configure_plant(native,card,secrets);
         registration_.register_unit(native,card,Seat::plant,true,context(),&parent);
-        content_.configure(native,card);native->monochrome.set(DeathMarker(0.));
+        content_.configure(native,card);if(world_.solo.izombie())world_.solo.prepare_plant(native);native->monochrome.set(DeathMarker(0.));
         source->transform_succeeded.set(true);
     }
     return true;
@@ -86,7 +94,7 @@ std::optional<ExpansionVariantSetup> ColdAdmission::expansion_setup(const ColdCa
 std::optional<std::string> ColdAdmission::spawn(const std::string& key,Seat side,Point position,double facing,bool temporary,const ColdParent* parent,std::optional<AttackIdentity> attack){
     // PvP75 克苏鲁之仆: an ordinary zombie card in every mode, summoned where it was placed.
     if(key=="zombie:克苏鲁之仆"){
-        if(team_of(side)!=Seat::zombie)return {};
+        if(world_.solo.izombie()||team_of(side)!=Seat::zombie)return {};
         auto id=services_.spawn_terraria(key,position,facing);
         // Card-held zombie secrets still apply (海陆空 counts the servant as an air unit).
         if(id)if(const auto object=world_.native_objects.get(*id))if(const auto* z=std::get_if<ZombieRef>(&*object))secrets_.on_spawn(*z,catalog_.at(key),parent);
@@ -123,7 +131,7 @@ std::optional<std::string> ColdAdmission::spawn(const std::string& key,Seat side
     }
     registration_.register_unit(object,card,side,temporary,context(),parent,std::move(attack));
     if(key=="zombie:投篮车僵尸")std::get<ZombieRef>(object)->protection.basketball.set(20.);
-    content_.configure(object,card);if(side==Seat::zombie)secrets_.on_spawn(std::get<ZombieRef>(object),card,parent);
+    content_.configure(object,card);if(world_.solo.izombie()&&side==Seat::plant)world_.solo.prepare_plant(std::get<PlantRef>(object));if(side==Seat::zombie)secrets_.on_spawn(std::get<ZombieRef>(object),card,parent);
     services_.sync_public();const auto uid=std::visit([](const auto& unit){return unit->source.id.get();},object);
     if(!placement_.find(uid))throw std::out_of_range("spawned unit is absent after public synchronization");return uid;
 }
