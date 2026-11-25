@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "device": "Android API 35 AVD",
+  "size": [
+    2400,
+    1080
+  ],
+  "apk_sha256": "79e44402a03514ca861146dbd6eb792fd4f233dd8ffa814632ead4553a8f00e5",
+  "abi": "arm64-v8a via emulator translation",
+  "version": "1.6.0.78-typed.20261124-r1",
+  "ime": [
+    {
+      "step": "tap search",
+      "input_shown": true
+    },
+    {
+      "step": "Gboard down arrow",
+      "input_shown": false
+    },
+    {
+      "step": "stays closed",
+      "input_shown": false
+    },
+    {
+      "step": "reopen",
+      "input_shown": true
+    },
+    {
+      "step": "Android back",
+      "input_shown": false
+    }
+  ]
+}

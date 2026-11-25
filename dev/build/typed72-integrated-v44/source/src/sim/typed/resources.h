@@ -21,6 +21,7 @@ public:
         :world_(world),regions_(regions),sequence_(sequence){}
     std::array<ResourceAccount,4> accounts;
     double coins=0.,diamond_coins=0.;
+    std::array<double,4> seat_diamonds{};
     int64_t sun_chills=0;  // PvP76 r2 audit counter
     const std::list<MatchResource>& records()const{return records_;}
     const std::list<ResourceMotion>& motions()const{return motions_;}

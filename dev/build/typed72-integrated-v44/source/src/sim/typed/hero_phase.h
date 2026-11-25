@@ -3,11 +3,14 @@
 #include <span>
 
 namespace pvz::typed72 {
+constexpr bool separate_zombie_commands(MatchMode mode){
+    return mode==MatchMode::duo||mode==MatchMode::coop_izombie;
+}
 struct RallyPoints {
     std::optional<Point> shared;
     std::array<std::optional<Point>,4> by_seat;
     const std::optional<Point>& for_owner(MatchMode mode,std::optional<Seat> seat)const{
-        return mode==MatchMode::duo?by_seat.at(seat_index(seat.value_or(Seat::zombie))):shared;
+        return separate_zombie_commands(mode)?by_seat.at(seat_index(seat.value_or(Seat::zombie))):shared;
     }
 };
 // Seat order comes from the match. Physics and ability passes are separated

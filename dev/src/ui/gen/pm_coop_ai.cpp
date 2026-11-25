@@ -64,6 +64,7 @@ V f_deck_for(const Args& A) {
     L_preferred = py::slice(py::sorted_it(L_candidates, py::keyfn(V::func([=](const Args& A) -> V { V L_k = A.get(0, SY("k"), nullptr); return V::tuple({(-pm_coop_ai::f_card_value(Args{L_k, L_day})), L_k}); })), false), V::none(), V(3.0));
     L_locked = (py::in(SV("plant:花盆"), L_candidates) ? V(V::list({SV("plant:花盆")})) : V(V::list({})));
     L_view = py_dict({{SV("map"), L_terrain}, {SV("rules"), py::dict_of(pm_catalog::RULES, {{SV("plant_slots"), callm(L_campaign, SY("slots"), Args{})}})}, {SV("bans"), [&]() -> V { V out_ = V::list(); V L_k; { V it2_ = py::iter_list(pm_catalog::CARDS); for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) { L_k = it2_.idx(int64_t(i2_)); if (!(!py::in(L_k, L_candidates))) continue; out_.append(L_k); }}return out_; }()}, {SV("decks"), py_dict({{SV("plant"), L_locked}, {SV("zombie"), [&]() -> V { V out_ = V::list(); V L__; V L_k; { V it3_ = py::iter_list(pm_pve::f_zombie_pool(Args{L_day, L_terrain, V(true)})); for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) { { V ut4_ = py::as_seq(it3_.idx(int64_t(i3_))); L_k = ut4_.idx(0); L__ = ut4_.idx(1); L__ = ut4_.idx(2); } out_.append(L_k); }}return out_; }()}})}});
+    setitem(L_view,SV("public_bans"),V::list());
     L_base = rd(pm_draft_advisor::f_recommend(Args({L_view, SV("plant")}, {{SY("preferred"), L_preferred}})), SV("deck"));
     L_mate = pm_coop_ai::f_teammate_deck(Args{L_campaign, L_room, L_seat});
     L_choices = V::list({L_base});

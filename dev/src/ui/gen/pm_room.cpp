@@ -22,6 +22,7 @@
 #include "ui/gen/pm_team_chat.h"
 #include "sim/pvp/gen/pm_team_maps.h"
 #include "sim/pvp/gen/pm_teams.h"
+#include "ui/hand/solo77.h"
 namespace pvz { namespace py { inline void init_deps_room() { pm_adaptive_pacing::init(); pm_audit_log::init(); pm_catalog::init(); pm_coop_progress::init(); pm_cppcore::init(); pm_custom_maps::init(); pm_draft_advisor::init(); pm_maps::init(); pm_native_battle::init(); pm_player_profile::init(); pm_pve::init(); pm_pvp61_ranked::init(); pm_replay::init(); pm_september_catalog::init(); pm_team_chat::init(); pm_team_maps::init(); pm_teams::init(); } } }
 namespace pvz { namespace pm_room {
 V deepcopy;
@@ -573,7 +574,8 @@ V C_Room::m__forget_prepared_seat(const Args& A) {
     a_confirmed = [&]() -> V { V out_ = V::dict(); V L_s; { V it1_ = py::iter_list([&]() -> V { if (V* override_ = this->find_dyn(SY("seat_list"))) return override_->call(Args{}); return m_seat_list(Args{}); }()); for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) { L_s = it1_.idx(int64_t(i1_)); out_.at(L_s) = V(false); }}return out_; }();
     a_ready = [&]() -> V { V out_ = V::dict(); V L_s; { V it2_ = py::iter_list([&]() -> V { if (V* override_ = this->find_dyn(SY("seat_list"))) return override_->call(Args{}); return m_seat_list(Args{}); }()); for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) { L_s = it2_.idx(int64_t(i2_)); out_.at(L_s) = V(false); }}return out_; }();
     if (((pm_teams::f_scripted(Args{a_mode})).truthy() && (a_pve).truthy())) {
-        (void)(callm(callm(a_pve, SY("setdefault"), Args{SV("decks"), py_dict({})}), SY("pop"), Args{L_seat, V::none()}));
+        if(!py::m_get(a_pve,V("campaign78_seats")).is_dict())
+            (void)(callm(callm(a_pve, SY("setdefault"), Args{SV("decks"), py_dict({})}), SY("pop"), Args{L_seat, V::none()}));
     }
     return V::none();
 }
@@ -723,6 +725,7 @@ V C_Room::m__forfeit(const Args& A) {
     L_winner = ((L_side == SV("plant")) ? V(SV("zombie")) : V(SV("plant")));
     a_result = py_dict({{SV("winner"), L_winner}, {SV("reason"), L_reason}, {SV("tick"), ((a_battle).truthy() ? V(pvz::getattr(a_battle, SY("tick"))) : V(V(0.0)))}, {SV("forfeit"), L_side}});
     a_phase = SV("result");
+    solo77::result_receipt(self_v(),a_result);
     a_status = SV("对方退出对局，判负");
     a_disconnect_deadline = V::none();
     a_paused = V(false);
@@ -764,8 +767,9 @@ V C_Room::m__capture_battle_result(const Args& A) {
     a_phase = SV("result");
     a_revision = py::iadd(a_revision, V(1.0));
     if (((pm_teams::f_scripted(Args{a_mode})).truthy() && (a_pve).truthy())) {
-        pvz::setitem(a_result, SV("pve_day"), rd(a_pve, SV("day")));
-        (void)(callm(a_coop_progress, SY("finish"), Args{self_v(), a_result}));
+        solo77::result_receipt(self_v(),a_result);
+        if(py::m_get(a_pve,V("campaign78_seats")).is_dict())solo77::settle_coop(self_v(),a_result);
+        else (void)(callm(a_coop_progress, SY("finish"), Args{self_v(), a_result}));
         if ((a_on_pve_result).truthy()) {
             (void)(a_on_pve_result.call(Args{a_result}));
         }
@@ -1486,6 +1490,9 @@ V C_Room::m__command(const Args& A) {
         return SV("命令格式无效");
     }
     L_kind = py::m_get(L_payload, SV("type"));
+    if(a_pve.is_dict()&&py::m_get(a_pve,V("campaign78_seats")).is_dict()){
+        auto handled=solo77::coop_command(self_v(),L_peer_id,L_payload);if(!handled.is_none())return handled;
+    }
     if (py::in(L_kind, V::tuple({SV("request_config"), SV("cancel_config_request"), SV("resolve_config_request")}))) {
         if ((py::m_get(L_payload, SV("revision")) != a_revision)) {
             return SV("配置已变化，请使用最新房间状态");
@@ -1761,7 +1768,7 @@ V C_Room::m__command(const Args& A) {
         if (((pm_teams::f_scripted(Args{a_mode})).truthy() && !(a_pve).truthy())) {
             return SV("房主尚未选择闯关天数与卡组");
         }
-        L_error = callm(a_coop_progress, SY("ready_error"), Args{self_v(), L_peer_id});
+        L_error = a_pve.is_dict()&&py::m_get(a_pve,V("campaign78_seats")).is_dict()?solo77::coop_ready(self_v(),L_peer_id):callm(a_coop_progress, SY("ready_error"), Args{self_v(), L_peer_id});
         if ((L_error).truthy()) {
             return L_error;
         }
@@ -1915,7 +1922,7 @@ V C_Room::m_players_sides(const Args& A) {
 }
 
 V C_Room::m_seat_list(const Args& A) {
-    if(a_pve.is_dict()&&py::m_get(a_pve,SV("pvp77_mode"))==SV("izombie"))return V::list({SV("zombie")});
+    if(a_pve.is_dict()&&py::m_get(a_pve,SV("pvp77_mode"))==SV("izombie"))return a_mode==V("coop")?V::list({V("zombie"),V("zombie2")}):V::list({V("zombie")});
     return pm_teams::f_seats_for(Args{a_mode});
     return V::none();
 }
@@ -2097,6 +2104,8 @@ V C_Room::m_set_mode(const Args& A) {
         return SV("当前玩家人数超过该模式的席位");
     }
     L_order = py::sorted_it(a_members, py::keyfn(V::func([=, this](const Args& A) -> V { V L_p = A.get(0, SY("p"), nullptr); return V::tuple({V((L_p != SV("host"))), L_p}); })), false);
+    for(const char* key:{"pvp78_health","pvp78_adventure","pvp78_coop_campaign","pvp77_mode","pvp77_battle_seed","pvp77_start_brain","pvp78_start_brain2"})
+        callm(a_rules,SY("pop"),Args{V(key),V::none()});
     a_mode = L_mode;
     a_pve = V::none();
     a_members = [&]() -> V { V out_ = V::dict(); V L_i; V L_peer; { V it1_ = py::iter_list(L_order); const double st1_ = 0.0; for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) { L_i = V(st1_ + double(i1_)); L_peer = it1_.idx(int64_t(i1_)); out_.at(L_peer) = rd(L_seats, L_i); }}return out_; }();
@@ -2355,8 +2364,12 @@ V C_Room::m__start_pve(const Args& A) {
     }}
     a_decks = [&]() -> V { V out_ = V::dict(); V L_seat; { V it3_ = py::iter_list(L_plant_seats); for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) { L_seat = it3_.idx(int64_t(i3_)); out_.at(L_seat) = py::list_it(rd(L_per_seat, L_seat)); }}return out_; }();
     pvz::setitem(a_decks, SV("zombie"), (a_mode == SV("coop")) ? pvz::pvp76r2::coop_battle_secrets(a_pve) : V::list({}));  // PvP76 r2 coop zombie secrets
+    pvz::setattr(self_v(),SY("_pvp78_seconds"),V(0));
+    pvz::setattr(self_v(),SY("_pvp78_match_grade"),py::m_get(a_rules,V("pvp78_health"),V(1)));
     const V solo=py::m_get(a_pve,SV("pvp77_mode"));
     if(solo.truthy())pvz::setitem(a_decks,SV("zombie"),py::m_get(a_pve,SV("pvp77_zombie_deck")));
+    const bool adventure=py::m_get(a_rules,V("pvp78_adventure"),V(false)).truthy()&&a_mode==V("pve");
+    if(adventure)pvz::setitem(a_decks,V("zombie"),py::m_get(a_pve,V("coop_zombie_secrets"),V::list()));
     L_widest = py::max_it([&]() -> V { V out_ = V::list(); V L_seat; { V it4_ = py::iter_list(L_plant_seats); for (size_t i4_ = 0; i4_ < it4_.len(); ++i4_) { L_seat = it4_.idx(int64_t(i4_)); out_.append(py::len(rd(L_per_seat, L_seat))); }}return out_; }(), py::Key(), V());
     L_rules = (L_pve_rules).call(Args({a_rules, rd(L_per_seat, rd(L_plant_seats, V(0.0))), py::m_get(a_pve, SV("start_sun"), V(150.0))}, {{SY("slots"), L_widest}}));
     if(solo.truthy()){
@@ -2364,8 +2377,14 @@ V C_Room::m__start_pve(const Args& A) {
         pvz::setitem(L_rules,SV("producer_protection_seconds"),V(0));pvz::setitem(L_rules,SV("ranked"),V(false));
         pvz::setitem(L_rules,SV("zombie_slots"),py::len(rd(a_decks,SV("zombie"))));
     }
-    L_director = (L_WaveDirector).call(Args({rd(a_pve, SV("day")), rd(a_pve, SV("seed"))}, {{SY("coop"), V(solo==SV("lottery")||(py::len([&]() -> V { if (V* override_ = this->find_dyn(SY("seat_list"))) return override_->call(Args{}); return m_seat_list(Args{}); }()) > V(1.0)))}, {SY("max_zombies"), py::m_get(a_pve, SV("max_zombies"), py::m_get(a_rules, SV("pve_max_zombies"), V(40.0)))}}));
-    a_battle = pvz::typed72app::wrap_battle(pm_native_battle::new_NativeBattle(Args({a_map, a_decks, L_rules, a_seed, V::list({})}, {{SY("bridge"), a_bridge}, {SY("mode"), solo==SV("izombie")?SV("duel"):a_mode}, {SY("director"), solo==SV("izombie")?V::none():L_director}})));  // typed72: dynamic path typed
+    L_director = (L_WaveDirector).call(Args({rd(a_pve, SV("day")), rd(a_pve, SV("seed"))}, {{SY("coop"), V(adventure||solo==SV("lottery")||(py::len([&]() -> V { if (V* override_ = this->find_dyn(SY("seat_list"))) return override_->call(Args{}); return m_seat_list(Args{}); }()) > V(1.0)))}, {SY("max_zombies"), py::m_get(a_pve, SV("max_zombies"), py::m_get(a_rules, SV("pve_max_zombies"), V(40.0)))}}));
+    if(solo==V("izombie")&&a_mode==V("coop")){
+        pvz::setitem(a_decks,V("plant"),py::m_get(a_pve,V("deck"),V::list()));
+        pvz::setitem(a_decks,V("plant2"),V::list());
+        pvz::setitem(a_decks,V("zombie2"),rd(L_per_seat,V("zombie2")));
+        pvz::setitem(L_rules,V("zombie_slots"),V(std::max(rd(a_decks,V("zombie")).len(),rd(a_decks,V("zombie2")).len())*1.0));
+    }
+    a_battle = pvz::typed72app::wrap_battle(pm_native_battle::new_NativeBattle(Args({a_map, a_decks, L_rules, a_seed, V::list({})}, {{SY("bridge"), a_bridge}, {SY("mode"), solo==SV("izombie")?(a_mode==V("coop")?V("duo"):V("duel")):a_mode}, {SY("director"), solo==SV("izombie")?V::none():L_director}})));  // typed72: dynamic path typed
     if ((a_mode == SV("coop"))) {
         pvz::setattr(a_battle, SY("ai_subsidy_seats"), py::tuple_it(py::sorted_it([&]() -> V { V out_ = V::list(); V L_peer; V L_seat; { auto it5_ = py::items_vec(a_members); for (size_t i5_ = 0; i5_ < it5_.size(); ++i5_) { L_peer = it5_[i5_].first; L_seat = it5_[i5_].second; if (!((py::in(L_peer, a_subsidy_peers) && py::in(L_seat, L_plant_seats)))) continue; out_.append(L_seat); }}return out_; }(), py::Key(), false)));
     }
@@ -2377,6 +2396,7 @@ V C_Room::m__start_pve(const Args& A) {
         }
     }}
     a_match_id = pvz::getattr(py::stdlib_call(SV("uuid.uuid4"), Args{}), SY("hex"));
+    if(a_mode==SV("coop"))solo77::start_coop_attempt(self_v());
     a_match_members = py::dict_of(a_members);
     a_match_ranked = V(false);
     a_recording = V::none();
@@ -2505,6 +2525,8 @@ V C_Room::m_update(const Args& A) {
             a_pacing = pm_adaptive_pacing::new_AdaptivePacing(Args{});
             a__paced_battle = a_battle;
         }
+        if(a_pve.is_dict()&&pm_teams::f_scripted(Args{a_mode}).truthy())
+            pvz::setattr(self_v(),SY("_pvp78_seconds"),pvz::getattr(self_v(),SY("_pvp78_seconds"),V(0))+L_dt);
         a_accumulator = py::iadd(a_accumulator, (L_dt * pvz::getattr(a_pacing, SY("scale"))));
         L_count = py::min_it(V::list({V(12.0), py::int_(((a_accumulator + V(1e-09)) / pvz::getattr(a_battle, SY("dt"))))}), py::Key(), V());
         if ((L_count).truthy()) {

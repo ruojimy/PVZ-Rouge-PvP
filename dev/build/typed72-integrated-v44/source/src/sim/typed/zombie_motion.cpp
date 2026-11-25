@@ -245,7 +245,7 @@ void ZombieMotion::bite_plant(ZombieMotionFrame& f,size_t z) {
         }else{
             bite_write(l,z,1.);if(zombie(l)->body.berserk.present())bite_write(l,z,3.);
             get()->hurt.set(1.);
-            if(world_.solo.izombie())world_.solo.plant_bitten(victim,hp_before);
+            if(world_.solo.izombie())world_.solo.plant_bitten(victim,hp_before,u->source.seat.value_or(Seat::zombie),world_.heroes.tick);
             else if(field_is(world_.heroes.globals.mode,"我是僵尸")){
                 get()->sleep.erase();if(one_of(get()->kind,{"向日葵","阳光菇","双子向日葵","金盏花"}))get()->burst.set(124.);
             }

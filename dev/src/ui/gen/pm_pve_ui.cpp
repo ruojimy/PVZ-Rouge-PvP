@@ -12,6 +12,7 @@
 #include "ui/gen/pm_team_chat.h"
 #include "sim/pvp/gen/pm_team_maps.h"
 #include "sim/pvp/gen/pm_teams.h"
+#include "ui/hand/solo77.h"
 namespace pvz { namespace py { inline void init_deps_pve_ui() { pm_catalog::init(); pm_coop_ai::init(); pm_lobby_room::init(); pm_pve::init(); pm_rendering::init(); pm_team_chat::init(); pm_team_maps::init(); pm_teams::init(); } } }
 namespace pvz { namespace pm_pve_ui {
 V PAGE;
@@ -159,6 +160,7 @@ V f_card_glow(const Args& A) {
         if (py_is(L_base, V::none())) {
             return V::none();
         }
+        L_base=callm(L_base,SY("subsurface"),Args{callm(L_base,SY("get_bounding_rect"),Args{})});
         L_glow = callm(callm(pvz::getattr(pvz::getattr(L_r, SY("pg")), SY("transform")), SY("scale"), Args{L_base, V::tuple({py::int_(rd(L_rect, V(2.0))), py::int_(rd(L_rect, V(3.0)))})}), SY("copy"), Args{});
         (void)(callm(L_glow, SY("fill"), Args({V::tuple({V(255.0), V(255.0), V(255.0), V(0.0)})}, {{SY("special_flags"), pvz::getattr(pvz::getattr(L_r, SY("pg")), SY("BLEND_RGBA_MAX"))}})));
         (void)(callm(L_glow, SY("set_alpha"), Args{V(150.0)}));
@@ -555,11 +557,13 @@ V C_PveUI::m_campaign_path(const Args& A) {
     V L_profiles;
     L_profiles = pvz::getattr(self_v(), (SV("profiles")).sym(), V::none());
     L_folder = ((L_profiles).truthy() ? V(callm(L_profiles, SY("folder"), Args{})) : V(pvz::getattr(pvz::getattr(self_v(), SY("settings_path")), SY("parent"))));
+    if(py::m_get(pvz::getattr(self_v(),SY("state")),V("pvp78_adventure"),V(false)).truthy())return L_folder/V("adventure_v78.json");
     return (L_folder / SV("pve_campaign.json"));
     return V::none();
 }
 
 V C_PveUI::m_bind_coop_progress(const Args& A) {
+    if(pvz::getattr(self_v(),SY("room")).truthy()&&pvz::getattr(pvz::getattr(self_v(),SY("room")),SY("pve")).is_dict()&&py::m_get(pvz::getattr(pvz::getattr(self_v(),SY("room")),SY("pve")),V("campaign78_seats")).is_dict())return V::none();
     if (((pvz::getattr(self_v(), SY("mode")) == SV("host")) && (pvz::getattr(self_v(), SY("room"))).truthy() && (pvz::getattr(pvz::getattr(self_v(), SY("room")), SY("mode")) == pm_teams::COOP) && py_is(pvz::getattr(pvz::getattr(pvz::getattr(self_v(), SY("room")), SY("coop_progress")), SY("path")), V::none()))) {
         (void)(callm(pvz::getattr(pvz::getattr(self_v(), SY("room")), SY("coop_progress")), SY("bind"), Args{callm(callm(self(), SY("campaign_path"), Args{}), SY("with_name"), Args{SV("coop_run.json")}), pr_personal_campaign()}));
     }
@@ -624,13 +628,16 @@ V C_PveUI::m_pve_result(const Args& A) {
     }
     L_coins = py::int_(py_or(py::m_get(L_result, SV("coins"), V(0.0)), [&]() -> V { return V(0.0); }));
     L_coop = py_or(py::bool_(py_and(pvz::getattr(self_v(), SY("room")), [&]() -> V { return V((pvz::getattr(pvz::getattr(self_v(), SY("room")), SY("mode")) == pm_teams::COOP)); })), [&]() -> V { return V((py::m_get(py_or(pvz::getattr(self_v(), SY("view")), [&]() -> V { return py_dict({}); }), SV("mode")) == pm_teams::COOP)); });
+    const bool adventure=py::m_get(pvz::getattr(self_v(),SY("state")),V("pvp78_adventure"),V(false)).truthy();
+    if(adventure)L_coop=V(true);
     L_before = pvz::getattr(L_campaign, SY("coins"));
     L_bonus = V(0.0);
     if ((py::m_get(L_result, SV("winner")) == SV("plant"))) {
-        L_bonus = callm(L_campaign, SY("win"), Args({L_coins, L_coop, py::int_(py_or(py::m_get(L_result, SV("fallen"), V(0.0)), [&]() -> V { return V(0.0); }))}, {{SY("played_day"), L_day}}));
+        L_bonus = callm(L_campaign, SY("win"), Args({L_coins, L_coop, py::int_(py_or(py::m_get(L_result, SV("fallen"), V(0.0)), [&]() -> V { return V(0.0); }))}, {{SY("played_day"), L_day},{SY("diamond_coins"),py::m_get(L_result,V("diamond_coins"),V(0))}}));
     } else {
-        (void)(callm(L_campaign, SY("lose"), Args{L_coins}));
+        (void)(callm(L_campaign, SY("lose"), Args({L_coins},{{SY("diamond_coins"),py::m_get(L_result,V("diamond_coins"),V(0))}})));
     }
+    if(adventure)callm(L_campaign,SY("stock_shop"),Args({},{{SY("settled"),V(true)}}));
     L_total = (pvz::getattr(L_campaign, SY("coins")) - L_before);
     L_earned = (L_total - L_bonus);
     pvz::setitem(pvz::getattr(self_v(), SY("state")), SV("pve_income"), py_dict({{SV("day"), L_day}, {SV("winner"), py::m_get(L_result, SV("winner"))}, {SV("coins"), L_earned}, {SV("bonus"), L_bonus}, {SV("total"), L_total}, {SV("coin_half"), pvz::getattr(L_campaign, SY("coin_half"))}}));
@@ -976,6 +983,7 @@ V C_PveUI::m_pve_action(const Args& A) {
         if ((pvz::getattr(self_v(), SY("room"))).truthy()) {
             (void)(callm(pvz::getattr(self_v(), SY("room")), SY("set_mode"), Args{pm_teams::COOP}));
             pvz::setitem(pvz::getattr(pvz::getattr(self_v(), SY("room")), SY("rules")), SV("pve_max_zombies"), L_limit);
+            pvz::setitem(pvz::getattr(pvz::getattr(self_v(),SY("room")),SY("rules")),V("pvp78_health"),py::m_get(pvz::getattr(self_v(),SY("state")),V("pvp78_health"),V(1)));
             pvz::setattr(pvz::getattr(self_v(), SY("room")), SY("replay_enabled"), V(false));
             pvz::setattr(pvz::getattr(self_v(), SY("room")), SY("on_pve_result"), method(SY("pve_result")));
             (void)(callm(self_v(), SY("refresh"), Args{}));
@@ -1245,7 +1253,10 @@ V C_PveUI::m_pve_action(const Args& A) {
                 (void)(callm(self_v(), SY("message"), Args{SV("请先结束当前挑战，再确认重开闯关")}));
                 return V(true);
             }
-            a__campaign = callm(pm_pve_ui::module_ns(), SY("Campaign"), Args{});
+            if(py::m_get(pvz::getattr(self_v(),SY("state")),V("pvp78_adventure")).truthy()){
+                const auto seed=py::stdlib_call(SV("secrets.randbelow"),Args{V(1<<30)});
+                a__campaign=pm_pve::new_Campaign(Args{seed,V(true)});
+            }else a__campaign = callm(pm_pve_ui::module_ns(), SY("Campaign"), Args{});
             (void)(callm(self(), SY("save_campaign"), Args{}));
             if (((pvz::getattr(self_v(), SY("room"))).truthy() && (callm(pm_pve_ui::module_ns(), SY("scripted"), Args{pvz::getattr(pvz::getattr(self_v(), SY("room")), SY("mode"))})).truthy())) {
                 (void)(callm(pvz::getattr(pvz::getattr(self_v(), SY("room")), SY("coop_progress")), SY("reset"), Args{}));
@@ -1353,10 +1364,11 @@ V C_PveUI::m_start_pve_day(const Args& A) {
     }
     if (!(callm(self(), SY("pve_setup_current"), Args{})).truthy()) {
         L_wanted = callm(self(), SY("_pve_wanted"), Args{});
-        { V ut1_ = py::as_seq(callm(pm_pve_ui::module_ns(), SY("map_for_day"), Args{rd(L_wanted, SV("day")), L_coop})); L_source = ut1_.idx(0); L_name = ut1_.idx(1); L_night = ut1_.idx(2); } 
+        { V ut1_ = py::as_seq(solo77::classic_map(self_v(),rd(L_wanted, SV("day")), L_coop)); L_source = ut1_.idx(0); L_name = ut1_.idx(1); L_night = ut1_.idx(2); } 
         if ((L_source == SV("team"))) {
             L_bundled_document = V::func(pm_team_maps::f_bundled_document);
             L_doc = (L_bundled_document).call(Args{L_name});
+            pvz::setitem(L_doc,SV("seed"),rd(L_wanted,SV("seed")));
             L_payload = py_dict({{SV("type"), SV("map")}, {SV("map_id"), (SV("custom:") + rd(L_doc, SV("id")))}, {SV("seed"), rd(L_doc, SV("seed"))}, {SV("custom_map"), L_doc}, {SV("night"), L_night}});
         } else {
             L_payload = py_dict({{SV("type"), SV("map")}, {SV("map_id"), L_name}, {SV("seed"), ((pvz::getattr(L_campaign, SY("seed")) % V(100000.0)) + pvz::getattr(L_campaign, SY("day")))}, {SV("night"), L_night}});
@@ -1372,6 +1384,10 @@ V C_PveUI::m_start_pve_day(const Args& A) {
         if ((L_error).truthy()) {
             (void)(callm(self_v(), SY("message"), Args{L_error}));
             return V::none();
+        }
+        if(!L_coop.truthy()&&py::m_get(pvz::getattr(self_v(),SY("state")),V("pvp78_adventure"),V(false)).truthy()){
+            solo77::configure_adventure(L_room,L_campaign);
+            pvz::setitem(pvz::getattr(L_room,SY("rules")),V("pvp78_health"),py::m_get(pvz::getattr(self_v(),SY("state")),V("pvp78_health"),V(1)));
         }
         pvz::setattr(L_room, SY("_pve_setup"), V::tuple({callm(self(), SY("_pve_wanted"), Args{}), pvz::getattr(L_room, SY("map_id")), pvz::getattr(L_room, SY("seed"))}));
     }
@@ -1407,7 +1423,7 @@ V C_PveUI::m__pve_wanted(const Args& A) {
     V L_day;
     L_campaign = pr_campaign();
     L_day = (((pvz::getattr(self_v(), SY("room"))).truthy() && (pvz::getattr(pvz::getattr(self_v(), SY("room")), SY("mode")) == pm_teams::COOP)) ? V(pvz::getattr(pvz::getattr(pvz::getattr(self_v(), SY("room")), SY("coop_progress")), SY("day"))) : V(pvz::getattr(L_campaign, SY("day"))));
-    return py_dict({{SV("day"), L_day}, {SV("deck"), py::list_it(callm(L_campaign, SY("battle_deck"), Args{}))}, {SV("seed"), py::int_((pvz::getattr(L_campaign, SY("seed")) + L_day))}, {SV("start_sun"), callm(L_campaign, SY("start_sun"), Args{})}, {SV("slots"), callm(L_campaign, SY("slots"), Args{})}, {SV("unlocked"), callm(L_campaign, SY("available_unlocked"), Args{})}, {SV("max_zombies"), callm(self(), SY("pve_population_limit"), Args{})}});
+    return py_dict({{SV("day"), L_day}, {SV("deck"), py::list_it(callm(L_campaign, SY("battle_deck"), Args{}))}, {SV("seed"), solo77::classic_seed(pvz::getattr(self_v(),SY("room")),L_campaign,L_day)}, {SV("start_sun"), callm(L_campaign, SY("start_sun"), Args{})}, {SV("slots"), callm(L_campaign, SY("slots"), Args{})}, {SV("unlocked"), callm(L_campaign, SY("available_unlocked"), Args{})}, {SV("max_zombies"), callm(self(), SY("pve_population_limit"), Args{})}});
     return V::none();
 }
 
@@ -1440,6 +1456,7 @@ V C_PveUI::m__draw_population_limit(const Args& A) {
     V L_limit;
     V L_start;
     V L_text;
+    solo77::difficulty_buttons(self(),L_r,L_st,L_x,L_y,L_width,L_fs);
     L_limit = callm(self(), SY("pve_population_limit"), Args{});
     (void)(callm(pm_pve_ui::module_ns(), SY("label"), Args{L_r, py::percent(SV("在场上限 %d"), L_limit), callm(L_st, SY("pos"), Args{L_x, (L_y + V(0.13))}), pm_pve_ui::WHITE, L_fs, pm_pve_ui::BLACK}));
     if ((pvz::getattr(self_v(), SY("mode")) == SV("guest"))) {
@@ -1619,9 +1636,9 @@ V C_PveUI::m_draw_pve(const Args& A) {
                 (void)(callm(pm_pve_ui::module_ns(), SY("native_image"), Args({L_r, SV("植物卡黑"), callm(L_st, SY("rect"), Args{L_x, L_y, V(1.5), V(1.5)})}, {{SY("alpha"), V(100.0)}})));
                 (void)(callm(pm_pve_ui::module_ns(), SY("native_image"), Args({L_r, SV("植物卡黑"), callm(L_st, SY("rect"), Args{L_x, L_y, V(1.5), V(1.5)})}, {{SY("alpha"), V(100.0)}})));
             }
-            L_hit = callm(pvz::getattr(L_r, SY("pg")), SY("Rect"), Args{callm(L_st, SY("rect"), Args{L_x, L_y, V(1.0), V(1.3)})});
+            L_hit = callm(pvz::getattr(L_r, SY("pg")), SY("Rect"), Args{L_rect});
             if ((!py_is(L_pointer, V::none()) && (callm(L_hit, SY("collidepoint"), Args{L_pointer})).truthy() && !py::in(L_key, pvz::getattr(L_campaign, SY("deck"))))) {
-                (void)(callm(pm_pve_ui::module_ns(), SY("card_glow"), Args{L_r, callm(L_st, SY("rect"), Args{L_x, L_y, V(1.5), V(1.5)})}));
+                (void)(callm(pm_pve_ui::module_ns(), SY("card_glow"), Args{L_r, L_rect}));
                 L_hovered = L_key;
             }
             (void)(py::m_append(pvz::getattr(L_r, SY("controls")), V::tuple({L_hit, V::tuple({SV("pve_toggle"), L_key})})));
@@ -1693,10 +1710,13 @@ V C_PveUI::m__draw_day_board(const Args& A) {
     V L_x;
     V L_y;
     L_day = (py_is(L_day, V::none()) ? V(pvz::getattr(L_campaign, SY("day"))) : V(L_day));
-    { V ut1_ = py::as_seq(callm(pm_pve_ui::module_ns(), SY("map_for_day"), Args{L_day, L_coop})); L_source = ut1_.idx(0); L_name = ut1_.idx(1); L_night = ut1_.idx(2); } 
+    { V ut1_ = py::as_seq(solo77::classic_map(self_v(),L_day, L_coop)); L_source = ut1_.idx(0); L_name = ut1_.idx(1); L_night = ut1_.idx(2); } 
     if ((L_source == SV("team"))) {
         L_bundled_index = V::func(pm_team_maps::f_bundled_index);
         L_name = py::next([&]() -> V { V out_ = V::list(); V L_e; { V it2_ = py::iter_list((L_bundled_index).call(Args{})); for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) { L_e = it2_.idx(int64_t(i2_)); if (!((rd(L_e, SV("id")) == L_name))) continue; out_.append(rd(L_e, SV("name"))); }}return out_; }(), L_name);
+    }
+    if(!L_coop.truthy()&&py::m_get(pvz::getattr(self_v(),SY("state")),V("pvp78_adventure"),V(false)).truthy()){
+        L_name=solo77::adventure_map(L_campaign);if(solo77::adventure_rain(L_campaign))L_name=L_name+V(" · 雨天");L_night=V(int(L_day.num())%4==3||int(L_day.num())%8==0);
     }
     L_unlocks = ((L_coop).truthy() ? V(pm_pve::COOP_TIER_UNLOCK_DAY) : V(pm_pve::TIER_UNLOCK_DAY));
     L_tiers = [&]() -> V { V out_ = V::list(); V L_t; V L_unlock; { V it3_ = py::iter_list(py::sorted_it(callm(L_unlocks, SY("items"), Args{}), py::Key(), false)); for (size_t i3_ = 0; i3_ < it3_.len(); ++i3_) { { V ut4_ = py::as_seq(it3_.idx(int64_t(i3_))); L_t = ut4_.idx(0); L_unlock = ut4_.idx(1); } if (!((L_day >= L_unlock))) continue; out_.append(rd(pm_pve::TIER_NAMES, L_t)); }}return out_; }();
@@ -1714,7 +1734,7 @@ V C_PveUI::m__draw_day_board(const Args& A) {
     (void)(callm(pm_pve_ui::module_ns(), SY("label"), Args{L_r, (((L_coop).truthy() ? V(SV("双人合作 · ")) : V(SV(""))) + py::percent(SV("第 %d 天"), L_day)), callm(L_st, SY("pos"), Args{V(9.2), V(1.65)}), pm_pve_ui::WHITE, L_big, pm_pve_ui::BLACK, py::int_((V(7.5) * pvz::getattr(L_st, SY("u"))))}));
     (void)(callm(pm_pve_ui::module_ns(), SY("label"), Args{L_r, (L_name + ((L_night).truthy() ? V(SV("（夜）")) : V(SV("")))), callm(L_st, SY("pos"), Args{V(9.2), V(2.2)}), pm_pve_ui::WHITE, L_fs, pm_pve_ui::BLACK, py::int_((V(7.5) * pvz::getattr(L_st, SY("u"))))}));
     (void)(callm(self(), SY("_draw_population_limit"), Args{L_r, L_st, V(9.2), V(2.7), V(10.5), L_fs}));
-    L_y = rd(callm(L_st, SY("pos"), Args{V(0.0), V(3.5)}), V(1.0));
+    L_y = rd(callm(L_st, SY("pos"), Args{V(0.0), V(4.05)}), V(1.0));
     { V it8_ = py::iter_list(callm(pm_pve_ui::module_ns(), SY("wrap_px"), Args{L_r, L_lines, L_width, L_fs}));
     for (size_t i8_ = 0; i8_ < it8_.len(); ++i8_) {
         L_line = it8_.idx(int64_t(i8_)); 
@@ -1791,7 +1811,7 @@ V C_PveUI::m_draw_pve_shop(const Args& A) {
         { V it1_ = py::iter_list(py::zip(L_shop, L_positions)); const double st1_ = 0.0;
         for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) {
             L_i = V(st1_ + double(i1_)); { V ut2_ = py::as_seq(it1_.idx(int64_t(i1_))); L_item = ut2_.idx(0); { V ut3_ = py::as_seq(ut2_.idx(1)); L_x = ut3_.idx(0); L_y = ut3_.idx(1); } } 
-            if ((!(rd(L_item, SV("sold"))).truthy() && (callm(callm(pvz::getattr(L_r, SY("pg")), SY("Rect"), Args{callm(L_st, SY("rect"), Args{L_x, L_y, V(1.0), V(1.3)})}), SY("collidepoint"), Args{L_pointer})).truthy())) {
+            if ((!(rd(L_item, SV("sold"))).truthy() && (callm(callm(pvz::getattr(L_r, SY("pg")), SY("Rect"), Args{solo77::shop_rect(L_st,L_item,L_x,L_y)}), SY("collidepoint"), Args{L_pointer})).truthy())) {
                 L_focus = L_i;
             }
         }}
@@ -1818,7 +1838,7 @@ V C_PveUI::m_draw_pve_shop(const Args& A) {
         L_dx = ((py::len(py::str(rd(L_item, SV("price")))) >= V(4.0)) ? V(V(0.1)) : V(V(0.2)));
         (void)(callm(pm_pve_ui::module_ns(), SY("label"), Args{L_r, py::percent(SV("$%d"), rd(L_item, SV("price"))), callm(L_st, SY("pos"), Args{(L_x + L_dx), ((L_y - V(0.5)) + L_lift)}), L_color, L_fs, ((L_color == pm_pve_ui::BLACK) ? V(pm_pve_ui::WHITE) : V(pm_pve_ui::BLACK))}));
         if (!(L_guest).truthy()) {
-            (void)(py::m_append(pvz::getattr(L_r, SY("controls")), V::tuple({callm(pvz::getattr(L_r, SY("pg")), SY("Rect"), Args{callm(L_st, SY("rect"), Args{L_x, L_y, V(1.0), V(1.3)})}), V::tuple({SV("pve_item"), L_i})})));
+            (void)(py::m_append(pvz::getattr(L_r, SY("controls")), V::tuple({callm(pvz::getattr(L_r, SY("pg")), SY("Rect"), Args{solo77::shop_rect(L_st,L_item,L_x,L_y+L_lift)}), V::tuple({SV("pve_item"), L_i})})));
         }
     }}
     if ((!py_is(L_focus, V::none()) && (py::m_get(L_state, SV("pve_detail")) != L_focus))) {
@@ -2015,7 +2035,7 @@ V C_PveUI::m_draw_coop_entry(const Args& A) {
     (void)(callm(pm_pve_ui::module_ns(), SY("native_image"), Args{L_r, ((!py_is(L_pointer, V::none()) && (callm(L_back, SY("collidepoint"), Args{L_pointer})).truthy()) ? V(SV("走啦-选中")) : V(SV("走啦"))), py::tuple_it(L_back)}));
     (void)(py::m_append(pvz::getattr(L_r, SY("controls")), V::tuple({L_back, V::tuple({SV("coop_back")})})));
     (void)(callm(pm_pve_ui::module_ns(), SY("label"), Args{L_r, SV("双人合作"), callm(L_st, SY("pos"), Args{V(4.0), V(0.45)}), pm_pve_ui::WHITE, py::int_((L_fs * V(1.5))), pm_pve_ui::BLACK}));
-    (void)(callm(pm_pve_ui::module_ns(), SY("label"), Args{L_r, SV("两名植物戴夫并肩闯关 · 房主决定天数，双方各自成长"), callm(L_st, SY("pos"), Args{V(4.0), V(1.2)}), pm_pve_ui::WHITE, L_fs, pm_pve_ui::BLACK, py::int_((V(10.0) * pvz::getattr(L_st, SY("u"))))}));
+    (void)(callm(pm_pve_ui::module_ns(), SY("label"), Args{L_r, SV("两位戴夫并肩闯关 · 各自选卡购物，共同完成目标"), callm(L_st, SY("pos"), Args{V(4.0), V(1.2)}), pm_pve_ui::WHITE, L_fs, pm_pve_ui::BLACK, py::int_((V(10.0) * pvz::getattr(L_st, SY("u"))))}));
     L_cloud = V((py::m_get(L_state, SV("network_mode")) == SV("relay")));
     (void)(callm(L_r, SY("button"), Args({((L_cloud).truthy() ? V(SV("云端房间 / 切换直连")) : V(SV("局域网 / IPv6 / 切换云端"))), callm(L_st, SY("rect"), Args{V(14.0), V(1.1), V(5.1), V(0.7)}), V::tuple({SV("coop_network")})}, {{SY("size"), py::max_it(V::list({V(11.0), (L_fs - V(2.0))}), py::Key(), V())}})));
     L_width = py::int_((V(9.1) * pvz::getattr(L_st, SY("u"))));
@@ -2224,7 +2244,7 @@ V C_PveUI::m_draw_coop_room(const Args& A) {
     L_x0 = V(10.0);
     L_y = ((L_wide_bank).truthy() ? V(V(2.3)) : V(V(2.0)));
     if ((L_pve).truthy()) {
-        { V ut9_ = py::as_seq(callm(pm_pve_ui::module_ns(), SY("map_for_day"), Args{rd(L_pve, SV("day")), V(true)})); L_source = ut9_.idx(0); L_name = ut9_.idx(1); L_night = ut9_.idx(2); } 
+        { V ut9_ = py::as_seq(solo77::classic_map(self_v(),rd(L_pve, SV("day")), V(true))); L_source = ut9_.idx(0); L_name = ut9_.idx(1); L_night = ut9_.idx(2); } 
         if ((L_source == SV("team"))) {
             L_bundled_index = V::func(pm_team_maps::f_bundled_index);
             L_name = py::next([&]() -> V { V out_ = V::list(); V L_e; { V it10_ = py::iter_list((L_bundled_index).call(Args{})); for (size_t i10_ = 0; i10_ < it10_.len(); ++i10_) { L_e = it10_.idx(int64_t(i10_)); if (!((rd(L_e, SV("id")) == L_name))) continue; out_.append(rd(L_e, SV("name"))); }}return out_; }(), L_name);

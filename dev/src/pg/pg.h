@@ -92,6 +92,7 @@ IRect blit(Surface* dst, Surface* src, int x, int y, const IRect* area, int spec
 
 // display state for the app loop
 SDL_Window* window();
+void display_pixel_filter(bool pixel);
 void present();                                  // display.flip()
 
 }  // namespace pvz::pg

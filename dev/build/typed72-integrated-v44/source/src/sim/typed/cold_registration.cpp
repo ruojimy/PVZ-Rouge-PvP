@@ -59,6 +59,25 @@ void ColdRegistration::register_unit(const NativeObject& object,const ColdCard& 
     world_.native_objects.set(uid,object);
     events_.spawn({uid,card.id,side,parent?parent->id:std::nullopt,std::move(attack)});
 }
+void ColdRegistration::apply_campaign_health(const NativeObject& object,Seat side)const{
+    const int factor=world_.solo.health_factor;
+    if(factor==1)return;
+    if(world_.solo.izombie()){
+        if(side!=Seat::plant)return;
+        if(const auto* ref=std::get_if<PlantRef>(&object)){
+            auto& p=**ref;
+            if(p.hp.present()&&!p.hp.is_null()){
+                p.hp.set(p.hp.get()*factor);p.max_hp=p.hp;p.content_state.maximum_hp=p.hp;
+            }
+        }
+    }else if(side==Seat::zombie){
+        if(const auto* ref=std::get_if<ZombieRef>(&object)){
+            auto& z=**ref;
+            if(z.protection.grave||z.terraria)return;
+            z.body.hp*=factor;z.max_hp.set(z.body.hp);z.patch.observed_max_hp=z.max_hp;
+        }
+    }
+}
 void ColdRegistration::health(const PlantRef& plant,std::span<const std::string> secrets)const{
     if(!plant||plant->kind.empty())return;
     const auto found=catalog_.data().health.find("plant:"+plant->kind);

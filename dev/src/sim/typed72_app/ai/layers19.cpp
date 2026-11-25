@@ -1089,7 +1089,10 @@ bool Plant19::replan_firing(Ctx& c,const PlanDict& plan){
     lane_wait_signature=signature;
     return false;
 }
+#include "r22_new_cards.inc"
+
 void Plant19::step(const View& v,const typed72::AiObservation& o,const PlanDict& plan,const Field& f,Services& s){
+    if(!v.mode||one_of(*v.mode,{"duo","coop"}))aim_laser(v,s);
     if(support.active&&v.mode&&one_of(*v.mode,{"coop","duo"})){PlanDict p=plan;p.set("mode",std::string("defend"));TeamSupportMixin<Plant18>::step(v,o,p,f,s);return;}
     TeamSupportMixin<Plant18>::step(v,o,plan,f,s);
 }
@@ -1097,6 +1100,7 @@ void Plant19::deploy_logic(Ctx& c,const PlanDict& plan){
     lane_blocked=false;
     const double before0=deploy_count(log);
     if(!assisting()){
+        if((!c.b.mode||one_of(*c.b.mode,{"duo","coop"}))&&(place_croton(c)||place_laser(c)))return;
         TeamSupportMixin<Plant18>::deploy_logic(c,plan);
         if(lane_blocked&&deploy_count(log)==before0)replan_firing(c,plan);
         return;
@@ -1111,6 +1115,7 @@ void Plant19::deploy_logic(Ctx& c,const PlanDict& plan){
     front=wrap_delta(c.me.x,decision.mate_x,c.width)>=0?1:-1;
     mode="defend";
     struct Restore{Plant19& s;Ctx& c;decltype(ready) r;decltype(saved_anchor) a;int f;std::string m;~Restore(){c.ready=r;s.anchor=a;s.front=f;s.mode=m;}} restore{*this,c,ready,saved_anchor,saved_front,saved_mode};
+    if(place_croton(c)||place_laser(c))return;
     const double before=deploy_count(log);
     std::vector<const Unit*> threats;for(const auto* u:c.enemy)if(std::abs(wrap_delta(c.me.x,u->x,c.width))<10*c.tile)threats.push_back(u);
     if(!threats.empty())repel(c,plan,threats);

@@ -1,0 +1,11 @@
+INFO: pvz: audio ready (driver=dummy)
+NET host frame=0 t=2176 phase= side=null act=null remaining=null locals=[] attempt=0 msg=
+NET host listening token=704932
+NET host frame=2 t=2973 phase=config msg=
+[typed72] battle session started: mode=duo cold_ms=1977.1
+NET host frame=32 t=5760 phase=loading msg=
+NET host frame=44 t=5993 phase=battle msg=
+NET host CHAT OK frame=47
+NET host frame=164 t=8852 phase=result msg=
+NET host frame=300 t=11160 phase=result side=null act=null remaining=0 locals=["zombie"] attempt=0 msg=
+NET host PASS battle reached; curtain, reward flight and prep observed

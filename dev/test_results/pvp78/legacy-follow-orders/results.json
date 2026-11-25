@@ -1,0 +1,189 @@
+{
+  "checks": [
+    {
+      "name": "pvp77r4",
+      "evidence": [
+        {
+          "id": "cart.小鬼炮",
+          "cases": [
+            {
+              "rally": false,
+              "left": false,
+              "contact": false,
+              "hp": 40.0,
+              "down": 0.0,
+              "vx": 0.0,
+              "advance": 0.0,
+              "crash": 0.0
+            },
+            {
+              "rally": false,
+              "left": false,
+              "contact": true,
+              "hp": 39.0,
+              "down": 8.0,
+              "vx": 1.8527999999999996,
+              "advance": 0.0,
+              "crash": 80.0
+            },
+            {
+              "rally": false,
+              "left": true,
+              "contact": false,
+              "hp": 40.0,
+              "down": 0.0,
+              "vx": 0.0,
+              "advance": 0.0,
+              "crash": 0.0
+            },
+            {
+              "rally": false,
+              "left": true,
+              "contact": true,
+              "hp": 39.0,
+              "down": 8.0,
+              "vx": -1.8527999999999996,
+              "advance": 0.0,
+              "crash": 80.0
+            },
+            {
+              "rally": true,
+              "left": false,
+              "contact": false,
+              "hp": 40.0,
+              "down": 0.0,
+              "vx": 0.0,
+              "advance": 0.0,
+              "crash": 0.0
+            },
+            {
+              "rally": true,
+              "left": false,
+              "contact": true,
+              "hp": 39.0,
+              "down": 8.0,
+              "vx": 1.8527999999999996,
+              "advance": 0.0,
+              "crash": 80.0
+            },
+            {
+              "rally": true,
+              "left": true,
+              "contact": false,
+              "hp": 40.0,
+              "down": 0.0,
+              "vx": 0.0,
+              "advance": 0.0,
+              "crash": 0.0
+            },
+            {
+              "rally": true,
+              "left": true,
+              "contact": true,
+              "hp": 39.0,
+              "down": 8.0,
+              "vx": -1.8527999999999996,
+              "advance": 0.0,
+              "crash": 80.0
+            }
+          ],
+          "passed": true
+        },
+        {
+          "id": "cart.投篮车僵尸",
+          "cases": [
+            {
+              "rally": false,
+              "left": false,
+              "contact": false,
+              "hp": 40.0,
+              "down": 0.0,
+              "vx": 0.0,
+              "advance": 0.0,
+              "crash": 0.0
+            },
+            {
+              "rally": false,
+              "left": false,
+              "contact": true,
+              "hp": 39.0,
+              "down": 8.0,
+              "vx": 1.8527999999999996,
+              "advance": 0.0,
+              "crash": 80.0
+            },
+            {
+              "rally": false,
+              "left": true,
+              "contact": false,
+              "hp": 40.0,
+              "down": 0.0,
+              "vx": 0.0,
+              "advance": 0.0,
+              "crash": 0.0
+            },
+            {
+              "rally": false,
+              "left": true,
+              "contact": true,
+              "hp": 39.0,
+              "down": 8.0,
+              "vx": -1.8527999999999996,
+              "advance": 0.0,
+              "crash": 80.0
+            },
+            {
+              "rally": true,
+              "left": false,
+              "contact": false,
+              "hp": 40.0,
+              "down": 0.0,
+              "vx": 0.0,
+              "advance": 0.0,
+              "crash": 0.0
+            },
+            {
+              "rally": true,
+              "left": false,
+              "contact": true,
+              "hp": 39.0,
+              "down": 8.0,
+              "vx": 1.8527999999999996,
+              "advance": 0.0,
+              "crash": 80.0
+            },
+            {
+              "rally": true,
+              "left": true,
+              "contact": false,
+              "hp": 40.0,
+              "down": 0.0,
+              "vx": 0.0,
+              "advance": 0.0,
+              "crash": 0.0
+            },
+            {
+              "rally": true,
+              "left": true,
+              "contact": true,
+              "hp": 39.0,
+              "down": 8.0,
+              "vx": -1.8527999999999996,
+              "advance": 0.0,
+              "crash": 80.0
+            }
+          ],
+          "passed": true
+        },
+        {
+          "id": "armor.frames",
+          "mirror_pairs": 119,
+          "broken_armor": 63,
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "failures": 0
+}

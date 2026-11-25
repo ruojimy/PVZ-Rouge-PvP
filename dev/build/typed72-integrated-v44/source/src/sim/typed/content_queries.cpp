@@ -115,11 +115,7 @@ std::vector<ContentTarget> ContentQueries::enemies(const std::shared_ptr<AttackS
             result.emplace_back(target);
     if(owner==Seat::zombie)
         for(const auto& plant:*world_.plant_roster)if(september_targetable(*plant))result.emplace_back(plant);
-    const auto enemy=owner==Seat::plant?Seat::zombie:Seat::plant;
-    for(const auto seat:seats_for(world_.mode)) {
-        if(team_of(seat)!=enemy)continue;
-        if(world_.heroes.proxy(seat).hp>0.)result.emplace_back(CombatTarget::player(seat));
-    }
+    for(const auto& hero:enemy_heroes(owner))result.push_back(hero);
     return result;
 }
 std::optional<ContentTarget> ContentQueries::route(const ContentTarget& source,std::optional<ContentTarget> goal,

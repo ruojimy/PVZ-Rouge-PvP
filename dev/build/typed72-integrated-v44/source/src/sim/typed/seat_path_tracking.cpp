@@ -57,7 +57,7 @@ std::span<const Seat> SeatPathTracking::team_seats(std::span<const Seat> present
 }
 Seat SeatPathTracking::advance_team(std::span<const Seat> present){
     PVP_PROFILE_SCOPE("SeatPathTracking::advance_team");
-    const bool duo=world_.mode==MatchMode::duo;
+    const bool duo=separate_zombie_commands(world_.mode);
     const auto team=commands_.shared==PathMode::follow_hero?Seat::zombie:Seat::plant;
     std::array<Seat,4> selected_team,selected_match;
     auto active=team_seats(present,duo?Seat::plant:team,true,selected_team);
@@ -91,7 +91,7 @@ std::optional<Point> SeatPathTracking::destination(std::optional<Seat> owner,uin
         return cache && same(cache->flag,*flag) && cache->revision==revision;
     };
     auto& local=destinations_.at(seat_index(owner.value_or(Seat::zombie)));
-    if(world_.mode==MatchMode::duo && matches(local))return local->goal;
+    if(separate_zombie_commands(world_.mode) && matches(local))return local->goal;
     if(!matches(shared_destination_)){
         const auto requested=terrain_cell(*flag,world_.runtime.tile);
         Cell cell=requested;
@@ -112,7 +112,7 @@ std::optional<Point> SeatPathTracking::destination(std::optional<Seat> owner,uin
         const Point goal{(cell.x+.5)*world_.runtime.tile,(cell.y+1.)*world_.runtime.tile};
         shared_destination_=DestinationCache{*flag,goal,revision};
     }
-    if(world_.mode==MatchMode::duo)local=shared_destination_;
+    if(separate_zombie_commands(world_.mode))local=shared_destination_;
     return shared_destination_->goal;
 }
 void SeatPathTracking::advance_flag(RallyPathBank& bank,Point goal){
@@ -124,10 +124,10 @@ void SeatPathTracking::advance_flag(RallyPathBank& bank,Point goal){
 }
 void SeatPathTracking::advance_rallies(std::span<const Seat> present,uint64_t revision){
     rally_base_.reset();
-    if(world_.mode!=MatchMode::duo && !flags_.shared){shared_rally_.reset();return;}
+    if(!separate_zombie_commands(world_.mode) && !flags_.shared){shared_rally_.reset();return;}
     const auto baseline=capture();
     try{
-        if(world_.mode==MatchMode::duo){
+        if(separate_zombie_commands(world_.mode)){
             std::array<std::optional<RallyPathBank>,4> active;
             std::array<Seat,4> selected;
             for(const auto seat:team_seats(present,Seat::zombie,false,selected)){
@@ -173,7 +173,7 @@ void SeatPathTracking::switch_for(const CombatZombie& unit,std::span<const Seat>
 void SeatPathTracking::select_rally(const CombatZombie& unit){
     restore_rally();
     if(unit.source.charmed.present() || !flags_.for_owner(world_.mode,unit.source.seat))return;
-    const auto& bank=world_.mode==MatchMode::duo?rally_seats_[seat_index(unit.source.seat.value_or(Seat::zombie))]:shared_rally_;
+    const auto& bank=separate_zombie_commands(world_.mode)?rally_seats_[seat_index(unit.source.seat.value_or(Seat::zombie))]:shared_rally_;
     if(bank && rally_base_)restore_chase(bank->path.chase);
 }
 } // namespace pvz::typed72

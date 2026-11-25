@@ -1,0 +1,22 @@
+{
+  "device": "Android API 35 AVD, x86_64, translated arm64 release",
+  "scene": "ordinary, 40 units, pixel, two 8 second samples per version",
+  "results": {
+    "77": {
+      "fps": [
+        12.482675857457934,
+        9.175222868348806
+      ],
+      "median_fps": 10.82894936290337,
+      "build": "1.6.0.77-typed.20261124-r4"
+    },
+    "78": {
+      "fps": [
+        10.075471693973327,
+        11.912708446521746
+      ],
+      "median_fps": 10.994090070247537,
+      "build": "1.6.0.78-typed.20261124-r1"
+    }
+  }
+}

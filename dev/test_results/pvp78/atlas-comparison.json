@@ -1,0 +1,80 @@
+[
+  {
+    "name": "豌豆射手",
+    "original": [
+      24,
+      24
+    ],
+    "atlas": [
+      48,
+      48
+    ],
+    "equal": true,
+    "rgba_sha256": "805a4e566b635f7d5626cebfa2e0664a50fc0409524d30728d5a58f830b65968"
+  },
+  {
+    "name": "向日葵",
+    "original": [
+      24,
+      24
+    ],
+    "atlas": [
+      48,
+      48
+    ],
+    "equal": true,
+    "rgba_sha256": "0b24fca42ac43fdd34c6a1e321b5681426ce46b189b1e48833195944994a9232"
+  },
+  {
+    "name": "双发射手",
+    "original": [
+      24,
+      24
+    ],
+    "atlas": [
+      48,
+      48
+    ],
+    "equal": true,
+    "rgba_sha256": "d9c1822503a56a574419d6b0f1b692a2813ebd0a143c3b4360a01226b179922e"
+  },
+  {
+    "name": "樱桃炸弹",
+    "original": [
+      24,
+      24
+    ],
+    "atlas": [
+      48,
+      48
+    ],
+    "equal": true,
+    "rgba_sha256": "ccc2af19c3080f27eea2422bbb43367d16dda72034eed28345cf2b3e099616bd"
+  },
+  {
+    "name": "普通僵尸",
+    "original": [
+      36,
+      36
+    ],
+    "atlas": [
+      96,
+      96
+    ],
+    "equal": true,
+    "rgba_sha256": "e7dc1a737965a6caebf1ea3b0124d906278d1ba1346d0c49cfeac1749eb329d3"
+  },
+  {
+    "name": "铁桶僵尸",
+    "original": [
+      36,
+      36
+    ],
+    "atlas": [
+      96,
+      96
+    ],
+    "equal": true,
+    "rgba_sha256": "f534806b50e34ba0e1728c51efa4f6fa02e5a194e3f2a3035a5ef9af27f7143d"
+  }
+]

@@ -127,6 +127,11 @@ V f_curated_layout(const Args& A) {
     L_source = py::str(pvz::getattr(L_snapshot, (SV("source")).sym(), SV("")));
     L_entry = py::next([&]() -> V { V out_ = V::list(); V L_e; { V it1_ = py::iter_list(pm_team_maps::f_bundled_index(Args{})); for (size_t i1_ = 0; i1_ < it1_.len(); ++i1_) { L_e = it1_.idx(int64_t(i1_)); if (!((L_source == (SV("custom:") + rd(L_e, SV("id")))))) continue; out_.append(L_e); }}return out_; }(), V::none());
     L_layout = py::m_get(py_or(L_entry, [&]() -> V { return py_dict({}); }), SV("layout"));
+    if(L_entry.is_dict()&&L_entry.contains(SV("layout_by_size"))){
+        const auto tiles=pvz::getattr(L_snapshot,SY("tiles"));
+        const std::string size=std::to_string(tiles.len()?tiles.idx(0).len():0)+"x"+std::to_string(tiles.len());
+        if(size!="96x32")L_layout=py::m_get(rd(L_entry,SV("layout_by_size")),V(size));
+    }
     if (!(L_layout).truthy()) {
         return py_dict({});
     }

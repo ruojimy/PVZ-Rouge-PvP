@@ -1,6 +1,7 @@
 #include "ui/hand/test_mode74.h"
 #include "pg/pg.h"
 #include "ui/gen/pm_ui_data.h"
+#include "ui/gen/pm_draft_advisor.h"
 #include "core/resource_paths.h"
 #include "core/fsutil.h"
 #include "sim/pvp/gen/pm_catalog.h"
@@ -47,9 +48,22 @@ void send(const V& a,J data){Args args{V(panel.side),V("test_mode")};for(const a
 V player(const V& a){const auto view=getattr(a,SY("view"));const auto battle=py::m_get(view,V("battle"),py_dict({}));return py::m_get(py::m_get(battle,V("players"),py_dict({})),V(panel.side),py_dict({}));}
 void fill_deck(const V& app,bool saved){
     const V side(panel.side),view=getattr(app,SY("view"));
-    const V cards=saved?py::m_get(pm_ui_data::f_load_decks(Args{getattr(getattr(app,SY("settings_path")),SY("parent"))/V("decks.json"),py::m_get(view,V("bans"),V::list())}),side,V::list()):
-        py::m_get(callm(app,SY("draft_advice"),Args{side,side}),V("deck"),V::list());
     auto current=callm(py::m_get(player(app),V("deck"),V::list()),SY("copy"),Args{});
+    V cards;
+    if(saved){
+        cards=py::m_get(pm_ui_data::f_load_decks(Args{getattr(getattr(app,SY("settings_path")),SY("parent"))/V("decks.json"),py::m_get(view,V("bans"),V::list())}),side,V::list());
+    }else{
+        const auto players=rd(rd(view,V("battle")),V("players"));
+        auto decks=V::dict();
+        for(const char* team:{"plant","zombie"}){
+            auto occupied=V::list();
+            for(const auto& key:rd(rd(players,V(team)),V("deck")).items())if(key.truthy())occupied.append(key);
+            setitem(decks,V(team),occupied);
+        }
+        const auto rules=py::dict_of(rd(view,V("rules")),{{SY("plant_slots"),V(13)},{SY("zombie_slots"),V(13)}});
+        const auto scope=py::dict_of(view,{{SY("decks"),decks},{SY("rules"),rules}});
+        cards=rd(pm_draft_advisor::f_recommend_ai(Args{scope,side}),V("deck"));
+    }
     while(current.len()<13)current.append(V(""));
     int added=0;
     for(const auto& key:cards.items()){
@@ -75,6 +89,7 @@ bool action(const V& app,const V& input){if(input.is_none()||!input.len()||input
   panel=Panel{};callm(app,SY("refresh"),Args{});setitem(st(app),V("screen"),V("room"));return true;
  }
  if(!enabled(app))return true;
+ if(op!="focus"&&!panel.focus.empty()){panel.focus.clear();sync_text_input(app);}
  if(op=="open"){callm(app,SY("release_inputs"),Args{});panel.tab=py_str(data);panel.notice.clear();panel.focus.clear();setitem(st(app),V("screen"),V("test74"));}
  else if(op=="close")close(app);
  else if(op=="side"){panel.side=py_str(data);panel.page=0;}
@@ -82,7 +97,7 @@ bool action(const V& app,const V& input){if(input.is_none()||!input.len()||input
  else if(op=="reference"||op=="saved")fill_deck(app,op=="saved");
  else if(op=="slot")panel.slot=int(data.num());
  else if(op=="page")panel.page=std::max(0,panel.page+int(data.num()));
- else if(op=="focus"){panel.focus=py_str(data);callm(app,SY("_sync_text_input"),Args{});}
+ else if(op=="focus"){panel.focus=py_str(data);setattr(app,SY("_text_input_active"),V(false));sync_text_input(app);}
  else if(op=="card")send(app,{{"op","card"},{"slot",panel.slot},{"card",py_str(data)}});
  else if(op=="unit_pick"){panel.unit_id=py_str(data);panel.notice="已选择单位 "+panel.unit_id;}
  else if(op=="unit_hp"||op=="unit_defense"){size_t end=0;double n=std::stod(panel.number,&end);if(end!=panel.number.size())throw std::runtime_error("请输入完整数字");send(app,{{"op","unit"},{"id",panel.unit_id},{"field",op=="unit_hp"?"hp":"defense"},{"value",n}});}
@@ -109,6 +124,23 @@ bool draw(const V& app){if(screen(app)!="test74")return false;if(!enabled(app)){
  if(!panel.notice.empty())text(r,panel.notice,24,h-28,14,w-48);return true;
 }
 void overlay(const V& app){if(screen(app)!="room"||!enabled(app))return;auto room=getattr(app,SY("room"));if(getattr(room,SY("phase"))!=V("battle"))return;auto r=getattr(app,SY("renderer"));auto* s=pg::surf(getattr(r,SY("screen")));button(r,"测试选卡",s->w()/2-116,162,110,32,"open",V("cards"));button(r,"作弊器",s->w()/2+6,162,110,32,"open",V("cheats"));}
-bool sync_text_input(const V& app){if(screen(app)!="test74")return false;const bool active=!panel.focus.empty();if(active){SDL_StartTextInput();SDL_Rect rect{24,155,330,38};SDL_SetTextInputRect(&rect);}else SDL_StopTextInput();setattr(app,SY("_text_input_active"),V(active));return true;}
-bool event(const V& app,const V& e){if(screen(app)!="test74")return false;int type=int(getattr(e,SY("type")).num());if(type==SDL_TEXTINPUT){auto& value=panel.focus=="number"?panel.number:panel.query;if(!panel.focus.empty()&&value.size()<100)value+=py_str(getattr(e,SY("text")));panel.page=0;return true;}if(type==SDL_KEYUP)return true;if(type!=SDL_KEYDOWN)return false;int key=int(getattr(e,SY("key")).num());if(key==SDLK_ESCAPE){close(app);return true;}if(key==SDLK_RETURN){panel.focus.clear();sync_text_input(app);return true;}auto& value=panel.focus=="number"?panel.number:panel.query;if(!panel.focus.empty()){if(key==SDLK_BACKSPACE&&!value.empty()){size_t pos=value.size()-1;while(pos&&((unsigned char)value[pos]&0xc0)==0x80)--pos;value.resize(pos);}else if(key==SDLK_a&&(int(getattr(e,SY("mod"),V(0)).num())&KMOD_CTRL))value.clear();panel.page=0;}return true;}
+bool sync_text_input(const V& app){
+    if(screen(app)!="test74")return false;
+    const bool active=!panel.focus.empty();
+    if(active==getattr(app,SY("_text_input_active"),V(false)).truthy())return true;
+    if(active){
+        auto renderer=getattr(app,SY("renderer"));
+        for(const auto& control:getattr(renderer,SY("controls")).items()){
+            if(control.idx(1)!=command("focus",V(panel.focus)))continue;
+            auto rect=pg::rect_of(control.idx(0));
+            SDL_Rect area{rect.x,rect.y,rect.w,rect.h};
+            SDL_SetTextInputRect(&area);
+            break;
+        }
+        SDL_StartTextInput();
+    }else SDL_StopTextInput();
+    setattr(app,SY("_text_input_active"),V(active));
+    return true;
+}
+bool event(const V& app,const V& e){if(screen(app)!="test74")return false;int type=int(getattr(e,SY("type")).num());if(type==SDL_TEXTINPUT){auto& value=panel.focus=="number"?panel.number:panel.query;if(!panel.focus.empty()&&value.size()<100)value+=py_str(getattr(e,SY("text")));panel.page=0;return true;}if(type==SDL_KEYUP)return true;if(type!=SDL_KEYDOWN)return false;int key=int(getattr(e,SY("key")).num());if(key==SDLK_ESCAPE||key==SDLK_AC_BACK||key==SDLK_RETURN||key==SDLK_KP_ENTER){if(!panel.focus.empty()){panel.focus.clear();sync_text_input(app);}else if(key==SDLK_ESCAPE||key==SDLK_AC_BACK)close(app);return true;}auto& value=panel.focus=="number"?panel.number:panel.query;if(!panel.focus.empty()){if(key==SDLK_BACKSPACE&&!value.empty()){size_t pos=value.size()-1;while(pos&&((unsigned char)value[pos]&0xc0)==0x80)--pos;value.resize(pos);}else if(key==SDLK_a&&(int(getattr(e,SY("mod"),V(0)).num())&KMOD_CTRL))value.clear();panel.page=0;}return true;}
 }

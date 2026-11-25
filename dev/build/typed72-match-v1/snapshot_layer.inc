@@ -213,7 +213,7 @@
         if(hero_flags.shared)out["rally_point"]={{"x",hero_flags.shared->x},{"y",hero_flags.shared->y}};
         if(zsecrets.enabled())out["zsecrets"]=zsecrets_json(now);
         if(battle.mode!=MatchMode::duel){
-            const char* mode=battle.mode==MatchMode::duo?"duo":battle.mode==MatchMode::coop?"coop":"pve";
+            const char* mode=battle.mode==MatchMode::duo?"duo":(battle.mode==MatchMode::coop||battle.mode==MatchMode::coop_izombie)?"coop":"pve";
             out["mode"]=mode;out["seats"]=battle_seats;
             J requests=J::object();
             for(const auto& r:room.surrender_requests)if(r&&r->expires>now)requests[std::string(seat_name(team_of(r->seat)))]={{"id",r->id},{"seat",std::string(seat_name(r->seat))},{"expires",r->expires}};
@@ -230,7 +230,7 @@
             }
             out["team"]=team;
         }
-        if(battle.mode==MatchMode::duo){out["commands"]=seat_commands();out["rally_points"]=seat_rallies();}
+        if(separate_zombie_commands(battle.mode)){out["commands"]=seat_commands();out["rally_points"]=seat_rallies();}
         return out;
     }
     void write_snapshot(int rt){if(snapshot_out)(*snapshot_out)<<J{{"rt",rt},{"snapshot",snapshot_json()}}.dump(-1,' ',false,J::error_handler_t::replace)<<'\n';}

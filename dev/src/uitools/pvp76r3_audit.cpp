@@ -5,10 +5,12 @@
 #define TYPED72_NO_MAIN
 #include "match_probe.cpp"
 #include "sim/typed72_app/cold_export.h"
+#include "sim/typed72_app/typed_battle.h"
 #include "sim/pvp/battle_api.h"
 #include "sim/pvp/gen/pm_catalog.h"
 #include "sim/pvp/gen/pm_pve.h"
 #include "sim/pvp/gen/pm_maps.h"
+#include "sim/pvp/gen/pm_balance.h"
 #include "sim/pvp/gen/pm_native_bridge.h"
 #include "sim/pvp/gen/pm_team_maps.h"
 #include "core/fsutil.h"
@@ -16,6 +18,13 @@
 #include "core/gil.h"
 #include "pg/pg.h"
 #include "ui/gen/pm_app.h"
+#include "ui/gen/pm_coop_ai.h"
+#include "ui/gen/pm_draft_advisor.h"
+#include "ui/gen/pm_room.h"
+#include "ui/hand/ranked_fast_heads.h"
+#include "sim/pvp/gen/pm_pvp61_ranked.h"
+#include "sim/typed72_app/session.h"
+#include "ui/gen/pm_world_view.h"
 #include "ui/hand/solo77.h"
 #include "ui/hand/test_mode74.h"
 #include "ui/hand/texture74_internal.h"
@@ -968,6 +977,503 @@ J armor_cart77(){
     }));
     return rows;
 }
+J campaign78_checks(){
+    J rows=J::array();
+    rows.push_back(scenario("campaign78.menu_and_difficulty",[](){
+        auto h=battle_from_scenario({{"seed",78}});
+        auto screen=callm(pg::display_module(),SY("set_mode"),Args{V::tuple({V(1280),V(720)})});
+        auto app=pm_app::new_Application(Args{pg::pygame_module(),screen,h.bridge});
+        auto action=[&](V cmd){callm(app,SY("action"),Args{cmd});};
+        action(V::tuple({V("solo77"),V("modes")}));
+        callm(app,SY("render"),Args{});
+        callm(pg::image_module(),SY("save"),Args{screen,V(p8(armor_output/"menu.png"))});
+        auto controls=getattr(getattr(app,SY("renderer")),SY("controls"));J sizes=J::array();
+        for(const auto& ctl:controls.items()){
+            const auto box=pg::rect_of(ctl.idx(0));if(box.h<box.w)continue;
+            sizes.push_back({box.x,box.y,box.w,box.h});
+        }
+        expect(sizes.size()==4,"selector card count "+sizes.dump());
+        const auto index=pm_team_maps::f_bundled_index(Args{});expect(index.len()==10,"bundled 2v2 count");
+        for(const auto& entry:index.items()){
+            const auto map=pm_team_maps::f_team_snapshot(Args{pm_team_maps::f_bundled_snapshot(Args{rd(entry,V("id"))})});
+            const auto tiles=getattr(map,SY("tiles"));
+            expect(tiles.len()==32&&tiles.idx(0).len()==96,"2v2 canvas "+py_str(rd(entry,V("name"))));
+            if(rd(entry,V("name"))!=V("天堑")&&rd(entry,V("name"))!=V("瀑布"))continue;
+            const auto verify=[&](double x,double y){
+                const int c=int(x/48),r=int(y/48);expect(c>=0&&c<96&&r>=2&&r<32&&pm_maps::f__standable(Args{tiles,V(c),V(r)}).truthy(),"blocked map spawn");
+            };
+            const auto spawns=getattr(map,SY("spawns"));expect(spawns.len()==4,"four player spawns");
+            for(const auto& [key,loc]:py::items_vec(spawns))verify(rd(loc,V("x")).num(),rd(loc,V("y")).num());
+            const auto points=rd(getattr(map,SY("environment")),V("zombie_points"));expect(points.len()==(rd(entry,V("name"))==V("天堑")?2:3),"map zombie point count");
+            for(const auto& loc:points.items())verify(loc.idx(0).num(),loc.idx(1).num());
+        }
+        const auto rules=getattr(h.battle,SY("rules"));
+        near(pm_balance::f_sky_interval(Args{rules,V(96),V(32)}).num(),6.,"2v2 sky interval");
+
+        action(V::tuple({V("solo77"),V("adventure")}));
+        expect(rd(getattr(app,SY("state")),V("screen"))==V("pve"),"single preparation");
+        callm(app,SY("render"),Args{});
+        action(V::tuple({V("solo77"),V("difficulty"),V("4")}));
+        auto adventure=getattr(app,SY("campaign"));
+        int rainy_seed=1;while(!solo77::rainy_stage(rainy_seed,1))++rainy_seed;
+        setattr(adventure,SY("seed"),V(rainy_seed));
+        callm(app,SY("start_pve_day"),Args{});
+        auto room=getattr(app,SY("room"));
+        expect(rd(getattr(getattr(room,SY("map")),SY("environment")),V("weather"))==V("rain"),"adventure did not build rain terrain");
+        const auto selected_map=py_str(getattr(room,SY("map_id")));
+        const auto& originals=solo77::original_maps();
+        expect(std::find(originals.begin(),originals.end(),selected_map)!=originals.end(),"single original map");
+        expect(callm(room,SY("seat_list"),Args{}).len()==1,"single seat");
+        auto battle=getattr(room,SY("battle"));expect(battle.truthy(),"single battle");
+        expect(rd(getattr(battle,SY("rules")),V("pvp78_health"))==V(4),"single difficulty");
+        return J{{"cards",sizes},{"mode",py_str(getattr(room,SY("mode")))},{"map",py_str(getattr(room,SY("map_id")))}};
+    }));
+    for(const std::string variant:{"lottery","izombie"})rows.push_back(scenario("campaign78.coop."+variant,[variant](){
+        auto h=battle_from_scenario({{"seed",278}});
+        auto screen=callm(pg::display_module(),SY("set_mode"),Args{V::tuple({V(1280),V(720)})});
+        auto app=pm_app::new_Application(Args{pg::pygame_module(),screen,h.bridge});
+        callm(app,SY("create_offline_host"),Args{});auto room=getattr(app,SY("room"));
+        auto check=[](V error){expect(!error.truthy(),py_str(error));};
+        check(callm(room,SY("set_mode"),Args{V("coop")}));
+        const bool water_map=variant=="izombie";
+        const auto selected=std::string("custom:ea66000000000000000000000000000")+(water_map?"8":"7");
+        solo77::Campaign fixture;
+        for(int seed=1;seed<1024;++seed){
+            fixture.start(variant,seed,solo77::campaign_pools(),true);
+            if(fixture.map==selected)break;
+        }
+        expect(fixture.map==selected,"expanded map absent from initial draw");
+        const auto file=u8p(py_str(callm(app,SY("campaign_path"),Args{}))).parent_path()/("coop_"+variant+"_v78.json");
+        std::filesystem::create_directories(file.parent_path());
+        {std::ofstream out(file);out<<nlohmann::json{{water_map?"zombie":"plant",fixture},{water_map?"zombie2":"plant2",fixture}}.dump();}
+        setitem(getattr(app,SY("state")),V("coop78_variant"),V(variant));solo77::init_coop(app);
+        expect(getattr(room,SY("map_id"))==V(selected),"room replaced expanded map");
+        const auto active_map=getattr(room,SY("map"));
+        expect(getattr(active_map,SY("tiles")).len()==32&&getattr(active_map,SY("tiles")).idx(0).len()==96,"campaign did not install 96 by 32 terrain");
+        expect(rd(getattr(active_map,SY("environment")),V("zombie_points")).len()==(water_map?3:2),"campaign lost author monster points");
+
+        check(callm(room,SY("connect"),Args{V("qa_guest")}));
+        const bool zombie=variant=="izombie";const auto seat=V(zombie?"zombie2":"plant2");
+        expect(callm(room,SY("side_for"),Args{V("qa_guest")})==seat,"teammate seat");
+        callm(app,SY("refresh"),Args{});setitem(getattr(app,SY("state")),V("screen"),V("room"));
+        callm(app,SY("render"),Args{});
+        callm(pg::image_module(),SY("save"),Args{screen,V(p8(armor_output/("coop-"+variant+".png")))});
+        auto pve=getattr(room,SY("pve"));auto run=rd(pve,V("pvp78_run"));
+        expect(py::in(seat,rd(pve,V("decks"))),"joining discarded the guest deck");
+        for(const auto peer:{V("host"),V("qa_guest")}){
+            auto current=callm(room,SY("side_for"),Args{peer});
+            auto campaign=rd(rd(pve,V("campaign78_seats")),current);
+            check(callm(room,SY("command"),Args{peer,py_dict({{V("type"),V("campaign78")},{V("operation"),V("prepare")},
+                {V("stage"),rd(campaign,V("stage"))},{V("match"),rd(campaign,V("last_result"))}})}));
+        }
+        auto battle=getattr(room,SY("battle"));expect(battle.truthy(),"both confirmations started battle");
+        typed72app::start_battle_session(battle);
+        auto snapshot=callm(battle,SY("snapshot"),Args{});
+        expect(py::in(seat,rd(snapshot,V("players"))),"teammate exported to battle");
+        expect(rd(snapshot,V("solo_mode"))==V(variant),"wrong campaign");
+        const auto seats=callm(room,SY("seat_list"),Args{});
+        expect(seats.len()==2,"two seats");
+        const auto first=seats.idx(0),second=seats.idx(1);
+        J burst;
+        if(zombie){
+            callm(battle,SY("step"),Args{V(1)});
+            const V map=getattr(battle,SY("map")),tiles=rd(map,V("tiles"));
+            double x=-1.,y=0.;const double tile=getattr(battle,SY("tile")).num();
+            for(int row=0;row<int(tiles.len())&&x<0.;++row)for(int col=0;col<int(tiles.idx(row).len());++col){
+                const V cell=tiles.idx(row).idx(col);
+                if(cell.get(V("kind"),V::none())==V("坟墓")||cell.get(V("native"),V::dict()).get(V("方块"),V::none())==V("坟墓")){
+                    x=(col+.5)*tile;y=(row+.5)*tile;break;
+                }
+            }
+            expect(x>=0.,"map tomb missing");
+            const V key("zombie:普通僵尸");const double price=rd(rd(pm_catalog::CARDS,key),V("cost")).num();
+            for(const auto side:{first,second}){
+                const auto state=callm(battle,SY("snapshot"),Args{});
+                const double funds=rd(rd(rd(state,V("players")),side),V("resource")).num();
+                const int expected=int(funds/price);int accepted=0;
+                const auto before=rd(state,V("units")).len();
+                for(int seq=1;seq<=50;++seq){
+                    const V cmd=py_dict({{V("type"),V("deploy")},{V("seq"),V(seq)},{V("card"),key},{V("x"),V(x)},{V("y"),V(y)}});
+                    const auto error=callm(battle,SY("command_input"),Args{side,cmd});
+                    if(!error.truthy())++accepted;
+                    else expect(py_str(error)=="脑光不足","unexpected deploy error "+py_str(error));
+                    expect(callm(battle,SY("command_input"),Args{side,cmd}).truthy(),"duplicate input accepted");
+                }
+                const auto after=callm(battle,SY("snapshot"),Args{});
+                const auto count=rd(after,V("units")).len()-before;
+                near(rd(rd(rd(after,V("players")),side),V("resource")).num(),funds-accepted*price,"burst debit");
+                expect(accepted==expected&&int(count)==expected,"free or missing units "+std::to_string(accepted)+"/"+std::to_string(count));
+                burst[py_str(side)]={{"attempts",50},{"replays",50},{"before",funds},{"cost",price},{"units",count}};
+            }
+        }
+        const auto receipt=py_dict({{V("winner"),V(zombie?"zombie":"plant")},{V("seat_coins"),py_dict({{first,V(20)},{second,V(60)}})}});
+        solo77::settle_coop(room,receipt);
+        expect(!rd(getattr(room,SY("confirmed")),first).truthy()&&!rd(getattr(room,SY("confirmed")),second).truthy(),"result kept ready seats");
+        auto decks=rd(pve,V("campaign78_seats"));auto left=rd(decks,first),right=rd(decks,second);
+        expect(rd(right,V("coins")).num()-rd(left,V("coins")).num()==(zombie?40:20),"per-seat income");
+        const auto before=rd(right,V("coins"));solo77::settle_coop(room,receipt);
+        expect(rd(rd(rd(pve,V("campaign78_seats")),second),V("coins"))==before,"duplicate room settlement");
+        const auto factor=getattr(room,SY("_pvp78_match_grade"));setitem(getattr(room,SY("rules")),V("pvp78_health"),V(4));
+        auto loss=py_dict({{V("winner"),V(zombie?"plant":"zombie")}});
+        solo77::result_receipt(room,loss);expect(rd(rd(loss,V("campaign78")),V("factor"))==factor,"result used changed lobby difficulty");
+        for(const auto active:{first,second})setitem(getattr(room,SY("confirmed")),active,V(true));
+        setattr(room,SY("match_id"),V("qa-loss"));solo77::settle_coop(room,loss);
+        for(const auto active:{first,second})expect(!rd(getattr(room,SY("confirmed")),active).truthy(),"loss kept ready");
+        std::ifstream saved(u8p(py_str(getattr(room,SY("_campaign78_path")))));
+        const auto saved_seats=J::parse(saved);
+        expect(saved_seats.at(py_str(second)).at("coins")==int(before.num()),"saved teammate balance");
+        return J{{"seat_income",{rd(left,V("coins")).num(),before.num()}},{"mode",variant},{"seats",py_str(seats)},{"run",py_str(run)},{"grave_clicks",burst}};
+    }));
+    rows.push_back(scenario("campaign78.map_cycles",[](){
+        const auto& pools=solo77::campaign_pools();
+        expect(pools.team_maps.size()==10&&solo77::original_maps().size()==12,"map registry");
+        J evidence;
+        for(bool coop:{false,true})for(bool zombie:{false,true}){
+            const int size=coop?22:12;
+            int rain=0,original=0;
+            for(int seed=1;seed<=40;++seed){
+                solo77::Campaign c;c.start(zombie?"izombie":"lottery",seed,pools,coop);
+                if(zombie)expect(std::count(c.defenders.begin(),c.defenders.end(),"plant:睡莲")==1,"day one lily");
+                for(int cycle=0;cycle<2;++cycle){
+                    std::set<std::string> unique;
+                    for(int i=0;i<size;++i){
+                        expect(unique.insert(c.map).second,"duplicate in map pool");
+                        if(c.map.starts_with("custom:"))expect(coop&&!c.rain,"custom map or weather escaped scope");
+                        else{++original;rain+=c.rain;}
+                        const auto reload=nlohmann::json(c).get<solo77::Campaign>();
+                        expect(reload.rain==c.rain&&reload.map==c.map&&reload.visited_maps==c.visited_maps,"save reload map");
+                        if(i==0){
+                            const auto map=c.map;const bool weather=c.rain;
+                            c.finish(pools,"loss-"+std::to_string(cycle),false,0,0);
+                            expect(c.map==map&&c.rain==weather,"loss rerolled map");
+                        }
+                        c.next(pools);
+                    }
+                }
+            }
+            if(zombie)expect(rain*5>original&&rain*3<original,"rain rate");else expect(rain==0,"lottery weather");
+            evidence[std::string(coop?"coop_":"solo_")+(zombie?"izombie":"lottery")]={{"pool",size},{"original",original},{"rain",rain}};
+        }
+        for(const auto& pool:{pools.team_maps,solo77::original_maps()}){
+            for(int cycle=0;cycle<2;++cycle){
+                std::set<std::string> maps;
+                for(int i=1;i<=int(pool.size());++i)maps.insert(solo77::map_for_stage(pool,"saved-run",cycle*int(pool.size())+i));
+                expect(maps.size()==pool.size(),"classic shuffle repeated a map");
+            }
+        }
+        {
+            auto h=battle_from_scenario({{"seed",783}});
+            auto sc=callm(pg::display_module(),SY("set_mode"),Args{V::tuple({V(960),V(540)})});
+            auto app=pm_app::new_Application(Args{pg::pygame_module(),sc,h.bridge});
+            callm(app,SY("create_offline_host"),Args{});
+            auto room=getattr(app,SY("room"));callm(room,SY("set_mode"),Args{V("coop")});
+            callm(app,SY("bind_coop_progress"),Args{});
+            auto progress=getattr(room,SY("coop_progress"));
+            std::set<std::string> selected;
+            J expanded=J::object();
+            for(int day=1;day<=10;++day){
+                const auto map=solo77::classic_map(app,V(day),V(true));
+                selected.insert(py_str(map.idx(1)));
+                const auto seed=solo77::classic_seed(room,V::none(),V(day));
+                const auto doc=pm_team_maps::f_bundled_document(Args{map.idx(1)});
+                auto name=py_str(rd(doc,V("name")));
+                if(name=="天堑"||name=="瀑布")expanded[name]=day;
+                expect(map.idx(1)==solo77::classic_map(app,V(day),V(true)).idx(1),"classic room map changed");
+                solo77::start_coop_attempt(room);
+                expect(seed!=solo77::classic_seed(room,V::none(),V(day)),"retry reused terrain seed");
+            }
+            expect(selected.size()==10&&expanded.size()==2,"classic room missing expanded maps");
+            for(const auto& [name,day]:expanded.items()){
+                setattr(progress,SY("day"),V(day.get<int>()));
+                callm(app,SY("start_pve_day"),Args{});
+                const auto actual=getattr(room,SY("map"));
+                expect(rd(getattr(actual,SY("environment")),V("custom_name"))==V(name),"normal coop started wrong map: "+name);
+                expect(getattr(actual,SY("tiles")).idx(0).len()==96,"normal coop canvas");
+            }
+            evidence["classic_room"]=expanded;
+            int wet=0;for(int seed=1;seed<=512;++seed)wet+=solo77::rainy_stage(seed,7);
+            expect(wet>100&&wet<160,"adventure rainy day rate");
+            evidence["adventure_rain"]={{"seeds",512},{"wet",wet}};
+        }
+        std::set<std::string> supports;
+        J rules={{"pvp77_mode","izombie"},{"pvp78_coop_campaign",true},{"pvp77_battle_seed",94},{"pvp77_stage",3},
+            {"pvp77_defenders",{"plant:睡莲","plant:阳光藤蔓","plant:忧郁藤蔓","plant:抓人草","plant:豌豆射手"}}};
+        J cards=decks(J::array(),{"zombie:脑光墓碑","zombie:普通僵尸"});cards["plant2"]=J::array();cards["zombie2"]=cards.at("zombie");
+        for(int trial=0;trial<5;++trial){
+            rules["pvp77_battle_seed"]=94+trial;
+            Fixture f(cards,{{"fixture_flat",false},{"map","木船"},{"weather","rain"},{"mode","duo"},{"rules",rules}});
+            auto& m=*f.match;expect(m.battle.solo.objectives.size()==3&&!m.battle.solo.graves.empty(),"rain board unreachable");
+            for(const auto& support:*m.battle.plant_roster){
+                const auto id="plant:"+support->source.content.or_missing(support->kind);
+                if(id!="plant:睡莲"&&id!="plant:阳光藤蔓"&&id!="plant:忧郁藤蔓"&&id!="plant:抓人草")continue;
+                const auto cell=support->cell;const bool lily=id=="plant:睡莲";
+                if(!m.battle.terrain.water(cell.y+!lily,cell.x))continue;
+                for(const auto& partner:*m.battle.plant_roster)if(partner!=support&&partner->cell.x==cell.x&&partner->cell.y==cell.y-int(lily))
+                    supports.insert(id);
+            }
+            if(supports.size()==4)break;
+        }
+        expect(supports.size()==4,"water supports "+J(supports).dump());
+        evidence["water_supports"]=supports;return evidence;
+    }));
+    rows.push_back(scenario("campaign78.keyboard",[](){
+        auto h=battle_from_scenario({{"seed",782}});
+        auto screen=callm(pg::display_module(),SY("set_mode"),Args{V::tuple({V(960),V(640)})});
+        auto app=pm_app::new_Application(Args{pg::pygame_module(),screen,h.bridge});
+        callm(app,SY("create_offline_host"),Args{});
+        setattr(app,SY("mode"),V("local"));auto room=getattr(app,SY("room"));
+        setitem(getattr(room,SY("rules")),V("local_test_mode"),V(true));
+        auto input=[&](const char* op,const char* key){test74::action(app,V::tuple({V("test74"),V(op),V(key)}));};
+        input("open","cards");input("focus","query");
+        expect(SDL_IsTextInputActive(),"tap did not open IME");
+        SDL_StopTextInput();
+        for(int frame=0;frame<5;++frame)callm(app,SY("_sync_text_input"),Args{});
+        expect(!SDL_IsTextInputActive(),"system dismissal was undone by a frame");
+        input("focus","query");expect(SDL_IsTextInputActive(),"retap after dismissal");
+        const auto event=callm(pg::event_module(),SY("Event"),Args{V(int(SDL_KEYDOWN)),py_dict({{V("key"),V(int(SDLK_AC_BACK))}})});
+        test74::event(app,event);callm(app,SY("_sync_text_input"),Args{});
+        expect(!SDL_IsTextInputActive(),"Android Back did not dismiss");
+        return J{{"dismissed_frames",5},{"retap",true},{"android_back",true}};
+    }));
+    rows.push_back(scenario("campaign78.trophies",[](){
+        auto h=battle_from_scenario({{"seed",783}});
+        auto screen=callm(pg::display_module(),SY("set_mode"),Args{V::tuple({V(960),V(640)})});
+        auto app=pm_app::new_Application(Args{pg::pygame_module(),screen,h.bridge});
+        auto submit=[&](const std::string& mode,const std::string& run,int day,int factor,bool won){
+            auto receipt=py_dict({{V("members"),py_dict({{getattr(app,SY("peer_id")),V("plant")}})},{V("mode"),V(mode)},
+                {V("run"),V(run)},{V("match"),V(std::to_string(day)+(won?"win":"loss"))},{V("seconds"),V(2)},{V("factor"),V(factor)}});
+            const bool zombie=mode.ends_with("izombie");auto v=py_dict({{V("result"),py_dict({{V("pve_day"),V(day)},
+                {V("winner"),V(zombie==won?"zombie":"plant")},{V("campaign78"),receipt}})}});
+            solo77::observe_result(app,v);solo77::observe_result(app,v);
+        };
+        const auto file=u8p(py_str(callm(app,SY("campaign_path"),Args{}))).parent_path()/"campaign_records_v78.json";
+        J evidence;
+        for(const std::string mode:{"solo_lottery","coop_lottery","solo_izombie","coop_izombie","solo_adventure","coop_adventure"}){
+            const int last=mode.ends_with("izombie")?19:24;
+            for(int level:{1,2,4}){
+                const auto run="audit"+std::to_string(level);
+                submit(mode,run,1,4,false);
+                for(int day=1;day<=last;++day)submit(mode,run,day,day==2?level:4,true);
+            }
+            for(int day=2;day<=last;++day)submit(mode,"skipped",day,4,true);
+            std::ifstream f(file);const auto book=J::parse(f);
+            for(int level:{1,2,4}){
+                auto award=book.at("awards").at(mode).at(std::to_string(level));
+                expect(award.at("count")==1&&award.at("seconds")==2*(last+1),mode+" trophy count, time or grade");
+            }
+            evidence[mode]=last;
+        }
+        return evidence;
+    }));
+    rows.push_back(scenario("campaign78.mode_boundaries",[](){
+        auto h=battle_from_scenario({{"seed",784}});
+        auto screen=callm(pg::display_module(),SY("set_mode"),Args{V::tuple({V(960),V(540)})});
+        auto app=pm_app::new_Application(Args{pg::pygame_module(),screen,h.bridge});
+        auto state=getattr(app,SY("state"));
+        auto action=[&](V cmd){callm(app,SY("action"),Args{cmd});};
+        auto option=[&](const char* op,const char* key=""){action(V::tuple({V("solo77"),V(op),V(key)}));};
+        action(V::tuple({V("coop_lobby")}));option("difficulty","4");option("variant");
+        expect(rd(state,V("pvp78_health"))==V(1),"regular difficulty leaked to lottery");
+        option("difficulty","2");option("variant");expect(rd(state,V("pvp78_health"))==V(1),"lottery difficulty leaked to izombie");
+        option("variant");expect(rd(state,V("pvp78_health"))==V(4),"regular difficulty lost");
+        option("adventure");expect(rd(state,V("pvp78_health"))==V(1),"coop difficulty leaked to single");
+        auto save=callm(app,SY("campaign_path"),Args{});
+        expect(callm(save,SY("exists"),Args{}).truthy(),"fresh adventure save missing");
+        action(V::tuple({V("pve_back")}));expect(!rd(state,V("pvp78_adventure")).truthy(),"adventure stayed active after exit");
+        option("open","lottery");option("solo_difficulty");option("open","izombie");option("solo_difficulty");option("solo_difficulty");
+        auto dir=u8p(py_str(save)).parent_path();std::ifstream l(dir/"lottery_v77.json"),z(dir/"izombie_v77.json");
+        expect(J::parse(l).at("difficulty")==2&&J::parse(z).at("difficulty")==4,"single slot crossover");
+        callm(app,SY("create_offline_host"),Args{});auto room=getattr(app,SY("room"));
+        callm(room,SY("set_mode"),Args{V("coop")});setitem(state,V("coop78_variant"),V("izombie"));solo77::init_coop(app);
+        auto rules=getattr(room,SY("rules"));setitem(rules,V("pvp78_health"),V(4));
+        expect(!callm(room,SY("set_mode"),Args{V("duel")}).truthy(),"exit campaign room");
+        for(const char* key:{"pvp78_health","pvp78_adventure","pvp78_coop_campaign","pvp77_battle_seed","pvp77_start_brain","pvp78_start_brain2"})
+            expect(!py::in(V(key),rules),std::string("campaign rule survived room switch: ")+key);
+        expect(!getattr(room,SY("pve")).truthy(),"solo board survived PvP switch");
+        J team_decks=decks({"plant:向日葵"},{"zombie:脑光墓碑","zombie:普通僵尸"});team_decks["plant2"]=team_decks["plant"];team_decks["zombie2"]=team_decks["zombie"];
+        Fixture duo(team_decks,{{"mode","duo"}});auto& m=*duo.match;
+        const auto mode=m.commands.for_owner(m.battle.mode,Seat::zombie2);
+        for(auto side:{Seat::zombie,Seat::zombie2}){
+            CommandAttempt flag;flag.sequence={InputFieldState::value,10};flag.payload=RallyCommand{false,dval(160.),dval(180.)};
+            expect(m.inputs.apply(side,flag).empty(),"2v2 rally");
+        }
+        CommandAttempt toggle;toggle.sequence={InputFieldState::value,11};toggle.payload=ToggleCommand{};
+        expect(m.inputs.apply(Seat::zombie2,toggle).empty()&&m.commands.for_owner(m.battle.mode,Seat::zombie2)!=mode,"2v2 guest F");
+        expect(!m.hero_flags.for_owner(m.battle.mode,Seat::zombie2)&&m.hero_flags.for_owner(m.battle.mode,Seat::zombie),"2v2 teammate flag");
+        return J{{"coop_grades",{4,2,1}},{"solo_grades",{1,2,4}},{"pvp_seats",py_str(callm(room,SY("seat_list"),Args{}))}};
+    }));
+    rows.push_back(scenario("campaign78.commander_targeting",[](){
+        J comparisons;
+        for(bool lottery:{false,true}){
+            J rules={{"pvp77_plants",{"plant:玉米加农炮"}},{"pvp77_stage",8}};if(lottery)rules["pvp77_mode"]="lottery";
+            Fixture f(decks({"plant:模仿者","plant:玉米投手","plant:玉米加农炮"},{"zombie:脑光墓碑"}),{{"rules",rules}});
+            auto& m=*f.match;const auto index=seat_index(Seat::plant);
+            m.resources.accounts[index].balance=10000.;m.battle.heroes.players[index]->cooldowns.clear();
+            NativeCommand cmd{NativeCommandKind::deploy};cmd.card=sval("plant:模仿者");cmd.x=dval(1512.);cmd.y=dval(936.);
+            if(!lottery)cmd.copy=sval("plant:玉米加农炮");
+            expect(m.native_commands.apply(Seat::plant,cmd).empty(),"imitater deploy");f.run(310);
+            m.bonus_projectiles.patch_cannons();
+            for(const auto& p:*m.battle.plant_roster)if(p->kind=="玉米加农炮"){
+                expect(p->monochrome.present(),"reload removed imitation");p->cannon_cd.set(0.);p->cannon_flash.set(100.);
+            }
+            m.begin_frame(m.battle.heroes.tick);m.set_drawing(true);m.plant_draw.draw_all();
+            auto frame=m.canvas.frame_json(m.canvas.frames.frame());
+            std::erase_if(frame["commands"].get_ref<decltype(frame)::array_t&>(),[](const auto& cmd){return !cmd.contains("surface")||cmd["surface"].dump().find("玉米")==std::string::npos;});
+            expect(frame["commands"].size()>=3,"missing cannon layers");
+            auto h=battle_from_scenario({{"seed",783}});
+            auto world=pm_world_view::new_WorldView(Args{pg::pygame_module(),h.bridge});
+            auto replay=callm(world,SY("_ensure_native_replay"),Args{getattr(h.battle,SY("map")),V(48)});
+            auto surface=pg::new_surface(180,160,true);
+            auto offset=V::func([](const Args& a){return V::tuple({a.pos[0]-V(1420),a.pos[1]-V(843)});});
+            callm(replay,SY("render"),Args{surface,py::json_loads(V(frame.dump())),offset});
+            int painted=0,chromatic=0;for(auto pixel:texture74::pixels(surface))if((pixel&255)>128){
+                ++painted;if((pixel>>24)!=((pixel>>16)&255)||((pixel>>16)&255)!=((pixel>>8)&255))++chromatic;
+            }
+            expect(painted>300&&chromatic==0,"cannon raster "+std::to_string(chromatic)+"/"+std::to_string(painted));
+            const char* name=lottery?"lottery-cannon":"duel-cannon";
+            callm(pg::image_module(),SY("save"),Args{surface,V(p8(armor_output/(std::string(name)+".png")))});
+            comparisons[name]={{"painted",painted},{"chromatic",chromatic}};
+        }
+        for(bool izombie:{false,true}){
+            Fixture f(decks({"plant:豌豆射手"},{"zombie:脑光墓碑","zombie:普通僵尸"}));
+            auto& m=*f.match;
+            if(izombie)m.battle.solo.mode=SoloMode::izombie;
+            auto pea=f.plant("豌豆射手");
+            f.hero_at(Seat::zombie,1656.);
+            auto source=m.queries.source(ContentTarget(pea));
+            const auto hero=ContentTarget(CombatTarget::player(Seat::zombie));
+            auto targets=m.queries.enemies(source);
+            expect((std::find(targets.begin(),targets.end(),hero)!=targets.end())==!izombie,"commander target isolation");
+            if(izombie){
+                auto& world=m.battle;const double tile=f.tile();
+                const auto row=pea->cell.y;f.hero_at(Seat::zombie,(pea->cell.x+3.5)*tile,(row+1.)*tile);
+                for(int t=0;t<440;++t){
+                    f.run(1);
+                    for(const auto& e:*world.runtime.entities.list())expect(e->kind!="豌豆","commander alone triggered pea fire");
+                }
+            }
+            auto z=f.zombie("普通僵尸");
+            targets=m.queries.enemies(source);
+            expect(std::any_of(targets.begin(),targets.end(),[&](const auto& t){
+                const auto* c=std::get_if<CombatTarget>(&t);return c&&!c->is_hero()&&c->unit==z;
+            }),"ordinary zombie lost as a plant target");
+            comparisons[izombie?"izombie":"pvp"]=targets.size();
+        }
+        return comparisons;
+    }));
+    rows.push_back(scenario("campaign78.defender_density",[](){
+        int count[2]{};
+        for(int seats=1;seats<=2;++seats){
+            J rules={{"pvp77_mode","izombie"},{"pvp78_coop_campaign",seats==2},{"pvp77_battle_seed",78},
+                {"pvp77_stage",1},{"pvp77_defenders",{"plant:向日葵","plant:金盏花","plant:豌豆射手","plant:土豆地雷"}}};
+            J cards=decks(J::array(),{"zombie:脑光墓碑","zombie:普通僵尸"});
+            if(seats==2){cards["plant2"]=J::array();cards["zombie2"]=cards.at("zombie");}
+            Fixture f(cards,{{"mode",seats==2?"duo":"duel"},{"rules",rules}});
+            auto& m=*f.match;
+            expect(m.battle.solo.objectives.size()==3,"ordinary brain count");
+            if(seats==2){
+                const auto iter=std::find_if(m.battle.plant_roster->begin(),m.battle.plant_roster->end(),[](const auto& z){return z->kind=="向日葵";});
+                expect(iter!=m.battle.plant_roster->end(),"opening sunflower missing");const auto sunflower=*iter;
+                const double old=sunflower->hp.get();sunflower->hp.set(old-1.);
+                auto i=seat_index(Seat::zombie2),host=seat_index(Seat::zombie);
+                const double guest_balance=m.resources.accounts[i].balance,other=m.resources.accounts[host].balance;
+                m.battle.solo.plant_bitten(sunflower,old,Seat::zombie2);settle_solo_board(m);
+                near(m.resources.accounts[i].balance,guest_balance+15,"guest brain balance");near(m.resources.accounts[host].balance,other,"other brain balance");
+                const auto guest_mode=m.commands.for_owner(m.battle.mode,Seat::zombie2);
+                const auto host_mode=m.commands.for_owner(m.battle.mode,Seat::zombie);
+                CommandAttempt order;order.sequence={InputFieldState::value,100};order.payload=ToggleCommand{};
+                expect(m.inputs.apply(Seat::zombie2,order).empty(),"guest command");
+                expect(m.commands.for_owner(m.battle.mode,Seat::zombie2)!=guest_mode&&m.commands.for_owner(m.battle.mode,Seat::zombie)==host_mode,"guest command isolation");
+                ++order.sequence.value;order.payload=RallyCommand{false,dval(160.),dval(160.)};
+                expect(m.inputs.apply(Seat::zombie2,order).empty(),"guest rally");
+                expect(m.hero_flags.for_owner(m.battle.mode,Seat::zombie2).has_value()&&!m.hero_flags.for_owner(m.battle.mode,Seat::zombie),"guest rally isolation");
+                ++order.sequence.value;order.payload=ToggleCommand{};
+                expect(m.inputs.apply(Seat::zombie2,order).empty(),"F after rally");
+                expect(!m.hero_flags.for_owner(m.battle.mode,Seat::zombie2)&&m.commands.for_owner(m.battle.mode,Seat::zombie2)==guest_mode&&m.commands.for_owner(m.battle.mode,Seat::zombie)==host_mode,"guest F did not switch and clear own flag");
+                auto& solo=m.battle.solo;const auto g=solo.graves.front();
+                NativeCommand cmd{NativeCommandKind::deploy};cmd.card=sval("zombie:普通僵尸");
+                cmd.x=dval((g.x+.5)*f.tile());cmd.y=dval((g.y+.5)*f.tile());cmd.facing={InputFieldState::value,-1};
+                const auto error=m.native_commands.apply(Seat::zombie2,cmd);
+                expect(error.empty(),"guest deploy "+error);
+                expect(std::any_of(m.battle.targets->begin(),m.battle.targets->end(),[](const auto& z){return z.unit&&z.unit->source.seat==Seat::zombie2;}),"guest soldier owner");
+                expect(m.resources.accounts[i].balance<guest_balance+15&&m.resources.accounts[host].balance==other,"deployment charged wrong seat");
+                const auto brain=solo.objectives.front();const auto hp=brain->hp.get();brain->hp.set(0.);
+                const auto coins=m.resources.accounts[i].coins.or_missing(0.);
+                solo.plant_bitten(brain,hp,Seat::zombie2);settle_solo_board(m);
+                expect(solo.brains==1&&solo.objectives.size()==2,"shared objective");
+                near(m.resources.accounts[i].coins.or_missing(0.),coins+10,"guest brain coin");
+            }
+            for(const auto& plant:*m.battle.plant_roster)if(plant->kind!="脑子")++count[seats-1];
+            for(const char* kind:{"向日葵","金盏花"}){
+                auto plant=f.plant(kind);plant->hp.set(6.);
+                const double funds=m.resources.accounts[seat_index(Seat::zombie)].balance;
+                const double coins=m.resources.coins;
+                for(int n=6;n>3;--n){
+                    plant->hp.set(n-1.);m.battle.solo.plant_bitten(plant,n,seats==2&&n==5?Seat::zombie2:Seat::zombie,478);
+                }
+                settle_solo_board(m);
+                if(std::string(kind)=="向日葵")near(m.resources.accounts[seat_index(Seat::zombie)].balance-funds,15.,"simultaneous sunflower bites");
+                else {
+                    std::vector<std::string> drops;
+                    for(const auto& drop:m.resources.records())if(drop.coin.present())drops.push_back(drop.id);
+                    for(const auto& id:drops)m.resources.collect(id,Seat::zombie);
+                    near(m.resources.coins-coins,50.,"one gold coin on concurrent bites");
+                }
+            }
+            const auto dead=f.plant("豌豆射手");dead->hp.set(0.);
+            m.death_rules.zombie_secrets_enabled=true;m.death_rules.conversion_forms["豌豆射手"]="zombie:豌豆僵尸";
+            m.death_rules.conversion_holders={Seat::zombie};if(seats==2)m.death_rules.conversion_holders.push_back(Seat::zombie2);
+            const auto queued=m.death_state.conversions.size();
+            for(int n=0;n<8;++n)m.death_policy.killed(dead);
+            expect(m.death_state.conversions.size()==queued+1,"plant converted twice");
+            for(auto name:{"向日葵","双子向日葵","金盏花","阳光菇","黄金蓓蕾"}){
+                const auto p=f.plant(name);p->hp.set(24.);
+                const double old=m.resources.accounts[seat_index(Seat::zombie)].balance+m.resources.accounts[seat_index(Seat::zombie2)].balance;
+                const auto coins=m.resources.coins;
+                for(int n=24;n>0;--n){
+                    p->hp.set(n-1.);const auto who=seats==2&&n%2?Seat::zombie2:Seat::zombie;
+                    m.battle.solo.plant_bitten(p,n,who);
+                    m.battle.solo.plant_bitten(p,n,Seat::zombie);
+                }
+                settle_solo_board(m);
+                if(std::string(name)=="金盏花"){
+                    std::vector<std::string> drops;
+                    for(const auto& drop:m.resources.records())if(drop.coin.present())drops.push_back(drop.id);
+                    for(const auto& id:drops)m.resources.collect(id,Seat::zombie);
+                    near(m.resources.coins-coins,90.,"marigold duplicate");
+                }else{
+                    const double expected=std::string(name)=="向日葵"?90:std::string(name)=="双子向日葵"?150:std::string(name)=="阳光菇"?50:200;
+                    near(m.resources.accounts[seat_index(Seat::zombie)].balance+m.resources.accounts[seat_index(Seat::zombie2)].balance-old,expected,"shared plant budget "+std::string(name));
+                }
+            }
+        }
+        expect(count[0]>0&&count[1]==2*count[0],"opening defenders "+std::to_string(count[0])+"/"+std::to_string(count[1]));
+        return J{{"solo",count[0]},{"coop",count[1]},{"brains",3}};
+    }));
+    rows.push_back(scenario("campaign78.waves",[](){return audit_campaign_waves(true);}));
+    rows.push_back(scenario("campaign78.health",[](){
+        Fixture f(decks({"plant:向日葵","plant:坚果"},{"zombie:脑光墓碑","zombie:铁桶僵尸"}));
+        auto& m=*f.match;
+        m.battle.solo.health_factor=1;auto base=f.zombie("铁桶僵尸");
+        m.battle.solo.health_factor=4;auto hard=f.zombie("铁桶僵尸");
+        near(hard->body.hp,base->body.hp*4,"body");near(hard->body.armor_hp,base->body.armor_hp,"bucket");
+        m.battle.scripted_terraria_boss=true;m.battle.solo.adventure=true;
+        auto wave_boss=[&](){
+            auto id=m.spawn_coop_boss("zombie:克苏鲁之眼",{1900.,960.});
+            expect(bool(id),"wave boss spawn");return m.native_zombie(*id);
+        };
+        m.battle.solo.health_factor=1;auto boss=wave_boss();
+        m.battle.solo.health_factor=4;auto stronger=wave_boss();near(stronger->body.hp,boss->body.hp*4,"boss body");
+        m.battle.solo.mode=SoloMode::izombie;
+        auto friendly=f.zombie("铁桶僵尸");near(friendly->body.hp,base->body.hp,"player army health");
+        auto defender=f.plant("向日葵");m.battle.solo.health_factor=1;
+        auto normal=f.plant("向日葵",1512.+f.tile());
+        near(defender->hp.get(),4.*normal->hp.get(),"defender body");
+        return J{{"body",hard->body.hp},{"armor",hard->body.armor_hp},{"boss",stronger->body.hp},{"defender",defender->hp.get()}};
+    }));
+    return rows;
+}
+#include "pvp78_ai_checks.inc"
 int main(int argc,char** argv){
     using namespace pvz;
     if(argc!=2)return 2;
@@ -976,7 +1482,7 @@ int main(int argc,char** argv){
     SDL_SetMainReady();gil::init();data::set_data_dir("extract/data");pg::install_pygame();init_pvp_modules();
     J result={{"checks",J::array()},{"failures",0}};int failures=0;
     const char* only=std::getenv("PVP76R3_AUDIT_CASE");
-    for(auto [name,fn]:std::vector<std::pair<std::string,J(*)()>>{{"catalog",catalog},{"heroes",heroes},{"zombies",zombies},{"plants",plants},{"probe",probe},{"pvp77",solo77_checks},{"pvp77r2",hotfix77},{"pvp77r3",revision77},{"pvp77r4",armor_cart77}}){
+    for(auto [name,fn]:std::vector<std::pair<std::string,J(*)()>>{{"catalog",catalog},{"heroes",heroes},{"zombies",zombies},{"plants",plants},{"probe",probe},{"pvp77",solo77_checks},{"pvp77r2",hotfix77},{"pvp77r3",revision77},{"pvp77r4",armor_cart77},{"pvp78ai",ai78_checks},{"pvp78",campaign78_checks}}){
         if(only&&name!=only)continue;
         std::cerr<<"RUN "<<name<<std::endl;J check={{"name",name}};try{
             auto evidence=fn();bool passed=true;

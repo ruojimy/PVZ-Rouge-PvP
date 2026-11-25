@@ -1,0 +1,50 @@
+{
+  "revision": "pvp78-r4",
+  "version": "1.6.0.78-typed.20261125-r4",
+  "android_version_code": 1125086,
+  "file_integrity": {
+    "PvZ-PvP-Native-20261125-pvp78-r4.zip": {
+      "sha256": "652357d8a33ba0b22459444132504f9bd72bbd6fcc5e1319d28bec4b6e7c2f36",
+      "bytes": 172735822
+    },
+    "PvZ-PvP-Native-1.6.0.78-typed.20261125-r4-1125086-pvp78r4-ai-20261125-b.apk": {
+      "sha256": "6f84f5a0fae9b723c598ac24e2f6f27b45bb77f547c11471d1d9400d34ccd205",
+      "bytes": 195383851
+    },
+    "PvZ-PvP-Native-20261125-pvp78-r4-Developer-Package.zip": {
+      "sha256": "4b02d7c76d16c16ee9bda5286ef0d24644f52a712027c044f4c58dccc6181fac",
+      "bytes": 100611939
+    }
+  },
+  "targeted_checks": [
+    {
+      "name": "pvp78ai",
+      "passed": true,
+      "evidence": [
+        {
+          "id": "ai78.native_drafts",
+          "passed": true
+        },
+        {
+          "id": "ai78.advice",
+          "passed": true
+        },
+        {
+          "id": "ai78.test_mode",
+          "passed": true
+        },
+        {
+          "id": "ai78.team_combat",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "targeted_failures": 0,
+  "windows_packaged_smoke": true,
+  "android_emulator_interaction_verified": true,
+  "android_signature_continuity_verified": true,
+  "android_real_device_verified": false,
+  "full_regression_rerun": false,
+  "product_acceptance_passed": false
+}

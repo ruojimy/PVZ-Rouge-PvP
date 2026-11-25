@@ -21,6 +21,7 @@ using namespace pvz;
 namespace pvz { void install_crash_handler(); void start_sampler(); void stop_sampler_report(int top); }
 #include "core/gil.h"
 #include "ui/hand/texture74_internal.h"
+#include "ui/hand/solo77.h"
 #include "core/fsutil.h"
 
 int main(int argc, char** argv) {
@@ -103,7 +104,8 @@ int main(int argc, char** argv) {
                 int fr = int(a.pos.at(1).num());
                 V state = pvz::getattr(app, Sym("state"));
                 bool relay = mode == "relay" || mode == "relay_coop";
-                bool coop = mode == "coop" || mode == "relay_coop";
+                const bool special=mode=="coop_lottery"||mode=="coop_izombie";
+                bool coop = mode == "coop" || mode == "relay_coop" || special;
                 if (relay && role == "host" && fr > 2 && !st->joined) {
                     std::string tok = py_str(py::m_get(state, V("token"), V("")));
                     if (!tok.empty()) { std::ofstream(tokenfile, std::ios::binary) << tok; st->joined = true; fprintf(stderr, "NET host relay room code=%s\n", tok.c_str()); }
@@ -122,8 +124,11 @@ int main(int argc, char** argv) {
                     state.at(V("network_mode")) = V("direct");
                     state.at(V("port")) = V(std::to_string(port));
                     state.at(V("save_replays")) = V(true);
-                    callm(app, Sym("create"), Args{});
-                    if (coop) {
+                    if(special){
+                        state.at(V("coop78_variant"))=V(mode.substr(5));
+                        callm(app,Sym("action"),Args{V::tuple({V("coop_create")})});
+                    }else callm(app, Sym("create"), Args{});
+                    if (coop&&!special) {
                         V err = callm(pvz::getattr(app, Sym("room")), Sym("set_mode"), Args{V("coop")});
                         fprintf(stderr, "NET host set_mode coop -> '%s'\n", py_str(err).c_str());
                     }
@@ -203,7 +208,7 @@ int main(int argc, char** argv) {
                 }
                 // co-op: team chat from the guest must reach the host's view
                 if (coop && !phase.empty()&&!std::getenv("PVP741_NIGHT_DIR")) {
-                    if (st->chat_ok && fr % 600 == 0) { st->result = 0; pvz::setattr(app, Sym("running"), V(false)); }
+                    if (!special && st->chat_ok && fr % 600 == 0) { st->result = 0; pvz::setattr(app, Sym("running"), V(false)); }
                     if (role == "guest" && fr == 200)
                         for (auto& s : py::iter_list(locals).items()) callm(app, Sym("command"), Args{py_dict({{V("type"), V("chat")}, {V("text"), V("native chat check")}}), s});
                     if (!st->chat_ok && dump(view).find("native chat check") != std::string::npos) { st->chat_ok = true; fprintf(stderr, "NET %s CHAT OK frame=%d\n", role.c_str(), fr); }
@@ -247,7 +252,50 @@ int main(int argc, char** argv) {
                     st->result = 0;
                     pvz::setattr(app, Sym("running"), V(false));
                 }
-                if (phase == "battle" && ++st->battle_frames == (mode == "duel" ? 100000 : 240) && !std::getenv("NETWATCH_SECONDS")) {
+                if(special){
+                    if(phase=="battle"&&++st->battle_frames==120)std::ofstream(tokenfile+"."+role+".battle")<<"ready";
+                    std::ifstream own(tokenfile+"."+role+".battle"),other(tokenfile+(role=="host"?".guest.battle":".host.battle"));
+                    if(own.good()&&other.good()&&std::getenv("PVP78_RESULT_FLOW")){
+                        const auto folder=std::filesystem::path(tokenfile).parent_path();
+                        const auto capture=[&](const char* label){callm(pg::image_module(),Sym("save"),Args{getattr(getattr(app,Sym("renderer")),Sym("screen")),V(p8(folder/(role+"-"+label+".png")))});};
+                        const V seat=callm(app,Sym("local_seat"),Args{V(mode=="coop_izombie"?"zombie":"plant")});
+                        if(role=="host"&&phase=="battle"&&!st->surrendered){
+                            const auto room=getattr(app,Sym("room"));
+                            V result=py_dict({{V("winner"),V(mode=="coop_izombie"?"zombie":"plant")},{V("reason"),V("fixture victory")},{V("time"),V(8)}});
+                            solo77::result_receipt(room,result);solo77::settle_coop(room,result);
+                            setattr(room,Sym("result"),result);setattr(room,Sym("phase"),V("result"));
+                            setattr(room,Sym("revision"),getattr(room,Sym("revision"))+V(1));st->surrendered=true;
+                        }
+                        if(phase=="result"&&seat.truthy()){
+                            ++st->result_frames;
+                            const auto pve=rd(view,V("pve"));
+                            const auto row=rd(rd(pve,V("campaign78_seats")),seat);
+                            if(getattr(getattr(app,Sym("result_animation")),Sym("active")).truthy()){
+                                if(!std::filesystem::exists(folder/(role+"-curtain.png")))capture("curtain");
+                            }else if(std::filesystem::exists(folder/(role+"-curtain.png"))){
+                                const V rewards=rd(row,V("rewards"));
+                                if(st->step<0&&rewards.len()){
+                                    callm(app,Sym("action"),Args{V::tuple({V("pve_open")})});st->step=1;
+                                }else if(st->step==1&&rewards.len()&&st->result_frames%10==0){
+                                    capture("rewards");const auto pick=V::tuple({V("solo77"),V("inspect_reward"),rewards.idx(0)});
+                                    callm(app,Sym("action"),Args{pick});callm(app,Sym("action"),Args{pick});st->step=2;
+                                }else if(st->step==2&&state.get(V("solo78_claim"),V::none()).truthy()){
+                                    capture("claim");st->step=3;
+                                }else if(st->step==3&&!state.get(V("solo78_claim"),V::none()).truthy()&&!rewards.len()){
+                                    capture("prep");std::ofstream(folder/(role+"-reward-ok"))<<"ok";st->step=4;
+                                }
+                            }
+                        }
+                        if(std::filesystem::exists(folder/"host-reward-ok")&&std::filesystem::exists(folder/"guest-reward-ok")){
+                            fprintf(stderr,"NET %s PASS battle reached; curtain, reward flight and prep observed\n",role.c_str());
+                            st->result=0;pvz::setattr(app,Sym("running"),V(false));
+                        }
+                    }else if(own.good()&&other.good()){
+                        fprintf(stderr,"NET %s PASS battle reached (received_snapshots=%s)\n",role.c_str(),dump(pvz::getattr(app,Sym("received_snapshots"),V(0))).c_str());
+                        st->result=0;pvz::setattr(app,Sym("running"),V(false));
+                    }
+                }
+                if (!special && phase == "battle" && ++st->battle_frames == (mode == "duel" ? 100000 : 240) && !std::getenv("NETWATCH_SECONDS")) {
                     fprintf(stderr, "NET %s PASS battle reached (received_snapshots=%s)\n", role.c_str(), dump(pvz::getattr(app, Sym("received_snapshots"), V(0.0))).c_str());
                     st->result = 0;
                     pvz::setattr(app, Sym("running"), V(false));

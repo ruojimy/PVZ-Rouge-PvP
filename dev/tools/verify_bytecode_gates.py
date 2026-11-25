@@ -10,6 +10,11 @@ import json
 import os
 from pathlib import Path
 import subprocess
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from native_test_scratch import fixture_access
 
 ROOT = Path(__file__).resolve().parents[1]
 MODULE = "test_pvp_native_physics"
@@ -37,6 +42,11 @@ def main():
     scratch_receipt = fixture / "scratch-paths.json"
     fixture_root = (Path(json.loads(scratch_receipt.read_text(encoding="utf-8"))["fixture_root"])
                     if scratch_receipt.is_file() else fixture / "fixture-root")
+    with fixture_access(fixture_root):
+        return run_controls(out, fixture, fixture_root)
+
+
+def run_controls(out, fixture, fixture_root):
     ref_dir = ROOT/"references/bytecode"
     original = ref_dir/(MODULE + ".json")
     inputs = [original, ROOT/"tools/bytecode_ref_capture.py", fixture/"bytecode-ref-fingerprints.json"]

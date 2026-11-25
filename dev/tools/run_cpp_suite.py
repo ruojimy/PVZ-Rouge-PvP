@@ -1,10 +1,11 @@
 """Run every collected native test module in isolated processes; fail closed on missing results."""
-import argparse,hashlib,json,os,shutil,subprocess,sys,tempfile,threading,time
+import argparse,hashlib,json,os,shutil,subprocess,sys,tempfile,threading,time,zipfile
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from native_test_waivers import DEFAULT_POLICY, evaluate_module, load_waivers
 from native_test_scheduling import run_modules
 from native_regression_report import combat_errors, fire_errors, report_failures
+from native_test_scratch import finalize_scratch, managed_scratch_root
 ROOT=Path(__file__).resolve().parents[1]
 REFERENCE=Path(r"C:\Users\xiech\Downloads\PVZ-Rouge-v1.4.8\next-pvp71")
 # Read-only inputs the original tests reach through ROOT=parents[1]. Reference data comes from the original
@@ -47,7 +48,10 @@ def make_scratch_dir(out, scratch_root):
     scratch_root = scratch_root.resolve()
     if scratch_root == out or out in scratch_root.parents:
         raise ValueError("Fixture scratch must be outside the test results directory: " + str(scratch_root))
+    scratch_root = managed_scratch_root(scratch_root, ROOT)
     scratch_root.mkdir(parents=True, exist_ok=True)
+    if scratch_root.resolve() != scratch_root:
+        raise ValueError("Managed regression scratch must not be a link: " + str(scratch_root))
     return Path(tempfile.mkdtemp(prefix="suite-", dir=str(scratch_root)))
 
 
@@ -364,6 +368,12 @@ def main():
     (out/"failure-triage.json").write_text(json.dumps(triage,ensure_ascii=False,indent=2),encoding="utf-8")
     summary["triage"]={key:value for key,value in triage.items() if key not in ("cases","previous_findings")}
     (out/"summary.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding="utf-8")
+    try:
+        retention = finalize_scratch(out, scratch, summary["scope"], fixture_manifest, file_sha)
+    except (OSError, ValueError, KeyError, zipfile.BadZipFile) as error:
+        retention = {"error": str(error), "scratch": str(scratch)}
+        print("SCRATCH RETENTION:", error, file=sys.stderr, flush=True)
+    (out/"scratch-retention.json").write_text(json.dumps(retention,ensure_ascii=False,indent=2),encoding="utf-8")
     print(json.dumps({k:v for k,v in summary.items() if k not in ("modules","collection_mismatch")},ensure_ascii=False),flush=True)
     return 0 if summary["success"] else 1
 if __name__=="__main__":raise SystemExit(main())

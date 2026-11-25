@@ -167,10 +167,11 @@ def fit(epochs=40, initial=None):
 
 class FastDrafter:
     """Greedy distilled drafter for run_draft (policy ('distill', FastDrafter()))."""
-    def __init__(self,path=None,prior=None,M=24):
+    def __init__(self,path=None,prior=None,M=24,coverage=()):
         # Training targets only cover the searcher's candidates (top-M offers by card prior); restrict inference to the
         # same set, otherwise unseen low-prior cards get arbitrary scores (11-22 eval-1: deck collapse).
         self.prior=prior;self.M=M
+        self.coverage = frozenset(coverage)
         self.vocab=dm.Vocab();self.enc=Encoder(self.vocab)
         d=torch.load(path or RUN/'models/distill-latest.pt',weights_only=False);assert d['keys']==self.vocab.keys
         self.net=Fast(self.vocab);self.net.load_state_dict(d['state']);self.net.eval()
@@ -183,7 +184,8 @@ class FastDrafter:
         if len(offers)==1:return list(offers)
         if self.prior is not None:
             cand=sorted(offers,key=lambda k:-(self.prior.get(k,0.) if k else -1e9))[:self.M]
-            if None in offers and None not in cand:cand.append(None)
+            included = set(cand)
+            cand.extend(k for k in offers if k not in included and (k is None or k in self.coverage))
             offers=cand
         e=self.enc.encode(side,a['stage'],a['kind'],state['decks'],state['bans'],offers)
         scores=self.net([e])[0]

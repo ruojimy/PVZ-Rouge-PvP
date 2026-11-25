@@ -138,6 +138,11 @@ public:
     bool replan_firing(Ctx&,const PlanDict&);
     void step(const View&,const typed72::AiObservation&,const PlanDict&,const Field&,Services&)override;
     void deploy_logic(Ctx&,const PlanDict&)override;
+private:
+    double next_laser_check=0.,next_laser_adjust=0.;
+    void aim_laser(const View&,Services&);
+    bool place_laser(Ctx&);
+    bool place_croton(Ctx&);
 };
 class Zombie19:public TeamSupportMixin<Zombie18> {
 public:

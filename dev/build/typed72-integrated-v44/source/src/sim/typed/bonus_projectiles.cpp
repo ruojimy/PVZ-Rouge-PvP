@@ -194,7 +194,8 @@ void BonusProjectiles::patch_cannons() {
     const auto plants = *world_.plant_roster;
     for (const auto& plant : plants) {
         if (plant->kind != "玉米加农炮") continue;
-        plant->monochrome.erase();
+        // Ordinary cannons use the reusable PvP reload. An imitater keeps its skin.
+        if(!yes(plant->temporary))plant->monochrome.erase();
         double cooldown = number(plant->cannon_cd);
         if (cooldown > 8000.) {
             plant->cannon_cd.set(8000.);   // PvP75: 32 s reload

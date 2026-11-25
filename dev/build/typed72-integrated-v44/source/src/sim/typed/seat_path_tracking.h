@@ -30,7 +30,7 @@ struct SeatCommands {
     std::array<PathMode,4> by_seat{PathMode::follow_hero,PathMode::follow_hero,
                                   PathMode::follow_hero,PathMode::follow_hero};
     PathMode for_owner(MatchMode mode,std::optional<Seat> seat)const {
-        return mode==MatchMode::duo?by_seat.at(seat_index(seat.value_or(Seat::zombie))):shared;
+        return separate_zombie_commands(mode)?by_seat.at(seat_index(seat.value_or(Seat::zombie))):shared;
     }
 };
 struct RallyPathBank {

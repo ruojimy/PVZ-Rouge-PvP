@@ -9,7 +9,7 @@ V QUALITY_LABELS;
 V FILTERS;
 V f_defaults(const Args& A) {
     V L_android = (A.size() > 0 || A.has_kw(SY("android"))) ? A.get(0, SY("android"), nullptr) : V(V(false));
-    return py_dict({{SV("world_quality"), SV("native")}, {SV("display_filter"), ((L_android).truthy() ? V(SV("pixel")) : V(SV("smooth")))}, {SV("display_budget"), V(true)}});
+    return py_dict({{SV("world_quality"), SV("native")}, {SV("display_filter"), SV("pixel")}, {SV("display_budget"), V(true)}});
     return V::none();
 }
 

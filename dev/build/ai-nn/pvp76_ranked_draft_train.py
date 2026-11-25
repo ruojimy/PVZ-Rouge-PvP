@@ -217,6 +217,8 @@ def draft(seed, policies, pressure=None, force=None, noise=0.0):
                 card = response['card']
                 if response['fallback']:
                     fallbacks.append({'step': state['step'], 'side': side, **response})
+            elif hasattr(policy, 'choose_native'):
+                card = policy.choose_native(room, side, action, state, offers)
             elif hasattr(policy, 'replay'):
                 card, scores = policy.choose(seed, prefix, side, offers)
                 notes.append({'step': state['step'], 'side': side, 'kind': kind, 'stage': stage,

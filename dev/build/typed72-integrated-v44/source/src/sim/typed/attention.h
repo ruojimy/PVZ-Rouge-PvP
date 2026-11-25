@@ -29,7 +29,7 @@ inline std::vector<ContentTarget> attention_enemies(TypedBattleState& w,const Zo
     std::vector<ContentTarget> out;const auto owner=w.heroes.owner(source_ref(u));
     if(owner==Seat::zombie)for(const auto& p:*w.plant_roster)if(september_targetable(*p))out.emplace_back(p);
     for(const auto& t:*w.targets)if(t.unit&&t.unit->body.hp>0.&&!t.unit->body.ash.present()&&w.heroes.owner(source_ref(t.unit))!=owner)out.emplace_back(t);
-    if(!u->source.no_hero_attack.or_missing(false))for(auto s:seats_for(w.mode))if(team_of(s)!=owner&&w.heroes.contains(s)&&w.heroes.hero(s).frame.hp.get()>0.)out.emplace_back(CombatTarget::player(s));
+    if(!u->source.no_hero_attack.or_missing(false))for(auto s:seats_for(w.mode))if(!(w.solo.izombie()&&team_of(s)==Seat::zombie)&&team_of(s)!=owner&&w.heroes.contains(s)&&w.heroes.hero(s).frame.hp.get()>0.)out.emplace_back(CombatTarget::player(s));
     attention_prefer(u,out,w.heroes.time);return out;
 }
 inline bool attention_accepts(TypedBattleState& w,const ZombieRef& u,const ContentTarget& t){

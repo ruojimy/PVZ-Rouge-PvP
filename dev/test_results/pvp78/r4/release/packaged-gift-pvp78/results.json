@@ -1,0 +1,199 @@
+{
+  "checks": [
+    {
+      "name": "pvp78ai",
+      "evidence": [
+        {
+          "id": "ai78.native_drafts",
+          "ranked": [
+            "zombie:水上脑光墓碑",
+            "zsecret:船锚",
+            "plant:双子向日葵",
+            "secret:电疗",
+            "zombie:水上双生脑光墓碑",
+            "zsecret:最后攻势",
+            "plant:寒冰辣椒",
+            "secret:正午",
+            "zombie:路灯花僵尸",
+            "secret:卷心菜",
+            "zsecret:三五成群",
+            "plant:阳光藤蔓",
+            "zombie:雪橇车小队",
+            "plant:向日葵",
+            "zsecret:僵王出品",
+            "secret:无土栽培",
+            "zombie:黑旗帜僵尸",
+            "zsecret:阿姆斯特朗",
+            "plant:西瓜投手",
+            "secret:强健",
+            "zombie:双生脑光墓碑",
+            "zsecret:植物僵尸",
+            "plant:激光豆",
+            "secret:尖刺",
+            "zsecret:起床！",
+            "secret:触手",
+            "zsecret:专注啃咬",
+            "plant:卷心菜投手",
+            "zombie:水上成长脑光墓碑",
+            "plant:抓人草"
+          ],
+          "duo": [
+            "zombie:水上脑光墓碑",
+            "zsecret:船锚",
+            "plant:双子向日葵",
+            "secret:电疗",
+            "zombie:水上双生脑光墓碑",
+            "zsecret:最后攻势",
+            "plant:寒冰辣椒",
+            "secret:正午",
+            "zombie:路灯花僵尸",
+            "secret:卷心菜",
+            "zsecret:三五成群",
+            "plant:阳光藤蔓",
+            "zombie:雪橇车小队",
+            "plant:甜椒投手",
+            "zsecret:僵王出品",
+            "plant:向日葵",
+            "zsecret:专注啃咬",
+            "plant:激光豆",
+            "zombie:黑路障僵尸",
+            "secret:触手",
+            "zsecret:起床！",
+            "secret:无土栽培",
+            "zombie:乌鸦",
+            "plant:杨桃",
+            "zombie:黑旗帜僵尸",
+            "zsecret:阿姆斯特朗",
+            "plant:西瓜投手",
+            "secret:水兵",
+            "zombie:钩索僵尸",
+            "zsecret:海陆空",
+            "plant:巴豆",
+            "secret:尖刺",
+            "zsecret:守卫",
+            "secret:黄油",
+            "zombie:坚固脑光墓碑",
+            "plant:花盆",
+            "zombie:水上成长脑光墓碑",
+            "plant:玉米投手",
+            "zsecret:二手",
+            "plant:原始土豆地雷",
+            "zombie:盾卫僵尸",
+            "plant:卷心菜投手",
+            "zombie:水上成长脑光墓碑",
+            "plant:抓人草"
+          ],
+          "passed": true
+        },
+        {
+          "id": "ai78.advice",
+          "plant": [
+            "plant:激光豆",
+            "plant:甜椒投手",
+            "plant:向日葵",
+            "secret:无土栽培",
+            "plant:卷心菜投手",
+            "secret:卷心菜",
+            "plant:杨桃"
+          ],
+          "plant2": [
+            "plant:巴豆",
+            "plant:甜椒投手",
+            "plant:向日葵",
+            "plant:卷心菜投手",
+            "secret:卷心菜",
+            "secret:正午",
+            "secret:无土栽培"
+          ],
+          "zombie": [
+            "zombie:盾卫僵尸",
+            "zombie:钩索僵尸",
+            "zsecret:船锚",
+            "zombie:路灯花僵尸",
+            "zombie:雪橇车小队",
+            "zsecret:三五成群",
+            "zombie:脑光墓碑"
+          ],
+          "zombie2": [
+            "zombie:克苏鲁之仆",
+            "zombie:钩索僵尸",
+            "zsecret:船锚",
+            "zombie:路灯花僵尸",
+            "zombie:雪橇车小队",
+            "zsecret:三五成群",
+            "zombie:双生脑光墓碑"
+          ],
+          "coop_plant": [
+            "plant:花盆",
+            "secret:阳光",
+            "plant:坚果",
+            "plant:土豆地雷",
+            "plant:向日葵"
+          ],
+          "coop_plant2": [
+            "plant:花盆",
+            "secret:阳光",
+            "plant:坚果",
+            "plant:土豆地雷",
+            "plant:向日葵"
+          ],
+          "passed": true
+        },
+        {
+          "id": "ai78.test_mode",
+          "plant": [
+            "plant:向日葵",
+            "secret:无土栽培",
+            "plant:土豆地雷",
+            "plant:巴豆",
+            "plant:双子向日葵",
+            "secret:正午",
+            "plant:甜椒投手",
+            "plant:卷心菜投手",
+            "secret:卷心菜",
+            "plant:杨桃",
+            "plant:花盆",
+            "secret:电疗",
+            "plant:阳光藤蔓"
+          ],
+          "zombie": [
+            "zombie:钩索僵尸",
+            "zsecret:船锚",
+            "zombie:盾卫僵尸",
+            "zombie:普通僵尸",
+            "zsecret:僵王出品",
+            "zombie:雪橇车小队",
+            "zsecret:遗骸",
+            "zsecret:起床！",
+            "zsecret:鸦群",
+            "zsecret:专注啃咬",
+            "zombie:路灯花僵尸",
+            "zsecret:解除封印",
+            "zombie:水上脑光墓碑"
+          ],
+          "passed": true
+        },
+        {
+          "id": "ai78.team_combat",
+          "coop": {
+            "own_beam": [
+              "plant",
+              "plant2"
+            ],
+            "crotons": 2
+          },
+          "duo": {
+            "own_beam": [
+              "plant",
+              "plant2"
+            ],
+            "crotons": 2
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "failures": 0
+}

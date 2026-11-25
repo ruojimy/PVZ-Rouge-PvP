@@ -1062,6 +1062,7 @@ V C_Campaign::m_stock_shop(const Args& A) {
         seed=py::stdlib_call(SV("secrets.randbelow"),Args{V(2147483648.)});
         V entry=rd(a_history,V(-1));
         pvz::setitem(entry,SV("shop_refreshed"),V(true));
+        pvz::setitem(entry,SV("attempt_seed"),seed);
         if (rd(entry,SV("result"))==SV("win")) price_day=a_day+V(1);
     }
     L_rng = py::stdlib_call(SV("random.Random"), Args{seed});

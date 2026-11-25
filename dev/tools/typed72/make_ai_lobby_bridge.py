@@ -37,6 +37,18 @@ def expected():
     new = old
     for start, end, body in sorted(changes, reverse=True):
         new = new[:start] + body + new[end:]
+    include = '#include "ui/hand/ranked_fast_heads.h"\n'
+    if include not in new:
+        new = new.replace('#include "ui/gen/pm_lobby_room.h"\n', '#include "ui/gen/pm_lobby_room.h"\n' + include, 1)
+    stock = 'pvz::setitem(L_box, SV("card"), callm(L_agent, SY("draft"), Args{L_view, L_act}));'
+    adapted = '''const auto learned = ranked_fast_heads::choose(L_room, L_act);
+        pvz::setitem(L_box, SV("card"), learned ? *learned : callm(L_agent, SY("draft"), Args{L_view, L_act}));'''
+    start, end = body_span(new, 'V C_AISeat::m_draft_turn(const Args& A)')
+    body = new[start:end]
+    if body.count(stock) == 1:
+        new = new[:start] + body.replace(stock, adapted) + new[end:]
+    elif body.count(adapted) != 1:
+        raise ValueError('AISeat draft choice anchor is stale')
     return old, new
 
 

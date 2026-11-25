@@ -7,7 +7,7 @@
 
 namespace pvz::typed72 {
 namespace {
-bool is_team(MatchMode mode){return mode==MatchMode::duo||mode==MatchMode::coop;}
+bool is_team(MatchMode mode){return separate_zombie_commands(mode)||mode==MatchMode::coop;}
 bool present(MatchMode mode,Seat seat){const auto s=seats_for(mode);return std::find(s.begin(),s.end(),seat)!=s.end();}
 std::vector<Seat> teammates(MatchMode mode,Seat seat){std::vector<Seat> out;for(const auto s:seats_for(mode))if(s!=seat&&team_of(s)==team_of(seat))out.push_back(s);return out;}
 }
@@ -47,16 +47,21 @@ std::string RoomCommands::dispatch(Seat seat,const CommandAttempt& a){
             point=Point{(std::trunc(py::floordiv(c->x.value,world_.runtime.tile))+.5)*world_.runtime.tile,
                         (std::trunc(py::floordiv(c->y.value,world_.runtime.tile))+.5)*world_.runtime.tile};
         }
-        if(world_.mode==MatchMode::duo)rally_.by_seat[seat_index(seat)]=point;
-        if(seat==Seat::zombie||world_.mode!=MatchMode::duo)rally_.shared=point;
+        if(separate_zombie_commands(world_.mode))rally_.by_seat[seat_index(seat)]=point;
+        if(seat==Seat::zombie||!separate_zombie_commands(world_.mode))rally_.shared=point;
         services_.emit(RoomRallyEvent{seat,rally_.for_owner(world_.mode,seat)});return {};
     }
     if(std::holds_alternative<ToggleCommand>(a.payload)){
         if(team_of(seat)!=Seat::zombie)return "只有僵尸方可指挥";
-        if(world_.mode!=MatchMode::duo&&rally_.shared){rally_.shared.reset();services_.emit(RoomRallyEvent{seat,{}});return {};}
+        if(rally_.for_owner(world_.mode,seat)){
+            if(separate_zombie_commands(world_.mode))rally_.by_seat[seat_index(seat)].reset();
+            if(!separate_zombie_commands(world_.mode)||seat==Seat::zombie)rally_.shared.reset();
+            services_.emit(RoomRallyEvent{seat,{}});
+            if(!separate_zombie_commands(world_.mode))return {};
+        }
         const auto mode=commands_.for_owner(world_.mode,seat)==PathMode::follow_hero?PathMode::attack_plants:PathMode::follow_hero;
-        if(world_.mode==MatchMode::duo)commands_.by_seat[seat_index(seat)]=mode;
-        if(seat==Seat::zombie||world_.mode!=MatchMode::duo)commands_.shared=mode;
+        if(separate_zombie_commands(world_.mode))commands_.by_seat[seat_index(seat)]=mode;
+        if(seat==Seat::zombie||!separate_zombie_commands(world_.mode))commands_.shared=mode;
         services_.emit(RoomCommandEvent{seat,mode,a.sequence.value});return {};
     }
     if(const auto* c=std::get_if<CollectCommand>(&a.payload)){

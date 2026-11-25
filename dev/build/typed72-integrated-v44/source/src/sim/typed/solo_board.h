@@ -23,7 +23,7 @@ template<class Match> void advance_solo_board(Match& match){
     if(opening||solo.refill_step==0){
         solo.refill_cells=solo_open_cells(world);
         solo.stars_left=3;solo.cattails_left=1;solo.magnets_left=2;solo.pumpkins=0;
-        if(!opening)solo.refill=std::min(24,int(solo.refill_cells.size()));
+        if(!opening)solo.refill=std::min(solo.multiplayer?47:24,int(solo.refill_cells.size()));
     }
     auto& cells=solo.refill_cells;
     if(opening)solo.facing=rng.randrange(2)?1:-1;
@@ -34,29 +34,42 @@ template<class Match> void advance_solo_board(Match& match){
         const size_t offset=choices[size_t(rng.randrange(choices.size()))];
         const Cell result=cells[offset];cells.erase(cells.begin()+offset);return result;
     };
-    const auto own=[&](Cell c){return solo.facing==1?c.x<35:c.x>35;};
+    const auto middle=world.terrain.cols()/2-1;
+    const auto own=[&](Cell c){return solo.facing==1?c.x<middle:c.x>middle;};
+    const auto support=[](const std::string& k){return k=="plant:睡莲"||k=="plant:阳光藤蔓"||k=="plant:忧郁藤蔓"||k=="plant:抓人草";};
+    std::vector<std::string> floats{"plant:睡莲"};
+    for(const auto& k:solo.defenders)if(k!="plant:睡莲"&&support(k))floats.push_back(k);
     if(opening){
         const bool buster=std::find(solo.defenders.begin(),solo.defenders.end(),"plant:墓碑吞噬者")!=solo.defenders.end();
         for(int i=0;i<(buster?2:3);++i){
-            auto pos=draw([&](Cell c){return own(c)&&!world.terrain.water(c.y+1,c.x);});if(!pos)break;
+            auto pos=draw([&](Cell c){return own(c)&&!world.terrain.water(c.y+1,c.x);});if(!pos)pos=draw([&](Cell c){return !world.terrain.water(c.y+1,c.x);});
+            if(!pos)pos=draw([](Cell){return true;});
+            if(!pos)break;
             auto& t=world.terrain.native_at(pos->y,pos->x);t.block.set("坟墓");t.grave_art.set(rng.randint(1,5));solo.graves.push_back(*pos);
         }
         if(!solo.graves.empty()){
             const auto g=solo.graves.front();auto& p=*world.heroes.hero(Seat::zombie).frame.position.get();
             p.x=(g.x+.5)*world.runtime.tile;p.y=(g.y+1.)*world.runtime.tile;
+            if(solo.multiplayer){
+                const auto mate=solo.graves.back();auto& other=*world.heroes.hero(Seat::zombie2).frame.position.get();
+                other.x=(mate.x+.5)*world.runtime.tile;other.y=(mate.y+1.)*world.runtime.tile;
+            }
         }
         match.sync_terrain();solo.board_ready=true;
     }
-    const int count=opening?std::min(int(cells.size()),16+3*solo.stage):std::min(1,int(cells.size()));
+    const int objectives=solo.boss()?1:3;
+    const int density=solo.multiplayer?2:1;
+    const int opening_slots=objectives+density*(16+3*solo.stage-objectives);
+    const int count=opening?std::min(int(cells.size()),opening_slots):std::min(1,int(cells.size()));
     for(int i=0;i<count;++i){
         const int step=opening?i:solo.refill_step;
         const int targets=opening&&!solo.boss()?3:1;
         const bool objective=step<targets;
-        auto pos=draw([&](Cell c){return !objective||step>=2||(solo.facing==1?c.x>35:c.x<35);});
+        auto pos=draw([&](Cell c){return !objective||step>=2||(solo.facing==1?c.x>middle:c.x<middle);});
         if(!pos&&objective)pos=draw([](Cell){return true;});
         if(!pos)break;
         auto c=*pos;const double tile=world.runtime.tile;
-        int facing=-solo.facing;if((c.x+1)%4==0||(facing==1&&c.x>63)||(facing==-1&&c.x<8))facing=-facing;
+        int facing=-solo.facing;if((c.x+1)%4==0||(facing==1&&c.x>world.terrain.cols()-9)||(facing==-1&&c.x<8))facing=-facing;
         const auto call=[&](const std::string& key,Cell where){return match.cold_admission.spawn(key,Seat::plant,{(where.x+.5)*tile,(where.y+1.)*tile},facing);};
         const auto& floor=world.terrain.native_at(c.y+1,c.x).block.get();
         const bool water=world.terrain.water(c.y+1,c.x);
@@ -66,12 +79,12 @@ template<class Match> void advance_solo_board(Match& match){
             auto p=match.factory.plant(c,solo.boss()?"黄金脑子":"脑子",facing);
             if(p)solo.objectives.push_back(p);
         }else{
-            if(step<targets+(opening?8:2))key="plant:向日葵";
-            else if(opening&&step<targets+11)key="plant:金盏花";
+            if(step<targets+density*(opening?8:2))key="plant:向日葵";
+            else if(opening&&step<targets+density*11)key="plant:金盏花";
             else{
                 std::vector<std::string> choices;
                 for(const auto& k:solo.defenders){
-                    if(k=="plant:向日葵"||k=="plant:金盏花"||k=="plant:墓碑吞噬者")continue;
+                    if(k=="plant:睡莲"||k=="plant:向日葵"||k=="plant:金盏花"||k=="plant:墓碑吞噬者")continue;
                     if((k=="plant:地刺"||k=="plant:地刺王")&&floor!="草"&&floor!="土")continue;
                     if(!water&&(k=="plant:海蘑菇"||k=="plant:香蒲"||k=="plant:缠绕海草"))continue;
                     if((k=="plant:杨桃"&&solo.stars_left==0)||(k=="plant:香蒲"&&solo.cattails_left==0))continue;
@@ -97,7 +110,10 @@ template<class Match> void advance_solo_board(Match& match){
             }else{
                 if(water){
                     if(key=="plant:海蘑菇"||key=="plant:缠绕海草"||key=="plant:香蒲"||key=="plant:冰冻生菜")++c.y;
-                    else call("plant:睡莲",{c.y+1,c.x});
+                    else if(!support(key)){
+                        const auto& base=floats.size()==1?floats.front():floats[size_t(rng.randrange(floats.size()))];
+                        call(base,base=="plant:睡莲"?Cell{c.y+1,c.x}:c);
+                    }
                 }else if(floor!="草"&&floor!="土"){
                     call("plant:花盆",c);--c.y;
                 }
@@ -111,15 +127,25 @@ template<class Match> void advance_solo_board(Match& match){
 template<class Match> void settle_solo_board(Match& match){
     auto& world=match.battle;auto& solo=world.solo;const auto tile=world.runtime.tile;
     const auto center=[&](const PlantRef& p){return Point{(p->cell.x+.5)*tile,(p->cell.y+.5)*tile};};
-    auto& account=match.resources.accounts[seat_index(Seat::zombie)];
-    if(solo.bite_brains){match.resources.create(Seat::zombie,std::exchange(solo.bite_brains,0),world.heroes.players.at(seat_index(Seat::zombie))->position,"plant_bite");}
-    for(const auto& p:solo.marigold_hits)if(p->hp.or_missing(0.)>0.&&!p->dead.present()){
-        match.resources.drop_coin(p->marigold_paid?10.:50.,center(p),p->marigold_paid?"silver":"gold");p->marigold_paid=true;
+    for(const auto seat:seats_for(world.mode)){
+        auto& brains=seat==Seat::zombie2?solo.teammate_bite_brains:solo.bite_brains;
+        if(brains)match.resources.create(seat,std::exchange(brains,0),world.heroes.players.at(seat_index(seat))->position,"plant_bite");
+    }
+    for(const auto& [plant,seat]:solo.marigold_hits){
+        const bool first=!plant->marigold_paid;
+        const auto id=match.resources.drop_coin(first?50.:10.,center(plant),first?"gold":"silver");
+        plant->marigold_paid=true;
+        if(solo.multiplayer)match.resources.collect(id,seat);
     }
     solo.marigold_hits.clear();
     std::erase_if(solo.objectives,[&](const auto& p){
         if(p->hp.or_missing(0.)>0.&&!p->dead.present()&&std::find(world.plant_roster->begin(),world.plant_roster->end(),p)!=world.plant_roster->end())return false;
-        match.resources.drop_coin(solo.boss()?50.:10.,center(p),solo.boss()?"gold":"silver");
+        const auto coin=match.resources.drop_coin(solo.boss()?50.:10.,center(p),solo.boss()?"gold":"silver");
+        auto bite=std::find_if(solo.bitten_objectives.begin(),solo.bitten_objectives.end(),[&](const auto& entry){return entry.first==p;});
+        if(bite!=solo.bitten_objectives.end()){
+            match.resources.collect(coin,bite->second);
+            solo.bitten_objectives.erase(bite);
+        }
         if(++solo.brains<3&&solo.boss()){solo.refill=24;solo.refill_step=0;solo.refill_wait=0;}
         return true;
     });
@@ -128,10 +154,15 @@ template<class Match> void settle_solo_board(Match& match){
         for(const auto& id:coins)match.resources.collect(id,Seat::zombie);
         return;
     }
-    const auto& deck=match.deployment.players[seat_index(Seat::zombie)].deck;
     const bool has_army=std::any_of(world.targets->begin(),world.targets->end(),[](const auto& t){return t.unit&&t.unit->body.hp>0.&&!t.unit->protection.grave&&!t.unit->source.plant.present();});
-    solo.bankrupt=!has_army&&std::none_of(deck.begin(),deck.end(),[&](const auto& key){
-        const auto* entry=match.catalog.find(key);return entry&&entry->side=="zombie"&&entry->category!="secret"&&match.placement_view.player_card(Seat::zombie,key).cost<=account.balance;
-    });
+    solo.bankrupt=!has_army;
+    for(const auto seat:seats_for(world.mode)){
+        const auto& deck=match.deployment.players[seat_index(seat)].deck;
+        const auto& account=match.resources.accounts[seat_index(seat)];
+        if(std::any_of(deck.begin(),deck.end(),[&](const auto& key){
+            const auto* entry=match.catalog.find(key);
+            return entry&&entry->side=="zombie"&&entry->category!="secret"&&match.placement_view.player_card(seat,key).cost<=account.balance;
+        }))solo.bankrupt=false;
+    }
 }
 }

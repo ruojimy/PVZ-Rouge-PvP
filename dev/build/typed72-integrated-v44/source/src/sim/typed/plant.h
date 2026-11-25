@@ -1,4 +1,5 @@
 #pragma once
+#include <limits>
 #include "sim/typed/pve_director_state.h"
 #include "sim/typed/cold_registration_state.h"
 #include "sim/typed/expansion_clock_state.h"
@@ -18,6 +19,10 @@ namespace pvz::typed72 {
 struct CombatPlant {
     PvePlantState pve;
     bool biteable_blover=false,marigold_paid=false;
+    int solo_paid_bites=0;
+    int64_t solo_last_income_tick=-1;
+    double solo_lowest_bitten_hp=std::numeric_limits<double>::infinity();
+    bool solo_death_claimed=false;
     ColdPlantRegistrationState registration;
     ExpansionClockState expansion_clock;
     BonusPlantState bonus;

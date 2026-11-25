@@ -1,0 +1,89 @@
+{
+  "passed": true,
+  "apk_sha256": "1c22c65cc7533b24947671954cf4aaf1124110088c2c2c95f3da5d7db8e49d0b",
+  "version": "1.6.0.78-typed.20261125-r3",
+  "version_code": 1125085,
+  "device": "Android API 35 AVD, emulator-5586",
+  "abi": "x86_64 emulator, arm64-v8a game via translation",
+  "physical_device": false,
+  "viewport": [
+    2400,
+    1080
+  ],
+  "input": "ADB touchscreen and Tab key",
+  "evidence_type": "Real screens and saved progress using prepared campaign fixtures",
+  "screenshots": [
+    "78-adventure-map.png",
+    "78-after-reward.png",
+    "78-coop-options.png",
+    "78-coop-variant.png",
+    "78-resumed-izombie.png",
+    "78-retry-battle-1.png",
+    "78-retry-battle-2.png",
+    "78-reward-flight.png",
+    "78-reward.png",
+    "78-shared-reward-touch.png",
+    "78-shared-reward.png",
+    "78-shared-shop.png",
+    "78-shop-touch.png",
+    "78-shop.png"
+  ],
+  "focus_bounds_xyxy": {
+    "shop": [
+      1533,
+      438,
+      1631,
+      569
+    ],
+    "reward": [
+      759,
+      285,
+      904,
+      479
+    ],
+    "shared-shop": [
+      1533,
+      420,
+      1631,
+      551
+    ],
+    "shared-reward": [
+      290,
+      285,
+      436,
+      479
+    ]
+  },
+  "shop_purchase": {
+    "card": "plant:路灯花",
+    "price": 140,
+    "balance_before": 2220,
+    "balance_after": 2080
+  },
+  "claimed_once": "zombie:梯子僵尸",
+  "same_stage_cold_restarts": [
+    {
+      "attempt": 6,
+      "seed": 65030750,
+      "stage": 3,
+      "map": "绿洲",
+      "rain": true,
+      "visited_maps": [
+        "家院",
+        "绿洲"
+      ]
+    },
+    {
+      "attempt": 7,
+      "seed": 65030750,
+      "stage": 3,
+      "map": "绿洲",
+      "rain": true,
+      "visited_maps": [
+        "家院",
+        "绿洲"
+      ]
+    }
+  ],
+  "cooperative_mode_button_contained": true
+}

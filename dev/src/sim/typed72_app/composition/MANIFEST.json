@@ -1214,8 +1214,8 @@
    "production_changes": []
   },
   "match_probe.cpp": {
-   "source_sha256": "82cf8853862df84e3144a382c52146c2fec2247c5ce585422acb7ef21b9c674f",
-   "generated_sha256": "12a75d1399daec5f2728f0aae25435dcda87a24abe700f2ae68b7ba4e9be75dd",
+   "source_sha256": "18537232e516eb40bcf92ca44bca54f11820c761cc59b582ec595a17e508dfb8",
+   "generated_sha256": "7dfc0ceb4f4a4d631125082df3c1c1a2109819458ce7b8268edff606ee62affb",
    "removed": [
     "spawn_events.push_back({\"black_armor\",name});",
     "spawn_events.push_back({\"spawn_blocked\",card});"
@@ -1246,8 +1246,8 @@
    "production_changes": []
   },
   "snapshot_layer.inc": {
-   "source_sha256": "6850e7f45fb1d048783af5f7e7c8fc39e7d1ac0be114b863efc9c49ed496cfa7",
-   "generated_sha256": "6850e7f45fb1d048783af5f7e7c8fc39e7d1ac0be114b863efc9c49ed496cfa7",
+   "source_sha256": "aa768dc1896decd8930afdbc81a97c8871ef65fa68efa18a844029ec4a3aa98e",
+   "generated_sha256": "aa768dc1896decd8930afdbc81a97c8871ef65fa68efa18a844029ec4a3aa98e",
    "removed": [],
    "production_observers": [],
    "production_changes": []

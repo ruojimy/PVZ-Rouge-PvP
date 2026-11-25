@@ -55,6 +55,7 @@ struct Display {
     SDL_Renderer* ren = nullptr;
     SDL_Texture* tex = nullptr;
     V screen;
+    bool pixel_filter=true;
     int lw = 0, lh = 0;
     int flags = 0;
     std::string caption = "pygame window", icon_caption = "pygame";
@@ -102,6 +103,7 @@ V set_mode(int w, int h, int flags) {
     if (flags & F_FULLSCREEN) SDL_SetWindowFullscreen(g_disp.win, SDL_WINDOW_FULLSCREEN_DESKTOP);
     if (g_disp.tex) SDL_DestroyTexture(g_disp.tex);
     g_disp.tex = SDL_CreateTexture(g_disp.ren, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STREAMING, w, h);
+    if(g_disp.tex)SDL_SetTextureScaleMode(g_disp.tex,g_disp.pixel_filter?SDL_ScaleModeNearest:SDL_ScaleModeLinear);
     SDL_RenderSetLogicalSize(g_disp.ren, w, h);
     g_disp.lw = w; g_disp.lh = h; g_disp.flags = flags;
     V next_screen=new_surface(w,h,false);
@@ -586,6 +588,11 @@ SDL_Renderer* renderer(){return g_disp.ren;}
 void release_renderer(){if(g_disp.tex){SDL_DestroyTexture(g_disp.tex);g_disp.tex=nullptr;}if(g_disp.ren){SDL_DestroyRenderer(g_disp.ren);g_disp.ren=nullptr;}}
 
 
+void display_pixel_filter(bool pixel){
+    if(g_disp.pixel_filter==pixel)return;
+    g_disp.pixel_filter=pixel;
+    if(g_disp.tex)SDL_SetTextureScaleMode(g_disp.tex,pixel?SDL_ScaleModeNearest:SDL_ScaleModeLinear);
+}
 void present() {
     if (!g_disp.win || !g_disp.screen.has()) return;
     Surface* s = surf(g_disp.screen);

@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "apk_sha256": "6f84f5a0fae9b723c598ac24e2f6f27b45bb77f547c11471d1d9400d34ccd205",
+  "installed_model_sha256": "cf1e50077b0e6591b910185726b05f5bb12f9777d7fa5fa68e02f6e137c3129e",
+  "size": [
+    2400,
+    1080
+  ],
+  "api": 35,
+  "physical_device": false,
+  "test_mode": {
+    "preset_plant": "巴豆",
+    "plant_slots_filled": 12,
+    "zombie_slots_filled": 13,
+    "screens": [
+      "empty.png",
+      "selected.png",
+      "plant.png",
+      "zombie.png"
+    ]
+  }
+}

@@ -1,12 +1,52 @@
 """Regression controls for exact waivers, memory admission and fixture isolation."""
-import copy,json,os,sys,tempfile,threading,unittest
+import copy,json,os,stat,sys,tempfile,threading,unittest,zipfile
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from native_test_waivers import detail_sha256,evaluate_module,load_waivers
 from native_test_scheduling import MIB,can_start,memory_snapshot,run_modules
-from run_cpp_suite import clone_fixture
+from run_cpp_suite import clone_fixture, file_sha
+from native_test_scratch import finalize_scratch, fixture_access
 from native_regression_report import classify, compare, combat_errors, fire_errors, full_inventory
 from native_regression_report import DENSE, DENSE_IDS, BOSSES, BOSS_TYPES
+
+
+class ScratchRetentionTests(unittest.TestCase):
+    def test_rotates_completed_fixtures_and_archives_worker_output(self):
+        with tempfile.TemporaryDirectory() as directory:
+            temp = Path(directory).resolve()
+            managed = temp / "managed-test"
+            managed.mkdir()
+            active = managed / "suite-interrupted"
+            active.mkdir()
+            previous = None
+            for name in ("first", "second"):
+                scratch = managed / ("suite-" + name)
+                fixture = scratch / "fixture-root"
+                fixture.mkdir(parents=True)
+                base = fixture / "music.mp3"
+                base.write_bytes(b"shared music")
+                base.chmod(stat.S_IREAD)
+                worker = clone_fixture(fixture, scratch / "module-fixtures/battle/fixture-root")
+                output = worker.parent / "capture.png"
+                output.write_bytes(b"generated evidence")
+                out = temp / name
+                out.mkdir()
+                (out / "scratch-paths.json").write_text(
+                    json.dumps({"run_scratch": str(scratch)}), encoding="utf-8"
+                )
+                result = finalize_scratch(out, scratch, "full", {"music.mp3": {"sha256": file_sha(base)}}, file_sha)
+                self.assertFalse(worker.exists())
+                self.assertEqual(result["retired"], [] if previous is None else [str(previous)])
+                self.assertTrue(active.is_dir())
+                self.assertFalse(previous is not None and previous.exists())
+                with fixture_access(fixture):
+                    self.assertEqual(base.read_bytes(), b"shared music")
+                    self.assertFalse(base.stat().st_mode & stat.S_IWRITE)
+                with zipfile.ZipFile(out / "scratch-artifacts.zip") as archive:
+                    self.assertEqual(archive.namelist(), ["module-fixtures/battle/capture.png"])
+                    self.assertEqual(archive.read(archive.namelist()[0]), b"generated evidence")
+                previous = scratch
+            self.assertTrue((temp / "first/scratch-artifacts.zip").is_file())
 
 
 class RegressionReportTests(unittest.TestCase):

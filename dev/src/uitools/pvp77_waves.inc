@@ -25,17 +25,19 @@ struct AuditedWaveSpawns final: PveDirectorServices {
     void set_daylight(bool night)override{match.set_daylight(night);}
     void event(PveEvent e)override{match.event(std::move(e));}
 };
-J compare_solo_waves(){
+J audit_campaign_waves(bool pvp78){
     Fixture fixture(decks({"plant:向日葵"},J::array()),{{"mode","coop"},{"campaign_deck",true}});
     auto& m=*fixture.match;
     auto bridge=pm_native_bridge::C_NativeBridge::m_from_marshaled(Args{});
     constexpr std::array maps{"山地","沙城","家院","要塞","大桥","铁道","遗迹","绿洲","小镇","古堡","木船","大楼"};
-    int all_coop=0,all_lottery=0;
+    int all_coop=0,all_lottery=0,all_adventure=0,all_coop_lottery=0;
     J days=J::array();
     for(int day=1;day<=24;++day){
+        if(pvp78&&day!=1&&day!=8&&day!=24)continue;
         const auto name=maps[(day-1)%maps.size()];
         int coop=0,lottery=0;J runs=J::array();
         for(const int seed:{7,41,3,71,19,110}){
+            if(pvp78&&seed!=7&&seed!=41)continue;
             const V map=pm_maps::f_build_snapshot(Args{bridge,V(name),V(seed)});
             const V data=callm(map,SY("to_dict"),Args{});
             const auto plan=pm_pve::f_wave_plan(Args{V(day),V(true)});
@@ -53,8 +55,11 @@ J compare_solo_waves(){
             for(const auto& row:plan.items())cold.plan.push_back({rd(row,V("time")).num(),int64_t(rd(row,V("budget")).num()),rd(row,V("flag")).truthy()});
             for(const auto& row:pool.items())cold.pool.push_back({py_str(row.idx(0)),int(row.idx(1).num()),row.idx(2).num()});
             J run={{"seed",seed},{"map_points",cold.points.size()}};
-            for(bool draw:{false,true}){
-                m.battle.solo.mode=draw?SoloMode::lottery:SoloMode::none;
+            const std::array<const char*,4> names{"coop","lottery","adventure","coop_lottery"};
+            for(int variant=0;variant<(pvp78?4:2);++variant){
+                m.battle.solo.mode=variant==1||variant==3?SoloMode::lottery:SoloMode::none;
+                m.battle.solo.multiplayer=variant==0||variant==3;
+                m.battle.solo.adventure=variant==2;
                 m.battle.solo.wave_remainder=2;m.battle.heroes.time=0.;
                 AuditedWaveSpawns admissions{m,cold.points,fixture.tile()};
                 PveDirector director{m.battle,m.catalog,m.budget,m.navigation,m.published.terrain,admissions};
@@ -79,8 +84,11 @@ J compare_solo_waves(){
                 expect(director.cleared(),"director stalled on day "+std::to_string(day));
                 expect(bosses==(day%8==0?1:0),"incorrect boss count on day "+std::to_string(day));
                 const auto count=int(director.spawned.size());
-                (draw?lottery:coop)+=count;
-                run[draw?"lottery":"coop"]={{"total",count},{"ordinary",ordinary},{"flag",flags},{"ladder",ladders},{"boss",bosses}};
+                if(variant==0)coop+=count;
+                else if(variant==1)lottery+=count;
+                else if(variant==2)all_adventure+=count;
+                else all_coop_lottery+=count;
+                run[names[variant]]={{"total",count},{"ordinary",ordinary},{"flag",flags},{"ladder",ladders},{"boss",bosses}};
             }
             runs.push_back(std::move(run));
         }
@@ -89,5 +97,11 @@ J compare_solo_waves(){
         days.push_back({{"day",day},{"map",name},{"ratio",ratio},{"runs",std::move(runs)}});all_coop+=coop;all_lottery+=lottery;
     }
     expect(double(all_lottery)/all_coop>=.22&&double(all_lottery)/all_coop<=.28,"wave ratio across all days");
-    return J{{"days",std::move(days)},{"coop",all_coop},{"lottery",all_lottery},{"ratio",double(all_lottery)/all_coop}};
+    if(pvp78){
+        expect(all_adventure>all_coop*.40&&all_adventure<all_coop*.60,"single adventure wave count");
+        expect(all_coop_lottery>all_lottery*1.65&&all_coop_lottery<all_lottery*2.35,"coop lottery wave count");
+    }
+    return J{{"adventure",all_adventure},{"coop_lottery",all_coop_lottery},{"days",std::move(days)},{"coop",all_coop},{"lottery",all_lottery},{"ratio",double(all_lottery)/all_coop}};
 }
+
+J compare_solo_waves(){return audit_campaign_waves(false);}

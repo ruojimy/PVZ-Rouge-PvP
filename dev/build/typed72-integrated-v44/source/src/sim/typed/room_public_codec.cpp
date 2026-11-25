@@ -6,6 +6,7 @@ WireObject encode_public_unit(const RoomPublishedUnit& u,const WireObject& compl
         {"x",u.position.x},{"y",u.position.y},{"vx",u.velocity.x},{"vy",u.velocity.y},{"w",u.w},{"h",u.h},{"hp",u.hp},{"max_hp",u.max_hp},{"facing",u.facing},{"armor_hp",u.armor_hp},{"armor_max",u.armor_max},
         {"behavior",u.card->behavior},{"mobile",u.mobile},{"flying",u.card->flying},{"burrowed",u.burrowed},{"temporary",u.temporary},{"awake",u.awake},{"grounded",false},{"born",0},{"progress",0},{"native",true},{"floating",u.floating},
         {"frozen",u.frozen},{"slowed",u.slowed},{"buttered",u.buttered},{"stunned",u.stunned},{"production_rate",u.production_rate},{"mature",u.mature},{"torch_blue",u.torch_blue},{"drowsy",u.drowsy},{"drowsy_level",u.drowsy_level}};
+    if(u.monochrome)out["monochrome"]=true;
     if(u.defense)out["defense"]=*u.defense;
     if(u.copy_card)out["copy_card_id"]=*u.copy_card;if(u.seat)out["seat"]=seat_name(*u.seat);if(u.first_soldier_ready)out["first_soldier_ready"]=*u.first_soldier_ready;
     if(!u.secret_speed.empty()){out["secret_speed_bonuses"]=WireObject::object();for(const auto& [key,value]:u.secret_speed)out["secret_speed_bonuses"][key]=value;}

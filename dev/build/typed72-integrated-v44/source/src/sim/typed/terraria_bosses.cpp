@@ -188,10 +188,11 @@ void TerrariaBosses::worm(const ZombieRef& u,Point d){auto& n=*u->terraria;auto 
   // NPC.Transform calls SetDefaults, keeps velocity and surviving links, then
   // restores the integer life ratio and immediately chooses the closest target.
   const int next=head?15:13;const auto& def=terraria_definition(next);
-  const double hp=std::max(1.,std::floor(u->body.hp*def.hp/u->max_hp.or_missing(150.)));
+  const double maximum=def.hp*world_.solo.health_factor;
+  const double hp=std::max(1.,std::floor(u->body.hp*maximum/u->max_hp.or_missing(150.)));
   const double vx=n.vx,vy=n.vy;n=TerrariaNpcState{};n.type=next;n.vx=vx;n.vy=vy;
   n.width=def.width;n.height=def.height;n.damage=def.damage;n.alpha=255.;
-  if(head)n.ahead=a;if(tail)n.behind=b;u->body.hp=hp;u->max_hp.set(def.hp);u->body.kind=def.name;u->body.defense.set(def.defense);u->protection.card.set(std::string("zombie:")+def.name);
+  if(head)n.ahead=a;if(tail)n.behind=b;u->body.hp=hp;u->max_hp.set(maximum);u->body.kind=def.name;u->body.defense.set(def.defense);u->protection.card.set(std::string("zombie:")+def.name);
   auto selected=target(u,true);if(selected)d=delta(center(u),hits_.point(*selected));
  }
  if(n.type!=13&&alive(a)){auto v=delta(center(u),center(a));double distance=std::hypot(v.x,v.y);n.rotation=std::atan2(v.y,v.x)+pi/2.;if(distance>1e-8){auto& m=u->body.motion.get();m.x+=v.x*(distance-38.)/distance*scale();m.y+=v.y*(distance-38.)/distance*scale();}n.vx=n.vy=0.;return;}

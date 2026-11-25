@@ -1,0 +1,11 @@
+INFO: pvz: audio ready (driver=dummy)
+NET guest frame=0 t=2178 phase= side=null act=null remaining=null locals=[] attempt=0 msg=
+NET guest joining token=704932
+NET guest frame=59 t=3572 phase=config msg=
+NET guest frame=190 t=5944 phase=loading msg=
+NET guest frame=194 t=6017 phase=battle msg=
+NET guest CHAT OK frame=205
+NET guest frame=300 t=8015 phase=battle side=null act=null remaining=0 locals=["zombie"] attempt=0 msg=
+NET guest frame=353 t=8942 phase=result msg=
+NET guest frame=600 t=13349 phase=result side=null act=null remaining=0 locals=["zombie"] attempt=0 msg=当前不在战斗
+NET guest PASS battle reached; curtain, reward flight and prep observed

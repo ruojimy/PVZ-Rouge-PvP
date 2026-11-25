@@ -30,6 +30,7 @@ public:
     void register_unit(const NativeObject&,const ColdCard&,Seat side,bool temporary,
                        const ColdRegistrationContext&,const ColdParent* parent=nullptr,
                        std::optional<AttackIdentity> parent_attack={});
+    void apply_campaign_health(const NativeObject&,Seat)const;
     void health(const PlantRef&,std::span<const std::string> team_secrets)const;
     void hardening(const PlantRef&,std::span<const std::string> team_secrets)const;
     void configure_plant(const PlantRef&,const ColdCard&,std::span<const std::string> team_secrets)const;

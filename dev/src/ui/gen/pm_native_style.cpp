@@ -439,7 +439,7 @@ V C_NativeArt::m_entity(const Args& A) {
         (void)(callm(self(), SY("blit"), Args({L_screen, (L_name + SV("-投")), V::tuple({(L_x - L_tile), (L_y - (V(1.55) * L_tile))}), (V(2.0) * L_tile), L_flip}, {{SY("alpha"), L_alpha}})));
     }
     if ((L_name == SV("玉米加农炮"))) {
-        (void)(callm(self(), SY("blit"), Args({L_screen, SV("玉米加农炮-车"), V::tuple({(L_x - L_tile), (L_y - (V(1.6) * L_tile))}), (V(2.0) * L_tile), L_flip}, {{SY("alpha"), L_alpha}})));
+        (void)(callm(self(), SY("blit"), Args({L_screen, (py::m_get(L_entity,SV("monochrome")).truthy()?SV("玉米加农炮-车-黑白"):SV("玉米加农炮-车")), V::tuple({(L_x - L_tile), (L_y - (V(1.6) * L_tile))}), (V(2.0) * L_tile), L_flip}, {{SY("alpha"), L_alpha}})));
     }
     L_size = (((L_name == SV("玉米加农炮")) ? V(V(2.0)) : V((py::in(L_name, pm_native_style::LARGE_PLANTS) ? V(V(1.5)) : V(V(1.0))))) * L_tile);
     L_lift = ((py::in(L_name, pm_native_style::LARGE_PLANTS) || (L_name == SV("玉米加农炮"))) ? V(V(1.6)) : V(V(1.05)));
@@ -447,6 +447,7 @@ V C_NativeArt::m_entity(const Args& A) {
         L_lift = V(1.65);
     }
     L_angle = (py::in(L_name, pm_native_style::ROOT_PLANTS) ? V(L_sway) : V(V(0.0)));
+    if(L_name==SV("玉米加农炮")&&py::m_get(L_entity,SV("monochrome")).truthy())L_name=SV("玉米加农炮-黑白");
     return callm(self(), SY("blit"), Args({L_screen, L_name, V::tuple({(L_x - (L_size / V(2.0))), (L_y - (L_lift * L_tile))}), L_size, L_flip, L_angle}, {{SY("alpha"), L_alpha}}));
     return V::none();
 }
@@ -835,7 +836,7 @@ V cls_NativeArt() { static V c = [] {
         (void)(callm(L_self, SY("blit"), Args({L_screen, (L_name + SV("-投")), V::tuple({(L_x - L_tile), (L_y - (V(1.55) * L_tile))}), (V(2.0) * L_tile), L_flip}, {{SY("alpha"), L_alpha}})));
     }
     if ((L_name == SV("玉米加农炮"))) {
-        (void)(callm(L_self, SY("blit"), Args({L_screen, SV("玉米加农炮-车"), V::tuple({(L_x - L_tile), (L_y - (V(1.6) * L_tile))}), (V(2.0) * L_tile), L_flip}, {{SY("alpha"), L_alpha}})));
+        (void)(callm(L_self, SY("blit"), Args({L_screen, (py::m_get(L_entity,SV("monochrome")).truthy()?SV("玉米加农炮-车-黑白"):SV("玉米加农炮-车")), V::tuple({(L_x - L_tile), (L_y - (V(1.6) * L_tile))}), (V(2.0) * L_tile), L_flip}, {{SY("alpha"), L_alpha}})));
     }
     L_size = (((L_name == SV("玉米加农炮")) ? V(V(2.0)) : V((py::in(L_name, pm_native_style::LARGE_PLANTS) ? V(V(1.5)) : V(V(1.0))))) * L_tile);
     L_lift = ((py::in(L_name, pm_native_style::LARGE_PLANTS) || (L_name == SV("玉米加农炮"))) ? V(V(1.6)) : V(V(1.05)));
@@ -843,6 +844,7 @@ V cls_NativeArt() { static V c = [] {
         L_lift = V(1.65);
     }
     L_angle = (py::in(L_name, pm_native_style::ROOT_PLANTS) ? V(L_sway) : V(V(0.0)));
+    if(L_name==SV("玉米加农炮")&&py::m_get(L_entity,SV("monochrome")).truthy())L_name=SV("玉米加农炮-黑白");
     return callm(L_self, SY("blit"), Args({L_screen, L_name, V::tuple({(L_x - (L_size / V(2.0))), (L_y - (L_lift * L_tile))}), L_size, L_flip, L_angle}, {{SY("alpha"), L_alpha}}));
     return V::none();
 }));

@@ -71,7 +71,7 @@ TargetRoster plant_zombie_enemy_view(TypedBattleState& w,const ZombieRef& source
     for(const auto& t:*w.targets) {
         if(!t.is_hero() || (team_of(t.hero)==enemy && std::find(seats.begin(),seats.end(),t.hero)!=seats.end()))view.push_back(t);
     }
-    for(const auto side:seats)if(team_of(side)==enemy) {
+    for(const auto side:seats)if(team_of(side)==enemy && !(w.solo.izombie()&&enemy==Seat::zombie)) {
         const auto t=CombatTarget::player(side);
         if(w.heroes.proxy(side).hp>0. && std::find(view.begin(),view.end(),t)==view.end())view.push_back(t);
     }

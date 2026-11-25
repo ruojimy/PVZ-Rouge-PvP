@@ -107,10 +107,17 @@ struct View {
     const Player* player(const std::string& key)const{for(const auto& p:players)if(p.key==key)return &p;return nullptr;}
 };
 
+struct LaserState {
+    double eye_x, eye_y, target_x, target_y;
+    int facing;
+    bool firing;
+};
+
 // The services the controller reaches through, never the authority itself.
 class Services {
 public:
     virtual ~Services()=default;
+    virtual std::optional<LaserState> laser(const std::string&)const{return std::nullopt;}
     // PreviewBattle.placement(side, key, x, y, grave) on the tick's state; unbounded clones the
     // player with resource>=10000 and no cooldowns (ztactics7 aquatic legality).
     virtual std::string preview(const std::string& key,double x,double y,const std::optional<std::string>& grave,bool unbounded)=0;

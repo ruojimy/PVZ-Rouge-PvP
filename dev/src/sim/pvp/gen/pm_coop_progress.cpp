@@ -79,6 +79,7 @@ V C_CoopProgress::m_reset(const Args& A) {
     a_campaigns = py_dict({});
     a_income = py_dict({});
     a_applied = py::set_it();
+    pvz::setattr(self_v(),SY("terrain_attempt"),V(0));
     (void)(m_ensure(Args{V::none()}));
     a__saved = V::none();
     return V::none();
@@ -86,6 +87,8 @@ V C_CoopProgress::m_reset(const Args& A) {
 
 V C_CoopProgress::m_ensure(const Args& A) {
     V L_room = A.get(0, SY("room"), nullptr, "ensure");
+    const auto campaign=pvz::getattr(L_room,SY("pve"),V::none());
+    if(campaign.is_dict()&&py::m_get(campaign,V("campaign78_seats")).is_dict())return V(false);
     V L_changed;
     V L_seat;
     V L_seed;
@@ -126,6 +129,7 @@ V C_CoopProgress::m_bind(const Args& A) {
                 py::raise(py::make_exc(SV("ValueError"), Args{SV("未知合作存档格式")}, ""));
             }
             a_run_id = py::str(rd(L_value, SV("run_id")));
+            pvz::setattr(self_v(),SY("terrain_attempt"),py::m_get(L_value,SV("terrain_attempt"),V(0)));
             a_day = py::max_it(V::list({V(1.0), py::int_(rd(L_value, SV("day")))}), py::Key(), V());
             a_zombie_from = py::max_it(V::list({V(1.0), py::int_(py::m_get(L_value, SV("zombie_secret_from"), V(1.0)))}), py::Key(), V());  // PvP76 r2 load
     a_expanded_from = py::m_get(L_value, SV("zombie_secret_v77_from"), a_day);
@@ -164,6 +168,7 @@ V C_CoopProgress::m_save(const Args& A) {
         return V::none();
     }
     L_value = py_dict({{SV("format"), SV("pvp67-coop-seats-1")}, {SV("run_id"), a_run_id}, {SV("day"), a_day}, {SV("seats"), [&]() -> V { V out_ = V::dict(); V L_c; V L_s; { auto it1_ = py::items_vec(a_campaigns); for (size_t i1_ = 0; i1_ < it1_.size(); ++i1_) { L_s = it1_[i1_].first; L_c = it1_[i1_].second; out_.at(L_s) = callm(L_c, SY("to_dict"), Args{}); }}return out_; }()}, {SV("income"), a_income}, {SV("applied"), py::slice([&]() -> V { V out_ = V::list(); V L_k; { V it2_ = py::iter_list(py::sorted_it(a_applied, py::keyfn(py::builtin(SV("repr"))), false)); for (size_t i2_ = 0; i2_ < it2_.len(); ++i2_) { L_k = it2_.idx(int64_t(i2_)); out_.append(py::list_it(L_k)); }}return out_; }(), V(-200.0), V::none())}});
+    pvz::setitem(L_value, SV("terrain_attempt"),pvz::getattr(self_v(),SY("terrain_attempt"),V(0)));
     pvz::setitem(L_value, SV("zombie_secret_from"), a_zombie_from);  // PvP76 r2 save
     pvz::setitem(L_value, SV("zombie_secret_v77_from"), a_expanded_from);
     L_text = py::stdlib_call(SV("json.dumps"), Args({L_value}, {{SY("ensure_ascii"), V(false)}, {SY("indent"), V(1.0)}}));
@@ -180,6 +185,7 @@ V C_CoopProgress::m_save(const Args& A) {
 
 V C_CoopProgress::m_sync(const Args& A) {
     V L_room = A.get(0, SY("room"), nullptr, "sync");
+    auto data=pvz::getattr(L_room,SY("pve"));if(data.is_dict()&&py::m_get(data,V("campaign78_seats")).is_dict())return V::none();
     V L_campaign;
     V L_pve;
     V L_seat;

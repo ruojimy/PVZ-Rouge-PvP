@@ -259,7 +259,7 @@ void PlantRegion::umbrella(const Frame& frame) {
         }
         if(nearby_row({frame.cell.y-1,frame.cell.x},1) || nearby_row(frame.cell,1))shoot=true;
         const auto& hero=*globals.position.get();
-        if(std::abs(hero.x-globals.xx.get())+std::abs(hero.y-globals.yy.get())<=tile*2. && hero.vy>200.*runtime.plk)shoot=true;
+        if(!world_.solo.izombie() && std::abs(hero.x-globals.xx.get())+std::abs(hero.y-globals.yy.get())<=tile*2. && hero.vy>200.*runtime.plk)shoot=true;
         if(shoot) {
             plant(index).shooting.set(1.);if(plant(index).shoot_cd.get()==-1.)plant(index).shoot_cd.set(0.);
         }else plant(index).shoot_cd.set(-1.);
@@ -274,7 +274,7 @@ void PlantRegion::umbrella(const Frame& frame) {
             if(entity.kind=="篮球"){entity.kind="篮球x";entity.expires.set(900.);}
         }
         sound("弹飞",index);auto& hero=*globals.position.get();
-        if(std::abs(hero.x-globals.xx.get())+std::abs(hero.y-globals.yy.get())<=tile*2.) {
+        if(!world_.solo.izombie() && std::abs(hero.x-globals.xx.get())+std::abs(hero.y-globals.yy.get())<=tile*2.) {
             hero.vx=(hero.x>globals.xx.get()?300.:-300.)*runtime.plk;hero.vy=-600.*runtime.plk;
         }
         const auto targets=world_.targets->size();

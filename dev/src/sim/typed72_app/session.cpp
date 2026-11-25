@@ -270,6 +270,14 @@ public:
         J result={{"winner",m.room.result->winner==RoomWinner::plant?"plant":m.room.result->winner==RoomWinner::zombie?"zombie":"draw"},
             {"reason",m.room.result->reason==RoomResultReason::hero_death?"hero_death":m.room.result->reason==RoomResultReason::waves_cleared?"waves_cleared":"surrender"},{"tick",m.room.result->tick}};
         m.scripted_result_fields(result,*m.room.result);
+        if(m.battle.solo.active()&&m.battle.solo.multiplayer){
+            for(const auto seat:seats_for(m.battle.mode)){
+                const auto key=std::string(typed72::seat_name(seat));
+                const auto index=typed72::seat_index(seat);
+                result["seat_coins"][key]=m.resources.accounts.at(index).coins.or_missing(0.);
+                result["seat_diamonds"][key]=m.resources.seat_diamonds.at(index);
+            }
+        }
         return nlohmann::json(result);
     }
     nlohmann::json surrender_requests_json()const override{
@@ -347,6 +355,8 @@ public:
         const auto& p=match_->peas;const auto& heads=match_->bonus_projectiles;const auto aim=match_->shooting.aim_counters();const auto& f=match_->navigation.flood;const auto& legal=match_->path_banks.destination_field();const auto path=match_->path_banks.target_work();
         nlohmann::json functions=nlohmann::json::object();for(const auto& [name,row]:function_profile::snapshot())functions[name]={{"calls",row.calls},{"total_ms",row.total_ms},{"max_ms",row.max_ms}};
         return {{"function_profile",std::move(functions)},{"fixture_retention",fixture_retention()},{"nearest_queries",t[0]+chart.nearest_queries},{"nearest_candidates",t[1]+chart.nearest_candidates},{"nearest_full_scan",t[2]+chart.nearest_full_scan},{"zombie_collision_queries",p.spatial_queries},{"zombie_collision_candidates",p.spatial_candidates},{"zombie_collision_full_scan",p.full_scan_pairs},{"zombie_exact_tests",p.exact_tests},{"spatial_bytes",c.spatial_bytes()+p.spatial_bytes()},
+            {"laser_beam_pulses",match_->pvp75.beam_pulses},{"laser_focus_hits",match_->pvp75.focus_hits},
+            {"croton_triggers",match_->pvp75.croton_triggers},{"croton_gas_hits",match_->pvp75.gas_hits},
             {"primal_knock_targets",match_->content_damage.primal_knock_targets},{"primal_knock_velocity",match_->content_damage.primal_knock_velocity},
             {"content_queries",match_->queries.local_queries},{"content_candidates",match_->queries.local_candidates},{"point_grid_builds",match_->queries.moving_index().rebuilds},{"point_grid_moves",match_->queries.moving_index().moves},{"point_grid_cell_changes",match_->queries.moving_index().cell_changes},
             {"range_queries",match_->queries.range_queries},{"range_candidates",match_->queries.range_candidates},{"range_full_scan",match_->queries.range_full_scan},{"range_exact_tests",match_->queries.range_exact_tests},
@@ -442,6 +452,19 @@ private:
     class AiServices final:public ai::Services {
     public:
         AiServices(TypedSession& s,Seat owner,const ai::View& v):s_(s),owner_(owner),view_(v){}
+        std::optional<ai::LaserState> laser(const std::string& id)const override{
+            const auto& m=*s_.match_;
+            const auto object=m.battle.native_objects.get(id);
+            if(!object)return {};
+            const auto* ref=std::get_if<PlantRef>(&*object);
+            if(!ref||!*ref)return {};
+            const auto& plant=**ref;
+            if(plant.kind!="激光豆"||plant.hp.or_missing(0.)<=0.||plant.dead.present()
+               ||plant.sleep.present()||plant.crushed.or_missing(false))return {};
+            const auto eye=pvp75::laser_eye(plant,m.battle.runtime.tile);
+            const auto& laser=plant.pvp75;
+            return ai::LaserState{eye.x,eye.y,laser.target.x,laser.target.y,plant.facing<0.?-1:1,laser.firing};
+        }
         std::string preview(const std::string& key,double x,double y,const std::optional<std::string>& grave,bool unbounded)override{
             auto& m=*s_.match_;const auto i=seat_index(owner_);
             struct Restore{MatchProbe& m;size_t i;bool ranked;std::optional<double> balance;std::optional<std::vector<std::pair<std::string,double>>> cds;

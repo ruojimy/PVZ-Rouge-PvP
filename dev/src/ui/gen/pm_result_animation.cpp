@@ -143,7 +143,9 @@ V C_ResultAnimation::m_start(const Args& A) {
         return V::none();
     }
     L_winner = ((V((isinstance(L_result, "dict")))).truthy() ? V(py::m_get(L_result, SV("winner"))) : V(L_result));
-    L_name = ((L_winner == SV("zombie")) ? V(SV("游戏结束")) : V(SV("小胜利")));
+    const V receipt=L_result.is_dict()?py::m_get(L_result,SV("campaign78")):V::none();
+    const bool commander=receipt.is_dict()&&py_str(py::m_get(receipt,SV("mode"))).ends_with("izombie");
+    L_name=(L_winner==(commander?SV("zombie"):SV("plant")))?SV("小胜利"):SV("游戏结束");
     L_path = ((pvz::getattr(a_asset_dir, SY("parent")) / SV("音效")) / (L_name + SV(".ogg")));
     if (!(callm(L_path, SY("is_file"), Args{})).truthy()) {
         return V::none();

@@ -132,12 +132,14 @@ std::optional<std::string> ColdAdmission::spawn(const std::string& key,Seat side
     registration_.register_unit(object,card,side,temporary,context(),parent,std::move(attack));
     if(key=="zombie:投篮车僵尸")std::get<ZombieRef>(object)->protection.basketball.set(20.);
     content_.configure(object,card);if(world_.solo.izombie()&&side==Seat::plant)world_.solo.prepare_plant(std::get<PlantRef>(object));if(side==Seat::zombie)secrets_.on_spawn(std::get<ZombieRef>(object),card,parent);
+    registration_.apply_campaign_health(object,side);
     services_.sync_public();const auto uid=std::visit([](const auto& unit){return unit->source.id.get();},object);
+    if(world_.solo.izombie()&&side==Seat::zombie&&world_.native_objects.get(uid))return uid;
     if(!placement_.find(uid))throw std::out_of_range("spawned unit is absent after public synchronization");return uid;
 }
 bool ColdAdmission::auto_register(const NativeObject& object,Seat side,const std::string& key,bool temporary){
     if(!catalog_.find(key))return false;ColdCard card;try{card=placement_.player_card(side,key);}catch(const std::invalid_argument&){return false;}
-    registration_.register_unit(object,card,side,temporary,context());return true;
+    registration_.register_unit(object,card,side,temporary,context());registration_.apply_campaign_health(object,side);return true;
 }
 std::shared_ptr<const RoomPublicCard> ColdAdmission::public_card(Seat owner,const std::string& key)const{
     const auto card=placement_.unit_card(owner,key);auto result=std::make_shared<RoomPublicCard>();result->id=card.id;result->name=card.name;result->behavior=card.behavior;result->asset=card.asset;

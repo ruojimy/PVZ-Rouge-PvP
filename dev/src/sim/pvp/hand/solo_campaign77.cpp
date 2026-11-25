@@ -6,7 +6,7 @@
 #include <random>
 namespace pvz::solo77 {
 namespace {
-constexpr std::array maps{"山地","沙城","家院","要塞","大桥","铁道","遗迹","绿洲","小镇","古堡","木船","大楼"};
+
 const Keys secrets{"石果","胆大","尖刺","压顶","蓝火","地雷","核平","魅惑","雷霆","磁力","黄油","卷心菜","地刺","水兵","光疗","龙蒺藜","小喷","大帝","三向蓝火","豌豆杂交","麻痹","毒镖","毒气","电疗","触手"};
 bool has(const Keys& keys,const std::string& key){return std::find(keys.begin(),keys.end(),key)!=keys.end();}
 template<class T> void shuffle(std::vector<T>& v,std::mt19937& rng){
@@ -26,14 +26,46 @@ bool eligible(const Card& c,const Keys& owned){
     return !has(owned,c.key)&&(c.dependency.empty()||has(owned,c.dependency));
 }
 }
+const Keys& original_maps(){
+    static const Keys names{"山地","沙城","家院","要塞","大桥","铁道","遗迹","绿洲","小镇","古堡","木船","大楼"};
+    return names;
+}
+std::string map_for_stage(Keys pool,const std::string& run,int day){
+    if(pool.empty()||day<1)throw std::invalid_argument("地图池或关卡无效");
+    const size_t index=size_t(day-1);
+    std::vector<uint32_t> words(run.begin(),run.end());
+    words.push_back(uint32_t(index/pool.size()));
+    std::seed_seq seed(words.begin(),words.end());
+    std::mt19937 rng(seed);
+    shuffle(pool,rng);
+    return pool[index%pool.size()];
+}
+bool rainy_stage(int seed,int stage){
+    std::seed_seq sequence{seed,stage,0x5241494e};
+    std::mt19937 rng(sequence);
+    return (rng()&3u)==0u;
+}
+void Campaign::draw_map(const Pools& pools){
+    Keys available=original_maps();
+    if(cooperative)available.insert(available.end(),pools.team_maps.begin(),pools.team_maps.end());
+    Keys remaining;
+    for(const auto& candidate:available)if(!has(visited_maps,candidate))remaining.push_back(candidate);
+    if(remaining.empty()){remaining=std::move(available);visited_maps.clear();}
+    std::seed_seq sequence{seed,stage,cooperative?1:0,zombie()?1:0};
+    std::mt19937 rng(sequence);
+    map=remaining[std::uniform_int_distribution<size_t>(0,remaining.size()-1)(rng)];
+    visited_maps.push_back(map);
+    rain=zombie()&&!map.starts_with("custom:")&&rainy_stage(seed,stage);
+}
 int Campaign::slots()const{return std::min(10,4+(stage+1)/2)+slots_bought;}
-void Campaign::start(const std::string& id,int value,const Pools& pools){
-    *this=Campaign{};mode=id;seed=value;
-    map=zombie()?"家院":maps.front();
+void Campaign::start(const std::string& id,int value,const Pools& pools,bool shared){
+    *this=Campaign{};mode=id;seed=value;cooperative=shared;draw_map(pools);
     owned=zombie()?Keys{"zombie:普通僵尸"}:Keys{"plant:模仿者","plant:向日葵","plant:金盏花","plant:樱桃炸弹","secret:无土栽培"};
     deck=owned;
     if(!zombie())owned.insert(owned.end(),{"plant:花盆","plant:睡莲","plant:咖啡豆"});
-    defenders={"plant:豌豆射手","plant:向日葵","plant:金盏花","plant:土豆地雷"};stock(pools);
+    defenders={"plant:豌豆射手","plant:向日葵","plant:金盏花","plant:土豆地雷"};
+    if(zombie())defenders.push_back("plant:睡莲");
+    stock(pools);
 }
 std::string Campaign::toggle(const Pools& pools,const std::string& key){
     if(!has(owned,key))return "尚未解锁";
@@ -81,6 +113,7 @@ void Campaign::finish(const Pools& pools,const std::string& match,bool win,int p
     if(zombie())coins+=pickups;
     else {int ordinary=pickups-diamonds+half;coins+=diamonds+ordinary/2;half=ordinary%2;if(win)coins+=(150+20*stage)/2;}
     if(!win){stock(pools);return;}
+    clear_difficulty=std::min(clear_difficulty,difficulty);
     if(stage==(zombie()?19:24)){complete=true;stock(pools);return;}
     std::mt19937 rng(uint32_t(seed)*31u+uint32_t(stage));
     if(zombie()){
@@ -107,10 +140,6 @@ void Campaign::reward(const Pools& pools,const std::string& key){if(has(rewards,
 }}
 void Campaign::next(const Pools& pools){
     ++stage;
-    if(!zombie())map=maps[(stage-1)%maps.size()];
-    else if(stage%2==1){
-        Keys allowed;for(auto name:maps)if(name!=map&&((stage-1)/2>5||!has({"木船","大楼","沙城","铁道"},name)))allowed.emplace_back(name);
-        std::mt19937 rng(uint32_t(seed)*41u+uint32_t(stage));map=allowed[rng()%allowed.size()];
-    }
+    draw_map(pools);
 }
 }

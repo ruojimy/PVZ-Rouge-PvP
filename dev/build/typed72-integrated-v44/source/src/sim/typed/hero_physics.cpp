@@ -44,7 +44,7 @@ void HeroPhysics::environment(HeroFrame& g,HeroInput input,double plk){
     g.wjx.set(double(c.x));g.wjy.set(double(c.y));g.speed.set(g.speed_max.get()/(g.water_ice.get()>0.?2.:1.));
     const Cell above{c.y-1,c.x};
     if(!map.outside(above.y,above.x) && map.native_at(above.y,above.x).block.get()=="雪")destroy_pvp_block(world_,plants_,above);
-    if(g.mode.get()=="我是僵尸")indexes_.register_body(c);
+    if(g.mode.get()=="我是僵尸"&&!world_.solo.izombie())indexes_.register_body(c);
     bool water=false,submerged=false;
     if(!map.outside(c.y,c.x)){
         const auto& block=map.native_at(c.y,c.x).block.get();

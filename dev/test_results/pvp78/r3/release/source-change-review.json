@@ -1,0 +1,161 @@
+{
+  "baseline": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\dist\\PvZ-PvP-Native-20261124-pvp78-r1-Developer-Package.zip",
+  "files": {
+    "src/uitools/app_run.cpp": {
+      "before": "cc39baebd8f105ca711dc340804a298b36b15f145651cff1dd349c3f48b6928f",
+      "after": "0584d9f609452cb4557b38d000e20a9aeae127bf687a127515dfb0616cd96aed"
+    },
+    "src/uitools/pvp76r3_audit.cpp": {
+      "before": "fadc971289072787b8f92d57dd419f99f94d6a1c55c404a2e6f1f24f1ce330d6",
+      "after": "5aa6f8879f5c9f30b4f61f59ce5a72ba35bf570f8594797b257313717bf1be9b"
+    },
+    "src/ui/gen/pm_app.cpp": {
+      "before": "f94ec1022eacbbe573b7cb73778abebaf64354ac79431f4da5999deeff1d9030",
+      "after": "30c8754fbf7aa7b1e0ca5813148b9bad65f5940d1d0f275bac921c6a77352353"
+    },
+    "src/ui/gen/pm_native_style.cpp": {
+      "before": "8b0c43371abe7c379447906c38c1548560384f8fdbda378d13a15e903f8e2331",
+      "after": "98e4c098e57df974a739c27067d149adf1892369aab0380633bd7f935f004eee"
+    },
+    "src/ui/gen/pm_pve_ui.cpp": {
+      "before": "09a766eceb8489c3932d38a31daa4aa73631723fd8a03ce4eaa82673c291b821",
+      "after": "3dcbd7ce0a1da9a273f823e602348be8805d02c440c435e79ba33cae063f7bcb"
+    },
+    "src/ui/gen/pm_result_animation.cpp": {
+      "before": "bfcef5348ba2cee4a0de76943d09c3f392a0cdf648ef4e2d1723ddb2e6aa04b1",
+      "after": "6c8a7af29a7f602f69ce87a51144b3f5b5482183660d8cf3d409686429d7db2b"
+    },
+    "src/ui/gen/pm_room.cpp": {
+      "before": "9dfd312b43e4af960600bb94aa36514d604e1b1e22378fcd20be32fddc89a5c3",
+      "after": "32c57db6d00461fef8cb679eeabcc5a713daec80349b585bdcd755660ab1b6c0"
+    },
+    "src/ui/hand/solo77.cpp": {
+      "before": "b24db91bc0594262f0d5d20782a696e875295655de8330f053b0ff88e2fabb33",
+      "after": "8faac2e4e82e6c94b0dc046964669a6652659c4a25541827b59c59dfb72815db"
+    },
+    "src/ui/hand/solo77.h": {
+      "before": "de2c8a69575369782439c21e5efd09baa49a13bd315bff87a6622c2a2b88722d",
+      "after": "6d4a9c67a081dd54a747ec3a2a75505dc57e1c1ecb0a21a846681c1d786ce54b"
+    },
+    "src/sim/pvp/gen/pm_coop_progress.cpp": {
+      "before": "5d7e2794f73f91bf71eb1bf1925ec8e6437d9da6aff3317494e827046536eae4",
+      "after": "7aea8a4b6c99e7695c715878668e7787fbbae954f2b637fd8388e5304f2f3579"
+    },
+    "src/sim/pvp/gen/pm_pve.cpp": {
+      "before": "cec352d33d52e8ac306fbc28fe104ec09fbf3fc80f0da9492ff37ffa19329a83",
+      "after": "0b65d6a5735514ffac4e96a4ff0475b317d0171a8de05bfc47e50bc90c58169d"
+    },
+    "src/sim/pvp/gen/pm_team_maps.cpp": {
+      "before": "0ddf13309947ed19f286c145c087738c63513740f5ab4ce3c43fb1a9e3423073",
+      "after": "64afc1f208e10a334aca1d225d7badad1e4a45237a01d4829059bf5b1a2426e1"
+    },
+    "src/sim/pvp/hand/solo_campaign77.cpp": {
+      "before": "42c068c5edbe3598551062906c464bd7851bacec28094f309e40cb6b4ad942c4",
+      "after": "0a831b71840fed717046d3f9d5d89b0ec48b18d62facc283e81d7bf69e32253c"
+    },
+    "src/sim/pvp/hand/solo_campaign77.h": {
+      "before": "19e59dada6ef502b518b25a2b1a39200e63bcba71a064dbb9be4eade7b89337b",
+      "after": "adb391dce6a71eddfc7a2037eec698890011949a7b6260b0973e52398910c0db"
+    },
+    "tools/pvp744_feedback_sources.json": {
+      "before": "cbd069c4c3169d773d75a105e4aa439dc5cd1d2f560eb88e96e476a8be5d6740",
+      "after": "2ad7b432f9333b06dd1cd15e3625954ac05178ae7e969ab93b3249897f6c6baa"
+    },
+    "tools/pvp77_ui_edits.json": {
+      "before": "913f10874440d3d102fcd70d1603a2771c481d94ab25371187f443cf6bb84b7c",
+      "after": "1c5bc38c690bfd3f24ce04e799e3cb8e8356ec14d25123b6bca05acb0356a9ea"
+    },
+    "tools/pvp78_release.py": {
+      "before": "4b65681760006f161808b20587d7cc18120d67d3f020515bf9d666fd8dab2266",
+      "after": "b56cd5eea9b537a11023cbae6ea208a75f692324f312b21d6e8ad7bc92562bfc"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/bonus_projectiles.cpp": {
+      "before": "5e7c46f9c9a53f2f298fffacca942fc762033be1732630f74c3ea3da7b388bae",
+      "after": "1410df90202e9eecac083da82a5b39b55d5a53830856cab1af3d60a9bccb73c3"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/cold_admission.cpp": {
+      "before": "e5b09ae23b5359032651e088cc74d262afe7926f98b6869cf94ca448b9108695",
+      "after": "f8f9db6bc8f70244c54025007070994b23a70c29b6ba3f6683fa70c628bdf9ac"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/cold_deployment.cpp": {
+      "before": "1bf9c4937ef24c164a20ffe28c308a0cbfafd2bc75cbd58af8809773b8399b54",
+      "after": "c8b1d9b4fd7e8ea8fab019c2687b69e80475df18e8795ebff88cd14a7e732c25"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/command_input.cpp": {
+      "before": "5a0485369db4546f0523d803ef39b92314d8a07fb8274c372addd7f1e53e20b4",
+      "after": "090b7f557c2b34a57ba28259b3b9c82362ce7947c2d6a8895235dccf57e0fc9e"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/hero_physics.cpp": {
+      "before": "8cc86aed7f9ac77efd8a0f367d4c6b9d849f446aff0f58a9536ccb9d66b85fb7",
+      "after": "cff51df71b4dc1c23270741443942cb259c00f80c65f287b558f970388a62626"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/plant.h": {
+      "before": "f9f097826ceb84f6d38b2d3e2088dd593f3a0481a77336785b61aa8e0d8e1764",
+      "after": "ecaf472fdaab023db95f7958f41a35d462df4cb10d7daf37b1757155f6fc1eef"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/room_public.cpp": {
+      "before": "7a075d6c74e3823fad5d1b067d7cb45f8d8bfa245e70aec7c05483c31feba92c",
+      "after": "809e8fa41c33dbfaba9d9c268cf5f2fff307189459e27e6c037342150061aa7c"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/room_public.h": {
+      "before": "9474595e95e4af1f843a39698646d4bb358fe4833b6623cf01121c50daa55a99",
+      "after": "bd8be2117a8156181eaaf496d96237815d0c0bbc7d4a477db5ccef05bafe775c"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/room_public_codec.cpp": {
+      "before": "f817ed3c5c4165e07b0d7c6da1e9fcbb313381e2538105d9717803bd08e26416",
+      "after": "63814a2928eaaf5651053f654c5d58463a1d1a7b819beaaab588ca4cef0495e5"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/solo_battle.h": {
+      "before": "bc1070c80cedefb12f431292491f73706a90bcad6af026756b3f815f02b4dfb9",
+      "after": "7fca1015854f2c4b01f34d5901d28da3bcd4a61d303e1c56b3d3f7e3e9d8b062"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/solo_board.h": {
+      "before": "f28a46bcd6b825fb6aa52645242e7dac771bffd8b4fe70b57fc3541f3929a06d",
+      "after": "128ac82d636afa2c0f28d08a7afd76603d0e9c87710e4cc7199e0835fc5ae769"
+    },
+    "build/typed72-integrated-v44/source/src/sim/typed/zombie_motion.cpp": {
+      "before": "7c515cc874ef3b6a29caa945d21cffeae5c891c736c86f02ddf8c51d586d219a",
+      "after": "5b928fd3d2722cbb9b27b65b5a96e6bdaa73622bb3d2b1c0c0338f898e61a9b1"
+    },
+    "build/typed72-match-v1/build/cmake_install.cmake": {
+      "before": null,
+      "after": "0c7db5671b996426983506aa8f76b93a0bb745ec037058902feae38787093c0c"
+    },
+    "build/typed72-match-v1/build/CMakeFiles/3.30.5-msvc23/CMakeCXXCompiler.cmake": {
+      "before": null,
+      "after": "a6750cd8e71d2c337eef2aab626dc0fa3f8c43ab8da446f0da6e261fdea9b584"
+    },
+    "build/typed72-match-v1/build/CMakeFiles/3.30.5-msvc23/CMakeRCCompiler.cmake": {
+      "before": null,
+      "after": "85223e3627ab66035651f1bc87d7ab01c67bccd4c1132ea0ebcf6fd87de0c7d1"
+    },
+    "build/typed72-match-v1/build/CMakeFiles/3.30.5-msvc23/CMakeSystem.cmake": {
+      "before": null,
+      "after": "cb655f074177502b26612fa979ee72c606731a0b59f300e936ebba161d8cce09"
+    },
+    "build/typed72-match-v1/build/CMakeFiles/3.30.5-msvc23/CompilerIdCXX/CMakeCXXCompilerId.cpp": {
+      "before": null,
+      "after": "9a626dbff6d2a66fd7a8ea916abbd361129799867015ff02f1c53e6de16fe89c"
+    },
+    "extract/data/catalog.json": {
+      "before": "3a9ab0d1439fb3d25543c8b42ee4789511e0bfb02d822dc6de4e28ac743128db",
+      "after": "b9b9e4b595804ba14a43f44d8efa3f9692f3cea5272085c7848a007dbb573c21"
+    },
+    "extract/data/__init__.json": {
+      "before": "a26fc34bd295f94fef442cb4743c858ab2081b81b3600fac1e0e8868b212b2e3",
+      "after": "30fa5408ff5b86fb54bb5a42452d77b78403445e8c857240f1265f3f79e8acce"
+    },
+    "extract/data/pvp/assets/team_maps/ea660000000000000000000000000007.json": {
+      "before": "4676572865b96342411ba5aed3211aa408567339d4afc7fb4330c3c6d76efab8",
+      "after": "c335fec5dc3f7524310fcb9bc4437db7e7837bf201a90515fcfcad76b1aa0202"
+    },
+    "extract/data/pvp/assets/team_maps/ea660000000000000000000000000008.json": {
+      "before": "d14c0335669930758b0628dd74378a99aec08f67f02ae7e0f35fe0c36ee544b9",
+      "after": "1477f6ef683fc09bd5d8d22f11891fcef65080f507a545642380855c0ed553c0"
+    },
+    "extract/data/pvp/assets/team_maps/index.json": {
+      "before": "3b0a66cf354f05e2fe113ea34f702c9a381331943f81399e1083f278020b41e4",
+      "after": "44eab2c5a3e7b476a11eb314c2c636f90ae8a49466ce56e713f7c1ca677edcc3"
+    }
+  }
+}

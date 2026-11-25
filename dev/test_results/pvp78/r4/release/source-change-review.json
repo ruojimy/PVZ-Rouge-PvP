@@ -1,0 +1,97 @@
+{
+  "baseline": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\dist\\PvZ-PvP-Native-20261125-pvp78-r3-Developer-Package.zip",
+  "files": {
+    "src/uitools/pvp76r3_audit.cpp": {
+      "before": "5aa6f8879f5c9f30b4f61f59ce5a72ba35bf570f8594797b257313717bf1be9b",
+      "after": "e8e73e41c5117bc9cc90477e608d8f7411520991bb7df21e43aa49e8a9551d77"
+    },
+    "src/uitools/pvp78_ai_checks.inc": {
+      "before": null,
+      "after": "3add924b597dc90b7a5a72fd0044e25be085effe1eed157f5a65e68a5d71465f"
+    },
+    "src/ui/gen/pm_coop_ai.cpp": {
+      "before": "c16edf3e50ad277b4e488d2ae5e6a3e4bfc8dc2b4a076c4e7535f67bed470b9d",
+      "after": "8fa067d2ee63b6cc122bfd85e91cac3a662ca12e909ae1714423ec2a2fc6ad8e"
+    },
+    "src/ui/gen/pm_draft_advisor.cpp": {
+      "before": "e590439bb40da5b01ff022cba920a600faa15ae7a22d7f424b52fe4e618a98d4",
+      "after": "6de247b4554fa1f00c82e06575cd7ea87898d3c1af33080891f0aeb3625425b1"
+    },
+    "src/ui/gen/pm_lobby_room.cpp": {
+      "before": "47582f22f0019248af7933aaae7c03a168a3cb92e7b4b4b02a9aed8d4a07fc8b",
+      "after": "8e1f08cff850c29136331e58cb2089e5761a3636471a760cb898991d5ce61d76"
+    },
+    "src/ui/hand/ranked_fast_heads.h": {
+      "before": null,
+      "after": "2a20a1db9fd40e88c0a2b8686a01238c6dcb2cf30e6e510b75040a36a05fb966"
+    },
+    "src/ui/hand/test_mode74.cpp": {
+      "before": "f2a366ca909f9f8bb907f305cda36839dd04dc0411f31244d27af8be4f6c449d",
+      "after": "4e14dfa26b44d945292bb7d510760971ab6d849e43513f31b48b9b2a1c632d32"
+    },
+    "src/sim/typed72_app/session.cpp": {
+      "before": "9637cba1388e4195880b346f96dc0381027d0599a4956b63bd275c9fe19b0906",
+      "after": "269bff5b7ce2376407d9efa845e3be5f55029757b2e1c9d0361a61ac44bf2bb9"
+    },
+    "src/sim/typed72_app/ai/layers19.cpp": {
+      "before": "6bdeec01329a7aeae346e4641b4a20ce87f178a1043b3a3a4e097ede796f9d81",
+      "after": "2084d0d59c5a75c115aa85595122ced2b2ee0ff3f3f224925a1df3182b64b489"
+    },
+    "src/sim/typed72_app/ai/layers19.h": {
+      "before": "95444b1187a18905835e1ab845aa80fc61d8a1acc9470ddd9a31ddf21db412dd",
+      "after": "5f48bd347c998327c6f4a4a168b6b76a0ede3679f0de9db4fd901e390819cc65"
+    },
+    "src/sim/typed72_app/ai/r22_new_cards.inc": {
+      "before": null,
+      "after": "4928d7c0d09e3968d6639fc3c9b80eee4b0bc37a3bdcdf9a391ce3c53e7aff7f"
+    },
+    "src/sim/typed72_app/ai/view.h": {
+      "before": "29d83c852434e6278b08293792a811a234f249e44c2e816d7fa3f602876102d6",
+      "after": "c9a66abf5172f16fafea1d0b8dcad184025735ace5bcb25f794a4af827539fcd"
+    },
+    "tools/pvp77_ui_edits.json": {
+      "before": "1c5bc38c690bfd3f24ce04e799e3cb8e8356ec14d25123b6bca05acb0356a9ea",
+      "after": "6ea8f22d98e9ef0f53eec9a60d85573bc5b48bcd7b9df7251bb818eef1fb2d5b"
+    },
+    "tools/pvp78_release.py": {
+      "before": "b56cd5eea9b537a11023cbae6ea208a75f692324f312b21d6e8ad7bc92562bfc",
+      "after": "32d4c60f045eccdd8c5fff2a0931109aed780f2b82d2dcd1d7f563b61516f599"
+    },
+    "tools/typed72/make_ai_lobby_bridge.py": {
+      "before": "6c84d47d687c4e025ec28264ec6148d4b7511a792849c4c6434617b9451333a6",
+      "after": "20dcd3e7adea09e412c871efaec361f3e0271728a0d6affb75036d704c0d2411"
+    },
+    "build/typed72-match-v1/build/cmake_install.cmake": {
+      "before": null,
+      "after": "0c7db5671b996426983506aa8f76b93a0bb745ec037058902feae38787093c0c"
+    },
+    "build/typed72-match-v1/build/CMakeFiles/3.30.5-msvc23/CMakeCXXCompiler.cmake": {
+      "before": null,
+      "after": "a6750cd8e71d2c337eef2aab626dc0fa3f8c43ab8da446f0da6e261fdea9b584"
+    },
+    "build/typed72-match-v1/build/CMakeFiles/3.30.5-msvc23/CMakeRCCompiler.cmake": {
+      "before": null,
+      "after": "85223e3627ab66035651f1bc87d7ab01c67bccd4c1132ea0ebcf6fd87de0c7d1"
+    },
+    "build/typed72-match-v1/build/CMakeFiles/3.30.5-msvc23/CMakeSystem.cmake": {
+      "before": null,
+      "after": "cb655f074177502b26612fa979ee72c606731a0b59f300e936ebba161d8cce09"
+    },
+    "build/typed72-match-v1/build/CMakeFiles/3.30.5-msvc23/CompilerIdCXX/CMakeCXXCompilerId.cpp": {
+      "before": null,
+      "after": "9a626dbff6d2a66fd7a8ea916abbd361129799867015ff02f1c53e6de16fe89c"
+    },
+    "extract/data/catalog.json": {
+      "before": "b9b9e4b595804ba14a43f44d8efa3f9692f3cea5272085c7848a007dbb573c21",
+      "after": "f153627320796836a72c8340784559342396735a34b0d60542e42af222530819"
+    },
+    "extract/data/__init__.json": {
+      "before": "30fa5408ff5b86fb54bb5a42452d77b78403445e8c857240f1265f3f79e8acce",
+      "after": "4c7fbe07a9f3e5bc760aab16c8bc467e4f0b021d31f362793fd07d8b40185760"
+    },
+    "extract/data/pvp/ai/ranked-fast-heads.json": {
+      "before": null,
+      "after": "cf1e50077b0e6591b910185726b05f5bb12f9777d7fa5fa68e02f6e137c3129e"
+    }
+  }
+}

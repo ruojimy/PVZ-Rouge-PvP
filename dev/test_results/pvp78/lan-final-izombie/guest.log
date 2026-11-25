@@ -1,0 +1,9 @@
+INFO: pvz: audio ready (driver=dummy)
+NET guest frame=0 t=1678 phase= side=null act=null remaining=null locals=[] attempt=0 msg=
+NET guest joining token=453367
+NET guest frame=34 t=2521 phase=config msg=
+NET guest frame=190 t=5206 phase=loading msg=
+NET guest frame=194 t=5275 phase=battle msg=
+NET guest CHAT OK frame=202
+NET guest frame=300 t=7197 phase=battle side=null act=null remaining=0 locals=["zombie"] attempt=0 msg=
+NET guest PASS battle reached (received_snapshots=75)

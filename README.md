@@ -1,25 +1,26 @@
 # PVZ-Rouge · 对战模式（PvP）
 
-中文版最新正式版为 **PvP77 r4**（`1.6.0.77-typed.20261124-r4`）。Android versionCode 为 **1123082**。英文版为 PvP64。
+中文版最新正式版为 **PvP78 r4**（`1.6.0.78-typed.20261125-r4`）。Android versionCode 为 **1125086**。英文版为 PvP64。
 
 ## 下载
 
-[PvP77 r4 正式发布页](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/tag/v1.6.0.77-pvp77-r4) · [历史版本](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/)
+[PvP78 r4 正式发布页](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/tag/v1.6.0.78-pvp78-r4) · [历史版本](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/)
 
 | 附件 | 用途 |
 | --- | --- |
-| [Windows 玩家包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.77-pvp77-r4/PvZ-PvP-Native-20261124-pvp77-r4.zip) | 完整解压后运行「启动PvP.cmd」 |
-| [Android ARM64](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.77-pvp77-r4/PvZ-PvP-Native-1.6.0.77-typed.20261124-r4-1123082-pvp77-r4b-20261124.apk) | 可从同签名旧版覆盖安装 |
-| [完整开发者包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.77-pvp77-r4/PvZ-PvP-Native-20261124-pvp77-r4-Developer-Package.zip) | 源码、生成器、冻结生产阶段和配套验证 |
-| [SHA-256 清单](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.77-pvp77-r4/zh-SHA256SUMS.txt) | 核对上述三个包 |
+| [Windows 玩家包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.78-pvp78-r4/PvZ-PvP-Native-20261125-pvp78-r4.zip) | 完整解压后运行「启动PvP.cmd」 |
+| [Android ARM64](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.78-pvp78-r4/PvZ-PvP-Native-1.6.0.78-typed.20261125-r4-1125086-pvp78r4-ai-20261125-b.apk) | 同签名旧版可覆盖安装 |
+| [完整开发者包](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.78-pvp78-r4/PvZ-PvP-Native-20261125-pvp78-r4-Developer-Package.zip) | 源码、生成器、冻结生产阶段和配套验证 |
+| [SHA-256 清单](https://github.com/ruojimy/PVZ-Rouge-PvP/releases/download/v1.6.0.78-pvp78-r4/zh-SHA256SUMS.txt) | 核对上述三个包 |
 
-## PvP77 r4 更新
+## PvP78 更新
 
-- 主界面的闯关入口提供双人合作、抽奖和我是僵尸。两个单机模式各自存档，抽奖挑战 24 天，我是僵尸在第 19 场迎战黄金脑子。
-- 小鬼炮与投篮车跟随僵尸戴夫或向集合点停车时，按植物戴夫的实际位置判断碰撞。真正撞到仍会造成伤害、击退和击倒。
-- 校准海盗鹦鹉、乌鸦及其他特殊体型的头顶防具，左右朝向随身体镜像。完整改动见[版本说明](dev/更新说明-PvP77.md)，可对照[防具效果图](docs/pvp77-r4-headgear.png)。
+- 新增单人闯关、合作抽奖和合作我是僵尸；六种玩法支持三档难度、通关奖杯与战斗用时。
+- 更新地图轮换、雨天变体、睡莲与水面承托规则，并调整合作模式操作和结算。
+- r4 更新植物与僵尸双方选卡模型；参考阵容、测试模式和房间 AI 根据当前席位使用可用卡。常规合作与 2v2 的植物 AI 支持巴豆及激光豆。
+- 完整改动见[版本说明](dev/更新说明-PvP78.md)，验证范围见[验证摘要](docs/pvp78-r4-validation.json)。
 
-r4 通过 Windows 出包冒烟与定向回归，并核验了 Android 签名连续性。Android 真机实测和全量回归均未在 r4 执行。[验证摘要](docs/pvp77-r4-validation.json)
+r4 已进行定向验证、Windows 成包冒烟和 Android 模拟器交互验证，核验了 Android 签名连续性；本版未重跑全量回归，未完成 Android 真机及产品验收。
 
 ## 神经网络 AI 研究
 
@@ -31,7 +32,7 @@ r4 通过 Windows 出包冒烟与定向回归，并核验了 Android 签名连�
 
 ## 源码与升级
 
-`dev/` 对应 PvP77 r4 开发者包，研究数据等 Git 忽略项随相应下载发布。发行清单和逐文件 SHA-256 见 [MANIFEST-PvP77.json](dev/MANIFEST-PvP77.json) 和 [SHA256SUMS.txt](dev/SHA256SUMS.txt)。
+`dev/` 对应 PvP78 r4 开发者包，研究数据等 Git 忽略项随相应下载发布。发行清单和逐文件 SHA-256 见 [MANIFEST-PvP78.json](dev/MANIFEST-PvP78.json) 和 [SHA256SUMS.txt](dev/SHA256SUMS.txt)。
 
 生产内核位于 `dev/build/typed72-integrated-v44/source/src/sim/typed/`，组合层源位于 `dev/build/typed72-match-v1/`。Windows 默认使用 `%APPDATA%/PVZ-PvP-Native/pvp_userdata`。
 

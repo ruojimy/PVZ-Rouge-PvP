@@ -117,7 +117,7 @@ ColdPlacementResult ColdPlacement::plant(Seat seat,const std::string& key,Point 
     ColdCard card;try{card=catalog_.resolve(key,secrets(seat),state_.bans,economy_.night);}catch(const std::invalid_argument& e){return std::string(e.what());}
     if(cooldown(seat,key)>world_.heroes.time)return "卡牌冷却中";
     std::optional<ColdCard> copied;
-    if(world_.solo.lottery()&&world_.solo.spent.contains(key))return "本关已经种过此卡";
+    if(world_.solo.lottery()&&world_.solo.spent_by(seat).contains(key))return "本关已经种过此卡";
     if(card.behavior=="copy"&&world_.solo.lottery())copied_id.reset();
     else if(card.behavior=="copy"){
         if(!copied_id)copied_id=state_.players[seat_index(seat)].last_copy_card;

@@ -24,7 +24,7 @@ struct RoomPublishedUnit {
     std::string id;std::shared_ptr<const RoomPublicCard> card;
     Seat side=Seat::plant,original_owner=Seat::plant;std::optional<Seat> seat;
     Point position,velocity;double w=0.,h=0.,hp=0.,max_hp=0.,facing=1.,armor_hp=0.,armor_max=0.;
-    bool mobile=false,burrowed=false,temporary=false,awake=true,floating=false,frozen=false,slowed=false,buttered=false,stunned=false;
+    bool mobile=false,burrowed=false,temporary=false,monochrome=false,awake=true,floating=false,frozen=false,slowed=false,buttered=false,stunned=false;
     double production_rate=1.,drowsy_level=0.;bool mature=false,torch_blue=false,drowsy=false,orphan_barrel=false;
     int poison_level=0;std::optional<std::string> copy_card;
     std::optional<double> defense;

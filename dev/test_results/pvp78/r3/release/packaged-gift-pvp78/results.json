@@ -1,0 +1,405 @@
+{
+  "checks": [
+    {
+      "name": "pvp78",
+      "evidence": [
+        {
+          "id": "campaign78.menu_and_difficulty",
+          "cards": [
+            [
+              241,
+              177,
+              150,
+              329
+            ],
+            [
+              457,
+              177,
+              150,
+              329
+            ],
+            [
+              673,
+              177,
+              150,
+              329
+            ],
+            [
+              889,
+              177,
+              150,
+              329
+            ]
+          ],
+          "mode": "pve",
+          "map": "遗迹",
+          "passed": true
+        },
+        {
+          "id": "campaign78.coop.lottery",
+          "seat_income": [
+            95.0,
+            115.0
+          ],
+          "mode": "lottery",
+          "seats": "('plant', 'plant2')",
+          "run": "27",
+          "grave_clicks": null,
+          "passed": true
+        },
+        {
+          "id": "campaign78.coop.izombie",
+          "seat_income": [
+            20.0,
+            60.0
+          ],
+          "mode": "izombie",
+          "seats": "['zombie', 'zombie2']",
+          "run": "10",
+          "grave_clicks": {
+            "zombie": {
+              "attempts": 50,
+              "replays": 50,
+              "before": 150.0,
+              "cost": 25.0,
+              "units": 6
+            },
+            "zombie2": {
+              "attempts": 50,
+              "replays": 50,
+              "before": 150.0,
+              "cost": 25.0,
+              "units": 6
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "campaign78.map_cycles",
+          "solo_lottery": {
+            "pool": 12,
+            "original": 960,
+            "rain": 0
+          },
+          "solo_izombie": {
+            "pool": 12,
+            "original": 960,
+            "rain": 262
+          },
+          "coop_lottery": {
+            "pool": 22,
+            "original": 960,
+            "rain": 0
+          },
+          "coop_izombie": {
+            "pool": 22,
+            "original": 960,
+            "rain": 266
+          },
+          "classic_room": {
+            "瀑布": 5,
+            "天堑": 10
+          },
+          "adventure_rain": {
+            "seeds": 512,
+            "wet": 128
+          },
+          "water_supports": [
+            "plant:忧郁藤蔓",
+            "plant:抓人草",
+            "plant:睡莲",
+            "plant:阳光藤蔓"
+          ],
+          "passed": true
+        },
+        {
+          "id": "campaign78.keyboard",
+          "dismissed_frames": 5,
+          "retap": true,
+          "android_back": true,
+          "passed": true
+        },
+        {
+          "id": "campaign78.trophies",
+          "solo_lottery": 24,
+          "coop_lottery": 24,
+          "solo_izombie": 19,
+          "coop_izombie": 19,
+          "solo_adventure": 24,
+          "coop_adventure": 24,
+          "passed": true
+        },
+        {
+          "id": "campaign78.mode_boundaries",
+          "coop_grades": [
+            4,
+            2,
+            1
+          ],
+          "solo_grades": [
+            1,
+            2,
+            4
+          ],
+          "pvp_seats": "('plant', 'zombie')",
+          "passed": true
+        },
+        {
+          "id": "campaign78.commander_targeting",
+          "duel-cannon": {
+            "painted": 3852,
+            "chromatic": 0
+          },
+          "lottery-cannon": {
+            "painted": 3852,
+            "chromatic": 0
+          },
+          "pvp": 2,
+          "izombie": 1,
+          "passed": true
+        },
+        {
+          "id": "campaign78.defender_density",
+          "solo": 16,
+          "coop": 32,
+          "brains": 3,
+          "passed": true
+        },
+        {
+          "id": "campaign78.waves",
+          "adventure": 500,
+          "coop_lottery": 500,
+          "days": [
+            {
+              "day": 1,
+              "map": "山地",
+              "ratio": 0.38095238095238093,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 10,
+                    "ordinary": 8,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 4,
+                    "ordinary": 2,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  },
+                  "adventure": {
+                    "total": 7,
+                    "ordinary": 4,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  },
+                  "coop_lottery": {
+                    "total": 7,
+                    "ordinary": 4,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 11,
+                    "ordinary": 8,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 0
+                  },
+                  "lottery": {
+                    "total": 4,
+                    "ordinary": 2,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  },
+                  "adventure": {
+                    "total": 9,
+                    "ordinary": 7,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  },
+                  "coop_lottery": {
+                    "total": 9,
+                    "ordinary": 7,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 0
+                  }
+                }
+              ]
+            },
+            {
+              "day": 8,
+              "map": "绿洲",
+              "ratio": 0.24433249370277077,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 186,
+                    "ordinary": 183,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 1
+                  },
+                  "lottery": {
+                    "total": 48,
+                    "ordinary": 46,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 1
+                  },
+                  "adventure": {
+                    "total": 98,
+                    "ordinary": 91,
+                    "flag": 1,
+                    "ladder": 6,
+                    "boss": 1
+                  },
+                  "coop_lottery": {
+                    "total": 98,
+                    "ordinary": 91,
+                    "flag": 1,
+                    "ladder": 6,
+                    "boss": 1
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 211,
+                    "ordinary": 209,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 1
+                  },
+                  "lottery": {
+                    "total": 49,
+                    "ordinary": 47,
+                    "flag": 1,
+                    "ladder": 1,
+                    "boss": 1
+                  },
+                  "adventure": {
+                    "total": 103,
+                    "ordinary": 100,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 1
+                  },
+                  "coop_lottery": {
+                    "total": 103,
+                    "ordinary": 100,
+                    "flag": 1,
+                    "ladder": 2,
+                    "boss": 1
+                  }
+                }
+              ]
+            },
+            {
+              "day": 24,
+              "map": "大楼",
+              "ratio": 0.26238532110091745,
+              "runs": [
+                {
+                  "seed": 7,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 271,
+                    "ordinary": 262,
+                    "flag": 1,
+                    "ladder": 8,
+                    "boss": 1
+                  },
+                  "lottery": {
+                    "total": 73,
+                    "ordinary": 69,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 1
+                  },
+                  "adventure": {
+                    "total": 150,
+                    "ordinary": 146,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 1
+                  },
+                  "coop_lottery": {
+                    "total": 150,
+                    "ordinary": 146,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 1
+                  }
+                },
+                {
+                  "seed": 41,
+                  "map_points": 3,
+                  "coop": {
+                    "total": 274,
+                    "ordinary": 269,
+                    "flag": 1,
+                    "ladder": 4,
+                    "boss": 1
+                  },
+                  "lottery": {
+                    "total": 70,
+                    "ordinary": 66,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 1
+                  },
+                  "adventure": {
+                    "total": 133,
+                    "ordinary": 129,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 1
+                  },
+                  "coop_lottery": {
+                    "total": 133,
+                    "ordinary": 129,
+                    "flag": 1,
+                    "ladder": 3,
+                    "boss": 1
+                  }
+                }
+              ]
+            }
+          ],
+          "coop": 963,
+          "lottery": 248,
+          "ratio": 0.25752855659397716,
+          "passed": true
+        },
+        {
+          "id": "campaign78.health",
+          "body": 200.0,
+          "armor": 250.0,
+          "boss": 11200.0,
+          "defender": 24.0,
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "failures": 0
+}

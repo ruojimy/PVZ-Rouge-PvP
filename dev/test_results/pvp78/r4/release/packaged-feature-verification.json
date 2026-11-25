@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": "pvp78",
+      "checks": 1,
+      "passed": true,
+      "executable_sha256": "71df115f75a0dcf0eb9c6fdd0214909278d239847d3983e2af15d54fbcc998ab",
+      "report": "C:\\Users\\xiech\\Downloads\\PVZ_rougePvP_native\\test_results\\pvp78\\r4\\release\\packaged-gift-pvp78\\results.json"
+    }
+  ]
+}
